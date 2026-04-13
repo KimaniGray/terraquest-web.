@@ -12,64 +12,15 @@
         theme: {
           extend: {
             "colors": {
-                    "on-tertiary": "#003738",
-                    "outline-variant": "#4d4635",
                     "primary": "#f2ca50",
-                    "on-background": "#e3e2e2",
-                    "error-container": "#93000a",
                     "background": "#121414",
-                    "on-primary": "#3c2f00",
-                    "secondary": "#99cdef",
-                    "on-secondary-fixed": "#001e2d",
-                    "inverse-surface": "#e3e2e2",
-                    "on-error-container": "#ffdad6",
-                    "secondary-fixed": "#c6e7ff",
-                    "inverse-primary": "#735c00",
-                    "on-secondary": "#00344b",
-                    "tertiary-fixed": "#7cf5f7",
-                    "secondary-fixed-dim": "#99cdef",
-                    "on-primary-container": "#554300",
-                    "on-tertiary-container": "#004d4e",
-                    "on-tertiary-fixed-variant": "#004f50",
                     "on-surface": "#e3e2e2",
-                    "surface-bright": "#383939",
-                    "on-primary-fixed": "#241a00",
-                    "on-secondary-container": "#8bbfe1",
-                    "on-error": "#690005",
-                    "tertiary": "#65e0e2",
-                    "surface-tint": "#e9c349",
-                    "error": "#ffb4ab",
-                    "surface-container-highest": "#343535",
-                    "outline": "#99907c",
-                    "surface-container-lowest": "#0d0e0f",
-                    "surface-container-high": "#292a2a",
-                    "on-tertiary-fixed": "#002020",
-                    "surface-variant": "#343535",
-                    "secondary-container": "#114e6b",
-                    "surface": "#121414",
-                    "on-primary-fixed-variant": "#574500",
-                    "surface-dim": "#121414",
-                    "primary-fixed": "#ffe088",
                     "surface-container": "#1f2020",
-                    "on-secondary-fixed-variant": "#0c4c69",
-                    "primary-container": "#d4af37",
-                    "on-surface-variant": "#d0c5af",
-                    "tertiary-fixed-dim": "#5cd8da",
-                    "surface-container-low": "#1a1c1c",
-                    "inverse-on-surface": "#2f3131",
-                    "tertiary-container": "#44c4c6",
-                    "primary-fixed-dim": "#e9c349"
             },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
+            "borderRadius": { "DEFAULT": "0.125rem" },
             "fontFamily": {
                     "headline": ["Noto Serif"],
                     "body": ["Inter"],
-                    "label": ["Inter"],
                     "display": ["Playfair Display"]
             }
           },
@@ -77,40 +28,24 @@
       }
     </script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            background: rgba(18, 20, 20, 0.95);
-            backdrop-filter: blur(20px);
-        }
-        .metallic-sheen {
-            background: linear-gradient(45deg, #f2ca50, #d4af37);
-        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
+        .metallic-sheen { background: linear-gradient(45deg, #f2ca50, #d4af37); }
         .soil-overlay {
             background: linear-gradient(to bottom, 
-                rgba(18, 20, 20, 0.4) 0%, 
+                rgba(18, 20, 20, 0.3) 0%, 
                 rgba(18, 20, 20, 0.1) 30%, 
                 rgba(18, 20, 20, 0.6) 70%, 
                 rgba(18, 20, 20, 1) 100% 
             );
         }
         .no-line-rule { border: none !important; }
-        .impact-gradient {
-            background: linear-gradient(135deg, #0d0e0f 0%, #001a1a 100%);
-        }
+        .impact-gradient { background: linear-gradient(135deg, #0d0e0f 0%, #001a1a 100%); }
         p { font-size: 19px !important; line-height: 1.6; }
         .drop-cap-gold {
-            float: left;
-            font-size: 4.8rem;
-            line-height: 0.85;
-            padding-right: 20px;
-            margin-top: 8px;
-            color: #f2ca50;
-            font-family: 'Noto Serif', serif;
-            font-weight: 700;
+            float: left; font-size: 4.8rem; line-height: 0.85; padding-right: 20px;
+            margin-top: 8px; color: #f2ca50; font-family: 'Noto Serif', serif; font-weight: 700;
         }
-        h2 { letter-spacing: -0.02em; }
     </style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary/30">
@@ -124,14 +59,13 @@
 <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#instruments">Instruments</a>
 <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#impact">Impact</a>
 </div>
-<button class="metallic-sheen text-on-primary px-6 lg:px-8 py-[9px] font-semibold rounded-DEFAULT hover:opacity-90 hover:scale-105 transition-all duration-300 uppercase tracking-widest text-[11px] ml-4 flex-shrink-0" onclick="location.href='#contact'">
-        Connect
-    </button>
+<button class="metallic-sheen text-on-primary px-6 lg:px-8 py-[9px] font-semibold rounded-DEFAULT hover:opacity-90 hover:scale-105 transition-all duration-300 uppercase tracking-widest text-[11px] ml-4 flex-shrink-0" onclick="location.href='#contact'">Connect</button>
 </nav>
+
 <main>
 <section class="relative h-screen flex items-center justify-center overflow-hidden" id="home">
 <div class="absolute inset-0 z-0">
-<img alt="Lush green agricultural landscape drone shot" class="w-full h-full object-cover brightness-[0.7]" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000"/>
+<img alt="Lush green agricultural landscape" class="w-full h-full object-cover brightness-[0.7]" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000&v=4"/>
 <div class="absolute inset-0 soil-overlay"></div>
 </div>
 <div class="relative z-10 container mx-auto px-6 md:px-12 text-center max-w-5xl pt-24">
@@ -141,13 +75,12 @@
 </h1>
 <p class="text-[18px] md:text-[22px] text-on-surface/90 font-medium mb-14 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">We engineer ring-fenced investment platforms—anchoring domestic conviction to unlock global capital and build systemic food resilience.</p>
 <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-<a class="metallic-sheen text-on-primary px-10 py-5 font-bold rounded-DEFAULT hover:opacity-90 transition-all text-[13px] tracking-widest uppercase" href="#thesis">
-                    Our Thesis
-                </a>
+<a class="metallic-sheen text-on-primary px-10 py-5 font-bold rounded-DEFAULT hover:opacity-90 transition-all text-[13px] tracking-widest uppercase" href="#thesis">Our Thesis</a>
 </div>
 </div>
 </section>
-<section class="py-[120px] bg-surface" id="thesis">
+
+<section class="py-[120px] bg-background" id="thesis">
 <div class="container mx-auto px-6 md:px-12">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 <div class="lg:col-span-5">
@@ -155,42 +88,28 @@
 <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface">The $1.5 Trillion Disconnect.</h2>
 </div>
 <div class="lg:col-span-7 pt-2">
-<div class="space-y-8 text-on-surface-variant leading-relaxed font-light">
+<div class="space-y-8 text-on-surface/70 leading-relaxed font-light">
 <p>Africa does not lack liquidity; it lacks the structures to deploy it safely. Today, regional pension funds and capital markets hold over $1.5 Trillion in domestic assets, yet less than 1% is deployed to secure the continent's food systems.</p>
 <p class="border-l-4 border-[#D4AF37] pl-8 py-4 italic text-on-surface text-xl md:text-2xl font-headline">The TerraQuest Bridge: We engineer capital-protected platforms where domestic liquidity moves first—eliminating structural risk to catalyze global follow-on investment.</p>
-<p>We solve the 'last mile' of institutional security. By anchoring our strategy in domestic conviction, we create the stability required to close the $110 Billion agricultural trade gap and build systemic food resilience.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section class="py-[120px] bg-surface" id="team">
+<section class="py-[120px] bg-background" id="team">
 <div class="container mx-auto px-6 md:px-12">
-<div class="grid grid-cols-1 lg:grid-cols-12 items-start lg:gap-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 items-center lg:gap-16">
 <div class="lg:col-span-5">
-<img alt="Professional agriculture team image" class="w-full h-[500px] object-cover rounded-DEFAULT mb-10 lg:mb-0 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" src="https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?auto=format&fit=crop&q=80&w=1200"/>
+<img alt="Large scale agricultural management" class="w-full h-auto min-h-[400px] object-cover rounded-DEFAULT mb-10 lg:mb-0 shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 block border border-white/10" src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&q=80&w=1200&v=4"/>
 </div>
 <div class="lg:col-span-7">
 <div class="max-w-2xl">
-<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.9] tracking-tighter mb-8">
-<span class="text-[#e3e2e2]">Deeply</span><br/>
-<span class="text-primary">Connected.</span>
-</h2>
+<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.9] tracking-tighter mb-8 text-on-surface">Deeply<br/><span class="text-primary">Connected.</span></h2>
 <div class="h-px w-20 bg-primary/40 mb-10"></div>
-<div class="text-on-surface-variant leading-relaxed mb-12 clear-both">
+<div class="text-on-surface/80 leading-relaxed mb-12">
 <span class="drop-cap-gold">W</span>
-<p>e are operators. Our leadership brings over 25 years of deep, operational experience deploying capital and executing complex asset strategies across Sub-Saharan Africa. We bridge the gap between institutional finance and physical reality—actively managing agricultural infrastructure to deliver uncompromising, risk-adjusted returns.</p>
-</div>
-<div class="space-y-8">
-<div class="flex gap-6 group">
-<div class="flex-shrink-0"><span class="material-symbols-outlined text-primary text-2xl" data-icon="track_changes">track_changes</span></div>
-<div><p class="text-on-surface leading-relaxed"><span class="font-bold text-primary uppercase text-xs tracking-wider block mb-1">Execution</span> Precision deployment of liquidity directly into high-yield agricultural assets.</p></div>
-</div>
-<div class="flex gap-6 group">
-<div class="flex-shrink-0"><span class="material-symbols-outlined text-primary text-2xl" data-icon="security">security</span></div>
-<div><p class="text-on-surface leading-relaxed"><span class="font-bold text-primary uppercase text-xs tracking-wider block mb-1">Oversight</span> Rigorous management that translates potential into secured institutional yield.</p></div>
-</div>
+<p>e are operators. Our leadership brings over 25 years of operational experience executing complex asset strategies across Sub-Saharan Africa. We bridge the gap between institutional finance and physical reality—actively managing agricultural infrastructure to deliver uncompromising, risk-adjusted returns.</p>
 </div>
 </div>
 </div>
@@ -198,45 +117,39 @@
 </div>
 </section>
 
-<section class="py-[120px] bg-surface-container-lowest" id="instruments">
+<section class="py-[120px] bg-[#0d0e0f]" id="instruments">
 <div class="container mx-auto px-6 md:px-12">
 <div class="mb-20 text-center max-w-3xl mx-auto">
 <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl mb-6 text-on-surface">Strategic Instruments</h2>
 <div class="h-1 w-24 bg-primary mx-auto opacity-70"></div>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<div class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 relative overflow-hidden flex flex-col h-[450px] border border-white/5">
-<img alt="Grain silos trade" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1594488311317-020b925f462f?auto=format&fit=crop&q=80&w=800"/>
-<div class="relative p-10 flex flex-col h-full bg-gradient-to-t from-black/80 to-transparent">
-<p class="text-primary font-label text-[12px] uppercase tracking-[0.2em] mb-4 font-bold">COMMODITY FLOWS</p>
-<h3 class="text-2xl font-headline mb-4 text-on-surface">Structured Trade Finance</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-auto">Facilitating high-volume agricultural trade through capital-protected facilities.</p>
-<a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all cursor-pointer" href="#contact" onclick="setInterest('Commodity Flows')">
-                        EXPLORE <span class="material-symbols-outlined ml-3 text-sm group-hover:translate-x-2 transition-transform duration-300" data-icon="arrow_forward">arrow_forward</span>
-</a>
+<div class="group relative bg-surface-container overflow-hidden flex flex-col h-[480px] border border-white/10">
+    <img alt="Grain silos" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700 block" src="https://images.unsplash.com/photo-1594488311317-020b925f462f?auto=format&fit=crop&q=80&w=800&v=4"/>
+    <div class="relative z-10 p-10 mt-auto flex flex-col bg-gradient-to-t from-black via-black/80 to-transparent pt-32">
+        <p class="text-primary font-bold text-[12px] uppercase tracking-[0.2em] mb-4">COMMODITY FLOWS</p>
+        <h3 class="text-2xl font-headline mb-4 text-on-surface">Structured Trade Finance</h3>
+        <p class="text-on-surface/70 text-sm leading-relaxed mb-6">Facilitating high-volume agricultural trade through capital-protected facilities.</p>
+        <a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all" href="#contact" onclick="setInterest('Commodity Flows')">EXPLORE <span class="material-symbols-outlined ml-3 text-sm">arrow_forward</span></a>
+    </div>
 </div>
+<div class="group relative bg-surface-container overflow-hidden flex flex-col h-[480px] border border-white/10">
+    <img alt="Infrastructure" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700 block" src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&q=80&w=800&v=4"/>
+    <div class="relative z-10 p-10 mt-auto flex flex-col bg-gradient-to-t from-black via-black/80 to-transparent pt-32">
+        <p class="text-primary font-bold text-[12px] uppercase tracking-[0.2em] mb-4">CORE INFRASTRUCTURE</p>
+        <h3 class="text-2xl font-headline mb-4 text-on-surface">Blended Finance Platforms</h3>
+        <p class="text-on-surface/70 text-sm leading-relaxed mb-6">Anchoring transformative macro-infrastructure alongside sovereign entities.</p>
+        <a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all" href="#contact" onclick="setInterest('Core Infrastructure')">EXPLORE <span class="material-symbols-outlined ml-3 text-sm">arrow_forward</span></a>
+    </div>
 </div>
-<div class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 relative overflow-hidden flex flex-col h-[450px] border border-white/5">
-<img alt="Macro Infrastructure" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&q=80&w=800"/>
-<div class="relative p-10 flex flex-col h-full bg-gradient-to-t from-black/80 to-transparent">
-<p class="text-primary font-label text-[12px] uppercase tracking-[0.2em] mb-4 font-bold">CORE INFRASTRUCTURE</p>
-<h3 class="text-2xl font-headline mb-4 text-on-surface">Blended Finance Platforms</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-auto">Anchoring transformative macro-infrastructure alongside sovereign entities.</p>
-<a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all cursor-pointer" href="#contact" onclick="setInterest('Core Infrastructure')">
-                        EXPLORE <span class="material-symbols-outlined ml-3 text-sm group-hover:translate-x-2 transition-transform duration-300" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-<div class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 relative overflow-hidden flex flex-col h-[450px] border border-white/5">
-<img alt="Farm equipment assets" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800"/>
-<div class="relative p-10 flex flex-col h-full bg-gradient-to-t from-black/80 to-transparent">
-<p class="text-primary font-label text-[12px] uppercase tracking-[0.2em] mb-4 font-bold">PHYSICAL ASSETS</p>
-<h3 class="text-2xl font-headline mb-4 text-on-surface">Strategic Asset Turnaround</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-auto">Acquiring and rehabilitating underperforming agricultural assets.</p>
-<a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all cursor-pointer" href="#contact" onclick="setInterest('Physical Assets')">
-                        EXPLORE <span class="material-symbols-outlined ml-3 text-sm group-hover:translate-x-2 transition-transform duration-300" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
+<div class="group relative bg-surface-container overflow-hidden flex flex-col h-[480px] border border-white/10">
+    <img alt="Farm equipment" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700 block" src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800&v=4"/>
+    <div class="relative z-10 p-10 mt-auto flex flex-col bg-gradient-to-t from-black via-black/80 to-transparent pt-32">
+        <p class="text-primary font-bold text-[12px] uppercase tracking-[0.2em] mb-4">PHYSICAL ASSETS</p>
+        <h3 class="text-2xl font-headline mb-4 text-on-surface">Strategic Asset Turnaround</h3>
+        <p class="text-on-surface/70 text-sm leading-relaxed mb-6">Acquiring and rehabilitating underperforming agricultural assets.</p>
+        <a class="inline-flex items-center text-primary text-[11px] font-bold tracking-[0.2em] uppercase transition-all" href="#contact" onclick="setInterest('Physical Assets')">EXPLORE <span class="material-symbols-outlined ml-3 text-sm">arrow_forward</span></a>
+    </div>
 </div>
 </div>
 </div>
@@ -245,19 +158,16 @@
 <section class="py-[120px] impact-gradient" id="impact">
 <div class="container mx-auto px-6 md:px-12 text-center">
 <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface mb-10">Systemic Impact. Real-World Growth.</h2>
-<p class="text-on-surface-variant max-w-4xl mx-auto leading-relaxed mb-20 font-light">
-                As operators, our mandate extends beyond yield. We engineer platforms that deliver measurable impact—driving regional employment and systemic food resilience.
-            </p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-<div class="bg-surface-container-low p-12 text-left border border-white/5 relative group hover:bg-surface-container transition-all">
-<p class="text-primary font-label text-[11px] tracking-[0.4em] uppercase mb-4 font-bold">CAPACITY & EMPLOYMENT</p>
-<h3 class="text-2xl md:text-3xl font-headline text-white mb-6">The GROW Framework</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm">Hardwiring local farming networks into institutional supply chains to drive large-scale job creation.</p>
+<div class="bg-surface-container p-12 text-left border border-white/5 relative group hover:bg-black transition-all">
+<p class="text-primary font-bold text-[11px] tracking-[0.4em] uppercase mb-4">CAPACITY & EMPLOYMENT</p>
+<h3 class="text-2xl font-headline text-white mb-6">The GROW Framework</h3>
+<p class="text-on-surface/70 leading-relaxed text-sm">Hardwiring local farming networks into institutional supply chains.</p>
 </div>
-<div class="bg-surface-container-low p-12 text-left border border-white/5 relative group hover:bg-surface-container transition-all">
-<p class="text-primary font-label text-[11px] tracking-[0.4em] uppercase mb-4 font-bold">FOOD RESILIENCE</p>
-<h3 class="text-2xl md:text-3xl font-headline text-white mb-6">SDG & IFZA Alignment</h3>
-<p class="text-on-surface-variant leading-relaxed text-sm">Executing mandates under rigorous UN Sustainable Development Goals to secure regional food systems.</p>
+<div class="bg-surface-container p-12 text-left border border-white/5 relative group hover:bg-black transition-all">
+<p class="text-primary font-bold text-[11px] tracking-[0.4em] uppercase mb-4">FOOD RESILIENCE</p>
+<h3 class="text-2xl font-headline text-white mb-6">SDG & IFZA Alignment</h3>
+<p class="text-on-surface/70 leading-relaxed text-sm">Executing mandates under UN Sustainable Development Goals.</p>
 </div>
 </div>
 </div>
@@ -265,45 +175,24 @@
 
 <section class="py-[120px] bg-black" id="contact">
 <div class="container mx-auto px-6 md:px-12">
-<div class="mb-16">
-<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-white inline-block relative">
-                    Initiate Dialogue
-                    <span class="absolute -bottom-4 left-0 w-24 h-1 bg-primary"></span>
-</h2>
-</div>
+<div class="mb-16"><h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-white inline-block relative">Initiate Dialogue<span class="absolute -bottom-4 left-0 w-24 h-1 bg-primary"></span></h2></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
 <div class="space-y-12">
-<p class="text-on-surface-variant leading-relaxed max-w-xl">
-                        Partner with operational experts who bridge the gap between institutional finance and on-the-ground reality. We are currently accepting inquiries from institutional investors, sovereign entities, and strategic project developers.
-                    </p>
+<p class="text-on-surface/70 leading-relaxed max-w-xl">Partner with operational experts who bridge the gap between institutional finance and on-the-ground reality.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-<div class="space-y-3">
-<p class="text-primary font-bold tracking-widest uppercase text-[10px]">Middle East Hub</p>
-<p class="text-on-surface-variant/70 text-[14px] leading-relaxed">
-                                IFZA Dubai Digital Park<br/>
-                                Building A2, Unit 101<br/>
-                                Dubai, United Arab Emirates
-                            </p>
-</div>
-<div class="space-y-3">
-<p class="text-primary font-bold tracking-widest uppercase text-[10px]">Sub-Saharan Operations</p>
-<p class="text-on-surface-variant/70 text-[14px] leading-relaxed">
-                                Ikigai Nairobi 90 JGO<br/>
-                                90 James Gichuru Road, 2nd Floor<br/>
-                                Nairobi, Kenya
-                            </p>
-</div>
+<div class="space-y-3"><p class="text-primary font-bold tracking-widest uppercase text-[10px]">Middle East Hub</p><p class="text-on-surface/60 text-[14px] leading-relaxed">IFZA Dubai Digital Park<br/>Building A2, Unit 101<br/>Dubai, United Arab Emirates</p></div>
+<div class="space-y-3"><p class="text-primary font-bold tracking-widest uppercase text-[10px]">Sub-Saharan Operations</p><p class="text-on-surface/60 text-[14px] leading-relaxed">Ikigai Nairobi 90 JGO<br/>90 James Gichuru Road, 2nd Floor<br/>Nairobi, Kenya</p></div>
 </div>
 </div>
 <div>
 <form action="https://formspree.io/f/xojyqqqk" method="POST" class="space-y-6">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<input name="name" required class="w-full bg-surface-container-lowest border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors text-sm" placeholder="Name" type="text"/>
-<input name="institution" class="w-full bg-surface-container-lowest border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors text-sm" placeholder="Institutional Affiliation" type="text"/>
+<input name="name" required class="w-full bg-[#0d0e0f] border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 text-sm" placeholder="Name" type="text"/>
+<input name="institution" class="w-full bg-[#0d0e0f] border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 text-sm" placeholder="Institutional Affiliation" type="text"/>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<input name="email" required class="w-full bg-surface-container-lowest border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors text-sm" placeholder="Email Address" type="email"/>
-<select name="interest" class="w-full bg-surface-container-lowest border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors appearance-none text-sm" id="interest-dropdown">
+<input name="email" required class="w-full bg-[#0d0e0f] border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 text-sm" placeholder="Email Address" type="email"/>
+<select name="interest" class="w-full bg-[#0d0e0f] border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 text-sm" id="interest-dropdown">
 <option value="">Strategic Interest</option>
 <option value="Commodity Flows">Commodity Flows</option>
 <option value="Core Infrastructure">Core Infrastructure</option>
@@ -311,10 +200,8 @@
 <option value="General Inquiry">General Inquiry</option>
 </select>
 </div>
-<textarea name="message" required class="w-full bg-surface-container-lowest border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors h-40 text-sm" placeholder="Message"></textarea>
-<button type="submit" class="metallic-sheen w-full py-5 text-on-primary font-bold uppercase tracking-[0.3em] text-xs hover:opacity-90 transition-all duration-300">
-                            Submit Inquiry
-                        </button>
+<textarea name="message" required class="w-full bg-[#0d0e0f] border border-white/10 px-6 py-4 text-on-surface focus:outline-none focus:border-primary/50 h-40 text-sm" placeholder="Message"></textarea>
+<button type="submit" class="metallic-sheen w-full py-5 text-on-primary font-bold uppercase tracking-[0.3em] text-xs hover:opacity-90">Submit Inquiry</button>
 </form>
 </div>
 </div>
@@ -322,21 +209,17 @@
 </section>
 </main>
 <footer class="bg-[#0A0A0A] w-full py-10 px-6 md:px-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
-<div class="mb-8 md:mb-0">
-<div class="font-['Inter'] text-[13px] tracking-wide text-white/30">&copy; 2026 TerraQuest Investment FZCO. All rights reserved.</div>
-</div>
+<div class="mb-8 md:mb-0"><div class="font-['Inter'] text-[13px] tracking-wide text-white/30">&copy; 2026 TerraQuest Investment FZCO. All rights reserved.</div></div>
 <div class="flex flex-wrap justify-center gap-8 font-['Inter'] text-[11px] tracking-[0.1em] uppercase">
-<a class="text-white/40 hover:text-primary transition-colors" href="#">Regulatory Disclosures</a>
-<a class="text-white/40 hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="text-white/40 hover:text-primary transition-colors" href="#">Terms of Operation</a>
+<a class="text-white/40 hover:text-primary" href="#">Regulatory Disclosures</a>
+<a class="text-white/40 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-white/40 hover:text-primary" href="#">Terms of Operation</a>
 </div>
 </footer>
 <script>
     function setInterest(value) {
         const dropdown = document.getElementById('interest-dropdown');
-        if (dropdown) {
-            dropdown.value = value;
-        }
+        if (dropdown) dropdown.value = value;
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
