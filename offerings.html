@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Private Placements | TERRAQUEST</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "background": "#121414",
+                    "on-surface": "#e3e2e2",
+                    "surface-container": "#1f2020",
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "display": ["Playfair Display"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
+        .no-line-rule { border: none !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body flex flex-col min-h-screen">
+
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+<div class="text-lg sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline">TERRAQUEST FZCO</div>
+<div class="flex items-center gap-3 ml-auto text-xs text-white/50 tracking-widest uppercase">
+    Secure Investor Portal
+</div>
+</nav>
+
+<main class="flex-grow pt-32 pb-20 px-5 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full">
+    
+    <div class="mb-12 border-b border-white/10 pb-6">
+        <h1 class="text-3xl md:text-4xl font-headline text-white mb-2">Current Offerings</h1>
+        <p class="text-white/50 text-sm md:text-base">Select a specific facility to access its secure Deal Room and due diligence materials.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-surface-container border border-white/10 hover:border-primary/50 transition-all duration-300 rounded p-6 flex flex-col h-full group">
+            <div class="flex justify-between items-start mb-4">
+                <span class="text-[10px] tracking-widest uppercase text-primary font-bold bg-primary/10 px-2 py-1 rounded">Live Offering</span>
+                <span class="text-white/40 text-xs">Series 1</span>
+            </div>
+            <h3 class="text-2xl font-headline text-white mb-3">Tsavo Resilience Food Fund 1</h3>
+            <p class="text-white/60 text-sm mb-6 flex-grow leading-relaxed">
+                A USD 400M structured facility engineered as a commercial Repurchase Agreement (Repo), securing physical legal title to White Non-GMO Maize.
+            </p>
+            <div class="space-y-2 mb-6 text-sm">
+                <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-white/40">Target Yield</span><span class="text-white">15 - 17.5% IRR</span></div>
+                <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-white/40">Tenor</span><span class="text-white">12 Months</span></div>
+            </div>
+            <a href="tsavo-series-1.html" class="w-full text-center border border-primary text-primary px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-background transition-all">Enter Deal Room</a>
+        </div>
+
+        <div class="bg-surface-container border border-white/5 p-6 flex flex-col h-full opacity-60">
+            <div class="flex justify-between items-start mb-4">
+                <span class="text-[10px] tracking-widest uppercase text-white/50 font-bold bg-white/5 px-2 py-1 rounded">Pipeline</span>
+                <span class="text-white/40 text-xs">Series 2</span>
+            </div>
+            <h3 class="text-2xl font-headline text-white/50 mb-3 blur-[2px]">Agri-Infrastructure Fund</h3>
+            <p class="text-white/40 text-sm mb-6 flex-grow leading-relaxed blur-[1px]">
+                Targeting mid-cap processing and warehousing turnaround assets in the COMESA region.
+            </p>
+            <button disabled class="w-full text-center border border-white/10 text-white/30 px-4 py-3 text-xs tracking-widest uppercase font-bold rounded cursor-not-allowed">Opening Q4 2026</button>
+        </div>
+
+    </div>
+</main>
+
+<footer class="bg-[#0A0A0A] w-full py-8 border-t border-white/5 text-center mt-auto">
+    <div class="font-['Inter'] text-[11px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. Private & Confidential.</div>
+</footer>
+
+</body></html>
