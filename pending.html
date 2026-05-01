@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Application Received | TERRAQUEST</title>
+    
+    <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f2ca50",
+              "background": "#121414",
+              "on-surface": "#e3e2e2",
+              "surface-container": "#1f2020",
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "display": ["Playfair Display"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
+        .no-line-rule { border: none !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body flex flex-col min-h-screen selection:bg-primary/30">
+
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+    <div class="text-[16px] sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline whitespace-nowrap cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
+        TERRAQUEST FZCO
+    </div>
+    <div class="flex items-center gap-3 ml-auto text-[9px] sm:text-xs text-white/50 tracking-widest uppercase text-right">
+        Secure Investor Portal
+    </div>
+</nav>
+
+<main class="flex-grow flex items-center justify-center pt-32 pb-20 px-5 sm:px-6">
+    <div class="w-full max-w-2xl bg-surface-container border border-white/10 rounded shadow-2xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#d4af37]"></div>
+        
+        <div class="mb-6 flex justify-center">
+            <span class="material-symbols-outlined text-primary text-5xl sm:text-6xl drop-shadow-[0_0_15px_rgba(242,202,80,0.3)]">
+                verified_user
+            </span>
+        </div>
+        
+        <h1 class="text-3xl md:text-4xl font-headline text-white mb-4">Credentials Submitted</h1>
+        
+        <div class="space-y-4 text-white/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-8">
+            <p>Thank you for requesting access to the TerraQuest Private Data Room.</p>
+            <p>Because our active offerings involve highly structured and confidential macro-infrastructure assets, access is strictly limited to verified institutional partners.</p>
+            <p>Our capital markets team is currently reviewing your profile. Once your credentials have been verified, you will receive an encrypted link via email to access the secure portal.</p>
+        </div>
+        
+        <a href="index.html" class="inline-block border border-white/20 text-white/70 px-8 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white/5 hover:text-white transition-all">
+            Return to Homepage
+        </a>
+    </div>
+</main>
+
+<footer class="bg-[#0A0A0A] w-full py-8 border-t border-white/5 text-center mt-auto">
+    <div class="font-['Inter'] text-[11px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. Private & Confidential.</div>
+</footer>
+
+</body>
+</html>
