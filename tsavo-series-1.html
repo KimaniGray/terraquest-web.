@@ -15,11 +15,12 @@
         theme: {
           extend: {
             colors: {
-              "tsavo-bg": "#0D1714",      /* Deep Forest / Savannah Green */
-              "tsavo-surface": "#162621", /* Lighter Green for Cards */
-              "tsavo-rust": "#C45532",    /* Tsavo Red Earth / Terracotta */
-              "tsavo-sand": "#F3EFE9",    /* Soft parchment text */
-              "tsavo-gold": "#D4AF37",    /* TerraQuest Parent Gold */
+              "tsavo-bg": "#FFFFFF",      /* Crisp White Background */
+              "tsavo-text": "#111827",    /* Deep Charcoal / Black for text */
+              "tsavo-terracotta": "#C85A32", /* Logo Canopy - Primary Accent */
+              "tsavo-ochre": "#DDA73B",   /* Logo Canopy - Secondary Accent */
+              "tsavo-cocoa": "#4A3525",   /* Logo Canopy - Dark Earth border */
+              "tsavo-surface": "#F9FAFB", /* Very light gray for card backgrounds */
             },
             fontFamily: {
               "serif": ["Noto Serif", "serif"],
@@ -30,39 +31,73 @@
       }
     </script>
     <style>
-        body { background-color: #0D1714; color: #F3EFE9; }
+        body { background-color: #FFFFFF; color: #111827; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .chapter-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #C45532, rgba(196, 85, 50, 0.05)); transform: translateX(-50%); z-index: 0; }
+        .chapter-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #C85A32, rgba(200, 90, 50, 0.05)); transform: translateX(-50%); z-index: 0; }
         @media (max-width: 768px) { .chapter-line { left: 24px; transform: none; } }
-        .glass-card { background: rgba(22, 38, 33, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(196, 85, 50, 0.15); }
+        .doc-card { background: #FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
-<body class="font-sans antialiased relative selection:bg-tsavo-rust/30">
+<body class="font-sans antialiased relative selection:bg-tsavo-terracotta/20">
 
-<nav class="fixed top-0 w-full z-50 bg-tsavo-bg/95 backdrop-blur-md border-b border-tsavo-rust/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <div class="font-serif font-bold text-tsavo-rust tracking-widest uppercase text-sm md:text-base flex items-center gap-2">
-            <span class="material-symbols-outlined text-tsavo-gold text-xl">grass</span>
-            Tsavo Resilience Fund 1
+<nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        
+        <div class="flex items-center gap-3">
+            <img src="Tsavo-Logo.png" alt="Tsavo Logo" class="h-10 md:h-12 w-auto object-contain fallback-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+            <div style="display:none;" class="font-serif font-black text-tsavo-text tracking-widest uppercase text-lg md:text-xl">
+                TSAVO
+            </div>
         </div>
-        <div class="flex items-center gap-4 text-xs tracking-widest uppercase text-tsavo-sand/60">
+
+        <div class="flex items-center gap-4 text-xs tracking-widest uppercase text-gray-500">
             <span class="hidden sm:inline">Secured Private Credit</span>
-            <a href="dashboard.html" class="border border-tsavo-sand/20 px-3 py-1.5 rounded hover:text-tsavo-sand hover:border-tsavo-sand transition-all">Exit</a>
+            <a href="dashboard.html" class="border border-gray-300 text-gray-600 px-3 py-1.5 rounded hover:bg-gray-50 transition-all">Exit</a>
         </div>
     </div>
 </nav>
 
 <section class="pt-40 pb-20 px-4 sm:px-6 relative z-10 text-center max-w-4xl mx-auto">
-    <p class="text-tsavo-rust font-bold tracking-[0.3em] uppercase text-xs mb-6">The Investment Narrative</p>
-    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-tsavo-sand mb-8 leading-tight">Engineered to strip out risk.<br/>Built to capture sovereign yield.</h1>
-    <p class="text-tsavo-sand/80 text-lg md:text-xl leading-relaxed mb-12 font-light">
+    <p class="text-tsavo-terracotta font-bold tracking-[0.3em] uppercase text-xs mb-6">Institutional Offering Memorandum</p>
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-tsavo-text mb-8 leading-tight">Engineered to strip out risk.<br/>Built to capture sovereign yield.</h1>
+    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 font-light">
         A USD 400M structured commercial Repurchase Agreement (Repo) designed to substitute traditional borrower default risk with A-Rated institutional security.
     </p>
-    <div class="flex flex-wrap justify-center gap-8 border-y border-tsavo-rust/20 py-6">
-        <div><p class="text-[10px] text-tsavo-sand/50 uppercase tracking-widest mb-1">Target IRR</p><p class="text-2xl font-serif text-tsavo-gold">15-17.5%</p></div>
-        <div class="border-l border-tsavo-rust/20 pl-8"><p class="text-[10px] text-tsavo-sand/50 uppercase tracking-widest mb-1">Tenor</p><p class="text-2xl font-serif text-tsavo-sand">12 Months</p></div>
-        <div class="border-l border-tsavo-rust/20 pl-8"><p class="text-[10px] text-tsavo-sand/50 uppercase tracking-widest mb-1">Series 1 Size</p><p class="text-2xl font-serif text-tsavo-sand">$100M</p></div>
+    <div class="flex flex-wrap justify-center gap-8 border-y border-gray-200 py-6 bg-tsavo-surface rounded-lg">
+        <div><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Target IRR</p><p class="text-2xl font-serif text-tsavo-terracotta font-bold">15-17.5%</p></div>
+        <div class="border-l border-gray-300 pl-8"><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Tenor</p><p class="text-2xl font-serif text-tsavo-text font-bold">12 Months</p></div>
+        <div class="border-l border-gray-300 pl-8"><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Series 1 Size</p><p class="text-2xl font-serif text-tsavo-text font-bold">$100M</p></div>
     </div>
 </section>
 
 <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="chapter-line hidden md:block"></div>
+
+    <div class="relative z-10 flex flex-col md:flex-row items-center mb-32 group">
+        <div class="md:w-1/2 md:pr-16 text-left md:text-right mb-8 md:mb-0 bg-white/80 md:bg-transparent p-4 md:p-0 rounded-lg">
+            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 01</h2>
+            <h3 class="font-serif text-3xl font-bold text-tsavo-text mb-4">The Geopolitical Arbitrage</h3>
+            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                Zambia currently holds a massive 2.0M Metric Tonne surplus of White Non-GMO Maize. Simultaneously, the broader SADC/COMESA region faces a 6.0M Metric Tonne deficit due to severe drought. This creates an unprecedented, quantifiable "Demand Pull" that guarantees the off-take of the underlying asset.
+            </p>
+        </div>
+        <div class="hidden md:flex w-12 h-12 bg-white border-2 border-tsavo-terracotta rounded-full items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 shadow-[0_0_15px_rgba(200,90,50,0.2)]">
+            <span class="material-symbols-outlined text-tsavo-terracotta text-sm">public</span>
+        </div>
+        <div class="md:w-1/2 md:pl-16 w-full">
+            <div class="doc-card p-6 rounded-lg text-left border-l-4 border-l-tsavo-terracotta">
+                <h4 class="text-tsavo-text font-bold mb-2">Explore the Macro Data</h4>
+                <p class="text-gray-500 text-xs mb-4">Review the FRA supply data and COMESA demand deficit reports.</p>
+                <a href="http://136.117.2.186:3000/folder-macro-data" target="_blank" class="inline-flex items-center text-xs tracking-widest uppercase font-bold text-tsavo-terracotta hover:text-tsavo-ochre transition-colors">
+                    Drop into Folder <span class="material-symbols-outlined text-sm ml-2">folder_open</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10 flex flex-col md:flex-row-reverse items-center mb-32 group">
+        <div class="md:w-1/2 md:pl-16 text-left mb-8 md:mb-0 bg-white/80 md:bg-transparent p-4 md:p-0 rounded-lg">
+            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 02</h2>
+            <h3 class="font-serif text-3xl font-bold text-tsavo-text mb-4">The Mechanism</h3>
+            <p class="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
+                We do not take agricultural production risk. The Fund executes a structured Commercial Repurchase Agreement
