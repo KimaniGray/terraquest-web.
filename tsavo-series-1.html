@@ -1,145 +1,199 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="robots" content="noindex, nofollow">
-<title>Tsavo Series 1 | Secure Deal Room</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TSAVO Series 1 | Live Information Memorandum</title>
+    
+    <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
-            "colors": {
-                    "primary": "#d4af37", /* TerraQuest Gold */
-                    "tsavo-earth": "#2a2d24", /* Earthy Olive Dark */
-                    "tsavo-surface": "#1e2019",
-                    "background": "#121414",
-                    "on-surface": "#e3e2e2",
+            colors: {
+              "im-dark": "#0f172a", // Deep slate for text
+              "im-light": "#f8fafc", // Crisp paper background
+              "im-accent": "#8b5e3c", // Earthy brown from Tsavo logo
+              "im-gold": "#d4af37", // Subtle nod to TerraQuest parent
             },
-            "fontFamily": {
-                    "headline": ["Noto Serif"],
-                    "body": ["Inter"],
+            fontFamily: {
+              "serif": ["Merriweather", "serif"],
+              "sans": ["Inter", "sans-serif"],
             }
           },
         },
       }
     </script>
-<style>
-        .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
-        .no-line-rule { border: none !important; }
-        .document-card:hover .download-icon { transform: translateY(2px); color: #d4af37; }
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .data-card { background: white; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .sticky-footer { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.9); border-top: 1px solid #e2e8f0; }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body flex flex-col min-h-screen selection:bg-primary/30">
+<body class="font-sans antialiased">
 
-<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
-<div class="text-lg sm:text-xl md:text-2xl font-bold text-primary tracking-[0.1em] font-headline">TERRAQUEST FZCO</div>
-<div class="flex items-center gap-4 ml-auto text-xs text-white/50 tracking-widest uppercase">
-    <a href="offerings.html" class="hover:text-primary transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">arrow_back</span> Return to Hub</a>
+<div class="bg-red-900 text-white text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-center py-2 px-4">
+    Strictly Private & Confidential [cite: 124] | Not a Prospectus [cite: 125]
 </div>
+
+<nav class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-im-accent flex items-center justify-center text-white font-serif font-bold text-sm">T</div>
+            <span class="font-serif font-bold text-im-dark tracking-wide">TSAVO RESILIENCE FUND 1 [cite: 119]</span>
+        </div>
+        <div class="hidden sm:flex space-x-8 text-sm font-medium text-gray-500">
+            <a href="#summary" class="hover:text-im-accent transition-colors">Executive Summary</a>
+            <a href="#snapshot" class="hover:text-im-accent transition-colors">Snapshot</a>
+            <a href="#context" class="hover:text-im-accent transition-colors">Market Context</a>
+            <a href="#risk" class="hover:text-im-accent transition-colors">Risk Matrix</a>
+        </div>
+    </div>
 </nav>
 
-<main class="flex-grow pt-32 pb-20 px-5 sm:px-6 lg:px-12 max-w-5xl mx-auto w-full">
+<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-32">
     
-    <div class="mb-12 border-b border-white/10 pb-10">
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-primary text-background text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">Live Data Room</span>
-            <span class="text-white/40 text-xs tracking-widest uppercase">Project Tsavo</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline text-white mb-4 leading-tight">Tsavo Resilience<br>Food Fund 1</h1>
-        <p class="text-lg md:text-xl text-primary font-light tracking-wide mb-6">USD 400M Structured Agricultural Facility</p>
-        <p class="text-white/70 max-w-3xl leading-relaxed">
-            An institutional-grade Repurchase Agreement (Repo) structure designed to anchor domestic capital while catalyzing global liquidity. The facility is fully backed by physical legal title to premium, non-GMO White Maize.
+    <header class="text-center mb-16">
+        <p class="text-im-accent font-bold tracking-[0.15em] uppercase text-xs mb-3">Series 1: Senior Secured Commodity Notes [cite: 122]</p>
+        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-im-dark mb-6 leading-tight">Institutional Offering Memorandum [cite: 123]</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            A USD 400 Million structured facility providing a necessary yield enhancement tool through Capital Protected Private Credit. [cite: 133, 135]
         </p>
-    </div>
+    </header>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-        <div class="bg-tsavo-surface border border-white/5 p-5 rounded">
-            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-1">Target IRR</p>
-            <p class="text-2xl text-white font-headline">15.0 - 17.5%</p>
-        </div>
-        <div class="bg-tsavo-surface border border-white/5 p-5 rounded">
-            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-1">Tenor</p>
-            <p class="text-2xl text-white font-headline">12 Months</p>
-        </div>
-        <div class="bg-tsavo-surface border border-white/5 p-5 rounded">
-            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-1">Underlying Asset</p>
-            <p class="text-xl text-white font-headline pt-1">Physical Maize</p>
-        </div>
-        <div class="bg-tsavo-surface border border-white/5 p-5 rounded">
-            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-1">Security</p>
-            <p class="text-xl text-white font-headline pt-1">A-Rated Insured</p>
-        </div>
-    </div>
-
-    <h2 class="text-2xl font-headline text-white mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">lock</span> Secure Document Vault
-    </h2>
-    <p class="text-white/40 text-sm mb-8">Access is heavily monitored. Documents are watermarked and tracked via Papermark.</p>
-
-    <div class="space-y-4">
-        
-        <a href="#" class="document-card block bg-tsavo-surface border border-white/10 hover:border-primary/50 p-6 rounded transition-all duration-300 group">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/30 text-3xl group-hover:text-primary transition-colors">description</span>
-                    <div>
-                        <h3 class="text-white font-medium mb-1">01. Executive Teaser</h3>
-                        <p class="text-white/40 text-xs">High-level structural overview and macroeconomic thesis. (2 Pages)</p>
-                    </div>
+    <section id="summary" class="mb-16 scroll-mt-24">
+        <div class="data-card p-8 md:p-10 border-t-4 border-t-im-accent">
+            <h2 class="font-serif text-2xl font-bold text-im-dark mb-6 border-b border-gray-100 pb-4">The Investment Opportunity [cite: 132]</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="text-gray-600 leading-relaxed text-sm space-y-4">
+                    <p>The Tsavo Resilience Food Fund 1 offers Institutional Investors a strategic entry into Capital Protected Private Credit—a rapidly growing asset class designed to deliver superior risk-adjusted returns. [cite: 133] For Pension Funds and Asset Managers, this facility offers a credible diversification strategy away from the concentration risk of Government Securities. [cite: 134]</p>
+                    <h3 class="font-bold text-im-dark mt-6 mb-2">The Instrument & Structure [cite: 136]</h3>
+                    <p>The Investment is legally structured as a Commercial Repurchase Agreement ('Repo'). [cite: 137] The Fund acquires physical legal title to White Non-GMO Maize, holding it in bonded custody until a fixed-date repurchase by the Food Reserve Agency (FRA). [cite: 138]</p>
                 </div>
-                <span class="material-symbols-outlined text-white/30 download-icon transition-all">download</span>
-            </div>
-        </a>
-
-        <a href="#" class="document-card block bg-tsavo-surface border border-white/10 hover:border-primary/50 p-6 rounded transition-all duration-300 group">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/30 text-3xl group-hover:text-primary transition-colors">menu_book</span>
-                    <div>
-                        <h3 class="text-white font-medium mb-1">02. Information Memorandum (IM)</h3>
-                        <p class="text-white/40 text-xs">Comprehensive operational, financial, and risk-mitigation breakdown. (45 Pages)</p>
-                    </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
+                    <h3 class="font-bold text-im-dark mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-im-accent">lock</span> Triple-Lock Security Matrix [cite: 139]</h3>
+                    <ul class="space-y-4 text-sm text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-green-600 text-lg">check_circle</span>
+                            <div><strong>A-Rated Trade Credit Insurance Wrap:</strong> Substitutes borrower credit risk with A-Rated insurer risk. [cite: 141]</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-green-600 text-lg">check_circle</span>
+                            <div><strong>10% Cash Performance Margin:</strong> Instant liquidity buffer for first-loss coverage. [cite: 142]</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-green-600 text-lg">check_circle</span>
+                            <div><strong>Physical Collateralization:</strong> Over-collateralized (>150% coverage) with liquid food stocks acquired at a ~30% Discount to Market Price. [cite: 143]</div>
+                        </li>
+                    </ul>
                 </div>
-                <span class="material-symbols-outlined text-white/30 download-icon transition-all">download</span>
             </div>
-        </a>
+        </div>
+    </section>
 
-        <a href="#" class="document-card block bg-tsavo-surface border border-white/10 hover:border-primary/50 p-6 rounded transition-all duration-300 group">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/30 text-3xl group-hover:text-primary transition-colors">analytics</span>
-                    <div>
-                        <h3 class="text-white font-medium mb-1">03. Financial Model & Stress Tests</h3>
-                        <p class="text-white/40 text-xs">Cash flow projections, yield calculations, and downside scenario analysis.</p>
-                    </div>
+    <section id="snapshot" class="mb-16 scroll-mt-24">
+        <h2 class="font-serif text-2xl font-bold text-im-dark mb-6">Transaction Snapshot [cite: 144]</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="data-card p-5 text-center">
+                <p class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-1">Target Net Yield [cite: 152]</p>
+                <p class="text-2xl font-serif font-bold text-im-accent">15% - 17.5% <span class="text-sm font-sans text-gray-400 font-normal">IRR</span></p>
+            </div>
+            <div class="data-card p-5 text-center">
+                <p class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-1">Tenor [cite: 150]</p>
+                <p class="text-2xl font-serif font-bold text-im-dark">12 Months [cite: 151]</p>
+            </div>
+            <div class="data-card p-5 text-center">
+                <p class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-1">Programme Limit [cite: 199]</p>
+                <p class="text-2xl font-serif font-bold text-im-dark">$400M [cite: 199]</p>
+            </div>
+            <div class="data-card p-5 text-center">
+                <p class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-1">Series 1 Size [cite: 199]</p>
+                <p class="text-2xl font-serif font-bold text-im-dark">$100M [cite: 199]</p>
+            </div>
+        </div>
+
+        <div class="data-card mt-4 overflow-hidden">
+            <table class="w-full text-left text-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100"><th class="bg-slate-50 py-3 px-5 text-gray-600 font-medium w-1/3">Issuer</th><td class="py-3 px-5 text-im-dark">Tsavo SEZ SPV Limited [cite: 146]</td></tr>
+                    <tr class="border-b border-gray-100"><th class="bg-slate-50 py-3 px-5 text-gray-600 font-medium">Asset Class</th><td class="py-3 px-5 text-im-dark">Secured Private Debt [cite: 147]</td></tr>
+                    <tr class="border-b border-gray-100"><th class="bg-slate-50 py-3 px-5 text-gray-600 font-medium">Counterparty</th><td class="py-3 px-5 text-im-dark">Food Reserve Agency (FRA) [cite: 199]</td></tr>
+                    <tr class="border-b border-gray-100"><th class="bg-slate-50 py-3 px-5 text-gray-600 font-medium">Spread</th><td class="py-3 px-5 text-im-dark">~500-700 bps over T-Bill [cite: 153, 154]</td></tr>
+                    <tr class="border-b border-gray-100"><th class="bg-slate-50 py-3 px-5 text-gray-600 font-medium">Custodian</th><td class="py-3 px-5 text-im-dark">ABSA Bank Group (Kenya + Zambia) [cite: 199]</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="context" class="mb-16 scroll-mt-24">
+        <h2 class="font-serif text-2xl font-bold text-im-dark mb-6">The Market Context [cite: 182]</h2>
+        <div class="data-card p-8">
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                Zambia occupies a unique and powerful geopolitical position as the undisputed "grain basket" of Southern Africa. Its strategic importance is magnified by its dual membership in SADC and COMESA, granting the Fund seamless, duty-free market access to over 600 million people. [cite: 184, 185, 186]
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-slate-50 p-5 rounded border border-slate-100">
+                    <h4 class="text-im-accent font-bold mb-2">The Zambian Surplus</h4>
+                    <p class="text-sm text-gray-600">The 2025/2026 season marks a definitive structural shift. Driven by favorable weather patterns and enhanced input subsidies, Zambia has recorded a massive bumper harvest. The FRA holds a confirmed reserve of ~2 Million bags of White Maize. [cite: 191, 192]</p>
                 </div>
-                <span class="material-symbols-outlined text-white/30 download-icon transition-all">download</span>
-            </div>
-        </a>
-
-        <a href="#" class="document-card block bg-tsavo-surface border border-white/10 hover:border-primary/50 p-6 rounded transition-all duration-300 group">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/30 text-3xl group-hover:text-primary transition-colors">gavel</span>
-                    <div>
-                        <h3 class="text-white font-medium mb-1">04. Master Repurchase Agreement (Draft)</h3>
-                        <p class="text-white/40 text-xs">Legal framework for asset transfer, custody, and liquidation mechanics.</p>
-                    </div>
+                <div class="bg-slate-50 p-5 rounded border border-slate-100">
+                    <h4 class="text-im-accent font-bold mb-2">The Regional Deficit</h4>
+                    <p class="text-sm text-gray-600">While Zambia enters a surplus cycle, the broader region faces severe structural deficits due to persistent drought. This creates a massive, quantifiable "Demand Pull" quantified at over 6 Million Metric tonnes. [cite: 195, 196]</p>
                 </div>
-                <span class="material-symbols-outlined text-white/30 download-icon transition-all">download</span>
             </div>
-        </a>
+            
+            <div class="overflow-x-auto border rounded-lg">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-slate-100 text-gray-700 uppercase text-[10px] tracking-wider">
+                        <tr>
+                            <th class="py-3 px-4">Country / Bloc [cite: 197]</th>
+                            <th class="py-3 px-4">Deficit / Gap [cite: 197]</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b"><td class="py-3 px-4 font-medium">DRC (COMESA) [cite: 197]</td><td class="py-3 px-4">>$7 Million Gap (>3M MT) [cite: 197]</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4 font-medium">Kenya (COMESA) [cite: 197]</td><td class="py-3 px-4">~900,000 MT [cite: 197]</td></tr>
+                        <tr class="border-b"><td class="py-3 px-4 font-medium">Malawi (SADC) [cite: 197]</td><td class="py-3 px-4">>1.5 Million MT [cite: 197]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-    </div>
-
+    <section id="risk" class="mb-8 scroll-mt-24">
+        <h2 class="font-serif text-2xl font-bold text-im-dark mb-6">Risk Mitigation Matrix [cite: 240]</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="data-card p-6">
+                <h3 class="font-bold text-im-dark text-sm uppercase tracking-wide mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-gray-400">inventory_2</span> Asset Risk [cite: 242]</h3>
+                <p class="text-sm text-gray-600 mb-2"><strong>Physical Control:</strong> Maize is held by CMI (Independent Collateral Manager). The Fund holds the "Keys." [cite: 244]</p>
+                <p class="text-sm text-gray-600"><strong>Over-Collateralization:</strong> Value of maize exceeds the loan amount (150% Coverage). [cite: 245]</p>
+            </div>
+            <div class="data-card p-6">
+                <h3 class="font-bold text-im-dark text-sm uppercase tracking-wide mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-gray-400">account_balance</span> Credit Risk [cite: 243]</h3>
+                <p class="text-sm text-gray-600 mb-2"><strong>Insurance Wrap:</strong> A-Rated Policy covers currency inconvertibility, expropriation, and war. [cite: 246]</p>
+                <p class="text-sm text-gray-600"><strong>Cash Buffer:</strong> 10% Performance Margin held in escrow for first-loss coverage. [cite: 247]</p>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer class="bg-[#0A0A0A] w-full py-8 border-t border-white/5 text-center mt-auto">
-    <div class="font-['Inter'] text-[11px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. Strictly Private & Confidential.</div>
-</footer>
+<div class="fixed bottom-0 left-0 w-full sticky-footer z-50 py-4 px-4 sm:px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-gray-600">
+            <span class="font-bold text-im-dark">Ready to proceed?</span> Access full legal agreements, KYC packs, and detailed models in the secure Data Room.
+        </div>
+        
+        <a href="http://136.117.2.186:3000/your-pdf-link-here" target="_blank" rel="noopener noreferrer" class="bg-im-dark text-white px-6 py-3 rounded-md font-bold text-sm hover:bg-im-accent transition-colors flex items-center gap-2 shadow-lg whitespace-nowrap">
+            <span class="material-symbols-outlined text-lg">lock_open</span>
+            Enter Papermark Data Room
+        </a>
+    </div>
+</div>
 
-</body></html>
+</body>
+</html>
