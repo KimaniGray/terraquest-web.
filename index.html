@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TERRAQUEST | Anchoring Markets</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TERRAQUEST | Anchoring Markets</title>
+    
+    <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
-            "colors": {
-                    "primary": "#f2ca50",
-                    "background": "#121414",
-                    "on-surface": "#e3e2e2",
-                    "surface-container": "#1f2020",
+            colors: {
+              "primary": "#f2ca50",
+              "background": "#121414",
+              "on-surface": "#e3e2e2",
+              "surface-container": "#1f2020",
             },
-            "borderRadius": { "DEFAULT": "0.125rem" },
-            "fontFamily": {
-                    "headline": ["Noto Serif"],
-                    "body": ["Inter"],
-                    "display": ["Playfair Display"]
+            borderRadius: { "DEFAULT": "0.125rem" },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "display": ["Playfair Display"]
             }
           },
         },
       }
     </script>
-<style>
+    <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
         .metallic-sheen { background: linear-gradient(45deg, #f2ca50, #d4af37); }
@@ -49,24 +53,47 @@
             .drop-cap-gold { font-size: 4.8rem; padding-right: 20px; }
         }
         h2 { letter-spacing: -0.02em; }
+        
+        /* Mobile Menu Animation */
+        #mobile-menu { transition: max-height 0.3s ease-in-out; max-height: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; }
     </style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary/30">
-<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 no-line-rule border-b border-white/5">
-<div class="text-lg sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] md:tracking-[0.15em] font-headline flex items-center leading-none">TERRAQUEST FZCO</div>
-<div class="hidden lg:flex items-center space-x-6 xl:space-x-8 font-['Noto_Serif'] tracking-tight text-[15px] h-full">
-<a class="text-[#D4AF37] border-b border-[#D4AF37] pb-1 cursor-pointer transition-all duration-300" href="#home">Home</a>
-<a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#thesis">The Thesis</a>
-<a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#model">The Model</a>
-<a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#team">The Team</a>
-<a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#instruments">Instruments</a>
-<a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#impact">Impact</a>
-</div>
 
-<div class="flex items-center gap-3 ml-auto lg:ml-2">
-<a href="portal.html" class="border border-primary text-primary px-3 sm:px-6 lg:px-8 py-[7px] md:py-[8px] font-semibold rounded hover:bg-primary hover:text-[#121414] transition-all duration-300 uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0 text-center">Investor Login</a>
-<button class="metallic-sheen text-[#3c2f00] px-3 sm:px-6 lg:px-8 py-[8px] md:py-[9px] font-semibold rounded hover:opacity-90 transition-all duration-300 uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0" onclick="location.href='#contact'">Connect</button>
-</div>
+<nav class="fixed top-0 w-full z-50 glass-nav no-line-rule border-b border-white/5">
+    <div class="flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5">
+        <div class="text-lg sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] md:tracking-[0.15em] font-headline flex items-center leading-none">
+            TERRAQUEST FZCO
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8 font-['Noto_Serif'] tracking-tight text-[15px] h-full">
+            <a class="text-[#D4AF37] border-b border-[#D4AF37] pb-1 cursor-pointer transition-all duration-300" href="#home">Home</a>
+            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#thesis">The Thesis</a>
+            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#model">The Model</a>
+            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#team">The Team</a>
+            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#instruments">Instruments</a>
+            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="#impact">Impact</a>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3 ml-auto lg:ml-2">
+            <a href="portal.html" class="border border-primary text-primary px-3 sm:px-6 py-[7px] md:py-[8px] font-semibold rounded hover:bg-primary hover:text-[#121414] transition-all duration-300 uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0 text-center">Investor Login</a>
+            <button class="metallic-sheen text-[#3c2f00] px-3 sm:px-6 py-[8px] md:py-[9px] font-semibold rounded hover:opacity-90 transition-all duration-300 uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0" onclick="location.href='#contact'">Connect</button>
+            
+            <button id="mobile-toggle" class="lg:hidden ml-2 text-primary focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden bg-[#121414] border-t border-white/5 px-4 flex flex-col space-y-4 py-4 font-headline">
+        <a class="text-[#D4AF37]" href="#home" onclick="document.getElementById('mobile-menu').classList.remove('open')">Home</a>
+        <a class="text-white/70 hover:text-[#D4AF37]" href="#thesis" onclick="document.getElementById('mobile-menu').classList.remove('open')">The Thesis</a>
+        <a class="text-white/70 hover:text-[#D4AF37]" href="#model" onclick="document.getElementById('mobile-menu').classList.remove('open')">The Model</a>
+        <a class="text-white/70 hover:text-[#D4AF37]" href="#team" onclick="document.getElementById('mobile-menu').classList.remove('open')">The Team</a>
+        <a class="text-white/70 hover:text-[#D4AF37]" href="#instruments" onclick="document.getElementById('mobile-menu').classList.remove('open')">Instruments</a>
+        <a class="text-white/70 hover:text-[#D4AF37]" href="#impact" onclick="document.getElementById('mobile-menu').classList.remove('open')">Impact</a>
+    </div>
 </nav>
 
 <main>
@@ -277,4 +304,5 @@
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
-</body></html>
+</body>
+</html>
