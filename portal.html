@@ -3,14 +3,37 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Investor Login | TERRAQUEST</title>
+    <title>Secure Investor Portal | TERRAQUEST</title>
     
     <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+      // 🛑 WAIT! You will paste your Firebase Keys right here later 🛑
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Make auth globally available for our buttons
+      window.auth = auth;
+      window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+    </script>
+
+    <script>
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -18,113 +41,144 @@
             colors: {
               "primary": "#f2ca50",
               "background": "#121414",
-              "on-surface": "#e3e2e2",
               "surface-container": "#1f2020",
             },
-            borderRadius: { "DEFAULT": "0.125rem" },
             fontFamily: {
               "headline": ["Noto Serif"],
-              "body": ["Inter"],
-              "display": ["Playfair Display"]
+              "body": ["Inter"]
             }
           },
         },
       }
     </script>
     <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
-        .metallic-sheen { background: linear-gradient(45deg, #f2ca50, #d4af37); }
-        .no-line-rule { border: none !important; }
-        
-        /* Mobile Menu Animation Fix */
-        #mobile-menu { 
-            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; 
-            max-height: 0; 
-            opacity: 0;
-            overflow: hidden; 
-        }
-        #mobile-menu.open { 
-            max-height: 500px; 
-            opacity: 1;
-        }
+        .hidden-form { display: none; }
     </style>
 </head>
-<body class="bg-background text-on-background font-body selection:bg-primary/30 flex flex-col min-h-screen">
+<body class="bg-background text-[#e3e2e2] font-body flex flex-col min-h-screen">
 
-<nav class="fixed top-0 w-full z-50 glass-nav no-line-rule border-b border-white/5 relative">
-    <div class="flex justify-between items-center px-4 sm:px-6 md:px-12 py-3 md:py-5">
-        <div class="text-[16px] sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] md:tracking-[0.15em] font-headline flex items-center leading-none flex-shrink-0 whitespace-nowrap cursor-pointer" onclick="location.href='index.html'">
-            TERRAQUEST FZCO
-        </div>
-
-        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8 font-['Noto_Serif'] tracking-tight text-[15px] h-full">
-            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="index.html">Home</a>
-            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="index.html#thesis">The Thesis</a>
-            <a class="text-white/70 hover:text-[#D4AF37] transition-colors cursor-pointer" href="index.html#model">The Model</a>
-        </div>
-
-        <div class="flex items-center gap-2 sm:gap-3 ml-auto lg:ml-2">
-            <div class="hidden sm:flex items-center gap-2 sm:gap-3">
-                <a href="portal.html" class="border border-primary text-[#121414] bg-primary px-3 sm:px-6 py-[7px] md:py-[8px] font-semibold rounded uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0 text-center shadow-[0_0_15px_rgba(242,202,80,0.3)]">Investor Login</a>
-                <button class="metallic-sheen text-[#3c2f00] px-3 sm:px-6 py-[8px] md:py-[9px] font-semibold rounded hover:opacity-90 transition-all duration-300 uppercase tracking-widest text-[9px] sm:text-[10px] md:text-[11px] flex-shrink-0" onclick="location.href='index.html#contact'">Connect</button>
-            </div>
-            
-            <button id="mobile-toggle" class="lg:hidden ml-2 text-primary focus:outline-none flex-shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+    <div class="text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
+        TERRAQUEST FZCO
     </div>
-
-    <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-[#121414] border-b border-white/5 shadow-2xl">
-        <div class="px-6 py-6 flex flex-col space-y-5 font-headline border-t border-white/5">
-            <a class="text-white/70 hover:text-[#D4AF37] text-lg transition-colors" href="index.html">Home</a>
-            <a class="text-white/70 hover:text-[#D4AF37] text-lg transition-colors" href="index.html#thesis">The Thesis</a>
-            <a class="text-white/70 hover:text-[#D4AF37] text-lg transition-colors" href="index.html#model">The Model</a>
-            
-            <div class="flex flex-col gap-3 pt-4 border-t border-white/10 sm:hidden">
-                <a href="portal.html" class="border border-primary text-[#121414] bg-primary px-4 py-3 font-semibold rounded text-center uppercase tracking-widest text-[11px] transition-all shadow-[0_0_15px_rgba(242,202,80,0.3)]">Investor Login</a>
-                <button class="metallic-sheen text-[#3c2f00] px-4 py-3 font-semibold rounded uppercase tracking-widest text-[11px]" onclick="location.href='index.html#contact'">Connect</button>
-            </div>
-        </div>
+    <div class="flex items-center gap-3 ml-auto text-xs text-white/50 tracking-widest uppercase">
+        Secure Portal
     </div>
 </nav>
 
 <main class="flex-grow flex items-center justify-center pt-32 pb-20 px-5 sm:px-6">
-    <div class="w-full max-w-3xl bg-surface-container border border-white/10 rounded-DEFAULT shadow-2xl p-4 sm:p-8">
+    <div class="w-full max-w-md bg-surface-container border border-white/10 rounded shadow-2xl p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#d4af37]"></div>
         
-        <iframe 
-            data-tally-src="https://tally.so/embed/Pd2lv0?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1" 
-            loading="lazy" 
-            width="100%" 
-            height="700" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0" 
-            title="Institutional Access Request">
-        </iframe>
-        
+        <div class="flex justify-center border-b border-white/10 mb-8">
+            <button onclick="toggleForm('login')" id="tab-login" class="px-6 py-3 text-xs tracking-widest uppercase font-bold text-primary border-b-2 border-primary transition-all">Log In</button>
+            <button onclick="toggleForm('register')" id="tab-register" class="px-6 py-3 text-xs tracking-widest uppercase font-bold text-white/40 hover:text-white transition-all">Request Access</button>
+        </div>
+
+        <div id="error-msg" class="hidden-form bg-red-900/30 border border-red-500/50 text-red-200 text-xs p-3 rounded mb-4 text-center"></div>
+
+        <div id="form-login">
+            <h2 class="text-2xl font-headline text-white mb-6 text-center">Existing Investors</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institutional Email</label>
+                    <input type="email" id="login-email" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="name@institution.com">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Password</label>
+                    <input type="password" id="login-password" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="••••••••">
+                </div>
+                <button onclick="handleLogin()" class="w-full bg-primary text-[#121414] px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white transition-all mt-4">
+                    Enter Portal
+                </button>
+            </div>
+        </div>
+
+        <div id="form-register" class="hidden-form">
+            <h2 class="text-2xl font-headline text-white mb-6 text-center">Request Access</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institution Name</label>
+                    <input type="text" id="reg-company" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Goldman Sachs">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institutional Email</label>
+                    <input type="email" id="reg-email" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="name@institution.com">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Create Password</label>
+                    <input type="password" id="reg-password" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Min 6 characters">
+                </div>
+                <button onclick="handleRegister()" class="w-full border border-primary text-primary px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-[#121414] transition-all mt-4">
+                    Submit Credentials
+                </button>
+            </div>
+        </div>
+
     </div>
 </main>
 
-<footer class="bg-[#0A0A0A] w-full py-8 md:py-10 px-5 sm:px-6 md:px-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0 mt-auto">
-    <div class="text-center md:text-left"><div class="font-['Inter'] text-[12px] md:text-[13px] tracking-wide text-white/30">&copy; 2026 TerraQuest Investment FZCO. All rights reserved.</div></div>
-    <div class="flex flex-wrap justify-center gap-6 md:gap-8 font-['Inter'] text-[10px] md:text-[11px] tracking-[0.1em] uppercase">
-        <a class="text-white/40 hover:text-primary transition-colors duration-300" href="disclosures.html">Regulatory Disclosures</a>
-        <a class="text-white/40 hover:text-primary transition-colors duration-300" href="privacy.html">Privacy Policy</a>
-    </div>
-</footer>
-
-<script async src="https://tally.so/widgets/embed.js"></script>
 <script>
-    // Utility to close mobile menu if clicking outside of it
-    document.addEventListener('click', function(event) {
-        const menu = document.getElementById('mobile-menu');
-        const toggle = document.getElementById('mobile-toggle');
-        if (menu.classList.contains('open') && !menu.contains(event.target) && !toggle.contains(event.target)) {
-            menu.classList.remove('open');
+    // UI Toggle Logic
+    function toggleForm(type) {
+        document.getElementById('error-msg').style.display = 'none';
+        if(type === 'login') {
+            document.getElementById('form-login').style.display = 'block';
+            document.getElementById('form-register').style.display = 'none';
+            document.getElementById('tab-login').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-login').classList.remove('text-white/40');
+            document.getElementById('tab-register').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-register').classList.add('text-white/40');
+        } else {
+            document.getElementById('form-login').style.display = 'none';
+            document.getElementById('form-register').style.display = 'block';
+            document.getElementById('tab-register').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-register').classList.remove('text-white/40');
+            document.getElementById('tab-login').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-login').classList.add('text-white/40');
         }
-    });
+    }
+
+    function showError(msg) {
+        const errorBox = document.getElementById('error-msg');
+        errorBox.textContent = msg;
+        errorBox.style.display = 'block';
+    }
+
+    // Firebase Auth Logic
+    function handleLogin() {
+        const email = document.getElementById('login-email').value;
+        const pass = document.getElementById('login-password').value;
+        
+        if(!email || !pass) return showError("Please enter email and password.");
+
+        window.signInWithEmailAndPassword(window.auth, email, pass)
+            .then((userCredential) => {
+                // Success! Redirect to Dashboard
+                window.location.href = 'dashboard.html';
+            })
+            .catch((error) => {
+                showError("Invalid credentials or user not approved.");
+            });
+    }
+
+    function handleRegister() {
+        const email = document.getElementById('reg-email').value;
+        const pass = document.getElementById('reg-password').value;
+        const company = document.getElementById('reg-company').value;
+
+        if(!email || !pass || !company) return showError("Please fill out all fields.");
+
+        window.createUserWithEmailAndPassword(window.auth, email, pass)
+            .then((userCredential) => {
+                // Registration Success! Redirect to the Pending "Velvet Rope" page
+                window.location.href = 'pending.html';
+            })
+            .catch((error) => {
+                showError(error.message);
+            });
+    }
 </script>
 
 </body>
