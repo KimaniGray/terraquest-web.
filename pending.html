@@ -3,70 +3,202 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Access Pending | TERRAQUEST</title>
+    <title>Secure Investor Portal | TERRAQUEST</title>
     
     <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+
+      // Your exact Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhErC-HBkPWh60enf5XfkB2AFjTKlEnu4",
+        authDomain: "terraquest-fb9ce.firebaseapp.com",
+        projectId: "terraquest-fb9ce",
+        storageBucket: "terraquest-fb9ce.firebasestorage.app",
+        messagingSenderId: "794154054419",
+        appId: "1:794154054419:web:1fbbb4f201d0d7221520e6",
+        measurementId: "G-BWGNBQP2ZM"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const googleProvider = new GoogleAuthProvider();
+
+      // Make auth functions globally available
+      window.auth = auth;
+      window.googleProvider = googleProvider;
+      window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+      window.signInWithPopup = signInWithPopup;
+    </script>
+
     <script>
-      tailwind.config = { 
-        darkMode: "class", 
-        theme: { 
-            extend: { 
-                colors: { 
-                    "primary": "#f2ca50", 
-                    "background": "#121414", 
-                    "surface": "#1f2020" 
-                },
-                fontFamily: {
-                    "headline": ["Noto Serif"],
-                    "body": ["Inter"]
-                }
-            } 
-        } 
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f2ca50",
+              "background": "#121414",
+              "surface-container": "#1f2020",
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"]
+            }
+          },
+        },
       }
     </script>
     <style>
         .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
+        .hidden-form { display: none; }
     </style>
 </head>
 <body class="bg-background text-[#e3e2e2] font-body flex flex-col min-h-screen">
 
-    <nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
-        <div class="text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
-            TERRAQUEST FZCO
-        </div>
-        <div class="flex items-center gap-3 ml-auto text-xs text-white/50 tracking-widest uppercase">
-            Status: Pending
-        </div>
-    </nav>
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+    <div class="text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
+        TERRAQUEST FZCO
+    </div>
+    <div class="flex items-center gap-3 ml-auto text-xs text-white/50 tracking-widest uppercase">
+        Secure Portal
+    </div>
+</nav>
 
-    <main class="flex-grow flex items-center justify-center p-6 text-center mt-20">
-        <div class="max-w-lg w-full bg-surface border border-white/10 rounded shadow-2xl p-8 md:p-12 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#d4af37]"></div>
-            
-            <span class="material-symbols-outlined text-primary text-5xl mb-6 block animate-pulse">hourglass_empty</span>
-            <h1 class="text-3xl font-headline text-white mb-4">Application Received</h1>
-            
-            <div class="w-12 h-px bg-primary/30 mx-auto mb-6"></div>
-            
-            <p class="text-white/60 leading-relaxed mb-8 text-sm md:text-base">
-                Your credentials have been securely transmitted to our administrative team. As an institutional-only facility, TerraQuest must manually verify all profiles before granting access to the Secure Deal Room. 
-                <br><br>
-                You will receive an email notification once your access is provisioned.
-            </p>
-            
-            <button onclick="window.location.href='index.html'" class="w-full sm:w-auto border border-white/20 text-white px-8 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white/5 hover:border-white/40 transition-all">
-                Return to Homepage
-            </button>
+<main class="flex-grow flex items-center justify-center pt-32 pb-20 px-5 sm:px-6">
+    <div class="w-full max-w-md bg-surface-container border border-white/10 rounded shadow-2xl p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#d4af37]"></div>
+        
+        <div class="flex justify-center border-b border-white/10 mb-8">
+            <button onclick="toggleForm('login')" id="tab-login" class="px-6 py-3 text-xs tracking-widest uppercase font-bold text-primary border-b-2 border-primary transition-all">Log In</button>
+            <button onclick="toggleForm('register')" id="tab-register" class="px-6 py-3 text-xs tracking-widest uppercase font-bold text-white/40 hover:text-white transition-all">Request Access</button>
         </div>
-    </main>
 
-    <footer class="w-full py-8 text-center border-t border-white/5">
-        <div class="font-body text-[10px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. All Rights Reserved.</div>
-    </footer>
+        <div id="error-msg" class="hidden-form bg-red-900/30 border border-red-500/50 text-red-200 text-xs p-3 rounded mb-4 text-center"></div>
+
+        <div id="form-login">
+            <h2 class="text-2xl font-headline text-white mb-6 text-center">Existing Investors</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institutional Email</label>
+                    <input type="email" id="login-email" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="name@institution.com">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Password</label>
+                    <input type="password" id="login-password" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="••••••••">
+                </div>
+                <button onclick="handleLogin()" class="w-full bg-primary text-[#121414] px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white transition-all mt-4">
+                    Enter Portal
+                </button>
+                
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-white/10"></div>
+                    <span class="flex-shrink-0 mx-4 text-white/30 text-xs uppercase tracking-widest">Or</span>
+                    <div class="flex-grow border-t border-white/10"></div>
+                </div>
+
+                <button onclick="handleGoogleAuth()" class="w-full flex items-center justify-center gap-3 bg-[#121414] border border-white/20 text-white px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:border-white/50 transition-all">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    Continue with Google
+                </button>
+            </div>
+        </div>
+
+        <div id="form-register" class="hidden-form">
+            <h2 class="text-2xl font-headline text-white mb-6 text-center">Request Access</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institution Name</label>
+                    <input type="text" id="reg-company" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Goldman Sachs">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institutional Email</label>
+                    <input type="email" id="reg-email" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="name@institution.com">
+                </div>
+                <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Intent / Ticket Size</label>
+                    <input type="text" id="reg-intent" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. $10M Allocation">
+                </div>
+                <button onclick="handleRegister()" class="w-full border border-primary text-primary px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-[#121414] transition-all mt-4">
+                    Submit Request
+                </button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    function toggleForm(type) {
+        document.getElementById('error-msg').style.display = 'none';
+        if(type === 'login') {
+            document.getElementById('form-login').style.display = 'block';
+            document.getElementById('form-register').style.display = 'none';
+            document.getElementById('tab-login').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-login').classList.remove('text-white/40');
+            document.getElementById('tab-register').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-register').classList.add('text-white/40');
+        } else {
+            document.getElementById('form-login').style.display = 'none';
+            document.getElementById('form-register').style.display = 'block';
+            document.getElementById('tab-register').classList.add('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-register').classList.remove('text-white/40');
+            document.getElementById('tab-login').classList.remove('text-primary', 'border-b-2', 'border-primary');
+            document.getElementById('tab-login').classList.add('text-white/40');
+        }
+    }
+
+    function showError(msg) {
+        const errorBox = document.getElementById('error-msg');
+        errorBox.textContent = msg;
+        errorBox.style.display = 'block';
+    }
+
+    function handleLogin() {
+        const email = document.getElementById('login-email').value;
+        const pass = document.getElementById('login-password').value;
+        
+        if(!email || !pass) return showError("Please enter email and password.");
+
+        window.signInWithEmailAndPassword(window.auth, email, pass)
+            .then((userCredential) => {
+                window.location.href = 'dashboard.html';
+            })
+            .catch((error) => {
+                showError("Invalid credentials or account disabled by administrator.");
+            });
+    }
+
+    function handleGoogleAuth() {
+        window.signInWithPopup(window.auth, window.googleProvider)
+            .then((result) => {
+                window.location.href = 'dashboard.html';
+            }).catch((error) => {
+                showError(error.message);
+            });
+    }
+
+    // THE WHITE GLOVE REGISTRATION: Just redirects to the velvet rope
+    function handleRegister() {
+        const email = document.getElementById('reg-email').value;
+        const company = document.getElementById('reg-company').value;
+
+        if(!email || !company) return showError("Please fill out all fields.");
+
+        // Clear fields so it looks clean if they hit the back button
+        document.getElementById('reg-email').value = '';
+        document.getElementById('reg-company').value = '';
+        document.getElementById('reg-intent').value = '';
+
+        // In a live setting, you would email this data to info@terraqi.trade. 
+        // For now, we securely route them to the waiting room.
+        window.location.href = 'pending.html';
+    }
+</script>
 
 </body>
 </html>
