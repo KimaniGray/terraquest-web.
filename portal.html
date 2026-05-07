@@ -10,17 +10,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-      import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
-      // 🛑 WAIT! You will paste your Firebase Keys right here later 🛑
+      // Your exact Firebase configuration
       const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_PROJECT_ID.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
+        apiKey: "AIzaSyDhErC-HBkPWh60enf5XfkB2AFjTKlEnu4",
+        authDomain: "terraquest-fb9ce.firebaseapp.com",
+        projectId: "terraquest-fb9ce",
+        storageBucket: "terraquest-fb9ce.firebasestorage.app",
+        messagingSenderId: "794154054419",
+        appId: "1:794154054419:web:1fbbb4f201d0d7221520e6",
+        measurementId: "G-BWGNBQP2ZM"
       };
 
       // Initialize Firebase
@@ -120,7 +121,6 @@
 </main>
 
 <script>
-    // UI Toggle Logic
     function toggleForm(type) {
         document.getElementById('error-msg').style.display = 'none';
         if(type === 'login') {
@@ -146,7 +146,6 @@
         errorBox.style.display = 'block';
     }
 
-    // Firebase Auth Logic
     function handleLogin() {
         const email = document.getElementById('login-email').value;
         const pass = document.getElementById('login-password').value;
@@ -155,11 +154,10 @@
 
         window.signInWithEmailAndPassword(window.auth, email, pass)
             .then((userCredential) => {
-                // Success! Redirect to Dashboard
                 window.location.href = 'dashboard.html';
             })
             .catch((error) => {
-                showError("Invalid credentials or user not approved.");
+                showError("Invalid credentials. Please verify your email and password.");
             });
     }
 
@@ -172,8 +170,8 @@
 
         window.createUserWithEmailAndPassword(window.auth, email, pass)
             .then((userCredential) => {
-                // Registration Success! Redirect to the Pending "Velvet Rope" page
-                window.location.href = 'pending.html';
+                // Eventually we will route this to pending.html, but for testing, let's send them to dashboard
+                window.location.href = 'dashboard.html';
             })
             .catch((error) => {
                 showError(error.message);
