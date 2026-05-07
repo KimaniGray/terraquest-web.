@@ -1,212 +1,137 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html class="dark scroll-smooth" lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TSAVO Series 1 | Institutional Offering</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Investor Dashboard | TERRAQUEST</title>
     
     <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhErC-HBkPWh60enf5XfkB2AFjTKlEnu4",
+        authDomain: "terraquest-fb9ce.firebaseapp.com",
+        projectId: "terraquest-fb9ce",
+        storageBucket: "terraquest-fb9ce.firebasestorage.app",
+        messagingSenderId: "794154054419",
+        appId: "1:794154054419:web:1fbbb4f201d0d7221520e6"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Instantly kicks out anyone who is not logged in
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          window.location.replace('portal.html');
+        } else {
+          // Optional: Display the user's email in the dashboard
+          document.getElementById('user-email-display').textContent = user.email;
+        }
+      });
+
+      // Makes the logout function work
+      window.logoutUser = function() {
+          signOut(auth).then(() => {
+              window.location.replace('portal.html');
+          });
+      }
+    </script>
+
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "tsavo-bg": "#FFFFFF",      
-              "tsavo-text": "#111827",    
-              "tsavo-terracotta": "#C85A32", 
-              "tsavo-ochre": "#DDA73B",   
-              "tsavo-cocoa": "#4A3525",   
-              "tsavo-surface": "#F9FAFB", 
+              "primary": "#f2ca50",
+              "background": "#121414",
+              "surface": "#1f2020",
             },
             fontFamily: {
-              "serif": ["Noto Serif", "serif"],
-              "sans": ["Inter", "sans-serif"],
+              "headline": ["Noto Serif"],
+              "body": ["Inter"]
             }
           },
         },
       }
     </script>
     <style>
-        body { background-color: #FFFFFF; color: #111827; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .chapter-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #C85A32, rgba(200, 90, 50, 0.05)); transform: translateX(-50%); z-index: 0; }
-        @media (max-width: 768px) { .chapter-line { left: 24px; transform: none; } }
-        .doc-card { background: #FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
     </style>
 </head>
-<body class="font-sans antialiased relative selection:bg-tsavo-terracotta/20">
+<body class="bg-background text-[#e3e2e2] font-body flex flex-col min-h-screen">
 
-<nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <img src="Tsavo-Logo.png" alt="Tsavo Logo" class="h-10 md:h-12 w-auto object-contain fallback-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
-            <div style="display:none;" class="font-serif font-black text-tsavo-text tracking-widest uppercase text-lg md:text-xl">
-                TSAVO
-            </div>
-        </div>
-        <div class="flex items-center gap-4 text-xs tracking-widest uppercase text-gray-500">
-            <span class="hidden sm:inline">Secured Private Credit</span>
-            <a href="dashboard.html" class="border border-gray-300 text-gray-600 px-3 py-1.5 rounded hover:bg-gray-50 transition-all">Exit</a>
-        </div>
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+    <div class="text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
+        TERRAQUEST FZCO
+    </div>
+    <div class="flex items-center gap-4 text-xs tracking-widest uppercase">
+        <span id="user-email-display" class="hidden sm:inline text-white/50 lowercase tracking-normal"></span>
+        <button onclick="logoutUser()" class="border border-white/20 text-white/70 px-4 py-2 rounded hover:text-white hover:border-white/50 transition-all">Secure Exit</button>
     </div>
 </nav>
 
-<section class="pt-40 pb-20 px-4 sm:px-6 relative z-10 text-center max-w-4xl mx-auto">
-    <p class="text-tsavo-terracotta font-bold tracking-[0.3em] uppercase text-xs mb-6">Institutional Offering Memorandum</p>
-    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-tsavo-text mb-8 leading-tight">Transforming Commodities into Institutional-Grade Assets.</h1>
-    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-12 font-light">
-        A USD 400M structured facility designed to systematically strip out agricultural risk, substituting traditional borrower default risk with A-Rated institutional security and physical collateral[cite: 7, 8].
-    </p>
-    <div class="flex flex-wrap justify-center gap-8 border-y border-gray-200 py-6 bg-tsavo-surface rounded-lg">
-        <div><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Target Net Yield</p><p class="text-2xl font-serif text-tsavo-terracotta font-bold">15-17.5%</p></div>
-        <div class="border-l border-gray-300 pl-8"><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Tenor</p><p class="text-2xl font-serif text-tsavo-text font-bold">12 Months</p></div>
-        <div class="border-l border-gray-300 pl-8"><p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-bold">Series 1 Size</p><p class="text-2xl font-serif text-tsavo-text font-bold">$100M</p></div>
-    </div>
-</section>
+<main class="flex-grow pt-32 pb-20 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <header class="mb-12 border-b border-white/10 pb-8">
+        <h1 class="text-3xl md:text-4xl font-headline text-white mb-2">Institutional Dashboard</h1>
+        <p class="text-white/50 text-sm tracking-wide">Active Offerings & Secure Data Rooms</p>
+    </header>
 
-<div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12">
-    <div class="chapter-line hidden md:block"></div>
-
-    <div class="relative z-10 flex flex-col md:flex-row items-center mb-32 group">
-        <div class="md:w-1/2 md:pr-16 text-left md:text-right mb-8 md:mb-0 bg-white/80 md:bg-transparent p-4 md:p-0 rounded-lg">
-            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 01 &mdash; The Core Mechanism</h2>
-            <h3 class="font-serif text-3xl font-bold text-tsavo-text mb-4">The Repo + Plus Structure</h3>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
-                This is not an unsecured loan. We deploy capital through a structured "True Sale" Commodity Repurchase Agreement, moving through three highly controlled stages to guarantee a fixed exit[cite: 6, 7]:
-            </p>
-            <ul class="text-gray-600 text-sm space-y-3 text-left md:text-right">
-                <li><span class="text-tsavo-terracotta font-bold">1. Purchase:</span> The SPV acquires absolute legal title to White Non-GMO Maize at a deep ~30% discount to market price, evidenced by statutory Warehouse Receipts (WHRs)[cite: 6, 7].</li>
-                <li><span class="text-tsavo-terracotta font-bold">2. Repurchase:</span> The Food Reserve Agency (FRA) executes a forward contract to repurchase the commodity at a fixed, pre-determined premium within 12 months[cite: 6, 7].</li>
-                <li><span class="text-tsavo-terracotta font-bold">3. Liquidation (The Safety Valve):</span> If the FRA delays, the "Maize or Cash" protocol activates. The Security Trustee automatically shifts the exit strategy to secondary market liquidation, executing pre-arranged offtake agreements (e.g., the 540,000 MT capacity with APAK in Kenya) to extinguish the debt[cite: 7].</li>
-            </ul>
-        </div>
-        <div class="hidden md:flex w-12 h-12 bg-white border-2 border-tsavo-terracotta rounded-full items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 shadow-[0_0_15px_rgba(200,90,50,0.2)]">
-            <span class="material-symbols-outlined text-tsavo-terracotta text-sm">sync_alt</span>
-        </div>
-        <div class="md:w-1/2 md:pl-16 w-full">
-            <div class="doc-card p-6 rounded-lg text-left border-l-4 border-l-tsavo-terracotta">
-                <h4 class="text-tsavo-text font-bold mb-2">Review Repo Mechanics</h4>
-                <p class="text-gray-500 text-xs mb-4">Access the Master Commodity Sale, Repurchase & Liquidation Agreement and Term Sheets.</p>
-                <a href="http://136.117.2.186:3000/folder-repo-structure" target="_blank" class="inline-flex items-center text-xs tracking-widest uppercase font-bold text-tsavo-terracotta hover:text-tsavo-ochre transition-colors">
-                    Drop into Folder <span class="material-symbols-outlined text-sm ml-2">folder_open</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative z-10 flex flex-col md:flex-row-reverse items-center mb-32 group">
-        <div class="md:w-1/2 md:pl-16 text-left mb-8 md:mb-0 bg-white/80 md:bg-transparent p-4 md:p-0 rounded-lg">
-            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 02 &mdash; Asset Integrity</h2>
-            <h3 class="font-serif text-3xl font-bold text-tsavo-text mb-4">Physical Custody: The Collateral Manager</h3>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
-                Operational and physical control of the underlying asset is entirely ceded to an independent, internationally recognized Collateral Manager (CMI). The Sovereign Obligor (FRA) is legally and physically locked out of the warehouses[cite: 7].
-            </p>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                CMI ensures Good Merchantable Quality (GMQ) through active onsite management. Crucially, any volumetric or quality loss exceeding 10% is contractually deemed operational negligence, triggering CMI’s Professional Indemnity (PI) Insurance (underwritten by Tier-1 insurers) to make the SPV whole[cite: 6, 7].
-            </p>
-        </div>
-        <div class="hidden md:flex w-12 h-12 bg-white border-2 border-tsavo-terracotta rounded-full items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 shadow-[0_0_15px_rgba(200,90,50,0.2)]">
-            <span class="material-symbols-outlined text-tsavo-terracotta text-sm">warehouse</span>
-        </div>
-        <div class="md:w-1/2 md:pr-16 w-full flex justify-end">
-            <div class="doc-card p-6 rounded-lg text-left w-full md:w-[80%] border-r-4 border-r-tsavo-terracotta">
-                <h4 class="text-tsavo-text font-bold mb-2">Verify CMI & Protections</h4>
-                <p class="text-gray-500 text-xs mb-4">Access the Collateral Management Agreement (CMA), CMI Corporate Profile, and PI Insurance Cover.</p>
-                <a href="http://136.117.2.186:3000/folder-collateral-management" target="_blank" class="inline-flex items-center text-xs tracking-widest uppercase font-bold text-tsavo-terracotta hover:text-tsavo-ochre transition-colors">
-                    Drop into Folder <span class="material-symbols-outlined text-sm ml-2">folder_open</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative z-10 flex flex-col items-center mb-32 group pt-10">
-        <div class="hidden md:flex w-16 h-16 bg-tsavo-terracotta rounded-full items-center justify-center absolute left-1/2 transform -translate-x-1/2 -top-8 z-20 shadow-[0_0_30px_rgba(200,90,50,0.3)]">
-            <span class="material-symbols-outlined text-white text-2xl">shield_locked</span>
-        </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
-        <div class="text-center max-w-3xl mb-12 bg-white/90 p-6 rounded-lg">
-            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 03 &mdash; Risk Transfer</h2>
-            <h3 class="font-serif text-4xl md:text-5xl font-bold text-tsavo-text mb-6">The Insurance & Guarantee Matrix</h3>
-            <p class="text-gray-600 leading-relaxed">
-                We systematically strip out localized risk by transferring it to heavily capitalized, A-Rated international balance sheets. The SPV (Corporate Trustee) is named as the Sole Loss Payee across all policies[cite: 7, 8].
-            </p>
+        <div class="bg-surface border border-white/10 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 group">
+            <div class="h-2 w-full bg-gradient-to-r from-primary to-[#d4af37]"></div>
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <span class="text-[10px] text-primary uppercase tracking-[0.2em] font-bold block mb-2">Series 1 Open</span>
+                        <h2 class="text-2xl font-headline text-white mb-1">Tsavo Resilience Food Fund</h2>
+                        <p class="text-white/50 text-sm">USD 100M Structured Facility</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-4xl group-hover:text-primary transition-colors">account_balance</span>
+                </div>
+                
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    A highly structured, de-risked agricultural financing facility substituting borrower risk with A-Rated institutional security and physical collateral via a True Sale Repo mechanism.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="border border-white/5 bg-[#121414] p-4 rounded">
+                        <span class="text-[10px] text-white/40 uppercase tracking-widest block mb-1">Target Yield</span>
+                        <span class="text-primary font-headline text-xl">15-17.5%</span>
+                    </div>
+                    <div class="border border-white/5 bg-[#121414] p-4 rounded">
+                        <span class="text-[10px] text-white/40 uppercase tracking-widest block mb-1">Tenor</span>
+                        <span class="text-white font-headline text-xl">12 Months</span>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='tsavo-series-1.html'" class="w-full bg-primary text-[#121414] px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white transition-all flex items-center justify-center gap-2">
+                    Enter Secure Deal Room <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-            <div class="doc-card p-6 rounded-lg border-t-4 border-t-[#3b82f6] hover:bg-tsavo-surface transition-colors">
-                <span class="material-symbols-outlined text-[#3b82f6] text-3xl mb-3 block">gpp_good</span>
-                <h4 class="text-tsavo-text font-bold text-sm mb-2">Political Risk & Trade Credit (PRI)</h4>
-                <p class="text-gray-600 text-xs leading-relaxed">Substitutes borrower credit risk. Covers breach of contract, currency inconvertibility, and expropriation (e.g., if export permits are revoked)[cite: 7].</p>
-            </div>
-            <div class="doc-card p-6 rounded-lg border-t-4 border-t-[#10b981] hover:bg-tsavo-surface transition-colors">
-                <span class="material-symbols-outlined text-[#10b981] text-3xl mb-3 block">lock_person</span>
-                <h4 class="text-tsavo-text font-bold text-sm mb-2">Fidelity Guarantee (FG)</h4>
-                <p class="text-gray-600 text-xs leading-relaxed">Indemnifies the Issuer against financial losses directly resulting from fraudulent acts, forgery, or internal misappropriation of assets[cite: 8, 9].</p>
-            </div>
-            <div class="doc-card p-6 rounded-lg border-t-4 border-t-tsavo-cocoa hover:bg-tsavo-surface transition-colors">
-                <span class="material-symbols-outlined text-tsavo-cocoa text-3xl mb-3 block">local_fire_department</span>
-                <h4 class="text-tsavo-text font-bold text-sm mb-2">Property All-Risk (Fire & Burglary)</h4>
-                <p class="text-gray-600 text-xs leading-relaxed">Comprehensive Stock Throughput coverage protecting the physical grain against catastrophic fire, flood, structural collapse, or external theft[cite: 7, 8].</p>
-            </div>
-            <div class="doc-card p-6 rounded-lg border-t-4 border-t-tsavo-ochre hover:bg-tsavo-surface transition-colors shadow-[0_0_15px_rgba(221,167,59,0.2)]">
-                <span class="material-symbols-outlined text-tsavo-ochre text-3xl mb-3 block">verified</span>
-                <h4 class="text-tsavo-text font-bold text-sm mb-2">The Dhamana Guarantee (Targeted)</h4>
-                <p class="text-gray-600 text-xs leading-relaxed">An irrevocable, non-accelerating financial wrap. This upgrades the instrument for Pension Funds from Category 14 (Alternative Assets) to Category 10/8 (Corporate Bonds), vastly increasing allocation headroom[cite: 7, 8].</p>
+        <div class="bg-surface/50 border border-white/5 rounded-lg overflow-hidden relative">
+            <div class="p-8 h-full flex flex-col justify-center items-center text-center opacity-50">
+                <span class="material-symbols-outlined text-white/20 text-5xl mb-4">lock</span>
+                <h2 class="text-xl font-headline text-white mb-2">Upcoming Tranches</h2>
+                <p class="text-white/50 text-sm max-w-xs">Further allocations are currently restricted pending completion of Series 1 deployment.</p>
             </div>
         </div>
 
-        <div class="mt-12 text-center">
-            <a href="http://136.117.2.186:3000/folder-insurance-matrix" target="_blank" class="inline-flex items-center bg-tsavo-terracotta text-white px-8 py-4 text-xs tracking-[0.2em] uppercase font-bold rounded hover:bg-tsavo-cocoa transition-all shadow-lg">
-                Drop into Insurance & Guarantee Folder <span class="material-symbols-outlined text-sm ml-2">folder_open</span>
-            </a>
-        </div>
     </div>
+</main>
 
-    <div class="relative z-10 flex flex-col md:flex-row items-center mb-20 group">
-        <div class="md:w-1/2 md:pr-16 text-left md:text-right mb-8 md:mb-0 bg-white/80 md:bg-transparent p-4 md:p-0 rounded-lg">
-            <h2 class="text-tsavo-ochre text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Chapter 04 &mdash; Fiduciary Framework</h2>
-            <h3 class="font-serif text-3xl font-bold text-tsavo-text mb-4">The Capital Stack & Governance</h3>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
-                The SPV (Tsavo SEZ SPV Limited) is a 100% Trust-owned, bankruptcy-remote vehicle. Fiduciary oversight is clinically segregated across Tier-1 partners to prevent conflict of interest[cite: 7]:
-            </p>
-            <ul class="text-gray-600 text-sm space-y-2 text-left md:text-right">
-                <li><span class="font-bold">Arrangers:</span> TerraQuest (Master Lead Arranger) & Unicorn Capital Partners (Co-Lead).</li>
-                <li><span class="font-bold">Security Trustee & Custodian:</span> MTC Trust holds absolute legal title; ABSA Bank controls the movement of all Escrow and Collection funds.</li>
-                <li><span class="font-bold">Investors:</span> Comprising Sovereign Anchors (e.g., NSSF, CPF) for high-level geopolitical protection, alongside A1 Mali Trust acting as the designated Aggregator for ticket sizes under $5M[cite: 7, 8, 9].</li>
-            </ul>
-        </div>
-        <div class="hidden md:flex w-12 h-12 bg-white border-2 border-tsavo-terracotta rounded-full items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-20 shadow-[0_0_15px_rgba(200,90,50,0.2)]">
-            <span class="material-symbols-outlined text-tsavo-terracotta text-sm">account_tree</span>
-        </div>
-        <div class="md:w-1/2 md:pl-16 w-full">
-            <div class="doc-card p-6 rounded-lg text-left border-l-4 border-l-tsavo-terracotta">
-                <h4 class="text-tsavo-text font-bold mb-2">Review Governance & Stack</h4>
-                <p class="text-gray-500 text-xs mb-4">Access the Comprehensive Q&A Memorandum, Trust Deeds, and SPV Formation documents.</p>
-                <a href="http://136.117.2.186:3000/folder-governance-stack" target="_blank" class="inline-flex items-center text-xs tracking-widest uppercase font-bold text-tsavo-terracotta hover:text-tsavo-ochre transition-colors">
-                    Drop into Folder <span class="material-symbols-outlined text-sm ml-2">folder_open</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<section class="border-t border-gray-200 bg-tsavo-surface py-20 text-center px-4">
-    <h2 class="font-serif text-3xl text-tsavo-text mb-6">Access the Complete Data Room</h2>
-    <p class="text-gray-600 mb-8 max-w-xl mx-auto">
-        If you wish to review the entire Information Memorandum in a single directory, including full KYC packs and historical macro-data, proceed below.
-    </p>
-    <a href="http://136.117.2.186:3000/folder-master-directory" target="_blank" class="inline-flex items-center bg-tsavo-text text-white px-8 py-4 text-xs tracking-[0.2em] uppercase font-bold rounded hover:bg-tsavo-cocoa transition-all">
-        Open Master Directory <span class="material-symbols-outlined text-sm ml-2">arrow_forward</span>
-    </a>
-</section>
-
-<footer class="bg-tsavo-text w-full py-8 text-center">
-    <div class="font-sans text-[10px] tracking-widest uppercase text-white/50">&copy; 2026 TerraQuest Investment FZCO & Unicorn Capital Partners.</div>
+<footer class="w-full py-8 text-center border-t border-white/5">
+    <div class="font-body text-[10px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. All Rights Reserved.</div>
 </footer>
 
 </body>
