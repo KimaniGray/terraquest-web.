@@ -6,10 +6,45 @@
     <title>Investor Dashboard | TERRAQUEST</title>
     
     <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhErC-HBkPWh60enf5XfkB2AFjTKlEnu4",
+        authDomain: "terraquest-fb9ce.firebaseapp.com",
+        projectId: "terraquest-fb9ce",
+        storageBucket: "terraquest-fb9ce.firebasestorage.app",
+        messagingSenderId: "794154054419",
+        appId: "1:794154054419:web:1fbbb4f201d0d7221520e6"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Instantly kicks out anyone who is not logged in
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          window.location.replace('portal.html');
+        } else {
+          // Optional: Display the user's email in the dashboard
+          document.getElementById('user-email-display').textContent = user.email;
+        }
+      });
+
+      // Makes the logout function work
+      window.logoutUser = function() {
+          signOut(auth).then(() => {
+              window.location.replace('portal.html');
+          });
+      }
+    </script>
+
+    <script>
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -17,13 +52,11 @@
             colors: {
               "primary": "#f2ca50",
               "background": "#121414",
-              "on-surface": "#e3e2e2",
-              "surface-container": "#1f2020",
+              "surface": "#1f2020",
             },
             fontFamily: {
               "headline": ["Noto Serif"],
-              "body": ["Inter"],
-              "display": ["Playfair Display"]
+              "body": ["Inter"]
             }
           },
         },
@@ -31,67 +64,74 @@
     </script>
     <style>
         .glass-nav { background: rgba(18, 20, 20, 0.95); backdrop-filter: blur(20px); }
-        .no-line-rule { border: none !important; }
     </style>
 </head>
-<body class="bg-background text-on-background font-body flex flex-col min-h-screen selection:bg-primary/30">
+<body class="bg-background text-[#e3e2e2] font-body flex flex-col min-h-screen">
 
 <nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
-    <div class="text-[16px] sm:text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline whitespace-nowrap cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
+    <div class="text-xl md:text-2xl font-bold text-[#D4AF37] tracking-[0.1em] font-headline cursor-pointer hover:opacity-80 transition-opacity" onclick="location.href='index.html'">
         TERRAQUEST FZCO
     </div>
-    <div class="flex items-center gap-3 ml-auto text-[9px] sm:text-xs text-white/50 tracking-widest uppercase text-right">
-        Secure Investor Portal
+    <div class="flex items-center gap-4 text-xs tracking-widest uppercase">
+        <span id="user-email-display" class="hidden sm:inline text-white/50 lowercase tracking-normal"></span>
+        <button onclick="logoutUser()" class="border border-white/20 text-white/70 px-4 py-2 rounded hover:text-white hover:border-white/50 transition-all">Secure Exit</button>
     </div>
 </nav>
 
-<main class="flex-grow pt-32 pb-20 px-5 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full">
-    
-    <div class="mb-12 border-b border-white/10 pb-6">
-        <h1 class="text-3xl md:text-4xl font-headline text-white mb-2">Current Offerings</h1>
-        <p class="text-white/50 text-sm md:text-base">Select a specific facility to access its secure Deal Room and due diligence materials.</p>
-    </div>
+<main class="flex-grow pt-32 pb-20 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <header class="mb-12 border-b border-white/10 pb-8">
+        <h1 class="text-3xl md:text-4xl font-headline text-white mb-2">Institutional Dashboard</h1>
+        <p class="text-white/50 text-sm tracking-wide">Active Offerings & Secure Data Rooms</p>
+    </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
-        <div class="bg-surface-container border border-white/10 hover:border-primary/50 transition-all duration-300 rounded p-6 flex flex-col h-full group relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#d4af37]"></div>
-            <div class="flex justify-between items-start mb-4 pt-2">
-                <span class="text-[10px] tracking-widest uppercase text-[#121414] font-bold bg-primary px-2 py-1 rounded shadow-[0_0_10px_rgba(242,202,80,0.3)]">Live Offering</span>
-                <span class="text-white/40 text-xs tracking-widest uppercase">Series 1</span>
+        <div class="bg-surface border border-white/10 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 group">
+            <div class="h-2 w-full bg-gradient-to-r from-primary to-[#d4af37]"></div>
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <span class="text-[10px] text-primary uppercase tracking-[0.2em] font-bold block mb-2">Series 1 Open</span>
+                        <h2 class="text-2xl font-headline text-white mb-1">Tsavo Resilience Food Fund</h2>
+                        <p class="text-white/50 text-sm">USD 100M Structured Facility</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-4xl group-hover:text-primary transition-colors">account_balance</span>
+                </div>
+                
+                <p class="text-white/70 text-sm leading-relaxed mb-8">
+                    A highly structured, de-risked agricultural financing facility substituting borrower risk with A-Rated institutional security and physical collateral via a True Sale Repo mechanism.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="border border-white/5 bg-[#121414] p-4 rounded">
+                        <span class="text-[10px] text-white/40 uppercase tracking-widest block mb-1">Target Yield</span>
+                        <span class="text-primary font-headline text-xl">15-17.5%</span>
+                    </div>
+                    <div class="border border-white/5 bg-[#121414] p-4 rounded">
+                        <span class="text-[10px] text-white/40 uppercase tracking-widest block mb-1">Tenor</span>
+                        <span class="text-white font-headline text-xl">12 Months</span>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='tsavo-series-1.html'" class="w-full bg-primary text-[#121414] px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-white transition-all flex items-center justify-center gap-2">
+                    Enter Secure Deal Room <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
             </div>
-            <h3 class="text-2xl font-headline text-white mb-3">Tsavo Resilience Food Fund 1</h3>
-            <p class="text-white/60 text-sm mb-6 flex-grow leading-relaxed">
-                A USD 400M structured facility engineered as a commercial Repurchase Agreement (Repo), securing physical legal title to White Non-GMO Maize.
-            </p>
-            <div class="space-y-2 mb-8 text-sm">
-                <div class="flex justify-between border-b border-white/5 pb-2"><span class="text-white/40">Target Yield</span><span class="text-primary font-semibold">15 - 17.5% IRR</span></div>
-                <div class="flex justify-between border-b border-white/5 pb-2 pt-1"><span class="text-white/40">Tenor</span><span class="text-white">12 Months</span></div>
-            </div>
-            <a href="tsavo-series-1.html" class="w-full text-center border border-primary text-primary px-4 py-3 text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-background transition-all">Enter Deal Room</a>
         </div>
 
-        <div class="bg-surface-container border border-white/5 p-6 flex flex-col h-full opacity-60">
-            <div class="flex justify-between items-start mb-4">
-                <span class="text-[10px] tracking-widest uppercase text-white/50 font-bold bg-white/5 px-2 py-1 rounded border border-white/10">Pipeline</span>
-                <span class="text-white/40 text-xs tracking-widest uppercase">Series 2</span>
+        <div class="bg-surface/50 border border-white/5 rounded-lg overflow-hidden relative">
+            <div class="p-8 h-full flex flex-col justify-center items-center text-center opacity-50">
+                <span class="material-symbols-outlined text-white/20 text-5xl mb-4">lock</span>
+                <h2 class="text-xl font-headline text-white mb-2">Upcoming Tranches</h2>
+                <p class="text-white/50 text-sm max-w-xs">Further allocations are currently restricted pending completion of Series 1 deployment.</p>
             </div>
-            <h3 class="text-2xl font-headline text-white/50 mb-3 blur-[2px] select-none">Agri-Infrastructure Fund</h3>
-            <p class="text-white/40 text-sm mb-6 flex-grow leading-relaxed blur-[1.5px] select-none">
-                Targeting mid-cap processing and warehousing turnaround assets in the COMESA region with sovereign guarantees.
-            </p>
-            <div class="space-y-2 mb-8 text-sm blur-[1.5px] select-none">
-                <div class="flex justify-between border-b border-white/5 pb-2"><span class="text-white/40">Target Yield</span><span class="text-white/50">TBD</span></div>
-                <div class="flex justify-between border-b border-white/5 pb-2 pt-1"><span class="text-white/40">Tenor</span><span class="text-white/50">5-7 Years</span></div>
-            </div>
-            <button disabled class="w-full text-center border border-white/10 text-white/30 px-4 py-3 text-xs tracking-widest uppercase font-bold rounded cursor-not-allowed">Opening Q4 2026</button>
         </div>
 
     </div>
 </main>
 
-<footer class="bg-[#0A0A0A] w-full py-8 border-t border-white/5 text-center mt-auto">
-    <div class="font-['Inter'] text-[11px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. Private & Confidential.</div>
+<footer class="w-full py-8 text-center border-t border-white/5">
+    <div class="font-body text-[10px] tracking-widest uppercase text-white/30">&copy; 2026 TerraQuest Investment FZCO. All Rights Reserved.</div>
 </footer>
 
 </body>
