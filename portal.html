@@ -13,6 +13,7 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
       import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
+      // Your exact Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyDhErC-HBkPWh60enf5XfkB2AFjTKlEnu4",
         authDomain: "terraquest-fb9ce.firebaseapp.com",
@@ -169,6 +170,7 @@
         errorBox.style.display = 'block';
     }
 
+    // Handles returning investors (Sends them to the data room vault)
     function handleLogin() {
         const email = document.getElementById('login-email').value;
         const pass = document.getElementById('login-password').value;
@@ -180,10 +182,11 @@
                 window.location.href = 'dashboard.html';
             })
             .catch((error) => {
-                showError("Invalid credentials. Please verify your email and password.");
+                showError("Invalid credentials or account disabled by administrator.");
             });
     }
 
+    // Handles brand new investors (Sends them to the velvet rope / waiting room)
     function handleRegister() {
         const email = document.getElementById('reg-email').value;
         const pass = document.getElementById('reg-password').value;
@@ -193,17 +196,17 @@
 
         window.createUserWithEmailAndPassword(window.auth, email, pass)
             .then((userCredential) => {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'pending.html';
             })
             .catch((error) => {
                 showError(error.message);
             });
     }
 
+    // Handles Google Sign-In (Assumes they are vetted if they are using this, routes to dashboard)
     function handleGoogleAuth() {
         window.signInWithPopup(window.auth, window.googleProvider)
             .then((result) => {
-                // Successfully signed in with Google
                 window.location.href = 'dashboard.html';
             }).catch((error) => {
                 showError(error.message);
