@@ -115,19 +115,35 @@
         <div id="form-register" class="hidden-form">
             <h2 class="text-2xl font-headline text-white mb-6 text-center">Request Access</h2>
             <div class="space-y-4">
+                
                 <div>
-                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institution Name</label>
-                    <input type="text" id="reg-company" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Goldman Sachs">
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Person's Name</label>
+                    <input type="text" id="reg-name" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Jane Doe">
                 </div>
+
                 <div>
                     <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Institutional Email</label>
                     <input type="email" id="reg-email" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="name@institution.com">
                 </div>
                 
                 <div>
+                    <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Type of Institution</label>
+                    <select id="reg-inst-type" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
+                        <option value="">Select Category...</option>
+                        <option value="Pension Fund">Pension Fund</option>
+                        <option value="Sovereign Wealth Fund">Sovereign Wealth Fund</option>
+                        <option value="Family Office">Family Office</option>
+                        <option value="Asset Manager">Asset Manager / Fund of Funds</option>
+                        <option value="Commercial Bank">Commercial Bank</option>
+                        <option value="DFI">Development Finance Institution (DFI)</option>
+                        <option value="Other">Other Institutional</option>
+                    </select>
+                </div>
+
+                <div>
                     <label class="block text-[10px] text-white/50 uppercase tracking-widest mb-1">Target Investment</label>
                     <select id="reg-product" class="w-full bg-[#121414] border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
-                        <option value="Unspecified">Select Offering...</option>
+                        <option value="">Select Offering...</option>
                         <option value="Tsavo Series 1">Tsavo Series 1 (Active)</option>
                         <option value="Commodity Trade Finance">Commodity Trade Finance</option>
                         <option value="General Allocation">General Portfolio Allocation</option>
@@ -193,22 +209,26 @@
             });
     }
 
-    // Writes to Firebase, drops them at pending.html
+    // Writes ALL the new data to Firebase
     async function handleRegister() {
+        const name = document.getElementById('reg-name').value;
         const email = document.getElementById('reg-email').value;
-        const company = document.getElementById('reg-company').value;
+        const instType = document.getElementById('reg-inst-type').value;
         const product = document.getElementById('reg-product').value;
 
-        if(!email || !company) return showError("Please fill out required fields.");
+        if(!name || !email || !instType || !product) {
+            return showError("Please fill out all required fields.");
+        }
 
         const btn = document.getElementById('submit-btn');
         btn.innerText = "Transmitting securely...";
 
         try {
             await window.addDoc(window.collection(window.db, "pending_investors"), {
+                name: name,
                 email: email,
-                institution: company,
-                product_interest: product, // Saved to database
+                institution_type: instType,
+                product_interest: product, 
                 status: "Pending",
                 timestamp: window.serverTimestamp()
             });
