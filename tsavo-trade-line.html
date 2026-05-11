@@ -79,79 +79,99 @@
         .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; }
         .highlight { color: #b45309; }
 
-        /* 3. COVER PAGE SPECIFICS */
+        /* 3. COVER PAGE SPECIFICS (Updated to Institutional Brand Guide) */
         .cover-page {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            height: 100%;
-            width: 100%;
-            background-color: #0f172a;
-        }
-        
-        .cover-left {
-            padding: 20mm;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            color: #ffffff;
-            position: relative;
-            z-index: 10;
-        }
-
-        .cover-right {
-            position: relative;
+            align-items: center;
             height: 100%;
             width: 100%;
+            background-color: #ffffff;
+            padding: 15mm 20mm;
+            text-align: center;
+            border: 8px solid #0f172a;
+        }
+        
+        .cover-top-disclaimer {
+            width: 100%;
+            text-align: right;
+            font-size: 11px;
+            color: #b45309;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.5;
         }
 
-        .cover-right img {
+        .cover-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: -15mm;
+        }
+
+        .tsavo-tree-logo {
+            width: 190px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .cover-title-area h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            color: #0f172a;
+            margin-bottom: 5px;
+            letter-spacing: 4px;
+        }
+        
+        .cover-title-area h2 {
+            font-size: 22px;
+            color: #059669;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .cover-title-area p.subtitle {
+            font-size: 16px;
+            color: #475569;
+            font-weight: 500;
+            margin-top: 15px;
+            max-width: 600px;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 15px;
+        }
+
+        .cover-footer {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-            mix-blend-mode: multiply;
-            background-color: #059669; /* Brand tint */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
         
         .partner-logos {
             display: flex;
             align-items: center;
-            gap: 30px;
-            background: rgba(255,255,255,0.05);
-            padding: 15px 25px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            width: fit-content;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
         }
 
-        .logo-svg { height: 35px; fill: #ffffff; }
+        .logo-svg { height: 35px; fill: #0f172a; }
 
-        .cover-title-area { margin-top: 30mm; }
-        .cover-title-area h1 {
-            font-size: 64px;
-            font-weight: 900;
-            line-height: 1.1;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-        .cover-title-area h1 span { color: #b45309; }
-        .cover-title-area p.subtitle {
-            font-size: 22px;
-            color: #cbd5e1;
-            font-weight: 400;
-            border-left: 4px solid #b45309;
-            padding-left: 15px;
-        }
-
-        .cover-footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .distribution-restriction {
+            font-size: 11px;
+            color: #64748b;
+            text-align: center;
+            max-width: 850px;
+            line-height: 1.5;
+            border-top: 2px solid #e2e8f0;
             padding-top: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
         }
-        .cover-footer p { font-size: 14px; color: #94a3b8; margin-bottom: 4px; }
-        .cover-footer strong { color: #ffffff; font-family: 'Merriweather', serif;}
 
         /* 4. LAYOUTS */
         .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; height: 100%; }
@@ -350,49 +370,63 @@
 </head>
 <body>
 
-<!-- Slide 1: Beautiful A4 Cover Page -->
+<!-- Slide 1: Institutional A4 Cover Page -->
 <div class="slide-container cover-page" id="slide1">
-    <div class="cover-left">
-        <!-- Partner Logos -->
-        <div class="partner-logos">
-            <!-- TerraQuest Logo SVG -->
-            <svg class="logo-svg" viewBox="0 0 250 40" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10,20 L20,5 L30,20 L20,35 Z" fill="#b45309" opacity="0.9"/>
-                <path d="M15,20 L25,5 L35,20 L25,35 Z" fill="#059669" opacity="0.8"/>
-                <text x="45" y="27" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#ffffff" letter-spacing="1">TERRA<tspan fill="#b45309">QUEST</tspan></text>
-            </svg>
-            <div style="width: 1px; height: 25px; background: rgba(255,255,255,0.2);"></div>
-            <!-- Zebu Logo SVG -->
-            <svg class="logo-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="26" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#ffffff" letter-spacing="1">ZEBU</text>
-                <text x="65" y="18" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#94a3b8" letter-spacing="2">INVESTMENT</text>
-                <text x="65" y="28" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#94a3b8" letter-spacing="2">PARTNERS</text>
-            </svg>
-        </div>
+    <div class="cover-top-disclaimer">
+        Strictly Private & Confidential <br>
+        This Document is Not a Prospectus. For Sophisticated / Professional Investors Only.
+    </div>
+
+    <div class="cover-center">
+        <!-- Tsavo Tree Logo SVG (Recreating the brand guide layered tree) -->
+        <svg class="tsavo-tree-logo" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Canopy Layers -->
+            <path d="M 50 70 Q 70 40 100 40 Q 130 40 150 70 Z" fill="#d97706" opacity="0.8"/> <!-- Light Amber -->
+            <path d="M 40 85 Q 70 55 100 60 Q 130 55 160 85 Z" fill="#b45309" opacity="0.9"/> <!-- Rich Amber -->
+            <path d="M 30 100 Q 60 75 100 80 Q 140 75 170 100 Z" fill="#78350f" opacity="0.95"/> <!-- Dark Brown -->
+            <path d="M 25 110 Q 60 90 100 95 Q 140 90 175 110 Z" fill="#0f172a"/> <!-- Slate/Black Base Canopy -->
+            
+            <!-- Trunk and Branches -->
+            <path d="M 100 150 C 95 130 90 110 80 100 C 90 105 95 115 97 125 C 95 110 85 95 70 90 C 85 95 95 105 98 120 C 100 110 105 95 115 90 C 105 100 102 110 102 125 C 105 115 115 105 130 95 C 115 105 105 120 103 150 Z" fill="#0f172a"/>
+            
+            <!-- Ground curve -->
+            <path d="M 40 155 Q 100 145 160 155" stroke="#0f172a" stroke-width="3" fill="none"/>
+        </svg>
 
         <div class="cover-title-area">
-            <h1>THE <br><span>TSAVO</span><br>TRADE LINE</h1>
+            <h1>TSAVO</h1>
+            <h2>THE TRADE LINE</h2>
             <p class="subtitle">Structured Value-Chain Liquidity & Usance Facility</p>
         </div>
+    </div>
 
-        <div class="cover-footer">
-            <div>
-                <p>Structuring Advisor & TAO</p>
-                <strong>TerraQuest Investments FZCO</strong>
+    <div class="cover-footer">
+        <div class="partner-logos">
+            <div style="text-align: center;">
+                <p style="font-size: 11px; color: #64748b; margin-bottom: 5px; text-transform: uppercase; font-weight: 700;">Structuring Advisor & TAO</p>
+                <!-- TerraQuest Logo SVG -->
+                <svg class="logo-svg" viewBox="0 0 250 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,20 L20,5 L30,20 L20,35 Z" fill="#b45309" opacity="0.9"/>
+                    <path d="M15,20 L25,5 L35,20 L25,35 Z" fill="#059669" opacity="0.8"/>
+                    <text x="45" y="27" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#0f172a" letter-spacing="1">TERRA<tspan fill="#b45309">QUEST</tspan></text>
+                </svg>
             </div>
-            <div>
-                <p>Capital Partner & Trade Agent</p>
-                <strong>Zebu Investment Partners UK</strong>
-            </div>
-            <div style="margin-top: 10px; grid-column: span 2;">
-                <p>Base Currency</p>
-                <strong>USD (Hard Currency)</strong>
+            <div style="width: 2px; height: 35px; background: #cbd5e1;"></div>
+            <div style="text-align: center;">
+                <p style="font-size: 11px; color: #64748b; margin-bottom: 5px; text-transform: uppercase; font-weight: 700;">Capital Partner & Trade Agent</p>
+                <!-- Zebu Logo SVG -->
+                <svg class="logo-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="26" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#0f172a" letter-spacing="1">ZEBU</text>
+                    <text x="65" y="18" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#64748b" letter-spacing="2">INVESTMENT</text>
+                    <text x="65" y="28" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#64748b" letter-spacing="2">PARTNERS</text>
+                </svg>
             </div>
         </div>
-    </div>
-    <div class="cover-right">
-        <!-- Professional container ship / port imagery -->
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?q=80&w=2070&auto=format&fit=crop" alt="Container Port">
+
+        <div class="distribution-restriction">
+            <strong>DISTRIBUTION RESTRICTION:</strong> This document is a private invitation strictly restricted to the addressee. It does not constitute a public offer of securities. <br>
+            Base Currency: <strong>USD (Hard Currency)</strong>
+        </div>
     </div>
 </div>
 
