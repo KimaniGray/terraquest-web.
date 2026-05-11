@@ -21,6 +21,8 @@
             gap: 40px;
             font-family: 'Verdana', sans-serif;
             color: #4A3B38;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         .slide-container {
             width: 297mm;
@@ -40,13 +42,14 @@
         }
         .text-espresso { color: #3E2723; }
         .bg-espresso { background-color: #3E2723; }
+        .border-espresso { border-color: #3E2723; }
         .text-gold { color: #FFB81C; }
         .bg-gold { background-color: #FFB81C; }
         .bg-card { background-color: #faf8f5; }
         
         .donut-chart {
-            width: 240px;
-            height: 240px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             background: conic-gradient(
                 #3E2723 0% 89%, 
@@ -61,21 +64,23 @@
         .donut-chart::after {
             content: "";
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             background: white;
             border-radius: 50%;
         }
 
+        /* Removes shadow when printing to PDF */
         @media print {
             body { padding: 0; background-color: white; }
-            .slide-container { box-shadow: none; border: none; }
+            .slide-container { box-shadow: none; border: none; margin: 0; }
         }
     </style>
 </head>
 <body>
 
-<div class="slide-container justify-between border-[10px] border-[#3E2723]">
+<div class="slide-container justify-between border-[8px] border-espresso">
+    
     <div class="w-full flex justify-end">
         <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
             Strictly Private & Confidential<br>
@@ -83,34 +88,34 @@
         </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center gap-4 text-center mt-[-20px]">
-        <img alt="Tsavo Logo" class="max-h-[140px] w-auto object-contain mb-4" src="Tsavo%20Trade%20Credit%20Logo.png"/>
-        <h1 class="text-7xl font-bold tracking-widest text-espresso leading-none">TSAVO</h1>
-        <h2 class="text-2xl font-bold tracking-[0.2em] text-gold uppercase">The Trade Line</h2>
-        <div class="w-24 h-1 bg-espresso my-4"></div>
+    <div class="flex-1 flex flex-col items-center justify-center text-center">
+        <img alt="Tsavo Logo" class="max-h-[220px] w-auto object-contain mb-[-30px]" src="Tsavo%20Trade%20Credit%20Logo.png" style="mix-blend-mode: multiply;"/>
+        <h1 class="text-[5rem] font-bold tracking-[0.15em] text-espresso leading-none mb-2">TSAVO</h1>
+        <h2 class="text-2xl font-bold tracking-[0.25em] text-gold uppercase">The Trade Line</h2>
+        <div class="w-24 h-1 bg-espresso my-5"></div>
         <p class="text-lg text-[#4A3B38]">Institutional Investor Prospectus — Q4 2024</p>
     </div>
 
-    <div class="w-full">
-        <div class="flex justify-center items-center gap-16 mb-8">
-            <div class="flex flex-col items-center gap-2">
-                <span class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Structuring Advisor & TAO</span>
-                <div class="bg-espresso px-4 py-2 rounded-lg flex items-center justify-center h-[55px]">
-                    <img alt="TerraQuest Logo" class="max-h-[35px] w-auto object-contain" src="TerraQuest%20Logo.png"/>
+    <div class="w-full flex flex-col items-center gap-6">
+        <div class="flex justify-center items-center gap-16">
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Structuring Advisor & TAO</span>
+                <div class="bg-black px-4 py-2 rounded flex items-center justify-center h-[50px] shadow-sm">
+                    <img alt="TerraQuest Logo" class="max-h-[30px] w-auto object-contain" src="TerraQuest%20Logo.png"/>
                 </div>
             </div>
             
-            <div class="h-12 w-px bg-gray-300"></div>
+            <div class="h-10 w-px bg-gray-300"></div>
             
-            <div class="flex flex-col items-center gap-2">
-                <span class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Capital Partner & Trade Agent</span>
-                <div class="flex items-center justify-center h-[55px]">
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Capital Partner & Trade Agent</span>
+                <div class="flex items-center justify-center h-[50px]">
                     <img alt="Zebu Logo" class="max-h-[45px] w-auto object-contain" src="Zebu%20Logo.png"/>
                 </div>
             </div>
         </div>
 
-        <div class="text-center text-[10px] text-gray-500 border-t border-gray-200 pt-4 leading-relaxed max-w-4xl mx-auto">
+        <div class="text-center text-[10px] text-gray-500 border-t border-gray-200 pt-4 w-full max-w-4xl leading-relaxed">
             <strong>DISTRIBUTION RESTRICTION:</strong> This document is a private invitation strictly restricted to the addressee. It does not constitute a public offer of securities.<br>
             Base Currency: <strong class="text-espresso">USD (Hard Currency)</strong>
         </div>
@@ -121,15 +126,14 @@
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">02 Product Overview</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
     <div class="flex-1 grid grid-cols-2 gap-12">
         <div class="flex flex-col justify-center gap-8">
             <h3 class="text-xl text-espresso italic leading-relaxed title-font font-bold">"A specialized trade finance vehicle providing liquidity to critical supply chains across emerging markets."</h3>
-            
             <div class="space-y-6">
                 <div class="flex items-start gap-4">
                     <i class="fa-solid fa-circle-check text-gold mt-1 text-xl"></i>
@@ -154,24 +158,24 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center justify-center rounded-lg overflow-hidden shadow-lg border border-gray-200">
-            <img alt="Supply Chain" class="w-full h-full object-cover min-h-[300px]" src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop"/>
+        <div class="flex items-center justify-center rounded-lg overflow-hidden shadow-lg border border-gray-200 h-[380px]">
+            <img alt="Supply Chain" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop"/>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 02</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 02</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">03 Key Features</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
     <div class="flex-1 grid grid-cols-2 grid-rows-2 gap-8">
-        <div class="bg-card p-8 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
                 <i class="fa-regular fa-clock text-2xl text-espresso"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Usance</h4>
@@ -179,7 +183,7 @@
             <p class="text-sm leading-relaxed">Extended payment terms ranging from 30 to 180 days, perfectly synchronized with distribution and revenue generation cycles.</p>
         </div>
         
-        <div class="bg-card p-8 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
                 <i class="fa-solid fa-money-bill-trend-up text-2xl text-gold"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Liquidity</h4>
@@ -187,7 +191,7 @@
             <p class="text-sm leading-relaxed">High-velocity discounting mechanisms deploying up to 89% of the invoice value immediately upon destination acceptance.</p>
         </div>
         
-        <div class="bg-card p-8 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
                 <i class="fa-solid fa-shield-halved text-2xl text-espresso"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Structure</h4>
@@ -195,7 +199,7 @@
             <p class="text-sm leading-relaxed">Once discounted, the Seller holds no repayment liability regarding bank default risk, securely converting a future receivable.</p>
         </div>
         
-        <div class="bg-card p-8 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
                 <i class="fa-solid fa-arrows-rotate text-2xl text-gold"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Capacity</h4>
@@ -203,22 +207,22 @@
             <p class="text-sm leading-relaxed">Engineered to be scalable, the facility supports continuous, multi-shipment supply chains, increasing annual trade throughput.</p>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 03</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 03</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">04 Value Proposition</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
     <div class="flex-1 grid grid-cols-2 gap-12">
         <div class="flex flex-col">
-            <div class="bg-espresso text-white p-4 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Seller (Exporters)</div>
-            <div class="flex flex-col gap-6 px-2">
+            <div class="bg-espresso text-white p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Seller (Exporters)</div>
+            <div class="flex flex-col gap-6 px-4">
                 <div class="flex gap-4 items-start">
                     <i class="fa-solid fa-arrow-trend-up text-xl text-espresso mt-1"></i>
                     <div>
@@ -244,8 +248,8 @@
         </div>
 
         <div class="flex flex-col">
-            <div class="bg-gold text-espresso p-4 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Buyer (Importers)</div>
-            <div class="flex flex-col gap-6 px-2">
+            <div class="bg-gold text-espresso p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Buyer (Importers)</div>
+            <div class="flex flex-col gap-6 px-4">
                 <div class="flex gap-4 items-start">
                     <i class="fa-solid fa-link text-xl text-gold mt-1"></i>
                     <div>
@@ -270,115 +274,115 @@
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 04</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 04</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">05 Flow of Funds</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
     <div class="flex-1 flex flex-col justify-center items-center gap-12">
         <div class="flex items-center justify-between w-full max-w-4xl px-8">
             <div class="flex flex-col items-center gap-3 w-32 text-center">
-                <div class="w-20 h-20 rounded-full border-4 border-gray-200 flex items-center justify-center bg-card shadow-sm">
+                <div class="w-20 h-20 rounded-full border-[3px] border-gray-200 flex items-center justify-center bg-card shadow-sm">
                     <i class="fa-solid fa-university text-2xl text-espresso"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase text-gray-500">Investor Capital</span>
+                <span class="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Investor Capital</span>
             </div>
             
             <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
             
-            <div class="flex flex-col items-center gap-3 w-40 text-center">
-                <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-gold overflow-hidden p-3">
-                    <img alt="Tsavo Icon" class="w-full h-auto object-contain" src="Tsavo%20Trade%20Credit%20Logo.png"/>
+            <div class="flex flex-col items-center gap-3 w-48 text-center">
+                <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg border-[3px] border-gold overflow-hidden">
+                    <img alt="Tsavo Icon" class="w-[150%] h-auto object-contain mt-[-10px]" src="Tsavo%20Trade%20Credit%20Logo.png"/>
                 </div>
-                <span class="text-sm font-bold uppercase text-espresso title-font">Tsavo Facility</span>
+                <span class="text-sm font-bold uppercase text-espresso title-font tracking-wider">Tsavo Facility</span>
             </div>
             
             <i class="fa-solid fa-arrow-right text-gray-300 text-2xl"></i>
             
             <div class="flex flex-col items-center gap-3 w-32 text-center">
-                <div class="w-20 h-20 rounded-full border-4 border-gray-200 flex items-center justify-center bg-card shadow-sm">
+                <div class="w-20 h-20 rounded-full border-[3px] border-gray-200 flex items-center justify-center bg-card shadow-sm">
                     <i class="fa-solid fa-file-invoice-dollar text-2xl text-espresso"></i>
                 </div>
-                <span class="text-[11px] font-bold uppercase text-gray-500">Verified Asset</span>
+                <span class="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Verified Asset</span>
             </div>
         </div>
 
-        <div class="w-full bg-espresso text-white py-6 px-8 text-center rounded shadow-md mt-8">
+        <div class="w-full max-w-4xl bg-espresso text-white py-5 px-8 text-center rounded shadow-md mt-6">
             <h3 class="text-lg font-bold tracking-[0.15em] mb-2 text-white">CONTINUOUS DE-RISKING FRAMEWORK</h3>
-            <p class="text-gold text-xs font-bold uppercase tracking-wider">Insurance Overlay &bull; Over-Collateralization &bull; Direct Legal Perfection</p>
+            <p class="text-gold text-[11px] font-bold uppercase tracking-widest">Insurance Overlay &bull; Over-Collateralization &bull; Direct Legal Perfection</p>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 05</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 05</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">06 Operational Mechanics</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-16 pt-4">
+    <div class="flex-1 grid grid-cols-2 gap-16 pt-2">
         <div class="flex flex-col gap-6">
-            <div class="flex items-center gap-3 border-b-2 border-espresso pb-3">
-                <span class="text-3xl font-bold text-espresso title-font">A.</span>
-                <h4 class="text-lg font-bold text-gray-500 uppercase tracking-wide">Pre-Discounting</h4>
+            <div class="flex items-center gap-3 border-b border-espresso pb-2">
+                <span class="text-2xl font-bold text-espresso title-font">A.</span>
+                <h4 class="text-base font-bold text-gray-500 uppercase tracking-wide">Pre-Discounting</h4>
             </div>
             <div class="flex flex-col gap-5">
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-sm">01</span>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">01</span>
                     <p class="text-sm leading-relaxed">Exporter delivers goods; Importer validates invoice and issues irrevocable payment undertaking.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-sm">02</span>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">02</span>
                     <p class="text-sm leading-relaxed">Tsavo Facility performs KYC/AML on Buyer and verifies transaction against origin shipping docs.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-sm">03</span>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">03</span>
                     <p class="text-sm leading-relaxed">Insurance binder activated for specific transaction tranche, providing 90% principal protection.</p>
                 </div>
             </div>
         </div>
 
         <div class="flex flex-col gap-6">
-            <div class="flex items-center gap-3 border-b-2 border-gold pb-3">
-                <span class="text-3xl font-bold text-gold title-font">B.</span>
-                <h4 class="text-lg font-bold text-gray-500 uppercase tracking-wide">Post-Discounting</h4>
+            <div class="flex items-center gap-3 border-b border-gold pb-2">
+                <span class="text-2xl font-bold text-gold title-font">B.</span>
+                <h4 class="text-base font-bold text-gray-500 uppercase tracking-wide">Post-Discounting</h4>
             </div>
             <div class="flex flex-col gap-5">
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-sm">04</span>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">04</span>
                     <p class="text-sm leading-relaxed">Tsavo wires discounted proceeds to Exporter; ownership of receivable legally assigned to SPV.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-sm">05</span>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">05</span>
                     <p class="text-sm leading-relaxed">Digital ledger tracks asset through maturity; automated reminders sent to Buyer's treasury team.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[32px] h-8 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-sm">06</span>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">06</span>
                     <p class="text-sm leading-relaxed">At maturity, Buyer settles 100% face value to Tsavo trust account; funds distributed to investors.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 06</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 06</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">07 Facility Economics</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
@@ -387,115 +391,115 @@
             <div class="donut-chart shadow-xl">
                 <div class="relative z-10 flex flex-col items-center">
                     <p class="text-3xl font-bold text-espresso mb-1 title-font">100%</p>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Allocation</p>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Allocation</p>
                 </div>
             </div>
         </div>
         
-        <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-5">
+        <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-4">
                 <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                     <div class="flex items-center gap-3">
                         <div class="w-3 h-3 bg-espresso rounded-sm"></div>
                         <span class="font-bold text-sm text-espresso">Net Liquidity to Supply Chain</span>
                     </div>
-                    <span class="text-2xl font-bold text-espresso title-font">89%</span>
+                    <span class="text-xl font-bold text-espresso title-font">89%</span>
                 </div>
                 <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                     <div class="flex items-center gap-3">
                         <div class="w-3 h-3 bg-gold rounded-sm"></div>
                         <span class="font-bold text-sm text-espresso">Target Investor Yield (Spread)</span>
                     </div>
-                    <span class="text-2xl font-bold text-gold title-font">8%</span>
+                    <span class="text-xl font-bold text-gold title-font">8%</span>
                 </div>
                 <div class="flex justify-between items-center border-b border-gray-200 pb-2">
                     <div class="flex items-center gap-3">
                         <div class="w-3 h-3 bg-gray-300 rounded-sm"></div>
                         <span class="font-bold text-sm text-espresso">Admin, Legal & Structuring</span>
                     </div>
-                    <span class="text-2xl font-bold text-gray-400 title-font">3%</span>
+                    <span class="text-xl font-bold text-gray-400 title-font">3%</span>
                 </div>
             </div>
             
-            <div class="bg-card p-5 border-l-4 border-gold text-sm italic text-gray-600 leading-relaxed shadow-sm">
+            <div class="bg-card p-4 border-l-4 border-gold text-sm italic text-gray-600 leading-relaxed shadow-sm">
                 "Tsavo's lean operational structure ensures maximum pass-through of alpha, with facility-wide Opex capped at 150bps per annum."
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4">Slide 07</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4">Slide 07</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
         <h2 class="text-3xl font-bold text-espresso tracking-wide">08 Transaction Lifecycle</h2>
         <div class="flex items-center gap-4">
-            <div class="bg-espresso p-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[20px] w-auto"></div>
-            <img src="Zebu%20Logo.png" class="max-h-[25px] w-auto">
+            <div class="bg-black px-2 py-1 rounded flex items-center justify-center"><img src="TerraQuest%20Logo.png" class="max-h-[16px] w-auto"></div>
+            <img src="Zebu%20Logo.png" class="max-h-[20px] w-auto">
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col justify-center relative">
-        <div class="absolute top-[60px] left-[5%] right-[5%] h-[2px] bg-gray-200 z-0"></div>
+    <div class="flex-1 flex flex-col justify-center relative px-4">
+        <div class="absolute top-[40px] left-[8%] right-[8%] h-[2px] bg-gray-200 z-0"></div>
         
         <div class="grid grid-cols-6 gap-2 relative z-10">
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-3 shadow-sm">
                     <i class="fa-solid fa-search text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 1</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Origination</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Asset identification & preliminary screening.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Origination</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Asset identification & preliminary screening.</p>
             </div>
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-3 shadow-sm">
                     <i class="fa-solid fa-file-contract text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 2</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Issuance</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Buyer's Bank issues the MT700.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Issuance</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Buyer's Bank issues the MT700.</p>
             </div>
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-gold border-[3px] border-white flex items-center justify-center text-espresso mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-gold border-[3px] border-white flex items-center justify-center text-espresso mb-3 shadow-sm">
                     <i class="fa-solid fa-ship text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 3</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Production</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Goods shipped & origin inspected.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Production</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Goods shipped & origin inspected.</p>
             </div>
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-3 shadow-sm">
                     <i class="fa-solid fa-anchor text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 4</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Arrival</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Destination Acceptance signed.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Arrival</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Destination Acceptance signed.</p>
             </div>
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-3 shadow-sm">
                     <i class="fa-solid fa-money-bill-wave text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 5</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Monetization</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Discounted funds wired to Seller.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Monetization</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Discounted funds wired to Seller.</p>
             </div>
             <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-4 shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-espresso border-[3px] border-white flex items-center justify-center text-white mb-3 shadow-sm">
                     <i class="fa-solid fa-check-double text-xs"></i>
                 </div>
                 <p class="text-gold text-[9px] font-bold uppercase mb-1">Phase 6</p>
-                <h5 class="text-xs font-bold text-espresso uppercase mb-2">Settlement</h5>
-                <p class="text-[10px] text-gray-500 leading-tight">Buyer settles full invoice value.</p>
+                <h5 class="text-xs font-bold text-espresso uppercase mb-1">Settlement</h5>
+                <p class="text-[9px] text-gray-500 leading-tight">Buyer settles full invoice value.</p>
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between items-end border-t border-gray-200 pt-4 mt-8">
-        <div class="text-[10px] text-gray-400 uppercase tracking-widest leading-relaxed">
+    <div class="flex justify-between items-end border-t border-gray-200 pt-3 mt-auto">
+        <div class="text-[9px] text-gray-400 uppercase tracking-widest leading-relaxed">
             © 2024 TSAVO THE TRADE LINE. ALL RIGHTS RESERVED.<br/>
             REGULATED ACCESS ONLY.
         </div>
         <div class="text-right flex flex-col items-end gap-1">
-            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Investor Relations</span>
+            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Investor Relations</span>
             <a href="https://www.terraqi.trade" class="text-espresso font-bold text-sm tracking-wide decoration-gold underline-offset-4 hover:underline">www.terraqi.trade</a>
         </div>
     </div>
