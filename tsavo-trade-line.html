@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Tsavo Trade Line - Structured Value-Chain Liquidity & Usance Facility by TerraQuest Investments FZCO and Zebu Investment Partners.">
+    <meta name="description" content="The Tsavo Trade Line - Structured Value-Chain Liquidity & Usance Facility">
     <meta name="author" content="TerraQuest Investments FZCO">
     <title>The Tsavo Trade Line | TerraQuest Investments</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Removed Google Fonts: Strictly using Georgia and Verdana per Brand Guide -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 1. CORE SETUP & RESET */
@@ -22,7 +20,7 @@
             gap: 40px;
             padding: 40px 20px;
             min-height: 100vh;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Verdana', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -45,7 +43,7 @@
         @media print {
             @page { size: A4 landscape; margin: 0; }
             body { background: none; padding: 0; gap: 0; }
-            .slide-container { box-shadow: none; margin: 0; page-break-after: always; }
+            .slide-container { box-shadow: none; margin: 0; page-break-after: always; border: none !important; }
         }
 
         .slide-padding {
@@ -57,29 +55,28 @@
         }
 
         /* 2. TYPOGRAPHY & BRAND COLORS */
-        /* Tsavo Palette: 
-           Dark Slate: #0f172a
-           Earth Green: #059669
-           Rich Amber: #b45309 
+        /* Tsavo Official Palette: 
+           Espresso: #3E2723
+           Gold Fusion: #FFB81C
         */
-        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; color: #0f172a; }
-        p, li, td, th, .sans { font-family: 'DM Sans', sans-serif; color: #334155; line-height: 1.5; font-size: 16px; }
+        h1, h2, h3, h4, .serif { font-family: 'Georgia', serif; color: #3E2723; }
+        p, li, td, th, .sans { font-family: 'Verdana', sans-serif; color: #4A3B38; line-height: 1.5; font-size: 15px; }
 
         h2.slide-title { 
             font-size: 32px; 
             margin-bottom: 25px; 
             text-transform: uppercase; 
             letter-spacing: 1px; 
-            border-bottom: 3px solid #b45309; 
+            border-bottom: 3px solid #FFB81C; 
             padding-bottom: 8px; 
-            font-weight: 900;
+            font-weight: bold;
         }
-        h3 { font-size: 20px; margin-bottom: 12px; font-weight: 700; color: #059669; }
+        h3 { font-size: 19px; margin-bottom: 12px; font-weight: bold; color: #3E2723; }
         
         .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; }
-        .highlight { color: #b45309; }
+        .highlight { color: #FFB81C; }
 
-        /* 3. COVER PAGE SPECIFICS (Updated to Institutional Brand Guide) */
+        /* 3. COVER PAGE SPECIFICS */
         .cover-page {
             display: flex;
             flex-direction: column;
@@ -90,15 +87,15 @@
             background-color: #ffffff;
             padding: 15mm 20mm;
             text-align: center;
-            border: 8px solid #0f172a;
+            border: 8px solid #3E2723;
         }
         
         .cover-top-disclaimer {
             width: 100%;
             text-align: right;
             font-size: 11px;
-            color: #b45309;
-            font-weight: 700;
+            color: #3E2723;
+            font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
             line-height: 1.5;
@@ -120,28 +117,28 @@
 
         .cover-title-area h1 {
             font-size: 64px;
-            font-weight: 900;
+            font-weight: bold;
             line-height: 1;
-            color: #0f172a;
+            color: #3E2723;
             margin-bottom: 5px;
             letter-spacing: 4px;
         }
         
         .cover-title-area h2 {
             font-size: 22px;
-            color: #059669;
-            font-weight: 700;
+            color: #FFB81C;
+            font-weight: bold;
             letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         .cover-title-area p.subtitle {
             font-size: 16px;
-            color: #475569;
-            font-weight: 500;
+            color: #3E2723;
+            font-weight: normal;
             margin-top: 15px;
             max-width: 600px;
-            border-top: 1px solid #cbd5e1;
+            border-top: 1px solid #e2e8f0;
             padding-top: 15px;
         }
 
@@ -161,11 +158,11 @@
             width: 100%;
         }
 
-        .logo-svg { height: 35px; fill: #0f172a; }
+        .logo-svg { height: 35px; fill: #3E2723; }
 
         .distribution-restriction {
             font-size: 11px;
-            color: #64748b;
+            color: #4A3B38;
             text-align: center;
             max-width: 850px;
             line-height: 1.5;
@@ -176,7 +173,7 @@
         /* 4. LAYOUTS */
         .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; height: 100%; }
         
-        .image-wrapper { border-radius: 8px; overflow: hidden; height: 100%; width: 100%; max-height: 420px; box-shadow: 0 10px 20px rgba(0,0,0,0.08);}
+        .image-wrapper { border-radius: 4px; overflow: hidden; height: 100%; width: 100%; max-height: 420px; box-shadow: 0 10px 20px rgba(0,0,0,0.08);}
         .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
         
         .text-column { display: flex; flex-direction: column; justify-content: center; }
@@ -184,32 +181,32 @@
         /* Bullet Points */
         .bullet-list ul { list-style: none; margin: 0; padding: 0; }
         .bullet-list li { margin-bottom: 18px; padding-left: 32px; position: relative; }
-        .bullet-list i { color: #b45309; font-size: 18px; left: 0; position: absolute; top: 4px; }
-        .bullet-list strong { color: #0f172a; font-family: 'Merriweather', serif; font-size: 17px;}
+        .bullet-list i { color: #FFB81C; font-size: 18px; left: 0; position: absolute; top: 4px; }
+        .bullet-list strong { color: #3E2723; font-family: 'Georgia', serif; font-size: 16px;}
 
         /* Tiled Grid */
         .tiled-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; width: 100%; }
         .tile {
-            background-color: #f8fafc;
-            border-radius: 8px;
-            border-left: 5px solid #059669;
+            background-color: #faf8f5;
+            border-radius: 4px;
+            border-left: 5px solid #3E2723;
             padding: 25px;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 6px rgba(0,0,0,0.03);
         }
-        .tile:nth-child(even) { border-left-color: #b45309; }
-        .tile .icon { font-size: 28px; color: #0f172a; margin-bottom: 12px; }
+        .tile:nth-child(even) { border-left-color: #FFB81C; }
+        .tile .icon { font-size: 28px; color: #3E2723; margin-bottom: 12px; }
 
         /* Tiled Text (Value Prop) */
         .two-column.tiled > div {
-            background-color: #f8fafc;
-            border-radius: 8px;
-            border-top: 5px solid #0f172a;
+            background-color: #faf8f5;
+            border-radius: 4px;
+            border-top: 5px solid #3E2723;
             padding: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.03);
         }
-        .two-column.tiled > div:nth-child(2) { border-top-color: #b45309; }
+        .two-column.tiled > div:nth-child(2) { border-top-color: #FFB81C; }
 
         /* 5. INFOGRAPHIC: FLOW OF FUNDS */
         .flow-infographic {
@@ -229,8 +226,8 @@
         }
         .flow-node {
             background-color: #ffffff;
-            border: 2px solid #cbd5e1;
-            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 4px;
             padding: 20px;
             width: 30%;
             text-align: center;
@@ -239,18 +236,18 @@
             z-index: 2;
         }
         .flow-node.highlight-node {
-            border-color: #059669;
-            background-color: #ecfdf5;
+            border-color: #3E2723;
+            background-color: #faf8f5;
         }
         .flow-node.active-node {
-            border-color: #b45309;
-            background-color: #fffbeb;
+            border-color: #FFB81C;
+            background-color: #fffdf5;
         }
         .flow-node .step-num {
-            background-color: #0f172a;
+            background-color: #3E2723;
             color: #ffffff;
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -264,16 +261,16 @@
             font-size: 14px;
             border: 2px solid #ffffff;
         }
-        .flow-node i { font-size: 26px; color: #0f172a; margin-bottom: 8px; }
-        .flow-node h4 { font-size: 15px; margin-bottom: 6px; }
-        .flow-node p { font-size: 13px; line-height: 1.4; color: #475569; }
-        .flow-arrow { color: #94a3b8; font-size: 22px; z-index: 1; }
+        .flow-node i { font-size: 26px; color: #3E2723; margin-bottom: 8px; }
+        .flow-node h4 { font-size: 14px; margin-bottom: 6px; font-family: 'Georgia', serif; }
+        .flow-node p { font-size: 12px; line-height: 1.4; color: #4A3B38; font-family: 'Verdana', sans-serif; }
+        .flow-arrow { color: #cbd5e1; font-size: 22px; z-index: 1; }
 
         .derisk-banner {
             width: 100%;
-            background-color: #0f172a;
+            background-color: #3E2723;
             color: white;
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 12px 20px;
             text-align: center;
             display: flex;
@@ -282,8 +279,8 @@
             gap: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .derisk-banner i { color: #b45309; font-size: 20px; }
-        .derisk-banner span { font-family: 'Merriweather', serif; font-size: 14px; letter-spacing: 0.5px;}
+        .derisk-banner i { color: #FFB81C; font-size: 20px; }
+        .derisk-banner span { font-family: 'Georgia', serif; font-size: 13px; letter-spacing: 0.5px; color: #ffffff;}
 
         /* 6. DOUGHNUT CHART */
         .doughnut-layout { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 40px; height: 100%; }
@@ -292,7 +289,7 @@
             border-radius: 50%;
             height: 280px;
             width: 280px;
-            background: conic-gradient( #cbd5e1 0% 3%, #b45309 3% 11%, #059669 11% 100% );
+            background: conic-gradient( #e2e8f0 0% 3%, #FFB81C 3% 11%, #3E2723 11% 100% );
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
@@ -312,33 +309,33 @@
             text-align: center;
             box-shadow: inset 0 4px 6px rgba(0,0,0,0.05);
         }
-        .doughnut-hole .big-num { font-family: 'Merriweather', serif; font-size: 32px; color: #0f172a; font-weight: 900; line-height: 1;}
-        .doughnut-hole .label { font-size: 12px; color: #64748b; margin-top: 5px; font-weight: 700; text-transform: uppercase;}
+        .doughnut-hole .big-num { font-family: 'Georgia', serif; font-size: 32px; color: #3E2723; font-weight: bold; line-height: 1;}
+        .doughnut-hole .label { font-size: 11px; color: #4A3B38; margin-top: 5px; font-weight: bold; text-transform: uppercase; font-family: 'Verdana', sans-serif;}
 
         .legend-list { list-style: none; padding: 0;}
-        .legend-list li { display: flex; align-items: flex-start; margin-bottom: 20px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;}
-        .color-box { width: 20px; height: 20px; border-radius: 4px; margin-right: 15px; flex-shrink: 0; margin-top: 2px; }
-        .legend-content h4 { font-size: 16px; margin-bottom: 3px; }
-        .legend-content p { font-size: 14px; margin:0;}
+        .legend-list li { display: flex; align-items: flex-start; margin-bottom: 20px; background: #faf8f5; padding: 15px; border-radius: 4px; border: 1px solid #e2e8f0;}
+        .color-box { width: 20px; height: 20px; border-radius: 2px; margin-right: 15px; flex-shrink: 0; margin-top: 2px; }
+        .legend-content h4 { font-size: 15px; margin-bottom: 3px; font-family: 'Georgia', serif; color: #3E2723;}
+        .legend-content p { font-size: 13px; margin:0; font-family: 'Verdana', sans-serif;}
 
         /* 7. TIMELINE */
         .timeline-container { display: flex; justify-content: space-between; align-items: flex-start; position: relative; padding-top: 30px; width: 100%; height: 100%;}
-        .timeline-line { position: absolute; top: 44px; left: 5%; right: 5%; height: 4px; background-color: #cbd5e1; z-index: 1; border-radius: 2px;}
+        .timeline-line { position: absolute; top: 44px; left: 5%; right: 5%; height: 4px; background-color: #e2e8f0; z-index: 1; border-radius: 2px;}
         .timeline-step { position: relative; z-index: 2; width: 16%; text-align: center; }
         .timeline-dot {
             width: 28px;
             height: 28px;
             background-color: #ffffff;
-            border: 4px solid #0f172a;
+            border: 4px solid #3E2723;
             border-radius: 50%;
             margin: 0 auto 15px auto;
             box-shadow: 0 0 0 4px rgba(255,255,255,0.8);
         }
-        .timeline-step:nth-child(even) .timeline-dot { border-color: #b45309; }
-        .timeline-step:nth-child(odd) .timeline-dot { border-color: #059669; }
+        .timeline-step:nth-child(even) .timeline-dot { border-color: #FFB81C; }
+        .timeline-step:nth-child(odd) .timeline-dot { border-color: #3E2723; }
         
-        .timeline-step h4 { font-size: 14px; margin-bottom: 8px; font-weight: 900;}
-        .timeline-step p { font-size: 12px; line-height: 1.4; color: #475569;}
+        .timeline-step h4 { font-size: 13px; margin-bottom: 8px; font-weight: bold; font-family: 'Georgia', serif;}
+        .timeline-step p { font-size: 11px; line-height: 1.4; color: #4A3B38; font-family: 'Verdana', sans-serif;}
 
         /* Top Bar for interior slides */
         .slide-header {
@@ -346,7 +343,7 @@
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 25px;
-            border-bottom: 3px solid #0f172a;
+            border-bottom: 3px solid #3E2723;
             padding-bottom: 8px;
         }
         .slide-header h2 {
@@ -356,13 +353,12 @@
             padding: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 900;
+            font-weight: bold;
         }
         .mini-logos {
             display: flex;
             gap: 15px;
             height: 20px;
-            opacity: 0.8;
         }
         .mini-logos svg { height: 100%; }
 
@@ -380,17 +376,17 @@
     <div class="cover-center">
         <!-- Tsavo Tree Logo SVG (Recreating the brand guide layered tree) -->
         <svg class="tsavo-tree-logo" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <!-- Canopy Layers -->
-            <path d="M 50 70 Q 70 40 100 40 Q 130 40 150 70 Z" fill="#d97706" opacity="0.8"/> <!-- Light Amber -->
-            <path d="M 40 85 Q 70 55 100 60 Q 130 55 160 85 Z" fill="#b45309" opacity="0.9"/> <!-- Rich Amber -->
-            <path d="M 30 100 Q 60 75 100 80 Q 140 75 170 100 Z" fill="#78350f" opacity="0.95"/> <!-- Dark Brown -->
-            <path d="M 25 110 Q 60 90 100 95 Q 140 90 175 110 Z" fill="#0f172a"/> <!-- Slate/Black Base Canopy -->
+            <!-- Canopy Layers based on Brand Guide (Gold to Espresso) -->
+            <path d="M 50 70 Q 70 40 100 40 Q 130 40 150 70 Z" fill="#FFB81C" opacity="0.9"/> <!-- Gold Fusion -->
+            <path d="M 40 85 Q 70 55 100 60 Q 130 55 160 85 Z" fill="#D48817" opacity="0.95"/> <!-- Transition Amber -->
+            <path d="M 30 100 Q 60 75 100 80 Q 140 75 170 100 Z" fill="#8C4A1D" opacity="0.95"/> <!-- Transition Brown -->
+            <path d="M 25 110 Q 60 90 100 95 Q 140 90 175 110 Z" fill="#3E2723"/> <!-- Espresso Base Canopy -->
             
             <!-- Trunk and Branches -->
-            <path d="M 100 150 C 95 130 90 110 80 100 C 90 105 95 115 97 125 C 95 110 85 95 70 90 C 85 95 95 105 98 120 C 100 110 105 95 115 90 C 105 100 102 110 102 125 C 105 115 115 105 130 95 C 115 105 105 120 103 150 Z" fill="#0f172a"/>
+            <path d="M 100 150 C 95 130 90 110 80 100 C 90 105 95 115 97 125 C 95 110 85 95 70 90 C 85 95 95 105 98 120 C 100 110 105 95 115 90 C 105 100 102 110 102 125 C 105 115 115 105 130 95 C 115 105 105 120 103 150 Z" fill="#3E2723"/>
             
             <!-- Ground curve -->
-            <path d="M 40 155 Q 100 145 160 155" stroke="#0f172a" stroke-width="3" fill="none"/>
+            <path d="M 40 155 Q 100 145 160 155" stroke="#3E2723" stroke-width="3" fill="none"/>
         </svg>
 
         <div class="cover-title-area">
@@ -403,22 +399,22 @@
     <div class="cover-footer">
         <div class="partner-logos">
             <div style="text-align: center;">
-                <p style="font-size: 11px; color: #64748b; margin-bottom: 5px; text-transform: uppercase; font-weight: 700;">Structuring Advisor & TAO</p>
+                <p style="font-size: 11px; color: #4A3B38; margin-bottom: 5px; text-transform: uppercase; font-family: 'Verdana', sans-serif;">Structuring Advisor & TAO</p>
                 <!-- TerraQuest Logo SVG -->
                 <svg class="logo-svg" viewBox="0 0 250 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,20 L20,5 L30,20 L20,35 Z" fill="#b45309" opacity="0.9"/>
-                    <path d="M15,20 L25,5 L35,20 L25,35 Z" fill="#059669" opacity="0.8"/>
-                    <text x="45" y="27" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#0f172a" letter-spacing="1">TERRA<tspan fill="#b45309">QUEST</tspan></text>
+                    <path d="M10,20 L20,5 L30,20 L20,35 Z" fill="#FFB81C" opacity="0.9"/>
+                    <path d="M15,20 L25,5 L35,20 L25,35 Z" fill="#3E2723" opacity="0.8"/>
+                    <text x="45" y="27" font-family="'Georgia', serif" font-size="22" font-weight="bold" fill="#3E2723" letter-spacing="1">TERRA<tspan fill="#FFB81C">QUEST</tspan></text>
                 </svg>
             </div>
-            <div style="width: 2px; height: 35px; background: #cbd5e1;"></div>
+            <div style="width: 2px; height: 35px; background: #e2e8f0;"></div>
             <div style="text-align: center;">
-                <p style="font-size: 11px; color: #64748b; margin-bottom: 5px; text-transform: uppercase; font-weight: 700;">Capital Partner & Trade Agent</p>
+                <p style="font-size: 11px; color: #4A3B38; margin-bottom: 5px; text-transform: uppercase; font-family: 'Verdana', sans-serif;">Capital Partner & Trade Agent</p>
                 <!-- Zebu Logo SVG -->
                 <svg class="logo-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="26" font-family="'Merriweather', serif" font-size="22" font-weight="900" fill="#0f172a" letter-spacing="1">ZEBU</text>
-                    <text x="65" y="18" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#64748b" letter-spacing="2">INVESTMENT</text>
-                    <text x="65" y="28" font-family="'DM Sans', sans-serif" font-size="9" font-weight="700" fill="#64748b" letter-spacing="2">PARTNERS</text>
+                    <text x="0" y="26" font-family="'Georgia', serif" font-size="22" font-weight="bold" fill="#3E2723" letter-spacing="1">ZEBU</text>
+                    <text x="65" y="18" font-family="'Verdana', sans-serif" font-size="9" fill="#4A3B38" letter-spacing="2">INVESTMENT</text>
+                    <text x="65" y="28" font-family="'Verdana', sans-serif" font-size="9" fill="#4A3B38" letter-spacing="2">PARTNERS</text>
                 </svg>
             </div>
         </div>
@@ -433,7 +429,7 @@
 <!-- Interior Slide Header Template (reused via CSS) -->
 <svg style="display:none;" id="interior-logos">
     <g id="mini-tq-zebu">
-        <text x="0" y="15" font-family="'Merriweather', serif" font-size="14" font-weight="900" fill="#0f172a">TERRA<tspan fill="#b45309">QUEST</tspan> <tspan fill="#cbd5e1"> | </tspan> ZEBU</text>
+        <text x="0" y="15" font-family="'Georgia', serif" font-size="14" font-weight="bold" fill="#3E2723">TERRA<tspan fill="#FFB81C">QUEST</tspan> <tspan fill="#e2e8f0"> | </tspan> ZEBU</text>
     </g>
 </svg>
 
@@ -449,7 +445,7 @@
         <div class="content-area">
             <div class="two-column">
                 <div class="text-column">
-                    <p style="font-size: 18px; margin-bottom: 20px; font-weight: 500; color: #0f172a;">A non-recourse receivable purchase facility co-engineered to bridge critical working capital gaps in emerging market value chains.</p>
+                    <p style="font-size: 17px; margin-bottom: 20px; color: #3E2723; font-family: 'Georgia', serif;">A non-recourse receivable purchase facility co-engineered to bridge critical working capital gaps in emerging market value chains.</p>
                     <div class="bullet-list">
                         <ul>
                             <li><i class="fa-solid fa-earth-africa"></i> <strong>Regional Focus:</strong> Intended for the East, Central and Southern Africa-Sub Saharan Facility, focusing on energy, mining, and food & agriculture sectors.</li>
@@ -459,6 +455,7 @@
                     </div>
                 </div>
                 <div class="image-wrapper">
+                    <!-- Brand compliant image overlay strategy applied via CSS if needed, using standard clean images here -->
                     <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop" alt="Agriculture and Logistics">
                 </div>
             </div>
@@ -476,22 +473,22 @@
         <div class="content-area" style="justify-content: center;">
             <div class="tiled-grid-4">
                 <div class="tile">
-                    <div class="icon"><i class="fa-regular fa-clock" style="color: #059669;"></i></div>
+                    <div class="icon"><i class="fa-regular fa-clock" style="color: #3E2723;"></i></div>
                     <h3>Flexible Usance</h3>
                     <p>Provides off-balance sheet deferred payment terms, granting international or local buyers the crucial time needed to process, distribute, and generate revenue before settlement.</p>
                 </div>
                 <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-money-bill-trend-up" style="color: #b45309;"></i></div>
+                    <div class="icon"><i class="fa-solid fa-money-bill-trend-up" style="color: #FFB81C;"></i></div>
                     <h3>Accelerated Liquidity</h3>
                     <p>Deploys up to 89% of the invoice value to the value chain immediately upon destination acceptance, eliminating the standard wait periods associated with deferred credit.</p>
                 </div>
                 <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-shield-halved" style="color: #059669;"></i></div>
+                    <div class="icon"><i class="fa-solid fa-shield-halved" style="color: #3E2723;"></i></div>
                     <h3>Non-Recourse Structure</h3>
                     <p>Once the trade is discounted by institutional partners, the Seller holds no repayment liability regarding bank default risk, securely converting a future receivable into present capital.</p>
                 </div>
                 <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-arrows-rotate" style="color: #b45309;"></i></div>
+                    <div class="icon"><i class="fa-solid fa-arrows-rotate" style="color: #FFB81C;"></i></div>
                     <h3>Revolving Capacity</h3>
                     <p>Engineered to be scalable, the facility supports continuous, multi-shipment supply chains, effectively increasing annual trade throughput without tying up corporate equity.</p>
                 </div>
@@ -521,7 +518,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 style="color: #b45309;">For the Buyer</h3>
+                    <h3 style="color: #FFB81C;">For the Buyer</h3>
                     <div class="bullet-list" style="margin-top: 15px;">
                         <ul>
                             <li><i class="fa-solid fa-link"></i> <strong>Supply Chain Continuity:</strong> Guarantee your procurement pipeline by enabling your suppliers to produce at full capacity.</li>
@@ -579,14 +576,14 @@
                     <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
                     <div class="flow-node">
                         <div class="step-num">4</div>
-                        <i class="fa-solid fa-hand-holding-dollar" style="color: #b45309;"></i>
+                        <i class="fa-solid fa-hand-holding-dollar" style="color: #FFB81C;"></i>
                         <h4>Seller Settlement</h4>
                         <p>Remaining net margin paid to Seller to fulfill working capital surplus.</p>
                     </div>
                     <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
-                    <div class="flow-node" style="background-color: #f1f5f9;">
-                        <div class="step-num" style="background-color: #059669;">5</div>
-                        <i class="fa-solid fa-recycle" style="color: #059669;"></i>
+                    <div class="flow-node" style="background-color: #faf8f5;">
+                        <div class="step-num" style="background-color: #3E2723;">5</div>
+                        <i class="fa-solid fa-recycle" style="color: #3E2723;"></i>
                         <h4>Capital Recycling</h4>
                         <p>At maturity, Buyer's bank settles MT700, replenishing the pool for next cycle.</p>
                     </div>
@@ -604,10 +601,10 @@
             <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
         </div>
         <div class="content-area" style="justify-content: center;">
-            <p style="margin-bottom: 25px; font-size: 18px; font-weight: 500;">Defined by rigorous risk mitigation and strategic cash flow control, moving beyond simple lending into active trade management.</p>
+            <p style="margin-bottom: 25px; font-family: 'Georgia', serif; font-size: 17px; color: #3E2723;">Defined by rigorous risk mitigation and strategic cash flow control, moving beyond simple lending into active trade management.</p>
             <div class="two-column">
-                <div style="background: #f8fafc; padding: 25px; border-radius: 8px; border-top: 4px solid #059669;">
-                    <h3 style="margin-bottom: 15px; color:#0f172a;"><i class="fa-solid fa-1" style="color:#059669; margin-right:8px;"></i> Pre-Discounting (Foundation)</h3>
+                <div style="background: #faf8f5; padding: 25px; border-radius: 4px; border-top: 4px solid #3E2723;">
+                    <h3 style="margin-bottom: 15px;"><i class="fa-solid fa-1" style="color:#3E2723; margin-right:8px;"></i> Pre-Discounting (Foundation)</h3>
                     <div class="bullet-list">
                         <ul>
                             <li><i class="fa-solid fa-magnifying-glass-chart"></i> <strong>Deep Due Diligence:</strong> Comprehensive vetting of the Seller's production history and the Buyer's balance sheet strength.</li>
@@ -616,8 +613,8 @@
                         </ul>
                     </div>
                 </div>
-                <div style="background: #f8fafc; padding: 25px; border-radius: 8px; border-top: 4px solid #b45309;">
-                    <h3 style="margin-bottom: 15px; color:#0f172a;"><i class="fa-solid fa-2" style="color:#b45309; margin-right:8px;"></i> Post-Discounting (Compliance)</h3>
+                <div style="background: #faf8f5; padding: 25px; border-radius: 4px; border-top: 4px solid #FFB81C;">
+                    <h3 style="margin-bottom: 15px;"><i class="fa-solid fa-2" style="color:#FFB81C; margin-right:8px;"></i> Post-Discounting (Compliance)</h3>
                     <div class="bullet-list">
                         <ul>
                             <li><i class="fa-solid fa-filter"></i> <strong>Leakage Prevention:</strong> Active control of cash flow through the TerraQuest TAO via managed disbursements.</li>
@@ -649,24 +646,24 @@
                     </div>
                 </div>
                 <div class="legend-container">
-                    <p style="margin-bottom: 25px; font-style: italic; background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 4px solid #0f172a;">Utilizes an upfront capital deduction model, providing transparent, net-usable liquidity without complex, trailing interest calculations.</p>
+                    <p style="margin-bottom: 25px; font-style: italic; background: #faf8f5; padding: 12px; border-radius: 4px; border-left: 4px solid #3E2723;">Utilizes an upfront capital deduction model, providing transparent, net-usable liquidity without complex, trailing interest calculations.</p>
                     <ul class="legend-list">
                         <li>
-                            <div class="color-box" style="background-color: #059669;"></div>
+                            <div class="color-box" style="background-color: #3E2723;"></div>
                             <div class="legend-content">
                                 <h4>Net Liquidity Deployed (89%)</h4>
                                 <p><strong>$890,000</strong> deployed directly to the value chain and Seller.</p>
                             </div>
                         </li>
                         <li>
-                            <div class="color-box" style="background-color: #b45309;"></div>
+                            <div class="color-box" style="background-color: #FFB81C;"></div>
                             <div class="legend-content">
                                 <h4>Credit & Usance Cost (8%)</h4>
                                 <p><strong>$80,000</strong> covering the institutional cost of capital for the deferred term.</p>
                             </div>
                         </li>
                         <li>
-                            <div class="color-box" style="background-color: #cbd5e1;"></div>
+                            <div class="color-box" style="background-color: #e2e8f0;"></div>
                             <div class="legend-content">
                                 <h4>Arrangement & Structuring (3%)</h4>
                                 <p><strong>$30,000</strong> for TerraQuest/Zebu origination, TAO management, and DD.</p>
