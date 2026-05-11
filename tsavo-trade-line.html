@@ -17,29 +17,44 @@
         body {
             background-color: #e2e8f0;
             margin: 0;
-            padding: 20px;
+            padding: 15px; /* Reduced for mobile */
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 20px;
             font-family: 'Verdana', sans-serif;
             color: #4A3B38;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
+        @media (min-width: 1024px) {
+            body { padding: 20px; gap: 40px; }
+        }
+        
+        /* Responsive slide container */
         .slide-container {
-            width: 297mm;
-            height: 210mm;
+            width: 100%;
+            max-width: 297mm; /* Max out at A4 width */
             background-color: #ffffff;
             box-sizing: border-box;
-            page-break-after: always;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
             position: relative;
-            padding: 12mm 18mm;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            border-radius: 8px; /* Softer look on web */
         }
+
+        /* Lock to exact A4 height ONLY on Desktop or larger */
+        @media (min-width: 1024px) {
+            .slide-container {
+                height: 210mm;
+                padding: 12mm 18mm;
+                border-radius: 0;
+            }
+        }
+
         h1, h2, h3, h4, h5, .title-font {
             font-family: 'Georgia', serif;
         }
@@ -73,10 +88,22 @@
             border-radius: 50%;
         }
 
-        /* Removes shadow when printing to PDF */
+        /* Strict formatting for Print/PDF export */
         @media print {
-            body { padding: 0; background-color: white; }
-            .slide-container { box-shadow: none; border: none; margin: 0; }
+            body { padding: 0; background-color: white; gap: 0; }
+            .slide-container { 
+                width: 297mm; 
+                height: 210mm; 
+                box-shadow: none; 
+                border: none; 
+                margin: 0; 
+                padding: 12mm 18mm;
+                page-break-after: always;
+                border-radius: 0;
+            }
+            /* Force side-by-side grids on print regardless of screen width */
+            .print\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .print\:flex-row { flex-direction: row !important; }
         }
     </style>
 </head>
@@ -91,27 +118,27 @@
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
-        <img alt="Tsavo Logo" class="max-w-[450px] max-h-[220px] w-auto h-auto object-contain mx-auto" src="Tsavo%20Trade%20Credit%20Logo%203.png"/>
-        <p class="text-2xl text-espresso mt-8 font-bold tracking-wide">Structured Trade Facility — Q3 2026</p>
+    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full py-12 lg:py-8">
+        <img alt="Tsavo Logo" class="max-w-full lg:max-w-[450px] max-h-[160px] lg:max-h-[220px] w-auto h-auto object-contain mx-auto" src="Tsavo%20Trade%20Credit%20Logo%203.png"/>
+        <p class="text-xl lg:text-2xl text-espresso mt-8 font-bold tracking-wide">Structured Trade Facility — Q3 2026</p>
     </div>
 
     <div class="w-full flex flex-col items-center gap-6 pb-2">
-        <div class="flex justify-center items-center gap-16">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 print:flex-row">
             <div class="flex flex-col items-center gap-3">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Structuring Advisor & TAO</span>
-                <img alt="TerraQuest Logo" class="h-[40px] w-auto object-contain" src="TerraQuest%20Logo.png"/>
+                <img alt="TerraQuest Logo" class="h-[35px] lg:h-[40px] w-auto object-contain" src="TerraQuest%20Logo.png"/>
             </div>
             
-            <div class="h-10 w-px bg-gray-300 mt-4"></div>
+            <div class="hidden sm:block h-10 w-px bg-gray-300 mt-4 print:block"></div>
             
             <div class="flex flex-col items-center gap-3">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Capital Partner & Trade Agent</span>
-                <img alt="Zebu Logo" class="h-[45px] w-auto object-contain" src="Zebu%20Logo.png"/>
+                <img alt="Zebu Logo" class="h-[40px] lg:h-[45px] w-auto object-contain" src="Zebu%20Logo.png"/>
             </div>
         </div>
 
-        <div class="text-center text-[10px] text-gray-500 border-t border-gray-200 pt-4 w-full max-w-4xl leading-relaxed">
+        <div class="text-center text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-4 w-full max-w-4xl leading-relaxed">
             <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Trade Line. It is strictly restricted to the addressee.<br>
             Base Currency: <strong class="text-espresso">USD (Hard Currency)</strong>
         </div>
@@ -120,80 +147,80 @@
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">02 Product Overview & Scope</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">02 Product Overview & Scope</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-10">
-        <div class="flex flex-col justify-center gap-8">
-            <h3 class="text-xl text-espresso italic leading-relaxed title-font font-bold">"Expanding supplier capacity beyond balance sheet limits by taking a credit view on the Off-taker."</h3>
-            <div class="space-y-6">
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 print:grid-cols-2">
+        <div class="flex flex-col justify-center gap-6 lg:gap-8">
+            <h3 class="text-lg lg:text-xl text-espresso italic leading-relaxed title-font font-bold">"Expanding supplier capacity beyond balance sheet limits by taking a credit view on the Off-taker."</h3>
+            <div class="space-y-4 lg:space-y-6">
                 <div class="flex items-start gap-4">
-                    <i class="fa-solid fa-scale-unbalanced text-gold mt-1 text-xl"></i>
+                    <i class="fa-solid fa-scale-unbalanced text-gold mt-1 text-xl flex-shrink-0"></i>
                     <div>
-                        <strong class="text-espresso title-font text-lg">Off-Taker Backed Scaling</strong>
+                        <strong class="text-espresso title-font text-base lg:text-lg">Off-Taker Backed Scaling</strong>
                         <p class="text-sm mt-1">We offer financing beyond a supplier's immediate balance sheet ability by leveraging the guaranteed offtake of credible buyers, enabling supply at scale.</p>
                     </div>
                 </div>
                 <div class="flex items-start gap-4">
-                    <i class="fa-solid fa-link text-gold mt-1 text-xl"></i>
+                    <i class="fa-solid fa-link text-gold mt-1 text-xl flex-shrink-0"></i>
                     <div>
-                        <strong class="text-espresso title-font text-lg">Supply Chain Optimization</strong>
+                        <strong class="text-espresso title-font text-base lg:text-lg">Supply Chain Optimization</strong>
                         <p class="text-sm mt-1">Accelerated liquidity allows suppliers to pre-purchase raw materials and secure early banking discounts, effectively offsetting the facility's finance cost structure.</p>
                     </div>
                 </div>
                 <div class="flex items-start gap-4">
-                    <i class="fa-solid fa-industry text-gold mt-1 text-xl"></i>
+                    <i class="fa-solid fa-industry text-gold mt-1 text-xl flex-shrink-0"></i>
                     <div>
-                        <strong class="text-espresso title-font text-lg">Value Creation Alignment</strong>
+                        <strong class="text-espresso title-font text-base lg:text-lg">Value Creation Alignment</strong>
                         <p class="text-sm mt-1">Capital deployment is strictly tied to physical goods flow and pre-agreed fund utilization across Commercial Agriculture, Mining, and FMCG Production.</p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="grid grid-cols-2 grid-rows-2 gap-3 h-[380px]">
-            <div class="col-span-1 row-span-2 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800">
-                <img alt="Commercial Agriculture" class="w-full h-full object-cover opacity-90" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"/>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-2 gap-3 h-auto lg:h-[380px] print:h-[380px] print:grid-cols-2">
+            <div class="col-span-1 sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="Commercial Agriculture" class="absolute inset-0 w-full h-full object-cover opacity-90" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"/>
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
                     <p class="text-white text-[12px] font-bold uppercase tracking-widest">Agriculture</p>
                 </div>
             </div>
-            <div class="rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800">
-                <img alt="Mining Operations" class="w-full h-full object-cover opacity-90" src="https://images.unsplash.com/photo-1587840134442-99052b61ff66?auto=format&fit=crop&w=800&q=80"/>
+            <div class="col-span-1 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="Mining Operations" class="absolute inset-0 w-full h-full object-cover opacity-90" src="https://images.pexels.com/photos/2892633/pexels-photo-2892633.jpeg?auto=compress&cs=tinysrgb&w=800"/>
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
                     <p class="text-white text-[12px] font-bold uppercase tracking-widest">Mining</p>
                 </div>
             </div>
-            <div class="rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800">
-                <img alt="FMCG Warehouse" class="w-full h-full object-cover opacity-90" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"/>
+            <div class="col-span-1 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="FMCG Warehouse" class="absolute inset-0 w-full h-full object-cover opacity-90" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"/>
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
                     <p class="text-white text-[12px] font-bold uppercase tracking-widest">FMCG</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 02</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 02</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">03 Key Features</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">03 Key Features</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 grid-rows-2 gap-8">
+    <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-rows-2 gap-6 lg:gap-8 print:grid-cols-2">
         <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
-                <i class="fa-regular fa-clock text-2xl text-espresso"></i>
+                <i class="fa-regular fa-clock text-2xl text-espresso flex-shrink-0"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Usance</h4>
             </div>
             <p class="text-sm leading-relaxed">Extended payment terms ranging from 30 to 180 days, perfectly synchronized with distribution and revenue generation cycles.</p>
@@ -201,7 +228,7 @@
         
         <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
-                <i class="fa-solid fa-money-bill-trend-up text-2xl text-gold"></i>
+                <i class="fa-solid fa-money-bill-trend-up text-2xl text-gold flex-shrink-0"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Liquidity</h4>
             </div>
             <p class="text-sm leading-relaxed">High-velocity discounting mechanisms deploying capital immediately to the value chain upon destination acceptance.</p>
@@ -209,7 +236,7 @@
         
         <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
-                <i class="fa-solid fa-shield-halved text-2xl text-espresso"></i>
+                <i class="fa-solid fa-shield-halved text-2xl text-espresso flex-shrink-0"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Structure</h4>
             </div>
             <p class="text-sm leading-relaxed">Once discounted, the Seller holds no repayment liability regarding bank default risk, securely converting a future receivable.</p>
@@ -217,48 +244,48 @@
         
         <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
             <div class="flex items-center gap-4 mb-3">
-                <i class="fa-solid fa-arrows-rotate text-2xl text-gold"></i>
+                <i class="fa-solid fa-arrows-rotate text-2xl text-gold flex-shrink-0"></i>
                 <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Capacity</h4>
             </div>
             <p class="text-sm leading-relaxed">Engineered to be scalable, the facility supports continuous, multi-shipment supply chains, increasing annual trade throughput.</p>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 03</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 03</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">04 Value Proposition</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">04 Value Proposition</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-12">
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 print:grid-cols-2">
         <div class="flex flex-col">
             <div class="bg-espresso text-white p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Seller (Suppliers)</div>
-            <div class="flex flex-col gap-6 px-4">
+            <div class="flex flex-col gap-6 px-2 lg:px-4">
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-bullseye text-xl text-espresso mt-1"></i>
+                    <i class="fa-solid fa-bullseye text-xl text-espresso mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Targeted Supply Interventions</h4>
-                        <p class="text-sm">Funding is injected precisely where needed—raw materials, utility payments, or transport—mapped to your specific cash flow cycle.</p>
+                        <p class="text-sm text-gray-700">Funding is injected precisely where needed—raw materials, utility payments, or transport—mapped to your specific cash flow cycle.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-landmark text-xl text-espresso mt-1"></i>
+                    <i class="fa-solid fa-landmark text-xl text-espresso mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Access Institutional Capital</h4>
-                        <p class="text-sm">Tap into specialized liquidity pools outside retail banking to scale industrial capacity without tying up corporate equity.</p>
+                        <p class="text-sm text-gray-700">Tap into specialized liquidity pools outside retail banking to scale industrial capacity without tying up corporate equity.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-boxes-stacked text-xl text-espresso mt-1"></i>
+                    <i class="fa-solid fa-boxes-stacked text-xl text-espresso mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Supply Chain Leverage</h4>
-                        <p class="text-sm">Use immediate liquidity to pre-purchase raw materials and secure early-payment discounts that improve overall net margins.</p>
+                        <p class="text-sm text-gray-700">Use immediate liquidity to pre-purchase raw materials and secure early-payment discounts that improve overall net margins.</p>
                     </div>
                 </div>
             </div>
@@ -266,50 +293,50 @@
 
         <div class="flex flex-col">
             <div class="bg-gold text-espresso p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">For The Buyer (Off-Takers)</div>
-            <div class="flex flex-col gap-6 px-4">
+            <div class="flex flex-col gap-6 px-2 lg:px-4">
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-link text-xl text-gold mt-1"></i>
+                    <i class="fa-solid fa-link text-xl text-gold mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Supply Chain Continuity</h4>
-                        <p class="text-sm">Guarantee your procurement pipeline by enabling suppliers to produce at full capacity.</p>
+                        <p class="text-sm text-gray-700">Guarantee your procurement pipeline by enabling suppliers to produce at full capacity.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-money-check-dollar text-xl text-gold mt-1"></i>
+                    <i class="fa-solid fa-money-check-dollar text-xl text-gold mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Revenue-First Settlement</h4>
-                        <p class="text-sm">Generate revenue from commodities or goods before your bank is required to settle the payment.</p>
+                        <p class="text-sm text-gray-700">Generate revenue from commodities or goods before your bank is required to settle the payment.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <i class="fa-solid fa-clipboard-check text-xl text-gold mt-1"></i>
+                    <i class="fa-solid fa-clipboard-check text-xl text-gold mt-1 flex-shrink-0"></i>
                     <div>
                         <h4 class="font-bold text-espresso mb-1">Risk-Free Procurement</h4>
-                        <p class="text-sm">Financial obligations mature only after goods arrive and pass destination physical inspection.</p>
+                        <p class="text-sm text-gray-700">Financial obligations mature only after goods arrive and pass destination physical inspection.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 04</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 04</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">05 Flow of Funds</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">05 Flow of Funds</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-10 pt-2">
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 pt-2 print:grid-cols-2">
         <div class="flex flex-col">
             <h3 class="text-base font-bold text-espresso uppercase tracking-widest mb-3 border-b-2 border-espresso pb-2">Cycle 1: Discount & Disbursement</h3>
             <div class="flex flex-col gap-2 flex-1">
                 <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
-                    <i class="fa-solid fa-building text-2xl text-espresso w-8 text-center"></i>
+                    <i class="fa-solid fa-building text-2xl text-espresso w-8 text-center flex-shrink-0"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">1. Instrument Issuance</h4>
                         <p class="text-xs text-gray-600 mt-0.5">Buyer issues Drawing Instrument (MT700) to the Trade Agent.</p>
@@ -318,7 +345,7 @@
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
-                    <img src="Zebu%20Logo.png" class="h-6 w-8 object-contain">
+                    <img src="Zebu%20Logo.png" class="h-6 w-8 object-contain flex-shrink-0">
                     <div>
                         <h4 class="text-sm font-bold text-espresso">2. Discounting</h4>
                         <p class="text-xs text-gray-600 mt-0.5">Trade Agent (Zebu) discounts the instrument and releases funds.</p>
@@ -327,25 +354,25 @@
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
-                    <img src="TerraQuest%20Logo.png" class="h-5 w-8 object-contain">
+                    <img src="TerraQuest%20Logo.png" class="h-5 w-8 object-contain flex-shrink-0">
                     <div>
                         <h4 class="text-sm font-bold text-espresso">3. Managed Disbursement</h4>
-                        <p class="text-xs text-gray-600 mt-0.5">Advisor controls and authorizes exact disbursements against the <strong class="text-espresso">pre-agreed use of funds</strong>.</p>
+                        <p class="text-xs text-gray-600 mt-0.5">Advisor controls exact disbursements against <strong class="text-espresso">pre-agreed use of funds</strong>.</p>
                     </div>
                 </div>
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
-                    <i class="fa-solid fa-industry text-2xl text-gold w-8 text-center"></i>
+                    <i class="fa-solid fa-industry text-2xl text-gold w-8 text-center flex-shrink-0"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">4. Seller Payment</h4>
-                        <p class="text-xs text-gray-600 mt-0.5">Seller receives working capital payment strictly tied to value creation.</p>
+                        <p class="text-xs text-gray-600 mt-0.5">Seller receives working capital strictly tied to value creation.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col relative">
+        <div class="flex flex-col relative mt-6 lg:mt-0">
             <h3 class="text-base font-bold text-espresso uppercase tracking-widest mb-3 border-b-2 border-gold pb-2">Cycle 2: Repayment & Recycling</h3>
             
             <div class="absolute inset-0 z-0 opacity-10 flex items-center justify-center pointer-events-none overflow-hidden rounded-lg">
@@ -354,7 +381,7 @@
 
             <div class="flex flex-col gap-2 flex-1 relative z-10">
                 <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
-                    <i class="fa-solid fa-box-open text-2xl text-espresso w-8 text-center"></i>
+                    <i class="fa-solid fa-box-open text-2xl text-espresso w-8 text-center flex-shrink-0"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">1. Value Realization</h4>
                         <p class="text-xs text-gray-600 mt-0.5">Buyer receives goods, processes, and generates revenue.</p>
@@ -363,7 +390,7 @@
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
-                    <i class="fa-solid fa-money-check-dollar text-2xl text-gold w-8 text-center"></i>
+                    <i class="fa-solid fa-money-check-dollar text-2xl text-gold w-8 text-center flex-shrink-0"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">2. Maturity Settlement</h4>
                         <p class="text-xs text-gray-600 mt-0.5">Buyer settles the outstanding balance (O/S) at the agreed maturity date.</p>
@@ -372,7 +399,7 @@
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
-                    <img src="Zebu%20Logo.png" class="h-6 w-8 object-contain">
+                    <img src="Zebu%20Logo.png" class="h-6 w-8 object-contain flex-shrink-0">
                     <div>
                         <h4 class="text-sm font-bold text-espresso">3. Funds Received</h4>
                         <p class="text-xs text-gray-600 mt-0.5">Trade Agent receives the full settlement amount.</p>
@@ -381,52 +408,52 @@
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
                 <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
-                    <i class="fa-solid fa-recycle text-2xl text-gold w-8 text-center"></i>
+                    <i class="fa-solid fa-recycle text-2xl text-gold w-8 text-center flex-shrink-0"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">4. Credit Line Recycled</h4>
-                        <p class="text-xs text-gray-600 mt-0.5">The capital pool is replenished and reinstated for the next trade cycle.</p>
+                        <p class="text-xs text-gray-600 mt-0.5">The capital pool is replenished and reinstated for the next cycle.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="w-full bg-espresso text-white py-3 px-8 text-center rounded shadow-md mt-4 relative z-20">
-        <h3 class="text-[13px] font-bold tracking-[0.15em] mb-1 text-white">CONTINUOUS DE-RISKING FRAMEWORK</h3>
-        <p class="text-gold text-[10px] font-bold uppercase tracking-widest">Insurance Overlay &bull; Over-Collateralization &bull; Direct Legal Perfection</p>
+    <div class="w-full bg-espresso text-white py-3 px-4 lg:px-8 text-center rounded shadow-md mt-6 lg:mt-4 relative z-20">
+        <h3 class="text-xs lg:text-[13px] font-bold tracking-[0.1em] lg:tracking-[0.15em] mb-1 text-white">CONTINUOUS DE-RISKING FRAMEWORK</h3>
+        <p class="text-gold text-[8px] lg:text-[10px] font-bold uppercase tracking-widest">Insurance Overlay &bull; Over-Collateralization &bull; Direct Legal Perfection</p>
     </div>
 
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 05</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4 pt-4 border-t border-gray-100">Slide 05</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">06 Operational Mechanics</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">06 Operational Mechanics</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-16 pt-2">
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 pt-2 print:grid-cols-2">
         <div class="flex flex-col gap-6">
             <div class="flex items-center gap-3 border-b border-espresso pb-2">
                 <span class="text-2xl font-bold text-espresso title-font">A.</span>
-                <h4 class="text-base font-bold text-gray-500 uppercase tracking-wide">Pre-Discounting & Structuring</h4>
+                <h4 class="text-sm lg:text-base font-bold text-gray-500 uppercase tracking-wide">Pre-Discounting & Structuring</h4>
             </div>
             <div class="flex flex-col gap-5">
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">01</span>
-                    <p class="text-sm leading-relaxed"><strong class="text-espresso">Cash Flow Mapping:</strong> Trade Advisor maps the supplier's funding gaps and structures precise intervention points.</p>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs flex-shrink-0">01</span>
+                    <p class="text-sm leading-relaxed text-gray-700"><strong class="text-espresso">Cash Flow Mapping:</strong> Trade Advisor maps the supplier's funding gaps and structures precise intervention points.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">02</span>
-                    <p class="text-sm leading-relaxed"><strong class="text-espresso">Contract Validation:</strong> Buyer confirms the supply contract and issues an irrevocable payment undertaking (MT700).</p>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs flex-shrink-0">02</span>
+                    <p class="text-sm leading-relaxed text-gray-700"><strong class="text-espresso">Contract Validation:</strong> Buyer confirms the supply contract and issues an irrevocable payment undertaking (MT700).</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs">03</span>
-                    <p class="text-sm leading-relaxed"><strong class="text-espresso">Use of Funds Locked:</strong> Capital deployment is mapped strictly to raw materials, logistics, or utility payments.</p>
+                    <span class="bg-card min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-espresso border border-gray-200 text-xs flex-shrink-0">03</span>
+                    <p class="text-sm leading-relaxed text-gray-700"><strong class="text-espresso">Use of Funds Locked:</strong> Capital deployment is mapped strictly to raw materials, logistics, or utility payments.</p>
                 </div>
             </div>
         </div>
@@ -434,40 +461,40 @@
         <div class="flex flex-col gap-6">
             <div class="flex items-center gap-3 border-b border-gold pb-2">
                 <span class="text-2xl font-bold text-gold title-font">B.</span>
-                <h4 class="text-base font-bold text-gray-500 uppercase tracking-wide">Post-Discounting</h4>
+                <h4 class="text-sm lg:text-base font-bold text-gray-500 uppercase tracking-wide">Post-Discounting</h4>
             </div>
             <div class="flex flex-col gap-5">
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">04</span>
-                    <p class="text-sm leading-relaxed">Tsavo executes managed disbursements to the targeted value-creation nodes; receivable assigned to SPV.</p>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs flex-shrink-0">04</span>
+                    <p class="text-sm leading-relaxed text-gray-700">Tsavo executes managed disbursements to the targeted value-creation nodes; receivable assigned to SPV.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">05</span>
-                    <p class="text-sm leading-relaxed">Digital ledger tracks asset through maturity; automated reminders sent to Buyer's treasury team.</p>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs flex-shrink-0">05</span>
+                    <p class="text-sm leading-relaxed text-gray-700">Digital ledger tracks asset through maturity; automated reminders sent to Buyer's treasury team.</p>
                 </div>
                 <div class="flex items-start gap-4">
-                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs">06</span>
-                    <p class="text-sm leading-relaxed">At maturity, Buyer settles full face value to Tsavo trust account; funds distributed to capital providers.</p>
+                    <span class="bg-gold/10 min-w-[28px] h-7 rounded flex items-center justify-center font-bold text-gold border border-gold/30 text-xs flex-shrink-0">06</span>
+                    <p class="text-sm leading-relaxed text-gray-700">At maturity, Buyer settles full face value to Tsavo trust account; funds distributed to capital providers.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 06</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 06</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">07 Facility Economics</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">07 Facility Economics</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-12 items-center">
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center print:grid-cols-2">
         <div class="flex justify-center">
-            <div class="donut-chart shadow-xl">
+            <div class="donut-chart shadow-xl scale-[0.85] lg:scale-100">
                 <div class="relative z-10 flex flex-col items-center">
                     <p class="text-3xl font-bold text-espresso mb-1 title-font">NET</p>
                     <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest text-center leading-tight">Proceeds<br>Disbursed</p>
@@ -475,7 +502,7 @@
             </div>
         </div>
         
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-6 lg:gap-8">
             <div class="flex flex-col gap-4">
                 <div class="flex justify-between items-end border-b border-gray-200 pb-2">
                     <div class="flex items-center gap-3">
@@ -505,25 +532,25 @@
                 </div>
             </div>
             
-            <div class="bg-card p-5 border-l-4 border-gold text-sm italic text-gray-600 leading-relaxed shadow-sm">
+            <div class="bg-card p-4 lg:p-5 border-l-4 border-gold text-sm italic text-gray-600 leading-relaxed shadow-sm">
                 "The cost of the facility is directly linked to the specific risk profile of each transaction. Funds are disbursed net of all fees and costs. Capital deployment is rigidly governed by the pre-agreed use of funds to prevent leakage during the value creation cycle."
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-auto pt-4 border-t border-gray-100">Slide 07</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 07</div>
 </div>
 
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-4">
-        <h2 class="text-3xl font-bold text-espresso tracking-wide">08 Structured Intervention Cycle</h2>
-        <div class="flex items-center gap-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">08 Structured Intervention Cycle</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest%20Logo.png" class="h-[18px] w-auto object-contain">
             <div class="h-5 w-px bg-gray-300"></div>
             <img src="Zebu%20Logo.png" class="h-[22px] w-auto object-contain">
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col justify-center items-center relative w-full pt-8">
+    <div class="flex-1 flex flex-col justify-center items-center relative w-full pt-16 lg:pt-8 transform scale-[0.75] sm:scale-100 origin-top lg:origin-center print:scale-100">
         
         <div class="relative w-[380px] h-[380px] rounded-full border-[3px] border-dashed border-gray-300">
             
