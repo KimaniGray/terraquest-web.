@@ -6,7 +6,6 @@
     <meta name="description" content="The Tsavo Trade Line - Structured Value-Chain Liquidity & Usance Facility">
     <meta name="author" content="TerraQuest Investments FZCO">
     <title>The Tsavo Trade Line | TerraQuest Investments</title>
-    <!-- Removed Google Fonts: Strictly using Georgia and Verdana per Brand Guide -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 1. CORE SETUP & RESET */
@@ -55,10 +54,7 @@
         }
 
         /* 2. TYPOGRAPHY & BRAND COLORS */
-        /* Tsavo Official Palette: 
-           Espresso: #3E2723
-           Gold Fusion: #FFB81C
-        */
+        /* Tsavo Official Palette: Espresso (#3E2723) & Gold Fusion (#FFB81C) */
         h1, h2, h3, h4, .serif { font-family: 'Georgia', serif; color: #3E2723; }
         p, li, td, th, .sans { font-family: 'Verdana', sans-serif; color: #4A3B38; line-height: 1.5; font-size: 15px; }
 
@@ -109,10 +105,29 @@
             margin-top: -15mm;
         }
 
-        .tsavo-tree-logo {
+        /* BRAND LOGO IMAGE CLASSES */
+        .tsavo-logo-container {
             width: 190px;
-            height: auto;
+            height: 190px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 5px;
+            overflow: hidden;
+        }
+        
+        .tsavo-logo-container img {
+            width: 100%; 
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         .cover-title-area h1 {
@@ -157,8 +172,6 @@
             gap: 40px;
             width: 100%;
         }
-
-        .logo-svg { height: 35px; fill: #3E2723; }
 
         .distribution-restriction {
             font-size: 11px;
@@ -357,16 +370,16 @@
         }
         .mini-logos {
             display: flex;
+            align-items: center;
             gap: 15px;
-            height: 20px;
+            height: 35px;
         }
-        .mini-logos svg { height: 100%; }
+        .mini-logo-img { height: 100%; width: auto; object-fit: contain; }
 
     </style>
 </head>
 <body>
 
-<!-- Slide 1: Institutional A4 Cover Page -->
 <div class="slide-container cover-page" id="slide1">
     <div class="cover-top-disclaimer">
         Strictly Private & Confidential <br>
@@ -374,20 +387,9 @@
     </div>
 
     <div class="cover-center">
-        <!-- Tsavo Tree Logo SVG (Recreating the brand guide layered tree) -->
-        <svg class="tsavo-tree-logo" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <!-- Canopy Layers based on Brand Guide (Gold to Espresso) -->
-            <path d="M 50 70 Q 70 40 100 40 Q 130 40 150 70 Z" fill="#FFB81C" opacity="0.9"/> <!-- Gold Fusion -->
-            <path d="M 40 85 Q 70 55 100 60 Q 130 55 160 85 Z" fill="#D48817" opacity="0.95"/> <!-- Transition Amber -->
-            <path d="M 30 100 Q 60 75 100 80 Q 140 75 170 100 Z" fill="#8C4A1D" opacity="0.95"/> <!-- Transition Brown -->
-            <path d="M 25 110 Q 60 90 100 95 Q 140 90 175 110 Z" fill="#3E2723"/> <!-- Espresso Base Canopy -->
-            
-            <!-- Trunk and Branches -->
-            <path d="M 100 150 C 95 130 90 110 80 100 C 90 105 95 115 97 125 C 95 110 85 95 70 90 C 85 95 95 105 98 120 C 100 110 105 95 115 90 C 105 100 102 110 102 125 C 105 115 115 105 130 95 C 115 105 105 120 103 150 Z" fill="#3E2723"/>
-            
-            <!-- Ground curve -->
-            <path d="M 40 155 Q 100 145 160 155" stroke="#3E2723" stroke-width="3" fill="none"/>
-        </svg>
+        <div class="tsavo-logo-container">
+            <img src="Tsavo%20Trade%20Credit%20Logo.png" alt="Tsavo Trade Credit Facility Logo">
+        </div>
 
         <div class="cover-title-area">
             <h1>TSAVO</h1>
@@ -400,22 +402,12 @@
         <div class="partner-logos">
             <div style="text-align: center;">
                 <p style="font-size: 11px; color: #4A3B38; margin-bottom: 5px; text-transform: uppercase; font-family: 'Verdana', sans-serif;">Structuring Advisor & TAO</p>
-                <!-- TerraQuest Logo SVG -->
-                <svg class="logo-svg" viewBox="0 0 250 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,20 L20,5 L30,20 L20,35 Z" fill="#FFB81C" opacity="0.9"/>
-                    <path d="M15,20 L25,5 L35,20 L25,35 Z" fill="#3E2723" opacity="0.8"/>
-                    <text x="45" y="27" font-family="'Georgia', serif" font-size="22" font-weight="bold" fill="#3E2723" letter-spacing="1">TERRA<tspan fill="#FFB81C">QUEST</tspan></text>
-                </svg>
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest Investments FZCO" class="partner-logo-img">
             </div>
             <div style="width: 2px; height: 35px; background: #e2e8f0;"></div>
             <div style="text-align: center;">
                 <p style="font-size: 11px; color: #4A3B38; margin-bottom: 5px; text-transform: uppercase; font-family: 'Verdana', sans-serif;">Capital Partner & Trade Agent</p>
-                <!-- Zebu Logo SVG -->
-                <svg class="logo-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="26" font-family="'Georgia', serif" font-size="22" font-weight="bold" fill="#3E2723" letter-spacing="1">ZEBU</text>
-                    <text x="65" y="18" font-family="'Verdana', sans-serif" font-size="9" fill="#4A3B38" letter-spacing="2">INVESTMENT</text>
-                    <text x="65" y="28" font-family="'Verdana', sans-serif" font-size="9" fill="#4A3B38" letter-spacing="2">PARTNERS</text>
-                </svg>
+                <img src="Zebu%20Logo.png" alt="Zebu Investment Partners" class="partner-logo-img">
             </div>
         </div>
 
@@ -426,20 +418,14 @@
     </div>
 </div>
 
-<!-- Interior Slide Header Template (reused via CSS) -->
-<svg style="display:none;" id="interior-logos">
-    <g id="mini-tq-zebu">
-        <text x="0" y="15" font-family="'Georgia', serif" font-size="14" font-weight="bold" fill="#3E2723">TERRA<tspan fill="#FFB81C">QUEST</tspan> <tspan fill="#e2e8f0"> | </tspan> ZEBU</text>
-    </g>
-</svg>
-
-<!-- Slide 2: Product Overview -->
 <div class="slide-container" id="slide2">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Product Overview</h2>
             <div class="mini-logos">
-                <svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg>
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
             </div>
         </div>
         <div class="content-area">
@@ -455,7 +441,6 @@
                     </div>
                 </div>
                 <div class="image-wrapper">
-                    <!-- Brand compliant image overlay strategy applied via CSS if needed, using standard clean images here -->
                     <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop" alt="Agriculture and Logistics">
                 </div>
             </div>
@@ -463,12 +448,15 @@
     </div>
 </div>
 
-<!-- Slide 3: Key Product Features -->
 <div class="slide-container" id="slide3">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Key Product Features</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area" style="justify-content: center;">
             <div class="tiled-grid-4">
@@ -497,12 +485,15 @@
     </div>
 </div>
 
-<!-- Slide 4: The Value Proposition -->
 <div class="slide-container" id="slide4">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>The Value Proposition</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area">
             <div class="two-column tiled">
@@ -533,16 +524,18 @@
     </div>
 </div>
 
-<!-- Slide 5: Flow of Funds Architecture (Infographic) -->
 <div class="slide-container" id="slide5">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Flow of Funds Architecture (Closed-Loop)</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area">
             <div class="flow-infographic">
-                <!-- Top Row -->
                 <div class="flow-row" style="padding: 0 40px;">
                     <div class="flow-node highlight-node">
                         <div class="step-num">1</div>
@@ -559,13 +552,11 @@
                     </div>
                 </div>
                 
-                <!-- Middle Row / Divider Banner -->
                 <div class="derisk-banner">
                     <i class="fa-solid fa-shield-halved"></i>
                     <span>CONTINUOUS DE-RISKING: TerraQuest Trade Accounts Office (TAO) controls documents & prepares pre-agreed disbursements.</span>
                 </div>
                 
-                <!-- Bottom Row -->
                 <div class="flow-row">
                     <div class="flow-node active-node">
                         <div class="step-num">3</div>
@@ -593,12 +584,15 @@
     </div>
 </div>
 
-<!-- Slide 6: Operational Mechanics -->
 <div class="slide-container" id="slide6">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Operational Mechanics</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area" style="justify-content: center;">
             <p style="margin-bottom: 25px; font-family: 'Georgia', serif; font-size: 17px; color: #3E2723;">Defined by rigorous risk mitigation and strategic cash flow control, moving beyond simple lending into active trade management.</p>
@@ -628,12 +622,15 @@
     </div>
 </div>
 
-<!-- Slide 7: Facility Economics -->
 <div class="slide-container" id="slide7">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Facility Economics (Illustrative Tranche)</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area">
             <div class="doughnut-layout">
@@ -676,12 +673,15 @@
     </div>
 </div>
 
-<!-- Slide 8: Product Lifecycle -->
 <div class="slide-container" id="slide8">
     <div class="slide-padding">
         <div class="slide-header">
             <h2>Product Lifecycle</h2>
-            <div class="mini-logos"><svg viewBox="0 0 160 20" width="160"><use href="#mini-tq-zebu"/></svg></div>
+            <div class="mini-logos">
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="mini-logo-img">
+                <span style="color: #3E2723; font-weight: bold; margin: 0 10px;">|</span>
+                <img src="Zebu%20Logo.png" alt="Zebu" class="mini-logo-img">
+            </div>
         </div>
         <div class="content-area" style="justify-content: center;">
             <div class="timeline-container">
