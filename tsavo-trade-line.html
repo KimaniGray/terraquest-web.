@@ -54,7 +54,6 @@
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            /* Illustrative breakdown: Net Proceeds (80%), Cost of Funds (15%), Margins (5%) */
             background: conic-gradient(
                 #3E2723 0% 80%, 
                 #FFB81C 80% 95%, 
@@ -74,7 +73,6 @@
             border-radius: 50%;
         }
 
-        /* Removes shadow when printing to PDF */
         @media print {
             body { padding: 0; background-color: white; }
             .slide-container { box-shadow: none; border: none; margin: 0; }
@@ -92,12 +90,12 @@
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col items-center justify-center text-center mt-8">
-        <img alt="Tsavo Logo" class="max-h-[300px] w-auto object-contain" src="TsavoTrade%20Credit%20Logo%201.png"/>
-        <p class="text-xl text-espresso mt-8 font-bold tracking-wide">Institutional Investor Prospectus — Q3 2026</p>
+    <div class="flex-1 flex flex-col items-center justify-center text-center w-full">
+        <img alt="Tsavo Logo" class="w-[85%] max-w-[900px] h-[400px] object-contain transform scale-110" src="TsavoTrade%20Credit%20Logo%201.png"/>
+        <p class="text-2xl text-espresso mt-4 font-bold tracking-wide">Institutional Investor Prospectus — Q3 2026</p>
     </div>
 
-    <div class="w-full flex flex-col items-center gap-6 pb-2">
+    <div class="w-full flex flex-col items-center gap-6 pb-2 mt-8">
         <div class="flex justify-center items-center gap-16">
             <div class="flex flex-col items-center gap-3">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Structuring Advisor & TAO</span>
@@ -306,7 +304,6 @@
     </div>
 
     <div class="flex-1 grid grid-cols-2 gap-10 pt-2">
-        
         <div class="flex flex-col">
             <h3 class="text-base font-bold text-espresso uppercase tracking-widest mb-3 border-b-2 border-espresso pb-2">Cycle 1: Discount & Disbursement</h3>
             <div class="flex flex-col gap-2 flex-1">
@@ -347,10 +344,15 @@
             </div>
         </div>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col relative">
             <h3 class="text-base font-bold text-espresso uppercase tracking-widest mb-3 border-b-2 border-gold pb-2">Cycle 2: Repayment & Recycling</h3>
-            <div class="flex flex-col gap-2 flex-1">
-                <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
+            
+            <div class="absolute inset-0 z-0 opacity-10 flex items-center justify-center pointer-events-none">
+                 <img alt="Tsavo Icon" class="w-full h-[80%] object-contain" src="TsavoTrade%20Credit%20Logo%201.png"/>
+            </div>
+
+            <div class="flex flex-col gap-2 flex-1 relative z-10">
+                <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
                     <i class="fa-solid fa-box-open text-2xl text-espresso w-8 text-center"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">1. Value Realization</h4>
@@ -359,7 +361,7 @@
                 </div>
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
-                <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
+                <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
                     <i class="fa-solid fa-money-check-dollar text-2xl text-gold w-8 text-center"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">2. Maturity Settlement</h4>
@@ -368,7 +370,7 @@
                 </div>
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
-                <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
+                <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-espresso flex items-center gap-4">
                     <img src="Zebu%20Logo.png" class="h-6 w-8 object-contain">
                     <div>
                         <h4 class="text-sm font-bold text-espresso">3. Funds Received</h4>
@@ -377,7 +379,7 @@
                 </div>
                 <div class="flex justify-center my-[-2px]"><i class="fa-solid fa-arrow-down text-gray-300 text-sm"></i></div>
                 
-                <div class="bg-card p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
+                <div class="bg-card/90 backdrop-blur-sm p-3 rounded shadow-sm border-l-[4px] border-gold flex items-center gap-4">
                     <i class="fa-solid fa-recycle text-2xl text-gold w-8 text-center"></i>
                     <div>
                         <h4 class="text-sm font-bold text-espresso">4. Credit Line Recycled</h4>
@@ -386,10 +388,9 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <div class="w-full bg-espresso text-white py-3 px-8 text-center rounded shadow-md mt-4">
+    <div class="w-full bg-espresso text-white py-3 px-8 text-center rounded shadow-md mt-4 relative z-20">
         <h3 class="text-[13px] font-bold tracking-[0.15em] mb-1 text-white">CONTINUOUS DE-RISKING FRAMEWORK</h3>
         <p class="text-gold text-[10px] font-bold uppercase tracking-widest">Insurance Overlay &bull; Over-Collateralization &bull; Direct Legal Perfection</p>
     </div>
