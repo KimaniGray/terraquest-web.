@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>TSAVO Case Study: Mansa Mining</title>
+    <title>TSAVO Case Study: Mansa Mining Financing Solution</title>
     
-    <!-- Exact Favicon -->
     <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -35,6 +34,18 @@
         .text-gold { color: #FFB81C; } .bg-gold { background-color: #FFB81C; }
         .bg-card { background-color: #faf8f5; }
 
+        .swift-box {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 10px;
+            line-height: 1.5;
+            box-shadow: inset 0 4px 6px rgba(0,0,0,0.5);
+        }
+        .swift-box .swift-tag { color: #FFB81C; font-weight: bold; }
+
         @media print {
             body { padding: 0; background-color: white; gap: 0; }
             .slide-container { 
@@ -42,6 +53,7 @@
                 margin: 0; padding: 12mm 18mm; page-break-after: always; border-radius: 0;
             }
             .print\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .print\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
         }
     </style>
 </head>
@@ -58,8 +70,8 @@
 
     <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
         <img alt="Tsavo Logo" class="max-w-[350px] h-auto object-contain mx-auto mb-4" src="Tsavo Trade Credit Logo 3.png"/>
-        <h1 class="text-3xl lg:text-4xl text-espresso font-bold tracking-wide title-font">Mansa Mining Intervention</h1>
-        <p class="text-sm text-gray-500 uppercase tracking-widest mt-3 font-bold">Integrated CAPEX & Trade Facility</p>
+        <h1 class="text-3xl lg:text-4xl text-espresso font-bold tracking-wide title-font mt-2">Mansa Mining Financing Solution</h1>
+        <p class="text-sm text-gray-500 uppercase tracking-widest mt-3 font-bold border-t border-gray-200 pt-3">Integrated CAPEX & Trade Facility</p>
     </div>
 
     <div class="w-full flex flex-col items-center gap-6 pb-2">
@@ -79,7 +91,7 @@
 
 <!-- Slide 2: The Puzzle Pieces -->
 <div class="slide-container">
-    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
         <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">01 The Transaction Puzzle</h2>
         <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
@@ -88,44 +100,45 @@
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 print:grid-cols-2">
-        <div class="flex flex-col gap-6">
-            <h3 class="text-xl font-bold text-espresso title-font">The Challenge: Isolated CAPEX</h3>
-            <p class="text-sm leading-relaxed text-gray-700">Mansa Mining SARLU has secured a lucrative transport contract with Zhicheng Guinée Mining SARL to haul bauxite. However, executing this contract requires significant upfront capital to acquire an initial fleet of 100 trucks. Securing a standalone $9.5M asset finance facility locally presents significant balance sheet risk and high collateral demands.</p>
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 print:grid-cols-2">
+        <!-- The Challenge -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-xl font-bold text-espresso title-font border-b border-gray-200 pb-2">The Challenge: Isolated CAPEX</h3>
+            <p class="text-[13px] leading-relaxed text-gray-700">Mansa Mining SARLU currently holds a transport contract paying <strong class="text-espresso">$10/MT</strong> to haul bauxite. The 2026 starting requirement is a <strong class="text-espresso">$9,500,000 USD</strong> CAPEX facility to acquire an initial fleet of <strong class="text-espresso">100 trucks</strong>. This is Phase 1 of a larger objective to scale to a target fleet of <strong class="text-gold">300 trucks by 2028</strong>.</p>
             
-            <div class="bg-card p-5 border-l-4 border-espresso shadow-sm">
-                <h4 class="font-bold text-espresso mb-2 text-sm uppercase tracking-wide">Transaction 1: The Contract (CAPEX)</h4>
-                <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
-                    <li><strong>Operator:</strong> Mansa Mining SARLU</li>
-                    <li><strong>Client:</strong> Zhicheng Guinée Mining SARL</li>
-                    <li><strong>Task:</strong> Bauxite transport</li>
-                    <li><strong>Fleet Requirement:</strong> 100 Trucks (Initial Phase of 300 target)</li>
-                    <li><strong>CAPEX Required:</strong> $9,500,000 USD</li>
-                </ul>
+            <p class="text-[13px] leading-relaxed text-gray-700 font-bold italic text-red-800">"We do not believe this standalone transport contract will suffice to secure the required funding."</p>
+
+            <div class="bg-card p-4 border-l-4 border-red-800 shadow-sm mt-1">
+                <h4 class="font-bold text-espresso mb-2 text-xs uppercase tracking-wide">The Hurdle (Transaction 1)</h4>
+                <p class="text-[12px] text-gray-600 leading-snug">Securing a traditional $9.5M asset finance facility locally for Phase 1—based solely on logistics revenue—presents significant balance sheet risk, high collateral demands, and critically restricts the rapid 2027/2028 growth trajectory.</p>
             </div>
         </div>
 
-        <div class="flex flex-col gap-6">
-            <h3 class="text-xl font-bold text-espresso title-font">The Tsavo Solution: Embedded Financing</h3>
-            <p class="text-sm leading-relaxed text-gray-700">To unlock the $9.5M CAPEX seamlessly, Tsavo removes the focus from Mansa Mining's local balance sheet and shifts the credit view to the end-buyer of the bauxite. By embedding Transaction 1 (Logistics CAPEX) inside Transaction 2 (Bauxite Export), we fund the initial 100 trucks using the ultimate Off-Taker's global credit rating.</p>
+        <!-- The Solution -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-xl font-bold text-espresso title-font border-b border-gray-200 pb-2">The Tsavo Solution: Structured Trade</h3>
+            <p class="text-[13px] leading-relaxed text-gray-700">To unlock the $9.5M seamlessly, Tsavo proposes a structural shift: elevating Mansa from a pure logistics provider to a <strong class="text-espresso">Principal Commodity Exporter</strong> through a comprehensive structured trade solution.</p>
             
-            <div class="bg-card p-5 border-l-4 border-gold shadow-sm">
-                <h4 class="font-bold text-espresso mb-2 text-sm uppercase tracking-wide">Transaction 2: The Trade Support</h4>
-                <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
-                    <li><strong>Asset:</strong> Bauxite Export Contract</li>
-                    <li><strong>Off-Taker (Buyer):</strong> Global Commodity Buyer</li>
-                    <li><strong>Instrument:</strong> Standby Letter of Credit (SBLC)</li>
-                    <li><strong>Mechanic:</strong> SBLC is issued to Zebu, discounted, and routed by TerraQuest specifically to pay the truck manufacturers.</li>
+            <div class="bg-card p-4 border-l-4 border-gold shadow-sm mt-1">
+                <h4 class="font-bold text-espresso mb-2 text-xs uppercase tracking-wide">The Engineered Pivot (Transaction 2)</h4>
+                <ul class="text-[12px] text-gray-700 space-y-2 list-none pl-0">
+                    <li class="flex gap-2"><i class="fa-solid fa-earth-americas text-gold mt-0.5"></i> <span><strong>Global Off-Take:</strong> Mansa purchases bauxite and exports it directly to a Global Buyer.</span></li>
+                    <li class="flex gap-2"><i class="fa-solid fa-file-contract text-gold mt-0.5"></i> <span><strong>Bankable Commitment:</strong> Secure an acceptable <strong>Deferred Letter of Credit (DLC)</strong> from this Buyer.</span></li>
+                    <li class="flex gap-2"><i class="fa-solid fa-truck-ramp-box text-gold mt-0.5"></i> <span><strong>Embedded Logistics:</strong> Structure the initial $9.5M truck acquisition as a core cost component embedded within the total export trade.</span></li>
                 </ul>
+            </div>
+            
+            <div class="bg-espresso text-white p-3 rounded text-[11px] leading-relaxed shadow-md mt-auto">
+                <strong class="text-gold">The Financial Engine:</strong> The Tsavo Trade Credit Line discounts the Global Buyer's DLC, generating the upfront liquidity to fund the $9.5M CAPEX. This ensures the initial 100 trucks are 100% debt-funded against the institutional credit rating of the Global Off-Taker.
             </div>
         </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 pt-4 border-t border-gray-100">Slide 01</div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4 pt-3 border-t border-gray-100">Slide 01</div>
 </div>
 
 <!-- Slide 3: Transaction Flow Diagram -->
 <div class="slide-container">
-    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-4">
         <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">02 Deal Architecture & Flow</h2>
         <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
@@ -134,73 +147,95 @@
         </div>
     </div>
 
-    <!-- Integrated Flow Diagram (No PDF breaking effects) -->
-    <div class="flex-1 flex flex-col items-center justify-center w-full mt-2 lg:mt-4">
-        <div class="w-full max-w-5xl bg-card border border-gray-200 rounded-lg p-6 shadow-sm relative">
+    <p class="text-[12px] text-gray-600 mb-4 text-center max-w-4xl mx-auto">Because the truck acquisition is now a cost component of a larger export trade, the flow of funds must be meticulously structured to ensure both the commodity delivery and the CAPEX funding are successfully executed.</p>
+
+    <!-- Custom Strategic Flowchart -->
+    <div class="flex-1 w-full bg-card border border-gray-200 rounded-lg p-6 shadow-sm relative flex flex-col justify-center gap-8">
+        
+        <!-- Top Row: Instrument & Discounting -->
+        <div class="flex justify-between items-center relative z-10 w-4/5 mx-auto">
+            <div class="flex flex-col items-center text-center w-40">
+                <div class="w-14 h-14 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl mb-2 border-4 border-gold shadow-md"><i class="fa-solid fa-ship"></i></div>
+                <h4 class="font-bold text-[11px] uppercase text-espresso">Global Off-Taker</h4>
+                <p class="text-[9px] text-gray-500">Step 1: Issues DLC (MT700)</p>
+            </div>
             
-            <!-- Phase 1: Instrument -->
-            <div class="flex items-center justify-between mb-8 relative z-10">
-                <div class="w-1/4 text-center">
-                    <div class="w-16 h-16 mx-auto bg-gray-800 text-white rounded-full flex items-center justify-center text-2xl mb-2 border-4 border-gold"><i class="fa-solid fa-ship"></i></div>
-                    <h4 class="font-bold text-xs uppercase text-espresso">Global Off-Taker</h4>
-                    <p class="text-[9px] text-gray-500 leading-tight">Issues SBLC for Bauxite</p>
-                </div>
-                <div class="flex-1 flex flex-col items-center justify-center text-gold">
-                    <span class="text-[10px] font-bold uppercase tracking-widest mb-1 text-espresso">1. Irrevocable SBLC (MT760)</span>
-                    <div class="w-full h-0.5 bg-gold relative"><i class="fa-solid fa-caret-right absolute right-0 -top-2 text-gold"></i></div>
-                </div>
-                <div class="w-1/4 text-center">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-2 border-4 border-espresso shadow-md"><img src="Zebu Logo.png" class="h-6 object-contain"></div>
-                    <h4 class="font-bold text-xs uppercase text-espresso">Trade Agent (Zebu)</h4>
-                    <p class="text-[9px] text-gray-500 leading-tight">Discounts Instrument</p>
-                </div>
+            <div class="flex-1 flex flex-col items-center justify-center relative">
+                <span class="text-[10px] font-bold text-gold uppercase tracking-widest mb-1 bg-card px-2 relative z-10">Credit Anchor</span>
+                <div class="w-full h-1 bg-gold absolute top-1/2 transform -translate-y-1/2"></div>
+                <i class="fa-solid fa-caret-right absolute right-0 top-1/2 transform -translate-y-1/2 text-gold text-lg"></i>
             </div>
-
-            <!-- Phase 2: Deal Checker -->
-            <div class="flex flex-col items-center justify-center mb-8 relative z-10">
-                <div class="flex flex-col items-center justify-center text-espresso h-12 w-full">
-                    <div class="w-px h-full bg-espresso relative"><i class="fa-solid fa-caret-down absolute bottom-0 -left-1.5 text-espresso"></i></div>
-                    <span class="text-[10px] font-bold uppercase tracking-widest mt-1 bg-white px-2">2. Liquidity Generation</span>
-                </div>
-                <div class="w-full max-w-md bg-espresso text-white rounded-lg p-4 text-center shadow-md border-b-4 border-gold mt-2">
-                    <div class="flex justify-center mb-2"><img src="Terraquest Investment Logo Icon on black-01.jpg" class="h-8 w-8 object-contain rounded-full border border-white"></div>
-                    <h4 class="font-bold text-sm uppercase tracking-widest">TerraQuest: Deal Checker</h4>
-                    <p class="text-[10px] mt-1 text-gray-300">Verifies transaction docs, locks use of funds, and routes liquidity strictly to the truck manufacturer for CAPEX execution.</p>
-                </div>
-            </div>
-
-            <!-- Phase 3: Execution -->
-            <div class="flex items-center justify-between relative z-10">
-                <div class="w-1/4 text-center">
-                    <div class="w-16 h-16 mx-auto bg-gold text-espresso rounded-full flex items-center justify-center text-2xl mb-2 border-4 border-white shadow-md"><i class="fa-solid fa-truck"></i></div>
-                    <h4 class="font-bold text-xs uppercase text-espresso">Truck Supplier</h4>
-                    <p class="text-[9px] text-gray-500 leading-tight">Receives $9.5M, releases fleet</p>
-                </div>
-                <div class="flex-1 flex flex-col items-center justify-center text-espresso px-4">
-                    <span class="text-[10px] font-bold uppercase tracking-widest mb-1">3. Direct Payment</span>
-                    <div class="w-full h-0.5 bg-gray-300 relative"><i class="fa-solid fa-caret-left absolute left-0 -top-2 text-gray-400"></i></div>
-                </div>
-                <div class="w-1/4 text-center">
-                    <div class="w-16 h-16 mx-auto bg-gray-200 text-espresso rounded-full flex items-center justify-center text-2xl mb-2 border-4 border-espresso shadow-md"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h4 class="font-bold text-xs uppercase text-espresso">Mansa Mining</h4>
-                    <p class="text-[9px] text-gray-500 leading-tight">Operates 100 trucks, hauls bauxite</p>
-                </div>
-            </div>
-
-            <!-- Background connecting watermark -->
-            <div class="absolute inset-0 z-0 flex items-center justify-center opacity-5 pointer-events-none">
-                <img src="Tsavo Trade Credit Logo 3.png" class="w-2/3 object-contain">
+            
+            <div class="flex flex-col items-center text-center w-40">
+                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-2 border-4 border-espresso shadow-md"><img src="Zebu Logo.png" class="h-5 object-contain"></div>
+                <h4 class="font-bold text-[11px] uppercase text-espresso">Trade Agent (Zebu)</h4>
+                <p class="text-[9px] text-gray-500">Step 2: Discounts Instrument</p>
             </div>
         </div>
-        <p class="text-xs text-gray-500 mt-4 font-bold text-center italic max-w-3xl">"Transaction 1 (Truck Logistics) is safely funded from within Transaction 2 (Bauxite Export). Mansa Mining receives the trucks to perform the work without carrying the debt directly on their balance sheet."</p>
+
+        <!-- Vertical Drop to Deal Checker -->
+        <div class="flex justify-end relative z-10 w-4/5 mx-auto pr-16 -my-4">
+            <div class="w-1 h-12 bg-espresso relative">
+                <i class="fa-solid fa-caret-down absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 text-espresso text-lg"></i>
+            </div>
+        </div>
+
+        <!-- Middle Row: Deal Checker Pivot -->
+        <div class="flex justify-center relative z-10">
+            <div class="bg-espresso text-white rounded-lg p-4 text-center shadow-lg border-b-4 border-gold w-96 relative z-20">
+                <div class="flex justify-center mb-2"><img src="Terraquest Investment Logo Icon on black-01.jpg" class="h-8 w-8 object-contain rounded-full border border-white"></div>
+                <h4 class="font-bold text-[12px] uppercase tracking-widest">Step 3: Dual Disbursement</h4>
+                <p class="text-[9px] mt-1 text-gray-300">TerraQuest verifies docs & allocates liquidity</p>
+            </div>
+        </div>
+
+        <!-- Splitting paths -->
+        <div class="flex justify-center relative z-10 -my-4">
+            <!-- Left Path -->
+            <div class="w-1/2 h-10 border-l-4 border-t-4 border-gray-400 rounded-tl-lg relative ml-20">
+                 <i class="fa-solid fa-caret-down absolute bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2 text-gray-400 text-lg"></i>
+                 <span class="absolute -top-3 left-10 text-[9px] font-bold text-gray-500 bg-card px-1">Allocation A</span>
+            </div>
+            <!-- Right Path -->
+            <div class="w-1/2 h-10 border-r-4 border-t-4 border-gold rounded-tr-lg relative mr-20">
+                 <i class="fa-solid fa-caret-down absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 text-gold text-lg"></i>
+                 <span class="absolute -top-3 right-10 text-[9px] font-bold text-gold bg-card px-1">Allocation B (CAPEX)</span>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Execution -->
+        <div class="flex justify-between items-start relative z-10 px-8">
+            <div class="flex flex-col items-center text-center w-48 bg-white p-3 rounded shadow-sm border border-gray-200">
+                <i class="fa-solid fa-boxes-packing text-gray-400 text-2xl mb-2"></i>
+                <h4 class="font-bold text-[11px] uppercase text-espresso">Trade Operations</h4>
+                <p class="text-[9px] text-gray-500 mt-1">Funds directed to secure & load Bauxite for export.</p>
+            </div>
+            
+            <div class="flex flex-col items-center text-center w-48 bg-white p-3 rounded shadow-sm border border-gray-200 mt-8">
+                <i class="fa-solid fa-helmet-safety text-espresso text-2xl mb-2"></i>
+                <h4 class="font-bold text-[11px] uppercase text-espresso">Mansa Mining</h4>
+                <p class="text-[9px] text-gray-500 mt-1">Step 4: Hauls & Exports Bauxite<br>Step 5: DLC Settlement at 180 Days</p>
+            </div>
+
+            <div class="flex flex-col items-center text-center w-48 bg-gold/10 p-3 rounded shadow-sm border border-gold">
+                <i class="fa-solid fa-truck text-gold text-2xl mb-2"></i>
+                <h4 class="font-bold text-[11px] uppercase text-espresso">Truck Supplier</h4>
+                <p class="text-[9px] text-gray-600 mt-1">Receives direct <strong>$9.5M</strong> payment. Releases 100-truck fleet.</p>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+            <img src="Tsavo Trade Credit Logo 3.png" class="w-3/4 object-contain">
+        </div>
     </div>
-    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 02</div>
+    
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4 pt-3 border-t border-gray-100">Slide 02</div>
 </div>
 
 <!-- Slide 4: Roles & Clearances -->
 <div class="slide-container">
     <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
-        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">03 Roles & Bank Caveats</h2>
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">03 Evolved Party Roles</h2>
         <div class="hidden sm:flex items-center gap-6 print:flex">
             <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
             <div class="h-6 w-px bg-gray-300"></div>
@@ -208,65 +243,149 @@
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 print:grid-cols-2">
-        <!-- Roles -->
-        <div class="flex flex-col gap-4">
-            <h3 class="text-base font-bold text-espresso uppercase tracking-widest border-b-2 border-espresso pb-2">Party Responsibilities</h3>
-            
-            <div class="bg-card p-4 rounded shadow-sm border-l-[4px] border-espresso">
-                <h4 class="text-sm font-bold text-espresso uppercase mb-1">Mansa Mining (Operator)</h4>
-                <p class="text-xs text-gray-700">Executes the transport mandate, hauling bauxite from the Zhicheng mine to Kimbo port, fulfilling the physical performance requirement of the underlying trade.</p>
+    <p class="text-[13px] text-gray-700 mb-6 text-center max-w-3xl mx-auto">By transitioning to a structured trade model, the responsibilities of the parties are elevated to maintain a secure, closed-loop environment.</p>
+
+    <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 print:grid-cols-2">
+        
+        <div class="bg-card p-5 rounded-lg shadow-sm border-t-4 border-espresso flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-espresso text-white flex items-center justify-center"><i class="fa-solid fa-helmet-safety"></i></div>
+                <h3 class="text-base font-bold text-espresso uppercase m-0">Mansa Mining</h3>
+                <span class="text-[9px] font-bold bg-gold text-espresso px-2 py-0.5 rounded uppercase">Principal Exporter</span>
             </div>
-            
-            <div class="bg-card p-4 rounded shadow-sm border-l-[4px] border-gold">
-                <h4 class="text-sm font-bold text-espresso uppercase mb-1">TerraQuest (Deal Checker)</h4>
-                <p class="text-xs text-gray-700">A specific verification office that reviews all performance and payment documents for settlement. TerraQuest clears the documents and presents them to the Trade Agent to trigger execution.</p>
+            <p class="text-[12px] leading-relaxed text-gray-700">Mansa is no longer just a subcontractor; they are the Principal Seller. They hold the export contract, operate the newly acquired 100-truck fleet, and are responsible for the physical delivery of the bauxite to the Global Buyer.</p>
+        </div>
+
+        <div class="bg-card p-5 rounded-lg shadow-sm border-t-4 border-gold flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gold text-espresso flex items-center justify-center"><i class="fa-solid fa-ship"></i></div>
+                <h3 class="text-base font-bold text-espresso uppercase m-0">Global Buyer</h3>
+                <span class="text-[9px] font-bold bg-espresso text-white px-2 py-0.5 rounded uppercase">Credit Anchor</span>
             </div>
-            
-            <div class="bg-card p-4 rounded shadow-sm border-l-[4px] border-espresso">
-                <h4 class="text-sm font-bold text-espresso uppercase mb-1">Zebu (Trade Agent)</h4>
-                <p class="text-xs text-gray-700">Receives the SBLC from the Off-Taker's bank, processes the discounting mechanism, and deploys the capital based solely on the Deal Checker's clearance.</p>
+            <p class="text-[12px] leading-relaxed text-gray-700">Provides the bankable commitment (Deferred LC) that serves as the institutional-grade collateral foundation for the entire operation and logistics funding.</p>
+        </div>
+
+        <div class="bg-card p-5 rounded-lg shadow-sm border-t-4 border-gray-400 flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+                <img src="Terraquest Investment Logo Icon on black-01.jpg" class="h-10 w-10 object-contain rounded-full border border-gray-300">
+                <h3 class="text-base font-bold text-espresso uppercase m-0">TerraQuest</h3>
+                <span class="text-[9px] font-bold bg-gray-200 text-gray-600 px-2 py-0.5 rounded uppercase">Deal Checker</span>
+            </div>
+            <p class="text-[12px] leading-relaxed text-gray-700">Acts as the crucial risk-mitigation layer. Ensures discounted funds are not misallocated by clearing all performance documents and strictly routing the $9.5M to the truck supplier, rather than releasing uncontrolled cash.</p>
+        </div>
+
+        <div class="bg-card p-5 rounded-lg shadow-sm border-t-4 border-espresso flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white border-2 border-espresso flex items-center justify-center p-1"><img src="Zebu Logo.png" class="object-contain w-full h-full"></div>
+                <h3 class="text-base font-bold text-espresso uppercase m-0">Zebu Invest.</h3>
+                <span class="text-[9px] font-bold bg-gold text-espresso px-2 py-0.5 rounded uppercase">Capital Provider</span>
+            </div>
+            <p class="text-[12px] leading-relaxed text-gray-700">The institutional liquidity partner. Zebu receives the DLC, executes the discounting mechanics, and deploys the capital based solely on TerraQuest’s clearance.</p>
+        </div>
+
+    </div>
+    
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 pt-4 border-t border-gray-100">Slide 03</div>
+</div>
+
+<!-- Slide 5: Facility Economics -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">04 Economics & Bridging the CAPEX Gap</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
+            <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
+            <div class="h-6 w-px bg-gray-300"></div>
+            <img src="Zebu Logo.png" class="h-[22px] w-auto object-contain">
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col gap-6">
+        <p class="text-[13px] text-gray-700 text-center max-w-4xl mx-auto">The primary objective of this structure is to achieve Mansa Mining's goal of fully retiring the <strong>$9.5M initial fleet debt within 12 months</strong>, enabling cash-funded expansion of the remaining 200 trucks in 2027/2028.</p>
+        
+        <div class="flex justify-center gap-12 mb-2">
+            <div class="text-center">
+                <span class="block text-3xl font-bold text-gold title-font">180 Days</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Discounting Period (Per Tranche)</span>
+            </div>
+            <div class="w-px h-12 bg-gray-300"></div>
+            <div class="text-center">
+                <span class="block text-3xl font-bold text-espresso title-font">360 Days</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Maximum Facility Limit (12 Months)</span>
             </div>
         </div>
 
-        <!-- Bank Caveats -->
-        <div class="flex flex-col gap-4">
-            <h3 class="text-base font-bold text-espresso uppercase tracking-widest border-b-2 border-gold pb-2">SBLC Bank Caveats & Format</h3>
+        <div class="bg-espresso text-white p-4 rounded-lg shadow-md">
+            <h3 class="text-gold text-sm uppercase tracking-widest mb-3 border-b border-white/20 pb-2">Strategic Avenues to Bridge the $9.5M Funding</h3>
+            <p class="text-[11px] text-gray-300 mb-4 leading-relaxed">Since a single 180-day bauxite shipment may not generate enough net margin to instantly pay off $9.5M worth of trucks, the CAPEX payoff is integrated into the revolving nature of the trade facility via three options:</p>
             
-            <p class="text-sm text-gray-700 mb-2">To successfully fund the Mansa Mining CAPEX through the Off-Taker, the financial instrument must meet strict institutional criteria:</p>
-
-            <div class="space-y-3">
-                <div class="flex gap-3 items-start">
-                    <i class="fa-solid fa-building-columns text-gold mt-1 text-lg"></i>
-                    <div>
-                        <strong class="text-sm text-espresso">Eligible Issuing Banks</strong>
-                        <p class="text-xs text-gray-600">The SBLC must be issued or fully confirmed by a Top 50 Global Bank located in an OECD jurisdiction. Local or unrated regional banks cannot be monetized for this facility.</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 print:grid-cols-3">
+                <div class="bg-white/10 p-3 rounded border border-white/20">
+                    <h4 class="text-gold text-[12px] font-bold mb-1"><i class="fa-solid fa-money-bill-wave mr-1"></i> Margin Sweeping</h4>
+                    <p class="text-[10px] text-gray-200 leading-snug">The robust net operating margins generated from the FOB/CIF spread of multiple bauxite sales are aggressively swept to pay down the $9.5M principal by the end of Year 1.</p>
+                    <span class="block text-[8px] uppercase tracking-widest text-gold mt-2 font-bold">Preferred Route</span>
                 </div>
-                <div class="flex gap-3 items-start">
-                    <i class="fa-solid fa-file-contract text-gold mt-1 text-lg"></i>
-                    <div>
-                        <strong class="text-sm text-espresso">Instrument Formatting</strong>
-                        <p class="text-xs text-gray-600">Must be transmitted via SWIFT MT760 (Standby Letter of Credit) or MT700 (Documentary LC). It must explicitly state it is subject to UCP 600 or ISP98.</p>
-                    </div>
+                
+                <div class="bg-white/10 p-3 rounded border border-white/20">
+                    <h4 class="text-gold text-[12px] font-bold mb-1"><i class="fa-solid fa-handshake mr-1"></i> Matched Payments</h4>
+                    <p class="text-[10px] text-gray-200 leading-snug">If the logistics contract remains active alongside the export trade, the $10/MT logistics revenue is combined with export margins to create a dual-revenue liquidation mechanism.</p>
                 </div>
-                <div class="flex gap-3 items-start">
-                    <i class="fa-solid fa-lock-open text-gold mt-1 text-lg"></i>
-                    <div>
-                        <strong class="text-sm text-espresso">Transferability</strong>
-                        <p class="text-xs text-gray-600">The instrument must be Irrevocable, Unconditional, and Transferable/Assignable to allow Zebu to establish the discounting line.</p>
-                    </div>
+                
+                <div class="bg-white/10 p-3 rounded border border-white/20">
+                    <h4 class="text-gold text-[12px] font-bold mb-1"><i class="fa-solid fa-file-signature mr-1"></i> Lease-to-Own</h4>
+                    <p class="text-[10px] text-gray-200 leading-snug">Structure the $9.5M acquisition as a lease-to-own model funded by the trade line. Mansa pays installments from each 180-day cycle, converting to full equity at 12 months.</p>
                 </div>
-            </div>
-
-            <div class="mt-auto bg-gray-800 text-gold text-xs p-3 rounded font-mono shadow-inner">
-                // REQUIRED SWIFT TAGS<br>
-                :40C: IRREVOCABLE STANDBY<br>
-                :31D: DATE OF EXPIRY (360 DAYS)<br>
-                :41A: AVAILABLE WITH... BY PAYMENT<br>
-                :45A: ZEBU / TRADE AGENT
             </div>
         </div>
+    </div>
+    
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-4 pt-3 border-t border-gray-100">Slide 04</div>
+</div>
+
+<!-- Slide 6: Bank Caveats & MT700 -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">05 DLC Bank Caveats & Required Verbiage</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
+            <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
+            <div class="h-6 w-px bg-gray-300"></div>
+            <img src="Zebu Logo.png" class="h-[22px] w-auto object-contain">
+        </div>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-5 gap-8">
+        
+        <div class="lg:col-span-2 flex flex-col gap-5">
+            <p class="text-[12px] text-gray-700 leading-relaxed">Because Transaction 1 relies entirely on the creditworthiness of Transaction 2, the financial instrument securing the trade must meet strict institutional criteria.</p>
+            
+            <div class="bg-card p-4 rounded shadow-sm border-l-4 border-espresso">
+                <h4 class="text-[12px] font-bold text-espresso uppercase mb-1"><i class="fa-solid fa-building-columns text-gold mr-1"></i> Eligible Issuing Banks</h4>
+                <p class="text-[11px] text-gray-600 leading-relaxed">The DLC must be issued or fully confirmed by a Top 50 Global Bank located in an OECD jurisdiction. Local, unrated, or tier-3 regional banks cannot be monetized for this facility.</p>
+            </div>
+            
+            <div class="bg-card p-4 rounded shadow-sm border-l-4 border-gold">
+                <h4 class="text-[12px] font-bold text-espresso uppercase mb-1"><i class="fa-solid fa-right-left text-gold mr-1"></i> Transferability</h4>
+                <p class="text-[11px] text-gray-600 leading-relaxed">The instrument must be Irrevocable, Unconditional, and Transferable/Assignable to allow Zebu to legally establish the discounting line.</p>
+            </div>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col h-full">
+            <h4 class="text-[12px] font-bold text-espresso uppercase mb-2">Mandated MT700 Verbiage Draft</h4>
+            <p class="text-[10px] text-gray-500 mb-2">To activate the facility, the Applicant must ensure the Issuing Bank utilizes the following SWIFT MT700 structure in favor of Zebu Investment Partners:</p>
+            
+            <!-- SWIFT Terminal Box -->
+            <div class="swift-box flex-1 overflow-hidden flex flex-col justify-center">
+                <div>RECEIVING BANK: Standard Chartered Bank, 1 Basinghall Avenue, London (SCBLGB2L)</div>
+                <div><span class="swift-tag">:40A:</span> FORM OF DOCUMENTARY CREDIT: IRREVOCABLE</div>
+                <div><span class="swift-tag">:40E:</span> APPLICABLE RULES: UCP LATEST VERSION</div>
+                <div><span class="swift-tag">:59:</span> BENEFICIARY: ZEBU INVESTMENT PARTNERS UK LIMITED. 1 PARK ROW, LEEDS, LS1 5AB</div>
+                <div><span class="swift-tag">:41A:</span> AVAILABLE WITH...BY...: BY DEFERRED PAYMENT</div>
+                <div><span class="swift-tag">:42P:</span> DEFERRED PAYMENT DETAILS: 180 DAYS AFTER RECEIPT OF DOCUMENTS AT NEGOTIATING BANK COUNTERS</div>
+                <div><span class="swift-tag">:43P:</span> PARTIAL SHIPMENTS: ALLOWED</div>
+                <div><span class="swift-tag">:43T:</span> TRANSHIPMENT: NOT ALLOWED</div>
+                <div><span class="swift-tag">:71D:</span> CHARGES: ALL BANK CHARGES OUTSIDE ISSUING BANK ARE FOR BENEFICIARY’S ACCOUNT.</div>
+            </div>
+        </div>
+
     </div>
     
     <div class="flex justify-between items-end border-t border-gray-200 pt-3 mt-auto relative z-30">
