@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TSAVO Case Study: Mansa Mining</title>
+    
+    <link rel="icon" type="image/jpeg" href="Terraquest Investment Logo Icon on black-01.jpg"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @page { size: A4 landscape; margin: 0; }
+        body {
+            background-color: #e2e8f0; margin: 0; padding: 15px;
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
+            font-family: 'Verdana', sans-serif; color: #4A3B38;
+            -webkit-print-color-adjust: exact; print-color-adjust: exact;
+        }
+        @media (min-width: 1024px) { body { padding: 20px; gap: 40px; } }
+        
+        .slide-container {
+            width: 100%; max-width: 297mm; background-color: #ffffff;
+            box-sizing: border-box; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative; padding: 24px; display: flex; flex-direction: column;
+            overflow: hidden; border-radius: 8px;
+        }
+        @media (min-width: 1024px) {
+            .slide-container { height: 210mm; padding: 12mm 18mm; border-radius: 0; }
+        }
+
+        h1, h2, h3, h4, h5, .title-font { font-family: 'Georgia', serif; }
+        .text-espresso { color: #3E2723; } .bg-espresso { background-color: #3E2723; } .border-espresso { border-color: #3E2723; }
+        .text-gold { color: #FFB81C; } .bg-gold { background-color: #FFB81C; }
+        .bg-card { background-color: #faf8f5; }
+
+        @media print {
+            body { padding: 0; background-color: white; gap: 0; }
+            .slide-container { 
+                width: 297mm; height: 210mm; box-shadow: none; border: none; 
+                margin: 0; padding: 12mm 18mm; page-break-after: always; border-radius: 0;
+            }
+            .print\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container justify-between border-[8px] border-espresso">
+    <div class="w-full flex justify-end">
+        <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
+            Strictly Private & Confidential<br>
+            Deal Structuring Case Study
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
+        <img alt="Tsavo Logo" class="max-w-[350px] h-auto object-contain mx-auto mb-4" src="Tsavo Trade Credit Logo 3.png"/>
+        <h1 class="text-3xl lg:text-4xl text-espresso font-bold tracking-wide title-font">Mansa Mining Intervention</h1>
+        <p class="text-sm text-gray-500 uppercase tracking-widest mt-3 font-bold">Integrated CAPEX & Trade Facility</p>
+    </div>
+
+    <div class="w-full flex flex-col items-center gap-6 pb-2">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 print:flex-row">
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-2">Structuring Advisor & Deal Checker</span>
+                <img alt="TerraQuest Logo" class="h-[45px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
+            </div>
+            <div class="hidden sm:block h-12 w-px bg-gray-300 mt-4 print:block"></div>
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Discounting & Trade Agent</span>
+                <img alt="Zebu Logo" class="h-[45px] w-auto object-contain" src="Zebu Logo.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">01 The Transaction Puzzle</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
+            <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
+            <div class="h-6 w-px bg-gray-300"></div>
+            <img src="Zebu Logo.png" class="h-[22px] w-auto object-contain">
+        </div>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 print:grid-cols-2">
+        <div class="flex flex-col gap-6">
+            <h3 class="text-xl font-bold text-espresso title-font">The Challenge: Isolated CAPEX</h3>
+            <p class="text-sm leading-relaxed text-gray-700">Mansa Mining SARLU has secured a lucrative transport contract with Zhicheng Guinée Mining SARL to haul bauxite 110km. However, executing this contract requires significant upfront capital to acquire a fleet of 53 trucks. Securing a standalone $5M asset finance facility locally presents significant balance sheet risk and high collateral demands.</p>
+            
+            <div class="bg-card p-5 border-l-4 border-espresso shadow-sm">
+                <h4 class="font-bold text-espresso mb-2 text-sm uppercase tracking-wide">Transaction 1: The Contract (CAPEX)</h4>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                    <li><strong>Operator:</strong> Mansa Mining SARLU</li>
+                    <li><strong>Client:</strong> Zhicheng Guinée Mining SARL</li>
+                    <li><strong>Task:</strong> Bauxite transport (110km route)</li>
+                    <li><strong>Fleet Requirement:</strong> 53 Trucks (Phased delivery: 21 + 32)</li>
+                    <li><strong>CAPEX Required:</strong> $5,000,000 USD</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+            <h3 class="text-xl font-bold text-espresso title-font">The Tsavo Solution: Embedded Financing</h3>
+            <p class="text-sm leading-relaxed text-gray-700">To unlock the $5M CAPEX seamlessly, Tsavo removes the focus from Mansa Mining's local balance sheet and shifts the credit view to the end-buyer of the bauxite. By embedding Transaction 1 (Logistics CAPEX) inside Transaction 2 (Bauxite Export), we fund the trucks using the ultimate Off-Taker's global credit rating.</p>
+            
+            <div class="bg-card p-5 border-l-4 border-gold shadow-sm">
+                <h4 class="font-bold text-espresso mb-2 text-sm uppercase tracking-wide">Transaction 2: The Trade Support</h4>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                    <li><strong>Asset:</strong> Bauxite Export Contract</li>
+                    <li><strong>Off-Taker (Buyer):</strong> Global Commodity Buyer</li>
+                    <li><strong>Instrument:</strong> Standby Letter of Credit (SBLC)</li>
+                    <li><strong>Mechanic:</strong> SBLC is issued to Zebu, discounted, and routed by TerraQuest specifically to pay the truck manufacturers.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 pt-4 border-t border-gray-100">Slide 01</div>
+</div>
+
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">02 Deal Architecture & Flow</h2>
+        <div class="hidden sm:flex items-center gap-6 print:flex">
+            <img src="TerraQuest Investments Logo 1.png" class="h-[22px] w-auto object-contain">
+            <div class="h-6 w-px bg-gray-300"></div>
+            <img src="Zebu Logo.png" class="h-[22px] w-auto object-contain">
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center w-full mt-2 lg:mt-4">
+        <div class="w-full max-w-5xl bg-card border border-gray-200 rounded-lg p-6 shadow-sm relative">
+            
+            <div class="flex items-center justify-between mb-8 relative z-10">
+                <div class="w-1/4 text-center">
+                    <div class="w-16 h-16 mx-auto bg-gray-800 text-white rounded-full flex items-center justify-center text-2xl mb-2 border-4 border-gold"><i class="fa-solid fa-ship"></i></div>
+                    <h4 class="font-bold text-xs uppercase text-espresso">Global Off-Taker</h4>
+                    <p class="text-[9px] text-gray-500 leading-tight">Issues SBLC for Bauxite</p>
+                </div>
+                <div class="flex-1 flex flex-col items-center justify-center text-gold">
+                    <span class="text-[10px] font-bold uppercase tracking-widest mb-1 text
