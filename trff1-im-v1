@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TRFF-1: Private Placement Memorandum</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        body {
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Verdana', sans-serif;
+            color: #4A3B38;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        @media (min-width: 1024px) {
+            body { padding: 20px; gap: 40px; }
+        }
+        
+        .slide-container {
+            width: 100%;
+            max-width: 297mm;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 1024px) {
+            .slide-container {
+                height: 210mm;
+                padding: 12mm 18mm;
+                border-radius: 0;
+            }
+        }
+
+        h1, h2, h3, h4, h5, .title-font {
+            font-family: 'Georgia', serif;
+        }
+        .text-espresso { color: #3E2723; }
+        .bg-espresso { background-color: #3E2723; }
+        .border-espresso { border-color: #3E2723; }
+        .text-gold { color: #FFB81C; }
+        .bg-gold { background-color: #FFB81C; }
+        .bg-card { background-color: #faf8f5; }
+        
+        @media print {
+            body { padding: 0; background-color: white; gap: 0; }
+            .slide-container { 
+                width: 297mm; 
+                height: 210mm; 
+                box-shadow: none; 
+                border: none; 
+                margin: 0; 
+                padding: 12mm 18mm;
+                page-break-after: always;
+                border-radius: 0;
+            }
+            .print\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .print\:flex-row { flex-direction: row !important; }
+            .print\:mt-0 { margin-top: 0 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 01: COVER PAGE -->
+<div class="slide-container justify-between border-[8px] border-espresso">
+    <div class="w-full flex justify-end">
+        <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
+            Strictly Private & Confidential<br>
+            Institutional Investors Only
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
+        <div class="w-24 h-24 rounded-full border-[4px] border-gold flex items-center justify-center mb-6 shadow-lg bg-espresso text-white">
+            <i class="fa-solid fa-wheat-awn text-4xl"></i>
+        </div>
+        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-wider title-font mb-4">TSAVO RESILIENCE FOOD FUND 1</h1>
+        <p class="text-lg lg:text-xl text-gray-600 font-bold tracking-widest uppercase">Private Placement Memorandum</p>
+        <div class="h-1 w-24 bg-gold mt-6 mb-6"></div>
+        <p class="text-sm text-espresso font-bold tracking-wide uppercase">1st Level IM (Version 1)</p>
+    </div>
+
+    <div class="w-full flex flex-col items-center gap-6 pb-2">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 print:flex-row">
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-2">Master Lead Arranger</span>
+                <img alt="TerraQuest Logo" class="h-[45px] w-auto object-contain grayscale opacity-80" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/150x45?text=TERRAQUEST'"/>
+            </div>
+            
+            <div class="hidden sm:block h-12 w-px bg-gray-300 mt-4 print:block"></div>
+            
+            <div class="flex flex-col items-center gap-3">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Obligor / Seller</span>
+                <div class="h-[45px] flex items-center justify-center text-espresso font-bold title-font text-lg">FRA ZAMBIA</div>
+            </div>
+        </div>
+
+        <div class="text-center text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-4 w-full max-w-4xl leading-relaxed">
+            <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.<br>
+            Base Currency: <strong class="text-espresso">USD (Hard Currency)</strong>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 02: EXECUTIVE SUMMARY & CONTEXT -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">01 Executive Summary & Context</h2>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 print:grid-cols-2">
+        <div class="flex flex-col justify-center gap-6 lg:gap-8">
+            <h3 class="text-lg lg:text-xl text-espresso italic leading-relaxed title-font font-bold">"Bypassing the traditional risks of unsecured sovereign debt by leveraging physically verified agricultural commodities as hard collateral."</h3>
+            <div class="space-y-4 lg:space-y-6">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-landmark text-gold mt-1 text-xl flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-espresso title-font text-base lg:text-lg">Sovereign-Backed Securitization</strong>
+                        <p class="text-sm mt-1 text-gray-700">The TRFF-1 delivers high-yield returns operating within a bankruptcy-remote SPV domiciled in the Kenyan TRIFIC SEZ.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-seedling text-gold mt-1 text-xl flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-espresso title-font text-base lg:text-lg">Malabo Mandate Alignment</strong>
+                        <p class="text-sm mt-1 text-gray-700">Provides the Food Reserve Agency (FRA) with immediate, off-balance-sheet liquidity to manage bumper harvest gluts, ensuring regional food security.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-lock text-gold mt-1 text-xl flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-espresso title-font text-base lg:text-lg">The Market Context</strong>
+                        <p class="text-sm mt-1 text-gray-700">To unlock market liquidity, the sovereign counterparty absorbs the pricing spread as an implicit subsidy. This re-values the commodity to serve strictly as hard collateral with a day-one Asset Value Floor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-2 gap-3 h-auto lg:h-[380px] print:h-[380px] print:grid-cols-2">
+            <div class="col-span-1 sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="Maize Silos" class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1595801267433-c1555a30364f?auto=format&fit=crop&w=800&q=80"/>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                    <p class="text-white text-[12px] font-bold uppercase tracking-widest">Hard Collateral: Non-GMO Maize</p>
+                </div>
+            </div>
+            <div class="col-span-1 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="Sovereign Bond" class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"/>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                    <p class="text-white text-[12px] font-bold uppercase tracking-widest">Sovereign Liquidity</p>
+                </div>
+            </div>
+            <div class="col-span-1 rounded-lg overflow-hidden shadow-md border border-gray-200 relative group bg-gray-800 min-h-[150px]">
+                <img alt="Security" class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"/>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                    <p class="text-white text-[12px] font-bold uppercase tracking-widest">Impenetrable Security</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 02</div>
+</div>
+
+<!-- SLIDE 03: TRANSACTION SNAPSHOT -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">02 Transaction Snapshot</h2>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-rows-2 gap-6 lg:gap-8 print:grid-cols-2">
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-3">
+                <i class="fa-solid fa-building-columns text-2xl text-espresso flex-shrink-0"></i>
+                <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">The Counterparties</h4>
+            </div>
+            <div class="text-sm leading-relaxed text-gray-700 space-y-2 mt-2">
+                <p><strong class="text-espresso">Issuer / Buyer:</strong> Tsavo SEZ SPV Limited (Kenya TRIFIC SEZ)</p>
+                <p><strong class="text-espresso">Obligor / Seller:</strong> Food Reserve Agency (FRA), Republic of Zambia</p>
+            </div>
+        </div>
+        
+        <div class="bg-card p-6 border-l-[6px] border-gold shadow-sm flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-3">
+                <i class="fa-solid fa-sack-dollar text-2xl text-gold flex-shrink-0"></i>
+                <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Facility Limits</h4>
+            </div>
+            <div class="text-sm leading-relaxed text-gray-700 space-y-2 mt-2">
+                <p><strong class="text-espresso">Facility Size:</strong> Up to USD 400,000,000</p>
+                <p><strong class="text-espresso">Instrument:</strong> Series 1: Senior Secured Commodity Notes</p>
+            </div>
+        </div>
+        
+        <div class="bg-card p-6 border-l-[6px] border-espresso shadow-sm flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-3">
+                <i class="fa-solid fa-boxes-stacked text-2xl text-espresso flex-shrink-0"></i>
+                <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Structure & Asset</h4>
+            </div>
+            <div class="text-sm leading-relaxed text-gray-700 space-y-2 mt-2">
+                <p><strong class="text-espresso">Structure:</strong> Repo + Liquidation (Commodity Sale & Repurchase)</p>
+                <p><strong class="text-espresso">Asset:</strong> Non-GMO White Maize (Export Grade), warehoused in Zambia</p>
+            </div>
+        </div>
+        
+        <div class="bg-card p-6 border-l-[6px] border-gold shadow-sm flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-3">
+                <i class="fa-solid fa-gavel text-2xl text-gold flex-shrink-0"></i>
+                <h4 class="text-lg font-bold text-espresso uppercase tracking-wider">Legal Framework</h4>
+            </div>
+            <div class="text-sm leading-relaxed text-gray-700 space-y-2 mt-2">
+                <p><strong class="text-espresso">Governing Law:</strong> English Law (Master), Zambian Law (Custody), Kenyan Law (SPV/Trust)</p>
+                <p><strong class="text-espresso">Security:</strong> First-ranking debenture over physical inventory (WHRs), all cash accounts, and insurance.</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 lg:mt-auto pt-4 border-t border-gray-100">Slide 03</div>
+</div>
+
+<!-- SLIDE 04: TRANSACTION ARCHITECTURE: STRUCTURAL FRAMEWORK -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">03 Transaction Architecture: Structural Framework</h2>
+    </div>
+    
+    <div class="flex flex-col gap-4 mb-6">
+        <h3 class="text-base font-bold text-espresso uppercase tracking-widest border-b-2 border-espresso pb-1 inline-block self-start">4.1 THE STRUCTURAL FRAMEWORK</h3>
+        <p class="text-sm lg:text-base text-gray-700 leading-relaxed font-medium">
+            The Programme relies on a bankruptcy-remote architecture to legally isolate investor capital from sovereign risk. The structure establishes strict boundaries between fiduciary oversight, daily operational management, and physical commodity custody.
+        </p>
+    </div>
+
+    <div class="flex-1 w-full bg-card border-2 border-gray-200 rounded-lg overflow-hidden flex items-center justify-center p-2 shadow-inner relative group">
+        <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded text-xs font-bold text-espresso shadow border border-gray-200 z-10">Unified Architecture & Transaction Legs</div>
+        <img src="diagram-export-6-11-2026-3_11_31-PM.jpg" alt="Transaction Architecture Diagram" class="max-w-full max-h-full object-contain" />
+    </div>
+
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 pt-4 border-t border-gray-100">Slide 04</div>
+</div>
+
+<!-- SLIDE 05: TRANSACTION ARCHITECTURE: THE CAPITAL WATERFALL -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">04 The Capital Waterfall & Transaction Legs</h2>
+    </div>
+    
+    <div class="flex flex-col gap-4 mb-6">
+        <h3 class="text-base font-bold text-espresso uppercase tracking-widest border-b-2 border-espresso pb-1 inline-block self-start">4.2 THE CAPITAL WATERFALL AND TRANSACTION LEGS</h3>
+        <p class="text-sm lg:text-base text-gray-700 leading-relaxed font-medium">
+            The Programme executes capital deployment, maturation, and risk mitigation through three distinct operational legs.
+        </p>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6 print:grid-cols-3">
+        <!-- Leg One -->
+        <div class="bg-card p-5 border-t-[5px] border-espresso shadow-md flex flex-col rounded-b-lg">
+            <h4 class="text-sm font-bold text-espresso uppercase tracking-widest mb-2 border-b border-gray-200 pb-2">Leg One: The Purchase Leg</h4>
+            <p class="text-xs text-gray-600 italic mb-4 leading-relaxed">This phase details the secure transfer of investor capital into physical, collateralized assets.</p>
+            <ul class="text-[11px] lg:text-xs text-gray-700 space-y-3 list-none">
+                <li class="flex gap-2"><span class="font-bold text-espresso w-4">1.</span> <span><strong class="text-espresso">Institutional Investors:</strong> Deploy Subscription Capital</span></li>
+                <li class="flex gap-2"><span class="font-bold text-espresso w-4">2.</span> <span><strong class="text-espresso">FRA Zambia (Seller):</strong> Transfer Legal Title of Commodities</span></li>
+                <li class="flex gap-2"><span class="font-bold text-espresso w-4">3.</span> <span><strong class="text-espresso">Collateral Manager:</strong> Verify Volume & Issue Warehouse Receipts</span></li>
+                <li class="flex gap-2"><span class="font-bold text-espresso w-4">4.</span> <span><strong class="text-espresso">Receiving Bank:</strong> Disburse Net Purchase Price</span></li>
+                <li class="flex gap-2"><span class="font-bold text-espresso w-4">5.</span> <span><strong class="text-espresso">Receiving Bank:</strong> Retain 10% in Margin Escrow Account</span></li>
+            </ul>
+        </div>
+        
+        <!-- Leg Two -->
+        <div class="bg-card p-5 border-t-[5px] border-gold shadow-md flex flex-col rounded-b-lg">
+            <h4 class="text-sm font-bold text-espresso uppercase tracking-widest mb-2 border-b border-gray-200 pb-2">Leg Two: The Repurchase Leg</h4>
+            <p class="text-xs text-gray-600 italic mb-4 leading-relaxed">This phase governs the successful maturation and settlement of the transaction.</p>
+            <ul class="text-[11px] lg:text-xs text-gray-700 space-y-3 list-none">
+                <li class="flex gap-2"><span class="font-bold text-gold w-4">1.</span> <span><strong class="text-espresso">FRA Zambia (Seller):</strong> Remit Repurchase Principal and Repo Margin</span></li>
+                <li class="flex gap-2"><span class="font-bold text-gold w-4">2.</span> <span><strong class="text-espresso">TRFF-1:</strong> Instruct Release of Warehouse Receipts</span></li>
+                <li class="flex gap-2"><span class="font-bold text-gold w-4">3.</span> <span><strong class="text-espresso">Receiving Bank:</strong> Release Statutory Warehouse Receipts</span></li>
+                <li class="flex gap-2"><span class="font-bold text-gold w-4">4.</span> <span><strong class="text-espresso">Receiving Bank:</strong> Execute Capital Waterfall (Principal + Yield)</span></li>
+                <li class="flex gap-2"><span class="font-bold text-gold w-4">5.</span> <span><strong class="text-espresso">Receiving Bank:</strong> Distribute Operational Fees</span></li>
+            </ul>
+        </div>
+
+        <!-- Leg Three -->
+        <div class="bg-card p-5 border-t-[5px] border-red-800 shadow-md flex flex-col rounded-b-lg">
+            <h4 class="text-sm font-bold text-espresso uppercase tracking-widest mb-2 border-b border-gray-200 pb-2">Leg Three: The Liquidation Leg</h4>
+            <p class="text-xs text-gray-600 italic mb-4 leading-relaxed">This phase acts as the absolute fail-safe in the event of an Obligor default.</p>
+            <ul class="text-[11px] lg:text-xs text-gray-700 space-y-3 list-none">
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">1.</span> <span><strong class="text-espresso">FRA Zambia:</strong> Default: Failure to Remit Repurchase Price</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">2.</span> <span><strong class="text-espresso">Security Trustee:</strong> Assumes Total Administrative Control</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">3.</span> <span><strong class="text-espresso">Tsavo Trading SEZ:</strong> Triggers Secondary Market Sales Agreements</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">4.</span> <span><strong class="text-espresso">Liquidation Agents:</strong> Deposit Liquidation Proceeds</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">5.</span> <span><strong class="text-espresso">TRFF-1:</strong> Distribute Recovery Principal and Default Yield</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">6.</span> <span><strong class="text-espresso">Security Trustee:</strong> Call Guarantee Wrap (If Shortfall Occurs)</span></li>
+                <li class="flex gap-2"><span class="font-bold text-red-800 w-4">7.</span> <span><strong class="text-espresso">Guarantor / Insurance:</strong> Make Institutional Investors Whole</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-6 pt-4 border-t border-gray-100">Slide 05</div>
+</div>
+
+<!-- SLIDE 06: SECURITY PACKAGE & GOVERNANCE -->
+<div class="slide-container">
+    <div class="flex justify-between items-end border-b-[3px] border-[#FFB81C] pb-2 mb-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-espresso tracking-wide">05 Security & Governance</h2>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 print:grid-cols-2">
+        <!-- Debenture -->
+        <div class="flex flex-col">
+            <div class="bg-espresso text-white p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">The All-Asset Debenture</div>
+            <p class="text-sm text-gray-700 italic mb-4">Through a registered debenture charge, the Notes are explicitly secured by:</p>
+            <div class="flex flex-col gap-4 px-2">
+                <div class="flex gap-4 items-start">
+                    <i class="fa-solid fa-wheat-awn text-lg text-espresso mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-espresso mb-1">Physical Commodities</h4>
+                        <p class="text-xs text-gray-700">First-ranking legal pledge over 100% of rights to physical commodities (Negotiable WHRs).</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i class="fa-solid fa-vault text-lg text-espresso mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-espresso mb-1">Cash Equivalents & Accounts</h4>
+                        <p class="text-xs text-gray-700">First-ranking floating charge over all undeployed capital, Margin Escrow (10%), Collection, and FD accounts.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i class="fa-solid fa-file-contract text-lg text-espresso mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-espresso mb-1">Insurance & Guarantees</h4>
+                        <p class="text-xs text-gray-700">Absolute assignment of rights to PRI, Property Wrap, and Institutional Credit Guarantees.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 border-t border-gray-200 pt-4">
+                <h4 class="font-bold text-espresso uppercase text-xs mb-2 tracking-widest">Taxation & Regulatory Context</h4>
+                <p class="text-xs text-gray-600"><strong class="text-espresso">TRIFIC SEZ:</strong> 10-year CIT exemption, zero withholding tax on non-resident distributions.</p>
+                <p class="text-xs text-gray-600 mt-1"><strong class="text-espresso">Zambian Tax Waiver:</strong> Zero-rating of VAT and exemption from arbitrary export duties.</p>
+            </div>
+        </div>
+
+        <!-- Governance -->
+        <div class="flex flex-col">
+            <div class="bg-gold text-espresso p-3 text-center font-bold uppercase tracking-widest mb-6 rounded-sm text-sm">Appointed Agents (Governance)</div>
+            <div class="flex flex-col gap-4 px-2">
+                <div class="flex gap-4 items-center bg-card p-2 rounded shadow-sm border-l-2 border-espresso">
+                    <div class="w-24 text-[10px] font-bold uppercase text-gray-500 tracking-wider">Arranger</div>
+                    <div>
+                        <h4 class="font-bold text-espresso text-sm">Terraquest Investments FZCO</h4>
+                        <p class="text-[10px] text-gray-600 mt-0.5">UAE. Executes structuring, models waterfalls, originates Master Agreements.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center bg-card p-2 rounded shadow-sm border-l-2 border-espresso">
+                    <div class="w-24 text-[10px] font-bold uppercase text-gray-500 tracking-wider">Trustee</div>
+                    <div>
+                        <h4 class="font-bold text-espresso text-sm">MTC Trust & Corporate Services</h4>
+                        <p class="text-[10px] text-gray-600 mt-0.5">Kenya (CMA Licensed). Independent fiduciary firewall, holds absolute title.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center bg-card p-2 rounded shadow-sm border-l-2 border-espresso">
+                    <div class="w-24 text-[10px] font-bold uppercase text-gray-500 tracking-wider">Collateral</div>
+                    <div>
+                        <h4 class="font-bold text-espresso text-sm">CMI (Collateral Mgmt Int.)</h4>
+                        <p class="text-[10px] text-gray-600 mt-0.5">ISO-certified. Exclusive physical custody backed by $8M Indemnity.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center bg-card p-2 rounded shadow-sm border-l-2 border-espresso">
+                    <div class="w-24 text-[10px] font-bold uppercase text-gray-500 tracking-wider">Bank</div>
+                    <div>
+                        <h4 class="font-bold text-espresso text-sm">ABSA Bank Group</h4>
+                        <p class="text-[10px] text-gray-600 mt-0.5">Pan-African. Core financial clearing conduit executing strict DvP protocol.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center bg-card p-2 rounded shadow-sm border-l-2 border-espresso">
+                    <div class="w-24 text-[10px] font-bold uppercase text-gray-500 tracking-wider">Counsel</div>
+                    <div>
+                        <h4 class="font-bold text-espresso text-sm">Mboya Wangong'u & Waiyaki</h4>
+                        <p class="text-[10px] text-gray-600 mt-0.5">Kenya. Rigorous multi-jurisdictional legal synthesis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex justify-between items-end border-t border-gray-200 pt-3 mt-auto relative z-30">
+        <div class="text-[9px] text-gray-400 uppercase tracking-widest leading-relaxed">
+            © 2026 TSAVO RESILIENCE FOOD FUND. ALL RIGHTS RESERVED.<br/>
+            REGULATED ACCESS ONLY.
+        </div>
+        <div class="text-right flex flex-col items-end gap-1">
+            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Slide 06</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
