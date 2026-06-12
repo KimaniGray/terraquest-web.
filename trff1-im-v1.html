@@ -128,10 +128,23 @@
             font-weight: 700;
         }
 
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
         @media print {
             body { background-color: white; padding: 0; }
             .document-page { box-shadow: none; margin: 0; padding: 15mm; border: none; page-break-after: always; }
-            .cover-page { border: 8px solid #3E2723; }
+            .cover-page { 
+                height: 296mm !important; /* Force exactly A4 height minus 1mm */
+                max-height: 296mm !important;
+                padding: 15mm !important;
+                border: 8px solid #3E2723 !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; /* Force no spillover to Page 2 */
+                display: flex !important;
+            }
         }
     </style>
 </head>
@@ -145,23 +158,24 @@
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full">
-        <!-- Brutal negative margins to surgically remove the invisible padding baked into the top and bottom of the PNG -->
-        <img alt="Tsavo Logo" class="w-[550px] max-w-full h-auto object-contain mx-auto mix-blend-multiply -mt-[80px] -mb-[100px]" src="Tsavo Resilience Fund 1 Logo.png"/>
+    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4">
+        <!-- Fixed Container Strategy: The container takes exactly 140px of vertical space, while the image scales inside absolutely, completely fixing the PDF page split -->
+        <div class="relative w-full h-[140px] flex items-center justify-center mb-6">
+            <img alt="Tsavo Logo" class="absolute w-[450px] max-w-none h-auto object-contain mix-blend-multiply" src="Tsavo Resilience Fund 1 Logo.png"/>
+        </div>
         
-        <!-- Added z-10 relative so the invisible image boundaries don't block text selection -->
-        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-[0.1em] title-font z-10 relative mt-4 mb-4 uppercase">Tsavo Resilience Food Fund 1 - Zambia</h1>
+        <h1 class="text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
         
-        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-6 my-8 mx-auto z-10 relative">
-            <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 text-center">Initial Issuance:</div>
+        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-4 mx-auto relative">
+            <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">Initial Issuance:</div>
             <div class="text-xl text-espresso font-bold text-center">USD 100,000,000</div>
-            <div class="text-base text-gray-800 font-bold mt-2 text-center">Series 1: Senior Secured Commodity Notes</div>
+            <div class="text-base text-gray-800 font-bold mt-1 text-center">Series 1: Senior Secured Commodity Notes</div>
         </div>
 
-        <h2 class="text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-2 text-center z-10 relative">Institutional Private Placement Memorandum</h2>
+        <h2 class="text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative">Institutional Private Placement Memorandum</h2>
         
-        <div class="h-1 w-24 bg-gold mt-8 mb-8 mx-auto"></div>
-        <p class="text-sm text-espresso font-bold tracking-wide uppercase text-center">Dated: June 2026</p>
+        <div class="h-1 w-24 bg-gold mt-6 mb-6 mx-auto"></div>
+        <p class="text-sm text-espresso font-bold tracking-wide uppercase text-center mb-4">Dated: June 2026</p>
     </div>
 
     <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto">
