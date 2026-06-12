@@ -146,10 +146,10 @@
     </div>
 
     <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
-        <!-- CSS mix-blend-multiply deletes the white background. scale-[1.4] artificially crops out the empty PNG padding -->
-        <img alt="Tsavo Logo" class="max-w-[450px] h-[260px] w-auto object-contain mx-auto mix-blend-multiply scale-[1.4] transform origin-center mb-10" src="Tsavo Resilience Fund 1 Logo.png"/>
+        <!-- Using extreme width and a heavy negative bottom margin to override the massive invisible padding baked into the PNG file -->
+        <img alt="Tsavo Logo" class="w-[550px] max-w-full h-auto object-contain mx-auto mix-blend-multiply -mb-20 mt-4" src="Tsavo Resilience Fund 1 Logo.png"/>
         
-        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-[0.1em] title-font mt-12 mb-6 uppercase">Tsavo Resilience Food Fund 1 - Zambia</h1>
+        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-[0.1em] title-font mt-4 mb-6 uppercase">Tsavo Resilience Food Fund 1 - Zambia</h1>
         
         <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-6 my-10 mx-auto">
             <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 text-center">Initial Issuance:</div>
@@ -175,8 +175,8 @@
             
             <div class="flex flex-col items-center text-center gap-3 flex-1">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
-                <!-- Scaled up significantly and added premium rounded corners/shadow -->
-                <img alt="TerraQuest Logo" class="h-[80px] w-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
+                <!-- Switched from height-based scaling to width-based scaling to force the logo to inflate past its internal padding -->
+                <img alt="TerraQuest Logo" class="w-[260px] h-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
             </div>
         </div>
 
