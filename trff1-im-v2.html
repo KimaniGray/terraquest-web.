@@ -16,7 +16,7 @@
         /* OVERRIDE: Automatically fixes the TerraQuest logo size on all 9 headers */
         .document-page:not(.cover-page) .border-b img {
             height: 40px !important;
-            opacity: 0.9 !important;
+            opacity: 0.95 !important;
             filter: none !important;
             border-radius: 4px;
         }
@@ -181,7 +181,7 @@
     </div>
 
     <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4">
-        <!-- Fixed Container Strategy: The container takes exactly 140px of vertical space, while the image scales inside absolutely, completely fixing the PDF page split -->
+        <!-- Fixed Container Strategy for Tsavo Logo -->
         <div class="relative w-full h-[140px] flex items-center justify-center mb-6">
             <img alt="Tsavo Logo" class="absolute w-[450px] max-w-none h-auto object-contain mix-blend-multiply" src="Tsavo Resilience Fund 1 Logo.png"/>
         </div>
@@ -194,10 +194,9 @@
             <div class="text-base text-gray-800 font-bold mt-1 text-center">Series 1: Senior Secured Commodity Notes</div>
         </div>
 
-        <h2 class="text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative">Institutional Private Placement Memorandum</h2>
+        <h2 class="text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Institutional Private Placement Memorandum</h2>
         
-        <div class="h-1 w-24 bg-gold mt-6 mb-6 mx-auto"></div>
-        <p class="text-sm text-espresso font-bold tracking-wide uppercase text-center mb-4">Dated: June 2026</p>
+        <p class="text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">Dated: June 2026</p>
     </div>
 
     <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto">
@@ -212,6 +211,7 @@
             
             <div class="flex flex-col items-center text-center gap-3 flex-1">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
+                <!-- Main Black TerraQuest Logo for Cover Page -->
                 <img alt="TerraQuest Logo" class="w-[260px] h-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
             </div>
         </div>
@@ -223,9 +223,11 @@
     </div>
 </div>
 
+<!-- PAGE 2 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo: TerraQuest Investments Logo 1 -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -314,9 +316,11 @@
     </table>
 </div>
 
+<!-- PAGE 3 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -431,9 +435,11 @@
     </table>
 </div>
 
+<!-- PAGE 4 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -449,8 +455,8 @@
 
     <p>Primary production is driven by 1.5 million smallholder farming households, cultivating an average of 1.5 hectares (3.7 acres) per household across 3.8 million total hectares. Zambian agricultural production follows a dual-season calendar, comprising a primary rain-fed summer crop harvested between April and June, and a secondary irrigated winter crop harvested in September and October. This agricultural base produces a broad national crop profile, generating secondary crop volumes that include soya beans averaging 400,000 metric tonnes, wheat averaging 200,000 metric tonnes, and sorghum averaging 15,000 metric tonnes, utilizing a predominantly female workforce constituting 60 to 70 percent of agricultural labor.</p>
 
-    <!-- Institutional Image Insert 2 -->
-    <img src="https://images.unsplash.com/photo-1601314167099-232775bbbfcb?q=80&w=1920&auto=format&fit=crop" alt="Maize Harvest" class="editorial-image mt-8" />
+    <!-- Institutional Image Insert 2 - Updated to a highly reliable, high-resolution Maize Field image -->
+    <img src="https://images.unsplash.com/photo-1627918804868-b7eb4620f4c8?auto=format&fit=crop&w=1920&q=80" alt="Maize Harvest" class="editorial-image mt-8" />
     <p class="image-caption">Fig 2: Maize constitutes over 70% of total national crop output in Zambia.</p>
 
     <h3 class="subsection-title">Maize</h3>
@@ -487,9 +493,11 @@
     Validated by the May 2026 Crop Forecasting Survey, Zambia projects a massive bumper harvest of 4.9 million metric tonnes for the 2025/2026 season. Subtracting the 2.5 million to 3.0 million metric tonnes required for domestic consumption, this yield, combined with carryover stock from the 2024/2025 recovery cycle, generates a verified export surplus capacity exceeding 1.5 million metric tonnes. It is exactly this overlap—the transition of carryover stock compounding with a fresh 4.9 million MT bumper crop—that currently breaks the 1.2 million MT storage capacity and exhausts the exchequer's USD 90 million budget, creating a severe, immediate working capital void.</p>
 </div>
 
+<!-- PAGE 5 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -501,7 +509,9 @@
     <!-- INSTITUTIONAL EXHIBIT CARD FOR THE DIAGRAM -->
     <div class="w-full bg-card border border-gray-200 p-5 rounded shadow-sm mb-8 mt-6" style="page-break-inside: avoid;">
         <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">Exhibit 4.1: Master Architecture & Fiduciary Control</p>
-        <img src="architecture-framework.png" alt="Transaction Architecture Framework" class="w-full h-auto object-contain rounded" />
+        
+        <!-- Cache Buster added: ?v=latest forces GitHub to pull the brand new file -->
+        <img src="architecture-framework.png?v=latest" alt="Transaction Architecture Framework" class="w-full h-auto object-contain rounded" />
     </div>
 
     <h3 class="subsection-title">4.2 THE CAPITAL WATERFALL AND TRANSACTION LEGS</h3>
@@ -638,9 +648,11 @@
     </div>
 </div>
 
+<!-- PAGE 6 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -746,9 +758,11 @@
     </ul>
 </div>
 
+<!-- PAGE 7 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -756,7 +770,7 @@
     <p><em>The following is a summary of the principal Terms and Conditions of the Notes. The definitive terms will be set out in the Trust Deed and the Pricing Supplement governing the Series 1 Issuance.</em></p>
 
     <p><strong>6.1 General Parameters</strong><br>
-    The instrument being offered under this Private Placement Memorandum is a USD-denominated, asset-backed debt security designated as the "Series 1: Guaranteed Senior Secured Commodity Notes" (the <strong>"Notes"</strong>). The Notes are issued by Tsavo SEZ SPV Limited (the <strong>"Issuer"</strong>) under the USD 400,000,000 Tsavo Resilience Food Fund 1 - Zambia. The Series 1 issuance is capped at an aggregate principal amount of USD 100,000,000.</p>
+    The instrument being offered under this Private Placement Memorandum is a USD-denominated, asset-backed debt security designated as the "Series 1: Guaranteed Senior Secured Commodity Notes" (the <strong>"Notes"</strong>). The Notes are issued by Tsavo SEZ SPV Limited (the <strong>"Issuer"</strong>) under the USD 400,000,000 Master Commodity Repurchase Programme. The Series 1 issuance is capped at an aggregate principal amount of USD 100,000,000.</p>
 
     <p><strong>6.2 Status and Ranking</strong><br>
     The Notes constitute direct, unconditional, and purely senior secured obligations of the Issuer. The Notes will at all times rank <em>pari passu</em> and rateably without any preference among themselves. In the event of liquidation, enforcement, or insolvency of the Issuer, the claims of the Noteholders shall hold absolute first-priority status over any other unsecured creditors or subordinated debt, heavily ring-fenced by the Security Package detailed in Section 5.</p>
@@ -820,9 +834,11 @@
     </ul>
 </div>
 
+<!-- PAGE 8 -->
 <div class="document-page">
     <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
-        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain grayscale opacity-50" src="TerraQuest Logo.png"/>
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
     </div>
 
@@ -884,8 +900,17 @@
 
     <p><strong>9.3 Withholding Tax on Noteholder Returns</strong><br>
     Distributions of the Priority Fixed Return and the Profit Share to institutional Noteholders will be subject to the applicable withholding tax regimes based strictly on the investor’s jurisdiction of tax residence and the availability of Double Taxation Agreements (DTAs) with the Republic of Kenya. The SEZ architecture ensures that the SPV itself acts as an efficient, tax-neutral pass-through vehicle, eliminating double taxation at the corporate fund level.</p>
+</div>
 
-    <h2 class="section-title mt-12">10. RISK FACTORS</h2>
+<!-- PAGE 9 -->
+<div class="document-page">
+    <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-8">
+        <!-- Inner Page Logo -->
+        <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain" src="TerraQuest Investments Logo 1.png"/>
+        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Memorandum</span>
+    </div>
+
+    <h2 class="section-title">10. RISK FACTORS</h2>
     <p><em>Investment in the Notes involves a high degree of risk. Prospective Noteholders should carefully consider the following risk factors, in addition to the other information contained in this Memorandum, before making any investment decision. The risks described below are not exhaustive. Additional risks and uncertainties not presently known to the Issuer, or that the Issuer currently deems immaterial, may also impair the operations and financial settlement of the Programme.</em></p>
 
     <p><strong>10.1 Limited Recourse and Non-Petition</strong><br>
