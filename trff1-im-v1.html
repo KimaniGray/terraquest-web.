@@ -13,6 +13,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         
+        /* OVERRIDE: Automatically fixes the TerraQuest logo size on all 9 headers */
+        .document-page:not(.cover-page) .border-b img {
+            height: 40px !important;
+            opacity: 0.9 !important;
+            filter: none !important;
+            border-radius: 4px;
+        }
+
         body {
             background-color: #e2e8f0;
             margin: 0;
@@ -138,12 +146,12 @@
     </div>
 
     <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
-        <!-- Exact Tsavo Product Logo from GitHub -->
-        <img alt="Tsavo Logo" class="max-w-[450px] max-h-[220px] w-auto h-auto object-contain mx-auto" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/450x220?text=TSAVO+LOGO+MISSING'"/>
+        <!-- CSS mix-blend-multiply deletes the white background. scale-[1.4] artificially crops out the empty PNG padding -->
+        <img alt="Tsavo Logo" class="max-w-[450px] h-[260px] w-auto object-contain mx-auto mix-blend-multiply scale-[1.4] transform origin-center mb-10" src="Tsavo Resilience Fund 1 Logo.png"/>
         
-        <p class="text-3xl text-espresso mt-10 font-bold tracking-widest uppercase title-font text-center">Tsavo Resilience Food Fund 1 - Zambia</p>
+        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-[0.1em] title-font mt-12 mb-6 uppercase">Tsavo Resilience Food Fund 1 - Zambia</h1>
         
-        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-5 my-10 mx-auto">
+        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-6 my-10 mx-auto">
             <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 text-center">Initial Issuance:</div>
             <div class="text-xl text-espresso font-bold text-center">USD 100,000,000</div>
             <div class="text-base text-gray-800 font-bold mt-2 text-center">Series 1: Senior Secured Commodity Notes</div>
@@ -163,16 +171,16 @@
                 <span class="text-xs text-gray-500 italic mt-1">[In Formation in Kenya under SEZ Act]</span>
             </div>
             
-            <div class="hidden sm:block h-16 w-px bg-gray-300 mt-4 print:block"></div>
+            <div class="hidden sm:block h-20 w-px bg-gray-300 mt-4 print:block"></div>
             
             <div class="flex flex-col items-center text-center gap-3 flex-1">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
-                <!-- Exact TerraQuest Logo from GitHub -->
-                <img alt="TerraQuest Logo" class="h-[45px] w-auto object-contain" src="TerraQuest Logo.png" onerror="this.src='https://placehold.co/150x45?text=TERRAQUEST+LOGO+MISSING'"/>
+                <!-- Scaled up significantly and added premium rounded corners/shadow -->
+                <img alt="TerraQuest Logo" class="h-[80px] w-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
             </div>
         </div>
 
-        <div class="text-center text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-4 w-full max-w-4xl leading-relaxed mt-4">
+        <div class="text-center text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-6">
             <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.<br>
             Base Currency: <strong class="text-espresso">USD (Hard Currency)</strong>
         </div>
