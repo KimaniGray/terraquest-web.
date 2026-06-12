@@ -145,13 +145,13 @@
         </div>
     </div>
 
-    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full pt-8">
-        <!-- Using extreme width and a heavy negative bottom margin to override the massive invisible padding baked into the PNG file -->
-        <img alt="Tsavo Logo" class="w-[550px] max-w-full h-auto object-contain mx-auto mix-blend-multiply -mb-20 mt-4" src="Tsavo Resilience Fund 1 Logo.png"/>
+    <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full">
+        <!-- Increased negative margins to forcefully eat the invisible padding above and below the logo -->
+        <img alt="Tsavo Logo" class="w-[450px] max-w-full h-auto object-contain mx-auto mix-blend-multiply -mt-16 -mb-24" src="Tsavo Resilience Fund 1 Logo.png"/>
         
-        <h1 class="text-3xl lg:text-5xl text-espresso font-bold tracking-[0.1em] title-font mt-4 mb-6 uppercase">Tsavo Resilience Food Fund 1 - Zambia</h1>
+        <h1 class="text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font mt-2 mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
         
-        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-6 my-10 mx-auto">
+        <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-6 mx-auto">
             <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2 text-center">Initial Issuance:</div>
             <div class="text-xl text-espresso font-bold text-center">USD 100,000,000</div>
             <div class="text-base text-gray-800 font-bold mt-2 text-center">Series 1: Senior Secured Commodity Notes</div>
@@ -443,26 +443,10 @@
     <h3 class="subsection-title">4.1 THE STRUCTURAL FRAMEWORK</h3>
     <p>The Programme relies on a bankruptcy-remote architecture to legally isolate investor capital from sovereign risk. The structure establishes strict boundaries between fiduciary oversight, daily operational management, and physical commodity custody.</p>
 
-    <div class="w-full bg-card border-2 border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-center p-4 shadow-inner relative mt-6 mb-8">
-        <div class="bg-white/90 px-4 py-1.5 rounded-md text-xs font-bold text-espresso shadow border border-gray-200 mb-4 tracking-widest uppercase relative z-10">Unified Architecture Map</div>
-        
-        <!-- Interactive Eraser Link Wrapper -->
-        <a href="https://app.eraser.io/workspace/Pbteh3Ivrf26gExyz4OA" target="_blank" class="w-full relative group block cursor-pointer">
-            <img src="diagram-export-6-11-2026-3_11_31-PM.jpg" alt="Transaction Architecture Diagram" class="max-w-full h-auto object-contain shadow-sm rounded border border-gray-300 transition-opacity duration-300 group-hover:opacity-40" onerror="this.style.display='none'"/>
-            
-            <!-- Hover Overlay -->
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="bg-espresso text-white font-bold tracking-widest uppercase text-xs py-3 px-6 rounded shadow-2xl border border-gold flex items-center gap-2 transform transition-transform group-hover:scale-105">
-                    <i class="fa-solid fa-up-right-from-square"></i> View Interactive Diagram on Eraser
-                </span>
-            </div>
-        </a>
-
-        <div class="w-full flex justify-end mt-4">
-            <a href="https://app.eraser.io/workspace/Pbteh3Ivrf26gExyz4OA" target="_blank" class="text-[10px] font-bold text-gray-400 hover:text-espresso uppercase tracking-wider transition-colors flex items-center gap-1">
-                <i class="fa-solid fa-link"></i> Access Live Architecture
-            </a>
-        </div>
+    <!-- INSTITUTIONAL EXHIBIT CARD FOR THE DIAGRAM -->
+    <div class="w-full bg-card border border-gray-200 p-5 rounded shadow-sm mb-8 mt-6" style="page-break-inside: avoid;">
+        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">Exhibit 4.1: Master Architecture & Fiduciary Control</p>
+        <img src="architecture-framework.png" alt="Transaction Architecture Framework" class="w-full h-auto object-contain rounded" />
     </div>
 
     <h3 class="subsection-title">4.2 THE CAPITAL WATERFALL AND TRANSACTION LEGS</h3>
