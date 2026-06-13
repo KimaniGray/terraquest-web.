@@ -5,15 +5,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>TRFF-1: Full Information Memorandum</title>
     
-    <!-- Exact Favicon from GitHub Repo -->
     <link rel="icon" type="image/png" href="Terraquest Favicon Black.png"/>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         
-        /* OVERRIDE: Automatically fixes the TerraQuest logo size on all headers */
         .document-page:not(.cover-page):not(.back-cover) .border-b img {
             height: 40px !important;
             opacity: 0.95 !important;
@@ -40,17 +37,34 @@
             background-color: #ffffff;
             box-sizing: border-box;
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-            padding: 20mm 20mm;
             margin-bottom: 20px;
             border-top: 8px solid #3E2723;
             position: relative;
         }
 
+        /* Mobile Viewport Optimizations */
+        @media (max-width: 639px) {
+            body { padding: 0; }
+            .document-page { padding: 16px; margin-bottom: 10px; border-top: 4px solid #3E2723; }
+            .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; }
+            .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+            .subsection-title { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+            p { font-size: 0.85rem; margin-bottom: 1.25rem; }
+            li { font-size: 0.85rem; margin-bottom: 0.75rem; }
+            .editorial-image { height: 200px; margin-top: 1rem; }
+            .gold-divider { margin: 1.5rem auto; width: 2rem; }
+            table th, table td { padding: 10px; font-size: 0.8rem; }
+        }
+
+        /* Desktop Viewport Optimizations */
+        @media (min-width: 640px) {
+            .document-page { padding: 20mm 20mm; }
+            .cover-page, .back-cover { padding: 24px; min-height: 297mm; }
+        }
+
         .cover-page, .back-cover {
             display: flex;
             flex-direction: column;
-            min-height: 297mm;
-            padding: 24px;
             border: 8px solid #3E2723;
             border-top: 8px solid #3E2723;
         }
@@ -64,9 +78,9 @@
         .border-espresso { border-color: #3E2723; }
         .text-gold { color: #FFB81C; }
         .bg-gold { background-color: #FFB81C; }
+        .border-gold { border-color: #FFB81C; }
         .bg-card { background-color: #faf8f5; }
 
-        /* Typography & Reading Rhythm Adjustments */
         p {
             margin-bottom: 1.75rem; 
             line-height: 1.85; 
@@ -125,7 +139,6 @@
             letter-spacing: 0.025em;
         }
 
-        /* Unified Point Headers */
         .point-header {
             font-size: 1.15rem;
             font-weight: 700;
@@ -136,7 +149,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Visual Indent Block for deep reading sections */
         .point-content {
             padding-left: 1.25rem;
             border-left: 3px solid rgba(255, 184, 28, 0.4);
@@ -194,9 +206,20 @@
             font-weight: 700;
         }
 
+        /* STRICT PDF ANTI-BREAK ENGINE */
         @page {
             size: A4 portrait;
             margin: 0;
+        }
+
+        .avoid-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        h2, h3, h4, .section-title, .subsection-title, .point-header {
+            page-break-after: avoid;
+            break-after: avoid;
         }
 
         @media print {
@@ -225,42 +248,41 @@
     </div>
 
     <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4">
-        <!-- Fixed Container Strategy for Tsavo Logo -->
-        <div class="relative w-full h-[140px] flex items-center justify-center mb-6">
-            <img alt="Tsavo Logo" class="absolute w-[450px] max-w-none h-auto object-contain mix-blend-multiply" src="Tsavo Resilience Fund 1 Logo.png"/>
+        <!-- Responsive Container fixes PDF breaks and scales for mobile -->
+        <div class="relative w-full h-[100px] sm:h-[140px] flex items-center justify-center mb-4 sm:mb-6">
+            <img alt="Tsavo Logo" class="absolute w-[280px] sm:w-[450px] max-w-none h-auto object-contain mix-blend-multiply" src="Tsavo Resilience Fund 1 Logo.png"/>
         </div>
         
-        <h1 class="text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
+        <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
         
         <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-4 mx-auto relative">
             <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">Initial Issuance:</div>
-            <div class="text-xl text-espresso font-bold text-center">USD 100,000,000</div>
-            <div class="text-base text-gray-800 font-bold mt-1 text-center">Series 1: Senior Secured Commodity Notes</div>
+            <div class="text-lg sm:text-xl text-espresso font-bold text-center">USD 100,000,000</div>
+            <div class="text-sm sm:text-base text-gray-800 font-bold mt-1 text-center">Series 1: Senior Secured Commodity Notes</div>
         </div>
 
-        <h2 class="text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Institutional Private Placement Memorandum</h2>
+        <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Institutional Private Placement Memorandum</h2>
         
-        <p class="text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">Dated: June 2026</p>
+        <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">Dated: June 2026</p>
     </div>
 
     <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto">
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 print:flex-row w-full">
-            <div class="flex flex-col items-center text-center gap-3 flex-1">
-                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-2">Issuer</span>
-                <span class="font-bold text-espresso text-base">Tsavo SEZ SPV Limited</span>
-                <span class="text-xs text-gray-500 italic mt-1">[In Formation in Kenya under SEZ Act]</span>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-16 print:flex-row w-full">
+            <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1 sm:mb-2">Issuer</span>
+                <span class="font-bold text-espresso text-sm sm:text-base">Tsavo SEZ SPV Limited</span>
+                <span class="text-[10px] sm:text-xs text-gray-500 italic mt-1">[In Formation in Kenya under SEZ Act]</span>
             </div>
             
             <div class="hidden sm:block h-20 w-px bg-gray-300 mt-4 print:block"></div>
             
-            <div class="flex flex-col items-center text-center gap-3 flex-1">
+            <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
                 <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
-                <!-- Main Black TerraQuest Logo for Cover Page -->
-                <img alt="TerraQuest Logo" class="w-[260px] h-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
+                <img alt="TerraQuest Logo" class="w-[200px] sm:w-[260px] h-auto object-contain rounded-md shadow-md" src="TerraQuest Logo.png"/>
             </div>
         </div>
 
-        <div class="text-center text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-6">
+        <div class="text-center text-[8px] sm:text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-6">
             <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.<br>
             Base Currency: <strong class="text-espresso">USD (Hard Currency)</strong>
         </div>
@@ -274,8 +296,8 @@
     </div>
 
     <h3 class="text-lg font-bold text-espresso border-b-2 border-espresso pb-2 mb-6 uppercase tracking-widest text-center">Strictly Private & Confidential</h3>
-    <h4 class="font-bold text-center mb-6">DISTRIBUTION RESTRICTION AND REGULATORY NOTICE</h4>
-    <p class="font-bold text-center text-sm mb-10">FOR SOPHISTICATED, PROFESSIONAL, AND INSTITUTIONAL INVESTORS ONLY.<br>THIS DOCUMENT IS NOT A PROSPECTUS OR AN ALTERNATIVE INVESTMENT FUND OFFERING.</p>
+    <h4 class="font-bold text-center mb-6 text-sm sm:text-base">DISTRIBUTION RESTRICTION AND REGULATORY NOTICE</h4>
+    <p class="font-bold text-center text-xs sm:text-sm mb-10">FOR SOPHISTICATED, PROFESSIONAL, AND INSTITUTIONAL INVESTORS ONLY.<br>THIS DOCUMENT IS NOT A PROSPECTUS OR AN ALTERNATIVE INVESTMENT FUND OFFERING.</p>
 
     <p class="text-sm">This Private Placement Memorandum, the "Memorandum," is a private invitation strictly restricted to the named addressee. It establishes the parameters of a private debt transaction and must not be construed as a public offer of securities or an invitation to the general public to subscribe for securities under the Capital Markets Act, Chapter 485A of the Laws of Kenya, or the regulations thereunder.</p>
 
@@ -304,60 +326,62 @@
     <div class="gold-divider"></div>
 
     <h3 class="subsection-title text-center mt-10">CORPORATE DIRECTORY</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td class="font-bold">The Issuer</td>
-                <td><strong>Tsavo SEZ SPV Limited</strong> <em>[In Formation]</em></td>
-                <td>Kenya (TRIFIC SEZ)</td>
-            </tr>
-            <tr>
-                <td class="font-bold">The Counterparty</td>
-                <td><strong>Food Reserve Agency (FRA)</strong></td>
-                <td>Zambia</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Master Lead Arranger</td>
-                <td><strong>Terraquest Investments FZCO</strong></td>
-                <td>UAE</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Note & Custody Trustee</td>
-                <td><strong>MTC Trust and Corporate Services</strong> <em>[Proposed]</em></td>
-                <td>Kenya</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Receiving & Transactional Bank</td>
-                <td><strong>ABSA Bank Group</strong> <em>[Proposed]</em></td>
-                <td>Kenya & Zambia</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Collateral Manager</td>
-                <td><strong>Collateral Management International (CMI)</strong> <em>[Proposed]</em></td>
-                <td>Zambia</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Property & Fidelity Insurer</td>
-                <td><strong>NICO Zambia</strong> <em>[Proposed]</em></td>
-                <td>Zambia</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Political Risk Insurer (PRI)</td>
-                <td><strong>Zep-RE / W-SAFE / London Syndicate</strong> <em>[Proposed]</em></td>
-                <td>Regional / Global</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Credit Guarantee Provider</td>
-                <td><strong>Dhamana Guarantee Company</strong> <em>[Targeted]</em></td>
-                <td>Kenya / Regional</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Legal Counsel</td>
-                <td><strong>Mboya Wangong'u & Waiyaki Advocates</strong> <em>[Proposed]</em></td>
-                <td>Kenya / Zambia / UK</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="overflow-x-auto avoid-break">
+        <table class="min-w-[600px]">
+            <tbody>
+                <tr>
+                    <td class="font-bold">The Issuer</td>
+                    <td><strong>Tsavo SEZ SPV Limited</strong> <em>[In Formation]</em></td>
+                    <td>Kenya (TRIFIC SEZ)</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">The Counterparty</td>
+                    <td><strong>Food Reserve Agency (FRA)</strong></td>
+                    <td>Zambia</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Master Lead Arranger</td>
+                    <td><strong>Terraquest Investments FZCO</strong></td>
+                    <td>UAE</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Note & Custody Trustee</td>
+                    <td><strong>MTC Trust and Corporate Services</strong> <em>[Proposed]</em></td>
+                    <td>Kenya</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Receiving & Transactional Bank</td>
+                    <td><strong>ABSA Bank Group</strong> <em>[Proposed]</em></td>
+                    <td>Kenya & Zambia</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Collateral Manager</td>
+                    <td><strong>Collateral Management International (CMI)</strong> <em>[Proposed]</em></td>
+                    <td>Zambia</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Property & Fidelity Insurer</td>
+                    <td><strong>NICO Zambia</strong> <em>[Proposed]</em></td>
+                    <td>Zambia</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Political Risk Insurer (PRI)</td>
+                    <td><strong>Zep-RE / W-SAFE / London Syndicate</strong> <em>[Proposed]</em></td>
+                    <td>Regional / Global</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Credit Guarantee Provider</td>
+                    <td><strong>Dhamana Guarantee Company</strong> <em>[Targeted]</em></td>
+                    <td>Kenya / Regional</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Legal Counsel</td>
+                    <td><strong>Mboya Wangong'u & Waiyaki Advocates</strong> <em>[Proposed]</em></td>
+                    <td>Kenya / Zambia / UK</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="document-page">
@@ -368,9 +392,10 @@
 
     <h2 class="section-title">1. EXECUTIVE SUMMARY</h2>
 
-    <!-- Section 1 Image -->
-    <img src="Zambia Farming Pic 5.jpg" alt="African Woman Farmer with Harvested Maize" class="editorial-image" />
-    <p class="image-caption">Fig 1: Smallholder farmers, predominantly female, drive agricultural production.</p>
+    <div class="avoid-break mb-6">
+        <img src="Zambia Farming Pic 5.jpg" alt="African Woman Farmer with Harvested Maize" class="editorial-image !mt-0" />
+        <p class="image-caption !mb-0">Fig 1: Smallholder farmers, predominantly female, drive agricultural production.</p>
+    </div>
 
     <h3 class="subsection-title">The Macro & Market Context</h3>
     <p>Sub-Saharan Africa possesses an estimated 60 percent of the world's uncultivated arable land. Agriculture operates as the economic foundation of the region, contributing approximately 15 percent to the continent's combined GDP and employing over 60 percent of the total workforce. Based on these baseline assets, continental and global economic standards, specifically the Malabo Declaration, mandate that African sovereigns allocate a minimum of 10 percent of their national budgets to agricultural development and strategic procurement to effectively harness this economic potential.</p>
@@ -424,59 +449,61 @@
     </ul>
 
     <h2 class="section-title mt-12">2. TRANSACTION SNAPSHOT</h2>
-    <table>
-        <tbody>
-            <tr>
-                <td class="font-bold w-1/3">Issuer:</td>
-                <td>Tsavo SEZ SPV Limited</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Note Class:</td>
-                <td>Series 1: Guaranteed Senior Secured Commodity Notes</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Target Raise (Series 1):</td>
-                <td>USD 100,000,000</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Programme Limit:</td>
-                <td>USD 400,000,000</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Minimum Subscription:</td>
-                <td>USD 5,000,000</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Tenor:</td>
-                <td>12 Months (Bullet Repayment)</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Target Net Yield:</td>
-                <td>~15.00% (10% Fixed Priority Return + 50% Profit Share)</td>
-            </tr>
-            <tr>
-                <td class="font-bold">Security Package:</td>
-                <td>
-                    - Physical Non-GMO White Maize (110% Coverage Minimum)<br>
-                    - All Trustee-Controlled Cash Accounts (Including 10% Performance Margin)<br>
-                    - Credit Guarantee Wrap <em>[Targeted]</em><br>
-                    - Political Risk & Property Insurance Wrap
-                </td>
-            </tr>
-            <tr>
-                <td class="font-bold">Target Regulatory Classification:</td>
-                <td>
-                    - RBA: Category 10 / 8 (Guaranteed Corporate Bond)<br>
-                    - IRA: Admitted Asset (Guaranteed Debenture)<br>
-                    - CMA/SASRA: High-Grade Fixed Income
-                </td>
-            </tr>
-            <tr>
-                <td class="font-bold">Governing Law:</td>
-                <td>English Law (LCIA Dispute Resolution)</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="overflow-x-auto avoid-break">
+        <table class="min-w-[600px]">
+            <tbody>
+                <tr>
+                    <td class="font-bold w-1/3">Issuer:</td>
+                    <td>Tsavo SEZ SPV Limited</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Note Class:</td>
+                    <td>Series 1: Guaranteed Senior Secured Commodity Notes</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Target Raise (Series 1):</td>
+                    <td>USD 100,000,000</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Programme Limit:</td>
+                    <td>USD 400,000,000</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Minimum Subscription:</td>
+                    <td>USD 5,000,000</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Tenor:</td>
+                    <td>12 Months (Bullet Repayment)</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Target Net Yield:</td>
+                    <td>~15.00% (10% Fixed Priority Return + 50% Profit Share)</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Security Package:</td>
+                    <td>
+                        - Physical Non-GMO White Maize (110% Coverage Minimum)<br>
+                        - All Trustee-Controlled Cash Accounts (Including 10% Performance Margin)<br>
+                        - Credit Guarantee Wrap <em>[Targeted]</em><br>
+                        - Political Risk & Property Insurance Wrap
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Target Regulatory Classification:</td>
+                    <td>
+                        - RBA: Category 10 / 8 (Guaranteed Corporate Bond)<br>
+                        - IRA: Admitted Asset (Guaranteed Debenture)<br>
+                        - CMA/SASRA: High-Grade Fixed Income
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Governing Law:</td>
+                    <td>English Law (LCIA Dispute Resolution)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="document-page">
@@ -497,9 +524,10 @@
 
     <p>Primary production is driven by 1.5 million smallholder farming households, cultivating an average of 1.5 hectares (3.7 acres) per household across 3.8 million total hectares. Zambian agricultural production follows a dual-season calendar, comprising a primary rain-fed summer crop harvested between April and June, and a secondary irrigated winter crop harvested in September and October. This agricultural base produces a broad national crop profile, generating secondary crop volumes that include soya beans averaging 400,000 metric tonnes, wheat averaging 200,000 metric tonnes, and sorghum averaging 15,000 metric tonnes, utilizing a predominantly female workforce constituting 60 to 70 percent of agricultural labor.</p>
 
-    <!-- Section 3 Image -->
-    <img src="Zambia Maize Farming Pic 6.png" alt="Warehouse Inspection Team" class="editorial-image mt-8" />
-    <p class="image-caption">Fig 2: Institutional oversight at a commercial storage facility.</p>
+    <div class="avoid-break mt-8 mb-6">
+        <img src="Zambia Maize Farming Pic 6.png" alt="Warehouse Inspection Team" class="editorial-image !mt-0" />
+        <p class="image-caption !mb-0">Fig 2: Institutional oversight at a commercial storage facility.</p>
+    </div>
 
     <h3 class="subsection-title">Maize</h3>
     <p><strong>Production Dynamics:</strong><br>
@@ -546,7 +574,7 @@
     <h3 class="subsection-title">4.1 THE STRUCTURAL FRAMEWORK</h3>
     <p>The Programme relies on a bankruptcy-remote architecture to legally isolate investor capital from sovereign risk. The structure establishes strict boundaries between fiduciary oversight, daily operational management, and physical commodity custody.</p>
 
-    <div class="w-full bg-card border border-gray-200 p-5 rounded shadow-sm mb-8 mt-6" style="page-break-inside: avoid;">
+    <div class="w-full bg-card border border-gray-200 p-5 rounded shadow-sm mb-8 mt-6 avoid-break">
         <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">Exhibit 4.1: Master Architecture & Fiduciary Control</p>
         <img src="architecture-framework.png?v=latest" alt="Transaction Architecture Framework" class="w-full h-auto object-contain rounded" />
     </div>
@@ -554,132 +582,138 @@
     <h3 class="subsection-title">4.2 THE CAPITAL WATERFALL AND TRANSACTION LEGS</h3>
     <p>The Programme executes capital deployment, maturation, and risk mitigation through three distinct operational legs.</p>
 
-    <p><strong>Leg One: The Purchase Leg</strong><br>
-    This phase details the secure transfer of investor capital into physical, collateralized assets.</p>
+    <div class="avoid-break mb-8">
+        <p><strong>Leg One: The Purchase Leg</strong><br>
+        This phase details the secure transfer of investor capital into physical, collateralized assets.</p>
 
-    <div class="relative border-l-[3px] border-espresso ml-4 mt-6 mb-10 space-y-4 pb-2">
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">1</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-money-bill-transfer text-gold text-lg"></i><h5 class="font-bold text-espresso">Deploy Subscription Capital</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>Institutional Investors</strong> deploy capital into the <strong>TRFF-1 (Buyer)</strong> Receiving Account.</p>
+        <div class="relative border-l-[3px] border-espresso ml-4 mt-6 space-y-4 pb-2">
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">1</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-money-bill-transfer text-gold text-lg"></i><h5 class="font-bold text-espresso">Deploy Subscription Capital</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>Institutional Investors</strong> deploy capital into the <strong>TRFF-1 (Buyer)</strong> Receiving Account.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">2</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-contract text-gold text-lg"></i><h5 class="font-bold text-espresso">Transfer Legal Title</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia (Seller)</strong> executes the True Sale and transfers legal title of commodities to <strong>TRFF-1</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">2</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-contract text-gold text-lg"></i><h5 class="font-bold text-espresso">Transfer Legal Title</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia (Seller)</strong> executes the True Sale and transfers legal title of commodities to <strong>TRFF-1</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">3</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-clipboard-check text-gold text-lg"></i><h5 class="font-bold text-espresso">Verify & Issue Receipts</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Collateral Manager</strong> verifies the volume/quality and issues Negotiable Warehouse Receipts to the <strong>Receiving Bank</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">3</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-clipboard-check text-gold text-lg"></i><h5 class="font-bold text-espresso">Verify & Issue Receipts</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Collateral Manager</strong> verifies the volume/quality and issues Negotiable Warehouse Receipts to the <strong>Receiving Bank</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">4</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-arrow-right-arrow-left text-gold text-lg"></i><h5 class="font-bold text-espresso">Disburse Net Purchase Price</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> disburses the net purchase price directly to <strong>FRA Zambia</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">4</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-arrow-right-arrow-left text-gold text-lg"></i><h5 class="font-bold text-espresso">Disburse Net Purchase Price</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> disburses the net purchase price directly to <strong>FRA Zambia</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">5</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-vault text-gold text-lg"></i><h5 class="font-bold text-espresso">Retain Performance Margin</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> deducts and retains 10% in the ring-fenced Margin Escrow Account.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-espresso w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">5</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-vault text-gold text-lg"></i><h5 class="font-bold text-espresso">Retain Performance Margin</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> deducts and retains 10% in the ring-fenced Margin Escrow Account.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <p><strong>Leg Two: The Repurchase Leg</strong><br>
-    This phase governs the successful maturation and settlement of the transaction.</p>
+    <div class="avoid-break mb-8">
+        <p><strong>Leg Two: The Repurchase Leg</strong><br>
+        This phase governs the successful maturation and settlement of the transaction.</p>
 
-    <div class="relative border-l-[3px] border-[#FFB81C] ml-4 mt-6 mb-10 space-y-4 pb-2">
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">1</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-sack-dollar text-espresso text-lg"></i><h5 class="font-bold text-espresso">Remit Repurchase Principal</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia</strong> remits the Repurchase Principal and Repo Margin to the <strong>TRFF-1</strong> Collection Account.</p>
+        <div class="relative border-l-[3px] border-[#FFB81C] ml-4 mt-6 space-y-4 pb-2">
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">1</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-sack-dollar text-espresso text-lg"></i><h5 class="font-bold text-espresso">Remit Repurchase Principal</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia</strong> remits the Repurchase Principal and Repo Margin to the <strong>TRFF-1</strong> Collection Account.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">2</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-export text-espresso text-lg"></i><h5 class="font-bold text-espresso">Instruct Release of Receipts</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>TRFF-1</strong> instructs the <strong>Receiving Bank</strong> to release the Warehouse Receipts.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">2</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-export text-espresso text-lg"></i><h5 class="font-bold text-espresso">Instruct Release of Receipts</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>TRFF-1</strong> instructs the <strong>Receiving Bank</strong> to release the Warehouse Receipts.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">3</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-unlock-keyhole text-espresso text-lg"></i><h5 class="font-bold text-espresso">Release Statutory Receipts</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> releases the Statutory Warehouse Receipts back to <strong>FRA Zambia</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">3</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-unlock-keyhole text-espresso text-lg"></i><h5 class="font-bold text-espresso">Release Statutory Receipts</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> releases the Statutory Warehouse Receipts back to <strong>FRA Zambia</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">4</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-water text-espresso text-lg"></i><h5 class="font-bold text-espresso">Execute Capital Waterfall</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> executes the capital waterfall, distributing Principal + Yield to <strong>Institutional Investors</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">4</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-water text-espresso text-lg"></i><h5 class="font-bold text-espresso">Execute Capital Waterfall</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> executes the capital waterfall, distributing Principal + Yield to <strong>Institutional Investors</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">5</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-coins text-espresso text-lg"></i><h5 class="font-bold text-espresso">Distribute Operational Fees</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> distributes the final operational fees to the <strong>Master Lead Arranger</strong> and agents.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-gold w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-espresso text-xs shadow-sm">5</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-coins text-espresso text-lg"></i><h5 class="font-bold text-espresso">Distribute Operational Fees</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Receiving Bank</strong> distributes the final operational fees to the <strong>Master Lead Arranger</strong> and agents.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <p><strong>Leg Three: The Liquidation Leg</strong><br>
-    This phase acts as the absolute fail-safe in the event of an Obligor default.</p>
+    <div class="avoid-break mb-8">
+        <p><strong>Leg Three: The Liquidation Leg</strong><br>
+        This phase acts as the absolute fail-safe in the event of an Obligor default.</p>
 
-    <div class="relative border-l-[3px] border-red-800 ml-4 mt-6 mb-8 space-y-4 pb-2">
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">1</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-triangle-exclamation text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Event of Default</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia</strong> fails to remit Repurchase Price to the <strong>Security Trustee</strong>.</p>
+        <div class="relative border-l-[3px] border-red-800 ml-4 mt-6 space-y-4 pb-2">
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">1</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-triangle-exclamation text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Event of Default</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>FRA Zambia</strong> fails to remit Repurchase Price to the <strong>Security Trustee</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">2</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-gavel text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Assume Administrative Control</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Security Trustee</strong> assumes total administrative control of <strong>TRFF-1</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">2</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-gavel text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Assume Administrative Control</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Security Trustee</strong> assumes total administrative control of <strong>TRFF-1</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">3</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-signature text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Trigger Secondary Sales</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>Tsavo Trading SEZ</strong> triggers secondary market sales agreements with <strong>Liquidation Agents</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">3</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-file-signature text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Trigger Secondary Sales</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>Tsavo Trading SEZ</strong> triggers secondary market sales agreements with <strong>Liquidation Agents</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">4</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-money-check-dollar text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Deposit Liquidation Proceeds</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>Liquidation Agents</strong> deposit the proceeds into the <strong>TRFF-1</strong> Collection Account.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">4</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-money-check-dollar text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Deposit Liquidation Proceeds</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>Liquidation Agents</strong> deposit the proceeds into the <strong>TRFF-1</strong> Collection Account.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">5</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-chart-pie text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Distribute Recovery Principal</h5></div>
-                <p class="text-sm text-gray-600 !mb-0"><strong>TRFF-1</strong> distributes the recovery principal and default yield to <strong>Institutional Investors</strong>.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">5</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-chart-pie text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Distribute Recovery Principal</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0"><strong>TRFF-1</strong> distributes the recovery principal and default yield to <strong>Institutional Investors</strong>.</p>
+                </div>
             </div>
-        </div>
-        <div class="relative">
-            <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">6</div>
-            <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
-                <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-shield-halved text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Call Guarantee Wrap</h5></div>
-                <p class="text-sm text-gray-600 !mb-0">The <strong>Security Trustee</strong> calls upon the Guarantee Wrap/Insurance if any shortfall occurs.</p>
+            <div class="relative">
+                <div class="absolute -left-[19.5px] bg-red-800 w-9 h-9 rounded-full border-4 border-white flex items-center justify-center font-bold text-white text-xs shadow-sm">6</div>
+                <div class="ml-10 bg-card border border-gray-200 p-4 rounded-md shadow-sm">
+                    <div class="flex items-center gap-3 mb-1"><i class="fa-solid fa-shield-halved text-red-800 text-lg"></i><h5 class="font-bold text-espresso">Call Guarantee Wrap</h5></div>
+                    <p class="text-sm text-gray-600 !mb-0">The <strong>Security Trustee</strong> calls upon the Guarantee Wrap/Insurance if any shortfall occurs.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -693,9 +727,10 @@
 
     <h2 class="section-title">5. SECURITY PACKAGE AND RISK ISOLATION</h2>
     
-    <!-- Section 5 Image -->
-    <img src="Zambia Maize Farming Pic 2.jpg" alt="Commodity Bags Storage" class="editorial-image" />
-    <p class="image-caption">Fig 3: Physical commodities are secured via Negotiable Warehouse Receipts.</p>
+    <div class="avoid-break mb-6 mt-4">
+        <img src="Zambia Maize Farming Pic 2.jpg" alt="Commodity Bags Storage" class="editorial-image !mt-0" />
+        <p class="image-caption !mb-0">Fig 3: Physical commodities are secured via Negotiable Warehouse Receipts.</p>
+    </div>
 
     <p>TRFF-1 (Zambia) operates as an institutional-grade, finance-engineered product providing direct investment exposure to agricultural commodities as an asset class. The vehicle systematically neutralizes commodity volatility and sovereign-linked counterparty risk, enabling regulated investors to deploy scale capital through secure off-balance-sheet securitization. To establish the Senior Secured status and mandate absolute priority of claims, the architecture is anchored upon a non-discretionary risk isolation framework designed to eliminate any window of unsecured exposure.</p>
 
@@ -802,41 +837,51 @@
     <h2 class="section-title">6. DESCRIPTION OF THE NOTES (TERMS & CONDITIONS)</h2>
     <p><em>The following is a summary of the principal Terms and Conditions of the Notes. The definitive terms will be set out in the Trust Deed and the Pricing Supplement governing the Series 1 Issuance.</em></p>
 
-    <h4 class="point-header">6.1 General Parameters</h4>
-    <div class="point-content">
-        <p class="!mb-0">The instrument being offered under this Private Placement Memorandum is a USD-denominated, asset-backed debt security designated as the "Series 1: Guaranteed Senior Secured Commodity Notes" (the <strong>"Notes"</strong>). The Notes are issued by Tsavo SEZ SPV Limited (the <strong>"Issuer"</strong>) under the USD 400,000,000 Master Commodity Repurchase Programme. The Series 1 issuance is capped at an aggregate principal amount of USD 100,000,000.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.1 General Parameters</h4>
+        <div class="point-content">
+            <p class="!mb-0">The instrument being offered under this Private Placement Memorandum is a USD-denominated, asset-backed debt security designated as the "Series 1: Guaranteed Senior Secured Commodity Notes" (the <strong>"Notes"</strong>). The Notes are issued by Tsavo SEZ SPV Limited (the <strong>"Issuer"</strong>) under the USD 400,000,000 Master Commodity Repurchase Programme. The Series 1 issuance is capped at an aggregate principal amount of USD 100,000,000.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">6.2 Status and Ranking</h4>
-    <div class="point-content">
-        <p class="!mb-0">The Notes constitute direct, unconditional, and purely senior secured obligations of the Issuer. The Notes will at all times rank <em>pari passu</em> and rateably without any preference among themselves. In the event of liquidation, enforcement, or insolvency of the Issuer, the claims of the Noteholders shall hold absolute first-priority status over any other unsecured creditors or subordinated debt, heavily ring-fenced by the Security Package detailed in Section 5.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.2 Status and Ranking</h4>
+        <div class="point-content">
+            <p class="!mb-0">The Notes constitute direct, unconditional, and purely senior secured obligations of the Issuer. The Notes will at all times rank <em>pari passu</em> and rateably without any preference among themselves. In the event of liquidation, enforcement, or insolvency of the Issuer, the claims of the Noteholders shall hold absolute first-priority status over any other unsecured creditors or subordinated debt, heavily ring-fenced by the Security Package detailed in Section 5.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">6.3 Form, Denomination, and Title</h4>
-    <div class="point-content">
-        <p>The Notes will be issued in registered, uncertificated (dematerialized) form, or alternatively represented by a Global Certificate registered in the name of the Custodian or a designated clearing system.</p>
-        <ul class="!mb-0">
-            <li><strong>Minimum Subscription:</strong><br>The minimum initial subscription amount per institutional investor is USD 5,000,000.</li>
-            <li><strong>Transferability:</strong><br>The Notes are strictly transferable only to qualified institutional, professional, or sophisticated investors, subject to the Selling Restrictions outlined in this Memorandum and the execution of standard KYC/AML clearance by the Trust Manager.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.3 Form, Denomination, and Title</h4>
+        <div class="point-content">
+            <p>The Notes will be issued in registered, uncertificated (dematerialized) form, or alternatively represented by a Global Certificate registered in the name of the Custodian or a designated clearing system.</p>
+            <ul class="!mb-0">
+                <li><strong>Minimum Subscription:</strong><br>The minimum initial subscription amount per institutional investor is USD 5,000,000.</li>
+                <li><strong>Transferability:</strong><br>The Notes are strictly transferable only to qualified institutional, professional, or sophisticated investors, subject to the Selling Restrictions outlined in this Memorandum and the execution of standard KYC/AML clearance by the Trust Manager.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">6.4 Interest, Yield, and Profit Share</h4>
-    <div class="point-content">
-        <p>The Notes are engineered to deliver a targeted net annualized yield of approximately 15.00%. This return profile is structurally bifurcated into two components:</p>
-        <ul class="!mb-0">
-            <li><strong>Priority Fixed Return:</strong><br>A baseline, fixed coupon of 10.00% per annum, calculated on a 360-day year basis, accruing daily from the Issue Date.</li>
-            <li><strong>Liquidation / Repo Profit Share:</strong><br>A 50% proportionate participation in the net commercial profit generated from the underlying "True Sale" repurchasing matrix or default liquidation event, as strictly defined in the Master Pricing and Fee Schedule.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.4 Interest, Yield, and Profit Share</h4>
+        <div class="point-content">
+            <p>The Notes are engineered to deliver a targeted net annualized yield of approximately 15.00%. This return profile is structurally bifurcated into two components:</p>
+            <ul class="!mb-0">
+                <li><strong>Priority Fixed Return:</strong><br>A baseline, fixed coupon of 10.00% per annum, calculated on a 360-day year basis, accruing daily from the Issue Date.</li>
+                <li><strong>Liquidation / Repo Profit Share:</strong><br>A 50% proportionate participation in the net commercial profit generated from the underlying "True Sale" repurchasing matrix or default liquidation event, as strictly defined in the Master Pricing and Fee Schedule.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">6.5 Redemption and Maturity</h4>
-    <div class="point-content">
-        <p>The Notes carry a rigid 12-month Tenor from the Issue Date.</p>
-        <ul class="!mb-0">
-            <li><strong>Bullet Repayment:</strong><br>The Notes are strictly bullet-repayment instruments. Unless previously redeemed or purchased and cancelled, the Issuer shall redeem the Notes at their full Outstanding Principal Amount plus all accrued and unpaid Priority Yield and Profit Share on the Scheduled Maturity Date.</li>
-            <li><strong>No Early Call Option:</strong><br>To protect investor yield targets, the Issuer does not possess a discretionary right to voluntarily call (redeem) the Notes prior to the Scheduled Maturity Date, except in the specific instance of a forced unwinding due to an illegality or tax event, at which point the investors must be made whole.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.5 Redemption and Maturity</h4>
+        <div class="point-content">
+            <p>The Notes carry a rigid 12-month Tenor from the Issue Date.</p>
+            <ul class="!mb-0">
+                <li><strong>Bullet Repayment:</strong><br>The Notes are strictly bullet-repayment instruments. Unless previously redeemed or purchased and cancelled, the Issuer shall redeem the Notes at their full Outstanding Principal Amount plus all accrued and unpaid Priority Yield and Profit Share on the Scheduled Maturity Date.</li>
+                <li><strong>No Early Call Option:</strong><br>To protect investor yield targets, the Issuer does not possess a discretionary right to voluntarily call (redeem) the Notes prior to the Scheduled Maturity Date, except in the specific instance of a forced unwinding due to an illegality or tax event, at which point the investors must be made whole.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="gold-divider"></div>
@@ -853,41 +898,50 @@
         </ul>
     </div>
 
-    <h4 class="point-header">6.7 Governing Law and Dispute Resolution</h4>
-    <div class="point-content">
-        <p class="!mb-0">The Notes, the Trust Deed, and all non-contractual obligations arising out of or in connection with them are governed by, and shall be construed in accordance with, English Law. Any dispute arising out of this transaction architecture shall be referred to and finally resolved by arbitration under the rules of the London Court of International Arbitration (LCIA).</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">6.7 Governing Law and Dispute Resolution</h4>
+        <div class="point-content">
+            <p class="!mb-0">The Notes, the Trust Deed, and all non-contractual obligations arising out of or in connection with them are governed by, and shall be construed in accordance with, English Law. Any dispute arising out of this transaction architecture shall be referred to and finally resolved by arbitration under the rules of the London Court of International Arbitration (LCIA).</p>
+        </div>
     </div>
 
     <h2 class="section-title mt-12">7. USE OF PROCEEDS</h2>
     
-    <!-- Section 7 Image -->
-    <img src="Zambia Maize Farming Pic 1.jpg" alt="Commercial Maize Field" class="editorial-image mt-2" />
-    <p class="image-caption">Fig 4: Proceeds are strictly deployed to acquire verifiable physical inventory.</p>
-
-    <h4 class="point-header">7.1 Designated Commercial Purpose</h4>
-    <div class="point-content">
-        <p>The Issuer is a strictly ring-fenced, bankruptcy-remote Special Purpose Vehicle. The net proceeds realized from the issuance of the Series 1 Notes will be utilized exclusively for the execution of the Master Commodity Sale, Repurchase & Liquidation Agreement with the Food Reserve Agency (FRA) of Zambia.</p> 
-        <p class="!mb-0">Specifically, the capital will be deployed to acquire unencumbered legal title to verified, physically warehoused, export-grade Non-GMO White Maize. This transaction injects immediate, non-sovereign working capital into the FRA, resolving the systemic exchequer bottleneck and empowering the agency to execute its statutory post-harvest procurement and market stabilization mandates.</p>
+    <div class="avoid-break mb-6 mt-4">
+        <img src="Zambia Maize Farming Pic 1.jpg" alt="Commercial Maize Field" class="editorial-image !mt-0" />
+        <p class="image-caption !mb-0">Fig 4: Proceeds are strictly deployed to acquire verifiable physical inventory.</p>
     </div>
 
-    <h4 class="point-header">7.2 Capital Disbursement Waterfall</h4>
-    <div class="point-content">
-        <p>Upon the successful financial close and receipt of investor subscriptions aggregating to USD 100,000,000, the capital will be strictly disbursed via the following mechanical waterfall managed by the Transactional Bank:</p>
-        <ul class="!mb-0">
-            <li><strong>Retention of Escrow Margin:</strong><br>An immediate 10.00% (USD 10,000,000) is deducted from the gross proceeds and locked in the Margin Escrow Account under the control of the Security Trustee to act as first-loss operational capital.</li>
-            <li><strong>Deduction of Transaction Costs:</strong><br>Standard structuring, legal, underwriting, and upfront insurance premiums are deducted and distributed directly to the Appointed Agents.</li>
-            <li><strong>Net Purchase Price Deployment:</strong><br>The remaining capital balance is deployed strictly as the Net Purchase Price to the Seller (FRA). <strong>Crucially, this disbursement is executed solely on a 'Delivery vs. Payment' (DvP) basis.</strong> Capital is only released to the obligor after the independent Collateral Manager has verified the physical commodity and lodged the corresponding Negotiable Warehouse Receipts with the Document Custodian.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">7.1 Designated Commercial Purpose</h4>
+        <div class="point-content">
+            <p>The Issuer is a strictly ring-fenced, bankruptcy-remote Special Purpose Vehicle. The net proceeds realized from the issuance of the Series 1 Notes will be utilized exclusively for the execution of the Master Commodity Sale, Repurchase & Liquidation Agreement with the Food Reserve Agency (FRA) of Zambia.</p> 
+            <p class="!mb-0">Specifically, the capital will be deployed to acquire unencumbered legal title to verified, physically warehoused, export-grade Non-GMO White Maize. This transaction injects immediate, non-sovereign working capital into the FRA, resolving the systemic exchequer bottleneck and empowering the agency to execute its statutory post-harvest procurement and market stabilization mandates.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">7.3 Negative Pledges and Restrictions</h4>
-    <div class="point-content">
-        <p>To protect the asset-backed integrity of the Programme, the Issuer and the Master Lead Arranger are strictly prohibited from utilizing the proceeds for:</p>
-        <ul class="!mb-0">
-            <li>General corporate purposes, administrative overheads, or debt servicing of the sovereign state or the Food Reserve Agency outside the explicit scope of this transaction.</li>
-            <li>Speculative commodity trading, derivatives exposure, or unhedged currency speculation.</li>
-            <li>The purchase of any commodities that do not meet the strict phytosanitary, grade, and verifiable storage standards mandated by the Collateral Management Agreement.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">7.2 Capital Disbursement Waterfall</h4>
+        <div class="point-content">
+            <p>Upon the successful financial close and receipt of investor subscriptions aggregating to USD 100,000,000, the capital will be strictly disbursed via the following mechanical waterfall managed by the Transactional Bank:</p>
+            <ul class="!mb-0">
+                <li><strong>Retention of Escrow Margin:</strong><br>An immediate 10.00% (USD 10,000,000) is deducted from the gross proceeds and locked in the Margin Escrow Account under the control of the Security Trustee to act as first-loss operational capital.</li>
+                <li><strong>Deduction of Transaction Costs:</strong><br>Standard structuring, legal, underwriting, and upfront insurance premiums are deducted and distributed directly to the Appointed Agents.</li>
+                <li><strong>Net Purchase Price Deployment:</strong><br>The remaining capital balance is deployed strictly as the Net Purchase Price to the Seller (FRA). <strong>Crucially, this disbursement is executed solely on a 'Delivery vs. Payment' (DvP) basis.</strong> Capital is only released to the obligor after the independent Collateral Manager has verified the physical commodity and lodged the corresponding Negotiable Warehouse Receipts with the Document Custodian.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">7.3 Negative Pledges and Restrictions</h4>
+        <div class="point-content">
+            <p>To protect the asset-backed integrity of the Programme, the Issuer and the Master Lead Arranger are strictly prohibited from utilizing the proceeds for:</p>
+            <ul class="!mb-0">
+                <li>General corporate purposes, administrative overheads, or debt servicing of the sovereign state or the Food Reserve Agency outside the explicit scope of this transaction.</li>
+                <li>Speculative commodity trading, derivatives exposure, or unhedged currency speculation.</li>
+                <li>The purchase of any commodities that do not meet the strict phytosanitary, grade, and verifiable storage standards mandated by the Collateral Management Agreement.</li>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -899,79 +953,95 @@
 
     <h2 class="section-title">8. TRANSACTION GOVERNANCE AND APPOINTED AGENTS</h2>
 
-    <h4 class="point-header">8.1 Master Lead Arranger & Structuring Agent: Terraquest Investments FZCO</h4>
-    <div class="point-content">
-        <ul class="!mb-0">
-            <li><strong>Corporate Background & Location:</strong><br>Headquartered in Dubai, United Arab Emirates. Terraquest possesses specialized transaction experience in architecting and structuring cross-border asset-backed securitizations and sovereign-linked structured debt across Sub-Saharan Africa.</li>
-            <li><strong>Transaction Role:</strong><br>Serves as the central architect of the Programme. Legally mandated to execute the structuring of the 'Repo + Liquidation' matrix, model the yield waterfalls, and originate the Master True Sale Agreement with the Zambian sovereign. Operating strictly in an arranging and advisory capacity, Terraquest does not hold investor capital, nor does it exercise discretionary control over the Security Package.</li>
-            <li><strong>Appointing Entity:</strong><br>Mandated by the Food Reserve Agency (FRA) of Zambia to structure the Programme and establish the off-shore Issuer.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">8.1 Master Lead Arranger & Structuring Agent: Terraquest Investments FZCO</h4>
+        <div class="point-content">
+            <ul class="!mb-0">
+                <li><strong>Corporate Background & Location:</strong><br>Headquartered in Dubai, United Arab Emirates. Terraquest possesses specialized transaction experience in architecting and structuring cross-border asset-backed securitizations and sovereign-linked structured debt across Sub-Saharan Africa.</li>
+                <li><strong>Transaction Role:</strong><br>Serves as the central architect of the Programme. Legally mandated to execute the structuring of the 'Repo + Liquidation' matrix, model the yield waterfalls, and originate the Master True Sale Agreement with the Zambian sovereign. Operating strictly in an arranging and advisory capacity, Terraquest does not hold investor capital, nor does it exercise discretionary control over the Security Package.</li>
+                <li><strong>Appointing Entity:</strong><br>Mandated by the Food Reserve Agency (FRA) of Zambia to structure the Programme and establish the off-shore Issuer.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">8.2 The Fiduciary: MTC Trust and Corporate Services</h4>
-    <div class="point-content">
-        <ul class="!mb-0">
-            <li><strong>Corporate Background & Location:</strong><br>Headquartered in Nairobi, Kenya. MTC Trust is a premier fiduciary services firm, licensed and heavily regulated by the Capital Markets Authority (CMA) of Kenya, with an established track record of managing corporate debt, securitizations, and complex collateral trusts.</li>
-            <li><strong>Transaction Role:</strong><br>Serves as the Note & Security Trustee, acting as the independent fiduciary firewall. Through the Trust Deed, the Trustee holds absolute, first-ranking legal title to the Security Package (the all-asset debenture, the WHRs, and all Escrow accounts). In an Event of Default, MTC Trust acts as the ultimate enforcing entity, possessing the sole, non-discretionary authority to bypass the SPV and the Obligor to execute the T-Zero to T+15 enforcement timeline.</li>
-            <li><strong>Appointing Entity:</strong><br>Appointed by the Issuer (Tsavo SEZ SPV Limited) to act exclusively on behalf of the Senior Secured Noteholders.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">8.2 The Fiduciary: MTC Trust and Corporate Services</h4>
+        <div class="point-content">
+            <ul class="!mb-0">
+                <li><strong>Corporate Background & Location:</strong><br>Headquartered in Nairobi, Kenya. MTC Trust is a premier fiduciary services firm, licensed and heavily regulated by the Capital Markets Authority (CMA) of Kenya, with an established track record of managing corporate debt, securitizations, and complex collateral trusts.</li>
+                <li><strong>Transaction Role:</strong><br>Serves as the Note & Security Trustee, acting as the independent fiduciary firewall. Through the Trust Deed, the Trustee holds absolute, first-ranking legal title to the Security Package (the all-asset debenture, the WHRs, and all Escrow accounts). In an Event of Default, MTC Trust acts as the ultimate enforcing entity, possessing the sole, non-discretionary authority to bypass the SPV and the Obligor to execute the T-Zero to T+15 enforcement timeline.</li>
+                <li><strong>Appointing Entity:</strong><br>Appointed by the Issuer (Tsavo SEZ SPV Limited) to act exclusively on behalf of the Senior Secured Noteholders.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">8.3 Independent Collateral Manager: Collateral Management International (CMI)</h4>
-    <div class="point-content">
-        <ul class="!mb-0">
-            <li><strong>Corporate Background & Location:</strong><br>Operates across Sub-Saharan Africa with a dedicated regional command office in Lusaka, Zambia. CMI is an ISO-certified, internationally recognized collateral manager with a multi-decade track record in securing millions of tonnes of agricultural commodities under hard institutional custody.</li>
-            <li><strong>Transaction Role:</strong><br>Maintains exclusive physical custody and legal control over the underlying commodities. CMI deploys strict on-site inspection protocols to verify phytosanitary quality, moisture content, and volumetric accuracy prior to issuing the statutory Negotiable Warehouse Receipts. CMI underwrites this physical custody with a mandatory, internationally backed $8M Professional Indemnity policy.</li>
-            <li><strong>Appointing Entity:</strong><br>Appointed jointly via a tripartite Collateral Management Agreement (CMA) by the Buyer (Issuer) and the Seller (FRA).</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">8.3 Independent Collateral Manager: Collateral Management International (CMI)</h4>
+        <div class="point-content">
+            <ul class="!mb-0">
+                <li><strong>Corporate Background & Location:</strong><br>Operates across Sub-Saharan Africa with a dedicated regional command office in Lusaka, Zambia. CMI is an ISO-certified, internationally recognized collateral manager with a multi-decade track record in securing millions of tonnes of agricultural commodities under hard institutional custody.</li>
+                <li><strong>Transaction Role:</strong><br>Maintains exclusive physical custody and legal control over the underlying commodities. CMI deploys strict on-site inspection protocols to verify phytosanitary quality, moisture content, and volumetric accuracy prior to issuing the statutory Negotiable Warehouse Receipts. CMI underwrites this physical custody with a mandatory, internationally backed $8M Professional Indemnity policy.</li>
+                <li><strong>Appointing Entity:</strong><br>Appointed jointly via a tripartite Collateral Management Agreement (CMA) by the Buyer (Issuer) and the Seller (FRA).</li>
+            </ul>
+        </div>
     </div>
 
     <div class="gold-divider"></div>
 
-    <h4 class="point-header">8.4 Transactional & Receiving Bank: ABSA Bank Group</h4>
-    <div class="point-content">
-        <ul class="!mb-0">
-            <li><strong>Corporate Background & Location:</strong><br>A tier-one Pan-African banking institution with operational headquarters across Nairobi, Kenya, and Lusaka, Zambia. ABSA possesses a heavily regulated, multi-jurisdictional balance sheet with extensive transaction experience in cross-border trade finance and institutional clearing.</li>
-            <li><strong>Transaction Role:</strong><br>Operates as the core financial clearing conduit. ABSA is contractually mandated to execute the rigid "Delivery vs. Payment" (DvP) settlement protocol, ensuring investor capital is only deployed against the confirmed physical lodgment of Verified Warehouse Receipts. All un-deployed capital, Margin Escrows, and Collection accounts remain securely ring-fenced under the exclusive signature mandate of the Security Trustee.</li>
-            <li><strong>Appointing Entity:</strong><br>Appointed by the Issuer (Tsavo SEZ SPV Limited) under the strict operational instruction of the Security Trustee.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">8.4 Transactional & Receiving Bank: ABSA Bank Group</h4>
+        <div class="point-content">
+            <ul class="!mb-0">
+                <li><strong>Corporate Background & Location:</strong><br>A tier-one Pan-African banking institution with operational headquarters across Nairobi, Kenya, and Lusaka, Zambia. ABSA possesses a heavily regulated, multi-jurisdictional balance sheet with extensive transaction experience in cross-border trade finance and institutional clearing.</li>
+                <li><strong>Transaction Role:</strong><br>Operates as the core financial clearing conduit. ABSA is contractually mandated to execute the rigid "Delivery vs. Payment" (DvP) settlement protocol, ensuring investor capital is only deployed against the confirmed physical lodgment of Verified Warehouse Receipts. All un-deployed capital, Margin Escrows, and Collection accounts remain securely ring-fenced under the exclusive signature mandate of the Security Trustee.</li>
+                <li><strong>Appointing Entity:</strong><br>Appointed by the Issuer (Tsavo SEZ SPV Limited) under the strict operational instruction of the Security Trustee.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">8.5 Transaction Counsel: Mboya Wangong'u & Waiyaki Advocates</h4>
-    <div class="point-content">
-        <ul class="!mb-0">
-            <li><strong>Corporate Background & Location:</strong><br>Headquartered in Nairobi, Kenya. Operating as a highly ranked corporate and commercial law firm with specialized, cross-jurisdictional transaction experience in Capital Markets and structured debt instruments.</li>
-            <li><strong>Transaction Role:</strong><br>Executes the rigorous multi-jurisdictional legal synthesis of the Programme. Counsel is tasked with coordinating the English Law-governed Master Agreements with the Zambian statutory environment and Kenyan onshore regulatory frameworks, ensuring the absolute perfection of the True Sale and the seamless cross-border enforceability of Noteholder rights.</li>
-            <li><strong>Appointing Entity:</strong><br>Appointed by the Master Lead Arranger on behalf of the Issuer (Tsavo SEZ SPV Limited).</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">8.5 Transaction Counsel: Mboya Wangong'u & Waiyaki Advocates</h4>
+        <div class="point-content">
+            <ul class="!mb-0">
+                <li><strong>Corporate Background & Location:</strong><br>Headquartered in Nairobi, Kenya. Operating as a highly ranked corporate and commercial law firm with specialized, cross-jurisdictional transaction experience in Capital Markets and structured debt instruments.</li>
+                <li><strong>Transaction Role:</strong><br>Executes the rigorous multi-jurisdictional legal synthesis of the Programme. Counsel is tasked with coordinating the English Law-governed Master Agreements with the Zambian statutory environment and Kenyan onshore regulatory frameworks, ensuring the absolute perfection of the True Sale and the seamless cross-border enforceability of Noteholder rights.</li>
+                <li><strong>Appointing Entity:</strong><br>Appointed by the Master Lead Arranger on behalf of the Issuer (Tsavo SEZ SPV Limited).</li>
+            </ul>
+        </div>
     </div>
 
     <h2 class="section-title mt-12">9. TAXATION AND REGULATORY INCENTIVES</h2>
     <p><em>The following is a general summary of the structural tax architecture of the Programme. It does not constitute specific tax advice to any individual Noteholder. Investors must consult their own independent tax advisors regarding the implications of subscribing to, holding, or disposing of the Notes.</em></p>
 
-    <h4 class="point-header">9.1 Tax-Optimized Domiciliation: TRIFIC Special Economic Zone (Kenya)</h4>
-    <div class="point-content">
-        <p>The Programme is engineered to systematically eliminate structural tax leakage and maximize the net yield distributed to investors. To achieve this, the Issuer is domiciled within the Two Rivers International Finance & Innovation Centre (TRIFIC) Special Economic Zone in the Republic of Kenya. Operating under the Special Economic Zones Act, the Issuer benefits from a highly favorable, ring-fenced fiscal regime, which typically includes:</p>
-        <ul class="!mb-0">
-            <li>A ten-year exemption from standard Corporate Income Tax.</li>
-            <li>Exemption from withholding taxes on interest and dividends distributed to non-resident entities, ensuring gross yield transmission.</li>
-            <li>Zero-rating of Value Added Tax (VAT) on financial services and operational overheads incurred within the zone.</li>
-            <li>Exemption from stamp duties on the execution of the Programme's legal agreements and the issuance of the Notes.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">9.1 Tax-Optimized Domiciliation: TRIFIC Special Economic Zone (Kenya)</h4>
+        <div class="point-content">
+            <p>The Programme is engineered to systematically eliminate structural tax leakage and maximize the net yield distributed to investors. To achieve this, the Issuer is domiciled within the Two Rivers International Finance & Innovation Centre (TRIFIC) Special Economic Zone in the Republic of Kenya. Operating under the Special Economic Zones Act, the Issuer benefits from a highly favorable, ring-fenced fiscal regime, which typically includes:</p>
+            <ul class="!mb-0">
+                <li>A ten-year exemption from standard Corporate Income Tax.</li>
+                <li>Exemption from withholding taxes on interest and dividends distributed to non-resident entities, ensuring gross yield transmission.</li>
+                <li>Zero-rating of Value Added Tax (VAT) on financial services and operational overheads incurred within the zone.</li>
+                <li>Exemption from stamp duties on the execution of the Programme's legal agreements and the issuance of the Notes.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">9.2 Sovereign Tax Waivers and Margin Protection (Zambia)</h4>
-    <div class="point-content">
-        <p>To ensure the Asset Value Floor and the liquidation margin are mathematically unassailable, the physical assets are insulated from domestic fiscal interference at the point of origin. As mandated by the Conditions Precedent in Section 5, financial close is strictly conditional upon the issuance of a binding Tax Comfort Letter from the Zambia Revenue Authority (ZRA) and the Ministry of Finance. This explicit statutory protection guarantees:</p>
-        <ul class="!mb-0">
-            <li>Zero-rating of VAT on the underlying agricultural commodities (Non-GMO White Maize).</li>
-            <li>Complete exemption from any sudden, arbitrarily imposed export duties, levies, or surcharges in the event that cross-border liquidation is required.</li>
-        </ul>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">9.2 Sovereign Tax Waivers and Margin Protection (Zambia)</h4>
+        <div class="point-content">
+            <p>To ensure the Asset Value Floor and the liquidation margin are mathematically unassailable, the physical assets are insulated from domestic fiscal interference at the point of origin. As mandated by the Conditions Precedent in Section 5, financial close is strictly conditional upon the issuance of a binding Tax Comfort Letter from the Zambia Revenue Authority (ZRA) and the Ministry of Finance. This explicit statutory protection guarantees:</p>
+            <ul class="!mb-0">
+                <li>Zero-rating of VAT on the underlying agricultural commodities (Non-GMO White Maize).</li>
+                <li>Complete exemption from any sudden, arbitrarily imposed export duties, levies, or surcharges in the event that cross-border liquidation is required.</li>
+            </ul>
+        </div>
     </div>
 
-    <h4 class="point-header">9.3 Withholding Tax on Noteholder Returns</h4>
-    <div class="point-content">
-        <p class="!mb-0">Distributions of the Priority Fixed Return and the Profit Share to institutional Noteholders will be subject to the applicable withholding tax regimes based strictly on the investor’s jurisdiction of tax residence and the availability of Double Taxation Agreements (DTAs) with the Republic of Kenya. The SEZ architecture ensures that the SPV itself acts as an efficient, tax-neutral pass-through vehicle, eliminating double taxation at the corporate fund level.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">9.3 Withholding Tax on Noteholder Returns</h4>
+        <div class="point-content">
+            <p class="!mb-0">Distributions of the Priority Fixed Return and the Profit Share to institutional Noteholders will be subject to the applicable withholding tax regimes based strictly on the investor’s jurisdiction of tax residence and the availability of Double Taxation Agreements (DTAs) with the Republic of Kenya. The SEZ architecture ensures that the SPV itself acts as an efficient, tax-neutral pass-through vehicle, eliminating double taxation at the corporate fund level.</p>
+        </div>
     </div>
 </div>
 
@@ -983,61 +1053,71 @@
 
     <h2 class="section-title">10. RISK FACTORS</h2>
     
-    <!-- Section 10 Image -->
-    <img src="Zambia Maize Farming Pic 4.jpg" alt="Children Sorting Harvested Maize" class="editorial-image mt-2" />
-    <p class="image-caption">Fig 5: Mitigating systemic risks protects both investors and end-beneficiaries.</p>
+    <div class="avoid-break mb-6 mt-4">
+        <img src="Zambia Maize Farming Pic 4.jpg" alt="Children Sorting Harvested Maize" class="editorial-image !mt-0" />
+        <p class="image-caption !mb-0">Fig 5: Mitigating systemic risks protects both investors and end-beneficiaries.</p>
+    </div>
 
     <p><em>Investment in the Notes involves a high degree of risk. Prospective Noteholders should carefully consider the following risk factors, in addition to the other information contained in this Memorandum, before making any investment decision. The risks described below are not exhaustive. Additional risks and uncertainties not presently known to the Issuer, or that the Issuer currently deems immaterial, may also impair the operations and financial settlement of the Programme.</em></p>
 
-    <h4 class="point-header">10.1 Limited Recourse and Non-Petition</h4>
-    <div class="point-content">
-        <p class="!mb-0">The Notes represent direct, secured, and limited recourse obligations of the Issuer (Tsavo SEZ SPV Limited). The Notes are not obligations of, nor are they guaranteed by, the Master Lead Arranger, the Trust Manager, or any of their respective affiliates. Noteholders shall have recourse solely to the Security Package (comprising the physical commodities, designated cash accounts, and insurance/guarantee proceeds) as enforced by the Security Trustee. If the proceeds from the realization of the Security Package are insufficient to discharge the obligations under the Notes, any resulting shortfall shall be borne by the Noteholders. Furthermore, no Noteholder shall be entitled to institute, or join any other person in instituting, bankruptcy, reorganization, liquidation, or insolvency proceedings against the Issuer.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.1 Limited Recourse and Non-Petition</h4>
+        <div class="point-content">
+            <p class="!mb-0">The Notes represent direct, secured, and limited recourse obligations of the Issuer (Tsavo SEZ SPV Limited). The Notes are not obligations of, nor are they guaranteed by, the Master Lead Arranger, the Trust Manager, or any of their respective affiliates. Noteholders shall have recourse solely to the Security Package (comprising the physical commodities, designated cash accounts, and insurance/guarantee proceeds) as enforced by the Security Trustee. If the proceeds from the realization of the Security Package are insufficient to discharge the obligations under the Notes, any resulting shortfall shall be borne by the Noteholders. Furthermore, no Noteholder shall be entitled to institute, or join any other person in instituting, bankruptcy, reorganization, liquidation, or insolvency proceedings against the Issuer.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">10.2 Illiquidity of the Notes and Lack of Secondary Market</h4>
-    <div class="point-content">
-        <p class="!mb-0">The Notes are being offered via a Private Placement explicitly to qualified institutional and sophisticated investors. The Notes will not be listed, quoted, or traded on any public securities exchange (such as the Nairobi Securities Exchange or the Lusaka Securities Exchange). Consequently, there is no established secondary market for the Notes, and there can be no assurance that one will develop. Investors must possess the financial capacity to bear the risks of this investment and must be prepared to hold the Notes until the Scheduled Maturity Date (12-month Tenor).</p> 
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.2 Illiquidity of the Notes and Lack of Secondary Market</h4>
+        <div class="point-content">
+            <p class="!mb-0">The Notes are being offered via a Private Placement explicitly to qualified institutional and sophisticated investors. The Notes will not be listed, quoted, or traded on any public securities exchange (such as the Nairobi Securities Exchange or the Lusaka Securities Exchange). Consequently, there is no established secondary market for the Notes, and there can be no assurance that one will develop. Investors must possess the financial capacity to bear the risks of this investment and must be prepared to hold the Notes until the Scheduled Maturity Date (12-month Tenor).</p> 
+        </div>
     </div>
 
-    <h4 class="point-header">10.3 Sovereign and Emerging Market Risk</h4>
-    <div class="point-content">
-        <p class="!mb-0">While the Programme legally isolates the physical assets from the sovereign balance sheet and strictly denominates the obligations in US Dollars, the underlying commercial transaction relies on a statutory agency of the Republic of Zambia. Investments in emerging markets inherently involve legal, political, and economic variables different from those in highly developed markets. These may include broader macroeconomic instability, regional geopolitical shifts, inflation volatility, or sudden restructurings of national debt profiles. While the structure deploys Political Risk Insurance (PRI) and sovereign waivers to mitigate direct interference, broader sovereign distress could impact the administrative efficiency of the obligor.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.3 Sovereign and Emerging Market Risk</h4>
+        <div class="point-content">
+            <p class="!mb-0">While the Programme legally isolates the physical assets from the sovereign balance sheet and strictly denominates the obligations in US Dollars, the underlying commercial transaction relies on a statutory agency of the Republic of Zambia. Investments in emerging markets inherently involve legal, political, and economic variables different from those in highly developed markets. These may include broader macroeconomic instability, regional geopolitical shifts, inflation volatility, or sudden restructurings of national debt profiles. While the structure deploys Political Risk Insurance (PRI) and sovereign waivers to mitigate direct interference, broader sovereign distress could impact the administrative efficiency of the obligor.</p>
+        </div>
     </div>
 
     <div class="gold-divider"></div>
 
-    <h4 class="point-header">10.4 Systemic Climate Risk and Force Majeure</h4>
-    <div class="point-content">
-        <p class="!mb-0">The intrinsic value of the collateral is tied to the physical integrity and market demand for non-GMO white maize. While the physical grain is heavily insured against fire, flood, theft, and degradation whilst in custody, the broader region is susceptible to systemic, continent-wide climate shocks (such as severe El Niño/La Niña cycles) and widespread phytosanitary outbreaks (such as Fall Armyworm). While the transaction is structured strictly as a Repurchase Agreement against <em>already harvested and stored</em> commodities (insulating investors from primary farming/yield risk), severe climate anomalies could disrupt regional logistics infrastructure, potentially causing localized delays in the execution of the secondary liquidation off-take pipelines.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.4 Systemic Climate Risk and Force Majeure</h4>
+        <div class="point-content">
+            <p class="!mb-0">The intrinsic value of the collateral is tied to the physical integrity and market demand for non-GMO white maize. While the physical grain is heavily insured against fire, flood, theft, and degradation whilst in custody, the broader region is susceptible to systemic, continent-wide climate shocks (such as severe El Niño/La Niña cycles) and widespread phytosanitary outbreaks (such as Fall Armyworm). While the transaction is structured strictly as a Repurchase Agreement against <em>already harvested and stored</em> commodities (insulating investors from primary farming/yield risk), severe climate anomalies could disrupt regional logistics infrastructure, potentially causing localized delays in the execution of the secondary liquidation off-take pipelines.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">10.5 Change in Law and Regulatory Paradigms</h4>
-    <div class="point-content">
-        <p class="!mb-0">The Programme is engineered upon the current statutory frameworks of English Common Law, the Zambian Food Reserve Act, and the Kenyan Special Economic Zones Act. A sudden, retroactive change in law, taxation policy, or exchange control regulations in any of these jurisdictions could impact the operational efficiency of the Issuer or the net yield transmitted to Noteholders. While the transaction requires binding Comfort Letters and Legal Opinions at financial close to lock in current regulatory treatments, sovereign states retain the ultimate legislative authority to amend their national laws.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.5 Change in Law and Regulatory Paradigms</h4>
+        <div class="point-content">
+            <p class="!mb-0">The Programme is engineered upon the current statutory frameworks of English Common Law, the Zambian Food Reserve Act, and the Kenyan Special Economic Zones Act. A sudden, retroactive change in law, taxation policy, or exchange control regulations in any of these jurisdictions could impact the operational efficiency of the Issuer or the net yield transmitted to Noteholders. While the transaction requires binding Comfort Letters and Legal Opinions at financial close to lock in current regulatory treatments, sovereign states retain the ultimate legislative authority to amend their national laws.</p>
+        </div>
     </div>
 
-    <h4 class="point-header">10.6 Liquidation Execution and Regional Settlement Risk</h4>
-    <div class="point-content">
-        <p class="!mb-0">In the event of an Obligor default, the Programme relies on the immediate execution of embedded liquidation rights into secondary regional markets (such as the DRC and Kenya). While these off-take pipelines are pre-verified and execution is strictly mandated on a 'Delivery vs. Payment' (DvP) basis to ensure cash capture, the Issuer is exposed to the systemic settlement infrastructure of these regional buyers. Logistical bottlenecks at border crossings, sudden regional currency illiquidity affecting the buyers' ability to source US Dollars, or disruptions in regional SWIFT clearing mechanisms could delay the ultimate remittance of liquidation proceeds to the Collection Account.</p>
+    <div class="avoid-break mb-6">
+        <h4 class="point-header !mt-0">10.6 Liquidation Execution and Regional Settlement Risk</h4>
+        <div class="point-content">
+            <p class="!mb-0">In the event of an Obligor default, the Programme relies on the immediate execution of embedded liquidation rights into secondary regional markets (such as the DRC and Kenya). While these off-take pipelines are pre-verified and execution is strictly mandated on a 'Delivery vs. Payment' (DvP) basis to ensure cash capture, the Issuer is exposed to the systemic settlement infrastructure of these regional buyers. Logistical bottlenecks at border crossings, sudden regional currency illiquidity affecting the buyers' ability to source US Dollars, or disruptions in regional SWIFT clearing mechanisms could delay the ultimate remittance of liquidation proceeds to the Collection Account.</p>
+        </div>
     </div>
 </div>
 
 <!-- BACK COVER PAGE -->
 <div class="document-page back-cover p-0 relative border-[8px] border-espresso overflow-hidden flex flex-col justify-end">
-    <!-- Full Bleed Landscape Image -->
-    <img src="Zambia Maize Farming Pic 3.png" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.8] sepia-[0.2]" />
+    <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.8] sepia-[0.2]" />
     
-    <!-- Dark Gradient Overlay for Text Readability -->
     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20"></div>
     
-    <!-- Footer Content -->
-    <div class="relative z-10 p-12 flex justify-between items-end w-full">
+    <div class="relative z-10 p-6 sm:p-12 flex flex-col sm:flex-row justify-between items-start sm:items-end w-full gap-4 sm:gap-0">
         <div>
-            <h1 class="text-white text-3xl font-bold title-font tracking-widest uppercase mb-3">Tsavo Resilience<br>Food Fund 1</h1>
-            <div class="w-16 h-1 bg-gold mb-3"></div>
-            <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Securing Regional Food Systems • Zambia</p>
+            <h1 class="text-white text-2xl sm:text-3xl font-bold title-font tracking-widest uppercase mb-2 sm:mb-3">Tsavo Resilience<br>Food Fund 1</h1>
+            <div class="w-12 sm:w-16 h-1 bg-gold mb-2 sm:mb-3"></div>
+            <p class="text-gray-300 text-[8px] sm:text-[10px] uppercase tracking-widest font-bold">Securing Regional Food Systems • Zambia</p>
         </div>
-        <img src="TerraQuest Logo.png" alt="TerraQuest" class="h-12 object-contain brightness-0 invert opacity-90" />
+        <img src="TerraQuest Logo.png" alt="TerraQuest" class="h-8 sm:h-12 object-contain brightness-0 invert opacity-90" />
     </div>
 </div>
 
