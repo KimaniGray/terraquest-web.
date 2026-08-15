@@ -108,7 +108,6 @@
             padding-left: 1.25rem;
             position: relative;
             text-align: justify;
-            break-inside: avoid;
         }
 
         li::before {
@@ -271,8 +270,15 @@
             }
             .cover-page { page-break-after: always !important; }
             .back-cover { page-break-before: always !important; }
-            h2.section-title { page-break-before: always; padding-top: 0 !important; margin-top: 0 !important; }
-            .page-block h2.section-title:first-of-type { page-break-before: auto; }
+            
+            /* Relaxes strict page breaks to prevent massive blank PDF gaps */
+            h2.section-title { page-break-before: auto !important; page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
+            h3, h4, h5, .subsection-title, .point-header, .image-caption { page-break-after: avoid !important; break-after: avoid !important; }
+            p { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            li { page-break-inside: auto; break-inside: auto; }
+            table { page-break-inside: auto; break-inside: auto; }
+            .avoid-break-strict { page-break-inside: auto !important; break-inside: auto !important; }
+            .editorial-image { page-break-inside: avoid !important; break-inside: avoid !important; }
         }
     </style>
 </head>
@@ -381,7 +387,7 @@
         <div class="gold-divider"></div>
 
         <h3 class="subsection-title text-center mt-10">CORPORATE DIRECTORY</h3>
-        <div class="overflow-x-auto w-full avoid-break-strict mb-12">
+        <div class="overflow-x-auto w-full mb-12">
             <table class="min-w-[600px] w-full">
                 <tbody>
                     <tr>
@@ -440,7 +446,7 @@
 
         <h2 class="section-title">1. EXECUTIVE SUMMARY</h2>
 
-        <div class="avoid-break-strict mb-8">
+        <div class="mb-8">
             <img src="Zambia Farming Pic 5.jpg" alt="African Woman Farmer with Harvested Maize" class="editorial-image !mt-0" loading="lazy" />
             <p class="image-caption mb-0">Fig 1: Smallholder farmers, predominantly female, drive agricultural production.</p>
         </div>
@@ -453,15 +459,15 @@
 
             <p class="mb-5">The structure incorporates eight core credit enhancements:</p>
 
-            <ul class="mb-6 space-y-4">
-                <li><strong>Legal Asset Ring-Fencing & Balance Sheet Isolation:</strong> A "True Sale" Master Commodity Repurchase Agreement legally transfers physical maize off the FRA balance sheet to the SPV, insulating collateral from general sovereign creditors and operational liabilities.</li>
-                <li><strong>Absolute Collateral Debenture & Security Perfection:</strong> The Corporate Trustee registers a first-ranking, absolute all-asset debenture over the SPV, pledging physical grain inventory (verified via Negotiable Warehouse Receipts), subscription cash, and a pre-funded 10% debt service cash escrow.</li>
-                <li><strong>Guaranteed Exchequer Liquidity & Debt Service Allocation:</strong> An absolute, irrevocable assignment of statutory government exchequer allocations (~USD 70M) provides guaranteed exchequer cash liquidity earmarked for the strategic food reserve program, routed directly into the Trustee Collection Account.</li>
-                <li><strong>Continuous Liquidation Protocol & Default Prevention:</strong> The facility enforces a continuous realization mechanism, executing ongoing off-take sales (via local millers and the TerraQuest Trade Desk) throughout the tenor. Cash is systematically swept into Trustee-controlled accounts, maintaining continuous cash liquidity, de-risking the facility incrementally, and actively preventing default risk prior to maturity.</li>
-                <li><strong>Direct Equity Control & Non-Judicial Enforcement:</strong> The Corporate Trustee holds 100% of the SPV’s equity in trust for Noteholders. Equity ownership grants the Trustee direct administrative control beyond standard registered charges, giving the Trustee non-discretionary authority to execute immediate secondary liquidation upon an Obligor default, completely bypassing host-nation judicial enforcement.</li>
-                <li><strong>Institutional Regulatory Qualification:</strong> Domiciling the Issuer within the TRIFIC SEZ qualifies the instrument as an admissible fixed-income asset under East African statutory guidelines for pension funds, insurers, and regulated fund managers.</li>
-                <li><strong>Hard-Currency Institutional Capital Hub:</strong> Domiciling in Nairobi provides direct access to hard-currency (USD) institutional liquidity pools—including CMA-regulated funds, RBA pension schemes, SASRA cooperatives, commercial bank treasuries, DFIs, and regional Private Debt funds covering the broader EAC corridor.</li>
-                <li><strong>Sovereign Risk Structural Mitigation:</strong> Locating legal title, collection accounts, and underlying contracts offshore directly mitigates sovereign credit events: bypassing host-nation capital controls, stripping host-nation expropriation authority over the holding entity, enabling international arbitration under English Law, and establishing the legal separation required to trigger Political Risk Insurance (PRI) wraps.</li>
+            <ul class="mb-6 space-y-8">
+                <li><strong class="block text-espresso mb-2 text-base">Legal Asset Ring-Fencing & Balance Sheet Isolation:</strong> <span class="block">A "True Sale" Master Commodity Repurchase Agreement legally transfers physical maize off the FRA balance sheet to the SPV, insulating collateral from general sovereign creditors and operational liabilities.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Absolute Collateral Debenture & Security Perfection:</strong> <span class="block">The Corporate Trustee registers a first-ranking, absolute all-asset debenture over the SPV, pledging physical grain inventory (verified via Negotiable Warehouse Receipts), subscription cash, and a pre-funded 10% debt service cash escrow.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Guaranteed Exchequer Liquidity & Debt Service Allocation:</strong> <span class="block">An absolute, irrevocable assignment of statutory government exchequer allocations (~USD 70M) provides guaranteed exchequer cash liquidity earmarked for the strategic food reserve program, routed directly into the Trustee Collection Account.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Continuous Liquidation Protocol & Default Prevention:</strong> <span class="block">The facility enforces a continuous realization mechanism, executing ongoing off-take sales (via local millers and the TerraQuest Trade Desk) throughout the tenor. Cash is systematically swept into Trustee-controlled accounts, maintaining continuous cash liquidity, de-risking the facility incrementally, and actively preventing default risk prior to maturity.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Direct Equity Control & Non-Judicial Enforcement:</strong> <span class="block">The Corporate Trustee holds 100% of the SPV’s equity in trust for Noteholders. Equity ownership grants the Trustee direct administrative control beyond standard registered charges, giving the Trustee non-discretionary authority to execute immediate secondary liquidation upon an Obligor default, completely bypassing host-nation judicial enforcement.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Institutional Regulatory Qualification:</strong> <span class="block">Domiciling the Issuer within the TRIFIC SEZ qualifies the instrument as an admissible fixed-income asset under East African statutory guidelines for pension funds, insurers, and regulated fund managers.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Hard-Currency Institutional Capital Hub:</strong> <span class="block">Domiciling in Nairobi provides direct access to hard-currency (USD) institutional liquidity pools—including CMA-regulated funds, RBA pension schemes, SASRA cooperatives, commercial bank treasuries, DFIs, and regional Private Debt funds covering the broader EAC corridor.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Sovereign Risk Structural Mitigation:</strong> <span class="block">Locating legal title, collection accounts, and underlying contracts offshore directly mitigates sovereign credit events: bypassing host-nation capital controls, stripping host-nation expropriation authority over the holding entity, enabling international arbitration under English Law, and establishing the legal separation required to trigger Political Risk Insurance (PRI) wraps.</span></li>
             </ul>
 
             <p class="mb-6">This credit structure bridges sovereign working capital shortfalls while delivering institutional allocators a senior secured, 15.00% annualized yield USD instrument.</p>
@@ -487,7 +493,7 @@
         </div>
 
         <h2 class="section-title">2. TRANSACTION SNAPSHOT</h2>
-        <div class="overflow-x-auto w-full avoid-break-strict mb-8">
+        <div class="overflow-x-auto w-full mb-8">
             <table class="min-w-[600px] w-full">
                 <tbody>
                     <tr>
@@ -572,74 +578,74 @@
         
         <h3 class="subsection-title !mt-0">3.1 Borrower Profile</h3>
         <div class="point-content">
-            <h5 class="font-bold text-espresso mb-2">Statutory Authority & Governing Law:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Statutory Authority & Governing Law:</h5>
             <p class="mb-6">The Food Reserve Agency (FRA) is a statutory body corporate established under the Food Reserve Act, Chapter 225 of the Laws of Zambia (1995). Functioning under the regulatory purview of the Ministry of Agriculture, the agency serves as Zambia's primary agricultural off-taker and market-stabilization vehicle, acting as the primary Borrower under this transaction.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Mandate & Physical Baseline (500,000 MT):</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Mandate & Physical Baseline (500,000 MT):</h5>
             <p class="mb-6">The FRA administers the National Strategic Food Reserve to prevent market distortion, insulate domestic food security, and stabilize grain pricing. Under the Act, the agency is statutorily mandated to maintain a physical baseline strategic reserve of at least <strong>500,000 metric tonnes (MT)</strong> (and up to 1,000,000 MT) of non-GMO white maize. The Minister of Agriculture annually gazettes "Designated Commodities" under the FRA's mandate, encompassing maize, wheat, soya beans, stockfeed ingredients, and specified legumes (sugar beans, haricot beans, mixed beans, and cowpeas).</p>
 
-            <h5 class="font-bold text-espresso mb-2">Commercial Borrowing Power:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Commercial Borrowing Power:</h5>
             <p class="mb-6">Under Paragraph 10(2)(b) of the Schedule to Chapter 225, the FRA possesses independent statutory authority to contract debt, pledge assets, and execute commercial trade finance structures independently of the national exchequer. This explicit borrowing mandate provides the legal foundation for executing off-balance-sheet True Sale Master Repurchase Agreements.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Smallholder Production Base:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Smallholder Production Base:</h5>
             <p class="mb-6">Zambia's agricultural base is anchored by 1.5 million smallholder farming households cultivating 3.8 million hectares across a dual-season calendar: a primary rain-fed summer harvest (April–June) and an irrigated winter harvest (September–October). This production base engages a predominantly female workforce (60%–70% of agricultural labor) and generates secondary commercial cash crops including soya beans (400,000 MT), wheat (200,000 MT), and sorghum (15,000 MT).</p>
         </div>
 
-        <div class="avoid-break-strict mt-8 mb-8">
+        <div class="mt-8 mb-8">
             <img src="Zambia Maize Farming Pic 6.png" alt="Warehouse Inspection Team" class="editorial-image !mt-0" loading="lazy" />
             <p class="image-caption mb-0">Fig 2: Institutional oversight at a commercial storage facility.</p>
         </div>
 
         <h3 class="subsection-title !mt-0">3.2 Commodity Dynamics</h3>
         <div class="point-content">
-            <h5 class="font-bold text-espresso mb-2">Consecutive Bumper Harvests & ~1.6M MT Stock Pressure:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Consecutive Bumper Harvests & ~1.6M MT Stock Pressure:</h5>
             <p class="mb-6">Maize constitutes over 70% of total national crop output, sustaining 6 to 7 million citizens. Validated by official crop forecasting, Zambia recorded a massive bumper harvest in 2025 and projects another record output of <strong>4.9 million MT</strong> for the 2026 agricultural season. The accumulation of substantial carryover stocks from 2025 compounding with the 2026 crop requires the FRA to absorb and manage an unprecedented physical stock volume exceeding <strong>1.6 million MT</strong> of maize.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Domestic Consumption Floor:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Domestic Consumption Floor:</h5>
             <p class="mb-6">Zambia requires an annual baseline allocation of 2.5 million to 3.0 million MT to satisfy direct human consumption (maize meal / nshima), industrial stockfeed processors, and commercial beverage manufacturers.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Storage Infrastructure Deficit (800,000 MT):</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Storage Infrastructure Deficit (800,000 MT):</h5>
             <p class="mb-6">The FRA manages a nationwide network of silos, hard-standing slabs, and storage sheds across 10 provinces, with an aggregate installed permanent capacity capped at <strong>~1.2 million MT</strong>. With peak seasonal procurement required to absorb the ~1.6 million MT surplus, state infrastructure encounters a structural storage deficit exceeding <strong>800,000 MT</strong>. Unmanaged overflow stored on open slabs faces severe risks of post-harvest degradation, moisture spoilage, and pest infestation.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Risk Mitigation via Collateral Custody:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Risk Mitigation via Collateral Custody:</h5>
             <p class="mb-6">TRFF-1 systematically eliminates physical storage risk by enforcing third-party collateral management. All acquired grain is placed under the exclusive physical custody of an ISO-certified Collateral Manager (CMI), stored within licensed professional warehousing, and securitized via serialized Negotiable Warehouse Receipts (WHRs)—bypassing unmanaged state storage and securing the Asset Value Floor.</p>
         </div>
 
         <h3 class="subsection-title !mt-0">3.3 Fiscal Rationale</h3>
         <div class="point-content">
-            <h5 class="font-bold text-espresso mb-2">Exchequer Allocation (~USD 70M–$100M) vs. USD 400M+ Funding Deficit:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Exchequer Allocation (~USD 70M–$100M) vs. USD 400M+ Funding Deficit:</h5>
             <p class="mb-6">The Zambian Exchequer allocates ~ZMW 2.366 Billion (<strong>~USD 70M–$100M</strong>) annually for Strategic Food Reserves. While this allocation is sized to fund the baseline procurement of 500,000 MT, absorbing peak harvest volumes of up to 1.6 million MT requires an immediate upfront capital outlay of <strong>USD 500 million to USD 620 million</strong> (at inland maize prices of USD 250–310/MT). This exposes a recurring <strong>USD 400 million working capital deficit</strong> at the onset of the harvest window.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Local Banking Constraints:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Local Banking Constraints:</h5>
             <p class="mb-4">Domestic commercial banks cannot bridge this structural liquidity gap due to three rigid operational constraints:</p>
 
-            <ul class="space-y-3 mb-6">
-                <li><strong>Single Borrower Limits (SBLs):</strong> Central bank concentration caps restrict commercial bank exposure to a single statutory entity.</li>
-                <li><strong>High Cost of Capital & FX Mismatch:</strong> Local ZMW lending rates (>25%–30%) introduce prohibitive capital costs that erode trading margins.</li>
-                <li><strong>Inflexible Underwriting Matrix:</strong> Local banks heavily discount or reject physical grain inventory, lacking the structured trade finance capacity to execute off-balance-sheet monetization within the narrow 60-day procurement window.</li>
+            <ul class="space-y-6 mb-6 mt-4">
+                <li><strong class="block text-espresso mb-1">Single Borrower Limits (SBLs):</strong> <span class="block">Central bank concentration caps restrict commercial bank exposure to a single statutory entity.</span></li>
+                <li><strong class="block text-espresso mb-1">High Cost of Capital & FX Mismatch:</strong> <span class="block">Local ZMW lending rates (>25%–30%) introduce prohibitive capital costs that erode trading margins.</span></li>
+                <li><strong class="block text-espresso mb-1">Inflexible Underwriting Matrix:</strong> <span class="block">Local banks heavily discount or reject physical grain inventory, lacking the structured trade finance capacity to execute off-balance-sheet monetization within the narrow 60-day procurement window.</span></li>
             </ul>
 
-            <h5 class="font-bold text-espresso mb-2">Private Debt Intervention:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Private Debt Intervention:</h5>
             <p class="mb-6">TRFF-1 resolves this bottleneck by deploying senior secured hard-currency private debt under an offshore Repo structure. Monetizing inventory off-balance-sheet provides immediate working capital liquidity to the Borrower while freeing statutory exchequer allocations (~USD 70M–$100M) for smallholder input subsidies rather than freezing sovereign capital in raw grain acquisition.</p>
         </div>
 
         <h3 class="subsection-title !mt-0">3.4 Regional Off-Take</h3>
         <div class="point-content">
-            <h5 class="font-bold text-espresso mb-2">Export Surplus & Duty-Free Trade Corridors:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Export Surplus & Duty-Free Trade Corridors:</h5>
             <p class="mb-6">Subtracting domestic demand (2.5M–3.0M MT) from the national supply yields an <strong>exportable surplus exceeding 1.5 million MT</strong>. Leveraging Zambia's SADC and COMESA membership, this surplus enters regional trade corridors duty-free, tapping into an aggregate regional demand pull exceeding <strong>6.0 million MT annually</strong>.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Key Hard-Currency Deficit Markets:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Key Hard-Currency Deficit Markets:</h5>
             <p class="mb-4">Repayment is anchored on regional USD export contracts servicing structural deficit markets:</p>
 
-            <ul class="space-y-3 mb-6">
-                <li><strong>DRC (Haut-Katanga):</strong> Direct border proximity; the mining province presents a permanent structural deficit exceeding <strong>3.0 million MT annually</strong> for its industrial workforce.</li>
-                <li><strong>Kenya:</strong> Verified structural import gap of <strong>~1.0 million MT</strong> driven by high inland freight, logistics friction, and human/poultry feed demand.</li>
-                <li><strong>Angola:</strong> Climate vulnerability in southern agricultural zones requires <strong>200,000–500,000 MT</strong> annually.</li>
-                <li><strong>Malawi:</strong> Climate shocks expanded the national deficit to <strong>1.2 million MT</strong>, triggering emergency procurement.</li>
-                <li><strong>Zimbabwe & Mozambique:</strong> Regional drought conditions created a combined supply shortfall of <strong>1.2 million MT</strong>.</li>
+            <ul class="space-y-6 mb-6 mt-4">
+                <li><strong class="block text-espresso mb-1">DRC (Haut-Katanga):</strong> <span class="block">Direct border proximity; the mining province presents a permanent structural deficit exceeding <strong>3.0 million MT annually</strong> for its industrial workforce.</span></li>
+                <li><strong class="block text-espresso mb-1">Kenya:</strong> <span class="block">Verified structural import gap of <strong>~1.0 million MT</strong> driven by high inland freight, logistics friction, and human/poultry feed demand.</span></li>
+                <li><strong class="block text-espresso mb-1">Angola:</strong> <span class="block">Climate vulnerability in southern agricultural zones requires <strong>200,000–500,000 MT</strong> annually.</span></li>
+                <li><strong class="block text-espresso mb-1">Malawi:</strong> <span class="block">Climate shocks expanded the national deficit to <strong>1.2 million MT</strong>, triggering emergency procurement.</span></li>
+                <li><strong class="block text-espresso mb-1">Zimbabwe & Mozambique:</strong> <span class="block">Regional drought conditions created a combined supply shortfall of <strong>1.2 million MT</strong>.</span></li>
             </ul>
 
-            <h5 class="font-bold text-espresso mb-2">Hard-Currency Inflow Security:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Hard-Currency Inflow Security:</h5>
             <p class="mb-6">Directing a minimum of 60% of collateralized grain into USD export contracts on a strict cash-against-delivery basis guarantees hard-currency cash inflows directly into the Trustee Collection Account, insulating Noteholders from local currency illiquidity or sovereign transfer restrictions.</p>
         </div>
 
@@ -834,12 +840,12 @@
 
             <p class="mb-6">During the acquisition phase, the structure executes a 'Security First, Payment Second' mandate. Capital is strictly disbursed by the Custodian Bank only after statutory Negotiable Warehouse Receipts—representing unencumbered legal title to highly liquid non-GMO white maize—are physically delivered and verified by the internationally certified Collateral Manager.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Day-One Repricing and the Asset Value Floor:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Day-One Repricing and the Asset Value Floor:</h5>
             <p class="mb-6">Risk is neutralized at inception through aggressive day-one commodity repricing. Utilizing floor price negotiation and volumetric discounting, the product forces a global repricing of the underlying asset before capital deployment. This mechanism instantly establishes a mandatory Asset Value Floor of ~150%, ensuring the daily commercial valuation of the physical grain continuously exceeds the outstanding principal by a minimum of 50%.</p>
 
             <p class="mb-6">This day-one repricing is driven by sovereign fiscal reality. During bumper harvest cycles, the sovereign utilizes this facility to bypass exchequer constraints and monetize excess inventory. By absorbing the pricing spread as an implicit subsidy, the sovereign unlocks immediate institutional liquidity, allowing the commodity to be fundamentally restructured as hard collateral.</p>
 
-            <h5 class="font-bold text-espresso mb-2">Explicit Sell-Off Rights:</h5>
+            <h5 class="font-bold text-espresso mb-3 mt-8">Explicit Sell-Off Rights:</h5>
             <p class="mb-6">This legal title grants the Security Trustee absolute, non-discretionary sell-off rights. In a default scenario, the vehicle executes its pre-established title to liquidate the asset into the secondary market.</p>
         </div>
 
@@ -853,24 +859,24 @@
         <h4 class="point-header">5.3 Insurance & Credit Wraps</h4>
         <div class="point-content">
             <p class="mb-8">The security matrix fundamentally separates risk into distinct categories—physical custody, obligor default, sovereign interference, and managerial liability—addressing each with dedicated institutional guarantees.</p>
-            <ul class="space-y-6">
-                <li><strong>Physical and Operational Insurance:</strong><br>The internationally certified Collateral Manager is bound by a mandatory $8M Professional Indemnity policy. This specific policy is designed to activate for any physical storage losses, fraud, or negligence that breach the 10% cash reserve threshold, establishing a strict liability chain for custody failure. Concurrently, top-tier regional and global underwriters provide a comprehensive property wrap covering all physical perils including fire, flood, and theft.</li>
+            <ul class="space-y-8">
+                <li><strong class="block text-espresso mb-2 text-base">Physical and Operational Insurance:</strong><span class="block">The internationally certified Collateral Manager is bound by a mandatory $8M Professional Indemnity policy. This specific policy is designed to activate for any physical storage losses, fraud, or negligence that breach the 10% cash reserve threshold, establishing a strict liability chain for custody failure. Concurrently, top-tier regional and global underwriters provide a comprehensive property wrap covering all physical perils including fire, flood, and theft.</span></li>
                 
-                <li><strong>Political Risk Insurance (PRI) and Breach of Contract:</strong><br>To insulate the structure against sovereign-linked counterparty risk and interference, the vehicle integrates a targeted Political Risk Insurance (PRI) policy. This explicit wrap neutralizes arbitrary government actions, specifically covering expropriation, the sudden imposition of export embargoes, and outright Breach of Contract by the sovereign-linked counterparty.</li>
+                <li><strong class="block text-espresso mb-2 text-base">Political Risk Insurance (PRI) and Breach of Contract:</strong><span class="block">To insulate the structure against sovereign-linked counterparty risk and interference, the vehicle integrates a targeted Political Risk Insurance (PRI) policy. This explicit wrap neutralizes arbitrary government actions, specifically covering expropriation, the sudden imposition of export embargoes, and outright Breach of Contract by the sovereign-linked counterparty.</span></li>
                 
-                <li><strong>Institutional Credit Wrap:</strong><br>To fundamentally upgrade the risk profile from a standard asset-backed security, the Programme explicitly targets the integration of an Irrevocable Credit Wrap from an AA-rated or AAA-rated Guarantor. This credit enhancement functions independently of the underlying physical collateral, strictly guaranteeing the timely payment of principal and the priority yield upon the scheduled Repurchase Date. The successful execution of this guarantee wrap acts as the definitive regulatory trigger, officially re-classifying the issuance as a "Guaranteed Corporate Debenture." This re-classification drastically reduces the capital charge for insurers and exponentially expands the statutory allocation limits for pension funds.</li>
+                <li><strong class="block text-espresso mb-2 text-base">Institutional Credit Wrap:</strong><span class="block">To fundamentally upgrade the risk profile from a standard asset-backed security, the Programme explicitly targets the integration of an Irrevocable Credit Wrap from an AA-rated or AAA-rated Guarantor. This credit enhancement functions independently of the underlying physical collateral, strictly guaranteeing the timely payment of principal and the priority yield upon the scheduled Repurchase Date. The successful execution of this guarantee wrap acts as the definitive regulatory trigger, officially re-classifying the issuance as a "Guaranteed Corporate Debenture." This re-classification drastically reduces the capital charge for insurers and exponentially expands the statutory allocation limits for pension funds.</span></li>
                 
-                <li><strong>Fiduciary and Director Risk Guarantee:</strong><br>To comprehensively insulate institutional allocators, the structure integrates a dedicated Fiduciary and Director Risk Guarantee. This explicit coverage indemnifies participating Fund Managers and the vehicle's governing directors against administrative, operational, or fiduciary liabilities. By systematically ring-fencing managerial exposure, this guarantee empowers institutional decision-makers to execute scale allocations with absolute corporate protection.</li>
+                <li><strong class="block text-espresso mb-2 text-base">Fiduciary and Director Risk Guarantee:</strong><span class="block">To comprehensively insulate institutional allocators, the structure integrates a dedicated Fiduciary and Director Risk Guarantee. This explicit coverage indemnifies participating Fund Managers and the vehicle's governing directors against administrative, operational, or fiduciary liabilities. By systematically ring-fencing managerial exposure, this guarantee empowers institutional decision-makers to execute scale allocations with absolute corporate protection.</span></li>
             </ul>
         </div>
 
         <h4 class="point-header">5.4 Currency Risk Mitigation</h4>
         <div class="point-content">
             <p class="mb-8">The Programme structure acknowledges the sovereign’s operational realities by recognizing that while the financing and the ultimate Repurchase Obligation are strictly US Dollar-denominated, domestic distribution may occur in the local currency. TRFF-1 (Zambia) mitigates this cross-border exposure and ensures equitable repayment dynamics through three distinct structural pillars:</p>
-            <ul class="space-y-6">
-                <li><strong>Symmetrical USD Architecture:</strong><br>The core funding deployment, the valuation of the Master True Sale Agreement, and the final Repurchase Obligation are strictly symmetric and denominated in US Dollars. This ensures that the principal and yield expectations of the Noteholders are insulated from domestic currency devaluation from day one.</li>
-                <li><strong>Off-Take Export Anchors:</strong><br>The liquidation mandate requires that a minimum of 60% of the collateralized volume is permanently designated for export to regional secondary markets. Because these regional off-take agreements (such as those servicing the DRC and Angola) are executed strictly in US Dollars, the vast majority of the collateral base naturally hedges against local currency exposure. This guarantees hard-currency inflows directly into the Collection Account.</li>
-                <li><strong>Reprioritizing Sovereign Obligations:</strong><br>The sovereign strategically utilizes its available funds to subsidize the targeted volumetric discounts and directly manage any localized currency volatility upon the point of local distribution. The exchequer budgets are then used more efficiently to subsidize the targeted volumetric discounts and directly manage any localized currency volatility upon the point of local distribution, protecting the underlying USD settlement while simultaneously supporting the sovereign's localized food security mandate.</li>
+            <ul class="space-y-8">
+                <li><strong class="block text-espresso mb-2 text-base">Symmetrical USD Architecture:</strong><span class="block">The core funding deployment, the valuation of the Master True Sale Agreement, and the final Repurchase Obligation are strictly symmetric and denominated in US Dollars. This ensures that the principal and yield expectations of the Noteholders are insulated from domestic currency devaluation from day one.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Off-Take Export Anchors:</strong><span class="block">The liquidation mandate requires that a minimum of 60% of the collateralized volume is permanently designated for export to regional secondary markets. Because these regional off-take agreements (such as those servicing the DRC and Angola) are executed strictly in US Dollars, the vast majority of the collateral base naturally hedges against local currency exposure. This guarantees hard-currency inflows directly into the Collection Account.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Reprioritizing Sovereign Obligations:</strong><span class="block">The sovereign strategically utilizes its available funds to subsidize the targeted volumetric discounts and directly manage any localized currency volatility upon the point of local distribution. The exchequer budgets are then used more efficiently to subsidize the targeted volumetric discounts and directly manage any localized currency volatility upon the point of local distribution, protecting the underlying USD settlement while simultaneously supporting the sovereign's localized food security mandate.</span></li>
             </ul>
         </div>
 
@@ -878,54 +884,54 @@
 
         <h4 class="point-header">5.5 Legal De-Risking</h4>
         <div class="point-content">
-            <div class="space-y-6">
+            <div class="space-y-10">
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Statutory Authority:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Statutory Authority:</h5>
                     <p class="mb-0">The Programme is anchored directly in Zambian statutory law. The transaction is executed under the explicit commercial and borrowing mandates granted to the obligor by the Food Reserve Act.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Independent Legal Validation:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Independent Legal Validation:</h5>
                     <p class="mb-0">Operating entirely separate from the obligor, the state must validate the transaction architecture. Financial close is strictly conditional upon the delivery of an independent, binding Legal Opinion from the Attorney General of Zambia, definitively confirming the obligor's statutory capacity and the enforceability of the Programme.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Cross-Jurisdictional Legal Alignment:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Cross-Jurisdictional Legal Alignment:</h5>
                     <p class="mb-0">To complement the state's internal validation, the Programme is subject to rigorous review by the Issuer’s independent transaction counsel. This counsel delivers comprehensive legal opinions validating the structure across Zambian, Kenyan, and English law. Crucially, because the Zambian statutory framework is fundamentally anchored in English Common Law principles, this multi-jurisdictional review ensures absolute harmony in contractual interpretation, eliminating legal friction and guaranteeing the seamless enforcement of the English Law-governed Master Agreements.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Independent Sovereign Waivers and Immunities:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Independent Sovereign Waivers and Immunities:</h5>
                     <p class="mb-0">Acting as a critical counterpart to this statutory capacity, independent sovereign authorities—operating separately from the obligor—must execute absolute, irrevocable waivers of sovereign immunity prior to financial close. This explicit concession strips the sovereign of any legal authority to claim judicial protection, freeze assets, or consolidate the underlying commodities into a national bankruptcy estate during a default scenario.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Offshore Domiciliation:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Offshore Domiciliation:</h5>
                     <p class="mb-0">While the physical assets originate in Zambia, the legal architecture operates strictly offshore. By domiciling the Issuer within Tsavo SEZ SPV Limited in the Republic of Kenya, the structure creates an impenetrable, bankruptcy-remote firewall between the asset pool and the sovereign obligor.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Legal Jurisdiction:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Legal Jurisdiction:</h5>
                     <p class="mb-0">The entire transaction architecture—including the True Sale Agreement, the Notes issuance, and the security documents—is governed strictly by English Law. This ensures that any dispute resolution or liquidation enforcement bypasses local judicial bottlenecks and operates under predictable, impartial international commercial standards.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Perfection of Title and True Sale Execution:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Perfection of Title and True Sale Execution:</h5>
                     <p class="mb-0">The transaction operates strictly as an absolute transfer of ownership, rather than a traditional collateral pledge. Upon execution of the Master True Sale Agreement, full legal ownership of the commodities transfers to the Issuer. This legal ownership is physically perfected in Zambia through the issuance of statutory Negotiable Warehouse Receipts. These receipts serve as the definitive, legally recognized instruments of title under Zambian law, guaranteeing that while the transaction architecture is governed offshore, the physical security and legal ownership of the underlying asset are absolute and perfectly ring-fenced within the jurisdiction of origin.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Master Export Permits and Exemption from Embargoes:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Master Export Permits and Exemption from Embargoes:</h5>
                     <p class="mb-0">To protect the liquidation mandate, the statutory matrix requires the upfront issuance of a Master Export Permit. This permit explicitly guarantees that the collateralized grain is exempt from any future national export restrictions or embargoes. Crucially, any arbitrary revocation, cancellation, or administrative freeze of this permit by the sovereign during a default scenario constitutes a direct "Breach of Contract" and "Expropriation of Rights" event. This serves as the immediate, hard trigger for the activation of the Political Risk Insurance (PRI) policy to make the investors whole.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Treasury Comfort Letter on Repurchase Obligations:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Treasury Comfort Letter on Repurchase Obligations:</h5>
                     <p class="mb-0">While the Food Reserve Agency acts as the primary obligor, the ultimate source of domestic settlement liquidity is the national exchequer. To systematically eliminate budgetary appropriation risk, financial close requires a distinct Comfort Letter from the Ministry of Finance. This instrument formally acknowledges the transaction and commits that the requisite capital for the Repurchase Obligation will be explicitly recognized and prioritized within the national budget, providing sovereign-level fiscal visibility and backing for the scheduled settlement.</p>
                 </div>
 
                 <div>
-                    <h5 class="font-bold text-espresso mb-2">Treasury Exemptions and Tax Comfort Letter:</h5>
+                    <h5 class="font-bold text-espresso mb-3">Treasury Exemptions and Tax Comfort Letter:</h5>
                     <p class="mb-0">To ensure the liquidation margin is entirely insulated from arbitrary fiscal interference, financial close requires a binding Comfort Letter from the Ministry of Finance and the Zambia Revenue Authority (ZRA). This letter legally exempts the transaction from sudden export levies, retroactive value-added taxes, or duties imposed prior to liquidation, securing the net recovery value of the collateral.</p>
                 </div>
             </div>
