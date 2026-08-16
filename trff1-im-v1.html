@@ -272,7 +272,7 @@
             .back-cover { page-break-before: always !important; }
             
             /* Relaxes strict page breaks to prevent massive blank PDF gaps */
-            h2.section-title { page-break-before: auto !important; page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
+            h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
             h3, h4, h5, .subsection-title, .point-header, .image-caption { page-break-after: avoid !important; break-after: avoid !important; }
             p { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
             li { page-break-inside: auto; break-inside: auto; }
@@ -386,7 +386,7 @@
 
         <div class="gold-divider print:hidden"></div>
 
-        <h3 class="subsection-title mb-6 mt-10 print:mt-0" style="page-break-before: always; break-before: page;">CORPORATE DIRECTORY</h3>
+        <h3 class="subsection-title mb-6 mt-10 print:mt-0 text-center underline" style="page-break-before: always; break-before: page;">CORPORATE DIRECTORY</h3>
         <div class="overflow-x-auto w-full mb-12 avoid-break-strict">
             <table class="min-w-[600px] w-full">
                 <tbody>
@@ -574,10 +574,10 @@
             </table>
         </div>
 
-        <h2 class="section-title">3. THE MARKET CONTEXT</h2>
+        <h2 class="section-title print:mt-0" style="page-break-before: always; break-before: page;">3. THE MARKET CONTEXT</h2>
         
-        <h3 class="subsection-title !mt-0">3.1 Borrower Profile</h3>
-        <div class="point-content">
+        <div class="mb-6 mt-8">
+            <h5 class="font-bold text-espresso mb-6 block">3.1 Borrower Profile</h5>
             <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Statutory Authority & Governing Law:</h5>
             <p class="mb-6">The Food Reserve Agency (FRA) is a statutory body corporate established under the Food Reserve Act, Chapter 225 of the Laws of Zambia (1995). Functioning under the regulatory purview of the Ministry of Agriculture, the agency serves as Zambia's primary agricultural off-taker and market-stabilization vehicle, acting as the primary Borrower under this transaction.</p>
 
@@ -628,28 +628,28 @@
             <h5 class="font-bold text-espresso mb-3 mt-8">Private Debt Intervention:</h5>
             <p class="mb-6">TRFF-1 resolves this bottleneck by deploying senior secured hard-currency private debt under an offshore Repo structure. Monetizing inventory off-balance-sheet provides immediate working capital liquidity to the Borrower while freeing statutory exchequer allocations (~USD 70M–$100M) for smallholder input subsidies rather than freezing sovereign capital in raw grain acquisition.</p>
         </div>
-
-        <h3 class="subsection-title !mt-0">3.4 Regional Off-Take</h3>
-        <div class="point-content">
-            <h5 class="font-bold text-espresso mb-3 mt-8 first:mt-0">Export Surplus & Duty-Free Trade Corridors:</h5>
+        <div class="mb-6 mt-8">
+            <h5 class="font-bold text-espresso mb-6 block">3.4 Regional Off-Take</h5>
+            
+            <p class="mb-6"><strong>Export Surplus & Duty-Free Trade Corridors:</strong></p>
             <p class="mb-6">Subtracting domestic demand (2.5M–3.0M MT) from the national supply yields an <strong>exportable surplus exceeding 1.5 million MT</strong>. Leveraging Zambia's SADC and COMESA membership, this surplus enters regional trade corridors duty-free, tapping into an aggregate regional demand pull exceeding <strong>6.0 million MT annually</strong>.</p>
 
-            <h5 class="font-bold text-espresso mb-3 mt-8">Key Hard-Currency Deficit Markets:</h5>
-            <p class="mb-4">Repayment is anchored on regional USD export contracts servicing structural deficit markets:</p>
+            <p class="mb-6"><strong>Key Hard-Currency Deficit Markets:</strong></p>
+            <p class="mb-6">Repayment is anchored on regional USD export contracts servicing structural deficit markets:</p>
 
-            <ul class="space-y-6 mb-6 mt-4">
-                <li><strong class="block text-espresso mb-1">DRC (Haut-Katanga):</strong> <span class="block">Direct border proximity; the mining province presents a permanent structural deficit exceeding <strong>3.0 million MT annually</strong> for its industrial workforce.</span></li>
-                <li><strong class="block text-espresso mb-1">Kenya:</strong> <span class="block">Verified structural import gap of <strong>~1.0 million MT</strong> driven by high inland freight, logistics friction, and human/poultry feed demand.</span></li>
-                <li><strong class="block text-espresso mb-1">Angola:</strong> <span class="block">Climate vulnerability in southern agricultural zones requires <strong>200,000–500,000 MT</strong> annually.</span></li>
-                <li><strong class="block text-espresso mb-1">Malawi:</strong> <span class="block">Climate shocks expanded the national deficit to <strong>1.2 million MT</strong>, triggering emergency procurement.</span></li>
-                <li><strong class="block text-espresso mb-1">Zimbabwe & Mozambique:</strong> <span class="block">Regional drought conditions created a combined supply shortfall of <strong>1.2 million MT</strong>.</span></li>
+            <ul class="space-y-6 mb-6 mt-6">
+                <li><strong class="block text-espresso mb-2">DRC (Haut-Katanga):</strong> <span class="block">Direct border proximity; the mining province presents a permanent structural deficit exceeding <strong>3.0 million MT annually</strong> for its industrial workforce.</span></li>
+                <li><strong class="block text-espresso mb-2">Kenya:</strong> <span class="block">Verified structural import gap of <strong>~1.0 million MT</strong> driven by high inland freight, logistics friction, and human/poultry feed demand.</span></li>
+                <li><strong class="block text-espresso mb-2">Angola:</strong> <span class="block">Climate vulnerability in southern agricultural zones requires <strong>200,000–500,000 MT</strong> annually.</span></li>
+                <li><strong class="block text-espresso mb-2">Malawi:</strong> <span class="block">Climate shocks expanded the national deficit to <strong>1.2 million MT</strong>, triggering emergency procurement.</span></li>
+                <li><strong class="block text-espresso mb-2">Zimbabwe & Mozambique:</strong> <span class="block">Regional drought conditions created a combined supply shortfall of <strong>1.2 million MT</strong>.</span></li>
             </ul>
 
-            <h5 class="font-bold text-espresso mb-3 mt-8">Hard-Currency Inflow Security:</h5>
+            <p class="mb-6"><strong>Hard-Currency Inflow Security:</strong></p>
             <p class="mb-6">Directing a minimum of 60% of collateralized grain into USD export contracts on a strict cash-against-delivery basis guarantees hard-currency cash inflows directly into the Trustee Collection Account, insulating Noteholders from local currency illiquidity or sovereign transfer restrictions.</p>
         </div>
 
-        <h2 class="section-title">4. TRANSACTION ARCHITECTURE</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">4. TRANSACTION ARCHITECTURE</h2>
 
         <h4 class="point-header !mt-0">4.1 Structural Framework</h4>
         <div class="point-content">
@@ -825,7 +825,7 @@
             </div>
         </div>
 
-        <h2 class="section-title mt-12">5. SECURITY PACKAGE AND RISK ISOLATION</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">5. SECURITY PACKAGE AND RISK ISOLATION</h2>
         
         <div class="avoid-break-strict mb-8 mt-4">
             <img src="Zambia Maize Farming Pic 2.jpg" alt="Commodity Bags Storage" class="editorial-image !mt-0" loading="lazy" />
@@ -938,9 +938,9 @@
         </div>
 
         <div class="gold-divider"></div>
-
-        <h4 class="point-header">5.6 Automated Secondary Market Liquidation</h4>
-        <div class="point-content">
+        <div class="mb-6 mt-8">
+            <h5 class="font-bold text-espresso mb-6 block">5.6 Automated Secondary Market Liquidation</h5>
+            
             <p class="mb-6">The ultimate fail-safe of the TRFF-1 (Zambia) product is an automated, secondary market liquidation mechanism designed to bypass the traditional delays of asset recovery. Crucially, the underlying collateral is not a theoretical future harvest; it comprises physically verified, export-grade maize already sitting secured in licensed, collateral-managed warehousing.</p>
 
             <p class="mb-6">Should FRA Zambia fail to remit the scheduled repurchase capital by the designated maturity date, the Security Trustee assumes total, non-discretionary administrative control over the physical inventory. Utilizing the upfront waivers and Master Export Permits, the Trustee instantly bypasses the Obligor and instructs Tsavo OpCo Limited to trigger pre-executed secondary off-take agreements.</p>
@@ -948,7 +948,7 @@
             <p class="mb-6">Leveraging an aggregate regional demand exceeding six million metric tonnes, dedicated liquidation agents immediately redirect the pre-staged collateral to cash-ready regional buyers across the Democratic Republic of Congo, Kenya, and Angola. Executing a strict 'Cash First, Security Second' mandate, this protocol ensures that the statutory warehouse receipts are only released to secondary buyers upon the confirmed deposit of cleared proceeds directly into the Trustee-controlled collection account, ensuring immediate distribution of principal and default yield to the Senior Secured Noteholders.</p>
         </div>
 
-        <h2 class="section-title mt-12">6. DESCRIPTION OF THE NOTES (TERMS & CONDITIONS)</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">6. DESCRIPTION OF THE NOTES (TERMS & CONDITIONS)</h2>
         <p><em>The following is a summary of the principal Terms and Conditions of the Notes. The definitive terms will be set out in the Trust Deed and the Pricing Supplement governing the Series 1 Issuance.</em></p>
 
         <h4 class="point-header">6.1 General Parameters</h4>
@@ -1007,7 +1007,7 @@
             <p>The Notes, the Trust Deed, and all non-contractual obligations arising out of or in connection with them are governed by, and shall be construed in accordance with, English Law. Any dispute arising out of this transaction architecture shall be referred to and finally resolved by arbitration under the rules of the London Court of International Arbitration (LCIA).</p>
         </div>
 
-        <h2 class="section-title mt-12">7. USE OF PROCEEDS</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">7. USE OF PROCEEDS</h2>
         
         <div class="avoid-break-strict mb-8 mt-4">
             <img src="Zambia Maize Farming Pic 1.jpg" alt="Commercial Maize Field" class="editorial-image !mt-0" loading="lazy" />
@@ -1040,7 +1040,7 @@
             </ul>
         </div>
 
-        <h2 class="section-title mt-12">8. TRANSACTION GOVERNANCE AND APPOINTED AGENTS</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">8. TRANSACTION GOVERNANCE AND APPOINTED AGENTS</h2>
 
         <h4 class="point-header !mt-0">8.1 Master Lead Arranger & Structuring Agent: Terraquest Investments FZCO</h4>
         <div class="point-content">
@@ -1089,7 +1089,7 @@
             </ul>
         </div>
 
-        <h2 class="section-title mt-12">9. TAXATION AND REGULATORY INCENTIVES</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">9. TAXATION AND REGULATORY INCENTIVES</h2>
         <p><em>The following is a general summary of the structural tax architecture of the Programme. It does not constitute specific tax advice to any individual Noteholder. Investors must consult their own independent tax advisors regarding the implications of subscribing to, holding, or disposing of the Notes.</em></p>
 
         <h4 class="point-header">9.1 Tax-Optimized Domiciliation: TRIFIC Special Economic Zone (Kenya)</h4>
@@ -1117,7 +1117,7 @@
             <p>Distributions of the Priority Fixed Return and the Profit Share to institutional Noteholders will be subject to the applicable withholding tax regimes based strictly on the investor’s jurisdiction of tax residence and the availability of Double Taxation Agreements (DTAs) with the Republic of Kenya. The SEZ architecture ensures that the SPV itself acts as an efficient, tax-neutral pass-through vehicle, eliminating double taxation at the corporate fund level.</p>
         </div>
 
-        <h2 class="section-title">10. RISK FACTORS</h2>
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">10. RISK FACTORS</h2>
         
         <div class="avoid-break-strict mb-8 mt-4">
             <img src="Zambia Maize Farming Pic 4.jpg" alt="Children Sorting Harvested Maize" class="editorial-image !mt-0" loading="lazy" />
