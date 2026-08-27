@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TDB Structural Clarification | TRFF-1</title>
+    
+    <link rel="icon" type="image/png" href="Terraquest Favicon Black.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            overflow-x: hidden;
+        }
+
+        .master-container {
+            width: 100%;
+            max-width: 210mm; 
+            background-color: #ffffff;
+            box-sizing: border-box;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .page-block {
+            padding: 20mm 20mm;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            border: 8px solid #3E2723;
+            border-top: 8px solid #3E2723;
+            padding: 24px; 
+            min-height: 297mm;
+            box-sizing: border-box;
+        }
+        
+        .back-cover {
+            display: flex;
+            flex-direction: column;
+            min-height: 297mm;
+            box-sizing: border-box;
+            border: none;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .sharp-logo {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0); 
+        }
+
+        .document-page:not(.cover-page):not(.back-cover) .border-b img {
+            height: 40px !important;
+            opacity: 0.95 !important;
+            filter: none !important;
+            border-radius: 4px;
+        }
+
+        h1, h2, h3, h4, h5, .title-font {
+            font-family: 'Georgia', serif;
+        }
+        
+        .text-espresso { color: #3E2723; }
+        .bg-espresso { background-color: #3E2723; }
+        .border-espresso { border-color: #3E2723; }
+        .text-gold { color: #FFB81C; }
+        .bg-gold { background-color: #FFB81C; }
+        .bg-card { background-color: #faf8f5; }
+
+        p {
+            margin-bottom: 1.5rem; 
+            line-height: 1.85; 
+            text-align: justify;
+            font-size: 0.95rem;
+            font-weight: 400;
+            orphans: 4;
+            widows: 4;
+        }
+
+        p strong {
+            color: #3E2723;
+            letter-spacing: 0.01em;
+        }
+
+        ul {
+            list-style-type: none; 
+            margin-left: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        li { 
+            margin-bottom: 1.25rem; 
+            line-height: 1.85;
+            font-size: 0.95rem;
+            padding-left: 1.25rem;
+            position: relative;
+            text-align: justify;
+        }
+
+        li::before {
+            content: "■";
+            color: #FFB81C;
+            font-size: 0.75rem;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #3E2723;
+            border-bottom: 2px solid #FFB81C;
+            padding-bottom: 0.75rem;
+            margin-top: 3.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .subsection-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.025em;
+        }
+
+        .point-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .point-content {
+            padding-left: 1.25rem;
+            border-left: 3px solid rgba(255, 184, 28, 0.4);
+            margin-bottom: 2.5rem;
+        }
+
+        .editorial-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9; 
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            filter: sepia(0.2) contrast(1.15) brightness(0.95); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        
+        .image-caption {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .gold-divider {
+            width: 3rem;
+            height: 0.25rem;
+            background-color: #FFB81C;
+            margin: 3rem auto;
+            opacity: 0.6;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        @media (max-width: 639px) {
+            body { padding: 0; background-color: #ffffff; }
+            .master-container { box-shadow: none; margin-bottom: 0; }
+            .page-block { padding: 16px; border-top: 4px solid #3E2723; }
+            .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; justify-content: center; }
+            .back-cover { padding: 0 !important; }
+            .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+            .subsection-title { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+            p { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
+            li { font-size: 0.85rem; margin-bottom: 1rem; text-align: left; }
+            .point-content { padding-left: 0.75rem; }
+            .gold-divider { margin: 2rem auto; width: 2rem; }
+            .editorial-image { aspect-ratio: 3/2; }
+            .web-header { display: none !important; } 
+            
+            .cover-page h1 { font-size: 1.75rem; line-height: 1.2; }
+            .cover-page h2 { font-size: 1.1rem; }
+            .cover-page img.absolute { position: relative; margin: 0 auto; max-width: 90%; }
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 30mm 20mm 25mm 20mm; 
+        }
+
+        @page cover { margin: 0; }
+        .cover-page, .back-cover { page: cover; }
+
+        .avoid-break-strict {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        h3, h4, .subsection-title, .point-header {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        @media print {
+            body { background-color: white; padding: 0; }
+            .master-container { box-shadow: none; margin: 0; border: none; }
+            .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
+            .web-header { display: none !important; }
+            .cover-page { 
+                padding: 15mm !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important;
+                border: 8px solid #3E2723 !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; 
+                display: flex !important;
+            }
+            .back-cover {
+                padding: 0 !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important;
+                border: none !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; 
+                display: flex !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cover-page { page-break-after: always !important; }
+            .back-cover { page-break-before: always !important; }
+            
+            h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
+            h3, h4, h5, .subsection-title, .point-header, .image-caption { page-break-after: avoid !important; break-after: avoid !important; }
+            p { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            li { page-break-inside: auto; break-inside: auto; }
+            .avoid-break-strict { page-break-inside: auto !important; break-inside: auto !important; }
+            .editorial-image { page-break-inside: avoid !important; break-inside: avoid !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="master-container">
+
+    <div class="cover-page justify-between">
+        <div class="w-full flex justify-end">
+            <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
+                Strictly Private & Confidential<br>
+                Structural Clarification Addendum
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4 sm:mt-0">
+            <div class="relative w-full h-auto sm:h-[160px] flex items-center justify-center mb-6 sm:mb-10">
+                <img alt="Tsavo Logo" class="absolute hidden sm:block w-[450px] max-w-none h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png"/>
+                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png"/>
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
+            
+            <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-4 mx-auto relative">
+                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">Prepared Exclusively For:</div>
+                <div class="text-lg sm:text-xl text-espresso font-bold text-center">Eastern and Southern African Trade Fund (ESATF) / TDB Group</div>
+                <div class="text-sm sm:text-base text-gray-800 font-bold mt-1 text-center">Subject: Structural Clarification & DFI Covenant Alignment</div>
+            </div>
+
+            <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Securing Regional Food Systems</h2>
+            
+            <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">Dated: August 2026</p>
+        </div>
+
+        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-16 print:flex-row w-full">
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1 sm:mb-2">Note Issuer (SPV)</span>
+                    <span class="font-bold text-espresso text-sm sm:text-base">Tsavo SEZ SPV Limited</span>
+                    <span class="text-[10px] sm:text-xs text-gray-500 italic mt-1">[In Formation in Kenya under SEZ Act]</span>
+                </div>
+                
+                <div class="hidden sm:block h-20 w-px bg-gray-300 mt-4 print:block"></div>
+                
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
+                    <img alt="TerraQuest Logo" class="w-[180px] sm:w-[260px] h-auto object-contain rounded-md shadow-md sharp-logo" src="TerraQuest Logo.png"/>
+                </div>
+            </div>
+
+            <div class="text-center text-[8px] sm:text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-6">
+                <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT START -->
+    <div class="page-block">
+        
+        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/100x30?text=Logo'"/>
+            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Structural Clarification Addendum</span>
+        </header>
+
+        <h3 class="text-lg font-bold text-espresso border-b-2 border-espresso pb-2 mb-6 uppercase tracking-widest text-center mt-8">STRICTLY PRIVATE & CONFIDENTIAL</h3>
+        
+        <h2 class="section-title text-center text-xl !mb-2 !pb-0 !border-b-0">1. STRUCTURAL CLARIFICATION</h2>
+        <h4 class="font-bold text-center mb-10 text-sm sm:text-base text-gray-600">De-Risked Sovereign Deployment vs. CIS Mechanics</h4>
+
+        <div class="bg-card border border-gold p-6 rounded shadow-sm mb-10 avoid-break-strict relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-gold rounded-l"></div>
+            <p class="text-sm text-gray-800 leading-relaxed font-medium !mb-0">
+                To align seamlessly with the institutional mandates of the Eastern and Southern African Trade Fund (ESATF) and the broader TDB Group, this addendum clarifies the legal and operational structure of the TRFF-1 facility. It demonstrates exactly how TDB's capital flows directly into an asset-backed sovereign trade facility, completely bypassing any Collective Investment Scheme (CIS) or pooled fund frameworks.
+            </p>
+        </div>
+
+        <h3 class="subsection-title !mt-0">1.1 Asset-Backed Trade Finance</h3>
+        <div class="point-content">
+            <p>Despite the branding nomenclature "Tsavo Resilience Food <em>Fund</em>", the issuing entity (Tsavo SEZ SPV Limited) is <strong>not</strong> structured, registered, or operated as a Collective Investment Scheme (CIS), Mutual Fund, or Alternative Investment Fund.</p>
+            <p>It is a bankruptcy-remote Special Purpose Vehicle (SPV) established solely to execute a standard commercial True Sale Master Repurchase Agreement. Capital deployed by TDB is not pooled into variable-yield equity investments. Instead, TDB participates directly as a <em>pari passu</em> <strong>Senior Secured Co-Lender</strong>. You hold registered debt directly backed by physical commodities originating from a sovereign entity.</p>
+        </div>
+
+        <h3 class="subsection-title">1.2 The Role of SIB</h3>
+        <div class="point-content">
+            <p>Standard Investment Bank (SIB) is one of Kenya's leading Investment Banks. They possess the balance sheet capacity to underwrite up to USD 100 Million and currently manage over Ksh 180 Billion (~USD 1.38 Billion) in assets.</p>
+            <p>We integrated SIB into this transaction specifically to leverage their scale and CMA license to unlock domestic Kenyan pension funds. SIB utilizes its regulatory framework to aggregate local pension liquidity, which they then deploy to purchase a specific block of the SPV’s Notes. <strong>Crucially, TDB’s institutional capital does not flow through SIB, nor is it co-mingled in their funds.</strong></p>
+            <p>As illustrated below, TDB enters via the "Direct Investment Route," maintaining an independent, senior-secured lending relationship with the SPV and the Corporate Trustee.</p>
+        </div>
+
+        <div class="mb-10 avoid-break-strict mt-4">
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">Exhibit 1.0: Master Architecture & Pathway Separation</p>
+            <img src="Tsavo SEZ Note Programme Capital, Security & Credit Structure (Portrait).png" alt="Capital, Security & Credit Structure Flowchart" class="w-full max-w-[100%] h-auto object-contain rounded border border-gray-200 shadow-sm block" style="max-width: 100% !important; height: auto !important; page-break-inside: avoid; break-inside: avoid;" loading="lazy" />
+            <p class="image-caption mb-0 mt-4">Fig 1: Master Architecture demonstrating the strict separation between SIB's domestic pension route (Green) and TDB's "Direct Investment Route" (Brown).</p>
+        </div>
+
+        <h2 class="section-title print:mt-0" style="page-break-before: always; break-before: page;">2. MANAGING TDB COVENANTS</h2>
+        
+        <p class="mb-8">We recognize TDB’s Credit Risk Committee adheres to standard Loan Market Association (LMA) guidelines. Since TRFF-1 operates as a ring-fenced, asset-backed trade structure rather than a traditional corporate loan, we have engineered the Trust Deed to proactively address TDB’s mandatory covenants without breaking the isolation of the deal. Here is how we map and mitigate standard TDB covenant requirements:</p>
+
+        <div class="space-y-6">
+            <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso text-base mb-2">1. Cross-Default</h5>
+                <ul class="text-sm space-y-2 !mb-0">
+                    <li><strong>DFI Concern:</strong> Standard covenants trigger a default if the sovereign defaults on <em>any</em> external debt.</li>
+                    <li><strong>TRFF-1 Solution:</strong> The Trust Deed includes a strict <strong>Non-Recourse Carve-Out</strong>. Because this is a ring-fenced trade, default is limited exclusively to the SPV's assets and the Food Reserve Agency's (FRA) failure to repurchase this specific grain. A broader sovereign default (such as on a Eurobond) does not cross-default this facility.</li>
+                </ul>
+            </div>
+
+            <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso text-base mb-2">2. Negative Pledge</h5>
+                <ul class="text-sm space-y-2 !mb-0">
+                    <li><strong>DFI Concern:</strong> Prohibiting the Borrower from pledging assets to third parties.</li>
+                    <li><strong>TRFF-1 Solution:</strong> The SPV honors a strict negative pledge over the collateralized grain and the transaction accounts. However, we embed a carve-out allowing the FRA to continue its normal national operations and raise independent debt for other sovereign programs.</li>
+                </ul>
+            </div>
+
+            <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso text-base mb-2">3. Material Adverse Effect (MAE)</h5>
+                <ul class="text-sm space-y-2 !mb-0">
+                    <li><strong>DFI Concern:</strong> Broad triggers allowing lenders to call debt based on macroeconomic shifts.</li>
+                    <li><strong>TRFF-1 Solution:</strong> To prevent unfair acceleration, MAE definitions are narrowly tied exclusively to either the physical safety of the maize or the legal enforceability of the English Law security documents.</li>
+                </ul>
+            </div>
+
+            <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso text-base mb-2">4. Currency Convertibility & Capital Controls</h5>
+                <ul class="text-sm space-y-2 !mb-0">
+                    <li><strong>DFI Concern:</strong> Sovereign capital controls preventing USD from exiting the host country.</li>
+                    <li><strong>TRFF-1 Solution:</strong> Handled natively by the <strong>Offshore Cash Capture</strong> mechanism. The deal requires a 60% regional export allocation. Secondary buyers deposit cleared USD <em>directly</em> into the offshore Trustee Collection Account, completely bypassing the Zambian banking system and any sovereign capital controls.</li>
+                </ul>
+            </div>
+
+            <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso text-base mb-2">5. Sovereign Interference</h5>
+                <ul class="text-sm space-y-2 !mb-0">
+                    <li><strong>DFI Concern:</strong> The government arbitrarily revokes export permits or seizes assets.</li>
+                    <li><strong>TRFF-1 Solution:</strong> The transaction requires upfront Sovereign Immunity Waivers and Master Export Permits. If the government revokes these, it is contractually classified as an <strong>"Expropriation of Rights."</strong> This acts as the immediate, hard trigger for the Political Risk Insurance (PRI) policy to activate and make TDB whole.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title mt-12 print:mt-0" style="page-break-before: always; break-before: page;">3. LENDER PROTECTIONS</h2>
+        
+        <div class="point-content">
+            <p class="mb-8">By participating via the Direct Investment Route, TDB's capital deployment is completely divorced from any CIS structures and is fortified by the following direct institutional protections:</p>
+
+            <ul class="space-y-8">
+                <li><strong class="block text-espresso mb-2 text-base">Direct Collateral Tie-In:</strong> <span class="block">Every dollar TDB lends is mapped on a strict 1:1 basis to specific, individually serialized Negotiable Warehouse Receipts (WHRs).</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">Offshore Firewall:</strong> <span class="block">The True Sale structure is domiciled offshore in Kenya, completely isolating TDB's capital from the sovereign balance sheet and any Zambian national debt restructuring proceedings.</span></li>
+                <li><strong class="block text-espresso mb-2 text-base">First-Loss Buffer:</strong> <span class="block">A pre-funded 10% Cash Escrow is deducted upfront and held under the exclusive, non-discretionary control of the Security Trustee to absorb any localized settlement latency.</span></li>
+            </ul>
+        </div>
+        
+    </div> <!-- END OF MAIN DOCUMENT BODY -->
+
+    <!-- BACK COVER PAGE -->
+    <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end border-none">
+        <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.8] sepia-[0.2]" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;" loading="lazy" />
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20" style="z-index: 2;"></div>
+        
+        <div class="relative p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center sm:items-end w-full gap-6 sm:gap-0 mt-auto" style="z-index: 3;">
+            <div class="text-center sm:text-left w-full sm:w-auto flex flex-col items-center sm:items-start">
+                <h1 class="text-white text-2xl sm:text-3xl font-bold title-font tracking-widest uppercase mb-3 text-center sm:text-left">Tsavo Resilience<br>Food Fund 1</h1>
+                <div class="w-16 h-1 bg-gold mb-3"></div>
+                <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Securing Regional Food Systems • Zambia</p>
+            </div>
+            
+            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] sharp-logo" loading="lazy" />
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
