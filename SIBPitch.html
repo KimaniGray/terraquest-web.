@@ -227,6 +227,13 @@
             .master-container { box-shadow: none; margin: 0; border: none; }
             .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
             .web-header { display: flex !important; }
+            
+            /* Print Table Fixes */
+            .overflow-x-auto { overflow: visible !important; }
+            .whitespace-nowrap { white-space: normal !important; word-break: normal !important; }
+            table { table-layout: fixed !important; width: 100% !important; }
+            table th, table td { padding: 8px !important; font-size: 0.75rem !important; }
+            
             .cover-page, .back-cover { 
                 padding: 15mm !important; 
                 height: 297mm !important; 
@@ -348,15 +355,15 @@
         
         <p>This partnership offers SIB distinct, recurring revenue across your three primary divisions. Because this is a 5-year revolving facility, these revenues compound annually.</p>
         
-        <div class="overflow-x-auto avoid-break-strict">
-            <table>
+        <div class="overflow-x-auto avoid-break-strict w-full">
+            <table class="w-full">
                 <thead>
                     <tr>
-                        <th>Liquidity Pathway</th>
-                        <th>Target Volume</th>
-                        <th>SIB Division</th>
-                        <th>Revenue Model</th>
-                        <th>Projected Annual Value</th>
+                        <th class="w-[20%]">Liquidity Pathway</th>
+                        <th class="w-[15%]">Target Volume</th>
+                        <th class="w-[15%]">SIB Division</th>
+                        <th class="w-[35%]">Revenue Model</th>
+                        <th class="w-[15%]">Projected Value</th>
                     </tr>
                 </thead>
                 <tbody>
