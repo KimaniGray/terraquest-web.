@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SIB Strategic Partnership Proposal | TRFF-1</title>
+    
+    <link rel="icon" type="image/png" href="Terraquest Favicon Black.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            overflow-x: hidden; 
+        }
+
+        .master-container {
+            width: 100%;
+            max-width: 210mm; 
+            background-color: #ffffff;
+            box-sizing: border-box;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .page-block {
+            padding: 20mm 20mm;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .cover-page, .back-cover {
+            display: flex;
+            flex-direction: column;
+            border: 8px solid #3E2723;
+            border-top: 8px solid #3E2723;
+            padding: 24px; 
+            min-height: 297mm;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .sharp-logo {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: high-quality;
+            transform: translateZ(0); 
+        }
+
+        .document-page:not(.cover-page):not(.back-cover) .border-b img {
+            height: 40px !important;
+            opacity: 0.95 !important;
+            filter: none !important;
+            border-radius: 4px;
+        }
+
+        h1, h2, h3, h4, h5, .title-font {
+            font-family: 'Georgia', serif;
+        }
+        
+        .text-espresso { color: #3E2723; }
+        .bg-espresso { background-color: #3E2723; }
+        .border-espresso { border-color: #3E2723; }
+        .text-gold { color: #FFB81C; }
+        .bg-gold { background-color: #FFB81C; }
+        .bg-card { background-color: #faf8f5; }
+
+        p {
+            margin-bottom: 1.5rem; 
+            line-height: 1.85; 
+            text-align: justify;
+            font-size: 0.95rem;
+            font-weight: 400;
+            orphans: 4;
+            widows: 4;
+        }
+
+        p strong {
+            color: #3E2723;
+            letter-spacing: 0.01em;
+        }
+
+        ul {
+            list-style-type: none; 
+            margin-left: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        li { 
+            margin-bottom: 1.25rem; 
+            line-height: 1.85;
+            font-size: 0.95rem;
+            padding-left: 1.25rem;
+            position: relative;
+            text-align: justify;
+        }
+
+        li::before {
+            content: "■";
+            color: #FFB81C;
+            font-size: 0.75rem;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #3E2723;
+            border-bottom: 2px solid #FFB81C;
+            padding-bottom: 0.75rem;
+            margin-top: 3.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .subsection-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.025em;
+        }
+
+        .point-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .point-content {
+            padding-left: 1.25rem;
+            border-left: 3px solid rgba(255, 184, 28, 0.4);
+            margin-bottom: 2.5rem;
+        }
+
+        .flowchart-image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+            background-color: #ffffff;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            display: block;
+            image-rendering: high-quality;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 16px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #faf8f5;
+            color: #3E2723;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 639px) {
+            body { padding: 0; background-color: #ffffff; }
+            .master-container { box-shadow: none; margin-bottom: 0; }
+            .page-block { padding: 16px; border-top: 4px solid #3E2723; }
+            .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; justify-content: center; }
+            .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+            .subsection-title { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+            p { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
+            li { font-size: 0.85rem; margin-bottom: 1rem; text-align: left; }
+            .point-content { padding-left: 0.75rem; }
+            table th, table td { padding: 10px; font-size: 0.8rem; }
+            .web-header { display: none !important; } 
+            .cover-page h1 { font-size: 1.75rem; line-height: 1.2; }
+            .cover-page h2 { font-size: 1.1rem; }
+        }
+
+        @page { size: A4 portrait; margin: 30mm 20mm 25mm 20mm; }
+        @page cover { margin: 0; }
+        .cover-page, .back-cover { page: cover; }
+        .avoid-break-strict { page-break-inside: avoid !important; break-inside: avoid !important; }
+        h3, h4, .subsection-title, .point-header { page-break-after: avoid; break-after: avoid; }
+        tr { page-break-inside: avoid; break-inside: avoid; }
+
+        @media print {
+            body { background-color: white; padding: 0; }
+            .master-container { box-shadow: none; margin: 0; border: none; }
+            .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
+            .web-header { display: flex !important; }
+            
+            /* Print Table Fixes */
+            .overflow-x-auto { overflow: visible !important; }
+            .whitespace-nowrap { white-space: normal !important; word-break: normal !important; }
+            table { table-layout: fixed !important; width: 100% !important; }
+            table th, table td { padding: 8px !important; font-size: 0.75rem !important; }
+            
+            .cover-page, .back-cover { 
+                padding: 15mm !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important;
+                border: 8px solid #3E2723 !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; 
+                display: flex !important;
+            }
+            .cover-page { page-break-after: always !important; }
+            .back-cover { page-break-before: always !important; }
+            h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
+            h3, h4, h5, .subsection-title, .point-header { page-break-after: avoid !important; break-after: avoid !important; }
+            p, li, table { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            .avoid-break-strict { page-break-inside: auto !important; break-inside: auto !important; }
+            .flowchart-image { max-width: 100% !important; height: auto !important; page-break-inside: avoid !important; break-inside: avoid !important; display: block !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="master-container">
+
+    <div class="cover-page justify-between">
+        <div class="w-full flex justify-end">
+            <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
+                Strictly Private & Confidential<br>
+                Institutional Structuring Proposal
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4 sm:mt-0">
+            <div class="relative w-full h-auto sm:h-[160px] flex items-center justify-center mb-6 sm:mb-10">
+                <img alt="Tsavo Logo" class="absolute hidden sm:block w-[450px] max-w-none h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" fetchpriority="high" />
+                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" fetchpriority="high" />
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1</h1>
+            <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-2 text-center relative mb-4">Securing Regional Food Systems — Zambia</h2>
+            
+            <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-4 mx-auto relative">
+                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">5-Year Master Programme:</div>
+                <div class="text-lg sm:text-xl text-espresso font-bold text-center">USD 400,000,000</div>
+                <div class="text-sm sm:text-base text-gray-800 font-bold mt-1 text-center">Annual Revolving Facility (Series 1: USD 100M)</div>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">August 2026 | Nairobi, Kenya</p>
+        </div>
+
+        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
+            <div class="text-center w-full max-w-2xl mx-auto border-b border-gray-200 pb-4 mb-2">
+                <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Prepared Exclusively For:</span>
+                <span class="font-bold text-espresso text-lg block">Standard Investment Bank (SIB)</span>
+                <span class="text-[11px] font-bold text-gray-600 block mt-1">Fixed Income, Global Markets & CIS Divisions (Mansa-X & SIB Najah)</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-16 print:flex-row w-full text-center">
+                <div class="flex flex-col items-center gap-2 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Strategic Fund Partner & Co-Arranger</span>
+                    <span class="font-bold text-espresso text-sm">Standard Investment Bank</span>
+                </div>
+                
+                <div class="hidden sm:block h-12 w-px bg-gray-300 print:block"></div>
+                
+                <div class="flex flex-col items-center gap-2 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Note Issuer (SPV)</span>
+                    <span class="font-bold text-espresso text-sm">Tsavo SEZ SPV Limited</span>
+                </div>
+            </div>
+
+            <div class="text-center text-[8px] sm:text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-4">
+                <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.<br>
+                Target Yield: <strong class="text-espresso">~15.00% (Hard Currency USD)</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-block">
+        
+        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/100x30?text=Logo'"/>
+            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Proposal</span>
+        </header>
+
+        <h3 class="text-lg font-bold text-espresso border-b-2 border-espresso pb-2 mb-6 uppercase tracking-widest text-center mt-8">STRATEGIC PARTNERSHIP</h3>
+        
+        <div class="point-content">
+            <p>Standard Investment Bank’s flagship CIS portfolios—<strong>Mansa-X</strong> and <strong>SIB Najah</strong>—alongside its robust <strong>Fixed Income</strong> division, require secure, high-yield USD assets to drive outperformance and hedge against currency depreciation.</p>
+            
+            <p>Zambia's Food Reserve Agency (FRA) has mandated TerraQuest to restructure its national Maize Purchase Program via a <strong>$400 Million</strong> 5-year annual revolving facility backed by institutional capital. We are currently launching the <strong>USD 100 Million</strong> Series 1 issuance, delivering a <strong>~15% hard currency (USD) yield</strong>.</p>
+            
+            <p>To scale this across the 5-year facility, we are proposing a strategic partnership with SIB. Your regulatory infrastructure unlocks direct capital allocation, elevating SIB from a traditional placement agent into an equal equity co-owner in a $400 Million sovereign trade finance facility.</p>
+        </div>
+
+        <h4 class="point-header">THE STRATEGIC OPPORTUNITY FOR SIB</h4>
+        <div class="point-content">
+            <ul class="space-y-3 mb-6">
+                <li><strong>Immediate CIS & Fixed Income Supply:</strong> The underlying physical commodity trade provides an immediate, hyper-secured asset allocation for Mansa-X, SIB Najah, and internal Fixed Income warehousing.</li>
+                <li><strong>Equal Equity Co-Ownership:</strong> SIB will co-structure, co-develop, and co-own the $300M Guaranteed Fund management vehicle, locking in permanent intellectual property, AUM expansion, and recurring annuity-style yields.</li>
+                <li><strong>Exclusive Distribution Monopoly:</strong> This joint mandate grants SIB absolute control over syndicating a premium sovereign asset. By wrapping TRFF-1 Notes in an SIB Guaranteed Fund, you legally bypass strict RBA alternative investment caps, allowing Kenyan pension funds to allocate up to 100% of their capital into this product.</li>
+                <li><strong>Hard-Asset Sovereign Yield:</strong> This is a legally ring-fenced commodity transaction where the SEZ SPV holds absolute, unencumbered legal title to physical grain via Verified Warehouse Receipts. Capital is shielded by a 10% upfront cash Performance Margin, a strict 110% Asset Value Floor, and direct recourse to the Zambia Food Reserve Agency's balance sheet.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title text-xl !mt-6">THE KSH 13.5 TRILLION MARKET</h2>
+        
+        <div class="point-content">
+            <p>Kenyan Pension AUM sits at <strong>Ksh 2.81 Trillion</strong>. Guaranteed Funds hold <strong>Ksh 522.39 Billion (USD 4 Billion)</strong> of that. Right now, legacy insurers trap this <strong>$4 Billion</strong> pool in stagnant <strong>4% to 5%</strong> KES returns.</p>
+            
+            <p>By offering a tax-sheltered, double-digit USD yield, SIB can attract this trapped pension capital. But pensions are just the baseline. The addressable market scales significantly when targeting institutions seeking a secure USD haven to hedge against KES depreciation:</p>
+
+            <ul class="space-y-3 mb-6">
+                <li><strong>Commercial Banks:</strong> Holding <strong>Ksh 8.35 Trillion</strong> in assets, treasuries need high-yield, short-term USD paper to park excess liquidity.</li>
+                <li><strong>Insurers:</strong> Holding over <strong>Ksh 1.2 Trillion</strong>, insurers require admitted assets to optimize their solvency capital ratios.</li>
+                <li><strong>SACCOs:</strong> With <strong>Ksh 1.21 Trillion</strong>, Tier 1 SACCOs require capital preservation vehicles that beat domestic inflation.</li>
+            </ul>
+
+            <div class="bg-card border border-gold p-5 rounded shadow-sm avoid-break-strict">
+                <p class="text-sm font-bold text-espresso !mb-0">Combined, SIB is looking at a <span class="text-xl">Ksh 13.5 Trillion (~USD 100 Billion)</span> Total Addressable Market. Capturing a fraction of this liquidity meets our <strong>$400M</strong> limit while establishing a strong new AUM generator for the bank.</p>
+            </div>
+        </div>
+
+        <div class="mb-10 avoid-break-strict mt-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-200 pb-2">Exhibit 1.0: SIB Structuring Integration & Liquidity Pathways</p>
+            <img src="Tsavo SEZ Note Programme Capital, Security & Credit Structure (Portrait).png" alt="Capital, Security & Credit Structure Flowchart" class="flowchart-image !mt-0" loading="eager" />
+        </div>
+
+        <h2 class="section-title text-xl" style="page-break-before: always; break-before: page;">REVENUE & BUSINESS CASE</h2>
+        
+        <p>This partnership offers SIB distinct, recurring revenue across your three primary divisions. Because this is a 5-year revolving facility, these revenues compound annually.</p>
+        
+        <div class="overflow-x-auto avoid-break-strict w-full">
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="w-[20%]">Liquidity Pathway</th>
+                        <th class="w-[15%]">Target Volume</th>
+                        <th class="w-[15%]">SIB Division</th>
+                        <th class="w-[35%]">Revenue Model</th>
+                        <th class="w-[15%]">Projected Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold">1. Guaranteed Fund</td>
+                        <td class="font-bold whitespace-nowrap">$300,000,000</td>
+                        <td>Asset Management</td>
+                        <td>0.20% Base Fee + ~3.00% Performance Spread (Targeting 10%-12% client yield vs. 15% asset yield).</td>
+                        <td class="font-bold whitespace-nowrap text-espresso">~$9,600,000<br><span class="text-xs text-gray-500 font-normal block mt-1">(Base + Performance)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold">2. Principal Warehousing</td>
+                        <td class="font-bold whitespace-nowrap">$80,000,000</td>
+                        <td>Fixed Income</td>
+                        <td>~2.00% Arbitrage Spread captured during secondary sell-down.</td>
+                        <td class="font-bold whitespace-nowrap text-espresso">~$1,600,000<br><span class="text-xs text-gray-500 font-normal block mt-1">(Trading Profit)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold">3. Direct CIS Allocation</td>
+                        <td class="font-bold whitespace-nowrap">$20,000,000</td>
+                        <td>Mansa-X / Najah</td>
+                        <td>15.00% net USD yield driving fund outperformance.</td>
+                        <td class="font-bold whitespace-nowrap text-espresso">~$3,000,000<br><span class="text-xs text-gray-500 font-normal block mt-1">(Gross Yield)</span></td>
+                    </tr>
+                    <tr class="bg-card border-t-2 border-espresso">
+                        <td class="font-bold text-lg text-espresso" colspan="3">ANNUAL PROGRAMME LIMIT</td>
+                        <td class="font-bold text-lg whitespace-nowrap text-right pr-4">TOTAL ANNUAL NET:</td>
+                        <td class="font-bold text-xl whitespace-nowrap text-espresso">~$14,200,000</td>
+                    </tr>
+                    <tr class="bg-espresso text-white">
+                        <td class="font-bold text-lg" colspan="3">5-YEAR MASTER PROGRAMME HORIZON</td>
+                        <td class="font-bold text-lg whitespace-nowrap text-right pr-4">5-YEAR SIB VALUE:</td>
+                        <td class="font-bold text-xl whitespace-nowrap text-gold">~$71,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title text-xl !mt-12">EXECUTION PATHWAYS</h2>
+
+        <h4 class="point-header !mt-0">1. Asset Management ($300M)</h4>
+        <div class="point-content">
+            <p>As a CMA-regulated Investment Bank, SIB legally qualifies as an "Approved Issuer" under RBA guidelines. By wrapping the secured TRFF-1 Notes within a new SIB Guaranteed Fund, you can absorb the <strong>$300M</strong> market scale-up. Offering a tax-sheltered, double-digit USD yield will grow your Asset Management AUM away from legacy insurers.</p>
+        </div>
+
+        <h4 class="point-header">2. Principal Warehousing & Private Distribution ($80M)</h4>
+        <div class="point-content">
+            <p>SIB's Fixed Income division can use internal capital to execute a "Bought Deal," warehousing a wholesale block of the private debt to syndicate to your private wealth and corporate networks.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                <div class="bg-gray-50 border border-gray-200 p-3 rounded flex-1"><span class="block text-xs text-gray-500 uppercase font-bold">Target Wholesale Block</span><strong class="text-espresso">$50M to $80M</strong></div>
+                <div class="bg-gray-50 border border-gray-200 p-3 rounded flex-1"><span class="block text-xs text-gray-500 uppercase font-bold">Warehousing Period</span><strong class="text-espresso">30 to 90 days</strong></div>
+                <div class="bg-gray-50 border border-gray-200 p-3 rounded flex-1"><span class="block text-xs text-gray-500 uppercase font-bold">Average Arbitrage Spread</span><strong class="text-espresso">1.50% to 2.50%</strong></div>
+            </div>
+
+            <p class="font-bold mb-3">The Mechanics:</p>
+            <ol class="list-decimal ml-5 space-y-3 text-sm leading-relaxed mb-6">
+                <li><strong>Master Registry:</strong> The Note & Security Trustee (MTC Trust) maintains a private Noteholder Register.</li>
+                <li><strong>Wholesale Purchase:</strong> SIB takes down a <strong>$50M-$80M</strong> block at the wholesale yield (<strong>~15.00%</strong>).</li>
+                <li><strong>Secondary Sell-Down:</strong> SIB syndicates smaller tickets (<strong>$1M–$5M</strong>) to corporate treasuries and HNWIs at a retail yield (e.g., <strong>12.50%–13.50%</strong>).</li>
+                <li><strong>Clearing the Trade:</strong> SIB submits the Transfer Certificate to MTC Trust, deducting the amount from SIB’s block and adding the client as the new beneficial owner.</li>
+                <li><strong>Cash Settlement:</strong> The buyer wires the purchase funds directly to SIB, allowing SIB to instantly capture the arbitrage spread.</li>
+            </ol>
+        </div>
+
+        <h4 class="point-header">3. Mansa-X & Najah ($20M)</h4>
+        <div class="point-content">
+            <p>Simultaneously, the SPV accommodates direct allocations from your flagship CIS portfolios. Mansa-X and SIB Najah can take a direct wholesale position in the underlying physical commodity trade, capturing the full <strong>~15% USD yield</strong> to hedge against KES depreciation and boost overall fund performance.</p>
+        </div>
+
+        <div class="border-t-2 border-espresso pt-8 mt-12 avoid-break-strict">
+            <h2 class="text-xl font-bold text-espresso mb-6 uppercase tracking-widest text-center">Next Steps</h2>
+            <p class="text-center mb-8">We invite the SIB Structuring, Fixed Income, and Global Markets teams to review the transaction and the underlying security package.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm">
+                    <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center font-bold text-espresso mb-4">1</div>
+                    <h5 class="font-bold text-espresso text-base mb-2">Strategic Partnership Term Sheet</h5>
+                    <p class="text-xs text-gray-700 !mb-0">Formalize the co-development partnership, lock in SIB's initial <strong>$100M</strong> Series 1 underwriting commitment, and agree on margin mechanics.</p>
+                </div>
+                <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm">
+                    <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center font-bold text-espresso mb-4">2</div>
+                    <h5 class="font-bold text-espresso text-base mb-2">Regulatory Structuring</h5>
+                    <p class="text-xs text-gray-700 !mb-0">Engage the Retirement Benefits Authority (RBA) to map out and register the new Guaranteed Fund for the broader <strong>$300M</strong> market rollout.</p>
+                </div>
+                <div class="bg-card border border-gray-200 p-5 rounded-md shadow-sm">
+                    <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center font-bold text-espresso mb-4">3</div>
+                    <h5 class="font-bold text-espresso text-base mb-2">Financial Close</h5>
+                    <p class="text-xs text-gray-700 !mb-0">Execute definitive agreements, deploy the direct Mansa-X/Fixed Income allocations, and officially launch the SIB Guaranteed Fund to the local market.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end">
+        <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] sepia-[0.2]" loading="lazy" />
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20"></div>
+        
+        <div class="relative z-10 p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center sm:items-end w-full gap-6 sm:gap-0 mt-auto">
+            <div class="text-center sm:text-left w-full sm:w-auto flex flex-col items-center sm:items-start">
+                <h1 class="text-white text-2xl sm:text-3xl font-bold title-font tracking-widest uppercase mb-3 text-center sm:text-left">Tsavo Resilience<br>Food Fund 1</h1>
+                <div class="w-16 h-1 bg-gold mb-3"></div>
+                <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Securing Regional Food Systems • Zambia</p>
+            </div>
+            
+            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] sharp-logo" loading="lazy" />
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
