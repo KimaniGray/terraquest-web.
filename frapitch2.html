@@ -39,14 +39,14 @@
             padding: 20mm 20mm;
             width: 100%;
             box-sizing: border-box;
+            min-height: 297mm;
         }
 
         .cover-page, .back-cover {
             display: flex;
             flex-direction: column;
             border: 8px solid #3E2723;
-            border-top: 8px solid #3E2723;
-            padding: 24px; 
+            padding: 20mm; 
             min-height: 297mm;
             box-sizing: border-box;
         }
@@ -63,10 +63,7 @@
             transform: translateZ(0); 
         }
 
-        h1, h2, h3, h4, h5, .title-font {
-            font-family: 'Georgia', serif;
-        }
-        
+        h1, h2, h3, h4, h5, .title-font { font-family: 'Georgia', serif; }
         .text-espresso { color: #3E2723; }
         .bg-espresso { background-color: #3E2723; }
         .border-espresso { border-color: #3E2723; }
@@ -81,21 +78,11 @@
             text-align: justify;
             font-size: 0.95rem;
             font-weight: 400;
-            orphans: 4;
-            widows: 4;
         }
 
-        p strong {
-            color: #3E2723;
-            letter-spacing: 0.01em;
-        }
+        p strong { color: #3E2723; letter-spacing: 0.01em; }
 
-        ul {
-            list-style-type: none; 
-            margin-left: 0.5rem;
-            margin-bottom: 1.75rem;
-        }
-
+        ul { list-style-type: none; margin-left: 0.5rem; margin-bottom: 1.75rem; }
         li { 
             margin-bottom: 1.25rem; 
             line-height: 1.85;
@@ -145,41 +132,48 @@
         @media (max-width: 639px) {
             body { padding: 0; background-color: #ffffff; }
             .master-container { box-shadow: none; margin-bottom: 0; }
-            .page-block { padding: 16px; border-top: 4px solid #3E2723; }
+            .page-block { padding: 16px; min-height: auto; border-top: 4px solid #3E2723; }
             .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; justify-content: center; }
             .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
-            p { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
-            li { font-size: 0.85rem; margin-bottom: 1rem; text-align: left; }
+            p, li { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
             .point-content { padding-left: 0.75rem; }
             .web-header { display: none !important; } 
-            
-            .cover-page h1 { font-size: 1.75rem; line-height: 1.2; }
-            .cover-page h2 { font-size: 1.1rem; }
         }
         
-        @page { size: A4 portrait; margin: 30mm 20mm 25mm 20mm; }
-        @page cover { margin: 0; }
-        .cover-page, .back-cover { page: cover; }
+        @page { 
+            size: A4 portrait; 
+            margin: 0; /* Zero margin to prevent browser scaling conflicts */
+        }
+        
         .avoid-break-strict { page-break-inside: avoid !important; break-inside: avoid !important; }
-        h3, h4, .point-header { page-break-after: avoid; break-after: avoid; }
 
         @media print {
-            body { background-color: white; padding: 0; }
-            .master-container { box-shadow: none; margin: 0; border: none; }
-            .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
-            .web-header { display: flex !important; }
+            body { background-color: white; padding: 0; margin: 0; }
+            .master-container { box-shadow: none; margin: 0; border: none; width: 210mm; }
+            
+            .page-block { 
+                padding: 20mm !important; 
+                width: 210mm; 
+                height: 297mm; 
+                box-sizing: border-box; 
+                page-break-after: always;
+                border-top: none !important; 
+                overflow: hidden;
+            }
             
             .cover-page, .back-cover { 
                 padding: 15mm !important; 
+                width: 210mm;
                 height: 297mm !important; 
                 max-height: 297mm !important;
                 border: 8px solid #3E2723 !important; 
                 box-sizing: border-box !important;
+                page-break-after: always;
                 overflow: hidden !important; 
                 display: flex !important;
             }
-            .cover-page { page-break-after: always !important; }
-            .back-cover { page-break-before: always !important; }
+            
+            .web-header { display: flex !important; }
             h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
             h3, h4, h5, .point-header { page-break-after: avoid !important; break-after: avoid !important; }
             p, li { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
@@ -190,22 +184,25 @@
 <body>
 
 <div class="master-container">
+    
     <div class="cover-page justify-between">
+        
+        <!-- Header Section -->
         <div class="w-full flex justify-between items-start">
-            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
+            <img alt="TerraQuest Logo" class="h-[25px] sm:h-[30px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
             <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
                 Strictly Private & Confidential<br>
                 Executive Briefing
             </div>
         </div>
 
+        <!-- Center Section -->
         <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4 sm:mt-0">
             <div class="relative w-full flex items-center justify-center mb-6 sm:mb-10">
-                <img alt="Tsavo Logo" class="hidden sm:block w-[400px] max-w-full h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/450x150/ffffff/3E2723?text=Tsavo+Resilience+Fund'" fetchpriority="high" />
-                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] max-w-full h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/280x100/ffffff/3E2723?text=Tsavo'" fetchpriority="high" />
+                <img alt="Tsavo Logo" class="w-[280px] sm:w-[400px] h-auto object-contain sharp-logo mix-blend-multiply" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/400x150/ffffff/3E2723?text=Tsavo+Resilience+Fund'" fetchpriority="high" />
             </div>
             
-            <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Maize Purchase Program</h1>
+            <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-3 uppercase leading-tight">Maize Purchase Program</h1>
             <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-2 text-center relative mb-4">Redesign & Capitalization</h2>
             
             <div class="w-full max-w-md border-t-2 border-b-2 border-gold py-4 my-4 mx-auto relative bg-card shadow-sm rounded-sm">
@@ -217,41 +214,30 @@
             <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">September 2026 | Lusaka, Zambia</p>
         </div>
 
-        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
-            <div class="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-16 print:flex-row w-full max-w-5xl text-left border-t border-gray-200 pt-6">
+        <!-- Bottom Section -->
+        <div class="w-full border-t border-gray-200 pt-6 mt-auto">
+            <div class="flex flex-row justify-between items-start w-full">
                 
-                <div class="flex-1">
-                    <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2 block">Prepared For:</span>
-                    <span class="font-bold text-espresso text-base block mb-1">Mr. Siazongo Siakalenge</span>
-                    <span class="text-[11px] font-bold text-gray-700 block mb-3 uppercase tracking-wide">Deputy Secretary to the Cabinet<br>(Finance & Economic Development)</span>
-                    
-                    <span class="text-[10px] text-gray-600 block leading-relaxed font-medium">
-                        Cabinet Office Building, Independence Avenue<br>
-                        Cathedral Hill, P.O. Box 30208<br>
-                        Lusaka, Zambia<br>
-                        +260 211 251 388 / +260 211 255 231<br>
-                        info@cabinet.gov.zm
-                    </span>
+                <div class="flex flex-col items-start text-left flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Prepared For:</span>
+                    <span class="font-bold text-espresso text-sm sm:text-base">Mr. Siazongo Siakalenge</span>
+                    <span class="text-[10px] sm:text-xs text-gray-700 font-bold mt-1 uppercase tracking-wide">Deputy Secretary to the Cabinet<br>(Finance & Economic Development)</span>
                 </div>
                 
-                <div class="hidden sm:block w-px bg-gray-300 self-stretch print:block"></div>
-                
-                <div class="flex-1 flex flex-col justify-between h-full">
-                    <div>
-                        <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2 block">Arranged By:</span>
-                        <img alt="TerraQuest Black Logo" class="h-8 w-auto object-contain mix-blend-multiply sharp-logo mb-3" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/200x50/ffffff/3E2723?text=TerraQuest'" />
-                        <span class="text-[11px] font-bold text-gray-700 block mb-3 uppercase tracking-wide">Lead Structuring & Syndication</span>
-                    </div>
+                <div class="flex flex-col items-end text-right flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Arranged By:</span>
+                    <!-- Explicitly removing mix-blend-multiply to protect the black background -->
+                    <img alt="TerraQuest Black Logo" class="h-8 sm:h-10 w-auto object-contain sharp-logo mb-1 rounded-sm" src="TerraQuest Logo.png" onerror="this.src='https://placehold.co/150x40/000000/ffffff?text=TerraQuest'" />
+                    <span class="font-bold text-espresso text-[10px] sm:text-xs mt-1 uppercase tracking-wide">Lead Structuring & Syndication</span>
                 </div>
-
+                
             </div>
         </div>
     </div>
-    
-    <div class="page-block" style="page-break-before: always; break-before: page;">
-        
+
+    <div class="page-block">
         <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
-            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
+            <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Briefing</span>
         </header>
 
@@ -292,10 +278,10 @@
         
     </div>
 
-    <div class="page-block" style="page-break-before: always; break-before: page;">
+    <div class="page-block">
         
         <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
-            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
+            <img alt="TerraQuest Logo" class="h-[25px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Briefing</span>
         </header>
 
@@ -348,7 +334,7 @@
 
     </div>
 
-    <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end" style="page-break-before: always; break-before: page;">
+    <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end">
         <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] sepia-[0.2]" loading="lazy" />
         
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20"></div>
@@ -362,7 +348,8 @@
                 <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Confidential Executive Briefing • Zambia</p>
             </div>
             
-            <img src="TerraQuest Investments Logo Black.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] filter invert brightness-0 sharp-logo" onerror="this.src='https://placehold.co/200x50/3E2723/FFB81C?text=TerraQuest'" loading="lazy" />
+            <!-- White/Inverted logo for the dark image background -->
+            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] filter invert brightness-0 sharp-logo" onerror="this.src='https://placehold.co/200x50/3E2723/FFB81C?text=TerraQuest'" loading="lazy" />
         </div>
     </div>
 
