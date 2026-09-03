@@ -1,8 +1,3 @@
-The truncation is occurring because the print CSS was forcing `.page-block` to a strict height of `297mm` and hiding any overflow (`overflow: hidden`). This prevented the text from flowing naturally into the A4 margins.
-
-By restoring the specific `@page` margins and removing the strict height restrictions from the inner content blocks, the document will scale and flow perfectly.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
