@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Executive Brief: Maize Purchase Program</title>
+    <title>Executive Brief: Maize Programme Redesign</title>
     
     <link rel="icon" type="image/png" href="Terraquest Favicon Black.png"/>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,7 +50,7 @@
             min-height: 297mm;
             box-sizing: border-box;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
@@ -59,8 +59,14 @@
         .sharp-logo {
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
-            image-rendering: high-quality;
             transform: translateZ(0); 
+        }
+
+        .document-page:not(.cover-page):not(.back-cover) .border-b img {
+            height: 40px !important;
+            opacity: 0.95 !important;
+            filter: none !important;
+            border-radius: 4px;
         }
 
         h1, h2, h3, h4, h5, .title-font {
@@ -72,7 +78,6 @@
         .border-espresso { border-color: #3E2723; }
         .text-gold { color: #FFB81C; }
         .bg-gold { background-color: #FFB81C; }
-        .border-gold { border-color: #FFB81C; }
         .bg-card { background-color: #faf8f5; }
 
         p {
@@ -104,6 +109,7 @@
             position: relative;
             text-align: justify;
         }
+
         li::before {
             content: "■";
             color: #FFB81C;
@@ -125,6 +131,15 @@
             text-transform: uppercase;
         }
 
+        .subsection-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.025em;
+        }
+
         .point-header {
             font-size: 1.15rem;
             font-weight: 700;
@@ -141,33 +156,108 @@
             border-left: 3px solid rgba(255, 184, 28, 0.4);
             margin-bottom: 2.5rem;
         }
+
+        .editorial-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9; 
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            filter: sepia(0.2) contrast(1.15) brightness(0.95); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
         
+        .image-caption {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .gold-divider {
+            width: 3rem;
+            height: 0.25rem;
+            background-color: #FFB81C;
+            margin: 3rem auto;
+            opacity: 0.6;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 16px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #faf8f5;
+            color: #3E2723;
+            font-weight: 700;
+        }
+
         @media (max-width: 639px) {
             body { padding: 0; background-color: #ffffff; }
             .master-container { box-shadow: none; margin-bottom: 0; }
             .page-block { padding: 16px; border-top: 4px solid #3E2723; }
             .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; justify-content: center; }
             .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+            .subsection-title { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 1rem; }
             p { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
             li { font-size: 0.85rem; margin-bottom: 1rem; text-align: left; }
             .point-content { padding-left: 0.75rem; }
+            .gold-divider { margin: 2rem auto; width: 2rem; }
+            table th, table td { padding: 10px; font-size: 0.8rem; }
+            .editorial-image { aspect-ratio: 3/2; } 
             .web-header { display: none !important; } 
+            
             .cover-page h1 { font-size: 1.75rem; line-height: 1.2; }
             .cover-page h2 { font-size: 1.1rem; }
+            .cover-page img.absolute { position: relative; margin: 0 auto; max-width: 90%; }
         }
-        
-        @page { size: A4 portrait; margin: 30mm 20mm 25mm 20mm; }
+
+        @page {
+            size: A4 portrait;
+            margin: 30mm 20mm 25mm 20mm; 
+        }
+
         @page cover { margin: 0; }
         .cover-page, .back-cover { page: cover; }
-        .avoid-break-strict { page-break-inside: avoid !important; break-inside: avoid !important; }
-        h3, h4, .point-header { page-break-after: avoid; break-after: avoid; }
+
+        .avoid-break-strict {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        h3, h4, .subsection-title, .point-header {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        tr { page-break-inside: avoid; break-inside: avoid; }
 
         @media print {
             body { background-color: white; padding: 0; }
             .master-container { box-shadow: none; margin: 0; border: none; }
             .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
-            .web-header { display: flex !important; }
-            
+            .web-header { display: none !important; }
             .cover-page, .back-cover { 
                 padding: 15mm !important; 
                 height: 297mm !important; 
@@ -179,10 +269,14 @@
             }
             .cover-page { page-break-after: always !important; }
             .back-cover { page-break-before: always !important; }
+            
             h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
-            h3, h4, h5, .point-header { page-break-after: avoid !important; break-after: avoid !important; }
-            p, li { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            h3, h4, h5, .subsection-title, .point-header, .image-caption { page-break-after: avoid !important; break-after: avoid !important; }
+            p { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            li { page-break-inside: auto; break-inside: auto; }
+            table { page-break-inside: auto; break-inside: auto; }
             .avoid-break-strict { page-break-inside: auto !important; break-inside: auto !important; }
+            .editorial-image { page-break-inside: avoid !important; break-inside: avoid !important; }
         }
     </style>
 </head>
@@ -190,177 +284,184 @@
 
 <div class="master-container">
     <div class="cover-page justify-between">
-        <div class="w-full flex justify-end">
+        <div class="w-full flex justify-between items-start">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
             <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
                 Strictly Private & Confidential<br>
                 Executive Briefing
             </div>
         </div>
 
-        <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4 sm:mt-0">
-            <div class="relative w-full h-auto sm:h-[160px] flex items-center justify-center mb-6 sm:mb-10">
-                <img alt="Tsavo Logo" class="absolute hidden sm:block w-[450px] max-w-none h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/450x150/ffffff/3E2723?text=Tsavo+Resilience+Fund'" fetchpriority="high" />
-                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/280x100/ffffff/3E2723?text=Tsavo'" fetchpriority="high" />
+        <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-8 sm:mt-4">
+            <div class="relative w-full flex items-center justify-center mb-6 sm:mb-10">
+                <img alt="Tsavo Logo" class="hidden sm:block w-[400px] max-w-full h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/450x150/ffffff/3E2723?text=Tsavo+Resilience+Fund'" fetchpriority="high" />
+                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] max-w-full h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png" onerror="this.src='https://placehold.co/280x100/ffffff/3E2723?text=Tsavo'" fetchpriority="high" />
             </div>
             
             <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Maize Purchase Program</h1>
-            <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-2 text-center relative mb-4">Redesign & Capitalization</h2>
-            
-            <div class="w-full max-w-md border-t-2 border-b-2 border-gold py-4 my-4 mx-auto relative bg-card shadow-sm rounded-sm">
-                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">5-Year Master Programme:</div>
-                <div class="text-lg sm:text-xl text-espresso font-bold text-center">USD 400,000,000</div>
-                <div class="text-sm sm:text-base text-gray-800 font-bold mt-1 text-center">Annual Revolving Facility</div>
-            </div>
-            
-            <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">September 2026 | Lusaka, Zambia</p>
-        </div>
-
-        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
-            <div class="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-16 print:flex-row w-full max-w-5xl text-left border-t border-gray-200 pt-6">
-                
-                <div class="flex-1">
-                    <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2 block">Prepared For:</span>
-                    <span class="font-bold text-espresso text-base block mb-1">Mr. Siazongo Siakalenge</span>
-                    <span class="text-[11px] font-bold text-gray-700 block mb-3 uppercase tracking-wide">Deputy Secretary to the Cabinet<br>(Finance & Economic Development)</span>
-                    
-                    <span class="text-[10px] text-gray-600 block leading-relaxed font-medium">
-                        Cabinet Office Building, Independence Avenue<br>
-                        Cathedral Hill, P.O. Box 30208<br>
-                        Lusaka, Zambia<br>
-                        +260 211 251 388 / +260 211 255 231<br>
-                        info@cabinet.gov.zm
-                    </span>
-                </div>
-                
                 <div class="hidden sm:block w-px bg-gray-300 self-stretch print:block"></div>
                 
                 <div class="flex-1 flex flex-col justify-between h-full">
                     <div>
                         <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2 block">Arranged By:</span>
-                        <img alt="TerraQuest Black Logo" class="h-8 w-auto object-contain mix-blend-multiply sharp-logo mb-3" src="TerraQuest Logo.png" onerror="this.src='https://placehold.co/200x50/ffffff/3E2723?text=TerraQuest'" />
+                        <img alt="TerraQuest Black Logo" class="h-10 sm:h-14 w-auto max-w-[200px] object-contain mix-blend-multiply sharp-logo mb-3" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/200x50/ffffff/3E2723?text=TerraQuest'" />
                         <span class="text-[11px] font-bold text-gray-700 block mb-3 uppercase tracking-wide">Lead Structuring & Syndication</span>
                     </div>
                 </div>
 
             </div>
+
+            <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Executive Brief</h2>
+            
+            <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">September 2026 | Lusaka, Zambia</p>
+        </div>
+
+        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-16 print:flex-row w-full border-t border-gray-200 pt-6">
+                
+                <!-- Prepared For -->
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Prepared For</span>
+                    <span class="font-bold text-espresso text-sm sm:text-base">Mr. Siazongo Siakalenge</span>
+                    <span class="text-[10px] sm:text-xs text-gray-700 italic mt-1 font-semibold">Deputy Secretary to the Cabinet (FED)</span>
+                    <span class="text-[9px] text-gray-500 leading-relaxed mt-1">
+                        Cabinet Office Building, Independence Avenue<br>
+                        P.O. Box 30208, Lusaka, Zambia<br>
+                        info@cabinet.gov.zm
+                    </span>
+                </div>
+                
+                <div class="hidden sm:block h-24 w-px bg-gray-300 mt-2 print:block"></div>
+                
+                <!-- Arranged By (With requested Logo) -->
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Arranged By</span>
+                    <img alt="TerraQuest Logo" class="w-[160px] sm:w-[220px] h-auto object-contain rounded-md shadow-sm sharp-logo" src="TerraQuest Investments Logo 1.png"/>
+                    <span class="font-bold text-espresso text-xs sm:text-sm mt-1 uppercase tracking-wide">TerraQuest Investments</span>
+                </div>
+                
+            </div>
         </div>
     </div>
-    
-    <div class="page-block" style="page-break-before: always; break-before: page;">
-        
-        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
-            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo Black.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
+
+    <div class="page-block">
+        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png"/>
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Briefing</span>
         </header>
 
         <h2 class="section-title">MARKET CONTEXT</h2>
         
+        <h4 class="point-header !mt-0">Statutory Mandate</h4>
         <div class="point-content">
-            <p>Under the Food Reserve Act, the Food Reserve Agency (FRA) is statutorily mandated to administer the national food reserve. Specifically, the purpose of this reserve is to:</p>
+            <p>Under the Food Reserve Act, the Food Reserve Agency (FRA) administers the National Strategic Food Reserve. The statutory purpose is to:</p>
             
             <ul class="space-y-3 mb-6">
-                <li><strong>Ensure reliable supply</strong> of designated commodities for the country.</li>
-                <li><strong>Meet local shortfalls</strong> in the supply of a designated commodity.</li>
-                <li><strong>Meet food emergencies</strong> caused by drought, flood, or natural disaster.</li>
-                <li><strong>Correct supply problems</strong> resulting from price manipulation or monopolistic trading.</li>
+                <li>Ensure a reliable supply of designated commodities for the country.</li>
+                <li>Meet local shortfalls in supply.</li>
+                <li>Handle food emergencies caused by drought, floods, or natural disasters.</li>
+                <li>Correct problems resulting from price manipulation or monopolistic practices.</li>
             </ul>
             
-            <p>To fulfill these objectives, the FRA has developed a National Maize Program to create a strategic reserve of 500,000 to 1,000,000 Metric Tons, while maintaining the capacity to purchase an additional 1,000,000 Metric Tons for market stabilization. This dual mandate generates a structural liquidity requirement of <strong>USD 500 Million</strong> year-on-year.</p>
-            
-            <p>Our redesign will introduce a stable, institutionally backed financed program of <strong>USD 400 Million</strong>, structured to operate alongside a <strong>USD 100 Million</strong> Government contribution, to definitively fulfill this mandate.</p>
+            <p>To fulfill these objectives, the FRA developed a National Maize Program to create a strategic reserve of 500,000 to 1,000,000 Metric Tons, and purchase an additional 1,000,000 Metric Tons for market stabilization. Executing this requires predictable capital of <strong>USD 500 Million</strong> year-on-year.</p>
         </div>
 
-        <h2 class="section-title text-xl !mt-8">STRUCTURAL GAPS</h2>
-        <p class="mb-6">Currently, the Agency executes this highly capital-intensive mandate without an independent, structured funding mechanism. This gap creates severe down-stream constraints:</p>
-
-        <h4 class="point-header !mt-0">EXCHEQUER DEPENDENCY</h4>
+        <h4 class="point-header">Structural Gaps</h4>
         <div class="point-content">
-            <p>In 2024, the Treasury was forced to allocate <strong>ZMW 2.85 Billion</strong> in direct government grants to support the Agency's operations, diverting critical capital from other national priority development sectors.</p>
+            <p>Currently, the Agency executes this highly capital-intensive mandate without an independent, structured funding mechanism. This gap creates severe fiscal constraints for the government, risking the viability of the program, national food security, and vital support for over 1,000,000 small-scale farmers.</p>
         </div>
 
-        <h4 class="point-header">LIQUIDITY CONSTRAINTS</h4>
-        <div class="point-content">
-            <p>In fulfilling its mandate to meet national food emergencies, the FRA routinely releases grain to state institutions. Without a pre-funded settlement mechanism, this generates unpaid receivables that severely constrain working capital for subsequent purchasing seasons.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-8">
+            <div class="bg-card border-t-4 border-espresso p-5 rounded shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-3">Exchequer Dependency</h5>
+                <p class="text-sm text-gray-700 !mb-0">In 2024, the Treasury issued ZMW 2.85 Billion in direct grants, severely draining funds from other national development priorities.</p>
+            </div>
+            <div class="bg-card border-t-4 border-espresso p-5 rounded shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-3">Liquidity Constraints</h5>
+                <p class="text-sm text-gray-700 !mb-0">The FRA routinely releases grain to state bodies during emergencies. Without pre-funding, these receivables wipe out seasonal working capital.</p>
+            </div>
+            <div class="bg-card border-t-4 border-espresso p-5 rounded shadow-sm avoid-break-strict">
+                <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-3">Audit Vulnerabilities</h5>
+                <p class="text-sm text-gray-700 !mb-0">Traditional state storage lacks certified inventory management, preventing the State from maintaining a bankable, auditable national reserve.</p>
+            </div>
         </div>
-
-        <h4 class="point-header">AUDIT VULNERABILITIES</h4>
-        <div class="point-content mb-8">
-            <p>Transitioning from traditional storage to modern, internationally certified collateral management is urgently required to provide the State with fully bankable, auditable visibility over the national food reserve.</p>
-        </div>
-        
     </div>
 
     <div class="page-block" style="page-break-before: always; break-before: page;">
         
-        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
-            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain mix-blend-multiply sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/150x40/ffffff/3E2723?text=TerraQuest'"/>
+        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png"/>
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Briefing</span>
         </header>
 
-        <h2 class="section-title">5-YEAR VISION</h2>
+        <h2 class="section-title">FIVE-YEAR VISION</h2>
         
         <div class="point-content mb-8">
-            <p>The <strong>USD 400 Million</strong> Tsavo Resilience Food Fund 1 provides the predictable capital structure required to achieve absolute food security while fundamentally transforming the agricultural economy. Our goals are driven by four core pillars:</p>
+            <p>To execute this mandate and permanently relieve the Treasury, TerraQuest Investments will syndicate the <strong>USD 400 Million</strong> Tsavo Resilience Food Fund 1. This institutional capital will operate predictably alongside a <strong>USD 100 Million</strong> Government contribution to drive four core effects:</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             
-            <div class="bg-card border-t-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
-                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">HARD CURRENCY GENERATION</h4>
-                <p class="text-sm text-gray-700 !mb-0">We bring both the initial USD 400 Million investment and a structured regional export market. This guarantees USD-denominated off-take contracts for Zambia's surplus maize, creating a predictable foreign exchange earner.</p>
+            <div class="bg-card border-l-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
+                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">Hard Currency Generation</h4>
+                <p class="text-sm text-gray-700 !mb-0">We bring both the initial USD 400 Million investment and a ready regional export market. This secures USD-denominated contracts for surplus maize, creating a predictable foreign exchange earner.</p>
             </div>
 
-            <div class="bg-card border-t-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
-                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">PERMANENT TREASURY RELIEF</h4>
-                <p class="text-sm text-gray-700 !mb-0">Anchoring long-term institutional capital permanently removes the FRA from the government’s operational balance sheet. This predictable structure frees billions of Kwacha for strategic fiscal reallocation.</p>
+            <div class="bg-card border-l-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
+                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">Permanent Treasury Relief</h4>
+                <p class="text-sm text-gray-700 !mb-0">Anchoring long-term institutional capital ends reliance on erratic government grants. This predictable structure frees billions of Kwacha for strategic fiscal reallocation.</p>
             </div>
 
-            <div class="bg-card border-t-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
-                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">EMPOWERING RURAL FARMERS</h4>
-                <p class="text-sm text-gray-700 !mb-0">Guaranteeing absolute funding predictability year-on-year ensures over 1,000,000 small-scale farmers receive prompt payments upon delivery, stabilizing rural economies and incentivizing scaled production.</p>
+            <div class="bg-card border-l-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
+                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">Transforming Rural Farming</h4>
+                <p class="text-sm text-gray-700 !mb-0">Guaranteeing predictability year-on-year ensures over 1,000,000 small-scale farmers receive prompt payments, stabilizing rural economies and incentivizing scaled production.</p>
             </div>
 
-            <div class="bg-card border-t-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
-                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">FOREIGN DIRECT INVESTMENT</h4>
-                <p class="text-sm text-gray-700 !mb-0">A fully capitalized, predictable procurement program acts as a sovereign magnet for an additional <strong>USD 500 Million</strong> in follow-on investment for modern logistics, bulk silos, and agricultural power infrastructure.</p>
+            <div class="bg-card border-l-4 border-gold p-6 rounded shadow-sm avoid-break-strict">
+                <h4 class="font-bold text-espresso uppercase tracking-widest text-sm mb-3">Foreign Direct Investment</h4>
+                <p class="text-sm text-gray-700 !mb-0">A fully capitalized procurement program acts as a sovereign magnet for an additional USD 500 Million in Foreign Direct Investment for modern logistics, bulk silos, and agricultural power infrastructure.</p>
             </div>
             
         </div>
         
+        <div class="gold-divider"></div>
+
         <h2 class="section-title !mt-12">REQUESTED ACTION</h2>
         
-        <div class="bg-card border-l-4 border-gold p-6 sm:p-8 rounded-r-md shadow-md mb-8 avoid-break-strict">
-            <p class="text-lg text-espresso font-semibold mb-6">To formalize this vision and commence the syndication of the required institutional capital, we respectfully request the execution of the Master Lead Arranger Agreement.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                    <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-2 border-b border-gray-300 pb-2">ZERO FISCAL OBLIGATION</h5>
-                    <p class="text-sm text-gray-700 !mb-0">This is a strictly success-based mandate. It carries absolutely zero financial obligation, upfront cost, or fiscal risk for the National Treasury.</p>
-                </div>
-                <div>
-                    <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-2 border-b border-gray-300 pb-2">FORMAL MANDATE TRANSITION</h5>
-                    <p class="text-sm text-gray-700 !mb-0">Execution empowers TerraQuest to legally structure the facility, align directly with the Ministry of Finance, and transition the FRA into a globally backed ecosystem.</p>
-                </div>
+        <div class="point-content mb-6">
+            <p>To formalize this vision and commence the syndication of the institutional capital, we respectfully request the execution of the Master Lead Arranger Agreement.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 avoid-break-strict">
+            <div class="bg-card border border-gray-200 p-6 rounded-md shadow-sm">
+                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center font-bold text-espresso mb-4"><i class="fa-solid fa-file-contract"></i></div>
+                <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-2 border-b border-gray-300 pb-2">Zero Fiscal Obligation</h5>
+                <p class="text-sm text-gray-700 !mb-0">This strictly success-based mandate carries absolutely zero financial obligation, upfront cost, or fiscal risk for the National Treasury.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-6 rounded-md shadow-sm">
+                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center font-bold text-espresso mb-4"><i class="fa-solid fa-handshake"></i></div>
+                <h5 class="font-bold text-espresso uppercase tracking-widest text-xs mb-2 border-b border-gray-300 pb-2">Formal Mandate Transition</h5>
+                <p class="text-sm text-gray-700 !mb-0">Execution empowers TerraQuest to legally structure the facility, align directly with the Ministry of Finance, and transition the FRA into a globally backed ecosystem.</p>
             </div>
         </div>
 
     </div>
 
     <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end" style="page-break-before: always; break-before: page;">
-        <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] sepia-[0.2]" loading="lazy" />
+        <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.8] sepia-[0.2]" loading="lazy" />
         
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20"></div>
         
         <div class="relative z-10 p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center sm:items-end w-full gap-6 sm:gap-0 mt-auto">
             <div class="text-center sm:text-left w-full sm:w-auto flex flex-col items-center sm:items-start">
                 <h1 class="text-white text-2xl sm:text-3xl font-bold title-font tracking-widest uppercase mb-3 text-center sm:text-left">
-                    Maize Purchase Program<br>Redesign
+                    Maize Programme<br>Redesign
                 </h1>
                 <div class="w-16 h-1 bg-gold mb-3"></div>
                 <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Confidential Executive Briefing • Zambia</p>
             </div>
             
-            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] filter invert brightness-0 sharp-logo" onerror="this.src='https://placehold.co/200x50/3E2723/FFB81C?text=TerraQuest'" loading="lazy" />
+            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] sharp-logo filter invert brightness-0" loading="lazy" />
         </div>
     </div>
 
