@@ -77,10 +77,10 @@
         .bg-card { background-color: #faf8f5; }
 
         p {
-            margin-bottom: 1rem; 
-            line-height: 1.65; 
+            margin-bottom: 0.85rem; 
+            line-height: 1.6; 
             text-align: justify;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 400;
             orphans: 3;
             widows: 3;
@@ -94,44 +94,44 @@
         ul {
             list-style-type: none; 
             margin-left: 0.25rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         li { 
-            margin-bottom: 0.75rem; 
-            line-height: 1.65;
-            font-size: 0.9rem;
-            padding-left: 1.25rem;
+            margin-bottom: 0.6rem; 
+            line-height: 1.6;
+            font-size: 0.85rem;
+            padding-left: 1.1rem;
             position: relative;
             text-align: justify;
         }
         li::before {
             content: "■";
             color: #FFB81C;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             position: absolute;
             left: 0;
-            top: 0.15rem;
+            top: 0.2rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: #3E2723;
             border-bottom: 2px solid #FFB81C;
-            padding-bottom: 0.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding-bottom: 0.4rem;
+            margin-top: 1.25rem;
+            margin-bottom: 1rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
         .point-header {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #3E2723;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
             letter-spacing: 0.02em;
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
@@ -140,14 +140,14 @@
         .point-content {
             padding-left: 1rem;
             border-left: 3px solid rgba(255, 184, 28, 0.5);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
         
         .gold-divider {
             width: 3rem;
             height: 0.2rem;
             background-color: #FFB81C;
-            margin: 2rem auto;
+            margin: 1.75rem auto;
             opacity: 0.7;
         }
 
@@ -156,12 +156,12 @@
             .master-container { box-shadow: none; margin-bottom: 0; }
             .page-block { padding: 16px; }
             .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; }
-            .section-title { font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 1rem; }
-            p, li { font-size: 0.85rem; }
+            .section-title { font-size: 1.2rem; margin-top: 1.25rem; margin-bottom: 1rem; }
+            p, li { font-size: 0.8rem; }
             .web-header { display: none !important; } 
         }
         
-        /* Strict A4 Print Specification */
+        /* Strict A4 Print Specification - Fixes Truncation */
         @page { 
             size: A4 portrait; 
             margin: 0; 
@@ -189,7 +189,7 @@
                 width: 210mm;
                 height: 297mm;
                 max-height: 297mm;
-                padding: 15mm 18mm !important; 
+                padding: 12mm 18mm !important; /* Slightly reduced top padding to ensure fit */
                 page-break-after: always !important; 
                 break-after: page !important;
                 box-sizing: border-box !important;
@@ -266,142 +266,143 @@
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confidential Briefing</span>
         </header>
 
-        <h2 class="section-title !mt-4 !mb-4">MARKET CONTEXT</h2>
+        <h2 class="section-title !mt-2 !mb-3">MARKET CONTEXT</h2>
         
-        <h4 class="point-header !mt-0 !mb-2">Statutory Mandate</h4>
-        <div class="point-content !mb-4">
-            <p class="!mb-2">Under the Food Reserve Act, the Food Reserve Agency (FRA) administers the National Strategic Food Reserve. The statutory purpose is to:</p>
+        <h4 class="point-header !mt-0 !mb-1">Statutory Mandate</h4>
+        <div class="point-content !mb-3">
+            <p class="!mb-1">Under the Food Reserve Act, the Food Reserve Agency (FRA) administers the National Strategic Food Reserve. The statutory purpose is to:</p>
             <ul class="space-y-1 mb-2">
                 <li>Ensure a reliable supply of designated commodities for the country.</li>
                 <li>Meet local shortfalls in supply.</li>
                 <li>Handle food emergencies caused by drought, floods, or natural disasters.</li>
                 <li>Correct problems resulting from price manipulation or monopolistic practices.</li>
             </ul>
-            <p class="!mb-2">To fulfill these objectives, the FRA developed a National Maize Program to create a strategic reserve of 500,000 to 1,000,000 Metric Tons, and purchase an additional 1,000,000 Metric Tons for market stabilization. Executing this requires predictable capital of <strong>USD 500 Million</strong> year-on-year.</p>
+            <p class="!mb-0">To fulfill these objectives, the FRA developed a National Maize Program to create a strategic reserve of 500,000 to 1,000,000 Metric Tons, and purchase an additional 1,000,000 Metric Tons for market stabilization. Executing this requires predictable capital of <strong>USD 500 Million</strong> year-on-year.</p>
         </div>
 
-        <h2 class="section-title !mt-6 !mb-4">STRUCTURAL GAPS</h2>
-        <div class="point-content !mb-4">
-            <p class="!mb-2">Currently, the Agency executes this highly capital-intensive mandate without an independent, structured funding mechanism. This gap creates severe down-stream constraints:</p>
+        <h2 class="section-title !mt-4 !mb-3">STRUCTURAL GAPS</h2>
+        <div class="point-content !mb-3">
+            <p class="!mb-0">Currently, the Agency executes this highly capital-intensive mandate without an independent, structured funding mechanism. This gap creates severe down-stream constraints:</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             <div class="bg-card border-t-4 border-espresso p-3 rounded shadow-sm avoid-break-strict">
                 <h5 class="font-bold text-espresso uppercase tracking-widest text-[10px] mb-1.5">Exchequer Dependency</h5>
-                <p class="text-[10px] text-gray-700 !mb-0 leading-relaxed">In 2024, the Treasury issued ZMW 2.85 Billion in direct grants, severely draining funds from other national development priorities.</p>
+                <p class="text-[9.5px] text-gray-700 !mb-0 leading-relaxed">In 2024, the Treasury issued ZMW 2.85 Billion in direct grants, severely draining funds from other national development priorities.</p>
             </div>
             <div class="bg-card border-t-4 border-espresso p-3 rounded shadow-sm avoid-break-strict">
                 <h5 class="font-bold text-espresso uppercase tracking-widest text-[10px] mb-1.5">Liquidity Constraints</h5>
-                <p class="text-[10px] text-gray-700 !mb-0 leading-relaxed">The FRA routinely releases grain to state bodies during emergencies. Without pre-funding, receivables wipe out seasonal working capital.</p>
+                <p class="text-[9.5px] text-gray-700 !mb-0 leading-relaxed">The FRA routinely releases grain to state bodies during emergencies. Without pre-funding, receivables wipe out seasonal working capital.</p>
             </div>
             <div class="bg-card border-t-4 border-espresso p-3 rounded shadow-sm avoid-break-strict">
                 <h5 class="font-bold text-espresso uppercase tracking-widest text-[10px] mb-1.5">Audit Vulnerabilities</h5>
-                <p class="text-[10px] text-gray-700 !mb-0 leading-relaxed">Traditional state storage lacks certified inventory management, preventing the State from maintaining a bankable, auditable reserve.</p>
+                <p class="text-[9.5px] text-gray-700 !mb-0 leading-relaxed">Traditional state storage lacks certified inventory management, preventing the State from maintaining a bankable, auditable reserve.</p>
             </div>
         </div>
         
-        <!-- NATIVE HTML FLOWCHART -->
-        <div class="w-full mt-2 mb-2 avoid-break-strict relative">
-            <div class="text-center mb-6">
+        <!-- NATIVE HTML FLOWCHART (REPLACES IMAGE) -->
+        <div class="w-full mt-4 mb-2 avoid-break-strict relative">
+            <div class="text-center mb-5">
                 <h3 class="text-espresso font-bold uppercase tracking-widest text-xs inline-block border-b-2 border-gold pb-1">Maize-Backed Financing Transaction Timeline</h3>
             </div>
 
             <!-- ROW 1 -->
-            <div class="grid grid-cols-3 gap-4 relative z-10 w-full mt-4">
+            <div class="grid grid-cols-3 gap-3 relative z-10 w-full mt-4">
                 <!-- Card 1 -->
-                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-6 pb-3 px-3 flex flex-col items-center">
+                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-5 pb-3 px-3 flex flex-col items-center">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-espresso text-white border-2 border-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-file-signature text-xs"></i>
+                        <i class="fa-solid fa-file-signature text-[11px]"></i>
                     </div>
                     <div class="flex items-center justify-center mb-1 w-full mt-1">
-                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7.5px] font-bold mr-1.5 flex-shrink-0">1</span>
-                        <h4 class="font-bold text-espresso text-[9.5px] tracking-wide m-0">MANDATE SIGNED</h4>
+                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7px] font-bold mr-1.5 flex-shrink-0">1</span>
+                        <h4 class="font-bold text-espresso text-[9px] tracking-wide m-0">MANDATE SIGNED</h4>
                     </div>
-                    <div class="text-[7.5px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T-ZERO</div>
-                    <div class="w-3/4 h-px bg-gray-200 mb-2"></div>
-                    <p class="text-[9px] leading-[1.3] text-gray-600 m-0 text-center flex-grow">The FRA signs the Lead Arranger Agreement with TerraQuest. The 100-day transaction clock starts.</p>
+                    <div class="text-[7px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T-ZERO</div>
+                    <div class="w-3/4 h-px bg-gray-200 mb-1.5"></div>
+                    <p class="text-[8.5px] leading-snug text-gray-600 m-0 text-center flex-grow">The FRA signs the Lead Arranger Agreement with TerraQuest. The 100-day transaction clock starts.</p>
                 </div>
                 
                 <!-- Arrow 1->2 -->
-                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 33.33%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-base"></i></div>
+                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 33.33%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-sm"></i></div>
 
                 <!-- Card 2 -->
-                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-6 pb-3 px-3 flex flex-col items-center">
+                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-5 pb-3 px-3 flex flex-col items-center">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-espresso text-white border-2 border-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-users-gear text-xs"></i>
+                        <i class="fa-solid fa-users-gear text-[11px]"></i>
                     </div>
                     <div class="flex items-center justify-center mb-1 w-full mt-1">
-                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7.5px] font-bold mr-1.5 flex-shrink-0">2</span>
-                        <h4 class="font-bold text-espresso text-[9.5px] tracking-wide m-0">PARTIES APPOINTED</h4>
+                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7px] font-bold mr-1.5 flex-shrink-0">2</span>
+                        <h4 class="font-bold text-espresso text-[9px] tracking-wide m-0">PARTIES APPOINTED</h4>
                     </div>
-                    <div class="text-[7.5px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+14 DAYS</div>
-                    <div class="w-3/4 h-px bg-gray-200 mb-2"></div>
-                    <p class="text-[9px] leading-[1.3] text-gray-600 m-0 text-center flex-grow">TerraQuest legally forms the SPV and appoints the vital watchdogs: the Collateral Manager and Trustee.</p>
+                    <div class="text-[7px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+14 DAYS</div>
+                    <div class="w-3/4 h-px bg-gray-200 mb-1.5"></div>
+                    <p class="text-[8.5px] leading-snug text-gray-600 m-0 text-center flex-grow">TerraQuest legally forms the SPV and appoints the vital watchdogs: the Collateral Manager and Trustee.</p>
                 </div>
 
                 <!-- Arrow 2->3 -->
-                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 66.66%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-base"></i></div>
+                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 66.66%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-sm"></i></div>
 
                 <!-- Card 3 -->
-                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-6 pb-3 px-3 flex flex-col items-center">
+                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-5 pb-3 px-3 flex flex-col items-center">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-espresso text-white border-2 border-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-shield-halved text-xs"></i>
+                        <i class="fa-solid fa-shield-halved text-[11px]"></i>
                     </div>
                     <div class="flex items-center justify-center mb-1 w-full mt-1">
-                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7.5px] font-bold mr-1.5 flex-shrink-0">3</span>
-                        <h4 class="font-bold text-espresso text-[9.5px] tracking-wide m-0">DUE DILIGENCE CLOSED</h4>
+                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7px] font-bold mr-1.5 flex-shrink-0">3</span>
+                        <h4 class="font-bold text-espresso text-[9px] tracking-wide m-0">DUE DILIGENCE CLOSED</h4>
                     </div>
-                    <div class="text-[7.5px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+30 DAYS</div>
-                    <div class="w-3/4 h-px bg-gray-200 mb-2"></div>
-                    <p class="text-[9px] leading-[1.3] text-gray-600 m-0 text-center flex-grow">Final financial, legal, and operational audits on the FRA are completed, clearing the way for institutional investors to commit.</p>
+                    <div class="text-[7px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+30 DAYS</div>
+                    <div class="w-3/4 h-px bg-gray-200 mb-1.5"></div>
+                    <p class="text-[8.5px] leading-snug text-gray-600 m-0 text-center flex-grow">Final financial, legal, and operational audits on the FRA are completed, clearing the way for investors.</p>
                 </div>
             </div>
 
             <!-- CONNECTOR (3 -> 4) -->
-            <div class="w-full relative h-[30px] z-0 -mt-1">
-                <div class="absolute border-r-[1.5px] border-b-[1.5px] border-espresso opacity-40" style="right: 16.66%; width: 33.34%; height: 16px; border-bottom-right-radius: 6px;"></div>
-                <div class="absolute border-l-[1.5px] border-espresso opacity-40" style="right: 50%; height: 14px; top: 16px; border-top-left-radius: 6px;">
-                     <i class="fa-solid fa-caret-down absolute text-espresso opacity-60" style="bottom: -9px; left: -3.5px; font-size: 12px;"></i>
+            <div class="w-full relative h-[25px] z-0 -mt-1">
+                <div class="absolute border-r-[1.5px] border-b-[1.5px] border-espresso opacity-40" style="right: 16.66%; width: 33.34%; height: 14px; border-bottom-right-radius: 6px;"></div>
+                <div class="absolute border-l-[1.5px] border-espresso opacity-40" style="right: 50%; height: 12px; top: 14px; border-top-left-radius: 6px;">
+                     <i class="fa-solid fa-caret-down absolute text-espresso opacity-60" style="bottom: -8px; left: -3.5px; font-size: 11px;"></i>
                 </div>
             </div>
 
             <!-- ROW 2 -->
-            <div class="grid grid-cols-3 gap-4 relative z-10 w-full mt-0">
-                <!-- Empty Spacer -->
+            <div class="grid grid-cols-3 gap-3 relative z-10 w-full mt-0">
+                <!-- Empty Spacer for Left Side -->
                 <div></div>
 
                 <!-- Card 4 -->
-                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-6 pb-3 px-3 flex flex-col items-center">
+                <div class="bg-white border border-gray-200 rounded-xl relative shadow-sm pt-5 pb-3 px-3 flex flex-col items-center">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-espresso text-white border-2 border-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-building-columns text-xs"></i>
+                        <i class="fa-solid fa-building-columns text-[11px]"></i>
                     </div>
                     <div class="flex items-center justify-center mb-1 w-full mt-1">
-                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7.5px] font-bold mr-1.5 flex-shrink-0">4</span>
-                        <h4 class="font-bold text-espresso text-[9.5px] tracking-wide m-0">FUNDS POOLED & READY</h4>
+                        <span class="bg-espresso text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7px] font-bold mr-1.5 flex-shrink-0">4</span>
+                        <h4 class="font-bold text-espresso text-[9px] tracking-wide m-0">FUNDS POOLED & READY</h4>
                     </div>
-                    <div class="text-[7.5px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+90 DAYS</div>
-                    <div class="w-3/4 h-px bg-gray-200 mb-2"></div>
-                    <p class="text-[9px] leading-[1.3] text-gray-600 m-0 text-center flex-grow">TerraQuest secures the initial USD 100M. Cash is pooled in the Receiving Bank and sits ready, conditional upon maize transfer.</p>
+                    <div class="text-[7px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">T+90 DAYS</div>
+                    <div class="w-3/4 h-px bg-gray-200 mb-1.5"></div>
+                    <p class="text-[8.5px] leading-snug text-gray-600 m-0 text-center flex-grow">TerraQuest secures USD 100M. Cash is pooled in the Receiving Bank and sits ready, conditional upon maize transfer.</p>
                 </div>
 
                 <!-- Arrow 4->5 -->
-                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 66.66%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-base"></i></div>
+                <div class="absolute top-[45%] text-espresso opacity-40 z-20" style="left: 66.66%; transform: translate(-50%, -50%);"><i class="fa-solid fa-arrow-right text-sm"></i></div>
 
                 <!-- Card 5 (GOLD) -->
-                <div class="bg-[#FFB81C]/5 border border-[#FFB81C]/40 rounded-xl relative shadow-sm pt-6 pb-3 px-3 flex flex-col items-center">
+                <div class="bg-[#FFB81C]/5 border border-[#FFB81C]/40 rounded-xl relative shadow-sm pt-5 pb-3 px-3 flex flex-col items-center">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-[#FFB81C] text-espresso border-2 border-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-wheat-awn text-xs"></i>
+                        <i class="fa-solid fa-wheat-awn text-[11px]"></i>
                     </div>
                     <div class="flex items-center justify-center mb-1 w-full mt-1">
-                        <span class="bg-[#FFB81C] text-espresso rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7.5px] font-bold mr-1.5 flex-shrink-0">5</span>
-                        <h4 class="font-bold text-[#b47a11] text-[9.5px] tracking-wide m-0 leading-[1.1] text-center">MAIZE TRANSFER =<br>INSTANT DRAWDOWN</h4>
+                        <span class="bg-[#FFB81C] text-espresso rounded-full w-3.5 h-3.5 flex items-center justify-center text-[7px] font-bold mr-1.5 flex-shrink-0">5</span>
+                        <h4 class="font-bold text-[#b47a11] text-[9px] tracking-wide m-0 leading-tight text-center">MAIZE TRANSFER =<br>INSTANT DRAWDOWN</h4>
                     </div>
-                    <div class="text-[7.5px] font-bold text-[#b47a11] opacity-80 uppercase tracking-widest mb-1.5 mt-0.5">T+100 DAYS</div>
-                    <div class="w-3/4 h-px bg-[#FFB81C]/40 mb-2"></div>
-                    <p class="text-[9px] leading-[1.3] text-gray-700 m-0 text-center flex-grow">FRA hands over title; Collateral Manager verifies. Bank instantly releases USD 100M in $5M tranches. Bal. 300M in 90 days.</p>
+                    <div class="text-[7px] font-bold text-[#b47a11] opacity-80 uppercase tracking-widest mb-1.5 mt-0.5">T+100 DAYS</div>
+                    <div class="w-3/4 h-px bg-[#FFB81C]/40 mb-1.5"></div>
+                    <p class="text-[8.5px] leading-snug text-gray-700 m-0 text-center flex-grow">FRA transfers title; Collateral Manager verifies. Bank instantly releases initial USD 100M in $5M tranches.</p>
                 </div>
             </div>
         </div>
+        <!-- END NATIVE FLOWCHART -->
 
     </div>
 
