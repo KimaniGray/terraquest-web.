@@ -35,11 +35,15 @@
     </script>
     <style>
         @media print {
-            body { background-color: #F4F0E7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { background-color: #F4F0E7 !important; }
             .no-print { display: none !important; }
             .page-break { page-break-before: always; }
-            .hero-section { background-color: #080808 !important; color: #F4F0E7 !important; }
+            .hero-section { background-color: #080808 !important; color: #F4F0E7 !important; padding-top: 5rem !important; padding-bottom: 5rem !important; }
+            header, footer { background-color: #080808 !important; }
             .logo-text { color: #C6A04A !important; }
+            tr, .bg-white\/70, .bg-white { page-break-inside: avoid; }
+            h2, h3 { page-break-after: avoid; }
         }
         
         body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
@@ -82,7 +86,7 @@
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
 
-    <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 no-print shadow-sm">
+    <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 shadow-sm print:relative print:border-none">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -92,7 +96,7 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <button id="btn-print" class="text-tq-ivory hover:text-tq-gold transition-colors text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer">Print PDF</button>
+                    <button id="btn-print" class="bg-tq-gold text-tq-black hover:bg-tq-antique transition-colors px-6 py-2.5 rounded text-[11px] font-bold tracking-[0.15em] uppercase cursor-pointer no-print shadow-lg">Print PDF</button>
                 </div>
             </div>
         </div>
@@ -434,7 +438,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-tq-black text-tq-ivory py-16 border-t border-tq-gold/20 no-print mt-12">
+    <footer class="bg-tq-black text-tq-ivory py-16 border-t border-tq-gold/20 mt-12 print:mt-0 print:py-8">
         <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
                 <!-- Text-based elegant logo from index.html -->
@@ -443,7 +447,7 @@
                 </div>
             </div>
             <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
-                &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
+                &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline print:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
             </div>
         </div>
     </footer>
