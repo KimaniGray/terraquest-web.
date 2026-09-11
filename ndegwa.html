@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Ndegwa: Strategic Memorandum | TerraQuest Investments</title>
     
-    <link rel="icon" type="image/png" href="Terraquest%20Favicon%20Black.png">
+    <link rel="icon" type="image/png" href="./Terraquest%20Favicon%20Black.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,26 +34,22 @@
         }
     </script>
     <style>
-        /* Custom print styles for PDF generation */
         @media print {
             body { background-color: #F4F0E7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .no-print { display: none !important; }
             .page-break { page-break-before: always; }
             .hero-section { background-color: #080808 !important; color: #F4F0E7 !important; }
-            .logo-img { filter: none !important; }
+            .logo-text { color: #C6A04A !important; }
         }
         
-        /* Typography specifics */
         body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
         
-        /* Subtle orbital lines graphic element */
         .bg-orbital {
             background-image: radial-gradient(circle at 50% -20%, transparent 40%, rgba(198, 160, 74, 0.04) 41%, transparent 42%),
                               radial-gradient(circle at -10% 50%, transparent 30%, rgba(198, 160, 74, 0.02) 31%, transparent 32%);
             background-size: 100% 100%;
         }
         
-        /* Elegant Institutional Table Styling */
         table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
         th { 
             border-bottom: 1px solid #C6A04A; 
@@ -82,32 +78,18 @@
             margin-bottom: 1.25rem; 
             font-weight: 500;
         }
-
-        /* ASCII diagram container */
-        .diagram-container {
-            background-color: #080808;
-            color: #C6A04A;
-            padding: 2.5rem;
-            border-radius: 2px;
-            font-family: monospace;
-            white-space: pre;
-            overflow-x: auto;
-            margin-top: 1.5rem;
-            margin-bottom: 2.5rem;
-            border-left: 2px solid #C6A04A;
-            line-height: 1.4;
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
 
-    <!-- Header -->
     <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 no-print shadow-sm">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Elegant proportioned logo -->
-                    <img class="h-6 md:h-7 w-auto object-contain" src="TerraQuest%20Logo.png" alt="TerraQuest Investments FZCO">
+                    <!-- Text-based elegant logo from index.html -->
+                    <div class="logo-text text-[16px] sm:text-xl md:text-2xl font-bold text-tq-gold tracking-[0.1em] md:tracking-[0.15em] font-serif flex items-center leading-none flex-shrink-0 whitespace-nowrap uppercase">
+                        TERRAQUEST FZCO
+                    </div>
                 </div>
                 <div class="flex items-center space-x-6">
                     <button id="btn-print" class="text-tq-ivory hover:text-tq-gold transition-colors text-[11px] font-semibold tracking-[0.1em] uppercase cursor-pointer">Print PDF</button>
@@ -116,7 +98,6 @@
         </div>
     </header>
 
-    <!-- Hero Title Section -->
     <section class="hero-section bg-tq-black text-tq-ivory pt-32 pb-40 bg-orbital border-b border-tq-gold relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
             <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-6">Strategic Memorandum</h4>
@@ -136,7 +117,6 @@
         </div>
     </section>
 
-    <!-- Main Content Layout -->
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24">
         
         <!-- Section 1 -->
@@ -167,32 +147,6 @@
                 </ul>
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
-
-                <h5 class="text-[11px] font-bold text-tq-stone uppercase tracking-[0.1em] mb-2 mt-12">Fig 1: Group Corporate Structure</h5>
-                <div class="diagram-container text-[10px] md:text-[12px]">
-+---------------------------------------------------------------------------------------------------+
-|                                            UAE INVESTCO                                           |
-|                     (Holding Vehicle: Capital, IP & Governance - ADGM [or DIFC])                  |
-+-------------------------------------------------+-------------------------------------------------+
-                                                  |
-                         +------------------------+------------------------+
-                         | (100% Wholly Owned)                             | (100% Wholly Owned)
-                         v                                                 v
-+-------------------------------------------------+ +-----------------------------------------------+
-|                   KENYA OPCO                    | |                   UAE OPCO                    |
-|       (Upstream Production & Leases)            | |      (Downstream Distribution & Sales)        |
-| - 25-Year Operational Leases & Caveats          | | - GCC Sales, Marketing & Off-Take Delivery    |
-| - Processing CAPEX (USD 2.8M Plant & Reefers)   | | - Leased Cold Warehousing (KEZAD/JAFZA)       |
-| - Rotating Feedlot Cattle Batches (Salam/COGS)  | | - Feed Rations, Silage & Fodder Cultivation   |
-| - Halal Abattoir, Vet Clearance & Site OPEX     | | - UAE Port Customs Clearance (Air & Sea)      |
-| - Upstream Production Costs & Staff Overheads   | | - Last-Mile Refrigerated Distribution Fleet   |
-|                                                 | | - Local Currency Invoicing & Collections      |
-+-------------------------------------------------+ +-----------------------------------------------+
-                         ^                                                 |
-                         |          Established Transfer Pricing           |
-                         +-------------------------------------------------+
-                                      Agreement & Off-Take
-                </div>
             </div>
         </article>
 
@@ -228,7 +182,7 @@
                         <caption>Phase 1 Capital Allocation (~USD 10.0M)</caption>
                         <thead>
                             <tr>
-                                <th>Bucket / Category</th>
+                                <th>Category</th>
                                 <th>Amount (USD)</th>
                                 <th>Operational Specification</th>
                             </tr>
@@ -237,22 +191,22 @@
                             <tr>
                                 <td><strong>1. Setup & Reserves</strong></td>
                                 <td class="font-mono text-tq-antique font-medium">1,200,000</td>
-                                <td>USD 1.0M unrestricted liquidity reserve; USD 200k legal setup, 25-yr leases, caveats & formations.</td>
+                                <td>USD 1.0M unrestricted liquidity reserve; USD 200k legal setup & leases.</td>
                             </tr>
-                            <tr class="bg-tq-ivory/50">
+                            <tr class="bg-white/50">
                                 <td><strong>2. Processing CAPEX</strong></td>
                                 <td class="font-mono text-tq-antique font-medium">2,800,000</td>
-                                <td>Modular Halal abattoir, dual chillers (0°C), blast freezers (-35°C), deboning lines, effluent plant & reefer fleet. (The Additive Carve-Out).</td>
+                                <td>Modular Halal abattoir, chillers, blast freezers & reefers.</td>
                             </tr>
                             <tr>
                                 <td><strong>3. Supply & Float</strong></td>
                                 <td class="font-mono text-tq-antique font-medium">6,000,000</td>
-                                <td>USD 1.0M Day-1 stock buyout; USD 1.3M feedlots/PEI pens; USD 560k buying stations/vet; USD 3.14M revolving livestock/freight trade float.</td>
+                                <td>USD 1.0M Day-1 stock; USD 1.3M feedlots; USD 3.7M trade float.</td>
                             </tr>
                             <tr class="border-t border-tq-gold">
                                 <td class="font-bold text-tq-black pt-4">TOTAL PHASE 1</td>
                                 <td class="font-mono font-bold text-tq-black pt-4">10,000,000</td>
-                                <td class="text-tq-stone pt-4 italic text-sm">Subject to formal ExCo ratification post-setup.</td>
+                                <td class="text-tq-stone pt-4 italic text-sm">Subject to formal ExCo ratification.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -264,10 +218,10 @@
                         <thead>
                             <tr>
                                 <th>Capital Line Item</th>
-                                <th>Balance Sheet Entity</th>
+                                <th>Entity Balance Sheet</th>
                                 <th>Amount (USD)</th>
                                 <th>Structuring Instrument</th>
-                                <th>Accounting & Collateral Profile</th>
+                                <th>Accounting Treatment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -276,28 +230,28 @@
                                 <td>UAE InvestCo</td>
                                 <td class="font-mono">50,000</td>
                                 <td>Paid-Up Ordinary Shares</td>
-                                <td>Defines 50/50 enterprise co-ownership and voting parity.</td>
+                                <td>Establishes 50/50 enterprise co-ownership and voting parity.</td>
                             </tr>
-                            <tr class="bg-tq-ivory/50">
+                            <tr class="bg-white/50">
                                 <td><strong>Bucket 1: Setup & Reserves</strong></td>
                                 <td>UAE InvestCo</td>
                                 <td class="font-mono">1,200,000</td>
                                 <td>Unrestricted Cash Reserve</td>
-                                <td>USD 1.0M locked buffer to absorb credit lag; USD 200k expensed as formation/legal costs.</td>
+                                <td>USD 1.0M liquid reserve absorbing credit lag; USD 200k expensed.</td>
                             </tr>
                             <tr>
                                 <td><strong>Bucket 2: Processing CAPEX</strong></td>
                                 <td>Kenya OpCo</td>
                                 <td class="font-mono">2,800,000</td>
-                                <td><em class="font-serif">Istisna'a</em> (Construction)</td>
-                                <td>Capitalized under IAS 16 as Leasehold Improvements & 100% Owned Fixed Plant on leased land.</td>
+                                <td>Istisna'a (Construction)</td>
+                                <td>Capitalized under IAS 16 as 100% Owned Plant on leased land.</td>
                             </tr>
-                            <tr class="bg-tq-ivory/50">
+                            <tr class="bg-white/50">
                                 <td><strong>Bucket 3: Supply & Float</strong></td>
                                 <td>Kenya OpCo</td>
                                 <td class="font-mono">6,000,000</td>
-                                <td><em class="font-serif">Murabaha & Salam</em></td>
-                                <td>Revolving current assets (inventory & receivables) secured against live cattle, feed, and off-take contracts.</td>
+                                <td>Murabaha & Salam</td>
+                                <td>Secured current assets (inventory & receivables) via trade liens.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -305,38 +259,38 @@
 
                 <div class="mt-12 overflow-x-auto">
                     <table>
-                        <caption>Four-Tier Distribution Waterfall (Settled in AED/SAR)</caption>
+                        <caption>Four-Tier Distribution Waterfall</caption>
                         <thead>
                             <tr>
-                                <th class="w-20 text-center">Tier</th>
+                                <th class="w-16">Tier</th>
                                 <th>Priority Category</th>
                                 <th>Settlement Rule & Formula</th>
-                                <th>Currency & Flow</th>
+                                <th>Currency Flow</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-center font-bold text-tq-black">TIER 1</td>
+                                <td class="font-bold text-tq-black">TIER 1</td>
                                 <td><strong>Direct Operating COGS</strong></td>
-                                <td>Gross trade proceeds immediately clear batch expenses: Air/Sea freight, processing fees, TMR rations, vet tests, and port customs.</td>
-                                <td>AED/SAR via UAE OpCo</td>
+                                <td>Gross trade proceeds clear freight, processing, feed, and customs.</td>
+                                <td>AED/SAR</td>
                             </tr>
-                            <tr class="bg-tq-ivory/50">
-                                <td class="text-center font-bold text-tq-black">TIER 2</td>
+                            <tr class="bg-white/50">
+                                <td class="font-bold text-tq-black">TIER 2</td>
                                 <td><strong>Priority Capital Recovery</strong></td>
-                                <td>Full amortization of deployed investment principal plus the agreed anticipated return/hurdle rate.</td>
-                                <td>Swept to UAE InvestCo</td>
+                                <td>Amortization of deployed principal plus agreed anticipated return.</td>
+                                <td>Swept to InvestCo</td>
                             </tr>
                             <tr>
-                                <td class="text-center font-bold text-tq-black">TIER 3</td>
+                                <td class="font-bold text-tq-black">TIER 3</td>
                                 <td><strong>Operating Reserves</strong></td>
-                                <td>Mandatory refill of the rolling 60-day feeder ingestion buffer and pastoralist acquisition float.</td>
-                                <td>Retained Working Capital</td>
+                                <td>Mandatory refill of the rolling 60-day feeder ingestion buffer.</td>
+                                <td>Retained Cash</td>
                             </tr>
-                            <tr class="bg-tq-ivory/50">
-                                <td class="text-center font-bold text-tq-black">TIER 4</td>
+                            <tr class="bg-white/50">
+                                <td class="font-bold text-tq-black">TIER 4</td>
                                 <td><strong>Equal Profit Sharing</strong></td>
-                                <td>All residual net operational profits are distributed equally: <strong class="text-tq-black">50% Investee</strong> and <strong class="text-tq-black">50% Investor</strong>.</td>
+                                <td>Residual net operational profits distributed equally (50% / 50%).</td>
                                 <td>Quarterly Dividend</td>
                             </tr>
                         </tbody>
@@ -355,16 +309,11 @@
                     </li>
                     <li class="relative pl-6">
                         <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                        <strong class="font-semibold text-tq-black">Operations:</strong> Directed by the Group COO. End-to-end management of physical and field activities across three asset models:
-                        <ul class="list-disc pl-6 mt-3 space-y-2 text-[14.5px] text-tq-charcoal/90">
-                            <li><em class="font-serif text-[15px] font-medium not-italic text-tq-black">Owned Assets:</em> Direct ownership of processing hardware (modular Halal slaughter floor, carcass hanging chillers, blast freezers, deboning tables, vacuum packaging lines), refrigerated distribution reefers, Pre-Export Isolation (PEI) diagnostic holding pens, and rotating finishing cattle batches acquired at the feedlot gate.</li>
-                            <li><em class="font-serif text-[15px] font-medium not-italic text-tq-black">Leased Assets:</em> Operational control under 25-year registered commercial land leases covering the Kitengela and Narok feedlot yards and the 500-acre Narok fodder farm, alongside leased temperature-controlled warehousing in KEZAD/JAFZA.</li>
-                            <li><em class="font-serif text-[15px] font-medium not-italic text-tq-black">Contracted Assets:</em> Toll-processing backup agreements, exclusive Facilities Use Agreement, scheduled air cargo allocations (JKIA), ocean carrier reefer containers (Mombasa), pastoral sourcing networks, and veterinary extension protocols.</li>
-                        </ul>
+                        <strong class="font-semibold text-tq-black">Operations:</strong> Directed by the Group COO. End-to-end management of physical and field activities across Owned, Leased, and Contracted assets.
                     </li>
                     <li class="relative pl-6">
                         <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                        <strong class="font-semibold text-tq-black">Finance & Administration:</strong> Directed by the Group CFO. Financial controls, livestock batch cost accounting, transfer pricing compliance (KRA and UAE Corporate Tax), statutory audits, corporate secretarial management, entity licensing maintenance, and revenue waterfall sweeps.
+                        <strong class="font-semibold text-tq-black">Finance & Administration:</strong> Directed by the Group CFO. Financial controls, cost accounting, transfer pricing compliance, statutory audits, and revenue waterfall sweeps.
                     </li>
                 </ul>
 
@@ -375,60 +324,18 @@
                     <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
                         <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
                         <div class="text-[14px] leading-relaxed space-y-3">
-                            <p><strong class="text-tq-black font-medium">Composition & Voting:</strong> Investor Director (Chair, single ordinary vote), Investee Director (one vote), and Independent Director (one vote). The Executive Team participates to report with zero voting rights.</p>
+                            <p><strong class="text-tq-black font-medium">Voting Members:</strong> Investor Director (Chair, single ordinary vote), Investee Director (one vote), and Independent Director (one vote). The Executive Team participates to report with zero voting rights.</p>
                             <p><strong class="text-tq-black font-medium">Decision Threshold:</strong> Supermajority (&ge; 2/3 affirmative votes).</p>
-                            <p><strong class="text-tq-black font-medium">Cadence:</strong> Bi-weekly.</p>
-                            <p><strong class="text-tq-black font-medium">Scope:</strong> Operational oversight across all three operating divisions. Ratifies the agreed capital allocation post-setup.</p>
+                            <p><strong class="text-tq-black font-medium">Scope:</strong> Operational oversight across all divisions. Ratifies the agreed capital allocation post-setup.</p>
                         </div>
                     </div>
                     <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
                         <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Audit & Risk (AR-TP)</strong>
                         <div class="text-[14px] leading-relaxed space-y-3">
                             <p><strong class="text-tq-black font-medium">Composition:</strong> Investee Director (Chair), Investor Director, Group COO (Secretary), Group CFO, and external auditor.</p>
-                            <p><strong class="text-tq-black font-medium">Cadence:</strong> Quarterly.</p>
-                            <p><strong class="text-tq-black font-medium">Scope:</strong> Financial audit oversight, statutory tax compliance, verification of the transfer pricing cost-plus formula, and veterinary quarantine compliance.</p>
+                            <p><strong class="text-tq-black font-medium">Scope:</strong> Financial audit oversight, statutory tax compliance, verification of the transfer pricing formula, and veterinary quarantine compliance.</p>
                         </div>
                     </div>
-                </div>
-
-                <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Executive Management</h3>
-                <p>A single Group Executive Team holds joint operational authority. The Group CEO reports to the Board and committees. The Group COO and Group CFO report directly to the Group CEO.</p>
-
-                <h5 class="text-[11px] font-bold text-tq-stone uppercase tracking-[0.1em] mb-2 mt-10">Fig 2: Governance & Divisional Hierarchy</h5>
-                <div class="diagram-container text-[10px] md:text-[12px]">
-                                [ UAE INVESTCO BOARD ]
-                      (2 Investee | 2 Investor | 1 Independent)
-                                          |
-                                          v
-                                 [ BOARD COMMITTEES ]
-                 • Executive Committee (ExCo)  [Chair: Investor Dir | 3 Voting Dirs | Sec: CEO]
-                 • Audit & Risk (AR-TP)        [Chair: Investee Dir | Sec: COO]
-                                          |
-                                          v
-                                    [ GROUP CEO ]
-                   (Enterprise Lead, Coordinates Board Paper,
-                    Directly Leads Commercial & Sales Division,
-                    Executes Commercial & Intercompany Agreements)
-                                          |
-         +--------------------------------+--------------------------------+
-         |                                |                                |
-         v                                v                                v
-[ COMMERCIAL & SALES ]              [ GROUP COO ]                    [ GROUP CFO ]
- (Directly Under CEO)           (Head of Operations)          (Head of Finance & Admin)
-• GCC Off-Take Contracts                  |                                |
-• GCC Supermarket Chains                  v                                v
-• HORECA Supply Accounts            [ OPERATIONS ]                [ FINANCE & ADMIN ]
-• Volume Delivery Schedules       • Owned Assets                  • KRA Tax Filings
-• Pricing & Credit Control          - Modular Abattoir            • Cost Accounting
-• Regional Marketing                - Chillers & Reefers          • Transfer Pricing
-                                    - Feeder Cattle Batches       • Waterfall Sweeps
-                                  • Leased Assets                 • Group Audit & Records
-                                    - 25-Yr Land Leases           • Entity Licensing
-                                    - KEZAD/JAFZA Cold Hub        • Corporate Secretarial
-                                  • Contracted Assets
-                                    - Backup Toll Lines
-                                    - Freight Allocations
-                                    - Facilities Use & Sourcing
                 </div>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Decision Authority</h3>
@@ -468,19 +375,19 @@
                 <p>Operational deployment transitions the Investee's rangeland, yards, and herds into an active export pipeline across a defined Day T<sub>0</sub> to Day T+90 execution schedule:</p>
                 
                 <ul class="list-none space-y-5 pl-0 my-6">
-                    <li class="bg-tq-ivory/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Operational Footprint Mobilized (T<sub>0</sub>)</strong>
                         Feedlots (Kitengela/Narok), 500-acre fodder cultivation, 12,000-head breeding nucleus, and active domestic continuity (Farmers Choice).
                     </li>
-                    <li class="bg-tq-ivory/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T<sub>0</sub> to T+30 (Setup & Allocation)</strong>
                         ExCo ratifies the ~USD 10.0M allocation, locks the 10% reserve, transitions staff, and closes 25-year leases and statutory caveats.
                     </li>
-                    <li class="bg-tq-ivory/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+30 to T+60 (Ingestion & Quarantine)</strong>
                         Day-1 stock acquisition (USD 1.0M), feedlot-gate steer intake under <em class="font-serif">Salam</em> contracts, PEI quarantine testing, and groundbreaking for the modular Halal abattoir.
                     </li>
-                    <li class="bg-tq-ivory/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+60 to T+90 (Export & Settlement)</strong>
                         Cattle reach export weights (~450kg), process through the abattoir, clear JKIA air-cargo to UAE OpCo, and commercial accounts settle via the cash waterfall.
                     </li>
@@ -506,24 +413,6 @@
                         <strong class="font-semibold text-tq-black">Feedlot-Gate Ingestion:</strong> Kenya OpCo buys 280–320 kg feeder steers via forward purchase contracts (<em class="font-serif">Salam</em>) at the gate; core breeding herds remain on the Investee's balance sheet.
                     </li>
                 </ul>
-
-                <h5 class="text-[11px] font-bold text-tq-stone uppercase tracking-[0.1em] mb-2 mt-12">Fig 3: Physical Supply Flow</h5>
-                <div class="diagram-container text-[10px] md:text-[12px]">
-+------------------------+      +------------------------+      +------------------------+
-| 1. GATE INGESTION      | ---> | 2. FEEDLOT FINISHING   | ---> | 3. OWNED HALAL ABATTOIR|
-| • 280-320 kg steers    |      | • 60-90 day TMR ration |      | • MoCCaE / Halal pass  |
-| • Day-1 stock buyout   |      | • Silage bunker draw   |      | • Blast chill (0°-4°C) |
-| • Salam forward title  |      | • PEI quarantine test  |      | • Vacuum primal pack   |
-+------------------------+      +------------------------+      +-----------+------------+
-                                                                            |
-                                                                            v
-+------------------------+      +------------------------+      +------------------------+
-| 6. TRADE SETTLEMENT    | <--- | 5. GCC DISTRIBUTION    | <--- | 4. REEFER TRANSIT      |
-| • Supermarket off-take |      | • KEZAD/JAFZA cold hub |      | • Air freight (JKIA)   |
-| • HORECA distribution  |      | • Reefer fleet transit |      | • Sea reefer (Mombasa) |
-| • AED/SAR collection   |      | • Port food safety pass|      | • Continuous data-log  |
-+------------------------+      +------------------------+      +------------------------+
-                </div>
             </div>
         </article>
 
@@ -548,17 +437,18 @@
     <footer class="bg-tq-black text-tq-ivory py-16 border-t border-tq-gold/20 no-print mt-12">
         <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
-                <!-- Footer subtle logo -->
-                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="h-6 opacity-60 grayscale">
+                <!-- Text-based elegant logo from index.html -->
+                <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase">
+                    TERRAQUEST FZCO
+                </div>
             </div>
             <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
-                &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2">Global. Sophisticated. Disciplined. Long-Term.</span>
+                &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // 1. Trigger Print to PDF Dialog
         document.getElementById('btn-print').addEventListener('click', function() {
             window.print();
         });
