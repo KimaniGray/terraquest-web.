@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Ndegwa: Strategic Memorandum | TerraQuest Investments</title>
+    
+    <link rel="icon" type="image/png" href="Terraquest%20Favicon%20Black.png">
+    
     <!-- Brand Typography: Elegant serif for display (Playfair Display as a widely available alternative to Moran Ramond), clean sans-serif for body (Manrope) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,12 +83,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Using the provided transparent/dark background logo -->
-                    <img class="h-10 w-auto" src="https://raw.githubusercontent.com/terraquest-trade/assets/main/TerraQuest%20Investment%20Logo.png" alt="TerraQuest Investments FZCO" onerror="this.src='https://placehold.co/400x100/080808/C6A04A?text=TERRAQUEST+INVESTMENTS';">
+                    <!-- Updated to use relative path for Github hosting -->
+                    <img class="h-10 w-auto" src="TerraQuest%20Logo.png" alt="TerraQuest Investments FZCO">
                 </div>
                 <div class="flex items-center space-x-6">
-                    <a href="#" class="text-tq-ivory hover:text-tq-gold transition-colors text-sm font-medium tracking-wide uppercase">Print PDF</a>
-                    <a href="#" class="bg-tq-gold text-tq-black hover:bg-tq-antique transition-colors px-6 py-2 rounded-sm text-sm font-bold tracking-wide">Download DSL</a>
+                    <button id="btn-print" class="text-tq-ivory hover:text-tq-gold transition-colors text-sm font-medium tracking-wide uppercase cursor-pointer">Print PDF</button>
+                    <button id="btn-download-dsl" class="bg-tq-gold text-tq-black hover:bg-tq-antique transition-colors px-6 py-2 rounded-sm text-sm font-bold tracking-wide cursor-pointer">Download DSL</button>
                 </div>
             </div>
         </div>
@@ -95,7 +98,8 @@
     <section class="hero-section bg-tq-black text-tq-ivory pt-24 pb-32 bg-orbital border-b-4 border-tq-gold relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-block mb-6">
-                <img src="https://raw.githubusercontent.com/terraquest-trade/assets/main/Terraquest%20Favicon%20Black.png" alt="Symbol" class="h-16 w-16 mx-auto opacity-90" onerror="this.style.display='none';">
+                <!-- Updated to use the Favicon asset -->
+                <img src="Terraquest%20Favicon%20Black.png" alt="Symbol" class="h-16 w-16 mx-auto opacity-90">
             </div>
             <h4 class="text-tq-gold font-sans tracking-[0.2em] uppercase text-sm font-bold mb-4">Strategic Memorandum</h4>
             <h1 class="text-5xl md:text-6xl font-serif font-medium leading-tight mb-8">Project Ndegwa</h1>
@@ -517,7 +521,8 @@
     <footer class="bg-tq-black text-tq-ivory py-12 border-t border-tq-gold/20 no-print mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
-                <img src="https://raw.githubusercontent.com/terraquest-trade/assets/main/TerraQuest%20Investment%20Logo.png" alt="TerraQuest" class="h-8 opacity-70" onerror="this.src='https://placehold.co/200x50/080808/C6A04A?text=TERRAQUEST';">
+                <!-- Updated to use relative path -->
+                <img src="TerraQuest%20Logo.png" alt="TerraQuest" class="h-8 opacity-70">
             </div>
             <div class="text-sm text-tq-stone font-sans tracking-wide">
                 &copy; 2026 TerraQuest Investments FZCO. Global. Sophisticated. Disciplined. Long-Term.
@@ -525,5 +530,118 @@
         </div>
     </footer>
 
+    <script>
+        // 1. Trigger Print to PDF Dialog
+        document.getElementById('btn-print').addEventListener('click', function() {
+            window.print();
+        });
+
+        // 2. Generate and Download DSL Diagram Code
+        document.getElementById('btn-download-dsl').addEventListener('click', function() {
+            const dslText = `// PROJECT NDEGWA - ERASER.IO DIAGRAM-AS-CODE (DSL)
+// Copy and paste these blocks into Eraser.io (Diagram as Code feature)
+
+// ==========================================
+// 1. GROUP CORPORATE & LEGAL STRUCTURE
+// ==========================================
+direction down
+
+// Shareholders
+Shareholders [colorMode: outline] {
+  Investee [label: "PineCrest Holdings\\n(50% Ordinary Shares)", color: blue]
+  Investor [label: "Golden Nile Trading LLC\\n(50% Ordinary Shares)", color: green]
+}
+
+InvestCo [label: "UAE INVESTCO\\n(ADGM [or DIFC] Holding Vehicle)\\nCapital, IP & Governance", color: purple] {
+  Capital [label: "USD 50,000 Nominal Share Capital\\nSingle Class Ordinary Shares (50/50)"]
+}
+
+Shareholders > InvestCo: 50/50 Co-Ownership
+
+KenyaOpCo [label: "KENYA OPCO\\n(Upstream Production & Leases)", color: orange] {
+  Kenya_Assets [label: "• 25-Year Commercial Leases & Caveats\\n• USD 2.8M Owned Abattoir & Chillers\\n• Feeder Cattle Gate Batches (Salam/COGS)"]
+}
+
+UAEOpCo [label: "UAE OPCO\\n(Downstream Distribution & Sales)", color: teal] {
+  UAE_Assets [label: "• GCC Commercial Off-Take Delivery\\n• Leased Cold Storage (KEZAD/JAFZA)\\n• Local Invoicing & Collections (AED/SAR)"]
+}
+
+InvestCo > KenyaOpCo: 100% Wholly Owned
+InvestCo > UAEOpCo: 100% Wholly Owned
+KenyaOpCo <> UAEOpCo: Arm's-Length Master Supply & Off-Take\\nCost-Plus Transfer Pricing (KRA & UAE Corporate Tax) [color: gray]
+
+// ==========================================
+// 2. GOVERNANCE & HIERARCHY
+// ==========================================
+direction down
+Board [label: "UAE INVESTCO BOARD OF DIRECTORS\\n5 Seats: 2 Investee | 2 Investor | 1 Independent", color: purple]
+
+Committees [colorMode: outline] {
+  ExCo [label: "Executive Committee (ExCo)\\nChair: Investor Director", color: blue]
+  AuditRisk [label: "Audit & Risk Committee (AR-TP)\\nChair: Investee Director", color: red]
+}
+Board > Committees: Delegated Committee Oversight
+
+CEO [label: "GROUP CHIEF EXECUTIVE OFFICER\\nEnterprise Leadership & Off-Take", color: blue]
+Committees > CEO: Board Paper Directives & Mandates
+
+Divisions [colorMode: outline] {
+  Sales [label: "COMMERCIAL & SALES\\n(Directly Under CEO)", color: teal]
+  COO [label: "GROUP COO\\n(Head of Operations)", color: orange]
+  CFO [label: "GROUP CFO\\n(Head of Finance & Admin)", color: green]
+}
+CEO > Sales
+CEO > COO
+CEO > CFO
+
+// ==========================================
+// 3. PHYSICAL SUPPLY & EXPORT PIPELINE
+// ==========================================
+direction right
+Step1 [label: "1. GATE INGESTION\\n• 280–320 kg steers\\n• Salam forward title", color: orange]
+Step2 [label: "2. FEEDLOT FINISHING\\n• 60–90 day TMR\\n• PEI quarantine test", color: orange]
+Step3 [label: "3. OWNED HALAL ABATTOIR\\n• Blast chillers (0°C - 4°C)", color: red]
+Step4 [label: "4. REEFER TRANSIT\\n• Air freight (JKIA)", color: blue]
+Step5 [label: "5. GCC DISTRIBUTION\\n• KEZAD / JAFZA cold hub", color: teal]
+Step6 [label: "6. TRADE SETTLEMENT\\n• AED/SAR Collections", color: green]
+
+Step1 > Step2
+Step2 > Step3
+Step3 > Step4
+Step4 > Step5
+Step5 > Step6
+
+// ==========================================
+// 4. SETTLEMENT WATERFALL
+// ==========================================
+direction down
+GrossRevenue [label: "GROSS GCC EXPORT REVENUES", color: green]
+Tier1 [label: "TIER 1: DIRECT OPERATING EXPENSES\\nFreight, Slaughter, Customs", color: red]
+Tier2 [label: "TIER 2: PRIORITY CAPITAL RECOVERY\\nAmortization of Principal + Hurdle Rate", color: orange]
+Tier3 [label: "TIER 3: OPERATING RESERVES\\nRefill 60-Day Feeder Buffer", color: blue]
+Tier4 [label: "TIER 4: 50/50 NET PROFIT SHARING\\nMusharaka Operating Surplus", color: purple]
+
+GrossRevenue > Tier1
+Tier1 > Tier2
+Tier2 > Tier3
+Tier3 > Tier4
+`;
+            
+            // Create a Blob containing the text data
+            const blob = new Blob([dslText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a temporary link element to trigger the download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Project_Ndegwa_Eraser_DSL.txt'; // Filename
+            document.body.appendChild(a);
+            a.click(); // Trigger click
+            
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
 </body>
 </html>
