@@ -40,7 +40,7 @@
         @media print {
             @page { 
                 size: A4; 
-                margin: 15mm 15mm; /* Shifted margin control to the page level for uniform borders */
+                margin: 15mm 15mm; 
             }
             
             body { 
@@ -50,97 +50,83 @@
                 print-color-adjust: exact !important; 
             }
 
-            /* Prevent orphans and widows (stranded single lines) */
-            p, li, td { 
+            p, td { 
                 orphans: 3 !important; 
                 widows: 3 !important; 
                 font-size: 10.5pt !important; 
                 line-height: 1.5 !important; 
             }
 
-            /* Heading Glue: Force headings to stick to their paragraphs */
+            /* HIERARCHY GLUE: Prevent headers from separating from paragraphs */
             h1, h2, h3, h4, h5, caption, article header { 
                 page-break-after: avoid !important; 
             }
             
+            /* TIGHTEN PRINT TYPOGRAPHY */
             h1 { font-size: 36pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 8px !important; margin-top: 20px !important;}
-            h3 { font-size: 15pt !important; margin-top: 20px !important; margin-bottom: 8px !important;}
+            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 4px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
+            h3 { font-size: 14pt !important; margin-top: 15px !important; margin-bottom: 4px !important;}
             
-            /* Tighten Headings and Borders */
             article header {
-                margin-bottom: 12px !important;
-                padding-bottom: 6px !important;
+                margin-bottom: 6px !important;
+                padding-bottom: 4px !important;
+                margin-top: 20px !important;
             }
-            
-            /* Box & List Integrity: Prevent grids and list items from slicing in half */
-            .bg-white { page-break-inside: avoid !important; } 
-            li { page-break-inside: avoid !important; }
 
-            /* Tighten paragraph/list gaps */
-            .space-y-7 > * + * { margin-top: 10px !important; }
-            .space-y-6 > * + * { margin-top: 8px !important; }
-            .space-y-5 > * + * { margin-top: 6px !important; }
-            .my-14, .my-8, .mt-12, .mb-24 { margin-top: 15px !important; margin-bottom: 15px !important; }
-            .mt-14 { margin-top: 15px !important; }
+            /* REDUCE PRINT MARGINS GLOBALLY */
+            .space-y-7 > * + * { margin-top: 8px !important; }
+            .space-y-6 > * + * { margin-top: 6px !important; }
+            .space-y-5 > * + * { margin-top: 5px !important; }
+            .my-14, .my-8, .mt-12, .mb-24, .mt-14 { margin-top: 10px !important; margin-bottom: 10px !important; }
+            .mb-10 { margin-bottom: 8px !important; }
 
-            .no-print { display: none !important; }
-            .page-break { page-break-before: always !important; }
-            
-            /* Table Integrity */
+            /* STRICT LIST & TABLE INTEGRITY */
+            li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
             table { 
-                margin: 15px 0 !important; 
+                margin: 10px 0 !important; 
                 page-break-inside: avoid !important;
             }
             tr { page-break-inside: avoid !important; }
             caption { 
-                font-size: 13pt !important; 
-                margin-bottom: 6px !important; 
+                font-size: 12pt !important; 
+                margin-bottom: 2px !important; 
                 padding-bottom: 0 !important; 
             }
-            th, td { padding: 8px 6px !important; }
+            th, td { padding: 6px 4px !important; }
             
-            /* Figure & Image Fixes (Anti-Hanging & strict bounding) */
+            /* CSS GRID PROTECTION */
+            .grid { display: block !important; }
+            .grid > div { 
+                page-break-inside: avoid !important; 
+                margin-bottom: 10px !important; 
+                border: 1px solid #e5e7eb !important; 
+            }
+            
+            /* FIGURE & IMAGE FIXES */
             figure {
-                margin: 25px auto !important; 
-                padding-top: 15px !important; /* Bumps image down if stranded at the top of a page */
-                padding-bottom: 15px !important;
-                page-break-inside: avoid !important; /* Locks image and caption together */
+                margin: 15px auto !important; 
+                padding-top: 10px !important; 
+                page-break-inside: avoid !important; /* CRITICAL: Never separate image and caption */
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
-                justify-content: center !important;
             }
             figure img {
-                max-height: 150mm !important; /* Crucial: Prevents browser from panicking on tall images */
+                max-height: 150mm !important; /* CRITICAL: Prevent browser panic */
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
             figcaption {
-                margin-top: 12px !important;
-                color: #080808 !important; /* Reverts web white text back to black for print */
+                margin-top: 8px !important;
+                color: #080808 !important; /* Override white web text for print */
                 background: transparent !important;
                 box-shadow: none !important;
                 padding: 0 !important;
                 text-align: center !important;
             }
             
-            /* Allow natural flow within articles */
-            article { page-break-inside: auto !important; }
-            
-            /* Perfect A4 Cover and Closing Pages */
-            .hero-section { 
-                background-color: #080808 !important; 
-                color: #F4F0E7 !important; 
-                height: 260mm !important; 
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                padding: 0 !important;
-                page-break-after: always !important;
-                border-bottom: none !important;
-            }
+            /* CLOSING PAGE FIXES */
             .closing-wrapper {
                 page-break-before: always !important;
                 page-break-inside: avoid !important;
@@ -150,10 +136,9 @@
                 margin: 0 !important;
                 padding: 0 !important;
             }
-            .closing-image-section { flex-grow: 1 !important; height: auto !important; min-height: 0 !important; }
-            footer { flex-shrink: 0 !important; background-color: #080808 !important; padding: 8mm 0 !important; }
-            .logo-text { color: #C6A04A !important; }
-            .print-text-white { color: #F4F0E7 !important; }
+            
+            .no-print { display: none !important; }
+            .hero-section { page-break-after: always !important; }
         }
         
         body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
@@ -165,33 +150,11 @@
         }
         
         table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
-        th { 
-            border-bottom: 1px solid #C6A04A; 
-            padding: 1rem 0.75rem; 
-            text-align: left; 
-            font-family: "Manrope", sans-serif; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 0.05em; 
-            font-size: 0.7rem; 
-            color: #9B7628; 
-        }
-        td { 
-            border-bottom: 1px solid rgba(184, 177, 163, 0.3); 
-            padding: 1.25rem 0.75rem; 
-            vertical-align: top; 
-            color: #242424; 
-            line-height: 1.6;
-        }
+        th { border-bottom: 1px solid #C6A04A; padding: 1rem 0.75rem; text-align: left; font-family: "Manrope", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: #9B7628; }
+        td { border-bottom: 1px solid rgba(184, 177, 163, 0.3); padding: 1.25rem 0.75rem; vertical-align: top; color: #242424; line-height: 1.6; }
         tr:last-child td { border-bottom: none; }
-        caption { 
-            text-align: left; 
-            font-family: "Playfair Display", serif; 
-            font-size: 1.5rem; 
-            color: #080808; 
-            margin-bottom: 1.25rem; 
-            font-weight: 500;
-        }
+        caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.5rem; color: #080808; margin-bottom: 1.25rem; font-weight: 500; }
+        
         .figcaption-container { text-align: center; width: 100%; }
     </style>
 </head>
@@ -221,17 +184,17 @@
 
         <div class="hero-content max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center w-full">
             <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-6">Strategic Memorandum</h4>
-            <h1 class="text-5xl sm:text-6xl md:text-[5.5rem] font-serif font-normal leading-[1.1] mb-12 tracking-tight print-text-white">Project Ndegwa</h1>
+            <h1 class="text-5xl sm:text-6xl md:text-[5.5rem] font-serif font-normal leading-[1.1] mb-12 tracking-tight print:text-white">Project Ndegwa</h1>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16 text-left max-w-3xl mx-auto mt-12 md:mt-16 pt-10 border-t border-tq-gold/20">
                 <div>
                     <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-3 font-semibold">Prepared By</h5>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 print-text-white">TerraQuest Investments FZCO</p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 print:text-white">TerraQuest Investments FZCO</p>
                 </div>
                 <div>
                     <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-3 font-semibold">For the Review Of</h5>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mb-1 print-text-white">Golden Nile Trading LLC<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Investment Committee)</span></p>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mt-5 print-text-white">PineCrest Holdings<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Board of Directors)</span></p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mb-1 print:text-white">Golden Nile Trading LLC<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Investment Committee)</span></p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mt-5 print:text-white">PineCrest Holdings<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Board of Directors)</span></p>
                 </div>
             </div>
         </div>
@@ -246,7 +209,7 @@
             </header>
             
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <p><strong class="font-semibold text-tq-black">Project Ndegwa</strong> translates the USD 63.6M financing request of PineCrest Holdings (the Investee) into an investable, Shariah-compliant, asset-backed deployment model for Golden Nile Trading LLC (the Investor). Capitalizing on zero-tariff market access established under the Kenya-UAE Comprehensive Economic Partnership Agreement (CEPA), the venture targets the 400,000 MT annual GCC beef import market.</p>
+                <p>Project Ndegwa translates the USD 63.6M financing request of PineCrest Holdings (the Investee) into an investable, Shariah-compliant, asset-backed deployment model for Golden Nile Trading LLC (the Investor). Capitalizing on zero-tariff market access established under the Kenya-UAE Comprehensive Economic Partnership Agreement (CEPA), the venture targets the 400,000 MT annual GCC beef import market.</p>
                 
                 <p>The Investee originally proposed a USD 63.6M capital rollout structured across three consecutive stages: Phase 1 (~USD 10.0M across Months 1–24, comprising the Investee's ~USD 7.2M supply-engine request plus an additive USD 2.8M dedicated export processing facility carve-out ratified by ExCo post-setup); Phase 2 (USD 6.0M across Months 25–36) dedicated to wholesale packaging expansion and secondary regional feedlots; and Phase 3 (USD 50.0M) designated for regional aggregation hubs, chartered livestock vessels, and port cold storage.</p>
                 
@@ -277,8 +240,6 @@
                 </figure>
             </div>
         </article>
-
-        <div class="page-break"></div>
 
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
@@ -506,8 +467,6 @@
             </div>
         </article>
 
-        <div class="page-break"></div>
-
         <article class="mb-14 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
@@ -583,6 +542,56 @@
             </div>
         </article>
 
+        <!-- NEW SECTION: 5. Next Steps -->
+        <article class="mb-10 print:mb-8 mt-20">
+            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
+                <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps to Execution</h2>
+            </header>
+            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
+                <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the following sequential execution steps are required to establish the joint venture platform and commence operations.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-8 print:gap-2">
+                    
+                    <!-- Step 1 -->
+                    <div class="bg-tq-black text-tq-ivory p-6 rounded-sm shadow-md border-t-4 border-tq-gold flex flex-col print:border print:border-tq-charcoal print:text-tq-charcoal print:bg-white">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3 print:text-tq-black">Step 01</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3">Appoint Joint Advisor</h4>
+                        <p class="text-sm text-tq-stone leading-relaxed print:text-tq-charcoal">Formally appoint TerraQuest Investments as the exclusive joint advisor to structure and execute the transaction for both parties.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 02</span>
+                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Close Term Sheet</h4>
+                        <p class="text-sm text-tq-charcoal leading-relaxed">Review, negotiate, and execute the binding Phase 1 Commercial Term Sheet outlining capital allocation and parity rights.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 03</span>
+                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Legal Counsel & SHA</h4>
+                        <p class="text-sm text-tq-charcoal leading-relaxed">Upon Term Sheet execution, engage external legal counsel to draft the definitive Shareholders Agreement (SHA).</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 04</span>
+                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Corporate Incorporation</h4>
+                        <p class="text-sm text-tq-charcoal leading-relaxed">Formally incorporate UAE InvestCo in ADGM and establish the fully-owned operational subsidiaries (Kenya OpCo & UAE OpCo).</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 05</span>
+                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Executive Hiring</h4>
+                        <p class="text-sm text-tq-charcoal leading-relaxed">The newly formed Board convenes to hire the Group CEO, transition legacy staff, and unlock Phase 1 capital deployment.</p>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <div class="closing-wrapper mt-12 md:mt-16">
@@ -604,7 +613,7 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight print-text-white">Securing the supply engine.</h3>
+                    <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight print:text-white">Securing the supply engine.</h3>
                     <p class="text-tq-stone font-sans text-[15px] leading-relaxed">
                         Executing institutional-grade agricultural assets to anchor local liquidity, protect capital, and catalyze global trade flows.
                     </p>
