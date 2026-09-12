@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -33,24 +34,38 @@
             }
         }
     </script>
+    
     <style>
+        /* Comprehensive Print Engine Fixes */
         @media print {
             @page { 
                 size: A4; 
-                margin: 0mm; 
+                margin: 15mm 15mm; /* Shifted margin control to the page level for uniform borders */
             }
             
             body { 
-                padding: 12mm 15mm !important; 
+                padding: 0 !important; 
                 background-color: #F4F0E7 !important; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
             }
+
+            /* Prevent orphans and widows (stranded single lines) */
+            p, li, td { 
+                orphans: 3 !important; 
+                widows: 3 !important; 
+                font-size: 10.5pt !important; 
+                line-height: 1.5 !important; 
+            }
+
+            /* Heading Glue: Force headings to stick to their paragraphs */
+            h1, h2, h3, h4, h5, caption, article header { 
+                page-break-after: avoid !important; 
+            }
             
             h1 { font-size: 36pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 0 !important; }
-            h3 { font-size: 15pt !important; margin-top: 16px !important; margin-bottom: 4px !important;}
-            p, li, td { font-size: 10.5pt !important; line-height: 1.5 !important; }
+            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 8px !important; margin-top: 20px !important;}
+            h3 { font-size: 15pt !important; margin-top: 20px !important; margin-bottom: 8px !important;}
             
             /* Tighten Headings and Borders */
             article header {
@@ -58,6 +73,10 @@
                 padding-bottom: 6px !important;
             }
             
+            /* Box & List Integrity: Prevent grids and list items from slicing in half */
+            .bg-white { page-break-inside: avoid !important; } 
+            li { page-break-inside: avoid !important; }
+
             /* Tighten paragraph/list gaps */
             .space-y-7 > * + * { margin-top: 10px !important; }
             .space-y-6 > * + * { margin-top: 8px !important; }
@@ -68,11 +87,12 @@
             .no-print { display: none !important; }
             .page-break { page-break-before: always !important; }
             
-            /* Anchoring Tables */
+            /* Table Integrity */
             table { 
                 margin: 15px 0 !important; 
                 page-break-inside: avoid !important;
             }
+            tr { page-break-inside: avoid !important; }
             caption { 
                 font-size: 13pt !important; 
                 margin-bottom: 6px !important; 
@@ -80,35 +100,40 @@
             }
             th, td { padding: 8px 6px !important; }
             
-            /* Fixing 'Hanging' Images and Gaps */
+            /* Figure & Image Fixes (Anti-Hanging & strict bounding) */
             figure {
-                margin: 20px auto !important; 
-                padding: 0 !important;
-                page-break-inside: avoid !important;
+                margin: 25px auto !important; 
+                padding-top: 15px !important; /* Bumps image down if stranded at the top of a page */
+                padding-bottom: 15px !important;
+                page-break-inside: avoid !important; /* Locks image and caption together */
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
                 justify-content: center !important;
             }
             figure img {
-                max-height: 140mm !important; /* Constrain height so it fits nicely with text */
+                max-height: 150mm !important; /* Crucial: Prevents browser from panicking on tall images */
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
             figcaption {
-                margin-top: 8px !important;
-                color: #080808 !important; 
+                margin-top: 12px !important;
+                color: #080808 !important; /* Reverts web white text back to black for print */
                 background: transparent !important;
                 box-shadow: none !important;
                 padding: 0 !important;
+                text-align: center !important;
             }
+            
+            /* Allow natural flow within articles */
+            article { page-break-inside: auto !important; }
             
             /* Perfect A4 Cover and Closing Pages */
             .hero-section { 
                 background-color: #080808 !important; 
                 color: #F4F0E7 !important; 
-                height: 270mm !important; 
+                height: 260mm !important; 
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: center !important;
@@ -119,7 +144,7 @@
             .closing-wrapper {
                 page-break-before: always !important;
                 page-break-inside: avoid !important;
-                height: 270mm !important;
+                height: 260mm !important;
                 display: flex !important;
                 flex-direction: column !important;
                 margin: 0 !important;
@@ -242,8 +267,8 @@
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
 
-                <figure class="my-14 print:my-6">
-                    <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
+                <figure class="my-16 print:my-6">
+                    <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
                         <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 1: GROUP CORPORATE STRUCTURE
@@ -399,8 +424,8 @@
                     </table>
                 </div>
 
-                <figure class="my-14 print:my-6">
-                    <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
+                <figure class="my-16 print:my-6">
+                    <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
                         <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 2: REVENUE SETTLEMENT WATERFALL
@@ -449,8 +474,8 @@
                     </div>
                 </div>
 
-                <figure class="my-14 print:my-6">
-                    <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
+                <figure class="my-16 print:my-6">
+                    <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
                         <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY
@@ -512,8 +537,8 @@
                     </li>
                 </ul>
 
-                <figure class="my-14 print:my-6">
-                    <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
+                <figure class="my-16 print:my-6">
+                    <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
                         <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE
