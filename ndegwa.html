@@ -36,15 +36,19 @@
     </script>
     
     <style>
-        /* Comprehensive Print Engine Fixes - Version 18 (Full Bleed & Cohesion) */
         @media print {
-            /* 1. Remove all default browser margins to enable true edge-to-edge bleed */
+            /* 1. Global Page Reset for Bleed */
             @page { 
-                size: A4; 
-                margin: 0mm !important; 
+                size: A4 portrait; 
+                margin: 0mm !important; /* Strip all default browser margins */
             }
             
-            /* 2. Global body settings to ensure background colors print */
+            /* 2. Target specific pages for true edge-to-edge bleed */
+            @page cover { margin: 0 !important; }
+            .hero-section { page: cover; }
+            .closing-wrapper { page: cover; }
+
+            /* 3. Global Print Body */
             body { 
                 margin: 0 !important;
                 padding: 0 !important; 
@@ -53,27 +57,26 @@
                 print-color-adjust: exact !important; 
             }
 
-            /* 3. Re-apply safe margins ONLY to the text content (main) */
+            /* 4. Re-apply Safe Margins ONLY to Main Text */
             main {
                 margin: 0 auto !important;
                 padding: 15mm 20mm 15mm 20mm !important;
                 max-width: 100% !important;
             }
 
-            /* 4. Full Bleed Hero Cover */
+            /* 5. Full Bleed Covers */
             .hero-section { 
                 page-break-after: always !important; 
                 height: 100vh !important;
+                width: 100vw !important;
                 margin: 0 !important;
                 padding: 20mm !important;
                 box-sizing: border-box !important;
             }
-
-            /* 5. Full Bleed Closing Cover */
             .closing-wrapper {
                 page-break-before: always !important;
                 height: 100vh !important;
-                width: 100% !important;
+                width: 100vw !important;
                 display: flex !important;
                 flex-direction: column !important;
                 margin: 0 !important;
@@ -88,77 +91,57 @@
                 font-size: 10.5pt !important; 
                 line-height: 1.5 !important; 
             }
-
-            /* HIERARCHY GLUE: Prevent headers from separating from paragraphs */
+            
+            /* Keep headings glued to their paragraphs */
             h1, h2, h3, h4, h5, caption, article header { 
                 page-break-after: avoid !important; 
             }
-            
-            /* TIGHTEN PRINT TYPOGRAPHY TO AVOID GAPS */
-            h1 { font-size: 36pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 2px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
-            h3 { font-size: 14pt !important; margin-top: 15px !important; margin-bottom: 2px !important;}
-            
-            article header {
-                margin-bottom: 4px !important;
-                padding-bottom: 2px !important;
-                margin-top: 15px !important;
-            }
+
+            /* Tighten margins to prevent "hanging" look */
+            h2 { margin-bottom: 2px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
+            h3 { margin-top: 15px !important; margin-bottom: 2px !important;}
+            article header { margin-bottom: 4px !important; padding-bottom: 2px !important; margin-top: 15px !important; }
 
             .space-y-7 > * + * { margin-top: 8px !important; }
-            .space-y-6 > * + * { margin-top: 6px !important; }
-            .space-y-5 > * + * { margin-top: 5px !important; }
-            .my-14, .my-8, .mt-12, .mb-24, .mt-14 { margin-top: 8px !important; margin-bottom: 8px !important; }
-            .mb-10 { margin-bottom: 6px !important; }
+            .mb-24, .mb-14 { margin-bottom: 12px !important; }
 
-            /* STRICT LIST & TABLE INTEGRITY */
+            /* 7. Strict List & Table Integrity */
             li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
-            table { 
-                margin: 5px 0 !important; 
-                page-break-inside: avoid !important;
-            }
+            table { margin: 5px 0 !important; page-break-inside: avoid !important; }
             tr { page-break-inside: avoid !important; }
-            caption { 
-                font-size: 12pt !important; 
-                margin-bottom: 0px !important; 
-                padding-bottom: 2px !important; 
-            }
-            th, td { padding: 4px 4px !important; }
-            
-            /* CSS GRID PROTECTION FOR DIVISIONS */
-            .grid-protection {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 10px !important;
-            }
-            .grid-protection > div { 
-                page-break-inside: avoid !important; 
-                margin-bottom: 8px !important; 
-                width: 100% !important;
-            }
-            
-            /* FIGURE & IMAGE ANTI-CASCADING FIXES */
+            caption { font-size: 12pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
+            th, td { padding: 4px !important; }
+
+            /* 8. CSS Grid Protection */
+            .grid-protection { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+            .grid-protection > div { page-break-inside: avoid !important; margin-bottom: 8px !important; width: 100% !important; }
+
+            /* 9. ANTI-CASCADING FIGURE FIXES (The Core Image Issue) */
             figure {
-                margin: 10px auto !important; 
-                padding-top: 5px !important; 
-                page-break-inside: avoid !important; /* CRITICAL: Never separate image and caption */
+                margin: 10mm auto !important; /* Give it space, but not massive web space */
+                padding-top: 0 !important; 
+                page-break-inside: avoid !important; /* Lock image and caption together */
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
+                justify-content: center !important;
             }
             figure img {
-                max-height: 100mm !important; /* CRITICAL FIX: Restrict to 100mm so it shares space with text nicely */
+                max-height: 100mm !important; /* SEVERE CAP: Forces image to share page with text */
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
+            
+            /* Print-Specific Caption Styling (Override Web Pills) */
             figcaption {
-                margin-top: 6px !important;
-                color: #080808 !important; /* Override white web text for print */
+                margin-top: 8px !important;
+                color: #080808 !important;
                 background: transparent !important;
                 box-shadow: none !important;
                 padding: 0 !important;
                 text-align: center !important;
+                border-radius: 0 !important;
             }
             
             .no-print { display: none !important; }
@@ -179,6 +162,16 @@
         caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.5rem; color: #080808; margin-bottom: 1.25rem; font-weight: 500; }
         
         .figcaption-container { text-align: center; width: 100%; }
+        
+        /* Fixed Footer for Print to ensure it stays on the black page */
+        @media print {
+            .print-footer-fix {
+                position: absolute !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
@@ -225,6 +218,7 @@
 
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-0">
         
+        <!-- SECTION 1 -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
@@ -253,10 +247,10 @@
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
 
-                <figure class="my-16 print:my-6">
+                <figure class="my-16 print:my-0">
                     <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-[#080808] print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md">
                             FIG 1: GROUP CORPORATE STRUCTURE
                         </figcaption>
                     </div>
@@ -264,6 +258,7 @@
             </div>
         </article>
 
+        <!-- SECTION 2 -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">2.</span>
@@ -408,10 +403,10 @@
                     </table>
                 </div>
 
-                <figure class="my-16 print:my-6">
+                <figure class="my-16 print:my-0">
                     <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-[#080808] print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md">
                             FIG 2: REVENUE SETTLEMENT WATERFALL
                         </figcaption>
                     </div>
@@ -458,10 +453,10 @@
                     </div>
                 </div>
 
-                <figure class="my-16 print:my-6">
+                <figure class="my-16 print:my-0">
                     <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-[#080808] print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md">
                             FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY
                         </figcaption>
                     </div>
@@ -490,6 +485,7 @@
             </div>
         </article>
 
+        <!-- SECTION 3 -->
         <article class="mb-14 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
@@ -501,28 +497,28 @@
                 <p>Operational deployment transitions the Investee's rangeland, yards, and herds into an active export pipeline across a defined Day T<sub>0</sub> to Day T+90 execution schedule:</p>
                 
                 <ul class="list-none space-y-5 pl-0 my-6">
-                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Operational Footprint Mobilized (T<sub>0</sub>)</strong>
                         Feedlots (Kitengela/Narok), 500-acre fodder cultivation, 12,000-head breeding nucleus, and active domestic continuity (Farmers Choice).
                     </li>
-                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T<sub>0</sub> to T+30 (Setup & Allocation)</strong>
                         ExCo ratifies the ~USD 10.0M allocation, locks the 10% reserve, transitions staff, and closes 25-year leases and statutory caveats.
                     </li>
-                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+30 to T+60 (Ingestion & Quarantine)</strong>
                         Day-1 stock acquisition (USD 1.0M), feedlot-gate steer intake under <em class="font-serif">Salam</em> contracts, PEI quarantine testing, and groundbreaking for the modular Halal abattoir.
                     </li>
-                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm">
+                    <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal">
                         <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+60 to T+90 (Export & Settlement)</strong>
                         Cattle reach export weights (~450kg), process through the abattoir, clear JKIA air-cargo to UAE OpCo, and commercial accounts settle via the cash waterfall.
                     </li>
                 </ul>
 
-                <figure class="my-16 print:my-6">
+                <figure class="my-16 print:my-0">
                     <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-[#080808] print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md">
                             FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE
                         </figcaption>
                     </div>
@@ -551,6 +547,7 @@
             </div>
         </article>
 
+        <!-- SECTION 4 -->
         <article class="mb-10 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">4.</span>
@@ -565,6 +562,7 @@
             </div>
         </article>
 
+        <!-- SECTION 5 -->
         <article class="mb-10 print:mb-0 mt-20 print:mt-10">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
@@ -573,7 +571,7 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the following sequential execution steps are required to establish the joint venture platform and commence operations.</p>
                 
-                <!-- Fixed 2-column print grid to prevent narrow text squeezing -->
+                <!-- Print grid fixed to 2 columns to prevent squishing words -->
                 <div class="grid grid-cols-1 md:grid-cols-5 print:grid-cols-2 gap-4 mt-8 print:gap-4">
                     
                     <!-- Step 1: Black -->
@@ -604,7 +602,8 @@
                         <p class="text-sm text-[#242424] leading-relaxed print:text-[9pt] print:leading-snug print:text-[#242424]">Formally incorporate UAE InvestCo in ADGM and establish the fully-owned operational subsidiaries (Kenya OpCo & UAE OpCo).</p>
                     </div>
 
-                    <!-- Step 5: Ivory - Spans 2 columns in print view for balance -->
+                    <!-- Step 5: Ivory -->
+                    <!-- In print view, make this final block span both columns so it acts as a nice foundation -->
                     <div class="bg-[#F4F0E7] text-[#080808] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-6 rounded-sm shadow-md flex flex-col justify-start print:p-4 print:text-[10pt] print:shadow-none print:bg-[#F4F0E7] print:col-span-2">
                         <span class="text-[#C6A04A] font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-2 print:text-[8pt]">Step 05</span>
                         <h4 class="font-serif text-lg leading-tight mb-3 print:mb-2 print:text-[11pt]">Executive Hiring</h4>
@@ -619,7 +618,7 @@
 
     <div class="closing-wrapper mt-12 md:mt-16 print:mt-0">
         
-        <section class="closing-image-section relative w-full h-full overflow-hidden bg-tq-black print:flex-1">
+        <section class="closing-image-section relative w-full h-full overflow-hidden bg-tq-black flex-1">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-tq-charcoal/80"></div>
                 <!-- Optional fallback image logic here -->
@@ -645,7 +644,7 @@
             </div>
         </section>
 
-        <footer class="bg-tq-black text-tq-ivory w-full print:bg-[#080808] py-8 print:py-6">
+        <footer class="bg-tq-black text-tq-ivory w-full print:bg-[#080808] py-8 print:py-6 print-footer-fix">
             <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 print:px-10">
                 <div>
                     <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase print:text-[#B8B1A3]">
