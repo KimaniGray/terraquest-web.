@@ -65,6 +65,15 @@
             h2, h3 { page-break-after: avoid !important; }
             p { orphans: 4; widows: 4; }
             li { page-break-inside: avoid !important; margin-bottom: 6pt !important; }
+
+            /* Fix massive gaps around figures in PDF */
+            figure {
+                margin: 20px 0 !important; 
+            }
+            figcaption {
+                margin-top: 10px !important;
+                color: #080808 !important; /* Force black for print */
+            }
             
             /* Perfect A4 Cover Page (297mm height - 30mm padding = 267mm) */
             .hero-section { 
@@ -147,18 +156,31 @@
         /* Figure and Image Styling */
         figure {
             page-break-inside: avoid !important;
-            margin: 4rem 0; /* Generous spacing around figures */
+            margin: 3rem 0; /* Reduced from 4rem for better web spacing */
         }
         
         figcaption {
-            margin-top: 1.5rem; /* Gap between image and caption */
+            margin-top: 1.25rem; 
             padding-bottom: 0.5rem;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem; /* Slightly larger for legibility */
             font-family: "Manrope", sans-serif;
-            font-weight: 600;
+            font-weight: 700; /* Bolder for visibility */
             letter-spacing: 0.15em;
             text-transform: uppercase;
+            /* Styling to make it pop on the ivory background (web only) */
+            color: #C6A04A; /* TerraQuest Gold */
+            background-color: rgba(8, 8, 8, 0.85); /* Dark pill background */
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px; /* Pill shape */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Container to center the inline-block figcaption */
+        .figcaption-container {
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -235,10 +257,11 @@
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
 
-                <figure class="my-16 page-break-inside-avoid">
+                <figure class="my-12 page-break-inside-avoid">
                     <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <!-- Text is white for web view and black for PDF view -->
-                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 1: GROUP CORPORATE STRUCTURE</figcaption>
+                    <div class="figcaption-container print:text-left print:bg-transparent print:shadow-none print:p-0 print:text-black">
+                        <figcaption class="mt-6 pb-2 print:text-black print:bg-transparent print:shadow-none print:p-0 print:border-none print:text-[0.75rem]">FIG 1: GROUP CORPORATE STRUCTURE</figcaption>
+                    </div>
                 </figure>
 
             </div>
@@ -350,6 +373,13 @@
                     </table>
                 </div>
 
+                <figure class="my-12 page-break-inside-avoid">
+                    <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md">
+                    <div class="figcaption-container print:text-left print:bg-transparent print:shadow-none print:p-0 print:text-black">
+                        <figcaption class="mt-6 pb-2 print:text-black print:bg-transparent print:shadow-none print:p-0 print:border-none print:text-[0.75rem]">FIG 2: REVENUE SETTLEMENT WATERFALL</figcaption>
+                    </div>
+                </figure>
+
                 <div class="mt-12 overflow-x-auto mb-10">
                     <table>
                         <caption>Four-Tier Distribution Waterfall</caption>
@@ -437,10 +467,11 @@
                     </div>
                 </div>
 
-                <figure class="my-16 page-break-inside-avoid">
+                <figure class="my-12 page-break-inside-avoid">
                     <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <!-- Text is white for web view and black for PDF view -->
-                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY</figcaption>
+                    <div class="figcaption-container print:text-left print:bg-transparent print:shadow-none print:p-0 print:text-black">
+                        <figcaption class="mt-6 pb-2 print:text-black print:bg-transparent print:shadow-none print:p-0 print:border-none print:text-[0.75rem]">FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY</figcaption>
+                    </div>
                 </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Decision Authority</h3>
@@ -497,10 +528,11 @@
                     </li>
                 </ul>
 
-                <figure class="my-16 page-break-inside-avoid">
+                <figure class="my-12 page-break-inside-avoid">
                     <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <!-- Text is white for web view and black for PDF view -->
-                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE</figcaption>
+                    <div class="figcaption-container print:text-left print:bg-transparent print:shadow-none print:p-0 print:text-black">
+                        <figcaption class="mt-6 pb-2 print:text-black print:bg-transparent print:shadow-none print:p-0 print:border-none print:text-[0.75rem]">FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE</figcaption>
+                    </div>
                 </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Asset Integration</h3>
