@@ -40,7 +40,12 @@
         @media print {
             @page { 
                 size: A4; 
-                margin: 15mm 15mm; 
+                margin: 15mm; 
+            }
+            
+            /* Advanced Print Directive for Edge-to-Edge Back Cover */
+            @page cover {
+                margin: 0mm;
             }
             
             body { 
@@ -50,7 +55,7 @@
                 print-color-adjust: exact !important; 
             }
 
-            p, td { 
+            p, td, li { 
                 orphans: 3 !important; 
                 widows: 3 !important; 
                 font-size: 10.5pt !important; 
@@ -64,42 +69,40 @@
             
             /* TIGHTEN PRINT TYPOGRAPHY */
             h1 { font-size: 36pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 4px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
-            h3 { font-size: 14pt !important; margin-top: 15px !important; margin-bottom: 4px !important;}
+            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 2px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
+            h3 { font-size: 14pt !important; margin-top: 15px !important; margin-bottom: 2px !important;}
             
             article header {
-                margin-bottom: 6px !important;
-                padding-bottom: 4px !important;
-                margin-top: 20px !important;
+                margin-bottom: 4px !important;
+                padding-bottom: 2px !important;
+                margin-top: 15px !important;
             }
 
             /* REDUCE PRINT MARGINS GLOBALLY */
             .space-y-7 > * + * { margin-top: 8px !important; }
             .space-y-6 > * + * { margin-top: 6px !important; }
             .space-y-5 > * + * { margin-top: 5px !important; }
-            .my-14, .my-8, .mt-12, .mb-24, .mt-14 { margin-top: 10px !important; margin-bottom: 10px !important; }
-            .mb-10 { margin-bottom: 8px !important; }
+            .my-14, .my-8, .mt-12, .mb-24, .mt-14 { margin-top: 8px !important; margin-bottom: 8px !important; }
+            .mb-10 { margin-bottom: 6px !important; }
 
             /* STRICT LIST & TABLE INTEGRITY */
             li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
             table { 
-                margin: 10px 0 !important; 
+                margin: 5px 0 !important; 
                 page-break-inside: avoid !important;
             }
             tr { page-break-inside: avoid !important; }
             caption { 
                 font-size: 12pt !important; 
-                margin-bottom: 2px !important; 
-                padding-bottom: 0 !important; 
+                margin-bottom: 0px !important; 
+                padding-bottom: 2px !important; 
             }
-            th, td { padding: 6px 4px !important; }
+            th, td { padding: 4px 4px !important; }
             
-            /* CSS GRID PROTECTION */
-            .grid { display: block !important; }
-            .grid > div { 
+            /* CSS GRID PROTECTION FOR DIVISIONS */
+            .grid-protection > div { 
                 page-break-inside: avoid !important; 
-                margin-bottom: 10px !important; 
-                border: 1px solid #e5e7eb !important; 
+                margin-bottom: 8px !important; 
             }
             
             /* FIGURE & IMAGE FIXES */
@@ -112,13 +115,13 @@
                 align-items: center !important;
             }
             figure img {
-                max-height: 150mm !important; /* CRITICAL: Prevent browser panic */
+                max-height: 145mm !important; /* CRITICAL: Prevent browser panic and blank pages */
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
             figcaption {
-                margin-top: 8px !important;
+                margin-top: 6px !important;
                 color: #080808 !important; /* Override white web text for print */
                 background: transparent !important;
                 box-shadow: none !important;
@@ -126,15 +129,18 @@
                 text-align: center !important;
             }
             
-            /* CLOSING PAGE FIXES */
+            /* CLOSING PAGE FIXES - EDGE TO EDGE */
             .closing-wrapper {
+                page: cover; /* Triggers the 0 margin @page rule */
                 page-break-before: always !important;
                 page-break-inside: avoid !important;
-                height: 260mm !important;
+                height: 100vh !important;
+                width: 100vw !important;
                 display: flex !important;
                 flex-direction: column !important;
                 margin: 0 !important;
                 padding: 0 !important;
+                background-color: #080808 !important;
             }
             
             .no-print { display: none !important; }
@@ -233,7 +239,7 @@
                 <figure class="my-16 print:my-6">
                     <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-tq-black print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 1: GROUP CORPORATE STRUCTURE
                         </figcaption>
                     </div>
@@ -388,7 +394,7 @@
                 <figure class="my-16 print:my-6">
                     <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-tq-black print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 2: REVENUE SETTLEMENT WATERFALL
                         </figcaption>
                     </div>
@@ -417,7 +423,7 @@
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Committee Structure</h3>
                 <p>The Board sets up two operational committees with fixed chairs agreed by both parties. Both the Investor and the Investee have board members on each committee. Before each Board meeting, ExCo submits a consolidated Board Paper across all operating divisions, coordinated by the Group CEO's office. The Group CEO executes Board Paper resolutions and all underlying commercial and operational agreements:</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 grid-protection">
                     <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
                         <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
                         <div class="text-[14px] leading-relaxed space-y-3">
@@ -438,7 +444,7 @@
                 <figure class="my-16 print:my-6">
                     <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-tq-black print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY
                         </figcaption>
                     </div>
@@ -499,7 +505,7 @@
                 <figure class="my-16 print:my-6">
                     <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white print:text-tq-black print:bg-transparent px-6 py-2.5 rounded-full inline-block shadow-md print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE
                         </figcaption>
                     </div>
@@ -542,8 +548,7 @@
             </div>
         </article>
 
-        <!-- NEW SECTION: 5. Next Steps -->
-        <article class="mb-10 print:mb-8 mt-20">
+        <article class="mb-10 print:mb-0 mt-20 print:mt-10 print:page-break-inside-avoid">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps to Execution</h2>
@@ -551,41 +556,42 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the following sequential execution steps are required to establish the joint venture platform and commence operations.</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-8 print:gap-2">
+                <!-- Compact 5-column horizontal grid for print to save vertical space -->
+                <div class="grid grid-cols-1 md:grid-cols-5 print:grid-cols-5 gap-4 mt-8 print:gap-2">
                     
-                    <!-- Step 1 -->
-                    <div class="bg-tq-black text-tq-ivory p-6 rounded-sm shadow-md border-t-4 border-tq-gold flex flex-col print:border print:border-tq-charcoal print:text-tq-charcoal print:bg-white">
-                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3 print:text-tq-black">Step 01</span>
-                        <h4 class="font-serif text-lg leading-tight mb-3">Appoint Joint Advisor</h4>
-                        <p class="text-sm text-tq-stone leading-relaxed print:text-tq-charcoal">Formally appoint TerraQuest Investments as the exclusive joint advisor to structure and execute the transaction for both parties.</p>
+                    <!-- Step 1: Black -->
+                    <div class="bg-tq-black text-tq-ivory border-t-4 border-tq-gold p-6 rounded-sm shadow-md flex flex-col justify-start print:p-3 print:text-[9pt] print:shadow-none print:border-t-4 print:border-tq-gold print:bg-tq-black">
+                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-1 print:text-[8pt]">Step 01</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3 print:mb-1 print:text-[10pt]">Appoint Joint Advisor</h4>
+                        <p class="text-sm text-tq-stone leading-relaxed print:text-[8pt] print:leading-snug print:text-tq-ivory">Formally appoint TerraQuest Investments as the exclusive joint advisor to structure and execute the transaction for both parties.</p>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
-                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 02</span>
-                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Close Term Sheet</h4>
-                        <p class="text-sm text-tq-charcoal leading-relaxed">Review, negotiate, and execute the binding Phase 1 Commercial Term Sheet outlining capital allocation and parity rights.</p>
+                    <!-- Step 2: Gold -->
+                    <div class="bg-[#C6A04A] text-[#080808] border-t-4 border-[#080808] p-6 rounded-sm shadow-md flex flex-col justify-start print:p-3 print:text-[9pt] print:shadow-none print:border-t-4 print:border-[#080808] print:bg-[#C6A04A]">
+                        <span class="text-[#080808] font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-1 print:text-[8pt]">Step 02</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3 print:mb-1 print:text-[10pt]">Close Term Sheet</h4>
+                        <p class="text-sm text-[#080808]/90 leading-relaxed print:text-[8pt] print:leading-snug print:text-[#080808]">Review, negotiate, and execute the binding Phase 1 Commercial Term Sheet outlining capital allocation and parity rights.</p>
                     </div>
 
-                    <!-- Step 3 -->
-                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
-                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 03</span>
-                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Legal Counsel & SHA</h4>
-                        <p class="text-sm text-tq-charcoal leading-relaxed">Upon Term Sheet execution, engage external legal counsel to draft the definitive Shareholders Agreement (SHA).</p>
+                    <!-- Step 3: Charcoal -->
+                    <div class="bg-[#242424] text-tq-ivory border-t-4 border-[#B8B1A3] p-6 rounded-sm shadow-md flex flex-col justify-start print:p-3 print:text-[9pt] print:shadow-none print:border-t-4 print:border-[#B8B1A3] print:bg-[#242424]">
+                        <span class="text-[#B8B1A3] font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-1 print:text-[8pt]">Step 03</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3 print:mb-1 print:text-[10pt]">Legal Counsel & SHA</h4>
+                        <p class="text-sm text-[#B8B1A3] leading-relaxed print:text-[8pt] print:leading-snug print:text-[#B8B1A3]">Upon Term Sheet execution, engage external legal counsel to draft the definitive Shareholders Agreement (SHA).</p>
                     </div>
 
-                    <!-- Step 4 -->
-                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
-                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 04</span>
-                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Corporate Incorporation</h4>
-                        <p class="text-sm text-tq-charcoal leading-relaxed">Formally incorporate UAE InvestCo in ADGM and establish the fully-owned operational subsidiaries (Kenya OpCo & UAE OpCo).</p>
+                    <!-- Step 4: Stone -->
+                    <div class="bg-[#B8B1A3] text-[#080808] border-t-4 border-[#242424] p-6 rounded-sm shadow-md flex flex-col justify-start print:p-3 print:text-[9pt] print:shadow-none print:border-t-4 print:border-[#242424] print:bg-[#B8B1A3]">
+                        <span class="text-[#242424] font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-1 print:text-[8pt]">Step 04</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3 print:mb-1 print:text-[10pt]">Corporate Incorporation</h4>
+                        <p class="text-sm text-[#242424] leading-relaxed print:text-[8pt] print:leading-snug print:text-[#242424]">Formally incorporate UAE InvestCo in ADGM and establish the fully-owned operational subsidiaries (Kenya OpCo & UAE OpCo).</p>
                     </div>
 
-                    <!-- Step 5 -->
-                    <div class="bg-white border border-tq-stone/30 p-6 rounded-sm shadow-sm flex flex-col">
-                        <span class="text-tq-gold font-bold font-sans text-sm tracking-widest uppercase mb-3">Step 05</span>
-                        <h4 class="font-serif text-lg text-tq-black leading-tight mb-3">Executive Hiring</h4>
-                        <p class="text-sm text-tq-charcoal leading-relaxed">The newly formed Board convenes to hire the Group CEO, transition legacy staff, and unlock Phase 1 capital deployment.</p>
+                    <!-- Step 5: Ivory -->
+                    <div class="bg-[#F4F0E7] text-[#080808] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-6 rounded-sm shadow-md flex flex-col justify-start print:p-3 print:text-[9pt] print:shadow-none print:border-t-4 print:border-[#C6A04A] print:bg-[#F4F0E7]">
+                        <span class="text-[#C6A04A] font-bold font-sans text-sm tracking-widest uppercase mb-3 print:mb-1 print:text-[8pt]">Step 05</span>
+                        <h4 class="font-serif text-lg leading-tight mb-3 print:mb-1 print:text-[10pt]">Executive Hiring</h4>
+                        <p class="text-sm text-[#242424] leading-relaxed print:text-[8pt] print:leading-snug print:text-[#242424]">The newly formed Board convenes to hire the Group CEO, transition legacy staff, and unlock Phase 1 capital deployment.</p>
                     </div>
 
                 </div>
@@ -594,15 +600,15 @@
 
     </main>
 
-    <div class="closing-wrapper mt-12 md:mt-16">
+    <div class="closing-wrapper mt-12 md:mt-16 print:mt-0">
         
-        <section class="closing-image-section relative w-full h-[450px] md:h-[550px] overflow-hidden bg-tq-black">
+        <section class="closing-image-section relative w-full h-[450px] md:h-[550px] overflow-hidden bg-tq-black print:flex-1">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-tq-charcoal/80"></div>
                 <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" onerror="this.style.display='none'" />
                 
-                <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent"></div>
-                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent print:from-[#080808] print:via-[#080808]/90"></div>
+                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent print:from-[#080808]"></div>
             </div>
             
             <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-center">
@@ -614,21 +620,21 @@
                     </div>
                     
                     <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight print:text-white">Securing the supply engine.</h3>
-                    <p class="text-tq-stone font-sans text-[15px] leading-relaxed">
+                    <p class="text-tq-stone font-sans text-[15px] leading-relaxed print:text-[#B8B1A3]">
                         Executing institutional-grade agricultural assets to anchor local liquidity, protect capital, and catalyze global trade flows.
                     </p>
                 </div>
             </div>
         </section>
 
-        <footer class="bg-tq-black text-tq-ivory w-full">
+        <footer class="bg-tq-black text-tq-ivory w-full print:bg-[#080808] py-8 print:py-6">
             <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase">
+                    <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase print:text-[#B8B1A3]">
                         TERRAQUEST FZCO
                     </div>
                 </div>
-                <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
+                <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase print:text-[#B8B1A3]">
                     &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline print:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
                 </div>
             </div>
