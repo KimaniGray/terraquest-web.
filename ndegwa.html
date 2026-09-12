@@ -147,11 +147,11 @@
         /* Figure and Image Styling */
         figure {
             page-break-inside: avoid !important;
-            margin: 4rem 0; /* Add more spacing around figures */
+            margin: 4rem 0; /* Generous spacing around figures */
         }
         
         figcaption {
-            margin-top: 1.5rem; /* Add gap between image and caption */
+            margin-top: 1.5rem; /* Gap between image and caption */
             padding-bottom: 0.5rem;
             text-align: center;
             font-size: 0.75rem;
@@ -159,14 +159,6 @@
             font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            /* Web View: White text, Print View: Black text */
-            color: white; 
-        }
-        
-        @media print {
-            figcaption {
-                color: #080808 !important; /* Force black text in PDF */
-            }
         }
     </style>
 </head>
@@ -245,7 +237,8 @@
 
                 <figure class="my-16 page-break-inside-avoid">
                     <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <figcaption class="mt-6 pb-2 text-center text-xs font-sans font-semibold tracking-[0.15em] uppercase text-white print:text-black">FIG 1: GROUP CORPORATE STRUCTURE</figcaption>
+                    <!-- Text is white for web view and black for PDF view -->
+                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 1: GROUP CORPORATE STRUCTURE</figcaption>
                 </figure>
 
             </div>
@@ -399,7 +392,8 @@
 
                 <figure class="my-16 page-break-inside-avoid">
                     <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <figcaption class="mt-6 pb-2 text-center text-xs font-sans font-semibold tracking-[0.15em] uppercase text-white print:text-black">FIG 2: REVENUE SETTLEMENT WATERFALL</figcaption>
+                    <!-- Text is white for web view and black for PDF view -->
+                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 2: REVENUE SETTLEMENT WATERFALL</figcaption>
                 </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Board Governance</h3>
@@ -445,7 +439,8 @@
 
                 <figure class="my-16 page-break-inside-avoid">
                     <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <figcaption class="mt-6 pb-2 text-center text-xs font-sans font-semibold tracking-[0.15em] uppercase text-white print:text-black">FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY</figcaption>
+                    <!-- Text is white for web view and black for PDF view -->
+                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY</figcaption>
                 </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Decision Authority</h3>
@@ -504,7 +499,8 @@
 
                 <figure class="my-16 page-break-inside-avoid">
                     <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md">
-                    <figcaption class="mt-6 pb-2 text-center text-xs font-sans font-semibold tracking-[0.15em] uppercase text-white print:text-black">FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE</figcaption>
+                    <!-- Text is white for web view and black for PDF view -->
+                    <figcaption class="mt-6 pb-2 text-white print:text-black">FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE</figcaption>
                 </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Asset Integration</h3>
@@ -551,7 +547,6 @@
         <section class="closing-image-section relative w-full h-[450px] md:h-[550px] overflow-hidden bg-tq-black">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-tq-charcoal/80"></div>
-                <!-- Retaining original fallback logic for this background element -->
                 <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" onerror="this.style.display='none'" />
                 
                 <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent"></div>
