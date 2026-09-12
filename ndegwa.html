@@ -35,31 +35,69 @@
     </script>
     <style>
         @media print {
-            @page { size: A4; margin: 15mm; }
-            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            body { background-color: #F4F0E7 !important; }
-            .no-print { display: none !important; }
-            .page-break { page-break-before: always; }
+            /* 1. Eliminate Browser Default Headers/Footers */
+            @page { 
+                size: A4; 
+                margin: 0mm; /* Kills the browser date/URL text */
+            }
             
-            /* Structural Print Safeguards */
-            article, table, tr, .bg-white\/70, .bg-white { page-break-inside: avoid; }
-            h2, h3, header { page-break-after: avoid; }
+            /* 2. Re-establish Safe Margins inside the document */
+            body { 
+                padding: 15mm !important; 
+                background-color: #F4F0E7 !important; 
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
+            }
+            
+            /* 3. Hide non-print elements */
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always !important; }
+            
+            /* 4. Structural Print Safeguards */
+            article, table, tr, .bg-white\/70, .bg-white { page-break-inside: avoid !important; }
+            h2, h3 { page-break-after: avoid !important; }
             p { orphans: 3; widows: 3; }
             
-            /* Header & Hero Print Refinements */
-            .hero-section { background-color: #080808 !important; color: #F4F0E7 !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
-            header, footer { background-color: #080808 !important; }
-            .logo-text { color: #C6A04A !important; }
-            
-            /* Suppress browser default headers/footers if possible */
-            @page {
-                @top-left { content: none; }
-                @top-right { content: none; }
-                @bottom-left { content: none; }
-                @bottom-right { content: none; }
+            /* 5. Perfect A4 Cover Page (297mm height - 30mm padding = 267mm) */
+            .hero-section { 
+                background-color: #080808 !important; 
+                color: #F4F0E7 !important; 
+                height: 267mm !important; 
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                padding: 0 !important;
+                page-break-after: always !important;
+                border-bottom: none !important;
             }
+            
+            /* 6. Perfect A4 Closing Page (Image + Footer) */
+            .closing-wrapper {
+                page-break-before: always !important;
+                page-break-inside: avoid !important;
+                height: 267mm !important;
+                display: flex !important;
+                flex-direction: column !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .closing-image-section {
+                flex-grow: 1 !important;
+                height: auto !important;
+                min-height: 0 !important; /* Prevents flex overflow */
+            }
+            footer {
+                flex-shrink: 0 !important;
+                background-color: #080808 !important; 
+                padding: 8mm 0 !important;
+            }
+            
+            /* Typography & Colors in Print */
+            .logo-text { color: #C6A04A !important; }
+            .print-text-white { color: #F4F0E7 !important; }
         }
         
+        /* Web Typography & Background */
         body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
         
         .bg-orbital {
@@ -68,6 +106,7 @@
             background-size: 100% 100%;
         }
         
+        /* Web Table Styling */
         table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
         th { 
             border-bottom: 1px solid #C6A04A; 
@@ -100,36 +139,42 @@
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
 
-    <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 shadow-sm print:relative print:border-none">
+    <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 shadow-sm print:hidden">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Text-based elegant logo from index.html -->
                     <div class="logo-text text-[16px] sm:text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.1em] md:tracking-[0.15em] font-serif flex items-center leading-none flex-shrink-0 whitespace-nowrap uppercase">
                         TERRAQUEST FZCO
                     </div>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <button id="btn-print" class="bg-[#C6A04A] text-[#080808] hover:bg-[#9B7628] hover:text-white transition-colors px-6 py-2.5 rounded text-[11px] font-bold tracking-[0.15em] uppercase cursor-pointer no-print shadow-lg">Print PDF</button>
+                    <button id="btn-print" class="bg-[#C6A04A] text-[#080808] hover:bg-[#9B7628] hover:text-white transition-colors px-6 py-2.5 rounded text-[11px] font-bold tracking-[0.15em] uppercase cursor-pointer shadow-lg no-print">Print PDF</button>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="hero-section bg-tq-black text-tq-ivory pt-32 pb-40 bg-orbital border-b border-tq-gold relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+    <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[85vh] flex flex-col justify-center py-20 md:py-0">
+        <!-- Print-Only Logo for Cover Page -->
+        <div class="hidden print:block text-center mb-16">
+            <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
+                TERRAQUEST FZCO
+            </div>
+        </div>
+
+        <div class="hero-content max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center w-full">
             <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-6">Strategic Memorandum</h4>
-            <h1 class="text-5xl md:text-[5.5rem] font-serif font-normal leading-[1.1] mb-12 tracking-tight">Project Ndegwa</h1>
+            <h1 class="text-5xl sm:text-6xl md:text-[5.5rem] font-serif font-normal leading-[1.1] mb-12 tracking-tight print-text-white">Project Ndegwa</h1>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left max-w-2xl mx-auto mt-16 pt-10 border-t border-tq-gold/20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16 text-left max-w-3xl mx-auto mt-12 md:mt-16 pt-10 border-t border-tq-gold/20">
                 <div>
                     <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-3 font-semibold">Prepared By</h5>
-                    <p class="font-serif text-lg tracking-wide text-tq-ivory/90">TerraQuest Investments FZCO</p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 print-text-white">TerraQuest Investments FZCO</p>
                 </div>
                 <div>
                     <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-3 font-semibold">For the Review Of</h5>
-                    <p class="font-serif text-lg tracking-wide text-tq-ivory/90 mb-1">Golden Nile Trading LLC<br><span class="text-xs tracking-normal text-tq-stone font-sans">(Investment Committee)</span></p>
-                    <p class="font-serif text-lg tracking-wide text-tq-ivory/90 mt-4">PineCrest Holdings<br><span class="text-xs tracking-normal text-tq-stone font-sans">(Board of Directors)</span></p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mb-1 print-text-white">Golden Nile Trading LLC<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Investment Committee)</span></p>
+                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mt-5 print-text-white">PineCrest Holdings<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Board of Directors)</span></p>
                 </div>
             </div>
         </div>
@@ -201,23 +246,23 @@
                         <thead>
                             <tr>
                                 <th>Category</th>
-                                <th>Amount (USD)</th>
+                                <th class="whitespace-nowrap">Amount (USD)</th>
                                 <th>Operational Specification</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>1. Setup & Reserves</strong></td>
+                                <td class="font-bold text-tq-black">1. Setup & Reserves</td>
                                 <td class="font-mono text-tq-antique font-medium">1,200,000</td>
                                 <td>USD 1.0M unrestricted liquidity reserve; USD 200k legal setup & leases.</td>
                             </tr>
                             <tr class="bg-white/50">
-                                <td><strong>2. Processing CAPEX</strong></td>
+                                <td class="font-bold text-tq-black">2. Processing CAPEX</td>
                                 <td class="font-mono text-tq-antique font-medium">2,800,000</td>
                                 <td>Modular Halal abattoir, chillers, blast freezers & reefers.</td>
                             </tr>
                             <tr>
-                                <td><strong>3. Supply & Float</strong></td>
+                                <td class="font-bold text-tq-black">3. Supply & Float</td>
                                 <td class="font-mono text-tq-antique font-medium">6,000,000</td>
                                 <td>USD 1.0M Day-1 stock; USD 1.3M feedlots; USD 3.7M trade float.</td>
                             </tr>
@@ -237,37 +282,37 @@
                             <tr>
                                 <th>Capital Line Item</th>
                                 <th>Entity Balance Sheet</th>
-                                <th>Amount (USD)</th>
+                                <th class="whitespace-nowrap">Amount (USD)</th>
                                 <th>Structuring Instrument</th>
                                 <th>Accounting Treatment</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Nominal Equity Parity</strong></td>
+                                <td class="font-bold text-tq-black">Nominal Equity Parity</td>
                                 <td>UAE InvestCo</td>
-                                <td class="font-mono">50,000</td>
+                                <td class="font-mono text-tq-antique">50,000</td>
                                 <td>Paid-Up Ordinary Shares</td>
                                 <td>Establishes 50/50 enterprise co-ownership and voting parity.</td>
                             </tr>
                             <tr class="bg-white/50">
-                                <td><strong>Bucket 1: Setup & Reserves</strong></td>
+                                <td class="font-bold text-tq-black">Bucket 1: Setup & Reserves</td>
                                 <td>UAE InvestCo</td>
-                                <td class="font-mono">1,200,000</td>
+                                <td class="font-mono text-tq-antique">1,200,000</td>
                                 <td>Unrestricted Cash Reserve</td>
                                 <td>USD 1.0M liquid reserve absorbing credit lag; USD 200k expensed.</td>
                             </tr>
                             <tr>
-                                <td><strong>Bucket 2: Processing CAPEX</strong></td>
+                                <td class="font-bold text-tq-black">Bucket 2: Processing CAPEX</td>
                                 <td>Kenya OpCo</td>
-                                <td class="font-mono">2,800,000</td>
+                                <td class="font-mono text-tq-antique">2,800,000</td>
                                 <td>Istisna'a (Construction)</td>
                                 <td>Capitalized under IAS 16 as 100% Owned Plant on leased land.</td>
                             </tr>
                             <tr class="bg-white/50">
-                                <td><strong>Bucket 3: Supply & Float</strong></td>
+                                <td class="font-bold text-tq-black">Bucket 3: Supply & Float</td>
                                 <td>Kenya OpCo</td>
-                                <td class="font-mono">6,000,000</td>
+                                <td class="font-mono text-tq-antique">6,000,000</td>
                                 <td>Murabaha & Salam</td>
                                 <td>Secured current assets (inventory & receivables) via trade liens.</td>
                             </tr>
@@ -280,7 +325,7 @@
                         <caption>Four-Tier Distribution Waterfall</caption>
                         <thead>
                             <tr>
-                                <th class="w-16">Tier</th>
+                                <th class="w-20">Tier</th>
                                 <th>Priority Category</th>
                                 <th>Settlement Rule & Formula</th>
                                 <th>Currency Flow</th>
@@ -289,25 +334,25 @@
                         <tbody>
                             <tr>
                                 <td class="font-bold text-tq-black">TIER 1</td>
-                                <td><strong>Direct Operating COGS</strong></td>
+                                <td class="font-bold text-tq-black">Direct Operating COGS</td>
                                 <td>Gross trade proceeds clear freight, processing, feed, and customs.</td>
                                 <td>AED/SAR</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">TIER 2</td>
-                                <td><strong>Priority Capital Recovery</strong></td>
+                                <td class="font-bold text-tq-black">Priority Capital Recovery</td>
                                 <td>Amortization of deployed principal plus agreed anticipated return.</td>
                                 <td>Swept to InvestCo</td>
                             </tr>
                             <tr>
                                 <td class="font-bold text-tq-black">TIER 3</td>
-                                <td><strong>Operating Reserves</strong></td>
+                                <td class="font-bold text-tq-black">Operating Reserves</td>
                                 <td>Mandatory refill of the rolling 60-day feeder ingestion buffer.</td>
                                 <td>Retained Cash</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">TIER 4</td>
-                                <td><strong>Equal Profit Sharing</strong></td>
+                                <td class="font-bold text-tq-black">Equal Profit Sharing</td>
                                 <td>Residual net operational profits distributed equally (50% / 50%).</td>
                                 <td>Quarterly Dividend</td>
                             </tr>
@@ -451,47 +496,56 @@
 
     </main>
 
-    <!-- Closing Image Section -->
-    <div class="page-break no-print"></div>
-    <section class="relative w-full h-[450px] md:h-[550px] mt-12 print:mt-0 print:h-[220mm] overflow-hidden" style="page-break-inside: avoid;">
-        <div class="absolute inset-0 z-0">
-            <!-- Feedlot Background Image -->
-            <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="w-full h-full object-cover object-center" />
-            
-            <!-- Dark Gradient Overlay (Solid black on the left, fading to transparent on the right) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent"></div>
-            
-            <!-- Bottom fade to blend seamlessly into the footer -->
-            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent"></div>
-        </div>
+    <!-- The closing wrapper guarantees the image and footer stay snapped together on the final A4 page -->
+    <div class="closing-wrapper mt-12 md:mt-16">
         
-        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-center">
-            <div class="max-w-lg border-l-[3px] border-tq-gold pl-8">
-                <!-- TerraQuest Logo Overlay -->
-                <img src="./TerraQuest%20Logo.png" alt="TerraQuest Investments" class="h-10 md:h-12 mb-10 print:h-12" />
+        <!-- Closing Image Section -->
+        <section class="closing-image-section relative w-full h-[450px] md:h-[550px] overflow-hidden bg-tq-black">
+            <div class="absolute inset-0 z-0">
+                <!-- Fallback background color applies if image is missing/loading -->
+                <div class="w-full h-full bg-tq-charcoal/80"></div>
+                <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" onerror="this.style.display='none'" />
                 
-                <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight">Securing the supply engine.</h3>
-                <p class="text-tq-stone font-sans text-[15px] leading-relaxed">
-                    Executing institutional-grade agricultural assets to anchor local liquidity, protect capital, and catalyze global trade flows.
-                </p>
+                <!-- Dark Gradient Overlay (Solid black on the left, fading to transparent on the right) -->
+                <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent"></div>
+                
+                <!-- Bottom fade to blend seamlessly into the footer -->
+                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-tq-black text-tq-ivory py-16 print:py-8">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <!-- Text-based elegant logo from index.html -->
-                <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase">
-                    TERRAQUEST FZCO
+            
+            <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-center">
+                <div class="max-w-lg border-l-[3px] border-tq-gold pl-8">
+                    <!-- Text Logo Fallback / Print Image -->
+                    <div class="mb-8">
+                        <div class="logo-text text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
+                            TERRAQUEST FZCO
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight print-text-white">Securing the supply engine.</h3>
+                    <p class="text-tq-stone font-sans text-[15px] leading-relaxed">
+                        Executing institutional-grade agricultural assets to anchor local liquidity, protect capital, and catalyze global trade flows.
+                    </p>
                 </div>
             </div>
-            <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
-                &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline print:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-tq-black text-tq-ivory w-full">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <!-- Text-based elegant logo -->
+                    <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase">
+                        TERRAQUEST FZCO
+                    </div>
+                </div>
+                <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
+                    &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline print:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+        
+    </div> <!-- End Closing Wrapper -->
 
     <script>
         document.getElementById('btn-print').addEventListener('click', function() {
