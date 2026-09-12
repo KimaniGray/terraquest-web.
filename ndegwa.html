@@ -38,7 +38,7 @@
             /* 1. Eliminate Browser Default Headers/Footers */
             @page { 
                 size: A4; 
-                margin: 0mm; /* Kills the browser date/URL text */
+                margin: 0mm; 
             }
             
             /* 2. Re-establish Safe Margins inside the document */
@@ -49,16 +49,24 @@
                 print-color-adjust: exact !important; 
             }
             
-            /* 3. Hide non-print elements */
+            /* 3. Typography Physical Scaling for PDF */
+            h1 { font-size: 36pt !important; line-height: 1.1 !important; }
+            h2 { font-size: 22pt !important; line-height: 1.2 !important; margin-bottom: 12pt !important;}
+            h3 { font-size: 16pt !important; margin-top: 18pt !important; margin-bottom: 8pt !important;}
+            p, li, td { font-size: 11pt !important; line-height: 1.6 !important; }
+            caption { font-size: 14pt !important; }
+            
+            /* 4. Hide non-print elements */
             .no-print { display: none !important; }
             .page-break { page-break-before: always !important; }
             
-            /* 4. Structural Print Safeguards */
-            article, table, tr, .bg-white\/70, .bg-white { page-break-inside: avoid !important; }
+            /* 5. Structural Print Safeguards */
+            article, table, tr, .bg-white\/70, .bg-white, figure { page-break-inside: avoid !important; }
             h2, h3 { page-break-after: avoid !important; }
-            p { orphans: 3; widows: 3; }
+            p { orphans: 4; widows: 4; }
+            li { page-break-inside: avoid !important; margin-bottom: 6pt !important; }
             
-            /* 5. Perfect A4 Cover Page (297mm height - 30mm padding = 267mm) */
+            /* 6. Perfect A4 Cover Page (297mm height - 30mm padding = 267mm) */
             .hero-section { 
                 background-color: #080808 !important; 
                 color: #F4F0E7 !important; 
@@ -71,7 +79,7 @@
                 border-bottom: none !important;
             }
             
-            /* 6. Perfect A4 Closing Page (Image + Footer) */
+            /* 7. Perfect A4 Closing Page (Image + Footer) */
             .closing-wrapper {
                 page-break-before: always !important;
                 page-break-inside: avoid !important;
@@ -84,7 +92,7 @@
             .closing-image-section {
                 flex-grow: 1 !important;
                 height: auto !important;
-                min-height: 0 !important; /* Prevents flex overflow */
+                min-height: 0 !important;
             }
             footer {
                 flex-shrink: 0 !important;
@@ -210,6 +218,13 @@
                 </ul>
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
+
+                <!-- INSERT IMAGE 1: CORPORATE STRUCTURE -->
+                <figure class="my-14 border border-tq-stone/20 rounded shadow-md bg-white p-2">
+                    <img src="./Proposed%20Corporate%20Structure%20Fig.%201_3.jpg" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm" onerror="this.style.display='none'">
+                    <figcaption class="mt-4 pb-2 text-center text-xs font-sans text-tq-stone font-semibold tracking-[0.15em] uppercase">Fig 1: Group Corporate Structure</figcaption>
+                </figure>
+
             </div>
         </article>
 
@@ -320,7 +335,7 @@
                     </table>
                 </div>
 
-                <div class="mt-12 overflow-x-auto">
+                <div class="mt-12 overflow-x-auto mb-10">
                     <table>
                         <caption>Four-Tier Distribution Waterfall</caption>
                         <thead>
@@ -359,6 +374,13 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- INSERT IMAGE 4: CAPITAL WATERFALL -->
+                <figure class="my-14 border border-tq-stone/20 rounded shadow-md bg-white p-2">
+                    <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.jpg" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm" onerror="this.style.display='none'">
+                    <figcaption class="mt-4 pb-2 text-center text-xs font-sans text-tq-stone font-semibold tracking-[0.15em] uppercase">Fig 2: Revenue Settlement Waterfall</figcaption>
+                </figure>
+
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Board Governance</h3>
                 <p>Five directors: two appointed by the Investee, two appointed by the Investor, and one independent agribusiness specialist mutually agreed by both parties. The mandate establishes enterprise strategy, approves the Annual Operating Plan, ratifies executive appointments, and authorizes major capital expenditures.</p>
@@ -400,6 +422,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- INSERT IMAGE 2: GOVERNANCE STRUCTURE -->
+                <figure class="my-14 border border-tq-stone/20 rounded shadow-md bg-white p-2">
+                    <img src="./Proposed%20Goverance%20and%20Mangement%20structure%20Fig.%202.jpg" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm" onerror="this.style.display='none'">
+                    <figcaption class="mt-4 pb-2 text-center text-xs font-sans text-tq-stone font-semibold tracking-[0.15em] uppercase">Fig 3: Governance & Executive Hierarchy</figcaption>
+                </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Decision Authority</h3>
                 <p>Authority cascades from the Board down through operational committees to daily management:</p>
@@ -455,6 +483,12 @@
                         Cattle reach export weights (~450kg), process through the abattoir, clear JKIA air-cargo to UAE OpCo, and commercial accounts settle via the cash waterfall.
                     </li>
                 </ul>
+
+                <!-- INSERT IMAGE 3: SUPPLY CHAIN FLOW -->
+                <figure class="my-14 border border-tq-stone/20 rounded shadow-md bg-white p-2">
+                    <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.jpg" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm" onerror="this.style.display='none'">
+                    <figcaption class="mt-4 pb-2 text-center text-xs font-sans text-tq-stone font-semibold tracking-[0.15em] uppercase">Fig 4: End-to-End Physical Export Pipeline</figcaption>
+                </figure>
 
                 <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Asset Integration</h3>
                 <p>To avoid valuation disputes and asset conveyancing taxes, Kenya OpCo secures operational control through three contracts:</p>
