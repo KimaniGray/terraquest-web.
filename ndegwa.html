@@ -35,65 +35,80 @@
     </script>
     <style>
         @media print {
-            /* Eliminate Browser Default Headers/Footers */
             @page { 
                 size: A4; 
                 margin: 0mm; 
             }
             
-            /* Re-establish Safe Margins inside the document */
             body { 
-                padding: 15mm !important; 
+                padding: 12mm 15mm !important; 
                 background-color: #F4F0E7 !important; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
             }
             
-            /* Typography Physical Scaling for PDF */
             h1 { font-size: 36pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 22pt !important; line-height: 1.2 !important; margin-bottom: 12pt !important;}
-            h3 { font-size: 16pt !important; margin-top: 18pt !important; margin-bottom: 8pt !important;}
-            p, li, td { font-size: 11pt !important; line-height: 1.6 !important; }
-            caption { font-size: 14pt !important; }
+            h2 { font-size: 20pt !important; line-height: 1.2 !important; margin-bottom: 0 !important; }
+            h3 { font-size: 15pt !important; margin-top: 16px !important; margin-bottom: 4px !important;}
+            p, li, td { font-size: 10.5pt !important; line-height: 1.5 !important; }
             
-            /* Hide non-print elements */
+            /* Tighten Headings and Borders */
+            article header {
+                margin-bottom: 12px !important;
+                padding-bottom: 6px !important;
+            }
+            
+            /* Tighten paragraph/list gaps */
+            .space-y-7 > * + * { margin-top: 10px !important; }
+            .space-y-6 > * + * { margin-top: 8px !important; }
+            .space-y-5 > * + * { margin-top: 6px !important; }
+            .my-14, .my-8, .mt-12, .mb-24 { margin-top: 15px !important; margin-bottom: 15px !important; }
+            .mt-14 { margin-top: 15px !important; }
+
             .no-print { display: none !important; }
             .page-break { page-break-before: always !important; }
             
-            /* Structural Print Safeguards - REMOVED 'article' to fix massive gap issue */
-            table, tr, .bg-white\/70, .bg-white, figure { page-break-inside: avoid !important; }
-            h2, h3 { page-break-after: avoid !important; }
-            p { orphans: 4; widows: 4; }
-            li { page-break-inside: avoid !important; margin-bottom: 6pt !important; }
-            
-            /* Fix massive gaps around figures in PDF */
-            figure {
+            /* Anchoring Tables */
+            table { 
                 margin: 15px 0 !important; 
-                padding: 0 !important;
+                page-break-inside: avoid !important;
             }
+            caption { 
+                font-size: 13pt !important; 
+                margin-bottom: 6px !important; 
+                padding-bottom: 0 !important; 
+            }
+            th, td { padding: 8px 6px !important; }
             
-            /* Restrict image sizes so they don't force bad page breaks */
+            /* Fixing 'Hanging' Images and Gaps */
+            figure {
+                margin: 20px auto !important; 
+                padding: 0 !important;
+                page-break-inside: avoid !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
             figure img {
-                max-height: 220mm !important; 
+                max-height: 140mm !important; /* Constrain height so it fits nicely with text */
                 width: auto !important;
                 max-width: 100% !important;
-                margin: 0 auto !important;
+                object-fit: contain !important;
             }
-
-            /* Force caption text black for print */
             figcaption {
-                margin-top: 10px !important;
+                margin-top: 8px !important;
                 color: #080808 !important; 
-                background-color: transparent !important;
+                background: transparent !important;
                 box-shadow: none !important;
                 padding: 0 !important;
             }
             
-            /* Perfect A4 Cover Page (297mm height - 30mm padding = 267mm) */
+            /* Perfect A4 Cover and Closing Pages */
             .hero-section { 
                 background-color: #080808 !important; 
                 color: #F4F0E7 !important; 
-                height: 267mm !important; 
+                height: 270mm !important; 
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: center !important;
@@ -101,29 +116,17 @@
                 page-break-after: always !important;
                 border-bottom: none !important;
             }
-            
-            /* Perfect A4 Closing Page (Image + Footer) */
             .closing-wrapper {
                 page-break-before: always !important;
                 page-break-inside: avoid !important;
-                height: 267mm !important;
+                height: 270mm !important;
                 display: flex !important;
                 flex-direction: column !important;
                 margin: 0 !important;
                 padding: 0 !important;
             }
-            .closing-image-section {
-                flex-grow: 1 !important;
-                height: auto !important;
-                min-height: 0 !important;
-            }
-            footer {
-                flex-shrink: 0 !important;
-                background-color: #080808 !important; 
-                padding: 8mm 0 !important;
-            }
-            
-            /* Typography & Colors in Print */
+            .closing-image-section { flex-grow: 1 !important; height: auto !important; min-height: 0 !important; }
+            footer { flex-shrink: 0 !important; background-color: #080808 !important; padding: 8mm 0 !important; }
             .logo-text { color: #C6A04A !important; }
             .print-text-white { color: #F4F0E7 !important; }
         }
@@ -136,7 +139,6 @@
             background-size: 100% 100%;
         }
         
-        /* Web Table Styling */
         table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
         th { 
             border-bottom: 1px solid #C6A04A; 
@@ -165,12 +167,7 @@
             margin-bottom: 1.25rem; 
             font-weight: 500;
         }
-
-        /* Container to center the inline-block figcaption */
-        .figcaption-container {
-            text-align: center;
-            width: 100%;
-        }
+        .figcaption-container { text-align: center; width: 100%; }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
@@ -215,9 +212,8 @@
         </div>
     </section>
 
-    <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-10">
+    <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-8">
         
-        <!-- Section 1 -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
@@ -246,12 +242,10 @@
                 
                 <p>The two operating companies transact under an established Transfer Pricing Agreement and arm's-length Master Supply & Off-Take Agreement utilizing a cost-plus formula structured to comply with Kenya Revenue Authority (KRA) rules and UAE Corporate Tax transfer pricing regulations.</p>
 
-                <!-- FIG 1: Corporate Structure -->
                 <figure class="my-14 print:my-6">
                     <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Group Corporate Structure" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
                     <div class="figcaption-container">
-                        <!-- Distinct White Text on Dark Pill for Web | Pure Black Text for Print -->
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase text-white bg-tq-black px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 1: GROUP CORPORATE STRUCTURE
                         </figcaption>
                     </div>
@@ -405,11 +399,10 @@
                     </table>
                 </div>
 
-                <!-- FIG 2: Revenue Settlement Waterfall -->
                 <figure class="my-14 print:my-6">
                     <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Capital Settlement Waterfall" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase text-white bg-tq-black px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 2: REVENUE SETTLEMENT WATERFALL
                         </figcaption>
                     </div>
@@ -456,11 +449,10 @@
                     </div>
                 </div>
 
-                <!-- FIG 3: Governance Hierarchy -->
                 <figure class="my-14 print:my-6">
                     <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Governance and Divisional Hierarchy" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase text-white bg-tq-black px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 3: GOVERNANCE & EXECUTIVE HIERARCHY
                         </figcaption>
                     </div>
@@ -491,7 +483,7 @@
 
         <div class="page-break"></div>
 
-        <article class="mb-24 print:mb-8">
+        <article class="mb-14 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Kenya OpCo</h2>
@@ -520,11 +512,10 @@
                     </li>
                 </ul>
 
-                <!-- FIG 4: Supply Chain -->
                 <figure class="my-14 print:my-6">
                     <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Physical Supply Chainflow" class="w-full h-auto object-contain rounded-sm shadow-md print:shadow-none mx-auto block">
                     <div class="figcaption-container">
-                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase text-white bg-tq-black px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
+                        <figcaption class="mt-6 text-[0.8rem] font-sans font-bold tracking-[0.15em] uppercase bg-tq-black text-white px-6 py-2.5 rounded-full inline-block shadow-md print:bg-transparent print:text-black print:shadow-none print:px-0 print:py-0 print:block">
                             FIG 4: END-TO-END PHYSICAL EXPORT PIPELINE
                         </figcaption>
                     </div>
