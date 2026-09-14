@@ -63,10 +63,14 @@
 
         table { 
             width: 100%; 
-            min-width: 620px; /* Protects layout from crushing on mobile devices */
+            min-width: 650px; /* Protects layout from crushing on mobile */
             table-layout: fixed;
             border-collapse: collapse; 
             font-size: 0.85rem; 
+        }
+        th, td {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         th { 
             border-bottom: 1.5px solid #C6A04A; 
@@ -75,8 +79,8 @@
             font-family: "Manrope", sans-serif; 
             font-weight: 700; 
             text-transform: uppercase; 
-            letter-spacing: 0.06em; 
-            font-size: 0.68rem; 
+            letter-spacing: 0.04em; 
+            font-size: 0.7rem; 
             color: #9B7628; 
             background-color: #FAFAF7;
             vertical-align: bottom;
@@ -110,7 +114,7 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Lightbox Modal for Mobile and Desktop Inspection */
+        /* Lightbox Modal */
         #img-modal {
             display: none;
             position: fixed;
@@ -131,7 +135,6 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Robust Print Stylesheet */
         @media print {
             @page { 
                 size: A4 portrait; 
@@ -144,15 +147,14 @@
                 background-color: #F4F0E7 !important; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
-                font-size: 9pt !important;
-                line-height: 1.4 !important;
+                font-size: 9.5pt !important;
+                line-height: 1.45 !important;
             }
 
             .no-print { display: none !important; }
 
-            /* True A4 Full Bleed Hero Cover */
-            .hero-section { 
-                page-break-before: auto !important;
+            /* True A4 Full Bleed Covers */
+            .hero-section, .closing-wrapper { 
                 page-break-after: always !important; 
                 break-after: page !important;
                 height: 297mm !important; 
@@ -160,7 +162,7 @@
                 max-height: 297mm !important;
                 width: 210mm !important; 
                 margin: 0 !important; 
-                padding: 22mm 20mm 20mm 20mm !important; 
+                padding: 22mm 20mm !important; 
                 box-sizing: border-box !important; 
                 display: flex !important;
                 flex-direction: column !important;
@@ -168,31 +170,24 @@
                 background-color: #080808 !important;
             }
 
-            /* Main Content Container on A4 */
+            /* Main Content Container */
             main { 
                 margin: 0 auto !important; 
-                padding: 14mm 18mm 14mm 18mm !important; 
+                padding: 14mm 18mm !important; 
                 max-width: 210mm !important; 
                 box-sizing: border-box !important;
             }
 
-            /* Fluid, natural pagination - replace aggressive page breaks */
-            .print-page-break {
-                page-break-before: always !important;
-                break-before: page !important;
-            }
-
+            /* Fluid pagination - removed aggressive page breaks */
             .avoid-break {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
             }
 
-            /* Typography & Header Control */
+            /* Typography & Orphan Control */
             p, li { 
                 orphans: 3 !important; 
                 widows: 3 !important; 
-                font-size: 9pt !important; 
-                line-height: 1.45 !important; 
             }
             
             h1, h2, h3, h4, h5, caption, article header { 
@@ -200,24 +195,12 @@
                 break-after: avoid !important;
             }
 
-            h2 { 
-                margin-top: 10pt !important; 
-                margin-bottom: 3pt !important; 
-                font-size: 16pt !important;
-            }
-            h3 { 
-                margin-top: 8pt !important; 
-                margin-bottom: 2pt !important; 
-                font-size: 12.5pt !important;
-            }
+            h2 { margin-top: 12pt !important; margin-bottom: 4pt !important; font-size: 16pt !important; }
+            h3 { margin-top: 10pt !important; margin-bottom: 3pt !important; font-size: 13pt !important; }
 
-            .space-y-6 > * + * { margin-top: 6pt !important; }
-            .mb-20 { margin-bottom: 12pt !important; }
-            .mb-14, .mb-10 { margin-bottom: 8pt !important; }
-
-            /* Table Formatting for Print */
+            /* Table Formatting for Print - Strict */
             .table-wrapper {
-                margin: 6pt 0 !important;
+                margin: 8pt 0 !important;
                 border: none !important;
                 box-shadow: none !important;
                 background: transparent !important;
@@ -229,29 +212,22 @@
                 min-width: 100% !important;
                 table-layout: fixed !important;
                 margin: 0 !important; 
-                font-size: 7.5pt !important;
+                font-size: 8pt !important;
             }
             th { 
-                padding: 3.5pt 3pt !important; 
-                font-size: 6.5pt !important;
+                padding: 4pt 3pt !important; 
+                font-size: 7pt !important;
                 background-color: transparent !important;
                 border-bottom: 1.2pt solid #C6A04A !important;
             }
             td { 
-                padding: 3.5pt 3pt !important; 
-                font-size: 7.2pt !important;
-                line-height: 1.3 !important;
-                vertical-align: top !important;
-            }
-            caption { 
-                font-size: 9.5pt !important; 
-                margin-bottom: 2pt !important; 
-                padding: 0 0 2pt 0 !important; 
+                padding: 4pt 3pt !important; 
+                line-height: 1.35 !important;
             }
 
-            /* Figure & Diagram Handling - Calibrated for A4 portrait sharing */
+            /* Figure Constraints to prevent "Ghost Pages" */
             figure {
-                margin: 5mm auto !important; 
+                margin: 6mm auto !important; 
                 padding: 0 !important;
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important;
@@ -261,7 +237,7 @@
                 justify-content: center !important; 
             }
             figure img {
-                max-height: 68mm !important; /* Calibrated height allowing text to share page */
+                max-height: 65mm !important; /* Forces image to share page with text */
                 width: auto !important; 
                 max-width: 100% !important; 
                 object-fit: contain !important; 
@@ -272,11 +248,8 @@
                 color: #080808 !important; 
                 background: transparent !important; 
                 box-shadow: none !important; 
-                padding: 0 !important; 
-                text-align: center !important; 
             }
 
-            /* Next Steps Grid for Print */
             .stages-grid {
                 display: grid !important;
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -287,34 +260,16 @@
                 break-inside: avoid !important;
                 padding: 6pt 8pt !important;
             }
-
-            /* True A4 Closing Cover */
-            .closing-wrapper { 
-                page-break-before: always !important; 
-                break-before: page !important;
-                height: 297mm !important; 
-                min-height: 297mm !important;
-                max-height: 297mm !important;
-                width: 210mm !important; 
-                margin: 0 !important; 
-                padding: 22mm 20mm 20mm 20mm !important; 
-                box-sizing: border-box !important; 
-                display: flex !important; 
-                flex-direction: column !important; 
-                justify-content: space-between !important; 
-                background-color: #080808 !important; 
-            }
         }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
 
-    <!-- NAVIGATION / ACTIONS -->
     <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 shadow-sm print:hidden">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <div class="logo-text text-[16px] sm:text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.1em] md:tracking-[0.15em] font-serif flex items-center leading-none flex-shrink-0 whitespace-nowrap uppercase">
+                    <div class="logo-text text-[16px] sm:text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.1em] md:tracking-[0.15em] font-serif flex items-center leading-none uppercase">
                         TERRAQUEST FZCO
                     </div>
                 </div>
@@ -325,7 +280,6 @@
         </div>
     </header>
 
-    <!-- FRONT COVER (A4 EXACT PAGE 1) -->
     <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[85vh] flex flex-col justify-between py-20 md:py-16">
         <div class="text-center w-full">
             <div class="logo-text text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.2em] font-serif leading-none uppercase">
@@ -365,7 +319,7 @@
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-16 md:py-20 print:py-0">
         
         <!-- SECTION 1 -->
-        <article class="mb-20 print:mb-6">
+        <article class="mb-16 print:mb-6">
             <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Executive Summary</h2>
@@ -407,7 +361,7 @@
                 </div>
 
                 <!-- FIG 1: GOVERNANCE & DIVISIONAL HIERARCHY -->
-                <figure class="my-8 print:my-3 avoid-break">
+                <figure class="my-8 print:my-4 avoid-break">
                     <div class="diagram-container w-full max-w-2xl mx-auto rounded overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer" onclick="openModal(this)">
                         <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Project Ndegwa: Governance and Divisional Hierarchy" class="w-full h-auto object-contain block mx-auto" onerror="this.style.display='none'">
                     </div>
@@ -421,7 +375,7 @@
         </article>
 
         <!-- SECTION 2 -->
-        <article class="mb-20 print:mb-6 avoid-break">
+        <article class="mb-16 print:mb-6">
             <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">2.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">UAE InvestCo</h2>
@@ -456,8 +410,8 @@
                             <col style="width: 14%;">
                             <col style="width: 28%;">
                             <col style="width: 16%;">
-                            <col style="width: 10%;">
-                            <col style="width: 32%;">
+                            <col style="width: 12%;">
+                            <col style="width: 30%;">
                         </colgroup>
                         <caption>Phase 1 Capital Allocation Schedule (USD 50,000,000)</caption>
                         <thead>
@@ -473,29 +427,29 @@
                             <tr>
                                 <td class="font-bold text-tq-black">Account 1</td>
                                 <td class="font-medium text-tq-black">Liquidity, Advisory &amp; Legal</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">7,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">7,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">14.00%</td>
                                 <td>USD 5.0M (10%) Cash Reserve; USD 1.25M Structuring Fee; USD 500k Legal; USD 250k Permits.</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">Account 2</td>
                                 <td class="font-medium text-tq-black">Industrial Processing &amp; Feed Engine</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">17,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">17,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">34.00%</td>
                                 <td>Abattoir &amp; chillers ($4.75M), boning/smokehouse ($2.1M), solar/WWTP ($2.7M), 15 MT/hr feed mill, soya press &amp; 13k MT steel silos ($5.5M), PMC &amp; contingency ($1.95M).</td>
                             </tr>
                             <tr>
                                 <td class="font-bold text-tq-black">Account 3</td>
                                 <td class="font-medium text-tq-black">Livestock Supply &amp; Working Capital</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">26,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">26,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">52.00%</td>
-                                <td>Day-1 stock ($3.0M), 18k feedlots ($4.5M), buying hubs ($1.5M), Bovine IVF cleanroom lab ($800k), revolving livestock/feed/consumables float ($16.2M).</td>
+                                <td>Day-1 stock ($3.0M), 18k feedlots ($4.5M), buying hubs ($1.5M), Bovine IVF lab ($800k), revolving livestock/feed/consumables float ($16.2M).</td>
                             </tr>
                             <tr class="border-t border-tq-gold bg-tq-ivory/30">
                                 <td class="font-bold text-tq-black pt-2.5" colspan="2">TOTAL PHASE 1 BASELINE COMMITMENT</td>
-                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right whitespace-nowrap">50,000,000</td>
+                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right">50,000,000</td>
                                 <td class="font-bold text-tq-black pt-2.5 text-right font-mono">100.00%</td>
-                                <td class="text-tq-stone pt-2.5 italic text-xs">Optional 30% Accordion Tranche: USD 15,000,000 (Max Phase 1 Envelope: USD 65,000,000).</td>
+                                <td class="text-tq-stone pt-2.5 italic text-xs">Optional 30% Accordion Tranche: USD 15,000,000 (Max Envelope: USD 65,000,000).</td>
                             </tr>
                         </tbody>
                     </table>
@@ -508,8 +462,8 @@
                             <col style="width: 14%;">
                             <col style="width: 28%;">
                             <col style="width: 16%;">
-                            <col style="width: 10%;">
-                            <col style="width: 32%;">
+                            <col style="width: 12%;">
+                            <col style="width: 30%;">
                         </colgroup>
                         <caption>Phase 2 Capital Allocation Schedule (USD 50,000,000)</caption>
                         <thead>
@@ -525,29 +479,29 @@
                             <tr>
                                 <td class="font-bold text-tq-black">Account 1</td>
                                 <td class="font-medium text-tq-black">Liquidity, Advisory &amp; Permitting</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">7,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">7,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">14.00%</td>
                                 <td>USD 5.0M (10%) Cash Reserve; USD 1.25M Structuring Fee; USD 500k Legal; USD 250k EIA/Quarantine Permits.</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">Account 2</td>
                                 <td class="font-medium text-tq-black">Silos, Tannery &amp; Processing CAPEX</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">17,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">17,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">34.00%</td>
                                 <td>Bulk steel silo terminal scale to 30,000 MT ($8.5M), wet-blue leather tannery ($4.5M), secondary carcass chillers &amp; 2nd blast freezer ($3.0M), PMC ($1.0M).</td>
                             </tr>
                             <tr>
                                 <td class="font-bold text-tq-black">Account 3</td>
                                 <td class="font-medium text-tq-black">Coastal PEQ, Charters &amp; Scale</td>
-                                <td class="font-mono text-tq-antique font-medium text-right whitespace-nowrap">26,000,000</td>
+                                <td class="font-mono text-tq-antique font-medium text-right">26,000,000</td>
                                 <td class="text-tq-stone text-right font-mono">52.00%</td>
                                 <td>Coastal PEQ staging ranch infrastructure ($8.5M), contracted vessel &amp; aircraft charter logistics revolver ($10.0M), Northern corrals &amp; animal float ($7.5M).</td>
                             </tr>
                             <tr class="border-t border-tq-gold bg-tq-ivory/30">
                                 <td class="font-bold text-tq-black pt-2.5" colspan="2">TOTAL PHASE 2 BASELINE COMMITMENT</td>
-                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right whitespace-nowrap">50,000,000</td>
+                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right">50,000,000</td>
                                 <td class="font-bold text-tq-black pt-2.5 text-right font-mono">100.00%</td>
-                                <td class="text-tq-stone pt-2.5 italic text-xs">Optional 30% Accordion Tranche: USD 15,000,000 (Max Phase 2 Envelope: USD 65,000,000).</td>
+                                <td class="text-tq-stone pt-2.5 italic text-xs">Optional 30% Accordion Tranche: USD 15,000,000 (Max Envelope: USD 65,000,000).</td>
                             </tr>
                         </tbody>
                     </table>
@@ -569,52 +523,52 @@
                                 <th>Capital Account Category</th>
                                 <th class="text-right">Phase 1 (USD)</th>
                                 <th class="text-right">Phase 2 (USD)</th>
-                                <th class="text-right">Combined Program (USD)</th>
+                                <th class="text-right">Combined (USD)</th>
                                 <th class="text-right">Share (%)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="font-bold text-tq-black">Account 1 (Liquidity Reserve &amp; Setup)</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">7,000,000</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">7,000,000</td>
-                                <td class="font-mono text-tq-black font-semibold text-right whitespace-nowrap">14,000,000</td>
-                                <td class="text-tq-stone text-right font-mono">14.00%</td>
+                                <td class="font-bold text-tq-black">Account 1 (Liquidity &amp; Setup)</td>
+                                <td class="font-mono text-tq-antique text-right">7,000,000</td>
+                                <td class="font-mono text-tq-antique text-right">7,000,000</td>
+                                <td class="font-mono text-tq-black font-semibold text-right">14,000,000</td>
+                                <td class="text-tq-stone text-right font-mono">14.0%</td>
                             </tr>
                             <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">Account 2 (CAPEX, Feed Mill, Silos &amp; Tannery)</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">17,000,000</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">17,000,000</td>
-                                <td class="font-mono text-tq-black font-semibold text-right whitespace-nowrap">34,000,000</td>
-                                <td class="text-tq-stone text-right font-mono">34.00%</td>
+                                <td class="font-bold text-tq-black">Account 2 (Processing CAPEX)</td>
+                                <td class="font-mono text-tq-antique text-right">17,000,000</td>
+                                <td class="font-mono text-tq-antique text-right">17,000,000</td>
+                                <td class="font-mono text-tq-black font-semibold text-right">34,000,000</td>
+                                <td class="text-tq-stone text-right font-mono">34.0%</td>
                             </tr>
                             <tr>
-                                <td class="font-bold text-tq-black">Account 3 (Livestock, PEQ, Charters &amp; Floats)</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">26,000,000</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">26,000,000</td>
-                                <td class="font-mono text-tq-black font-semibold text-right whitespace-nowrap">52,000,000</td>
-                                <td class="text-tq-stone text-right font-mono">52.00%</td>
+                                <td class="font-bold text-tq-black">Account 3 (Livestock &amp; Working Cap)</td>
+                                <td class="font-mono text-tq-antique text-right">26,000,000</td>
+                                <td class="font-mono text-tq-antique text-right">26,000,000</td>
+                                <td class="font-mono text-tq-black font-semibold text-right">52,000,000</td>
+                                <td class="text-tq-stone text-right font-mono">52.0%</td>
                             </tr>
                             <tr class="border-t border-tq-gold bg-tq-ivory/20">
-                                <td class="font-bold text-tq-black pt-2.5">TOTAL BASELINE CAPITAL COMMITMENT</td>
-                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right whitespace-nowrap">50,000,000</td>
-                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right whitespace-nowrap">50,000,000</td>
-                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right whitespace-nowrap">100,000,000</td>
-                                <td class="font-bold text-tq-black pt-2.5 text-right font-mono">100.00%</td>
+                                <td class="font-bold text-tq-black pt-2.5">TOTAL BASELINE COMMITMENT</td>
+                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right">50,000,000</td>
+                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right">50,000,000</td>
+                                <td class="font-mono font-bold text-tq-black pt-2.5 text-right">100,000,000</td>
+                                <td class="font-bold text-tq-black pt-2.5 text-right font-mono">100.0%</td>
                             </tr>
                             <tr>
-                                <td class="font-bold text-tq-antique">OPTIONAL ACCORDION INVESTMENT TRANCHES</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">15,000,000</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">15,000,000</td>
-                                <td class="font-mono text-tq-antique font-semibold text-right whitespace-nowrap">30,000,000</td>
-                                <td class="text-tq-antique text-right font-mono">30.00%</td>
+                                <td class="font-bold text-tq-antique">OPTIONAL ACCORDION TRANCHES</td>
+                                <td class="font-mono text-tq-antique text-right">15,000,000</td>
+                                <td class="font-mono text-tq-antique text-right">15,000,000</td>
+                                <td class="font-mono text-tq-antique font-semibold text-right">30,000,000</td>
+                                <td class="text-tq-antique text-right font-mono">30.0%</td>
                             </tr>
                             <tr class="bg-white/80 font-bold border-t border-tq-stone/30">
-                                <td class="text-tq-black pb-2.5">MAXIMUM AUTHORIZED PROGRAM ENVELOPE</td>
-                                <td class="font-mono text-tq-black pb-2.5 text-right whitespace-nowrap">65,000,000</td>
-                                <td class="font-mono text-tq-black pb-2.5 text-right whitespace-nowrap">65,000,000</td>
-                                <td class="font-mono text-tq-black pb-2.5 text-right whitespace-nowrap">130,000,000</td>
-                                <td class="text-tq-black pb-2.5 text-right font-mono">—</td>
+                                <td class="text-tq-black pb-2.5">MAXIMUM AUTHORIZED ENVELOPE</td>
+                                <td class="font-mono text-tq-black pb-2.5 text-right">65,000,000</td>
+                                <td class="font-mono text-tq-black pb-2.5 text-right">65,000,000</td>
+                                <td class="font-mono text-tq-black pb-2.5 text-right">130,000,000</td>
+                                <td class="text-tq-black pb-2.5 text-right font-mono">&mdash;</td>
                             </tr>
                         </tbody>
                     </table>
@@ -635,7 +589,7 @@
                             <tr>
                                 <th>Capital Line Item</th>
                                 <th>Entity Balance Sheet</th>
-                                <th class="text-right">Program Total (USD)</th>
+                                <th class="text-right">Total (USD)</th>
                                 <th>Structuring Instrument</th>
                                 <th>Accounting Treatment</th>
                             </tr>
@@ -644,30 +598,30 @@
                             <tr>
                                 <td class="font-bold text-tq-black">Nominal Equity Parity</td>
                                 <td>UAE InvestCo</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">50,000</td>
+                                <td class="font-mono text-tq-antique text-right">50,000</td>
                                 <td>Paid-Up Ordinary Shares</td>
-                                <td>Establishes non-dilutive 50/50 ordinary voting parity under English Common Law.</td>
+                                <td>Establishes non-dilutive 50/50 ordinary voting parity.</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">Account 1: Setup &amp; Reserves</td>
                                 <td>UAE InvestCo</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">14,000,000</td>
-                                <td>Cash Reserve &amp; Equity Setup</td>
-                                <td>USD 10.0M formulaic liquidity cushion; structuring and legal expenses capitalized.</td>
+                                <td class="font-mono text-tq-antique text-right">14,000,000</td>
+                                <td>Cash Reserve &amp; Equity</td>
+                                <td>USD 10.0M formulaic liquidity cushion; setup capitalized.</td>
                             </tr>
                             <tr>
-                                <td class="font-bold text-tq-black">Account 2: Industrial Processing CAPEX</td>
+                                <td class="font-bold text-tq-black">Account 2: Industrial CAPEX</td>
                                 <td>Kenya OpCo</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">34,000,000</td>
+                                <td class="font-mono text-tq-antique text-right">34,000,000</td>
                                 <td>Istisna'a (Manufacturing)</td>
-                                <td>Capitalized under IAS 16 as 100% Owned Plant &amp; Machinery on 25-year leased land.</td>
+                                <td>Capitalized under IAS 16 as 100% Owned Plant on leased land.</td>
                             </tr>
                             <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">Account 3: Supply, PEQ &amp; Charters</td>
-                                <td>Kenya OpCo / UAE OpCo</td>
-                                <td class="font-mono text-tq-antique text-right whitespace-nowrap">52,000,000</td>
-                                <td>Murabaha &amp; Salam Lines</td>
-                                <td>Secured current assets (cattle, grain, consumables, freight float); zero land lien.</td>
+                                <td class="font-bold text-tq-black">Account 3: Supply &amp; Floats</td>
+                                <td>Kenya OpCo/UAE OpCo</td>
+                                <td class="font-mono text-tq-antique text-right">52,000,000</td>
+                                <td>Murabaha &amp; Salam</td>
+                                <td>Secured current assets (cattle, grain, float); zero land lien.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -677,9 +631,9 @@
                 <div class="table-wrapper avoid-break">
                     <table>
                         <colgroup>
-                            <col style="width: 14%;">
-                            <col style="width: 26%;">
-                            <col style="width: 42%;">
+                            <col style="width: 12%;">
+                            <col style="width: 25%;">
+                            <col style="width: 45%;">
                             <col style="width: 18%;">
                         </colgroup>
                         <caption>Four-Tier Distribution Waterfall</caption>
@@ -694,26 +648,26 @@
                         <tbody>
                             <tr>
                                 <td class="font-bold text-tq-black">TIER 1</td>
-                                <td class="font-bold text-tq-black">Direct Operating COGS &amp; Retainers</td>
-                                <td>Gross customer trade proceeds clear freight, processing, feed, consumables, and priority advisory retainers.</td>
+                                <td class="font-bold text-tq-black">Direct Operating COGS</td>
+                                <td>Gross customer trade proceeds clear freight, processing, feed, and priority retainers.</td>
                                 <td class="font-mono text-xs">AED / SAR / USD</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">TIER 2</td>
                                 <td class="font-bold text-tq-black">Priority Capital Recovery</td>
-                                <td>Amortization of deployed Istisna'a and Murabaha capital plus agreed Shariah return, swept to Investor without dilution.</td>
+                                <td>Amortization of deployed Istisna'a/Murabaha capital plus agreed return, swept without dilution.</td>
                                 <td class="font-mono text-xs">Swept to InvestCo</td>
                             </tr>
                             <tr>
                                 <td class="font-bold text-tq-black">TIER 3</td>
-                                <td class="font-bold text-tq-black">Operating Reserves Refill</td>
-                                <td>Mandatory replenishment of rolling 60-day feeder cattle intake, grain reserves, and consumable stocks.</td>
+                                <td class="font-bold text-tq-black">Operating Reserves</td>
+                                <td>Mandatory replenishment of rolling 60-day feeder cattle intake and grain/consumable stocks.</td>
                                 <td class="font-mono text-xs">Retained Cash</td>
                             </tr>
                             <tr class="bg-white/50">
                                 <td class="font-bold text-tq-black">TIER 4</td>
                                 <td class="font-bold text-tq-black">Equal Profit Sharing</td>
-                                <td>Residual net operational profits distributed equally (50% Investee / 50% Investor) via declared dividends.</td>
+                                <td>Residual net operational profits distributed equally (50% Investee / 50% Investor).</td>
                                 <td class="font-mono text-xs">Quarterly Dividend</td>
                             </tr>
                         </tbody>
@@ -721,7 +675,7 @@
                 </div>
 
                 <!-- FIG 4: CASH FLOW & PROFIT DISTRIBUTION -->
-                <figure class="my-8 print:my-3 avoid-break">
+                <figure class="my-8 print:my-4 avoid-break">
                     <div class="diagram-container w-full max-w-2xl mx-auto rounded overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer" onclick="openModal(this)">
                         <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Fig. 4: Cash Flow &amp; Profit Distribution" class="w-full h-auto object-contain block mx-auto" onerror="this.style.display='none'">
                     </div>
@@ -782,7 +736,7 @@
                 </div>
 
                 <!-- FIG 2: PROPOSED GOVERNANCE & MANAGEMENT STRUCTURE -->
-                <figure class="my-8 print:my-3 avoid-break">
+                <figure class="my-8 print:my-4 avoid-break">
                     <div class="diagram-container w-full max-w-2xl mx-auto rounded overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer" onclick="openModal(this)">
                         <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Fig. 2: Proposed Governance and Management Structure" class="w-full h-auto object-contain block mx-auto" onerror="this.style.display='none'">
                     </div>
@@ -793,7 +747,7 @@
                     </div>
                 </figure>
 
-                <!-- DECISION AUTHORITY (Glued to flow naturally without orphan empty pages) -->
+                <!-- DECISION AUTHORITY -->
                 <div class="avoid-break mt-6">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-2">Decision Authority</h3>
                     <p>Authority cascades cleanly from the Board down through ExCo to the executive management team:</p>
@@ -850,7 +804,7 @@
                 </ul>
 
                 <!-- FIG 3: PROPOSED SUPPLY CHAIN EXECUTION -->
-                <figure class="my-8 print:my-3 avoid-break">
+                <figure class="my-8 print:my-4 avoid-break">
                     <div class="diagram-container w-full max-w-2xl mx-auto rounded overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer" onclick="openModal(this)">
                         <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Fig. 3: Proposed Supply Chain Execution" class="w-full h-auto object-contain block mx-auto" onerror="this.style.display='none'">
                     </div>
@@ -886,7 +840,7 @@
             </div>
         </article>
 
-        <!-- SECTIONS 4 & 5 (United closing spread without sentence splits) -->
+        <!-- SECTIONS 4 & 5 -->
         <div class="avoid-break">
             <!-- SECTION 4 -->
             <article class="mb-12 print:mb-5 avoid-break">
@@ -916,38 +870,38 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 stages-grid gap-3 mt-3">
                         
                         <!-- Stage 1 -->
-                        <div class="stage-card bg-tq-black text-tq-ivory border-t-3 border-tq-gold p-3.5 rounded shadow-sm flex flex-col justify-start">
-                            <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase mb-1">Stage 01</span>
-                            <h4 class="font-serif text-sm leading-tight mb-1.5">Term Sheet Execution</h4>
+                        <div class="stage-card bg-tq-black text-tq-ivory border-t-3 border-tq-gold p-4 rounded shadow-sm flex flex-col justify-start">
+                            <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase mb-1.5">Stage 01</span>
+                            <h4 class="font-serif text-sm leading-tight mb-2">Term Sheet Execution</h4>
                             <p class="text-xs text-tq-stone leading-relaxed">Execute the Master Term Sheet; wire settlement of Phase 1 Structuring Fee to TerraQuest.</p>
                         </div>
 
                         <!-- Stage 2 -->
-                        <div class="stage-card bg-[#C6A04A] text-[#080808] border-t-3 border-[#080808] p-3.5 rounded shadow-sm flex flex-col justify-start">
-                            <span class="text-[#080808] font-bold font-sans text-xs tracking-widest uppercase mb-1">Stage 02</span>
-                            <h4 class="font-serif text-sm leading-tight mb-1.5">Confirmatory Diligence</h4>
-                            <p class="text-xs text-[#080808]/90 leading-relaxed">Complete cadastral, hydrological (&gt;30m&sup3;/hr), veterinary herd, and environmental NEMA audits.</p>
+                        <div class="stage-card bg-[#C6A04A] text-[#080808] border-t-3 border-[#080808] p-4 rounded shadow-sm flex flex-col justify-start">
+                            <span class="text-[#080808] font-bold font-sans text-xs tracking-widest uppercase mb-1.5">Stage 02</span>
+                            <h4 class="font-serif text-sm leading-tight mb-2">Confirmatory Diligence</h4>
+                            <p class="text-xs text-[#080808]/90 leading-relaxed">Complete cadastral, hydrological, veterinary herd, and environmental NEMA audits.</p>
                         </div>
 
                         <!-- Stage 3 -->
-                        <div class="stage-card bg-[#242424] text-tq-ivory border-t-3 border-[#B8B1A3] p-3.5 rounded shadow-sm flex flex-col justify-start">
-                            <span class="text-[#B8B1A3] font-bold font-sans text-xs tracking-widest uppercase mb-1">Stage 03</span>
-                            <h4 class="font-serif text-sm leading-tight mb-1.5">SHA &amp; Escrow Deposit</h4>
+                        <div class="stage-card bg-[#242424] text-tq-ivory border-t-3 border-[#B8B1A3] p-4 rounded shadow-sm flex flex-col justify-start">
+                            <span class="text-[#B8B1A3] font-bold font-sans text-xs tracking-widest uppercase mb-1.5">Stage 03</span>
+                            <h4 class="font-serif text-sm leading-tight mb-2">SHA &amp; Escrow Deposit</h4>
                             <p class="text-xs text-[#B8B1A3] leading-relaxed">Execute Shareholders Agreement &amp; Islamic Facilities; deposit cleared USD 50M Phase 1 in ADGM escrow.</p>
                         </div>
 
                         <!-- Stage 4 & 5 -->
-                        <div class="stage-card bg-[#B8B1A3] text-[#080808] border-t-3 border-[#242424] p-3.5 rounded shadow-sm flex flex-col justify-start">
-                            <span class="text-[#242424] font-bold font-sans text-xs tracking-widest uppercase mb-1">Stage 04 &amp; 05</span>
-                            <h4 class="font-serif text-sm leading-tight mb-1.5">QS Costing &amp; Blueprints</h4>
+                        <div class="stage-card bg-[#B8B1A3] text-[#080808] border-t-3 border-[#242424] p-4 rounded shadow-sm flex flex-col justify-start">
+                            <span class="text-[#242424] font-bold font-sans text-xs tracking-widest uppercase mb-1.5">Stage 04 &amp; 05</span>
+                            <h4 class="font-serif text-sm leading-tight mb-2">QS Costing &amp; Blueprints</h4>
                             <p class="text-xs text-[#242424] leading-relaxed">Appoint architectural/MEP engineers and Quantity Surveyor (QS) for bankable Bill of Quantities.</p>
                         </div>
 
                         <!-- Stage 6 & 7 -->
-                        <div class="stage-card bg-[#F4F0E7] text-[#080808] border-t-3 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/40 p-3.5 rounded shadow-sm flex flex-col justify-start sm:col-span-2 lg:col-span-1 print:col-span-2">
-                            <span class="text-[#C6A04A] font-bold font-sans text-xs tracking-widest uppercase mb-1">Stage 06 &amp; 07</span>
-                            <h4 class="font-serif text-sm leading-tight mb-1.5">Ratification &amp; Rollout</h4>
-                            <p class="text-xs text-[#242424] leading-relaxed">Board ratifies final QS budget; C-Suite leadership (Group CEO, COO, CFO) assumes operational control and disburses civil capital.</p>
+                        <div class="stage-card bg-[#F4F0E7] text-[#080808] border-t-3 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/40 p-4 rounded shadow-sm flex flex-col justify-start sm:col-span-2 lg:col-span-1 print:col-span-2">
+                            <span class="text-[#C6A04A] font-bold font-sans text-xs tracking-widest uppercase mb-1.5">Stage 06 &amp; 07</span>
+                            <h4 class="font-serif text-sm leading-tight mb-2">Ratification &amp; Rollout</h4>
+                            <p class="text-xs text-[#242424] leading-relaxed">Board ratifies final QS budget; C-Suite leadership assumes operational control and disburses civil capital.</p>
                         </div>
 
                     </div>
