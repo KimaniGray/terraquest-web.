@@ -216,7 +216,7 @@
 
     <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[calc(100vh-80px)] print:min-h-[100vh] flex flex-col justify-center">
         
-        <div class="hidden print:block text-center mt-12 mb-16 w-full">
+        <!-- Center branding strictly for print mode (since sticky nav is hidden) -->
             <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
                 TERRAQUEST FZCO
             </div>
@@ -253,7 +253,6 @@
 
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-0">
         
-        <!-- SECTION 1: Executive Summary -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
@@ -278,10 +277,11 @@
                     </ul>
                 </div>
                 
-                <p>The joint venture is governed as a Shariah-compliant <em>Musharaka</em> partnership structured under English Common Law in the Abu Dhabi Global Market (ADGM). It is capitalized with a nominal paid-up ordinary share capital that locks in absolute 50/50 voting parity between Investor and Investee across all future drawdowns. Corporate authority sits with a lean 4-member Board of Directors (two Investee appointees and two Investor appointees), supported by a bilateral Executive Committee (ExCo).</p>
-                
-                <div class="avoid-break mt-6">
-                    <p class="mb-4">Operations are cleanly split between two entities:</p>
+                <div class="avoid-break mt-8">
+                    <p>The joint venture is governed as a Shariah-compliant <em class="font-serif text-[17px]">Musharaka</em> partnership structured under English Common Law in the Abu Dhabi Global Market (ADGM). It is capitalized with a nominal paid-up ordinary share capital that locks in absolute 50/50 voting parity between Investor and Investee across all future drawdowns. Corporate authority sits with a lean 4-member Board of Directors (two Investee appointees and two Investor appointees), supported by a bilateral Executive Committee (ExCo).</p>
+                    
+                    <p class="mt-6 mb-4">Operations are cleanly split between two entities:</p>
+                    
                     <ul class="list-none space-y-5 pl-0 my-4">
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
@@ -296,6 +296,7 @@
 
                 <div class="avoid-break mt-8">
                     <p>The two companies trade at arm's length via a Master Supply & Off-Take Agreement. Transfer pricing uses a cost-plus formula backed by independent benchmarks to comply with KRA and UAE Corporate Tax regulations.</p>
+
                     <figure class="my-10 print:my-4">
                         <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Governance and Divisional Hierarchy" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
