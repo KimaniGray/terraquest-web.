@@ -135,12 +135,18 @@
                 justify-content: center !important;
             }
             figure img {
-                max-height: 85mm !important; 
+                max-height: 65mm !important; 
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
             figcaption { display: none !important; } /* Hide captions in print since baked in */
+            
+            /* Print grid forces */
+            .print-grid-2 {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
             
             .no-print { display: none !important; }
         }
@@ -323,11 +329,11 @@
                         <caption>Phase 1 Capital Allocation Schedule</caption>
                         <thead>
                             <tr>
-                                <th>Account</th>
-                                <th>Allocation Description</th>
-                                <th class="text-right">Amount (USD)</th>
-                                <th class="text-right">Share (%)</th>
-                                <th>Operational Specification</th>
+                                <th style="width: 14%;">Account</th>
+                                <th style="width: 25%;">Allocation Description</th>
+                                <th class="text-right" style="width: 16%;">Amount (USD)</th>
+                                <th class="text-right" style="width: 11%;">Share (%)</th>
+                                <th style="width: 34%;">Operational Specification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -374,11 +380,11 @@
                         <caption>Phase 2 Capital Allocation Schedule</caption>
                         <thead>
                             <tr>
-                                <th>Account</th>
-                                <th>Allocation Description</th>
-                                <th class="text-right">Amount (USD)</th>
-                                <th class="text-right">Share (%)</th>
-                                <th>Operational Specification</th>
+                                <th style="width: 14%;">Account</th>
+                                <th style="width: 25%;">Allocation Description</th>
+                                <th class="text-right" style="width: 16%;">Amount (USD)</th>
+                                <th class="text-right" style="width: 11%;">Share (%)</th>
+                                <th style="width: 34%;">Operational Specification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -425,11 +431,11 @@
                         <caption>Master Program Reconciliation (Two-Phase Architecture)</caption>
                         <thead>
                             <tr>
-                                <th>Capital Account Category</th>
-                                <th class="text-right">Phase 1 (USD)</th>
-                                <th class="text-right">Phase 2 (USD)</th>
-                                <th class="text-right">Combined (USD)</th>
-                                <th class="text-right">Share (%)</th>
+                                <th style="width: 32%;">Capital Account Category</th>
+                                <th class="text-right" style="width: 17%;">Phase 1 (USD)</th>
+                                <th class="text-right" style="width: 17%;">Phase 2 (USD)</th>
+                                <th class="text-right" style="width: 22%;">Combined (USD)</th>
+                                <th class="text-right" style="width: 12%;">Share (%)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -491,11 +497,11 @@
                         <caption>Capital Recognition & Collateral Treatment</caption>
                         <thead>
                             <tr>
-                                <th>Capital Line Item</th>
-                                <th>Entity Balance Sheet</th>
-                                <th class="text-right">Total (USD)</th>
-                                <th>Structuring Instrument</th>
-                                <th>Accounting Treatment</th>
+                                <th style="width: 22%;">Capital Line Item</th>
+                                <th style="width: 14%;">Entity Balance Sheet</th>
+                                <th class="text-right" style="width: 16%;">Total (USD)</th>
+                                <th style="width: 20%;">Structuring Instrument</th>
+                                <th style="width: 28%;">Accounting Treatment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -542,10 +548,10 @@
                         <caption>Four-Tier Distribution Waterfall</caption>
                         <thead>
                             <tr>
-                                <th>Tier</th>
-                                <th>Priority Category</th>
-                                <th>Settlement Rule & Formula</th>
-                                <th>Currency Flow</th>
+                                <th style="width: 12%;">Tier</th>
+                                <th style="width: 24%;">Priority Category</th>
+                                <th style="width: 48%;">Settlement Rule & Formula</th>
+                                <th style="width: 16%;">Currency Flow</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -686,11 +692,11 @@
                             Commissioning of 15 MT/hr feed mill and lucerne pelleting plant, initial embryo harvesting and transfers in IVF laboratory, abattoir commissioning with 100% origin deboning, and launch of boxed vacuum-packed beef and smoked deli cuts to the UAE.
                         </li>
                     </ul>
-                </div>
 
-                <figure class="my-10 print:my-4 avoid-break">
-                    <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                </figure>
+                    <figure class="my-10 print:my-4 avoid-break">
+                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                    </figure>
+                </div>
 
                 <div class="avoid-break mt-14">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Asset Integration & Land Ring-Fencing</h3>
@@ -739,7 +745,7 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence:</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 print:grid-cols-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 print-grid-2">
                     
                     <!-- Step 1 -->
                     <div class="bg-tq-black text-tq-ivory border-t-4 border-tq-gold p-5 rounded-sm shadow-md flex flex-col avoid-break print:bg-tq-black print:text-tq-ivory">
