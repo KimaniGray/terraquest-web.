@@ -113,11 +113,15 @@
 
             /* 7. Strict List & Table Integrity */
             li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
-            .table-wrapper { page-break-inside: auto !important; }
-            table { margin: 5px 0 !important; page-break-inside: auto !important; width: 100% !important; table-layout: fixed !important; }
+            
+            /* SURGICAL FIX: Force entire table block to stay together */
+            .table-wrapper { page-break-inside: avoid !important; break-inside: avoid !important; margin-bottom: 10px !important; }
+            
+            /* SURGICAL FIX: Shrunk text to 7.5pt so 5 columns don't crush. */
+            table { margin: 5px 0 !important; page-break-inside: avoid !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
-            caption { font-size: 12pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
-            th, td { padding: 4px !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; }
+            caption { font-size: 11pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
+            th, td { padding: 2px !important; font-size: 7.5pt !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; }
             
             /* 8. CSS Grid Protection */
             .grid-protection { display: flex !important; flex-direction: column !important; gap: 10px !important; }
@@ -134,21 +138,41 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+            
+            /* SURGICAL FIX: Shrink images to 65mm max so they don't break pages or strand text */
             figure img {
                 max-height: 65mm !important; 
                 width: auto !important;
                 max-width: 100% !important;
                 object-fit: contain !important;
             }
-            figcaption { display: none !important; } /* Hide captions in print since baked in */
+            figcaption { display: none !important; } 
             
             /* Print grid forces */
             .print-grid-2 {
                 display: grid !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 8px !important;
             }
             
             .no-print { display: none !important; }
+            
+            /* SURGICAL FIX: Hide the footer specifically on Page 1 to stop the text overlap */
+            @page :first {
+                 @bottom-center { content: none; }
+            }
+            .print-footer-fix {
+                position: absolute !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+            }
+            
+            /* SURGICAL FIX: Grouping the Waterfall and Fig 4 together so they don't tear */
+            .waterfall-group {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
         }
         
         body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
@@ -168,15 +192,6 @@
         
         .figcaption-container { display: none; } /* Hide captions on screen too since baked into PNG */
         
-        /* Fixed Footer for Print to ensure it stays on the black page */
-        @media print {
-            .print-footer-fix {
-                position: absolute !important;
-                bottom: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-            }
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
@@ -316,24 +331,17 @@
                     </ul>
                 </div>
 
-                <!-- Ironclad Table Structure with colgroup and forced wrapping -->
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <!-- SURGICAL FIX: Moved width declarations directly into th elements so the print engine respects them. -->
+                <div class="table-wrapper mt-10 mb-8">
                     <table>
-                        <colgroup>
-                            <col style="width: 14%;">
-                            <col style="width: 25%;">
-                            <col style="width: 16%;">
-                            <col style="width: 11%;">
-                            <col style="width: 34%;">
-                        </colgroup>
                         <caption>Phase 1 Capital Allocation Schedule</caption>
                         <thead>
                             <tr>
-                                <th style="width: 14%;">Account</th>
+                                <th style="width: 13%;">Account</th>
                                 <th style="width: 25%;">Allocation Description</th>
-                                <th class="text-right" style="width: 16%;">Amount (USD)</th>
-                                <th class="text-right" style="width: 11%;">Share (%)</th>
-                                <th style="width: 34%;">Operational Specification</th>
+                                <th class="text-right" style="width: 17%;">Amount (USD)</th>
+                                <th class="text-right" style="width: 10%;">Share (%)</th>
+                                <th style="width: 35%;">Operational Specification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -368,23 +376,16 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <div class="table-wrapper mt-10 mb-8">
                     <table>
-                        <colgroup>
-                            <col style="width: 14%;">
-                            <col style="width: 25%;">
-                            <col style="width: 16%;">
-                            <col style="width: 11%;">
-                            <col style="width: 34%;">
-                        </colgroup>
                         <caption>Phase 2 Capital Allocation Schedule</caption>
                         <thead>
                             <tr>
-                                <th style="width: 14%;">Account</th>
+                                <th style="width: 13%;">Account</th>
                                 <th style="width: 25%;">Allocation Description</th>
-                                <th class="text-right" style="width: 16%;">Amount (USD)</th>
-                                <th class="text-right" style="width: 11%;">Share (%)</th>
-                                <th style="width: 34%;">Operational Specification</th>
+                                <th class="text-right" style="width: 17%;">Amount (USD)</th>
+                                <th class="text-right" style="width: 10%;">Share (%)</th>
+                                <th style="width: 35%;">Operational Specification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -419,15 +420,8 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <div class="table-wrapper mt-10 mb-8">
                     <table>
-                        <colgroup>
-                            <col style="width: 32%;">
-                            <col style="width: 17%;">
-                            <col style="width: 17%;">
-                            <col style="width: 22%;">
-                            <col style="width: 12%;">
-                        </colgroup>
                         <caption>Master Program Reconciliation (Two-Phase Architecture)</caption>
                         <thead>
                             <tr>
@@ -485,20 +479,13 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-10 avoid-break">
+                <div class="table-wrapper mt-10 mb-10">
                     <table>
-                        <colgroup>
-                            <col style="width: 22%;">
-                            <col style="width: 14%;">
-                            <col style="width: 16%;">
-                            <col style="width: 20%;">
-                            <col style="width: 28%;">
-                        </colgroup>
                         <caption>Capital Recognition & Collateral Treatment</caption>
                         <thead>
                             <tr>
-                                <th style="width: 22%;">Capital Line Item</th>
-                                <th style="width: 14%;">Entity Balance Sheet</th>
+                                <th style="width: 21%;">Capital Line Item</th>
+                                <th style="width: 15%;">Entity Balance Sheet</th>
                                 <th class="text-right" style="width: 16%;">Total (USD)</th>
                                 <th style="width: 20%;">Structuring Instrument</th>
                                 <th style="width: 28%;">Accounting Treatment</th>
@@ -536,56 +523,53 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <!-- SURGICAL FIX: The waterfall group keeps the table and image glued together so Fig 4 isn't printed twice -->
+                <div class="waterfall-group">
+                    <div class="table-wrapper mt-10 mb-8">
+                        <table>
+                            <caption>Four-Tier Distribution Waterfall</caption>
+                            <thead>
+                                <tr>
+                                    <th style="width: 12%;">Tier</th>
+                                    <th style="width: 24%;">Priority Category</th>
+                                    <th style="width: 48%;">Settlement Rule & Formula</th>
+                                    <th style="width: 16%;">Currency Flow</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-tq-black">TIER 1</td>
+                                    <td class="font-bold text-tq-black">Direct Operating COGS</td>
+                                    <td>Gross customer trade proceeds clear freight, processing, feed, consumables, and priority retainers.</td>
+                                    <td class="font-mono text-xs text-tq-antique">AED / SAR / USD</td>
+                                </tr>
+                                <tr class="bg-white/50">
+                                    <td class="font-bold text-tq-black">TIER 2</td>
+                                    <td class="font-bold text-tq-black">Priority Capital Recovery</td>
+                                    <td>Amortization of deployed Istisna'a/Murabaha capital plus agreed return, swept without dilution.</td>
+                                    <td class="font-mono text-xs text-tq-antique">Swept to InvestCo</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-tq-black">TIER 3</td>
+                                    <td class="font-bold text-tq-black">Operating Reserves</td>
+                                    <td>Mandatory replenishment of rolling 60-day feeder cattle intake and grain/consumable stocks.</td>
+                                    <td class="font-mono text-xs text-tq-antique">Retained Cash</td>
+                                </tr>
+                                <tr class="bg-white/50">
+                                    <td class="font-bold text-tq-black">TIER 4</td>
+                                    <td class="font-bold text-tq-black">Equal Profit Sharing</td>
+                                    <td>Residual net operational profits distributed equally (50% Investee / 50% Investor).</td>
+                                    <td class="font-mono text-xs text-tq-antique">Quarterly Dividend</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
-                    <table>
-                        <colgroup>
-                            <col style="width: 12%;">
-                            <col style="width: 24%;">
-                            <col style="width: 48%;">
-                            <col style="width: 16%;">
-                        </colgroup>
-                        <caption>Four-Tier Distribution Waterfall</caption>
-                        <thead>
-                            <tr>
-                                <th style="width: 12%;">Tier</th>
-                                <th style="width: 24%;">Priority Category</th>
-                                <th style="width: 48%;">Settlement Rule & Formula</th>
-                                <th style="width: 16%;">Currency Flow</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="font-bold text-tq-black">TIER 1</td>
-                                <td class="font-bold text-tq-black">Direct Operating COGS</td>
-                                <td>Gross customer trade proceeds clear freight, processing, feed, consumables, and priority retainers.</td>
-                                <td class="font-mono text-xs text-tq-antique">AED / SAR / USD</td>
-                            </tr>
-                            <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">TIER 2</td>
-                                <td class="font-bold text-tq-black">Priority Capital Recovery</td>
-                                <td>Amortization of deployed Istisna'a/Murabaha capital plus agreed return, swept without dilution.</td>
-                                <td class="font-mono text-xs text-tq-antique">Swept to InvestCo</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold text-tq-black">TIER 3</td>
-                                <td class="font-bold text-tq-black">Operating Reserves</td>
-                                <td>Mandatory replenishment of rolling 60-day feeder cattle intake and grain/consumable stocks.</td>
-                                <td class="font-mono text-xs text-tq-antique">Retained Cash</td>
-                            </tr>
-                            <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">TIER 4</td>
-                                <td class="font-bold text-tq-black">Equal Profit Sharing</td>
-                                <td>Residual net operational profits distributed equally (50% Investee / 50% Investor).</td>
-                                <td class="font-mono text-xs text-tq-antique">Quarterly Dividend</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <figure class="my-10 print:my-4">
+                        <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                    </figure>
                 </div>
-
-                <figure class="my-10 print:my-4 avoid-break">
-                    <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                </figure>
 
                 <div class="avoid-break mt-12">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Board Governance</h3>
@@ -670,7 +654,8 @@
             </header>
 
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <div class="avoid-break">
+                <!-- SURGICAL FIX: We do NOT put avoid-break on this entire massive list, otherwise the PDF drops it to a new page -->
+                <div>
                     <h3 class="text-2xl font-serif text-tq-black font-normal mt-12 mb-4">Proposed Execution</h3>
                     <p>Operational deployment activates the Investee's foundational assets, rangelands, and pastoralist corridors into a high-throughput protein engine across a disciplined Day T<sub>0</sub> to Day T+90 execution roadmap:</p>
                     
@@ -687,15 +672,18 @@
                             <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+30 to T+60 (Detailed Engineering, Feeder Intake & Groundbreaking)</strong>
                             Board ratification of Stage 6 Final QS Costing, Day-1 commercial cattle buyout, feedlot expansion to 18,000 standing head under forward Salam contracts, and simultaneous groundbreaking for the 15 MT/hr feed mill, 13,000 MT steel silo terminal, Bovine IVF biotechnology laboratory, and modular Halal abattoir.
                         </li>
-                        <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal avoid-break">
-                            <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+60 to T+90 (Feed Milling, Genetic Ingestion & Export Go-Live)</strong>
-                            Commissioning of 15 MT/hr feed mill and lucerne pelleting plant, initial embryo harvesting and transfers in IVF laboratory, abattoir commissioning with 100% origin deboning, and launch of boxed vacuum-packed beef and smoked deli cuts to the UAE.
-                        </li>
+                        
+                        <!-- SURGICAL FIX: Bind the final bullet and Figure 3 together so they never split -->
+                        <div class="avoid-break">
+                            <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal">
+                                <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+60 to T+90 (Feed Milling, Genetic Ingestion & Export Go-Live)</strong>
+                                Commissioning of 15 MT/hr feed mill and lucerne pelleting plant, initial embryo harvesting and transfers in IVF laboratory, abattoir commissioning with 100% origin deboning, and launch of boxed vacuum-packed beef and smoked deli cuts to the UAE.
+                            </li>
+                            <figure class="my-10 print:my-4">
+                                <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                            </figure>
+                        </div>
                     </ul>
-
-                    <figure class="my-10 print:my-4 avoid-break">
-                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                    </figure>
                 </div>
 
                 <div class="avoid-break mt-14">
@@ -745,6 +733,7 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence:</p>
                 
+                <!-- SURGICAL FIX: The print-grid-2 class overrides the 5-column layout so text doesn't squish in PDF -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 print-grid-2">
                     
                     <!-- Step 1 -->
