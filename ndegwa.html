@@ -50,6 +50,7 @@
                 background-color: #F4F0E7 !important; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
+                box-sizing: border-box !important;
             }
 
             /* 3. Re-apply Safe Margins ONLY to Main Text */
@@ -57,6 +58,8 @@
                 margin: 0 auto !important;
                 padding: 15mm 20mm 15mm 20mm !important;
                 max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
 
             /* 4. Full Bleed Covers */
@@ -74,23 +77,32 @@
             .closing-wrapper {
                 page-break-before: always !important;
                 break-before: page !important;
-                height: 100vh !important;
-                width: 100vw !important;
+                height: 297mm !important;
+                width: 210mm !important;
+                max-height: 297mm !important;
+                max-width: 210mm !important;
                 display: flex !important;
                 flex-direction: column !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background-color: #080808 !important;
                 position: relative !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
             }
             .closing-image-section {
-                height: 100vh !important;
+                height: 100% !important;
+                width: 100% !important;
+                flex: 1 !important;
+            }
+            .closing-wrapper footer {
+                display: none !important;
             }
 
             /* 5. Typography Glues & Orphan/Widow Control */
             p, td, li { 
-                orphans: 3 !important; 
-                widows: 3 !important; 
+                orphans: 4 !important; 
+                widows: 4 !important; 
                 font-size: 10pt !important; 
                 line-height: 1.5 !important; 
             }
@@ -105,6 +117,7 @@
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
                 margin-bottom: 5px !important;
+                display: block !important;
             }
 
             h2 { margin-bottom: 2px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
@@ -125,7 +138,7 @@
             
             /* 7. CSS Grid Protection */
             .grid-protection { display: flex !important; flex-direction: column !important; gap: 10px !important; }
-            .grid-protection > div { page-break-inside: avoid !important; margin-bottom: 8px !important; width: 100% !important; }
+            .grid-protection > div { page-break-inside: avoid !important; margin-bottom: 8px !important; width: 100% !important; display: block !important; }
 
             /* 8. Image Healing (Allowing natural scale, removing the 65mm crush) */
             figure {
@@ -133,11 +146,10 @@
                 padding-top: 0 !important; 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
+                display: block !important;
+                text-align: center !important;
                 width: 100% !important;
+                box-sizing: border-box !important;
             }
             figure img {
                 width: 100% !important;
@@ -145,6 +157,7 @@
                 height: auto !important;
                 max-height: 130mm !important; /* Generous cap so it's highly legible but doesn't overflow A4 */
                 object-fit: contain !important;
+                margin: 0 auto !important;
             }
             figcaption { display: none !important; } 
             
