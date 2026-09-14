@@ -33,13 +33,18 @@
     
     <style>
         @media print {
-            /* 1. Global Page Reset for True Bleed Covers */
+            /* 1. Global Page Reset */
             @page { 
                 size: A4 portrait; 
                 margin: 0mm !important; 
             }
             
-            /* 2. Global Print Body */
+            /* 2. Target specific pages for true edge-to-edge bleed */
+            @page cover { margin: 0 !important; }
+            .hero-section { page: cover; }
+            .closing-wrapper { page: cover; }
+
+            /* 3. Global Print Body */
             body { 
                 margin: 0 !important;
                 padding: 0 !important; 
@@ -49,7 +54,7 @@
                 box-sizing: border-box !important;
             }
 
-            /* 3. Re-apply Safe Margins ONLY to Main Text */
+            /* 4. Re-apply Safe Margins ONLY to Main Text */
             main {
                 margin: 0 auto !important;
                 padding: 15mm 20mm 15mm 20mm !important;
@@ -58,7 +63,7 @@
                 box-sizing: border-box !important;
             }
 
-            /* 4. Full Bleed Covers */
+            /* 5. Full Bleed Covers */
             .hero-section { 
                 page-break-after: always !important; 
                 break-after: page !important;
@@ -68,7 +73,6 @@
                 padding: 20mm !important;
                 box-sizing: border-box !important;
             }
-            
             .closing-wrapper {
                 page-break-before: always !important;
                 break-before: page !important;
@@ -90,11 +94,12 @@
                 width: 100% !important;
                 flex: 1 !important;
             }
+            /* Hide the footer globally on the closing page wrapper */
             .closing-wrapper footer {
                 display: none !important;
             }
 
-            /* 5. Typography Glues & Orphan/Widow Control */
+            /* 6. Typography Glues & Orphan/Widow Control */
             p, td, li { 
                 orphans: 4 !important; 
                 widows: 4 !important; 
@@ -107,7 +112,6 @@
                 break-after: avoid !important;
             }
             
-            /* Master class to bind text + tables/lists so they don't tear across pages */
             .avoid-break {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
@@ -118,24 +122,23 @@
             h2 { margin-bottom: 2px !important; margin-top: 15px !important; padding-bottom: 2px !important;}
             h3 { margin-top: 15px !important; margin-bottom: 2px !important;}
             article header { margin-bottom: 4px !important; padding-bottom: 2px !important; margin-top: 15px !important; }
+
             .space-y-7 > * + * { margin-top: 8px !important; }
             .mb-24, .mb-14 { margin-bottom: 12px !important; }
 
-            /* 6. Strict Table Integrity */
+            /* 7. Strict List & Table Integrity */
             li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
             .table-wrapper { page-break-inside: avoid !important; break-inside: avoid !important; margin-bottom: 15px !important; }
             table { margin: 5px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
             caption { font-size: 11pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
-            
-            /* Font scaled to 7.5pt with tight padding to fit 5 columns safely */
             th, td { padding: 4px !important; font-size: 7.5pt !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; }
             
-            /* 7. CSS Grid Protection */
+            /* 8. CSS Grid Protection */
             .grid-protection { display: flex !important; flex-direction: column !important; gap: 10px !important; }
             .grid-protection > div { page-break-inside: avoid !important; margin-bottom: 8px !important; width: 100% !important; display: block !important; }
 
-            /* 8. Image Healing (Allowing natural scale, removing the 65mm crush) */
+            /* 9. ANTI-CASCADING FIGURE FIXES (The Core Image Issue) */
             figure {
                 margin: 8mm auto !important; 
                 padding-top: 0 !important; 
@@ -150,13 +153,13 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                max-height: 130mm !important; 
+                max-height: 130mm !important; /* Cap height but allow natural stretch */
                 object-fit: contain !important;
                 margin: 0 auto !important;
             }
-            figcaption { display: none !important; } 
+            figcaption { display: none !important; } /* Hide captions in print since baked in */
             
-            /* Print grid forces for Next Steps */
+            /* Print grid forces */
             .print-grid-2 {
                 display: grid !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -165,10 +168,12 @@
             
             .no-print { display: none !important; }
             
-            /* Hide the footer on Page 1 to stop text overlap */
+            /* Hide the footer on Page 1 */
             @page :first {
                  @bottom-center { content: none; }
             }
+            
+            /* Fixed Footer for inner pages */
             .print-footer-fix {
                 position: absolute !important;
                 bottom: 0 !important;
@@ -193,7 +198,7 @@
         tr:last-child td { border-bottom: none; }
         caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.5rem; color: #080808; margin-bottom: 1.25rem; font-weight: 500; }
         
-        .figcaption-container { display: none; }
+        .figcaption-container { display: none; } /* Hide captions on screen too since baked into PNG */
         
     </style>
 </head>
@@ -217,6 +222,7 @@
     <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[calc(100vh-80px)] print:min-h-[100vh] flex flex-col justify-center">
         
         <!-- Center branding strictly for print mode (since sticky nav is hidden) -->
+        <div class="hidden print:block text-center mt-12 mb-16 w-full">
             <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
                 TERRAQUEST FZCO
             </div>
@@ -246,6 +252,7 @@
             </div>
         </div>
         
+        <!-- Footer text pushed to the bottom using flex layout -->
         <div class="w-full text-center pb-8 pt-10 z-10 text-[9px] tracking-[0.2em] uppercase text-tq-stone/50 font-sans mt-auto">
             Strictly Private & Confidential
         </div>
@@ -332,6 +339,7 @@
                     </ul>
                 </div>
 
+                <!-- Ironclad Table Structure with colgroup and forced wrapping -->
                 <div class="table-wrapper mt-10 mb-8 avoid-break">
                     <table>
                         <colgroup>
@@ -849,6 +857,3 @@
     </script>
 </body>
 </html>
-```
-
-The document has been fully restored with the softer, crisp, human tone (removing "Architecture" terminology), and the Master Program Summary table consolidating the USD 100M Phase 1 and Phase 2 details has been successfully reintegrated. Let me know if you are satisfied with this version.
