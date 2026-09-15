@@ -54,7 +54,7 @@
                 box-sizing: border-box !important;
             }
 
-            /* 4. Re-apply Safe Margins ONLY to Main Text */
+            /* 4. strict Inner Margins to prevent edge-bleed */
             main {
                 margin: 0 auto !important;
                 padding: 15mm 20mm 15mm 20mm !important;
@@ -73,6 +73,8 @@
                 padding: 20mm !important;
                 box-sizing: border-box !important;
             }
+            
+            /* Fixed Closing Cover A4 Dimensions */
             .closing-wrapper {
                 page-break-before: always !important;
                 break-before: page !important;
@@ -94,12 +96,12 @@
                 width: 100% !important;
                 flex: 1 !important;
             }
-            /* Hide the footer globally on the closing page wrapper */
+            /* Hide the global footer strictly inside the closing page */
             .closing-wrapper footer {
                 display: none !important;
             }
 
-            /* 6. Typography Glues & Orphan/Widow Control */
+            /* 6. Typography & Orphan Control */
             p, td, li { 
                 orphans: 4 !important; 
                 widows: 4 !important; 
@@ -115,7 +117,6 @@
             .avoid-break {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
-                margin-bottom: 5px !important;
                 display: block !important;
             }
 
@@ -124,21 +125,17 @@
             article header { margin-bottom: 4px !important; padding-bottom: 2px !important; margin-top: 15px !important; }
 
             .space-y-7 > * + * { margin-top: 8px !important; }
-            .mb-24, .mb-14 { margin-bottom: 12px !important; }
+            .mb-24, .mb-14, .mb-10 { margin-bottom: 12px !important; }
 
-            /* 7. Strict List & Table Integrity */
+            /* 7. Strict Table Formatting */
             li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
             .table-wrapper { page-break-inside: avoid !important; break-inside: avoid !important; margin-bottom: 15px !important; }
             table { margin: 5px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
             caption { font-size: 11pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
-            th, td { padding: 4px !important; font-size: 7.5pt !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; }
+            th, td { padding: 4px !important; font-size: 7.5pt !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
             
-            /* 8. CSS Grid Protection */
-            .grid-protection { display: flex !important; flex-direction: column !important; gap: 10px !important; }
-            .grid-protection > div { page-break-inside: avoid !important; margin-bottom: 8px !important; width: 100% !important; display: block !important; }
-
-            /* 9. ANTI-CASCADING FIGURE FIXES (The Core Image Issue) */
+            /* 8. Image Constraint Fixes (No more 65mm vertical crush) */
             figure {
                 margin: 8mm auto !important; 
                 padding-top: 0 !important; 
@@ -153,27 +150,18 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                max-height: 130mm !important; /* Cap height but allow natural stretch */
+                max-height: 130mm !important; /* Cap height to stop ghost pages, but allow natural span */
                 object-fit: contain !important;
                 margin: 0 auto !important;
-            }
-            figcaption { display: none !important; } /* Hide captions in print since baked in */
-            
-            /* Print grid forces */
-            .print-grid-2 {
-                display: grid !important;
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                gap: 8px !important;
             }
             
             .no-print { display: none !important; }
             
-            /* Hide the footer on Page 1 */
+            /* Hide the global footer on Page 1 */
             @page :first {
                  @bottom-center { content: none; }
             }
             
-            /* Fixed Footer for inner pages */
             .print-footer-fix {
                 position: absolute !important;
                 bottom: 0 !important;
@@ -198,8 +186,6 @@
         tr:last-child td { border-bottom: none; }
         caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.5rem; color: #080808; margin-bottom: 1.25rem; font-weight: 500; }
         
-        .figcaption-container { display: none; } /* Hide captions on screen too since baked into PNG */
-        
     </style>
 </head>
 <body class="antialiased text-tq-charcoal bg-tq-ivory">
@@ -222,7 +208,7 @@
     <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[calc(100vh-80px)] print:min-h-[100vh] flex flex-col justify-center">
         
         <!-- Center branding strictly for print mode (since sticky nav is hidden) -->
-        <div class="hidden print:block text-center mt-12 mb-16 w-full">
+        <div class="hidden print:block text-center mt-12 mb-12 w-full">
             <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
                 TERRAQUEST FZCO
             </div>
@@ -252,7 +238,6 @@
             </div>
         </div>
         
-        <!-- Footer text pushed to the bottom using flex layout -->
         <div class="w-full text-center pb-8 pt-10 z-10 text-[9px] tracking-[0.2em] uppercase text-tq-stone/50 font-sans mt-auto">
             Strictly Private & Confidential
         </div>
@@ -260,6 +245,7 @@
 
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-0">
         
+        <!-- SECTION 1: EXECUTIVE SUMMARY -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
@@ -267,80 +253,133 @@
             </header>
             
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <p>Project Ndegwa turns PineCrest Holdings' commercial vision into a clear, Shariah-compliant investment plan for Golden Nile Trading LLC. By capitalizing on zero-tariff trade under the Kenya-UAE Comprehensive Economic Partnership Agreement (CEPA), the joint venture establishes a vertically integrated protein, feed, and export enterprise targeting the GCC and East Africa.</p>
+                <p>Project Ndegwa translates the commercial vision of PineCrest Holdings into a clear, Shariah-compliant investment plan for Golden Nile Trading LLC. By capitalizing on zero-tariff trade under the Kenya-UAE Comprehensive Economic Partnership Agreement (CEPA), the joint venture establishes a vertically integrated protein, feed, and export enterprise targeting the GCC and East Africa.</p>
                 
-                <div class="avoid-break mt-6">
-                    <p>The investment rolls out in two phases, establishing a total baseline program of USD 100 million (split evenly at USD 50 million per phase). Optional 30% accordion tranches provide expansion headroom up to USD 130 million as the business scales:</p>
-                    
-                    <ul class="list-none space-y-5 pl-0 my-6">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Phase 1: Foundational Production & Integrated Feed (Months 1–24):</strong> Front-loads feed production to secure finishing costs at a steep discount to the open market. We deploy an on-site 15 MT/hr feed mill, lucerne dehydrator, soya press, and a 13,000 MT steel silo terminal. This phase also funds feedlot expansion to 18,000 head, a Bovine IVF cleanroom lab, and an export Halal abattoir with origin deboning, retail packaging, and a commercial smokehouse to monetize trimmings.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Phase 2: Value Chain Expansion (Month 25 Onward):</strong> Multiplies margins through four strategic additions: scaling the grain silos to 30,000 MT, building a direct wet-blue leather tannery, doubling cold storage throughput, and developing a coastal pre-export quarantine ranch. It also funds an asset-light charter logistics desk to manage freight with zero vessel ownership.
-                        </li>
-                    </ul>
-                </div>
+                <p>The investment rolls out across a unified Two-Phase Architecture establishing a <strong>USD 100,000,000 Total Baseline Program</strong> (split symmetrically at USD 50 million per phase), with optional 30% Accordion Tranches providing expansion headroom up to an aggregate authorized envelope of USD 130 million.</p>
                 
-                <div class="avoid-break mt-8">
-                    <p>The joint venture is governed as a Shariah-compliant <em class="font-serif text-[17px]">Musharaka</em> partnership structured under English Common Law in the Abu Dhabi Global Market (ADGM). It is capitalized with a nominal paid-up ordinary share capital that locks in absolute 50/50 voting parity between Investor and Investee across all future drawdowns. Corporate authority sits with a lean 4-member Board of Directors (two Investee appointees and two Investor appointees), supported by a bilateral Executive Committee (ExCo).</p>
-                    
-                    <p class="mt-6 mb-4">Operations are cleanly split between two entities:</p>
-                    
-                    <ul class="list-none space-y-5 pl-0 my-4">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Kenya OpCo</strong> holds all operational assets, facilities, leases, and biological stock. It operates under 25-year commercial leases over feedlot yards and fodder land, directly owns the plant and machinery, manages the feedlots, and procures livestock and grain under Shariah-compliant contracts. All deboning, packaging, and cooking is done at origin in Kenya to maximize local labor advantages and eliminate the cost of flying waste bone to the Gulf.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">UAE OpCo</strong> acts as an asset-light commercial sales and distribution desk in the UAE. It signs binding GCC off-take contracts, clears import customs under CEPA, manages leased cold-storage, coordinates last-mile delivery, and invoices accounts in local currencies (AED and SAR).
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="avoid-break mt-8">
-                    <p>The two companies trade at arm's length via a Master Supply & Off-Take Agreement. Transfer pricing uses a cost-plus formula backed by independent benchmarks to comply with KRA and UAE Corporate Tax regulations.</p>
-
+                <div class="avoid-break mt-10">
                     <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Governance and Divisional Hierarchy" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed%20Corporate%20Structure%20Fig.%201_2.png" alt="Proposed Corporate Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
                 </div>
             </div>
         </article>
 
+        <!-- SECTION 2: THE OPERATING MODEL -->
         <article class="mb-24 print:mb-8">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">2.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">UAE InvestCo</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">The Operating Model</h2>
             </header>
 
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
+                
                 <div class="avoid-break">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mt-12 mb-4">Corporate Domicile</h3>
-                    <p>UAE InvestCo is established in Abu Dhabi Global Market (ADGM) with Dubai International Financial Centre (DIFC) retained as a secondary option. ADGM provides direct application of English Common Law, standard corporate ringfencing, institutional Islamic finance recognition, and strategic alignment with UAE national food security initiatives.</p>
-                </div>
-
-                <div class="avoid-break mt-14">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Capital Structure</h3>
-                    <p>The financial structure clearly separates equity voting rights from the Islamic funding contracts and repayment waterfall. Deployed capital is completely non-recourse to the Investee's foundational land and breeding herds. Capital recovery or follow-on funding will never dilute the 50/50 voting parity established on Day 1.</p>
+                    <p>Operational execution is cleanly divided between two dedicated entities operating under an arm's-length Master Supply & Off-Take Agreement:</p>
                     
-                    <ul class="list-none space-y-4 pl-0 my-6">
+                    <ul class="list-none space-y-5 pl-0 my-6">
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Nominal Capital:</strong> Divided into Ordinary Shares of equal par value, issued equally to establish unbreakable 50/50 control.
+                            <strong class="font-semibold text-tq-black">Kenya OpCo (Upstream Production):</strong> Holds all operational assets, facilities, leases, and biological stock in Kenya. It operates under 25-year commercial registered leases over feedlot yards and fodder acreage. It directly owns the abattoir, cold chain, 15 MT/hr feed mill, bulk steel silos, Bovine IVF laboratory, and tannery capitalized under IAS 16. It manages the feedlot finishing yards and procures livestock under Shariah-compliant <em>Salam</em> and <em>Murabaha</em> contracts. 100% of seam-boning, portioning, retail skin-packaging, and cooked charcuterie is executed at origin in Kenya to maximize domestic labor cost advantages and eliminate air-freighting waste bones to the Gulf.
                         </li>
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Capital Deployment:</strong> Project capital across both phases is deployed through dedicated Islamic facilities (Istisna'a, Salam, and Murabaha) and recovered through Tier 2 of the cash waterfall.
+                            <strong class="font-semibold text-tq-black">UAE OpCo (Downstream Logistics):</strong> Operates as an asset-light commercial sales, trading, and distribution subsidiary in the UAE. It signs binding GCC off-take sales contracts, clears import customs under CEPA zero-tariff preferences, manages leased third-party (3PL) bonded cold-storage staging in KEZAD/JAFZA, coordinates last-mile refrigerated fulfillment, and invoices institutional supermarket and foodservice accounts in local currencies (AED and SAR).
                         </li>
                     </ul>
                 </div>
 
-                <!-- Ironclad Table Structure with colgroup and forced wrapping -->
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 1: Foundational Production & Feed (Months 1–24)</h3>
+                    <p>Phase 1 front-loads feed industrialization to secure live finishing costs at substantial discounts to the open market. It establishes the baseline production engine:</p>
+                    <ul class="list-none space-y-3 pl-0 my-4 text-sm text-tq-charcoal/90">
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>15 MT/hr Feed Mill & Milling Plant:</strong> Automated dosing and TMR blending.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Lucerne Dehydrating & Soya Pressing:</strong> 4-5 MT/hr lucerne pelleting and a mechanical soybean extrusion line yielding 44-46% bypass protein cake and crude oil.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>13,000 MT Bulk Steel Silo Terminal:</strong> Comprising 4x 2,500 MT flat bins and 2x 1,500 MT hopper bins (strictly excluding concrete), integrated with a 30 MT/hr column dryer.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Bovine IVF Biotechnology Lab:</strong> Embryo Transfer Cleanroom with full 5-stage IVEP cascade.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Halal Export Abattoir & Smokehouse:</strong> Beef, goat, lamb, and camel design. Includes 100% origin deboning, retail barrier packaging, and a commercial smokehouse monetizing 100% of trim into cooked deli meats.</li>
+                    </ul>
+                </div>
+
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 2: Industrial Value Chain Expansion (Month 25 Onward)</h3>
+                    <p>Phase 2 multiplies enterprise margins across five high-moat agribusiness additions:</p>
+                    <ul class="list-none space-y-3 pl-0 my-4 text-sm text-tq-charcoal/90">
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Bulk Grain Terminal Expansion:</strong> Scaling to 30,000 MT via four additional 4,250 MT bins.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Direct Wet-Blue Leather Tannery:</strong> Processing 100% of hides and skins for export.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Secondary Cold Storage:</strong> Additional carcass chillers and a second blast freezer cell to double throughput.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Coastal PEQ Staging Ranch:</strong> 10,000-20,000 acre pre-export quarantine ranch near Mombasa.</li>
+                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Asset-Light Charter Logistics:</strong> A dedicated desk securing time charters, COAs, and ACMI air cargo freighters with strictly zero maritime vessel or aircraft ownership.</li>
+                    </ul>
+                </div>
+                
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Supply Chain Execution Roadmap</h3>
+                    <p>Operational deployment activates the Investee's foundational assets into a high-throughput protein engine across a strict execution flow:</p>
+                    <figure class="my-10 print:my-4">
+                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%202.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                    </figure>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- SECTION 3: CORPORATE GOVERNANCE -->
+        <article class="mb-24 print:mb-8">
+            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
+                <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Corporate Governance & Control</h2>
+            </header>
+
+            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
+                <div class="avoid-break">
+                    <p>UAE InvestCo is established in the Abu Dhabi Global Market (ADGM), providing direct application of English Common Law and institutional Islamic finance recognition. The joint venture is governed as a Shariah-compliant <em>Musharaka</em> partnership, capitalized with a nominal paid-up ordinary share capital maintaining absolute, non-dilutive 50/50 ordinary voting parity between Investor and Investee.</p>
+                </div>
+
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Board & Committee Structure</h3>
+                    <p>Corporate authority sits with a lean, highly aligned 5-member Board of Directors (two Investee appointees, two Investor appointees, and one mutually agreed Independent Agribusiness Director) operating without third-party kingmaker bottlenecks.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 grid-protection">
+                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
+                            <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
+                            <div class="text-[14px] leading-relaxed space-y-3">
+                                <p><strong class="text-tq-black font-medium">Composition:</strong> One (1) Investor Rep + One (1) Investee Rep. Executive leadership participates without voting rights.</p>
+                                <p><strong class="text-tq-black font-medium">Decision Rule:</strong> Bilateral sponsor consensus.</p>
+                                <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake pricing formulas, and line-item variances within Account 3.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
+                            <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Audit, Risk & Transfer Pricing (AR-TP)</strong>
+                            <div class="text-[14px] leading-relaxed space-y-3">
+                                <p><strong class="text-tq-black font-medium">Composition:</strong> Investee Director (Chair), Investor Director, Group COO, Group CFO, and statutory auditor.</p>
+                                <p><strong class="text-tq-black font-medium">Scope:</strong> Financial audit oversight, UAE Corporate Tax and KRA transfer pricing benchmark verification, and DVS/MoCCaE export biosecurity compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="avoid-break">
+                    <figure class="my-10 print:my-4">
+                        <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%203.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                    </figure>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 4: CAPITAL DEPLOYMENT -->
+        <article class="mb-24 print:mb-8">
+            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
+                <span class="text-tq-gold font-serif text-2xl md:text-3xl">4.</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Phased Capital Deployment</h2>
+            </header>
+
+            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
+                <div class="avoid-break">
+                    <p>The capital architecture strictly separates enterprise equity governance from asset-backed Islamic deployment contracts. Deployed project capital across Phase 1 and Phase 2 is non-recourse to the Investee's foundational breeding herds and ancestral rangeland titles. Under no circumstances does capital recovery or Accordion drawdowns dilute the equal 50/50 ordinary voting parity.</p>
+                </div>
+
+                <div class="table-wrapper mt-12 mb-8 avoid-break">
                     <table>
                         <colgroup>
                             <col style="width: 14%;">
@@ -442,7 +481,126 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <div class="table-wrapper mt-10 mb-10 avoid-break">
+                    <table>
+                        <colgroup>
+                            <col style="width: 22%;">
+                            <col style="width: 14%;">
+                            <col style="width: 16%;">
+                            <col style="width: 20%;">
+                            <col style="width: 28%;">
+                        </colgroup>
+                        <caption>Capital Recognition & Collateral Treatment</caption>
+                        <thead>
+                            <tr>
+                                <th style="width: 22%;">Capital Line Item</th>
+                                <th style="width: 14%;">Entity Balance Sheet</th>
+                                <th class="text-right" style="width: 16%;">Total (USD)</th>
+                                <th style="width: 20%;">Structuring Instrument</th>
+                                <th style="width: 28%;">Accounting Treatment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold text-tq-black">Nominal Equity Parity</td>
+                                <td>UAE InvestCo</td>
+                                <td class="font-mono text-tq-antique text-right">50,000</td>
+                                <td>Paid-Up Ordinary Shares</td>
+                                <td>Establishes non-dilutive 50/50 ordinary voting parity.</td>
+                            </tr>
+                            <tr class="bg-white/50">
+                                <td class="font-bold text-tq-black">Account 1: Setup & Reserves</td>
+                                <td>UAE InvestCo</td>
+                                <td class="font-mono text-tq-antique text-right">14,000,000</td>
+                                <td>Cash Reserve & Equity Setup</td>
+                                <td>Formulaic liquidity cushion; structuring/legal capitalized.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-tq-black">Account 2: Industrial CAPEX</td>
+                                <td>Kenya OpCo</td>
+                                <td class="font-mono text-tq-antique text-right">34,000,000</td>
+                                <td>Istisna'a (Manufacturing)</td>
+                                <td>Capitalized under IAS 16 as 100% Owned Plant on leased land.</td>
+                            </tr>
+                            <tr class="bg-white/50">
+                                <td class="font-bold text-tq-black">Account 3: Supply, PEQ & Charters</td>
+                                <td>Kenya/UAE OpCo</td>
+                                <td class="font-mono text-tq-antique text-right">52,000,000</td>
+                                <td>Murabaha & Salam Lines</td>
+                                <td>Secured current assets (cattle, grain, float); zero land lien.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- SECTION 5: TREASURY & WATERFALL -->
+        <article class="mb-24 print:mb-8">
+            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
+                <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Treasury, Distribution & Summary</h2>
+            </header>
+
+            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
+                <div class="avoid-break">
+                    <p>The joint venture operates a dual treasury collection system. Export receivables are collected in AED/USD by UAE OpCo, while domestic and regional African receivables are collected in KES/USD by Kenya OpCo. All gross commercial receipts across both entities are strictly swept and settled through the unified Four-Tier Distribution Waterfall before any profits are recognized.</p>
+                </div>
+
+                <div class="avoid-break mt-10">
+                    <div class="table-wrapper mb-8">
+                        <table>
+                            <colgroup>
+                                <col style="width: 12%;">
+                                <col style="width: 24%;">
+                                <col style="width: 48%;">
+                                <col style="width: 16%;">
+                            </colgroup>
+                            <caption>Four-Tier Distribution Waterfall</caption>
+                            <thead>
+                                <tr>
+                                    <th style="width: 12%;">Tier</th>
+                                    <th style="width: 24%;">Priority Category</th>
+                                    <th style="width: 48%;">Settlement Rule & Formula</th>
+                                    <th style="width: 16%;">Currency Flow</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-tq-black">TIER 1</td>
+                                    <td class="font-bold text-tq-black">Direct Operating COGS</td>
+                                    <td>Gross customer trade proceeds clear freight, processing, feed, consumables, and priority retainers.</td>
+                                    <td class="font-mono text-xs text-tq-antique">AED / SAR / USD</td>
+                                </tr>
+                                <tr class="bg-white/50">
+                                    <td class="font-bold text-tq-black">TIER 2</td>
+                                    <td class="font-bold text-tq-black">Priority Capital Recovery</td>
+                                    <td>Amortization of deployed Istisna'a/Murabaha capital plus agreed return, swept without dilution.</td>
+                                    <td class="font-mono text-xs text-tq-antique">Swept to InvestCo</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-tq-black">TIER 3</td>
+                                    <td class="font-bold text-tq-black">Operating Reserves</td>
+                                    <td>Mandatory replenishment of rolling 60-day feeder cattle intake and grain/consumable stocks.</td>
+                                    <td class="font-mono text-xs text-tq-antique">Retained Cash</td>
+                                </tr>
+                                <tr class="bg-white/50">
+                                    <td class="font-bold text-tq-black">TIER 4</td>
+                                    <td class="font-bold text-tq-black">Equal Profit Sharing</td>
+                                    <td>Residual net operational profits distributed equally (50% Investee / 50% Investor).</td>
+                                    <td class="font-mono text-xs text-tq-antique">Quarterly Dividend</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <figure class="my-10 print:my-4">
+                        <img src="./Proposed%20Capital%20Waterfall%20Fig.%204_2.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                    </figure>
+                </div>
+
+                <div class="table-wrapper mt-14 mb-8 avoid-break">
                     <table>
                         <colgroup>
                             <col style="width: 32%;">
@@ -451,7 +609,7 @@
                             <col style="width: 22%;">
                             <col style="width: 12%;">
                         </colgroup>
-                        <caption>Total Investment Summary (Phase 1 &amp; Phase 2 Combined)</caption>
+                        <caption>Master Program Reconciliation (Two-Phase Architecture)</caption>
                         <thead>
                             <tr>
                                 <th style="width: 32%;">Capital Account Category</th>
@@ -508,298 +666,74 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-10 avoid-break">
-                    <table>
-                        <colgroup>
-                            <col style="width: 22%;">
-                            <col style="width: 14%;">
-                            <col style="width: 16%;">
-                            <col style="width: 20%;">
-                            <col style="width: 28%;">
-                        </colgroup>
-                        <caption>Capital Recognition & Collateral Treatment</caption>
-                        <thead>
-                            <tr>
-                                <th style="width: 22%;">Capital Line Item</th>
-                                <th style="width: 14%;">Entity Balance Sheet</th>
-                                <th class="text-right" style="width: 16%;">Total (USD)</th>
-                                <th style="width: 20%;">Structuring Instrument</th>
-                                <th style="width: 28%;">Accounting Treatment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="font-bold text-tq-black">Nominal Equity Parity</td>
-                                <td>UAE InvestCo</td>
-                                <td class="font-mono text-tq-antique text-right">50,000</td>
-                                <td>Paid-Up Ordinary Shares</td>
-                                <td>Establishes non-dilutive 50/50 ordinary voting parity.</td>
-                            </tr>
-                            <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">Account 1: Setup & Reserves</td>
-                                <td>UAE InvestCo</td>
-                                <td class="font-mono text-tq-antique text-right">14,000,000</td>
-                                <td>Cash Reserve & Equity Setup</td>
-                                <td>Formulaic liquidity cushion; structuring/legal capitalized.</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold text-tq-black">Account 2: Industrial CAPEX</td>
-                                <td>Kenya OpCo</td>
-                                <td class="font-mono text-tq-antique text-right">34,000,000</td>
-                                <td>Istisna'a (Manufacturing)</td>
-                                <td>Capitalized under IAS 16 as 100% Owned Plant on leased land.</td>
-                            </tr>
-                            <tr class="bg-white/50">
-                                <td class="font-bold text-tq-black">Account 3: Supply, PEQ & Charters</td>
-                                <td>Kenya/UAE OpCo</td>
-                                <td class="font-mono text-tq-antique text-right">52,000,000</td>
-                                <td>Murabaha & Salam Lines</td>
-                                <td>Secured current assets (cattle, grain, float); zero land lien.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="avoid-break">
-                    <div class="table-wrapper mt-10 mb-8">
-                        <table>
-                            <colgroup>
-                                <col style="width: 12%;">
-                                <col style="width: 24%;">
-                                <col style="width: 48%;">
-                                <col style="width: 16%;">
-                            </colgroup>
-                            <caption>Four-Tier Distribution Waterfall</caption>
-                            <thead>
-                                <tr>
-                                    <th style="width: 12%;">Tier</th>
-                                    <th style="width: 24%;">Priority Category</th>
-                                    <th style="width: 48%;">Settlement Rule & Formula</th>
-                                    <th style="width: 16%;">Currency Flow</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-bold text-tq-black">TIER 1</td>
-                                    <td class="font-bold text-tq-black">Direct Operating COGS</td>
-                                    <td>Gross customer trade proceeds clear freight, processing, feed, consumables, and priority retainers.</td>
-                                    <td class="font-mono text-xs text-tq-antique">AED / SAR / USD</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">TIER 2</td>
-                                    <td class="font-bold text-tq-black">Priority Capital Recovery</td>
-                                    <td>Amortization of deployed Istisna'a/Murabaha capital plus agreed return, swept without dilution.</td>
-                                    <td class="font-mono text-xs text-tq-antique">Swept to InvestCo</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-tq-black">TIER 3</td>
-                                    <td class="font-bold text-tq-black">Operating Reserves</td>
-                                    <td>Mandatory replenishment of rolling 60-day feeder cattle intake and grain/consumable stocks.</td>
-                                    <td class="font-mono text-xs text-tq-antique">Retained Cash</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">TIER 4</td>
-                                    <td class="font-bold text-tq-black">Equal Profit Sharing</td>
-                                    <td>Residual net operational profits distributed equally (50% Investee / 50% Investor).</td>
-                                    <td class="font-mono text-xs text-tq-antique">Quarterly Dividend</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                    </figure>
-                </div>
-
-                <div class="avoid-break mt-12">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Board Governance</h3>
-                    <p>The Board of Directors of UAE InvestCo is constituted of four (4) members: two (2) appointed by the Investee and two (2) appointed by the Investor. The Chairmanship rotates annually between the Principals with no casting vote. Quorum strictly mandates the presence of at least one director appointed by each Principal, eliminating outside kingmaker influence and protecting bilateral 50/50 control under all scenarios.</p>
-                </div>
-
-                <div class="avoid-break mt-12">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mt-10 mb-4">Operating Divisions</h3>
-                    <p>Execution across UAE InvestCo, Kenya OpCo, and UAE OpCo is organized into three focused corporate divisions:</p>
-                    <ul class="list-none space-y-6 pl-0 my-6">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Commercial & Trading:</strong> Seated under the Group CEO. Drives GCC off-take agreements, institutional retail and supermarket accounts, HORECA programs, export pricing matrices, CEPA optimization, customer credit, and regional marketing.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Agribusiness & Operations:</strong> Directed by the Group COO. End-to-end management of feedlot finishing yards (18k head), the 15 MT/hr feed mill and steel grain terminal, the Bovine IVF cleanroom laboratory, abattoir dressing floors, 100% origin deboning, and cold-chain integrity.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Finance & Legal:</strong> Directed by the Group CFO. Financial controls, rolling 13-week cash flow modeling, transfer pricing compliance, AAOIFI Shariah auditing, and waterfall sweeps.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="avoid-break mt-12">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Committee Structure</h3>
-                    <p>Governance is supported by two standing committees. Operational decisions are expedited through bilateral sponsor consensus:</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 grid-protection">
-                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
-                            <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
-                            <div class="text-[14px] leading-relaxed space-y-3">
-                                <p><strong class="text-tq-black font-medium">Composition:</strong> One (1) Investor Representative + One (1) Investee Representative. The Group CEO, Group COO, and Group CFO participate without voting rights.</p>
-                                <p><strong class="text-tq-black font-medium">Decision Rule:</strong> Bilateral sponsor consensus.</p>
-                                <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake formulas, and line-item variances within Account 3 up to &plusmn;15%.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
-                            <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Audit, Risk & Transfer Pricing (AR-TP)</strong>
-                            <div class="text-[14px] leading-relaxed space-y-3">
-                                <p><strong class="text-tq-black font-medium">Composition:</strong> Investee Director (Chair), Investor Director, Group COO, Group CFO, and statutory auditor.</p>
-                                <p><strong class="text-tq-black font-medium">Scope:</strong> Financial audit oversight, statutory KRA and UAE Corporate Tax filings, transfer pricing benchmark verification, and DVS/MoCCaE export biosecurity compliance.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <figure class="my-10 print:my-4 avoid-break">
-                    <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%202.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                </figure>
-
-                <div class="avoid-break">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Decision Authority</h3>
-                    <p>Authority cascades cleanly from the Board down through ExCo to the executive management team:</p>
-                    <ul class="list-none space-y-5 pl-0 my-6">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Board Supermajority Consent:</strong> Fundamental strategic Reserved Matters require the affirmative vote of at least three (3) directors, including at least one director appointed by the Investee and one appointed by the Investor (e.g., Annual Operating Budget, unbudgeted CAPEX &gt; USD 100k, external debt &gt; USD 250k, commercial poultry carve-out approval, and reducing the 10% Cash Liquidity Reserve).
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Audit & Risk Oversight:</strong> Reviews and approves annual transfer pricing economic studies, statutory filings, customer credit terms exceeding 30 days, and export health accreditations.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Executive Committee Sign-Off:</strong> Bilateral sponsor consensus ratifies Drawdown Notices, line-item adjustments within Account 3 up to &plusmn;15%, unbudgeted operational expenses ($25k-$75k), and cattle buying formulas.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Management Authority:</strong> The Group CEO, COO, and CFO run daily commercial operations, approving budgeted operational expenses up to USD 25,000 and managing pastoralist supply lines.
-                        </li>
-                    </ul>
-                </div>
             </div>
         </article>
 
-        <article class="mb-14 print:mb-8">
-            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Kenya OpCo</h2>
-            </header>
-
-            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <div class="avoid-break">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mt-12 mb-4">Proposed Execution</h3>
-                    <p>Operational deployment activates the Investee's foundational assets, rangelands, and pastoralist corridors into a high-throughput protein engine across a disciplined Day T<sub>0</sub> to Day T+90 execution roadmap:</p>
-                    
-                    <ul class="list-none space-y-5 pl-0 my-6">
-                        <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal avoid-break">
-                            <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Operational Footprint Mobilized (T<sub>0</sub>)</strong>
-                            PineCrest feedlots (Kitengela/Narok), 500-acre irrigated Narok lucerne hub, foundation Boran breeding herds, and active domestic sales continuity (Farmers Choice) mobilized under Kenya OpCo operational umbrella.
-                        </li>
-                        <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal avoid-break">
-                            <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T<sub>0</sub> to T+30 (Corporate Setup & Professional Close)</strong>
-                            Settlement of Stage 1 Structuring Fee, execution of definitive SHA and Shariah Facility Contracts, registration of 25-year commercial leases and statutory caveats, and joint appointment of independent engineering design firm and Quantity Surveyor (QS).
-                        </li>
-                        <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal avoid-break">
-                            <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+30 to T+60 (Detailed Engineering, Feeder Intake & Groundbreaking)</strong>
-                            Board ratification of Stage 6 Final QS Costing, Day-1 commercial cattle buyout, feedlot expansion to 18,000 standing head under forward Salam contracts, and simultaneous groundbreaking for the 15 MT/hr feed mill, 13,000 MT steel silo terminal, Bovine IVF biotechnology laboratory, and modular Halal abattoir.
-                        </li>
-                        <li class="bg-white/70 p-6 border-l-2 border-tq-gold shadow-sm print:shadow-none print:border-tq-charcoal avoid-break">
-                            <strong class="text-tq-black block mb-1 font-serif text-lg font-normal">Days T+60 to T+90 (Feed Milling, Genetic Ingestion & Export Go-Live)</strong>
-                            Commissioning of 15 MT/hr feed mill and lucerne pelleting plant, initial embryo harvesting and transfers in IVF laboratory, abattoir commissioning with 100% origin deboning, and launch of boxed vacuum-packed beef and smoked deli cuts to the UAE.
-                        </li>
-                    </ul>
-
-                    <figure class="my-10 print:my-4 avoid-break">
-                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%203.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                    </figure>
-                </div>
-
-                <div class="avoid-break mt-14">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Asset Integration & Land Ring-Fencing</h3>
-                    <p>To eliminate valuation friction and property conveyance taxes, Kenya OpCo secures operational control through legal and operational covenants that strictly protect the Investee's foundational balance sheet:</p>
-                    <ul class="list-none space-y-4 pl-0 my-6">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">25-Year Commercial Leases:</strong> Registered under the Kenya Land Registration Act over feedlot yards, fodder acreage, abattoir, feed mill, and silo sites.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Statutory Caveats:</strong> Lodged at the Ministry of Lands barring unauthorized third-party charges, mortgages, or alienation during the venture term.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Facilities Use Agreement:</strong> Direct access to existing yards, bunks, boreholes, and fodder acreage against routine maintenance and operating costs.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Feedlot-Gate Ingestion:</strong> Kenya OpCo buys feeder cattle via forward purchase contracts (Salam) at the yard gate; foundational breeding herds and land titles remain 100% on the Investee's balance sheet under absolute non-recourse covenants.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-        <article class="mb-10 print:mb-8 avoid-break">
-            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">4.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">UAE OpCo</h2>
-            </header>
-            <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <h3 class="text-2xl font-serif text-tq-black font-normal mt-12 mb-4">Downstream Logistics & Asset-Light Distribution</h3>
-                <p>UAE OpCo executes an asset-light destination model. It manages leased, bonded temperature-controlled cold storage within KEZAD (Abu Dhabi) or Dubai Wholesale City (JAFZA) to cross-dock boxed retail cuts and frozen inventory upon arrival at DXB/DWC or Jebel Ali. It contracts dedicated refrigerated fleet operators (3PL) for last-mile delivery to GCC supermarket chains, foodservice distributors, and institutional catering accounts, avoiding brick-and-mortar overseas CAPEX.</p>
-                
-                <h3 class="text-2xl font-serif text-tq-black font-normal mt-14 mb-4">Commercial Execution</h3>
-                <p>UAE OpCo signs binding off-take sales contracts across the UAE, Saudi Arabia, and wider GCC, clears customs under CEPA zero-tariff import preferences, and invoices customers in local currencies (AED and SAR). It transacts with Kenya OpCo under an arm's-length Master Supply & Off-Take Agreement and Transfer Pricing Agreement using an economic cost-plus formula compliant with KRA and UAE Corporate Tax rules.</p>
-            </div>
-        </article>
-
+        <!-- SECTION 6: IMPLEMENTATION SEQUENCE -->
         <article class="mb-10 print:mb-0 mt-20 print:mt-10 avoid-break">
             <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
+                <span class="text-tq-gold font-serif text-2xl md:text-3xl">6.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps to Execution</h2>
             </header>
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
-                <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence:</p>
+                <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence established in the Term Sheet:</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-8 print-grid-2">
+                <div class="space-y-4 mt-8">
                     
-                    <div class="bg-tq-black text-tq-ivory border-t-4 border-tq-gold p-5 rounded-sm shadow-md flex flex-col avoid-break print:bg-tq-black print:text-tq-ivory">
-                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase mb-2 print:text-[8pt]">Stage 01</span>
-                        <h4 class="font-serif text-base leading-tight mb-2 print:text-[11pt]">Term Sheet Execution</h4>
-                        <p class="text-xs text-tq-stone leading-relaxed print:text-[9pt]">Execute the Master Term Sheet; wire settlement of Phase 1 Structuring Fee to TerraQuest.</p>
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 01</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Term Sheet Execution & Settlement</h4>
+                            <p class="text-sm text-tq-charcoal/80">Formal execution of the Term Sheet and wire settlement of the Phase 1 Structuring Fee to TerraQuest.</p>
+                        </div>
                     </div>
 
-                    <div class="bg-[#C6A04A] text-[#080808] border-t-4 border-[#080808] p-5 rounded-sm shadow-md flex flex-col avoid-break print:bg-[#C6A04A] print:text-[#080808]">
-                        <span class="text-[#080808] font-bold font-sans text-xs tracking-widest uppercase mb-2 print:text-[8pt]">Stage 02</span>
-                        <h4 class="font-serif text-base leading-tight mb-2 print:text-[11pt]">Confirmatory Diligence</h4>
-                        <p class="text-xs text-[#080808]/90 leading-relaxed print:text-[9pt]">Complete cadastral, hydrological, veterinary herd, and environmental NEMA audits.</p>
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 02</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Post-Signing Due Diligence</h4>
+                            <p class="text-sm text-tq-charcoal/80">Investor completes confirmatory cadastral, hydrological, veterinary herd, and environmental NEMA audits.</p>
+                        </div>
                     </div>
 
-                    <div class="bg-[#242424] text-tq-ivory border-t-4 border-[#B8B1A3] p-5 rounded-sm shadow-md flex flex-col avoid-break print:bg-[#242424] print:text-tq-ivory">
-                        <span class="text-[#B8B1A3] font-bold font-sans text-xs tracking-widest uppercase mb-2 print:text-[8pt]">Stage 03</span>
-                        <h4 class="font-serif text-base leading-tight mb-2 print:text-[11pt]">SHA & Escrow Deposit</h4>
-                        <p class="text-xs text-[#B8B1A3] leading-relaxed print:text-[9pt]">Execute Shareholders Agreement & Islamic Facilities; deposit cleared Phase 1 baseline in ADGM escrow.</p>
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 03</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Definitive Agreements & Escrow</h4>
+                            <p class="text-sm text-tq-charcoal/80">Execute the SHA and Islamic Facilities; unconditionally deposit the cleared Phase 1 baseline into ADGM escrow.</p>
+                        </div>
                     </div>
 
-                    <div class="bg-[#B8B1A3] text-[#080808] border-t-4 border-[#242424] p-5 rounded-sm shadow-md flex flex-col avoid-break print:bg-[#B8B1A3] print:text-[#080808]">
-                        <span class="text-[#242424] font-bold font-sans text-xs tracking-widest uppercase mb-2 print:text-[8pt]">Stage 04 & 05</span>
-                        <h4 class="font-serif text-base leading-tight mb-2 print:text-[11pt]">QS Costing & Blueprints</h4>
-                        <p class="text-xs text-[#242424] leading-relaxed print:text-[9pt]">Appoint architectural/MEP engineers and Quantity Surveyor (QS) for bankable Bill of Quantities.</p>
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 04</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Appoint Design & QS Teams</h4>
+                            <p class="text-sm text-tq-charcoal/80">Formal appointment of the architectural/MEP engineers and the independent Quantity Surveyor (QS) consultancy.</p>
+                        </div>
                     </div>
-
-                    <div class="bg-[#F4F0E7] text-[#080808] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-5 rounded-sm shadow-md flex flex-col md:col-span-2 lg:col-span-1 avoid-break print:col-span-2 print:bg-[#F4F0E7] print:text-[#080808]">
-                        <span class="text-[#C6A04A] font-bold font-sans text-xs tracking-widest uppercase mb-2 print:text-[8pt]">Stage 06 & 07</span>
-                        <h4 class="font-serif text-base leading-tight mb-2 print:text-[11pt]">Ratification & Rollout</h4>
-                        <p class="text-xs text-[#242424] leading-relaxed print:text-[9pt]">Board ratifies final QS budget; C-Suite leadership assumes operational control and disburses civil capital.</p>
+                    
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 05</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Comprehensive Design & Costing</h4>
+                            <p class="text-sm text-tq-charcoal/80">Delivery of the Plant Master Plan and the itemized Quantity Surveyor Bill of Quantities (BOQ).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 06</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Board Ratification</h4>
+                            <p class="text-sm text-tq-charcoal/80">Board formally reviews and ratifies the final QS budget, locking in the civil allocations within Account 2.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-tq-black text-tq-ivory p-5 border-l-4 border-tq-gold rounded-sm shadow-md flex flex-col md:flex-row md:items-center gap-4 avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 07</span>
+                        <div>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-ivory">Executive Appointment & Rollout</h4>
+                            <p class="text-sm text-tq-stone">Board appoints C-Suite leadership to assume operational control, execute physical works, and disburse civil capital.</p>
+                        </div>
                     </div>
 
                 </div>
