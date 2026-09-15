@@ -55,7 +55,6 @@
                 background-color: #F4F0E7 !important; 
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
-                box-sizing: border-box !important;
             }
 
             /* 4. Strict Inner Margins to prevent edge-bleed */
@@ -160,6 +159,19 @@
             }
             
             .no-print { display: none !important; }
+            
+            /* Disable CSS Grid entirely in print mode to stop Chromium layout collapsing */
+            .print-block-force {
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            .print-block-force > div {
+                display: block !important;
+                width: 100% !important;
+                margin-bottom: 8px !important;
+                page-break-inside: avoid !important;
+            }
             
             /* Hide the global footer on Page 1 */
             @page :first {
@@ -292,9 +304,13 @@
                     </ul>
                 </div>
                 
-                <div class="avoid-break mt-12">
+                <!-- Unlocked text to allow natural flow and prevent blank gaps -->
+                <div class="mt-12">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Supply Chain Execution Roadmap</h3>
                     <p>Operational deployment activates the Investee's foundational assets into a high-throughput protein engine across a strict execution flow:</p>
+                </div>
+                
+                <div class="avoid-break mt-6">
                     <figure class="my-10 print:my-4">
                         <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%202.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
@@ -320,8 +336,9 @@
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Board & Committee Structure</h3>
                     <p>Corporate authority sits with a lean, highly aligned 5-member Board of Directors (two Investee appointees, two Investor appointees, and one mutually agreed Independent Agribusiness Director) operating without third-party kingmaker bottlenecks.</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 grid-protection">
-                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
+                    <!-- Modified grid to use block force layout in print to prevent Chromium fracturing -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 print-block-force">
+                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm print:p-4">
                             <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
                             <div class="text-[14px] leading-relaxed space-y-3">
                                 <p><strong class="text-tq-black font-medium">Composition:</strong> One (1) Investor Rep + One (1) Investee Rep. Executive leadership participates without voting rights.</p>
@@ -329,7 +346,7 @@
                                 <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake pricing formulas, and line-item variances within Account 3 up to &plusmn;15%.</p>
                             </div>
                         </div>
-                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
+                        <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm print:p-4">
                             <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Audit, Risk & Transfer Pricing (AR-TP)</strong>
                             <div class="text-[14px] leading-relaxed space-y-3">
                                 <p><strong class="text-tq-black font-medium">Composition:</strong> Investee Director (Chair), Investor Director, Group COO, Group CFO, and statutory auditor.</p>
@@ -339,7 +356,7 @@
                     </div>
                 </div>
 
-                <div class="avoid-break">
+                <div class="avoid-break mt-6">
                     <figure class="my-10 print:my-4">
                         <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%203.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
@@ -664,71 +681,78 @@
         </article>
 
         <!-- SECTION 6: IMPLEMENTATION SEQUENCE -->
-        <!-- Added print:break-before-page to force onto a clean new sheet -->
-        <article class="mb-10 print:mb-0 mt-20 print:mt-0 print:break-before-page">
-            <header class="mb-10 print:mb-6 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4">
+        <!-- Explicit page break strictly enforced here to guarantee a clean new page -->
+        <article class="mb-10 mt-20" style="page-break-before: always; break-before: page;">
+            <header class="mb-10 pb-5 border-b border-tq-stone/40 flex items-baseline gap-4 print:mb-6">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">6.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps to Execution</h2>
             </header>
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7 print:space-y-3">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence established in the Term Sheet:</p>
                 
-                <!-- Heavily compressed padding and text sizes specifically for print to fit all 7 perfectly -->
-                <div class="space-y-4 print:space-y-2 mt-8 print:mt-4">
+                <!-- Dropped the grid entirely for print mode; resorting to a clean stack to prevent Chromium panic -->
+                <div class="space-y-4 print:space-y-2 mt-8 print:mt-4 print-block-force">
                     
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 01</span>
+                    <!-- Stage 1 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 01</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Term Sheet Execution & Structuring Fee Settlement</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Formal execution and exchange of the Term Sheet and immediate settlement of the Phase 1 Transaction Structuring Fee to TerraQuest.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Term Sheet Execution & Structuring Fee Settlement</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Formal execution and exchange of the Term Sheet and immediate settlement of the Phase 1 Transaction Structuring Fee to TerraQuest.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 02</span>
+                    <!-- Stage 2 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 02</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Post-Signing Due Diligence & Conditions Precedent (CP) Satisfaction</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Investor completes confirmatory legal, property, biological, and hydrological due diligence across operational and agricultural assets.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Post-Signing Due Diligence & Conditions Precedent (CP) Satisfaction</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Investor completes confirmatory legal, property, biological, and hydrological due diligence across operational and agricultural assets.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 03</span>
+                    <!-- Stage 3 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 03</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Definitive Agreements Execution & Cleared Escrow Deposit</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Formal execution of the SHA, 25-year leases, and Shariah contracts; unconditional deposit of the cleared Phase 1 baseline into ADGM escrow.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Definitive Agreements Execution & Cleared Escrow Deposit</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Formal execution of the SHA, 25-year leases, and Shariah contracts; unconditional deposit of the cleared Phase 1 baseline into ADGM escrow.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 04</span>
+                    <!-- Stage 4 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 04</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Formal Appointment of Design Team & Quantity Surveyor (QS)</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Identification and formal appointment of the accredited architectural/MEP engineering design team and the independent Quantity Surveyor (QS) consultancy.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Formal Appointment of Design Team & Quantity Surveyor (QS)</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Identification and formal appointment of the accredited architectural/MEP engineering design team and the independent Quantity Surveyor (QS) consultancy.</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 05</span>
+                    <!-- Stage 5 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 05</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Comprehensive Design Plans, Quantity Surveying & Post-Signing Costing</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Preparation and delivery of the full Plant Master Plan, engineering blueprints, and an itemized Quantity Surveyor Bill of Quantities (BOQ).</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Comprehensive Design Plans, Quantity Surveying & Post-Signing Costing</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Preparation and delivery of the full Plant Master Plan, engineering blueprints, and an itemized Quantity Surveyor Bill of Quantities (BOQ).</p>
                         </div>
                     </div>
                     
-                    <div class="bg-white p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 06</span>
+                    <!-- Stage 6 -->
+                    <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 06</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-black">Board Review & Ratification of Final Costing and Design</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-charcoal/80">Formal submission and affirmative approval by the Board of the Final QS Costing & Design Verification, locking in the final allocations within Account 2.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black print:text-[10pt]">Board Review & Ratification of Final Costing and Design</h4>
+                            <p class="text-sm text-tq-charcoal/80 print:text-[8pt] print:leading-snug">Formal submission and affirmative approval by the Board of the Final QS Costing & Design Verification, locking in the final allocations within Account 2.</p>
                         </div>
                     </div>
                     
-                    <div class="bg-tq-black text-tq-ivory p-5 print:p-2.5 border-l-4 border-tq-gold rounded-sm shadow-md flex flex-col md:flex-row md:items-center gap-4 print:gap-2 avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase md:w-24 shrink-0">Stage 07</span>
+                    <!-- Stage 7 -->
+                    <div class="bg-tq-black text-tq-ivory p-5 border-l-4 border-tq-gold rounded-sm shadow-md flex flex-col md:flex-row md:items-center gap-4 print:p-2.5 print:gap-2">
+                        <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-32 shrink-0 print:text-[8pt] print:w-24">Stage 07</span>
                         <div>
-                            <h4 class="font-serif text-lg print:text-[10pt] leading-tight mb-1 text-tq-ivory">Appointment of C-Suite Executive Leadership & Operational Implementation</h4>
-                            <p class="text-sm print:text-[8pt] print:leading-snug text-tq-stone">Board appoints the Group CEO, Group COO, and Group CFO to assume executive control, manage the unified Cut-Off Date, and execute physical works.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-ivory print:text-[10pt]">Appointment of C-Suite Executive Leadership & Operational Implementation</h4>
+                            <p class="text-sm text-tq-stone print:text-[8pt] print:leading-snug">Board appoints the Group CEO, Group COO, and Group CFO to assume executive control, manage the unified Cut-Off Date, and execute physical works.</p>
                         </div>
                     </div>
 
@@ -749,9 +773,9 @@
                 <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent print:from-[#080808]"></div>
             </div>
             
-            <!-- Increased horizontal padding massively to prevent edge cut-off on mobile & print -->
-            <div class="relative z-10 max-w-6xl mx-auto px-10 sm:px-16 print:px-24 h-full flex flex-col justify-center">
-                <div class="max-w-lg border-l-[3px] border-tq-gold pl-10 print:pl-16">
+            <!-- Increased horizontal padding massively to prevent edge cut-off on mobile & print. Added pt-12 to push down -->
+            <div class="relative z-10 max-w-6xl mx-auto px-12 sm:px-24 print:px-24 h-full flex flex-col justify-center pt-12">
+                <div class="max-w-lg border-l-[3px] border-tq-gold pl-12 print:pl-16">
                     <div class="mb-8">
                         <div class="logo-text text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
                             TERRAQUEST FZCO
@@ -789,3 +813,4 @@
     </script>
 </body>
 </html>
+```
