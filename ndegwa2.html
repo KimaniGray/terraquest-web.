@@ -72,6 +72,11 @@
                 break-before: page !important;
                 padding-top: 5mm !important; 
             }
+            
+            .print-new-page {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
 
             /* 6. Full Bleed Covers */
             .hero-section { 
@@ -136,7 +141,7 @@
             .table-wrapper { 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important; 
-                overflow: visible !important; /* Kills the PDF scrollbar */
+                overflow: visible !important; /* ABSOLUTE KILL FOR PDF SCROLLBARS */
             }
             table { margin: 5px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
@@ -184,7 +189,7 @@
             background-size: 100% 100%;
         }
         
-        /* Mobile Table Scrolling */
+        /* Mobile Table Scrolling (Overridden in print mode) */
         .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; min-width: 650px; table-layout: fixed; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
         th { border-bottom: 1px solid #C6A04A; padding: 1rem 0.75rem; text-align: left; font-family: "Manrope", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: #9B7628; word-wrap: break-word; overflow-wrap: break-word; white-space: normal; }
@@ -364,12 +369,12 @@
                     </ul>
                 </div>
                 
-                <div class="avoid-break mt-12">
+                <div class="mt-12">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Supply Chain Execution Roadmap</h3>
                     <p>Operational execution activates the Investee's foundational assets into a high-throughput protein facility across a strict flow. The process is governed by a 45-Day Transition Protocol, triggering a unified Cut-Off Date for total commercial takeover by Kenya OpCo.</p>
                 </div>
                 
-                <div class="avoid-break mt-6">
+                <div class="mt-6">
                     <figure class="my-10 print:my-4">
                         <img src="./Proposed Supply Chain Execution Fig. 2.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
@@ -394,7 +399,7 @@
                     <p>Corporate authority sits with a lean, highly aligned 5-member Board of Directors (two Investee appointees, two Investor appointees, and one mutually agreed Independent Agribusiness Director) operating without third-party kingmaker bottlenecks. Strategic Reserved Matters require an affirmative 4/5 supermajority.</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 print:grid-cols-2 print:gap-4">
-                        <div class="bg-white p-6 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full avoid-break">
+                        <div class="bg-white p-6 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full">
                             <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Executive Committee (ExCo)</strong>
                             <div class="text-[14px] leading-relaxed space-y-3">
                                 <p><strong class="text-tq-black font-medium">Composition:</strong> One (1) Investor Rep + One (1) Investee Rep. Executive leadership participates without voting rights.</p>
@@ -402,7 +407,7 @@
                                 <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake pricing formulas, and line-item variances within Account 3 up to &plusmn;15%.</p>
                             </div>
                         </div>
-                        <div class="bg-white p-6 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full avoid-break">
+                        <div class="bg-white p-6 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full">
                             <strong class="font-serif text-xl text-tq-black block mb-4 border-b border-tq-stone/30 pb-3">Audit, Risk & Transfer Pricing (AR-TP)</strong>
                             <div class="text-[14px] leading-relaxed space-y-3">
                                 <p><strong class="text-tq-black font-medium">Composition:</strong> Investee Director (Chair), Investor Director, Group COO, Group CFO, and statutory auditor.</p>
@@ -412,7 +417,7 @@
                     </div>
                 </div>
 
-                <div class="avoid-break mt-6">
+                <div class="mt-6">
                     <figure class="my-10 print:my-4">
                         <img src="./Proposed Governance and Management Structure Fig. 3.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
@@ -472,7 +477,7 @@
                             </tr>
                             <tr>
                                 <td class="font-bold text-tq-black">Account 3</td>
-                                <td class="font-medium text-tq-black">Livestock Procurement & Sourcing</td>
+                                <td class="font-medium text-tq-black">Livestock Procurement & Working Capital</td>
                                 <td class="font-mono text-tq-antique font-medium text-right">26,000,000</td>
                                 <td class="font-mono text-tq-stone text-right">52.00%</td>
                                 <td>Day-1 stock, 18k feedlots, buying hubs, Bovine IVF cleanroom lab, revolving livestock/feed/consumables float.</td>
@@ -487,13 +492,13 @@
                     </table>
                 </div>
 
-                <div class="avoid-break mt-10">
-                    <p>Following the successful commissioning of Phase 1, the joint venture will scale its processing footprint to handle increased regional and international demand. Phase 2 unlocks higher margins through specialized by-product processing and enhanced logistics operations.</p>
+                <div class="avoid-break mt-6">
+                    <p>Capital drawn for Phase 1 is strictly released from the ADGM escrow account against verified engineering milestones. The processing plant and feed mill are funded under a direct Istisna'a (manufacturing) contract, capitalizing the equipment on the operating company's balance sheet. Concurrently, working capital for initial livestock purchases is deployed through revolving Salam forward contracts, ensuring the feedlots are fully stocked prior to the abattoir commissioning.</p>
                 </div>
 
-                <div class="avoid-break mt-12">
+                <div class="print-new-page print:pt-10 avoid-break mt-16">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 2: Scaled Industrial Value Chain Expansion (Month 25 Onward)</h3>
-                    <p>Phase 2 multiplies enterprise margins across high-barrier agribusiness additions. This includes expanding the Bulk Steel Grain Terminal to 30,000 MT, building a Direct Wet-Blue Leather Tannery, establishing a Coastal Pre-Export Quarantine Ranch, and securing an asset-light Charter Logistics desk.</p>
+                    <p>Following the successful commissioning of Phase 1, the joint venture will scale its processing footprint to handle increased regional and international demand. Phase 2 unlocks higher margins through specialized by-product processing. This includes expanding the Bulk Steel Grain Terminal to 30,000 MT, building a Direct Wet-Blue Leather Tannery, establishing a Coastal Pre-Export Quarantine Ranch, and securing an asset-light Charter Logistics desk.</p>
                 </div>
 
                 <div class="table-wrapper mt-6 mb-8 avoid-break">
@@ -547,8 +552,8 @@
                     </table>
                 </div>
 
-                <div class="avoid-break mt-10">
-                    <p>To protect both the Investor and the Investee, all capital is legally ring-fenced. The joint venture owns the processing equipment and infrastructure, which is capitalized directly on its balance sheet, while the underlying land and breeding herds remain fully protected and isolated from operational debt.</p>
+                <div class="avoid-break mt-6">
+                    <p>To protect both the Investor and the Investee, the investment structure legally separates the physical processing assets from the underlying land. The joint venture owns the processing equipment and industrial infrastructure, which is capitalized directly on its balance sheet. The underlying freehold land, ancestral rangelands, and foundational breeding herds remain entirely unencumbered and protected from operational liabilities. All deployed capital is recovered exclusively through priority cash sweeps, ensuring zero dilution to the established 50/50 ordinary shareholding parity.</p>
                 </div>
 
                 <div class="table-wrapper mt-8 mb-10 avoid-break">
@@ -679,7 +684,6 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7 print:space-y-3">
                 <p>To transition Project Ndegwa from the strategic framework into binding corporate formation, the transaction executes strictly under the Mandatory Seven-Stage Implementation Sequence established in the Term Sheet:</p>
                 
-                <!-- Explicit Print Compression applied here -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 print-grid-compress">
                     
                     <div class="bg-white border-t-4 border-tq-gold p-5 rounded-sm shadow-sm flex flex-col avoid-break print:p-3 print:gap-1">
