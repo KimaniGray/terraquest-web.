@@ -25,6 +25,10 @@
                             charcoal: '#242424',
                             stone: '#B8B1A3'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     }
                 }
             }
@@ -54,7 +58,7 @@
                 box-sizing: border-box !important;
             }
 
-            /* 4. strict Inner Margins to prevent edge-bleed */
+            /* 4. Strict Inner Margins to prevent edge-bleed */
             main {
                 margin: 0 auto !important;
                 padding: 15mm 20mm 15mm 20mm !important;
@@ -135,7 +139,7 @@
             caption { font-size: 11pt !important; margin-bottom: 0px !important; padding-bottom: 2px !important; }
             th, td { padding: 4px !important; font-size: 7.5pt !important; word-wrap: break-word !important; overflow-wrap: break-word !important; white-space: normal !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
             
-            /* 8. Image Constraint Fixes (No more 65mm vertical crush) */
+            /* 8. Image Constraint Fixes */
             figure {
                 margin: 8mm auto !important; 
                 padding-top: 0 !important; 
@@ -150,7 +154,7 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                max-height: 130mm !important; /* Cap height to stop ghost pages, but allow natural span */
+                max-height: 130mm !important; 
                 object-fit: contain !important;
                 margin: 0 auto !important;
             }
@@ -170,8 +174,7 @@
             }
         }
         
-        body { color: #242424; background-color: #F4F0E7; font-family: "Manrope", sans-serif; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
-        h1, h2, h3, h4, h5, caption { font-family: "Playfair Display", serif; }
+        body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
         
         .bg-orbital {
             background-image: radial-gradient(circle at 50% -20%, transparent 40%, rgba(198, 160, 74, 0.04) 41%, transparent 42%),
@@ -255,11 +258,11 @@
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <p>Project Ndegwa translates the commercial vision of PineCrest Holdings into a clear, Shariah-compliant investment plan for Golden Nile Trading LLC. By capitalizing on zero-tariff trade under the Kenya-UAE Comprehensive Economic Partnership Agreement (CEPA), the joint venture establishes a vertically integrated protein, feed, and export enterprise targeting the GCC and East Africa.</p>
                 
-                <p>The investment rolls out across a unified Two-Phase Architecture establishing a <strong>USD 100,000,000 Total Baseline Program</strong> (split symmetrically at USD 50 million per phase), with optional 30% Accordion Tranches providing expansion headroom up to an aggregate authorized envelope of USD 130 million.</p>
+                <p>The investment rolls out across a unified Two-Phase Architecture establishing a <strong>USD 100,000,000 Total Baseline Program</strong> (split symmetrically at USD 50 million per phase), with optional 30% Accordion Tranches providing expansion headroom up to an aggregate authorized envelope of USD 130,000,000.</p>
                 
                 <div class="avoid-break mt-10">
                     <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Corporate%20Structure%20Fig.%201_2.png" alt="Proposed Corporate Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed%20Corporate%20Structure%20Fig.%201.png" alt="Proposed Corporate Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
                 </div>
             </div>
@@ -280,7 +283,7 @@
                     <ul class="list-none space-y-5 pl-0 my-6">
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">Kenya OpCo (Upstream Production):</strong> Holds all operational assets, facilities, leases, and biological stock in Kenya. It operates under 25-year commercial registered leases over feedlot yards and fodder acreage. It directly owns the abattoir, cold chain, 15 MT/hr feed mill, bulk steel silos, Bovine IVF laboratory, and tannery capitalized under IAS 16. It manages the feedlot finishing yards and procures livestock under Shariah-compliant <em>Salam</em> and <em>Murabaha</em> contracts. 100% of seam-boning, portioning, retail skin-packaging, and cooked charcuterie is executed at origin in Kenya to maximize domestic labor cost advantages and eliminate air-freighting waste bones to the Gulf.
+                            <strong class="font-semibold text-tq-black">Kenya OpCo (Upstream Production):</strong> Holds all operational assets, facilities, leases, and biological stock in Kenya. It operates under 25-year commercial registered leases over feedlot yards and fodder acreage. It directly owns the abattoir, cold chain, 15 MT/hr feed mill, bulk steel silos, Bovine IVF laboratory, and tannery capitalized under IAS 16. It manages the 18,000-head feedlot finishing yards and procures livestock under Shariah-compliant <em>Salam</em> and <em>Murabaha</em> contracts. 100% of seam-boning, portioning, retail skin-packaging, and cooked charcuterie is executed at origin in Kenya to maximize domestic labor cost advantages and eliminate air-freighting waste bones to the Gulf.
                         </li>
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
@@ -288,36 +291,12 @@
                         </li>
                     </ul>
                 </div>
-
-                <div class="avoid-break mt-12">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 1: Foundational Production & Feed (Months 1–24)</h3>
-                    <p>Phase 1 front-loads feed industrialization to secure live finishing costs at substantial discounts to the open market. It establishes the baseline production engine:</p>
-                    <ul class="list-none space-y-3 pl-0 my-4 text-sm text-tq-charcoal/90">
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>15 MT/hr Feed Mill & Milling Plant:</strong> Automated dosing and TMR blending.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Lucerne Dehydrating & Soya Pressing:</strong> 4-5 MT/hr lucerne pelleting and a mechanical soybean extrusion line yielding 44-46% bypass protein cake and crude oil.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>13,000 MT Bulk Steel Silo Terminal:</strong> Comprising 4x 2,500 MT flat bins and 2x 1,500 MT hopper bins (strictly excluding concrete), integrated with a 30 MT/hr column dryer.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Bovine IVF Biotechnology Lab:</strong> Embryo Transfer Cleanroom with full 5-stage IVEP cascade.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Halal Export Abattoir & Smokehouse:</strong> Beef, goat, lamb, and camel design. Includes 100% origin deboning, retail barrier packaging, and a commercial smokehouse monetizing 100% of trim into cooked deli meats.</li>
-                    </ul>
-                </div>
-
-                <div class="avoid-break mt-12">
-                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 2: Industrial Value Chain Expansion (Month 25 Onward)</h3>
-                    <p>Phase 2 multiplies enterprise margins across five high-moat agribusiness additions:</p>
-                    <ul class="list-none space-y-3 pl-0 my-4 text-sm text-tq-charcoal/90">
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Bulk Grain Terminal Expansion:</strong> Scaling to 30,000 MT via four additional 4,250 MT bins.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Direct Wet-Blue Leather Tannery:</strong> Processing 100% of hides and skins for export.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Secondary Cold Storage:</strong> Additional carcass chillers and a second blast freezer cell to double throughput.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Coastal PEQ Staging Ranch:</strong> 10,000-20,000 acre pre-export quarantine ranch near Mombasa.</li>
-                        <li class="relative pl-5"><span class="absolute left-0 top-2 w-1 h-1 bg-tq-antique rounded-full"></span><strong>Asset-Light Charter Logistics:</strong> A dedicated desk securing time charters, COAs, and ACMI air cargo freighters with strictly zero maritime vessel or aircraft ownership.</li>
-                    </ul>
-                </div>
                 
                 <div class="avoid-break mt-12">
                     <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Supply Chain Execution Roadmap</h3>
                     <p>Operational deployment activates the Investee's foundational assets into a high-throughput protein engine across a strict execution flow:</p>
                     <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%202.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed%20Supply%20Chain%20Execution%20Fig.%202.png" alt="Proposed Supply Chain Execution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
                 </div>
 
@@ -346,7 +325,7 @@
                             <div class="text-[14px] leading-relaxed space-y-3">
                                 <p><strong class="text-tq-black font-medium">Composition:</strong> One (1) Investor Rep + One (1) Investee Rep. Executive leadership participates without voting rights.</p>
                                 <p><strong class="text-tq-black font-medium">Decision Rule:</strong> Bilateral sponsor consensus.</p>
-                                <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake pricing formulas, and line-item variances within Account 3.</p>
+                                <p><strong class="text-tq-black font-medium">Scope:</strong> Routine operational oversight across all facilities, cattle intake pricing formulas, and line-item variances within Account 3 up to &plusmn;15%.</p>
                             </div>
                         </div>
                         <div class="bg-white p-8 border border-tq-stone/20 shadow-sm rounded-sm">
@@ -361,7 +340,7 @@
 
                 <div class="avoid-break">
                     <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%203.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed%20Governance%20and%20Management%20Structure%20Fig.%203.png" alt="Proposed Governance and Management Structure" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
                 </div>
             </div>
@@ -379,7 +358,12 @@
                     <p>The capital architecture strictly separates enterprise equity governance from asset-backed Islamic deployment contracts. Deployed project capital across Phase 1 and Phase 2 is non-recourse to the Investee's foundational breeding herds and ancestral rangeland titles. Under no circumstances does capital recovery or Accordion drawdowns dilute the equal 50/50 ordinary voting parity.</p>
                 </div>
 
-                <div class="table-wrapper mt-12 mb-8 avoid-break">
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 1: Foundational Production & Feed (Months 1–24)</h3>
+                    <p>Phase 1 front-loads feed industrialization to secure live finishing costs at substantial discounts to the open market. It establishes the baseline production engine including the 15 MT/hr feed mill, bulk steel silos, and the Halal export abattoir.</p>
+                </div>
+
+                <div class="table-wrapper mt-8 mb-8 avoid-break">
                     <table>
                         <colgroup>
                             <col style="width: 14%;">
@@ -430,7 +414,12 @@
                     </table>
                 </div>
 
-                <div class="table-wrapper mt-10 mb-8 avoid-break">
+                <div class="avoid-break mt-12">
+                    <h3 class="text-2xl font-serif text-tq-black font-normal mb-4">Phase 2: Scaled Industrial Value Chain Expansion (Month 25 Onward)</h3>
+                    <p>Phase 2 multiplies enterprise margins across high-moat agribusiness additions including the Bulk Steel Grain Terminal expansion to 30,000 MT, a Direct Wet-Blue Leather Tannery, Coastal PEQ Ranch, and an asset-light Charter Logistics desk.</p>
+                </div>
+
+                <div class="table-wrapper mt-8 mb-8 avoid-break">
                     <table>
                         <colgroup>
                             <col style="width: 14%;">
@@ -545,7 +534,7 @@
 
             <div class="font-sans text-[15.5px] leading-[1.85] text-tq-charcoal space-y-7">
                 <div class="avoid-break">
-                    <p>The joint venture operates a dual treasury collection system. Export receivables are collected in AED/USD by UAE OpCo, while domestic and regional African receivables are collected in KES/USD by Kenya OpCo. All gross commercial receipts across both entities are strictly swept and settled through the unified Four-Tier Distribution Waterfall before any profits are recognized.</p>
+                    <p>The joint venture operates a dual treasury collection system. Export receivables are collected in AED/USD by UAE OpCo, while domestic and regional African receivables are collected in KES/USD by Kenya OpCo. All gross commercial receipts across both entities are strictly swept and settled through the unified Four-Tier Distribution Waterfall before any equity profit distributions are paid under Tier 4.</p>
                 </div>
 
                 <div class="avoid-break mt-10">
@@ -596,7 +585,7 @@
                     </div>
 
                     <figure class="my-10 print:my-4">
-                        <img src="./Proposed%20Capital%20Waterfall%20Fig.%204_2.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed%20Capital%20Waterfall%20Fig.%204.png" alt="Cash Flow and Profit Distribution" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block">
                     </figure>
                 </div>
 
@@ -683,56 +672,56 @@
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 01</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Term Sheet Execution & Settlement</h4>
-                            <p class="text-sm text-tq-charcoal/80">Formal execution of the Term Sheet and wire settlement of the Phase 1 Structuring Fee to TerraQuest.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Term Sheet Execution & Structuring Fee Settlement</h4>
+                            <p class="text-sm text-tq-charcoal/80">Formal execution and exchange of the Term Sheet and immediate settlement of the Phase 1 Transaction Structuring Fee to TerraQuest.</p>
                         </div>
                     </div>
 
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 02</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Post-Signing Due Diligence</h4>
-                            <p class="text-sm text-tq-charcoal/80">Investor completes confirmatory cadastral, hydrological, veterinary herd, and environmental NEMA audits.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Post-Signing Due Diligence & Conditions Precedent (CP) Satisfaction</h4>
+                            <p class="text-sm text-tq-charcoal/80">Investor completes confirmatory legal, property, biological, and hydrological due diligence across operational and agricultural assets.</p>
                         </div>
                     </div>
 
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 03</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Definitive Agreements & Escrow</h4>
-                            <p class="text-sm text-tq-charcoal/80">Execute the SHA and Islamic Facilities; unconditionally deposit the cleared Phase 1 baseline into ADGM escrow.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Definitive Agreements Execution & Cleared Escrow Deposit</h4>
+                            <p class="text-sm text-tq-charcoal/80">Formal execution of the SHA, 25-year leases, and Shariah contracts; unconditional deposit of the cleared Phase 1 baseline into ADGM escrow.</p>
                         </div>
                     </div>
 
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 04</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Appoint Design & QS Teams</h4>
-                            <p class="text-sm text-tq-charcoal/80">Formal appointment of the architectural/MEP engineers and the independent Quantity Surveyor (QS) consultancy.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Formal Appointment of Design Team & Quantity Surveyor (QS)</h4>
+                            <p class="text-sm text-tq-charcoal/80">Identification and formal appointment of the accredited architectural/MEP engineering design team and the independent Quantity Surveyor (QS) consultancy.</p>
                         </div>
                     </div>
                     
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 05</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Comprehensive Design & Costing</h4>
-                            <p class="text-sm text-tq-charcoal/80">Delivery of the Plant Master Plan and the itemized Quantity Surveyor Bill of Quantities (BOQ).</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Comprehensive Design Plans, Quantity Surveying & Post-Signing Costing</h4>
+                            <p class="text-sm text-tq-charcoal/80">Preparation and delivery of the full Plant Master Plan, engineering blueprints, and an itemized Quantity Surveyor Bill of Quantities (BOQ).</p>
                         </div>
                     </div>
                     
                     <div class="bg-white p-5 border-l-4 border-tq-gold rounded-sm shadow-sm flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 06</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Board Ratification</h4>
-                            <p class="text-sm text-tq-charcoal/80">Board formally reviews and ratifies the final QS budget, locking in the civil allocations within Account 2.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-black">Board Review & Ratification of Final Costing and Design</h4>
+                            <p class="text-sm text-tq-charcoal/80">Formal submission and affirmative approval by the Board of the Final QS Costing & Design Verification, locking in the final allocations within Account 2.</p>
                         </div>
                     </div>
                     
                     <div class="bg-tq-black text-tq-ivory p-5 border-l-4 border-tq-gold rounded-sm shadow-md flex flex-col md:flex-row md:items-center gap-4 avoid-break">
                         <span class="text-tq-gold font-bold font-sans text-xs tracking-widest uppercase md:w-24 shrink-0">Stage 07</span>
                         <div>
-                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-ivory">Executive Appointment & Rollout</h4>
-                            <p class="text-sm text-tq-stone">Board appoints C-Suite leadership to assume operational control, execute physical works, and disburse civil capital.</p>
+                            <h4 class="font-serif text-lg leading-tight mb-1 text-tq-ivory">Appointment of C-Suite Executive Leadership & Operational Implementation</h4>
+                            <p class="text-sm text-tq-stone">Board appoints the Group CEO, Group COO, and Group CFO to assume executive control, manage the unified Cut-Off Date, and execute physical works.</p>
                         </div>
                     </div>
 
@@ -747,7 +736,7 @@
         <section class="closing-image-section relative w-full h-full overflow-hidden bg-tq-black flex-1">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-tq-charcoal/80"></div>
-                <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" onerror="this.style.display='none'" />
+                <img src="./Feedlot%20Image%201.png" alt="Project Ndegwa Commercial Feedlot" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" />
                 
                 <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent print:from-[#080808] print:via-[#080808]/90"></div>
                 <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent print:from-[#080808]"></div>
