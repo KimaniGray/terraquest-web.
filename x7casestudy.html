@@ -16,8 +16,8 @@
    
    --page-bg: #031715;
    --page-glow: #083e37;
-   --card-bg: rgba(6, 38, 34, 0.88);
-   --card-border: rgba(183, 233, 199, 0.18);
+   --card-bg: rgba(6, 38, 34, 0.92);
+   --card-border: rgba(183, 233, 199, 0.22);
    
    --text-light: #ffffff;
    --text-muted: #a3c2be;
@@ -50,28 +50,40 @@
 
  /* ---------- Card Container Styles ---------- */
  .card-slide {
-   max-width: 980px; width: 100%;
+   max-width: 1040px; width: 100%;
    background: var(--card-bg);
    border: 1px solid var(--card-border);
    backdrop-filter: blur(24px);
    border-radius: 28px;
-   padding: 36px 44px;
-   box-shadow: 0 40px 90px rgba(0,0,0,0.65), 0 0 40px rgba(76, 217, 100, 0.08);
+   padding: 32px 40px;
+   box-shadow: 0 40px 90px rgba(0,0,0,0.7), 0 0 40px rgba(76, 217, 100, 0.08);
    position: relative;
    overflow: hidden;
  }
  
- /* Floating Background Orbs */
- .orb { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.25; pointer-events: none; }
- .orb-1 { width: 180px; height: 180px; background: var(--pf-yellow); top: -40px; right: -30px; }
- .orb-2 { width: 140px; height: 140px; background: var(--pf-green); bottom: -30px; left: -20px; }
+ /* Full Graphic Display Slide */
+ .graphic-slide-card {
+   max-width: 1080px; width: 100%;
+   background: rgba(3, 23, 21, 0.95);
+   border: 1px solid var(--card-border);
+   border-radius: 28px;
+   padding: 20px;
+   box-shadow: 0 40px 90px rgba(0,0,0,0.8);
+   display: flex; flex-direction: column; align-items: center;
+ }
+ .full-graphic {
+   width: 100%; height: auto; max-height: 72vh; object-fit: contain;
+   border-radius: 16px; border: 1px solid rgba(183, 233, 199, 0.2);
+ }
 
  /* Brand Header Navigation Bar */
  .brand-header {
    display: flex; align-items: center; justify-content: space-between;
-   border-bottom: 1px solid rgba(183, 233, 199, 0.15); padding-bottom: 18px; margin-bottom: 24px;
+   border-bottom: 1px solid rgba(183, 233, 199, 0.15); padding-bottom: 14px; margin-bottom: 20px;
+   width: 100%;
  }
  .co-branding { display: flex; align-items: center; gap: 14px; }
+ .co-branding img { object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
  .co-branding span.x { color: var(--pf-yellow); font-weight: 800; font-size: 16px; }
 
  .tag {
@@ -81,31 +93,28 @@
  }
 
  h1.slide-title {
-   margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.15;
+   margin: 0 0 8px; font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.15;
    background: linear-gradient(135deg, #ffffff 30%, var(--pf-mint));
    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
  }
- p.subtitle { margin: 0 0 24px; color: var(--text-muted); font-size: 15px; max-width: 75ch; line-height: 1.5; }
+ p.subtitle { margin: 0 0 20px; color: var(--text-muted); font-size: 14.5px; max-width: 80ch; line-height: 1.5; }
 
- /* Multi-Column Grids */
- .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
- .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
- .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+ .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+ .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
  .box {
    background: rgba(255,255,255,0.03); border: 1px solid rgba(183, 233, 199, 0.12);
-   border-radius: 18px; padding: 22px; transition: transform 0.2s ease, border-color 0.2s ease;
+   border-radius: 18px; padding: 20px; transition: transform 0.2s ease;
  }
- .box:hover { border-color: rgba(76, 217, 100, 0.3); transform: translateY(-2px); }
- .box h3 { margin: 0 0 10px; font-size: 16px; color: #fff; display: flex; align-items: center; gap: 8px; font-weight: 700; }
+ .box h3 { margin: 0 0 10px; font-size: 15px; color: #fff; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+ .box h3 img { object-fit: contain; }
  .box p, .box ul { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.55; }
  .box ul { padding-left: 18px; }
 
  .accent-green { border-left: 4px solid var(--pf-green); }
  .accent-yellow { border-left: 4px solid var(--pf-yellow); }
- .accent-orange { border-left: 4px solid var(--pf-orange); }
 
- /* ---------- Slide Deck Controls ---------- */
+ /* Controls */
  .pager {
    position: fixed; right: 24px; bottom: calc(20px + env(safe-area-inset-bottom, 0px));
    display: flex; align-items: center; gap: 6px; z-index: 100;
@@ -137,67 +146,45 @@
 
  .fit { width: calc(414px * var(--s, 1)); height: calc(868px * var(--s, 1)); }
 
- /* ---------- Simulated Mobile Device Mockup ---------- */
+ /* Mobile Mockup */
  .phone {
-   width: 414px; height: 868px;
-   padding: 12px; border-radius: 64px;
+   width: 414px; height: 868px; padding: 12px; border-radius: 64px;
    background: #18191c;
-   box-shadow:
-     inset 0 0 0 2px #34363c,
-     inset 0 0 0 5px #0a0a0a,
-     0 40px 90px -20px rgba(0,0,0,.95),
-     0 0 0 1px rgba(255,255,255,.08);
-   transform: scale(var(--s, 1));
-   transform-origin: top left;
-   position: relative;
+   box-shadow: inset 0 0 0 2px #34363c, inset 0 0 0 5px #0a0a0a, 0 40px 90px -20px rgba(0,0,0,.95);
+   transform: scale(var(--s, 1)); transform-origin: top left; position: relative;
  }
- .phone::before, .phone::after { content: ""; position: absolute; width: 4px; border-radius: 2px; background: #2a2a2d; }
- .phone::before { left: -3px; top: 170px; height: 64px; box-shadow: 0 84px 0 #2a2a2d; }
- .phone::after { right: -3px; top: 220px; height: 96px; }
-
- .screen {
-   position: relative; width: 100%; height: 100%;
-   border-radius: 52px; overflow: hidden; background: #000;
- }
-
- .status {
-   height: 54px; padding: 18px 34px 0 42px;
-   display: flex; justify-content: space-between; align-items: flex-start;
-   font-weight: 600; font-size: 15px; z-index: 10; position: relative; color: #fff;
- }
- .island {
-   position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
-   width: 124px; height: 36px; border-radius: 20px; background: #000;
-   box-shadow: 0 0 0 1px #111; z-index: 11;
- }
-
+ .screen { position: relative; width: 100%; height: 100%; border-radius: 52px; overflow: hidden; background: #000; }
+ .status { height: 54px; padding: 18px 34px 0 42px; display: flex; justify-content: space-between; font-weight: 600; font-size: 15px; z-index: 10; position: relative; color: #fff; }
+ .island { position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 124px; height: 36px; border-radius: 20px; background: #000; box-shadow: 0 0 0 1px #111; z-index: 11; }
  .nav { height: 44px; padding: 0 14px; display: grid; grid-template-columns: 32px 1fr 32px; align-items: center; }
  .nav-title { text-align: center; font-weight: 700; font-size: 16px; color: #fff; }
 
- /* Post components */
  .post-head { display: flex; align-items: center; gap: 10px; padding: 8px 12px; }
- .ring {
-   width: 36px; height: 36px; border-radius: 50%; padding: 2px;
-   background: conic-gradient(from 200deg, var(--pf-yellow), var(--pf-orange), var(--pf-green), var(--pf-teal), var(--pf-yellow));
- }
- .ring > span {
-   display: grid; place-items: center; width: 100%; height: 100%;
-   border-radius: 50%; border: 2px solid #000;
-   background: #2b2440 url("atmediamk.jpg") center / cover;
- }
+ .ring { width: 36px; height: 36px; border-radius: 50%; padding: 2px; background: conic-gradient(from 200deg, var(--pf-yellow), var(--pf-orange), var(--pf-green), var(--pf-yellow)); }
+ .ring > span { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #000; background: #2b2440 url("atmediamk.jpg") center / cover; }
  .av.pfp { background: #2b2440 url("atmediamk.jpg") center / cover; }
- .who { flex: 1; line-height: 1.2; }
  .who b { font-size: 14px; color: #fff; }
  .who small { display: block; color: #a0a0a0; font-size: 12px; }
 
- .carousel { position: relative; width: 390px; height: 488px; overflow: hidden; }
- .media { display: block; width: 390px; height: 488px; object-fit: cover; }
- .count-pill {
-   position: absolute; top: 12px; right: 12px;
-   padding: 4px 10px; border-radius: 12px;
-   background: rgba(18,18,18,.75); color: #f5f5f5;
-   font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+ /* Responsive Mobile Image Container Scaling */
+ .carousel { 
+   position: relative; 
+   width: 390px; 
+   height: 488px; 
+   overflow: hidden; 
+   background: #080d14; 
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
  }
+ .media { 
+   display: block; 
+   width: 100%; 
+   height: 100%; 
+   object-fit: contain; 
+   background-color: #080d14;
+ }
+ .count-pill { position: absolute; top: 12px; right: 12px; padding: 4px 10px; border-radius: 12px; background: rgba(18,18,18,.85); color: #f5f5f5; font-size: 11px; font-weight: 700; border: 1px solid rgba(255,255,255,0.15); }
 
  .actions { position: relative; display: flex; align-items: center; gap: 16px; padding: 10px 14px 6px; }
  .icon-btn { background: none; border: 0; padding: 0; cursor: pointer; display: grid; place-items: center; }
@@ -205,13 +192,8 @@
  .post-caption { padding: 6px 14px 0; display: grid; gap: 5px; color: #fff; }
  .post-caption p { margin: 0; line-height: 1.4; }
 
- /* Comments Sheet */
  .dim { position: absolute; inset: 0; background: rgba(0,0,0,.68); }
- .sheet {
-   position: absolute; left: 0; right: 0; bottom: 0;
-   height: 598px; background: #1a1c20;
-   border-radius: 20px 20px 0 0; display: flex; flex-direction: column;
- }
+ .sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 598px; background: #1a1c20; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; }
  .grab { width: 40px; height: 4px; border-radius: 2px; background: #5a5a5e; margin: 8px auto 0; }
  .sheet-title { text-align: center; font-weight: 700; font-size: 15px; padding: 12px 0; border-bottom: 1px solid #2e3036; color: #fff; }
  .caption { display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #2e3036; color: #fff; }
@@ -231,7 +213,6 @@
  .field { flex: 1; display: flex; align-items: center; height: 42px; padding: 0 16px; border-radius: 22px; border: 1px solid #3a3a3e; background: #26282e; }
  .field input { flex: 1; background: none; border: 0; outline: 0; color: #fff; font: 14px var(--ui-font); }
 
- /* DM Thread */
  .dm { position: absolute; inset: 54px 0 0; display: flex; flex-direction: column; background: #0e0f12; }
  .dm-head { display: grid; grid-template-columns: 32px 1fr auto; align-items: center; gap: 8px; padding: 6px 14px 10px; border-bottom: 1px solid #24262b; color: #fff; }
  .dm-head .ring { width: 32px; height: 32px; }
@@ -247,59 +228,35 @@
  .bubble { max-width: 80%; padding: 10px 16px; border-radius: 20px; background: #242528; color: #fff; font-size: 13.5px; line-height: 1.4; }
  .bubble a { color: var(--pf-green); text-decoration: underline; font-weight: 700; }
  
- .preview-card {
-   width: 250px; border-radius: 16px; overflow: hidden; background: #16181d;
-   border: 1px solid rgba(183, 233, 199, 0.2); margin-top: 4px; cursor: pointer;
-   transition: transform 0.2s ease;
- }
- .preview-card:hover { transform: scale(1.02); }
+ .preview-card { width: 250px; border-radius: 16px; overflow: hidden; background: #16181d; border: 1px solid rgba(183, 233, 199, 0.2); margin-top: 4px; cursor: pointer; }
  .preview-card .p-header { background: linear-gradient(135deg, var(--pf-teal), #02201c); padding: 16px; text-align: center; }
  .preview-card .p-header h4 { margin: 0; color: var(--pf-yellow); font-size: 17px; font-weight: 800; }
  .preview-card .p-body { padding: 12px 14px; font-size: 12px; color: var(--text-muted); }
  .preview-card .p-body b { color: #fff; display: block; font-size: 13.5px; margin-bottom: 3px; }
 
- /* PlayformIQ Interactive Quiz Engine */
- .game-screen {
-   position: absolute; inset: 54px 0 0; display: flex; flex-direction: column;
-   background: var(--pf-dark-teal); padding: 14px; color: #fff;
- }
- .game-header {
-   display: flex; justify-content: space-between; align-items: center;
-   background: rgba(255,255,255,0.06); padding: 10px 14px; border-radius: 14px; margin-bottom: 12px;
-   border: 1px solid rgba(183, 233, 199, 0.15);
- }
+ .game-screen { position: absolute; inset: 54px 0 0; display: flex; flex-direction: column; background: var(--pf-dark-teal); padding: 14px; color: #fff; }
+ .game-header { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.06); padding: 10px 14px; border-radius: 14px; margin-bottom: 12px; border: 1px solid rgba(183, 233, 199, 0.15); }
  .score-badge { font-weight: 800; font-size: 17px; color: var(--pf-yellow); }
  .progress-track { height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 12px; overflow: hidden; }
  .progress-fill { height: 100%; width: 5%; background: linear-gradient(90deg, var(--pf-green), var(--pf-yellow)); transition: width 0.3s ease; }
 
- .q-card {
-   background: rgba(3, 23, 21, 0.9); border: 1px solid rgba(183, 233, 199, 0.2); border-radius: 18px;
-   padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;
- }
+ .q-card { background: rgba(3, 23, 21, 0.9); border: 1px solid rgba(183, 233, 199, 0.2); border-radius: 18px; padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
  .q-round { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--pf-green); letter-spacing: 1.2px; margin-bottom: 4px; }
  .q-text { font-size: 15px; font-weight: 700; margin: 0 0 14px; line-height: 1.35; color: #fff; }
  
  .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
- .visual-opt {
-   aspect-ratio: 4/3; background: rgba(255,255,255,0.05); border: 2px solid rgba(183, 233, 199, 0.2);
-   border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-   font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; padding: 6px; text-align: center; color: #fff;
- }
+ .visual-opt { aspect-ratio: 4/3; background: rgba(255,255,255,0.05); border: 2px solid rgba(183, 233, 199, 0.2); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; cursor: pointer; padding: 6px; text-align: center; color: #fff; }
  .visual-opt:hover { border-color: var(--pf-green); background: rgba(76,217,100,0.15); }
 
  .answers { display: grid; gap: 8px; }
- .ans-btn {
-   background: rgba(255,255,255,0.06); border: 1px solid rgba(183, 233, 199, 0.2);
-   padding: 11px 14px; border-radius: 12px; color: #fff; text-align: left;
-   font: 600 12.5px var(--ui-font); cursor: pointer; transition: all 0.18s ease;
- }
+ .ans-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(183, 233, 199, 0.2); padding: 11px 14px; border-radius: 12px; color: #fff; text-align: left; font: 600 12.5px var(--ui-font); cursor: pointer; }
  .ans-btn:hover { background: rgba(76,217,100,0.18); border-color: var(--pf-green); }
  .ans-btn.correct { background: var(--pf-green) !important; color: #000 !important; font-weight: 800; }
  .ans-btn.wrong { background: #e11d48 !important; color: #fff !important; }
 
  .result-view { text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 16px; }
  .res-score { font-size: 46px; font-weight: 900; color: var(--pf-yellow); margin: 6px 0; }
- .res-status { font-size: 17px; font-weight: 800; color: var(--pf-green); text-transform: uppercase; letter-spacing: 0.5px; }
+ .res-status { font-size: 17px; font-weight: 800; color: var(--pf-green); text-transform: uppercase; }
 
  .home-ind { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: #f5f5f5; z-index: 20; }
 </style>
@@ -308,122 +265,43 @@
 
 <main class="deck" id="deck">
 
-  <!-- SLIDE 1: Co-Branding Title & Partnership Overview -->
+  <!-- SLIDE 1: Indahash x PlayformIQ Partnership Graphic Page -->
   <section class="slide active">
-    <div class="card-slide">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      
+    <div class="graphic-slide-card">
       <div class="brand-header">
         <div class="co-branding">
-          <!-- indaHash SVG Logo -->
-          <svg width="110" height="26" viewBox="0 0 140 32" fill="none">
-            <text x="0" y="24" fill="#a855f7" font-family="var(--ui-font)" font-size="22" font-weight="900" letter-spacing="-0.5">indaHash</text>
-          </svg>
+          <img src="indahash-logo.svg" height="26" alt="indaHash">
           <span class="x">✕</span>
-          <!-- PlayformIQ SVG Logo -->
-          <svg width="160" height="36" viewBox="0 0 220 48" fill="none">
-            <!-- Speech bubble with play icon -->
-            <path d="M12 8C6.5 8 2 12.5 2 18C2 21.5 3.8 24.6 6.5 26.4L5 33L11.5 30.5C12.3 30.8 13.1 31 14 31C19.5 31 24 26.5 24 21C24 15.5 19.5 11 14 11" fill="url(#pf_bubble_grad)"/>
-            <!-- Orbs around logo -->
-            <circle cx="2" cy="10" r="3" fill="#FFD600"/>
-            <circle cx="26" cy="12" r="4" fill="#4CD964"/>
-            <circle cx="22" cy="30" r="3.5" fill="#FF8A00"/>
-            <polygon points="11,15 11,23 18,19" fill="#FFFFFF"/>
-            <!-- Text PlayformIQ -->
-            <text x="34" y="26" fill="#FFFFFF" font-family="var(--ui-font)" font-size="22" font-weight="800">Playform</text>
-            <text x="138" y="26" fill="#4CD964" font-family="var(--ui-font)" font-size="22" font-weight="900">IQ</text>
-            <defs>
-              <linearGradient id="pf_bubble_grad" x1="0" y1="0" x2="24" y2="33">
-                <stop offset="0%" stop-color="#FFD600"/>
-                <stop offset="100%" stop-color="#FF8A00"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="playformiq-logo.svg" height="30" alt="PlayformIQ">
         </div>
-        <span class="tag">Case Study 01</span>
+        <span class="tag">Partnership Architecture</span>
       </div>
-
-      <h1 class="slide-title">THE NEW CAR CHALLENGE</h1>
-      <p class="subtitle">Together, we turn creator reach into real participation. indaHash brings the creators. PlayformIQ brings the interaction[cite: 8].</p>
-
-      <div class="grid-3" style="margin-top:28px;">
-        <div class="box accent-green">
-          <h3>📣 indaHash</h3>
-          <p>Creator Discovery & Distribution Engine. Connects brands with the right creators at scale[cite: 8].</p>
-        </div>
-        <div class="box accent-yellow">
-          <h3>🎮 PlayformIQ</h3>
-          <p>Interactive Participation Engine. Turns passive viewers into active participants through gamification[cite: 8].</p>
-        </div>
-        <div class="box accent-orange">
-          <h3>🚙 BMW X7</h3>
-          <p>Brand & Product Showcase. Drives deep awareness and tech feature engagement[cite: 6, 7].</p>
-        </div>
-      </div>
-
-      <div style="margin-top:24px; background: rgba(76,217,100,0.08); padding:16px 20px; border-radius:14px; border:1px solid rgba(76,217,100,0.25);">
-        <p style="margin:0; font-size:14px; color:#fff;"><strong>Strategic Hook:</strong> The audience is not asked to watch another car advert[cite: 7]. They are asked to <strong>prove their knowledge</strong> by beating @mediamk's benchmark score of 1,850[cite: 7].</p>
-      </div>
+      <img class="full-graphic" src="Indahash Platform IQ Partnership.png" alt="indaHash x PlayformIQ Partnership - Creator Distribution + Audience Participation">
     </div>
   </section>
 
-  <!-- SLIDE 2: PlayformIQ Four Core Engagement Pillars -->
+  <!-- SLIDE 2: PlayformIQ Brand Overview Graphic Page -->
+  <section class="slide">
+    <div class="graphic-slide-card">
+      <div class="brand-header">
+        <div class="co-branding">
+          <img src="playformiq-logo.svg" height="32" alt="PlayformIQ">
+        </div>
+        <span class="tag">Platform Brand Page</span>
+      </div>
+      <img class="full-graphic" src="PlatformIQ Brand Page.png" alt="PlayformIQ - Turn Audiences Into Participants">
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Campaign Brief - BMW X7 -->
   <section class="slide">
     <div class="card-slide">
       <div class="brand-header">
         <div class="co-branding">
-          <svg width="150" height="32" viewBox="0 0 220 48" fill="none">
-            <path d="M12 8C6.5 8 2 12.5 2 18C2 21.5 3.8 24.6 6.5 26.4L5 33L11.5 30.5C12.3 30.8 13.1 31 14 31C19.5 31 24 26.5 24 21C24 15.5 19.5 11 14 11" fill="url(#pf_bubble_grad2)"/>
-            <circle cx="2" cy="10" r="3" fill="#FFD600"/><circle cx="26" cy="12" r="4" fill="#4CD964"/>
-            <polygon points="11,15 11,23 18,19" fill="#FFFFFF"/>
-            <text x="34" y="26" fill="#FFFFFF" font-family="var(--ui-font)" font-size="22" font-weight="800">Playform</text>
-            <text x="138" y="26" fill="#4CD964" font-family="var(--ui-font)" font-size="22" font-weight="900">IQ</text>
-            <defs><linearGradient id="pf_bubble_grad2" x1="0" y1="0" x2="24" y2="33"><stop offset="0%" stop-color="#FFD600"/><stop offset="100%" stop-color="#FF8A00"/></linearGradient></defs>
-          </svg>
+          <img src="indahash-logo.svg" height="24" alt="indaHash">
+          <span class="x">✕</span>
+          <img src="bmw-logo.svg" height="24" alt="BMW">
         </div>
-        <span class="tag">Platform Capabilities</span>
-      </div>
-
-      <h1 class="slide-title">Turn Audiences Into Participants</h1>
-      <p class="subtitle">PlayformIQ powers four distinct interactive formats designed to spark action and fuel brand loyalty[cite: 9, 10].</p>
-
-      <div class="grid-4" style="margin-top:20px;">
-        <div class="box accent-yellow" style="text-align:center;">
-          <div style="font-size:32px; margin-bottom:8px;">🏆</div>
-          <h3 style="justify-content:center; color:var(--pf-yellow);">CHALLENGES</h3>
-          <p>Spark action with creator vs audience score competition[cite: 7, 9].</p>
-        </div>
-        <div class="box accent-green" style="text-align:center;">
-          <div style="font-size:32px; margin-bottom:8px;">❓</div>
-          <h3 style="justify-content:center; color:var(--pf-green);">QUIZZES</h3>
-          <p>Drive product knowledge and feature recall through trivia[cite: 7, 9].</p>
-        </div>
-        <div class="box accent-orange" style="text-align:center;">
-          <div style="font-size:32px; margin-bottom:8px;">📊</div>
-          <h3 style="justify-content:center; color:var(--pf-orange);">PREDICTIONS</h3>
-          <p>Create buzz around live launches and sports events[cite: 8, 9].</p>
-        </div>
-        <div class="box accent-green" style="text-align:center;">
-          <div style="font-size:32px; margin-bottom:8px;">🎁</div>
-          <h3 style="justify-content:center; color:var(--pf-mint);">REWARDS</h3>
-          <p>Fuel brand loyalty with driving experiences & vouchers[cite: 7, 9].</p>
-        </div>
-      </div>
-
-      <div class="box" style="margin-top:20px; background:rgba(0,105,92,0.25); border-color:var(--pf-teal);">
-        <p style="text-align:center; color:#fff; font-size:14px; margin:0;">
-          <strong>The Participation Advantage:</strong> Modern audiences ignore static ads[cite: 7]. PlayformIQ turns content viewing into an active game[cite: 8, 9].
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 3: Campaign Brief - X7 The New Car Challenge -->
-  <section class="slide">
-    <div class="card-slide">
-      <div class="brand-header">
-        <div class="co-branding"><span style="color:#a855f7; font-weight:800;">indaHash</span> <span class="x">✕</span> <span style="color:#0066b1; font-weight:800;">BMW X7</span></div>
         <span class="tag">02 — Campaign Brief</span>
       </div>
 
@@ -449,7 +327,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 4: Simulated Mobile Reel Post -->
+  <!-- SLIDE 4: Scaled Mobile Reel Feed -->
   <section class="slide">
     <div class="fit">
       <div class="phone">
@@ -471,6 +349,7 @@
             </div>
           </div>
 
+          <!-- Carousel Container with Scaled Banner Image -->
           <div class="carousel">
             <img class="media" src="Campaign X7 Image .jpg" alt="BMW X7 Challenge Reel Brief with @mediamk">
             <span class="count-pill">Reel</span>
@@ -493,7 +372,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 5: Interactive Commenting Sheet -->
+  <!-- SLIDE 5: Interactive Comment Trigger -->
   <section class="slide">
     <div class="fit">
       <div class="phone">
@@ -544,7 +423,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 6: Automated DM Launch Card -->
+  <!-- SLIDE 6: Automated DM Trigger -->
   <section class="slide">
     <div class="fit">
       <div class="phone">
@@ -599,7 +478,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 7: Live PlayformIQ 20-Question Trivia Engine -->
+  <!-- SLIDE 7: Live PlayformIQ 20-Question Game Engine -->
   <section class="slide">
     <div class="fit">
       <div class="phone">
@@ -634,20 +513,18 @@
     </div>
   </section>
 
-  <!-- SLIDE 8: Viral Share Card & Secondary Loop -->
+  <!-- SLIDE 8: Dynamic Share Card Loop & Executive Summary -->
   <section class="slide">
     <div class="card-slide">
       <div class="brand-header">
         <div class="co-branding">
-          <svg width="150" height="32" viewBox="0 0 220 48" fill="none">
-            <path d="M12 8C6.5 8 2 12.5 2 18C2 21.5 3.8 24.6 6.5 26.4L5 33L11.5 30.5C12.3 30.8 13.1 31 14 31C19.5 31 24 26.5 24 21C24 15.5 19.5 11 14 11" fill="url(#pf_bubble_grad3)"/>
-            <polygon points="11,15 11,23 18,19" fill="#FFFFFF"/>
-            <text x="34" y="26" fill="#FFFFFF" font-family="var(--ui-font)" font-size="22" font-weight="800">Playform</text>
-            <text x="138" y="26" fill="#4CD964" font-family="var(--ui-font)" font-size="22" font-weight="900">IQ</text>
-            <defs><linearGradient id="pf_bubble_grad3" x1="0" y1="0" x2="24" y2="33"><stop offset="0%" stop-color="#FFD600"/><stop offset="100%" stop-color="#FF8A00"/></linearGradient></defs>
-          </svg>
+          <img src="indahash-logo.svg" height="24" alt="indaHash">
+          <span class="x">✕</span>
+          <img src="playformiq-logo.svg" height="26" alt="PlayformIQ">
+          <span class="x">✕</span>
+          <img src="bmw-logo.svg" height="22" alt="BMW">
         </div>
-        <span class="tag">09 — Social Card</span>
+        <span class="tag">09 — Social Card & ROI</span>
       </div>
 
       <h1 class="slide-title">The Secondary Distribution Layer</h1>
@@ -678,44 +555,6 @@
     </div>
   </section>
 
-  <!-- SLIDE 9: Partnership ROI & Value Summary -->
-  <section class="slide">
-    <div class="card-slide">
-      <div class="brand-header">
-        <div class="co-branding">
-          <span style="color:#a855f7; font-weight:800; font-size:18px;">indaHash</span>
-          <span class="x">✕</span>
-          <span style="color:#4CD964; font-weight:800; font-size:18px;">PlayformIQ</span>
-        </div>
-        <span class="tag">Executive Summary</span>
-      </div>
-
-      <h1 class="slide-title">More Creators. Bigger Audiences. Greater Impact.</h1>
-      <p class="subtitle">Combining creator reach with interactive engagement to deliver measurable business results[cite: 8].</p>
-
-      <div class="grid-3">
-        <div class="box accent-green">
-          <h3 style="color:#a855f7;">Creator Reach</h3>
-          <p>indaHash connects modern brands with high-affinity creators at scale[cite: 8].</p>
-        </div>
-        <div class="box accent-yellow">
-          <h3 style="color:var(--pf-yellow);">Engagement Engine</h3>
-          <p>PlayformIQ converts passive audiences into active game participants[cite: 8].</p>
-        </div>
-        <div class="box accent-orange">
-          <h3 style="color:var(--pf-green);">Measurable Results</h3>
-          <p>Delivers full data visibility: views → game entries → completion → shares[cite: 7, 8].</p>
-        </div>
-      </div>
-
-      <div class="box" style="margin-top:20px; background:linear-gradient(135deg, rgba(76,217,100,0.15), rgba(0,105,92,0.3)); border-color:var(--pf-green);">
-        <p style="text-align:center; color:#fff; font-size:15px; margin:0; font-weight:700;">
-          Together, we turn creator reach into real participation[cite: 8].
-        </p>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <!-- Fullscreen Control -->
@@ -730,14 +569,13 @@
   <button type="button" id="prev" aria-label="Previous">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 5l-7 7 7 7"/></svg>
   </button>
-  <span id="count">1 / 9</span>
+  <span id="count">1 / 8</span>
   <button type="button" id="next" aria-label="Next">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
   </button>
 </nav>
 
 <script>
-  // Viewport Scaling Helper for Phone Mockup Frame
   function fit() {
     if (document.activeElement?.id === 'comment-input') return;
     const s = Math.min(1, (innerHeight - 40) / 868, (innerWidth - 32) / 414);
@@ -746,7 +584,6 @@
   addEventListener('resize', fit);
   fit();
 
-  // Slide Deck Controller
   const deck = document.getElementById('deck');
   const slides = [...deck.querySelectorAll('.slide')];
   const prev = document.getElementById('prev');
@@ -781,7 +618,6 @@
     else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
   });
 
-  // Comments -> Automated DM Navigation
   deck.querySelectorAll('.open-comments').forEach(el => el.addEventListener('click', () => go(4)));
 
   const commentInput = document.getElementById('comment-input');
@@ -812,7 +648,6 @@
 
   document.getElementById('start-game-card').addEventListener('click', () => go(6));
 
-  // Fullscreen Handler
   const fsToggle = document.getElementById('fs-toggle');
   const fsElement = () => document.fullscreenElement || document.webkitFullscreenElement;
   fsToggle.addEventListener('click', () => {
