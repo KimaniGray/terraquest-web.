@@ -36,6 +36,52 @@
     </script>
     
     <style>
+        /* Base Screen & Mobile Styles */
+        body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
+        
+        .bg-orbital {
+            background-image: radial-gradient(circle at 50% -20%, transparent 40%, rgba(198, 160, 74, 0.04) 41%, transparent 42%),
+                              radial-gradient(circle at -10% 50%, transparent 30%, rgba(198, 160, 74, 0.02) 31%, transparent 32%);
+            background-size: 100% 100%;
+        }
+        
+        /* Prominent Responsive Figure & Image Scaling */
+        figure { width: 100%; margin: 1.5rem auto; text-align: center; }
+        figure img { 
+            width: 100%; 
+            max-width: 100%; 
+            height: auto; 
+            max-height: 480px; 
+            object-fit: contain; 
+            border-radius: 6px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 640px) {
+            figure { margin: 1.25rem auto; }
+            figure img {
+                max-height: 320px;
+                border-radius: 4px;
+            }
+            caption {
+                font-size: 1.2rem !important;
+            }
+            table {
+                font-size: 0.825rem !important;
+            }
+            td, th {
+                padding: 0.75rem 0.5rem !important;
+            }
+        }
+        
+        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; min-width: 600px; table-layout: fixed; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+        th { border-bottom: 1px solid #C6A04A; padding: 0.875rem 0.625rem; text-align: left; font-family: "Manrope", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: #9B7628; }
+        td { border-bottom: 1px solid rgba(184, 177, 163, 0.3); padding: 0.875rem 0.625rem; vertical-align: top; color: #242424; line-height: 1.5; }
+        tr:last-child td { border-bottom: none; }
+        caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.35rem; color: #080808; margin-bottom: 0.875rem; font-weight: 500; }
+
         @media print {
             /* 1. Global A4 Page Setup */
             @page { 
@@ -72,23 +118,23 @@
                 max-height: 297mm !important;
                 min-height: 297mm !important;
                 box-sizing: border-box !important;
-                padding: 20mm 20mm 20mm 20mm !important;
+                padding: 16mm 18mm 16mm 18mm !important;
                 page-break-before: always !important;
                 break-before: page !important;
                 page-break-after: always !important;
                 break-after: page !important;
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
-                overflow: hidden !important; /* ELIMINATES PDF PAGE SPILLS */
+                overflow: hidden !important;
                 display: flex !important;
                 flex-direction: column !important;
-                justify-content: center !important; /* BALANCES CONTENT VERTICALLY */
+                justify-content: center !important;
             }
             
             .hero-section { 
                 page-break-before: avoid !important; 
                 break-before: avoid !important;
-                padding: 20mm !important;
+                padding: 18mm !important;
             }
             
             .closing-wrapper {
@@ -102,25 +148,25 @@
             p, td, li { 
                 orphans: 4 !important; 
                 widows: 4 !important; 
-                font-size: 10pt !important; 
-                line-height: 1.5 !important; 
+                font-size: 9.5pt !important; 
+                line-height: 1.45 !important; 
             }
             
-            h1 { font-size: 38pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 20pt !important; line-height: 1.25 !important; margin-bottom: 4px !important; }
-            h3 { font-size: 14pt !important; line-height: 1.3 !important; }
-            h4 { font-size: 11pt !important; line-height: 1.3 !important; }
+            h1 { font-size: 34pt !important; line-height: 1.1 !important; }
+            h2 { font-size: 19pt !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
+            h3 { font-size: 13pt !important; line-height: 1.25 !important; }
+            h4 { font-size: 10.5pt !important; line-height: 1.25 !important; }
             
             article header { 
-                margin-bottom: 16px !important; 
-                padding-bottom: 8px !important; 
+                margin-bottom: 10px !important; 
+                padding-bottom: 4px !important; 
                 page-break-after: avoid !important; 
                 break-after: avoid !important;
             }
             
-            .space-y-7 > * + * { margin-top: 16px !important; }
-            .space-y-6 > * + * { margin-top: 14px !important; }
-            .space-y-5 > * + * { margin-top: 12px !important; }
+            .space-y-7 > * + * { margin-top: 10px !important; }
+            .space-y-6 > * + * { margin-top: 8px !important; }
+            .space-y-5 > * + * { margin-top: 6px !important; }
             
             .avoid-break {
                 page-break-inside: avoid !important;
@@ -129,22 +175,22 @@
             }
             
             /* 5. Tables */
-            li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
+            li { page-break-inside: avoid !important; margin-bottom: 3px !important; }
             .table-wrapper { 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important; 
                 overflow: visible !important;
-                margin-top: 12px !important;
-                margin-bottom: 12px !important;
+                margin-top: 6px !important;
+                margin-bottom: 6px !important;
             }
-            table { margin: 6px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
+            table { margin: 4px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
-            caption { font-size: 12pt !important; margin-bottom: 6px !important; padding-bottom: 2px !important; }
-            th, td { padding: 6px 8px !important; font-size: 8.5pt !important; line-height: 1.4 !important; word-wrap: break-word !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
+            caption { font-size: 11pt !important; margin-bottom: 4px !important; padding-bottom: 2px !important; }
+            th, td { padding: 5px 6px !important; font-size: 8pt !important; line-height: 1.35 !important; word-wrap: break-word !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
             
-            /* 6. Image Constraints for Balanced Page Framing */
+            /* 6. EXPANDED IMAGE SCALING (Print A4 PDF Calibration) */
             figure {
-                margin: 10px auto !important; 
+                margin: 8px auto !important; 
                 padding-top: 0 !important; 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important; 
@@ -156,34 +202,25 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                max-height: 80mm !important; /* Fits perfectly alongside text without spilling */
+                max-height: 92mm !important; /* Significantly enlarged image footprint */
                 object-fit: contain !important;
                 margin: 0 auto !important;
+                box-shadow: none !important;
+            }
+
+            /* Diagram specific boost on Page 6 */
+            .diagram-img {
+                max-height: 98mm !important;
             }
             
             .print-grid-compress {
                 display: grid !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                gap: 10px !important;
+                gap: 8px !important;
             }
             
             .no-print { display: none !important; }
         }
-        
-        body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
-        
-        .bg-orbital {
-            background-image: radial-gradient(circle at 50% -20%, transparent 40%, rgba(198, 160, 74, 0.04) 41%, transparent 42%),
-                              radial-gradient(circle at -10% 50%, transparent 30%, rgba(198, 160, 74, 0.02) 31%, transparent 32%);
-            background-size: 100% 100%;
-        }
-        
-        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; min-width: 650px; table-layout: fixed; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; }
-        th { border-bottom: 1px solid #C6A04A; padding: 1rem 0.75rem; text-align: left; font-family: "Manrope", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: #9B7628; }
-        td { border-bottom: 1px solid rgba(184, 177, 163, 0.3); padding: 1rem 0.75rem; vertical-align: top; color: #242424; line-height: 1.6; }
-        tr:last-child td { border-bottom: none; }
-        caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.35rem; color: #080808; margin-bottom: 1rem; font-weight: 500; }
     </style>
 </head>
 <body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
@@ -215,7 +252,7 @@
 
         <div class="hero-content flex-grow flex flex-col justify-center max-w-5xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-6 md:pt-0">
             <div class="text-center">
-                <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-4">Master Joint Venture Term Sheet Addendum 01</h4>
+                <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-4">Addendum 01</h4>
                 <h1 class="text-5xl sm:text-6xl md:text-[5rem] font-serif font-normal leading-[1.1] mb-6 tracking-tight print:text-white">Project Ndegwa</h1>
                 <p class="text-tq-stone font-sans text-base md:text-lg max-w-2xl mx-auto font-light tracking-wide mb-8">
                     Strategic Regional Expansion Option<br>
@@ -278,7 +315,7 @@
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Executive Summary & Asset Parameters</h2>
             </header>
-            
+
             <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
                 <div class="avoid-break mb-4">
                     <p>Addendum 01 introduces a strategic regional expansion option for Project Ndegwa: the acquisition and operational integration of <strong>Mountain Side Farms</strong>, a rare 9,500-acre titled estate situated in West Kilimanjaro, Tanzania. Located within close proximity to Project Ndegwa's primary rangelands in Narok, Kenya, Mountain Side Farms provides immediate access to the vast Tanzanian national cattle herd (34M+ head), large-scale irrigated fodder multiplication, and high-margin eco-tourism hospitality.</p>
@@ -345,19 +382,19 @@
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Regional Geography & Supply Synergies</h2>
             </header>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3.5">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
                 <div class="avoid-break">
                     <p>Mountain Side Farms occupies a pivotal position in West Kilimanjaro, directly across the southern border from Project Ndegwa's primary rangelands in Narok. This geography enables a cross-border agricultural corridor connecting livestock aggregation in Tanzania to processing and export infrastructure in Kenya and the UAE.</p>
                 </div>
 
-                <div class="my-4">
+                <div class="my-3">
                     <figure class="my-2">
                         <img src="./Mount Kilimanjaro High Resolution.jpg" alt="West Kilimanjaro Landscape - Mount Kilimanjaro" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80'">
                     </figure>
                 </div>
 
                 <div class="avoid-break">
-                    <ul class="list-none space-y-4 print:space-y-2.5 pl-0 my-3">
+                    <ul class="list-none space-y-3 print:space-y-2 pl-0 my-2">
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
                             <strong class="font-semibold text-tq-black">1. Tanzania Beef Corridor Access:</strong> Tanzania holds Africa's second-largest livestock herd (34M+ cattle). Mountain Side Farms serves as Project Ndegwa's primary backgrounding and quarantine hub, aggregating young bulls from pastoralist networks across Northern Tanzania.
@@ -382,40 +419,40 @@
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Four Commercial Enterprise Pillars</h2>
             </header>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-2.5">
                 <p>Mountain Side Farms diversifies Project Ndegwa's operating base across four high-margin commercial pillars:</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 print:grid-cols-2 print:gap-3.5 my-3">
-                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">1. Livestock Aggregation</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print:grid-cols-2 print:gap-3 my-2">
+                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">1. Livestock Aggregation</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Establishes a 10,000-head backgrounding operation. Aggregates native Tanzanian zebu breeds, applying Boran embryo genetic upgrades from Project Ndegwa's IVF cleanroom laboratory to improve carcase yields.
                         </p>
                     </div>
 
-                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">2. Irrigated Fodder Buffer</strong>
+                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">2. Irrigated Fodder Buffer</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Deploys center-pivot irrigation across 2,500 acres for Rhodes grass, lucerne, and silage production. Provides dedicated feed security to insulate Project Ndegwa's Narok and Kitengela finishing yards from drought.
                         </p>
                     </div>
 
-                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">3. Luxury Eco-Tourism Retreat</strong>
+                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">3. Luxury Eco-Tourism Retreat</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Develops a 16-to-24 key luxury safari camp on the 900-acre pristine wilderness section (~7 km from Mount Kilimanjaro's Londorossi Gate), capturing premium mountaineering and conservation tourism revenue.
                         </p>
                     </div>
 
-                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">4. Commercial Crop Exports</strong>
+                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">4. Commercial Crop Exports</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Optimizes existing Hass avocado orchards and commercial wheat rotations, leveraging Project Ndegwa's UAE trading subsidiary (UAE OpCo) to distribute premium produce directly to GCC retail channels.
                         </p>
                     </div>
                 </div>
 
-                <div class="my-3">
+                <div class="my-2">
                     <figure class="my-2">
                         <img src="./Luxury Eco Lodge Camp.png" alt="Luxury Wilderness Camp Concept" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80'">
                     </figure>
@@ -430,36 +467,36 @@
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Project Ndegwa Structuring Strategies</h2>
             </header>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-2.5">
                 <p>To acquire and operationalize Mountain Side Farms within Project Ndegwa, the corporate structure integrates a dedicated <strong>Tanzania OpCo</strong> under the ADGM Holding level (UAE InvestCo):</p>
 
-                <div class="my-3">
+                <div class="my-2">
                     <figure class="my-2">
-                        <img src="./Proposed Corporate Governance Structure with TZ. Fig.1.png" alt="Proposed Corporate Structure with Tanzania OpCo" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
+                        <img src="./Proposed Corporate Governance Structure with TZ. Fig.1.png" alt="Proposed Corporate Structure with Tanzania OpCo" class="diagram-img w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
                 </div>
 
-                <p class="mt-2">Two distinct transaction structures are presented for review by the Investment Committee and Board of Directors:</p>
+                <p class="mt-1">Two distinct transaction structures are presented for review by the Investment Committee and Board of Directors:</p>
 
-                <div class="space-y-5 print:space-y-3 my-3">
-                    <div class="bg-white p-5 print:p-3 border-l-4 border-tq-gold border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1.5">Strategy 01: Joint Equity Acquisition (SPV Buyout)</h3>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-2">
+                <div class="space-y-4 print:space-y-2 my-2">
+                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-gold border border-tq-stone/20 rounded-sm shadow-sm">
+                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 01: Joint Equity Acquisition (SPV Buyout)</h3>
+                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-1.5">
                             UAE InvestCo incorporates a wholly owned subsidiary (Tanzania SPV) to acquire 100% of the titles and assets of Mountain Side Farms for USD 28,000,000.
                         </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-1">
+                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
                             <li><strong>Funding Mechanism:</strong> Funded via Investor asset-backed capital commitment appended to Account 2.</li>
                             <li><strong>Capital Amortization:</strong> Acquisition capital is amortized under Tier 2 of Project Ndegwa's Revenue Waterfall.</li>
                             <li><strong>Governance:</strong> Fully consolidated under Project Ndegwa's non-dilutive 50/50 ordinary equity parity.</li>
                         </ul>
                     </div>
 
-                    <div class="bg-white p-5 print:p-3 border-l-4 border-tq-black border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1.5">Strategy 02: Investee Acquisition & Joint Operationalisation</h3>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-2">
+                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-black border border-tq-stone/20 rounded-sm shadow-sm">
+                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 02: Investee Acquisition & Joint Operationalisation</h3>
+                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-1.5">
                             The Investee acquires the land title unencumbered on its balance sheet (held as an Excluded Asset), ring-fencing land ownership while executing long-term commercial operational leases with Project Ndegwa.
                         </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-1">
+                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
                             <li><strong>25-Year Commercial Lease:</strong> Investee grants a 25-year operational lease over grazing and fodder acreage to Kenya OpCo / Tanzania OpCo at Cost-Plus rates.</li>
                             <li><strong>Hospitality Joint Venture:</strong> A dedicated 50/50 operating vehicle (Hospitality OpCo) is established to build and operate the 900-acre luxury eco-lodge.</li>
                             <li><strong>Asset Protection:</strong> Land ownership remains unencumbered, shielding core real estate from enterprise liabilities.</li>
