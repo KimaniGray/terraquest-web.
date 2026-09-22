@@ -1,673 +1,791 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Ndegwa: Addendum 01 | TerraQuest Investments</title>
-    
-    <link rel="icon" type="image/png" href="./Terraquest%20Favicon%20Black.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tq: {
-                            black: '#080808',
-                            gold: '#C6A04A',
-                            antique: '#9B7628',
-                            ivory: '#F4F0E7',
-                            charcoal: '#242424',
-                            stone: '#B8B1A3'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        /* Base Screen & Mobile Styles */
-        body { color: #242424; background-color: #F4F0E7; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
-        
-        .bg-orbital {
-            background-image: radial-gradient(circle at 50% -20%, transparent 40%, rgba(198, 160, 74, 0.04) 41%, transparent 42%),
-                              radial-gradient(circle at -10% 50%, transparent 30%, rgba(198, 160, 74, 0.02) 31%, transparent 32%);
-            background-size: 100% 100%;
-        }
-        
-        /* Prominent Responsive Figure & Image Scaling */
-        figure { width: 100%; margin: 1.5rem auto; text-align: center; }
-        figure img { 
-            width: 100%; 
-            max-width: 100%; 
-            height: auto; 
-            max-height: 480px; 
-            object-fit: contain; 
-            border-radius: 6px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Involve Me Post - Mercedes-Benz Event</title>
+<style>
+ :root {
+ --page: #0e0f12;
+ --page-glow: #1d1a2b;
+ --bezel: #1b1b1d;
+ --bezel-edge: #3a3a3e;
+ --screen: #000000;
+ --sheet: #1f1f21;
+ --text: #f5f5f5;
+ --muted: #a8a8a8;
+ --faint: #737373;
+ --line: #2e2e30;
+ --field: #2a2a2d;
+ --like: #ff3040;
+ --ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+ }
+ * { box-sizing: border-box; }
+ html, body { height: 100%; }
+ body {
+ margin: 0;
+ background: radial-gradient(900px 600px at 50% 40%, var(--page-glow), var(--page) 70%) var(--page);
+ color: var(--text);
+ font: 14px/1.35 var(--ui);
+ -webkit-font-smoothing: antialiased;
+ overflow: hidden;
+ }
+ /* ---------- deck ---------- */
+ .deck { position: relative; height: 100%; touch-action: pan-y; }
+ .slide {
+ position: absolute; inset: 0;
+ display: grid; place-items: center;
+ padding-inline: 16px;
+ opacity: 0; visibility: hidden;
+ transition: opacity .35s ease, visibility 0s linear .35s;
+ }
+ .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+ .slide.closed .dim, .slide.closed .sheet { display: none; }
 
-        @media (max-width: 640px) {
-            figure { margin: 1.25rem auto; }
-            figure img {
-                max-height: 320px;
-                border-radius: 4px;
-            }
-            caption {
-                font-size: 1.2rem !important;
-            }
-            table {
-                font-size: 0.825rem !important;
-            }
-            td, th {
-                padding: 0.75rem 0.5rem !important;
-            }
-        }
-        
-        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; min-width: 600px; table-layout: fixed; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
-        th { border-bottom: 1px solid #C6A04A; padding: 0.875rem 0.625rem; text-align: left; font-family: "Manrope", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: #9B7628; }
-        td { border-bottom: 1px solid rgba(184, 177, 163, 0.3); padding: 0.875rem 0.625rem; vertical-align: top; color: #242424; line-height: 1.5; }
-        tr:last-child td { border-bottom: none; }
-        caption { text-align: left; font-family: "Playfair Display", serif; font-size: 1.35rem; color: #080808; margin-bottom: 0.875rem; font-weight: 500; }
+ .text-slide h1 {
+ margin: 0; max-width: 20ch;
+ font-size: clamp(32px, 6vw, 72px); font-weight: 700; font-style: italic; line-height: 1.1;
+ letter-spacing: -.02em; text-align: center; text-wrap: balance;
+ color: #fff;
+ }
 
-        @media print {
-            /* 1. Global A4 Page Setup */
-            @page { 
-                size: 210mm 297mm; 
-                margin: 0mm !important; 
-            }
-            
-            @page cover { margin: 0 !important; }
-            
-            /* 2. Reset Body and Canvas Wrappers */
-            html, body { 
-                margin: 0 !important;
-                padding: 0 !important; 
-                width: 210mm !important;
-                height: 297mm !important;
-                background-color: #F4F0E7 !important; 
-                -webkit-print-color-adjust: exact !important; 
-                print-color-adjust: exact !important; 
-            }
-            
-            main {
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 210mm !important;
-                box-sizing: border-box !important;
-            }
-            
-            /* 3. STRICT A4 PAGE BOXES WITH OPTICAL VERTICAL CENTERING */
-            .hero-section,
-            .print-canvas-section,
-            .closing-wrapper {
-                width: 210mm !important;
-                height: 297mm !important;
-                max-height: 297mm !important;
-                min-height: 297mm !important;
-                box-sizing: border-box !important;
-                padding: 16mm 18mm 16mm 18mm !important;
-                page-break-before: always !important;
-                break-before: page !important;
-                page-break-after: always !important;
-                break-after: page !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                overflow: hidden !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-            }
-            
-            .hero-section { 
-                page-break-before: avoid !important; 
-                break-before: avoid !important;
-                padding: 18mm !important;
-            }
-            
-            .closing-wrapper {
-                padding: 0 !important;
-            }
-            .closing-wrapper footer {
-                display: none !important;
-            }
-            
-            /* 4. Typography & Spacing */
-            p, td, li { 
-                orphans: 4 !important; 
-                widows: 4 !important; 
-                font-size: 9.5pt !important; 
-                line-height: 1.45 !important; 
-            }
-            
-            h1 { font-size: 34pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 19pt !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
-            h3 { font-size: 13pt !important; line-height: 1.25 !important; }
-            h4 { font-size: 10.5pt !important; line-height: 1.25 !important; }
-            
-            article header { 
-                margin-bottom: 10px !important; 
-                padding-bottom: 4px !important; 
-                page-break-after: avoid !important; 
-                break-after: avoid !important;
-            }
-            
-            .space-y-7 > * + * { margin-top: 10px !important; }
-            .space-y-6 > * + * { margin-top: 8px !important; }
-            .space-y-5 > * + * { margin-top: 6px !important; }
-            
-            .avoid-break {
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                display: block !important;
-            }
-            
-            /* 5. Tables */
-            li { page-break-inside: avoid !important; margin-bottom: 3px !important; }
-            .table-wrapper { 
-                page-break-inside: avoid !important; 
-                break-inside: avoid !important; 
-                overflow: visible !important;
-                margin-top: 6px !important;
-                margin-bottom: 6px !important;
-            }
-            table { margin: 4px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
-            tr { page-break-inside: avoid !important; break-inside: avoid !important; }
-            caption { font-size: 11pt !important; margin-bottom: 4px !important; padding-bottom: 2px !important; }
-            th, td { padding: 5px 6px !important; font-size: 8pt !important; line-height: 1.35 !important; word-wrap: break-word !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
-            
-            /* 6. EXPANDED IMAGE SCALING (Print A4 PDF Calibration) */
-            figure {
-                margin: 8px auto !important; 
-                padding-top: 0 !important; 
-                page-break-inside: avoid !important; 
-                break-inside: avoid !important; 
-                display: block !important;
-                text-align: center !important;
-                width: 100% !important;
-            }
-            figure img {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: auto !important;
-                max-height: 92mm !important; /* Significantly enlarged image footprint */
-                object-fit: contain !important;
-                margin: 0 auto !important;
-                box-shadow: none !important;
-            }
+ .pager {
+ position: fixed; right: 20px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+ display: flex; align-items: center; gap: 4px;
+ padding: 4px; border-radius: 999px;
+ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+ color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums;
+ }
+ .pager button {
+ width: 28px; height: 28px; border: 0; border-radius: 50%;
+ background: none; color: var(--text); cursor: pointer;
+ display: grid; place-items: center;
+ }
+ .pager button:hover:not(:disabled) { background: rgba(255,255,255,.1); }
+ .pager button:disabled { opacity: .3; cursor: default; }
+ .pager button:focus-visible { outline: 2px solid #6b6b70; outline-offset: 1px; }
+ .pager span { min-width: 34px; text-align: center; }
+ @media (prefers-reduced-motion: reduce) { .slide, .slide.active { transition: none; } }
 
-            /* Diagram specific boost on Page 6 */
-            .diagram-img {
-                max-height: 98mm !important;
-            }
-            
-            .print-grid-compress {
-                display: grid !important;
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                gap: 8px !important;
-            }
-            
-            .no-print { display: none !important; }
-        }
-    </style>
+ .fs-toggle {
+ position: fixed; z-index: 10;
+ left: 20px; top: calc(16px + env(safe-area-inset-top, 0px));
+ display: flex; align-items: center; gap: 8px;
+ height: 36px; padding: 0 14px 0 11px; border-radius: 999px;
+ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+ color: var(--text); font: 600 13px var(--ui); cursor: pointer;
+ }
+ .fs-toggle:hover { background: rgba(255,255,255,.1); }
+ .fs-toggle:focus-visible { outline: 2px solid #6b6b70; outline-offset: 2px; }
+ .fs-toggle .exit { display: none; }
+ .fs-toggle.on { color: var(--muted); font-weight: 500; }
+ .fs-toggle.on .enter { display: none; }
+ .fs-toggle.on .exit { display: inline; }
+ .fs-toggle kbd {
+ font: 600 11px var(--ui); color: var(--text);
+ padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,.2);
+ }
+ .fit { width: calc(414px * var(--s, 1)); height: calc(868px * var(--s, 1)); }
+
+ /* ---------- device ---------- */
+ .phone {
+ width: 414px; height: 868px;
+ padding: 12px;
+ border-radius: 64px;
+ background: var(--bezel);
+ box-shadow:
+ inset 0 0 0 2px var(--bezel-edge),
+ inset 0 0 0 5px #0a0a0a,
+ 0 40px 80px -20px rgba(0,0,0,.8),
+ 0 0 0 1px rgba(255,255,255,.04);
+ transform: scale(var(--s, 1));
+ transform-origin: top left;
+ position: relative;
+ }
+ .phone::before, .phone::after {
+ content: ""; position: absolute; width: 4px; border-radius: 2px; background: #2a2a2d;
+ }
+ .phone::before { left: -3px; top: 170px; height: 64px; box-shadow: 0 84px 0 #2a2a2d; }
+ .phone::after { right: -3px; top: 220px; height: 96px; }
+
+ .screen {
+ position: relative;
+ width: 100%; height: 100%;
+ border-radius: 52px;
+ overflow: hidden;
+ background: var(--screen);
+ }
+
+ /* ---------- status bar ---------- */
+ .status {
+ height: 54px; padding: 18px 34px 0 42px;
+ display: flex; justify-content: space-between; align-items: flex-start;
+ font-weight: 600; font-size: 16px; letter-spacing: -.2px;
+ }
+ .island {
+ position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+ width: 124px; height: 36px; border-radius: 20px; background: #000;
+ box-shadow: 0 0 0 1px #111;
+ }
+ .status-icons { display: flex; gap: 6px; align-items: center; padding-top: 2px; }
+ .status-icons svg { display: block; }
+
+ /* ---------- top nav ---------- */
+ .nav {
+ height: 44px; padding: 0 12px;
+ display: grid; grid-template-columns: 32px 1fr 32px; align-items: center;
+ }
+ .nav-title { text-align: center; font-weight: 700; font-size: 16px; }
+
+ /* ---------- post ---------- */
+ .post-head { display: flex; align-items: center; gap: 10px; padding: 8px 12px; }
+ .ring {
+ width: 36px; height: 36px; border-radius: 50%; padding: 2px;
+ background: conic-gradient(from 200deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75);
+ }
+ .ring > span {
+ display: grid; place-items: center; width: 100%; height: 100%;
+ border-radius: 50%; border: 2px solid var(--screen);
+ background: #2b2440 url("atmediamk.jpg") center / cover;
+ }
+ .av.pfp, .msg .av.pfp { background: #2b2440 url("atmediamk.jpg") center / cover; }
+ .who { flex: 1; line-height: 1.2; }
+ .who b { font-size: 14px; }
+ .who small { display: block; color: var(--muted); font-size: 12px; }
+ .verified { display: inline-block; vertical-align: -2px; margin-left: 3px; }
+
+ .carousel { position: relative; width: 390px; height: 488px; overflow: hidden; }
+ .track {
+ display: flex; width: 780px; height: 100%;
+ transition: transform .4s cubic-bezier(.25,.8,.25,1);
+ }
+ .carousel[data-index="1"] .track { transform: translateX(-390px); }
+ .media { display: block; flex: none; width: 390px; height: 488px; object-fit: cover; }
+ .count-pill {
+ position: absolute; top: 12px; right: 12px;
+ padding: 3px 9px; border-radius: 12px;
+ background: rgba(18,18,18,.7); color: #f5f5f5;
+ font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums;
+ }
+ .dots {
+ position: absolute; left: 50%; transform: translateX(-50%);
+ display: flex; gap: 4px;
+ }
+ .dots i { width: 6px; height: 6px; border-radius: 50%; background: #5a5a5e; transition: background .2s; }
+ .dots i.on { background: #0095f6; }
+ @media (prefers-reduced-motion: reduce) { .track { transition: none; } }
+
+ .actions { position: relative; display: flex; align-items: center; gap: 16px; padding: 10px 14px 6px; }
+ .actions .spacer { flex: 1; }
+ .icon-btn {
+ display: grid; place-items: center; padding: 0; margin: 0;
+ background: none; border: 0; border-radius: 6px; cursor: pointer;
+ transition: transform .12s ease;
+ }
+ .icon-btn:active { transform: scale(.88); }
+ .icon-btn:focus-visible { outline: 2px solid #6b6b70; outline-offset: 3px; }
+ .post-caption .open-comments { cursor: pointer; }
+ .likes { padding: 0 14px; font-weight: 600; }
+ .post-caption { padding: 6px 14px 0; display: grid; gap: 5px; }
+ .post-caption p { margin: 0; line-height: 1.4; }
+ .post-caption .muted { color: var(--muted); }
+ .post-caption .when { color: var(--muted); font-size: 11px; letter-spacing: .2px; }
+
+ /* ---------- comments sheet ---------- */
+ .dim { position: absolute; inset: 0; background: rgba(0,0,0,.55); }
+ .sheet {
+ position: absolute; left: 0; right: 0; bottom: 0;
+ height: 598px;
+ background: var(--sheet);
+ border-radius: 18px 18px 0 0;
+ display: flex; flex-direction: column;
+ }
+ .slide.active .sheet { animation: rise .45s cubic-bezier(.2,.8,.2,1) both; }
+ @keyframes rise { from { transform: translateY(40px); } to { transform: none; } }
+ @media (prefers-reduced-motion: reduce) { .slide.active .sheet { animation: none; } }
+
+ .grab { width: 40px; height: 4px; border-radius: 2px; background: #5a5a5e; margin: 8px auto 0; }
+ .sheet-title {
+ text-align: center; font-weight: 700; font-size: 15px;
+ padding: 12px 0 12px; border-bottom: 1px solid var(--line);
+ }
+
+ .caption {
+ display: flex; gap: 12px; padding: 14px 16px;
+ border-bottom: 1px solid var(--line);
+ }
+ .caption .ring { width: 34px; height: 34px; flex: none; }
+ .caption p { margin: 0; font-size: 14px; line-height: 1.4; }
+ .caption .meta { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+ .list {
+ flex: 1; overflow-y: auto; padding: 6px 0 8px;
+ scrollbar-width: none;
+ }
+ .list::-webkit-scrollbar { display: none; }
+
+ .c { display: flex; gap: 12px; padding: 10px 16px; }
+ .c.reply { padding-left: 62px; }
+ .av {
+ flex: none; width: 34px; height: 34px; border-radius: 50%;
+ display: grid; place-items: center;
+ font-size: 12px; font-weight: 700; color: #fff;
+ }
+ .reply .av { width: 26px; height: 26px; font-size: 10px; }
+ .c-body { flex: 1; min-width: 0; }
+ .c-top { font-size: 13px; }
+ .c-top b { font-weight: 600; margin-right: 4px; }
+ .c-top .time { color: var(--muted); }
+ .author { color: var(--muted); font-size: 12px; }
+ .c-text { margin: 2px 0 4px; font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; }
+ .c-text .at { color: #e0f1ff; }
+ .c-sub { display: flex; gap: 16px; color: var(--muted); font-size: 12px; font-weight: 600; }
+ .c-like { flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 11px; padding-top: 6px; }
+ .more-replies {
+ display: flex; align-items: center; gap: 12px;
+ padding: 2px 16px 6px 62px; color: var(--muted); font-size: 12px; font-weight: 600;
+ }
+ .more-replies::before { content: ""; width: 24px; height: 1px; background: var(--faint); }
+
+ .emojis {
+ display: flex; justify-space-between;
+ padding: 10px 22px; border-top: 1px solid var(--line);
+ font-size: 24px;
+ }
+ .composer {
+ display: flex; align-items: center; gap: 10px;
+ padding: 6px 14px 34px;
+ }
+ .composer .av { width: 34px; height: 34px; }
+ .field {
+ flex: 1; display: flex; align-items: center;
+ height: 42px; padding: 0 8px 0 16px;
+ border-radius: 22px; border: 1px solid #3a3a3e; background: var(--field);
+ }
+ .field input {
+ flex: 1; min-width: 0; background: none; border: 0; outline: 0;
+ color: var(--text); font: 14px var(--ui);
+ }
+ .field input::placeholder { color: var(--muted); }
+ .field:focus-within { border-color: #6b6b70; }
+ .c.mine { animation: pop .3s ease both; }
+ @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+ /* ---------- DM thread ---------- */
+ .dm { position: absolute; inset: 54px 0 0; display: flex; flex-direction: column; }
+ .dm-head {
+ display: grid; grid-template-columns: 32px 1fr auto; align-items: center; gap: 8px;
+ padding: 6px 14px 10px; border-bottom: 1px solid var(--line);
+ }
+ .dm-head .ring { width: 32px; height: 32px; }
+ .dm-id { display: flex; align-items: center; gap: 10px; line-height: 1.2; }
+ .dm-id b { font-size: 15px; }
+ .dm-id small { display: block; color: var(--muted); font-size: 12px; }
+ .dm-tools { display: flex; gap: 18px; }
+
+ .thread {
+ flex: 1; overflow-y: auto; scrollbar-width: none;
+ display: flex; flex-direction: column; gap: 6px;
+ padding: 18px 14px 12px;
+ }
+ .thread::-webkit-scrollbar { display: none; }
+ .profile {
+ display: grid; justify-items: center; gap: 4px; text-align: center;
+ padding-bottom: 22px;
+ }
+ .profile .ring { width: 88px; height: 88px; padding: 3px; }
+ .profile .ring > span { font-size: 26px; border-width: 3px; }
+ .profile b { font-size: 18px; margin-top: 8px; }
+ .profile small { color: var(--muted); font-size: 13px; }
+ .profile .btn {
+ margin-top: 10px; padding: 7px 14px; border-radius: 8px;
+ background: #363638; font-weight: 600; font-size: 13px;
+ }
+ .stamp { text-align: center; color: var(--muted); font-size: 12px; font-weight: 600; margin: 4px 0 10px; }
+
+ .ctx { color: var(--muted); font-size: 12px; margin-left: 38px; }
+ .quote {
+ align-self: flex-start; margin-left: 38px; max-width: 70%;
+ padding: 8px 14px; border-radius: 18px;
+ border: 1px solid #3a3a3e; color: var(--muted); font-size: 14px;
+ }
+ .msg { display: flex; align-items: flex-end; gap: 8px; }
+ .msg .av { width: 28px; height: 28px; font-size: 10px; background: linear-gradient(135deg, #2b2440, #4a3a73); }
+ .msg .spacer-av { width: 28px; flex: none; }
+ .bubble {
+ max-width: 74%; padding: 9px 14px; border-radius: 22px;
+ background: #262628; font-size: 15px; line-height: 1.35;
+ }
+ .bubble a { color: #e0f1ff; text-decoration: underline; text-underline-offset: 2px; }
+ .preview {
+ width: 236px; border-radius: 18px; overflow: hidden; background: #262628;
+ }
+ .preview svg { display: block; width: 236px; height: 124px; }
+ .preview div { padding: 9px 12px 11px; line-height: 1.3; }
+ .preview b { display: block; font-size: 14px; }
+ .preview small { color: var(--muted); font-size: 12px; }
+ .seen { align-self: flex-end; color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+ .slide.active .reveal { animation: pop .35s ease both; }
+ .slide.active .reveal:nth-child(4) { animation-delay: .15s; }
+ .slide.active .reveal:nth-child(5) { animation-delay: .45s; }
+ .slide.active .reveal:nth-child(6) { animation-delay: .6s; }
+ @media (prefers-reduced-motion: reduce) { .slide.active .reveal, .c.mine { animation: none; } }
+
+ .dm-composer { padding: 8px 12px 34px; }
+ .dm-field {
+ display: flex; align-items: center; gap: 12px;
+ height: 46px; padding: 0 14px 0 5px; border-radius: 23px; background: var(--field);
+ }
+ .dm-field .cam { width: 36px; height: 36px; border-radius: 50%; background: #3797f0; display: grid; place-items: center; flex: none; }
+ .dm-field span { flex: 1; color: var(--muted); font-size: 15px; }
+
+ .home-ind {
+ position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+ width: 134px; height: 5px; border-radius: 3px; background: #f5f5f5;
+ }
+</style>
 </head>
-<body class="font-sans antialiased text-tq-charcoal bg-tq-ivory">
+<body>
+<main class="deck" id="deck">
+ <section class="slide text-slide" aria-label="Intro">
+ <h1>Experience The Star At The Hub</h1>
+ </section>
 
-    <!-- STICKY HEADER -->
-    <header class="bg-tq-black sticky top-0 z-50 border-b border-tq-gold/20 shadow-sm print:hidden">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <div class="logo-text text-[16px] sm:text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.1em] md:tracking-[0.15em] font-serif flex items-center leading-none flex-shrink-0 whitespace-nowrap uppercase">
-                        TERRAQUEST FZCO
-                    </div>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <button id="btn-print" class="bg-[#C6A04A] text-[#080808] hover:bg-[#9B7628] hover:text-white transition-colors px-6 py-2.5 rounded text-[11px] font-bold tracking-[0.15em] uppercase cursor-pointer shadow-lg no-print touch-manipulation">Print PDF</button>
-                </div>
-            </div>
-        </div>
-    </header>
+ <section class="slide text-slide" aria-label="Summary">
+ <h1>Mercedes-Benz Showcase: GLC & GLE</h1>
+ </section>
 
-    <!-- PAGE 1: COVER SLIDE -->
-    <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[calc(100vh-80px)] print:min-h-[100vh] flex flex-col justify-center">
-        <div class="hidden print:block text-center mt-6 mb-8 w-full">
-            <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
-                TERRAQUEST FZCO
-            </div>
-            <div class="h-[1px] w-16 bg-tq-gold/60 mt-3 mx-auto"></div>
-        </div>
+ <!-- The post page (comments closed) is cloned from this slide by JavaScript -->
+ <section class="slide" id="comments-page" aria-label="Comments open">
+ <div class="fit">
+ <div class="phone">
+ <div class="screen">
 
-        <div class="hero-content flex-grow flex flex-col justify-center max-w-5xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-6 md:pt-0">
-            <div class="text-center">
-                <h4 class="text-tq-gold font-sans tracking-[0.25em] uppercase text-[10px] md:text-xs font-bold mb-4">Addendum 01</h4>
-                <h1 class="text-5xl sm:text-6xl md:text-[5rem] font-serif font-normal leading-[1.1] mb-6 tracking-tight print:text-white">Project Ndegwa</h1>
-                <p class="text-tq-stone font-sans text-base md:text-lg max-w-2xl mx-auto font-light tracking-wide mb-8">
-                    Strategic Regional Expansion Option<br>
-                    <span class="text-tq-gold font-serif text-xl md:text-2xl mt-1 block">Mountain Side Farms (West Kilimanjaro, Tanzania)</span>
-                </p>
-                <div class="inline-flex items-center justify-center space-x-4 text-xs tracking-widest uppercase text-tq-stone/80 font-semibold mb-8">
-                    <span>Tanzania</span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-tq-gold"></span>
-                    <span>Kenya Corridor</span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-tq-gold"></span>
-                    <span>United Arab Emirates</span>
-                </div>
-            </div>
+ <!-- status bar -->
+ <div class="island"></div>
+ <div class="status">
+ <span>9:41</span>
+ <span class="status-icons">
+ <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+ <svg width="16" height="12" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.1-1.2A10.4 10.4 0 0 0 8 .9 10.4 10.4 0 0 0 .9 3.7L2 4.9a8.6 8.6 0 0 1 6-2.4Zm0 3.3c1.4 0 2.7.5 3.7 1.4l1.1-1.2A7.1 7.1 0 0 0 8 4.2c-1.8 0-3.5.7-4.8 1.8l1.1 1.2c1-.9 2.3-1.4 3.7-1.4Zm0 3.3c.6 0 1.1.2 1.5.6L8 11.3 6.5 9.7c.4-.4.9-.6 1.5-.6Z"/></svg>
+ <svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x=".5" y=".5" width="22" height="12" rx="3.5" stroke="#fff" opacity=".4"/><rect x="2" y="2" width="17" height="9" rx="2" fill="#fff"/><path d="M24.5 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2Z" fill="#fff" opacity=".4"/></svg>
+ </span>
+ </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16 text-center max-w-3xl mx-auto mt-4 pt-8 border-t border-tq-gold/20 w-full">
-                <div>
-                    <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-2 font-semibold">Transaction Advisory & Structuring</h5>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 print:text-white">TerraQuest Investments FZCO</p>
-                    <span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">Dubai Integrated Economic Zones (DIEZ)</span>
-                </div>
-                <div>
-                    <h5 class="text-tq-stone text-[10px] uppercase tracking-[0.15em] mb-2 font-semibold">For the Review Of</h5>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mb-1 print:text-white">Golden Nile Trading LLC<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Investment Committee)</span></p>
-                    <p class="font-serif text-lg md:text-xl tracking-wide text-tq-ivory/90 mt-4 print:text-white">PineCrest Holdings<br><span class="text-xs md:text-sm tracking-normal text-tq-stone font-sans mt-1 block">(Board of Directors)</span></p>
-                </div>
-            </div>
-        </div>
+ <!-- nav -->
+ <div class="nav">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+ <div class="nav-title">Posts</div>
+ <span></span>
+ </div>
 
-        <div class="w-full text-center pb-6 pt-6 z-10 text-[9px] tracking-[0.2em] uppercase text-tq-stone/50 font-sans mt-auto">
-            Strictly Private & Confidential &bull; Supplemental Instrument to Master JV Term Sheet
-        </div>
-    </section>
+ <!-- post header -->
+ <div class="post-head">
+ <div class="ring"><span></span></div>
+ <div class="who">
+ <b>mediamk</b><svg class="verified" width="14" height="14" viewBox="0 0 24 24"><path fill="#0095f6" d="M12 1l2.6 2.2 3.4-.4.9 3.3 3 1.7-1.3 3.2 1.3 3.2-3 1.7-.9 3.3-3.4-.4L12 23l-2.6-2.2-3.4.4-.9-3.3-3-1.7L3.4 13 2.1 9.8l3-1.7.9-3.3 3.4.4Z"/><path d="M7.5 12.2l3 3 6-6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ <small>The Hub Mall Karen, Nairobi</small>
+ </div>
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+ </div>
 
-    <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-0">
+ <!-- post carousel images -->
+ <div class="carousel" data-index="0">
+ <div class="track">
+ <img class="media" src="benz-event.jpg" alt="Experience The Star At The Hub Mall Karen - Mercedes-Benz Showcase">
+ <svg class="media" viewBox="0 0 390 488" role="img" aria-label="Post graphic reading: Want in? Comment involve me">
+ <defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#1b1236"/>
+ <stop offset=".55" stop-color="#3b1f5e"/>
+ <stop offset="1" stop-color="#b8325a"/>
+ </linearGradient>
+ <radialGradient id="glow" cx=".78" cy=".22" r=".55">
+ <stop offset="0" stop-color="#ffb35c" stop-opacity=".75"/>
+ <stop offset="1" stop-color="#ffb35c" stop-opacity="0"/>
+ </radialGradient>
+ </defs>
+ <rect width="390" height="488" fill="url(#bg)"/>
+ <rect width="390" height="488" fill="url(#glow)"/>
+ <g transform="translate(0 49)">
+ <g fill="none" stroke="#ffffff" stroke-opacity=".08">
+ <circle cx="300" cy="90" r="60"/><circle cx="300" cy="90" r="100"/><circle cx="300" cy="90" r="140"/><circle cx="300" cy="90" r="180"/>
+ </g>
+ <text x="28" y="72" fill="#ffd9a8" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="3">19TH - 21ST JUNE</text>
+ <text x="26" y="170" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-style="italic" font-weight="700" letter-spacing="-2">Want</text>
+ <text x="26" y="250" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-style="italic" font-weight="700" letter-spacing="-2">in?</text>
+ <rect x="28" y="296" width="206" height="46" rx="23" fill="#ffffff"/>
+ <text x="131" y="325" text-anchor="middle" fill="#1b1236" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700">Comment “involve me”</text>
+ <g transform="translate(250 305)" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M2 14h26M18 4l10 10-10 10"/>
+ </g>
+ </g>
+ </svg>
+ </div>
+ <span class="count-pill">1/2</span>
+ </div>
 
-        <!-- PAGE 2: CONFIDENTIALITY UNDERTAKING -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 text-center">
-                <h2 class="text-2xl md:text-3xl font-serif text-tq-black font-normal uppercase tracking-wide">Important Legal Notice & Supplemental Privilege Covenant</h2>
-            </header>
-            
-            <div class="font-sans text-[14.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
-                <p class="font-semibold text-tq-black">This Strategic Expansion Memorandum constitutes Addendum 01 to the Master Joint Venture Term Sheet for Project Ndegwa and is strictly private, confidential, and legally privileged.</p>
-                <p>It is furnished by TerraQuest Investments FZCO solely for the confidential evaluation of designated authorized recipients: the Investment Committee and Board of Directors of Golden Nile Trading LLC (the Investor), and the Board of Directors and Principal Shareholders of PineCrest Holdings (the Investee).</p>
-                <p>By reviewing, receiving, or retaining this document, each recipient entity expressly covenants to the following mandatory terms:</p>
-                
-                <ol class="list-decimal pl-5 space-y-4 print:space-y-3 marker:text-tq-gold marker:font-bold">
-                    <li class="pl-2"><strong>Integration with Master Term Sheet:</strong> This Addendum constitutes a supplemental strategic evaluation instrument directly referencing Project Ndegwa. All terms, governance principles, non-circumvention covenants, and dispute mechanisms established in the Master Term Sheet apply hereto.</li>
-                    <li class="pl-2"><strong>Purpose Limitation:</strong> Information contained herein shall be used exclusively to evaluate, negotiate, and formalize the expansion of Project Ndegwa into the Tanzania Beef Corridor and West Kilimanjaro eco-tourism zone.</li>
-                    <li class="pl-2"><strong>Reproduction & Distribution Prohibited:</strong> No portion of this document, land valuation data, corporate structuring options, or cross-border logistics layouts may be copied, reproduced, or disclosed to third parties without prior written authorization from both Principals and the Structuring Agent.</li>
-                    <li class="pl-2"><strong>Non-Circumvention:</strong> Recipients shall not use property parameters, vendor disclosures, or agricultural strategies disclosed herein to bypass or enter independent transactions involving Mountain Side Farms or introducing counterparties.</li>
-                    <li class="pl-2"><strong>Governing Law & Dispute Resolution:</strong> Governed by English Common Law, with all disputes resolved exclusively through binding arbitration seated in London under the LCIA Rules as set out in Clause 43 of the Master Term Sheet.</li>
-                </ol>
-            </div>
-        </article>
+ <!-- action row -->
+ <div class="actions">
+ <svg width="26" height="26" viewBox="0 0 24 24" fill="#ff3040"><path d="M16.8 3.5c-2 0-3.7 1.1-4.8 2.8-1.1-1.7-2.8-2.8-4.8-2.8C4.3 3.5 2 5.9 2 9c0 5.4 7.6 10.3 9.4 11.4.4.2.8.2 1.2 0C14.4 19.3 22 14.4 22 9c0-3.1-2.3-5.5-5.2-5.5Z"/></svg>
+ <button type="button" class="icon-btn open-comments" aria-label="Open comments"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M20.6 16.6A9.5 9.5 0 1 0 17 20.2L22 21.5Z"/></svg></button>
+ <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M22 3 9.2 10.1M22 3l-7 18-5.8-10.9L2 6.2Z"/></svg>
+ <span class="spacer"></span>
+ <span class="dots" aria-hidden="true"><i class="on"></i><i></i></span>
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M19 21l-7-6.2L5 21V3h14Z"/></svg>
+ </div>
+ <div class="likes">2,418 likes</div>
+ <div class="post-caption">
+ <p><b>mediamk</b> Experience The Star At The Hub Mall Karen! 🚗✨ Visit the Mercedes-Benz showcase from 19th-21st June. Comment 'involve me' and I will send you the details</p>
+ <span class="muted open-comments">View all 312 comments</span>
+ <span class="when">2 hours ago</span>
+ </div>
 
-        <!-- PAGE 3: EXECUTIVE SUMMARY & ASSET PARAMETERS -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Executive Summary & Asset Parameters</h2>
-            </header>
+ <!-- comments open -->
+ <div class="dim"></div>
+ <section class="sheet" aria-label="Comments">
+ <div class="grab"></div>
+ <div class="sheet-title">Comments</div>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
-                <div class="avoid-break mb-4">
-                    <p>Addendum 01 introduces a strategic regional expansion option for Project Ndegwa: the acquisition and operational integration of <strong>Mountain Side Farms</strong>, a rare 9,500-acre titled estate situated in West Kilimanjaro, Tanzania. Located within close proximity to Project Ndegwa's primary rangelands in Narok, Kenya, Mountain Side Farms provides immediate access to the vast Tanzanian national cattle herd (34M+ head), large-scale irrigated fodder multiplication, and high-margin eco-tourism hospitality.</p>
-                </div>
+ <div class="caption">
+ <div class="ring"><span></span></div>
+ <div>
+ <p><b>mediamk</b> Experience The Star At The Hub Mall Karen! Comment 'involve me' and I will send you the details</p>
+ <div class="meta">2h</div>
+ </div>
+ </div>
 
-                <div class="avoid-break my-4">
-                    <div class="table-wrapper">
-                        <table>
-                            <colgroup>
-                                <col style="width: 30%;">
-                                <col style="width: 70%;">
-                            </colgroup>
-                            <caption>Mountain Side Farms — Core Asset Profile</caption>
-                            <thead>
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Specification / Asset Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-bold text-tq-black">Total Land Area</td>
-                                    <td>Approximately 9,500 acres of contiguous titled agricultural land.</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">Geographic Location</td>
-                                    <td>West Kilimanjaro, Kilimanjaro Region, Tanzania (~7 km from Londorossi Gate).</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-tq-black">Elevation & Climate</td>
-                                    <td>1,300m – 2,000m above sea level; fertile volcanic soils; high seasonal rainfall.</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">Asking Valuation</td>
-                                    <td>USD 28,000,000 (~USD 2,947 per acre across 9,500 acres).</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-tq-black">Title & Tenure</td>
-                                    <td>8 registered title deeds; unencumbered; valid and transferable.</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">Conservation Zone</td>
-                                    <td>~900 acres of pristine natural landscape earmarked for luxury eco-tourism camp.</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-tq-black">Existing Agribusiness</td>
-                                    <td>Commercial avocado orchards, wheat rotations, and active borehole infrastructure.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+ <div class="list">
+ <div class="c">
+ <div class="av" style="background:linear-gradient(135deg,#ff8a5b,#d6336c)">WM</div>
+ <div class="c-body">
+ <div class="c-top"><b>wanjiku.m</b><span class="time">1h</span></div>
+ <p class="c-text">Involve me 🙌</p>
+ <div class="c-sub"><span>48 likes</span><span>Reply</span></div>
+ </div>
+ <div class="c-like"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ff3040"><path d="M16.8 3.5c-2 0-3.7 1.1-4.8 2.8-1.1-1.7-2.8-2.8-4.8-2.8C4.3 3.5 2 5.9 2 9c0 5.4 7.6 10.3 9.4 11.4.4.2.8.2 1.2 0C14.4 19.3 22 14.4 22 9c0-3.1-2.3-5.5-5.2-5.5Z"/></svg>48</div>
+ </div>
+ <div class="c reply">
+ <div class="av pfp"></div>
+ <div class="c-body">
+ <div class="c-top"><b>mediamk</b><span class="time">58m</span> <span class="author">· Author</span></div>
+ <p class="c-text"><span class="at">@wanjiku.m</span> Sent! Check your DMs 📩</p>
+ <div class="c-sub"><span>12 likes</span><span>Reply</span></div>
+ </div>
+ <div class="c-like"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a8a8a8" stroke-width="2"><path d="M16.8 3.5c-2 0-3.7 1.1-4.8 2.8-1.1-1.7-2.8-2.8-4.8-2.8C4.3 3.5 2 5.9 2 9c0 5.4 7.6 10.3 9.4 11.4.4.2.8.2 1.2 0C14.4 19.3 22 14.4 22 9c0-3.1-2.3-5.5-5.2-5.5Z"/></svg>12</div>
+ </div>
 
-                <div class="avoid-break mt-4">
-                    <p>The estate combines immediate operational cash flows (avocado exports and grain farming) with transformational strategic synergies for Project Ndegwa, buffering fodder security for the Narok and Kitengela feedlots while establishing a high-yield livestock backgrounding corridor in Northern Tanzania.</p>
-                </div>
-            </div>
-        </article>
+ <div class="c">
+ <div class="av" style="background:linear-gradient(135deg,#34c38f,#0f7a5a)">BO</div>
+ <div class="c-body">
+ <div class="c-top"><b>brian_otieno</b><span class="time">1h</span></div>
+ <p class="c-text">involve me</p>
+ <div class="c-sub"><span>21 likes</span><span>Reply</span></div>
+ </div>
+ <div class="c-like"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a8a8a8" stroke-width="2"><path d="M16.8 3.5c-2 0-3.7 1.1-4.8 2.8-1.1-1.7-2.8-2.8-4.8-2.8C4.3 3.5 2 5.9 2 9c0 5.4 7.6 10.3 9.4 11.4.4.2.8.2 1.2 0C14.4 19.3 22 14.4 22 9c0-3.1-2.3-5.5-5.2-5.5Z"/></svg>21</div>
+ </div>
 
-        <!-- PAGE 4: GEOGRAPHY & PROJECT NDEGWA SYNERGIES -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">2.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Regional Geography & Supply Synergies</h2>
-            </header>
+ <div class="c">
+ <div class="av" style="background:linear-gradient(135deg,#f7b733,#fc4a1a)">ND</div>
+ <div class="c-body">
+ <div class="c-top"><b>njeri.designs</b><span class="time">47m</span></div>
+ <p class="c-text">Involve me 🔥 been waiting to see the new GLC and GLE up close</p>
+ <div class="c-sub"><span>16 likes</span><span>Reply</span></div>
+ </div>
+ <div class="c-like"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a8a8a8" stroke-width="2"><path d="M16.8 3.5c-2 0-3.7 1.1-4.8 2.8-1.1-1.7-2.8-2.8-4.8-2.8C4.3 3.5 2 5.9 2 9c0 5.4 7.6 10.3 9.4 11.4.4.2.8.2 1.2 0C14.4 19.3 22 14.4 22 9c0-3.1-2.3-5.5-5.2-5.5Z"/></svg>16</div>
+ </div>
+ </div>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
-                <div class="avoid-break">
-                    <p>Mountain Side Farms occupies a pivotal position in West Kilimanjaro, directly across the southern border from Project Ndegwa's primary rangelands in Narok. This geography enables a cross-border agricultural corridor connecting livestock aggregation in Tanzania to processing and export infrastructure in Kenya and the UAE.</p>
-                </div>
+ <div class="emojis" aria-hidden="true">
+ <span>❤️</span><span>🙌</span><span>🔥</span><span>👏</span><span>😢</span><span>😍</span><span>😮</span><span>😂</span>
+ </div>
+ <div class="composer">
+ <div class="av" style="background:linear-gradient(135deg,#6a82fb,#fc5c7d)">ME</div>
+ <label class="field" for="comment-input">
+ <input id="comment-input" type="text" enterkeyhint="send" autocomplete="off" placeholder="Add a comment for mediamk…">
+ <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a8a8a8" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="4"/><text x="12" y="15.5" text-anchor="middle" font-size="7" font-weight="700" fill="#a8a8a8" stroke="none" font-family="-apple-system, sans-serif">GIF</text></svg>
+ </label>
+ </div>
+ </section>
 
-                <div class="my-3">
-                    <figure class="my-2">
-                        <img src="./Mount Kilimanjaro High Resolution.jpg" alt="West Kilimanjaro Landscape - Mount Kilimanjaro" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80'">
-                    </figure>
-                </div>
+ <div class="home-ind"></div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-                <div class="avoid-break">
-                    <ul class="list-none space-y-3 print:space-y-2 pl-0 my-2">
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">1. Tanzania Beef Corridor Access:</strong> Tanzania holds Africa's second-largest livestock herd (34M+ cattle). Mountain Side Farms serves as Project Ndegwa's primary backgrounding and quarantine hub, aggregating young bulls from pastoralist networks across Northern Tanzania.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">2. Proximity to Narok Hub:</strong> Situated near the Kenyan border, feeder cattle backgrounded at West Kilimanjaro cross seamlessly via the Namanga or Holili border posts into Project Ndegwa's Narok feedlots for final intensive finishing.
-                        </li>
-                        <li class="relative pl-6">
-                            <span class="absolute left-0 top-2 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
-                            <strong class="font-semibold text-tq-black">3. Export Route Optimization:</strong> Agricultural produce and processed beef enter international transit via Kenya's logistics network (Jomo Kenyatta International Airport and Mombasa Port), benefiting from zero-tariff access into the UAE under the Kenya-UAE CEPA.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </article>
+ <section class="slide" id="dm-page" aria-label="DM from mediamk">
+ <div class="fit">
+ <div class="phone">
+ <div class="screen">
+ <div data-statusbar></div>
 
-        <!-- PAGE 5: FOUR ENTERPRISE VERTICALS -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Four Commercial Enterprise Pillars</h2>
-            </header>
+ <div class="dm">
+ <div class="dm-head">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+ <div class="dm-id">
+ <div class="ring"><span></span></div>
+ <div><b>mediamk</b><small>mediamk</small></div>
+ </div>
+ <div class="dm-tools">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M6.6 3.5h-2A1.6 1.6 0 0 0 3 5.2 15.8 15.8 0 0 0 18.8 21a1.6 1.6 0 0 0 1.7-1.6v-2a1 1 0 0 0-.7-1l-3.5-1.2a1 1 0 0 0-1 .3l-1.4 1.6a12 12 0 0 1-5.2-5.2l1.6-1.4a1 1 0 0 0 .3-1L9.4 4.2a1 1 0 0 0-1-.7Z"/></svg>
+ <svg width="26" height="24" viewBox="0 0 26 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><rect x="2" y="5.5" width="15" height="13" rx="3"/><path d="M17 10.5l6-3.5v10l-6-3.5Z"/></svg>
+ </div>
+ </div>
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-2.5">
-                <p>Mountain Side Farms diversifies Project Ndegwa's operating base across four high-margin commercial pillars:</p>
+ <div class="thread">
+ <div class="profile">
+ <div class="ring"><span></span></div>
+ <b>mediamk</b>
+ <small>mediamk · 12.4K followers · 86 posts</small>
+ <small>Nairobi, Kenya</small>
+ <span class="btn">View profile</span>
+ </div>
+ <div class="stamp">Today 10:24</div>
+ <div class="ctx reveal">Replied to your comment</div>
+ <div class="quote reveal" id="quoted">involve me</div>
+ <div class="msg reveal">
+ <span class="spacer-av"></span>
+ <div class="bubble">Play this game to win an exclusive Mercedes-Benz voucher. <a href="#game">indsh.co/w1n-V7k</a></div>
+ </div>
+ <div class="msg reveal">
+ <div class="av pfp"></div>
+ <div class="preview">
+ <svg viewBox="0 0 236 124" aria-hidden="true">
+ <defs>
+ <linearGradient id="pv" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#1b1236"/><stop offset=".6" stop-color="#3b1f5e"/><stop offset="1" stop-color="#b8325a"/>
+ </linearGradient>
+ </defs>
+ <rect width="236" height="124" fill="url(#pv)"/>
+ <g transform="translate(176 62)">
+ <circle r="42" fill="none" stroke="#ffd9a8" stroke-opacity=".5" stroke-width="2"/>
+ <path d="M0 0L0-38A38 38 0 0 1 32.9-19Z" fill="#ffb35c"/>
+ <path d="M0 0L32.9-19A38 38 0 0 1 32.9 19Z" fill="#ffffff" fill-opacity=".85"/>
+ <path d="M0 0L32.9 19A38 38 0 0 1 0 38Z" fill="#d6336c"/>
+ <path d="M0 0L0 38A38 38 0 0 1-32.9 19Z" fill="#ffb35c"/>
+ <path d="M0 0L-32.9 19A38 38 0 0 1-32.9-19Z" fill="#ffffff" fill-opacity=".85"/>
+ <path d="M0 0L-32.9-19A38 38 0 0 1 0-38Z" fill="#d6336c"/>
+ <circle r="7" fill="#1b1236"/>
+ </g>
+ <text x="18" y="56" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-style="italic" font-weight="700">Spin</text>
+ <text x="18" y="84" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-style="italic" font-weight="700">&amp; win</text>
+ </svg>
+ <div><b>Win a voucher</b><small>indsh.co</small></div>
+ </div>
+ </div>
+ </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print:grid-cols-2 print:gap-3 my-2">
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">1. Livestock Aggregation</strong>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
-                            Establishes a 10,000-head backgrounding operation. Aggregates native Tanzanian zebu breeds, applying Boran embryo genetic upgrades from Project Ndegwa's IVF cleanroom laboratory to improve carcase yields.
-                        </p>
-                    </div>
+ <div class="dm-composer">
+ <div class="dm-field">
+ <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
+ <span>Message…</span>
+ </div>
+ </div>
+ </div>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">2. Irrigated Fodder Buffer</strong>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
-                            Deploys center-pivot irrigation across 2,500 acres for Rhodes grass, lucerne, and silage production. Provides dedicated feed security to insulate Project Ndegwa's Narok and Kitengela finishing yards from drought.
-                        </p>
-                    </div>
+ <div class="home-ind"></div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">3. Luxury Eco-Tourism Retreat</strong>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
-                            Develops a 16-to-24 key luxury safari camp on the 900-acre pristine wilderness section (~7 km from Mount Kilimanjaro's Londorossi Gate), capturing premium mountaineering and conservation tourism revenue.
-                        </p>
-                    </div>
+ <section class="slide text-slide" id="game-page" aria-label="Game">
+ <h1>Mercedes-Benz Trivia & Voucher Spin</h1>
+ </section>
+</main>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-1.5 border-b border-tq-stone/30 pb-1">4. Commercial Crop Exports</strong>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
-                            Optimizes existing Hass avocado orchards and commercial wheat rotations, leveraging Project Ndegwa's UAE trading subsidiary (UAE OpCo) to distribute premium produce directly to GCC retail channels.
-                        </p>
-                    </div>
-                </div>
+<button type="button" class="fs-toggle" id="fs-toggle">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+ <span class="enter">Slideshow Mode</span>
+ <span class="exit">Press <kbd>Esc</kbd> to exit full screen</span>
+</button>
 
-                <div class="my-2">
-                    <figure class="my-2">
-                        <img src="./Luxury Eco Lodge Camp.png" alt="Luxury Wilderness Camp Concept" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80'">
-                    </figure>
-                </div>
-            </div>
-        </article>
+<nav class="pager" aria-label="Slides">
+ <button type="button" id="prev" aria-label="Previous page">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+ </button>
+ <span id="count" aria-live="polite">1 / 2</span>
+ <button type="button" id="next" aria-label="Next page">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+ </button>
+</nav>
 
-        <!-- PAGE 6: STRUCTURING PATHWAYS & CORPORATE STRUCTURE -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">4.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Project Ndegwa Structuring Strategies</h2>
-            </header>
+<script>
+ function fit() {
+ if (document.activeElement?.id === 'comment-input') return;
+ const s = Math.min(1, (innerHeight - 40) / 868, (innerWidth - 32) / 414);
+ document.documentElement.style.setProperty('--s', s.toFixed(4));
+ }
+ addEventListener('resize', fit);
+ fit();
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-2.5">
-                <p>To acquire and operationalize Mountain Side Farms within Project Ndegwa, the corporate structure integrates a dedicated <strong>Tanzania OpCo</strong> under the ADGM Holding level (UAE InvestCo):</p>
+ const deck = document.getElementById('deck');
+ const commentsSlide = document.getElementById('comments-page');
+ const postSlide = commentsSlide.cloneNode(true);
+ postSlide.classList.add('closed');
+ postSlide.removeAttribute('id');
+ postSlide.setAttribute('aria-label', 'Post');
+ postSlide.querySelector('.sheet').remove();
+ postSlide.querySelector('.dim').remove();
+ deck.insertBefore(postSlide, commentsSlide);
 
-                <div class="my-2">
-                    <figure class="my-2">
-                        <img src="./Proposed Corporate Governance Structure with TZ. Fig.1.png" alt="Proposed Corporate Structure with Tanzania OpCo" class="diagram-img w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
-                    </figure>
-                </div>
+ deck.querySelectorAll('[data-statusbar]').forEach(el => {
+ el.replaceWith(
+ commentsSlide.querySelector('.island').cloneNode(true),
+ commentsSlide.querySelector('.status').cloneNode(true)
+ );
+ });
 
-                <p class="mt-1">Two distinct transaction structures are presented for review by the Investment Committee and Board of Directors:</p>
+ const slides = [...deck.querySelectorAll('.slide')];
+ const prev = document.getElementById('prev');
+ const next = document.getElementById('next');
+ const count = document.getElementById('count');
+ const POST = slides.indexOf(postSlide);
+ const COMMENTS = slides.indexOf(commentsSlide);
+ const DM = slides.indexOf(document.getElementById('dm-page'));
+ const GAME = slides.indexOf(document.getElementById('game-page'));
+ let current = 0;
+ let photo = 0;
+ const PHOTOS = 2;
 
-                <div class="space-y-4 print:space-y-2 my-2">
-                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-gold border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 01: Joint Equity Acquisition (SPV Buyout)</h3>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-1.5">
-                            UAE InvestCo incorporates a wholly owned subsidiary (Tanzania SPV) to acquire 100% of the titles and assets of Mountain Side Farms for USD 28,000,000.
-                        </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
-                            <li><strong>Funding Mechanism:</strong> Funded via Investor asset-backed capital commitment appended to Account 2.</li>
-                            <li><strong>Capital Amortization:</strong> Acquisition capital is amortized under Tier 2 of Project Ndegwa's Revenue Waterfall.</li>
-                            <li><strong>Governance:</strong> Fully consolidated under Project Ndegwa's non-dilutive 50/50 ordinary equity parity.</li>
-                        </ul>
-                    </div>
+ function syncPager() {
+ count.textContent = `${current + 1} / ${slides.length}`;
+ prev.disabled = current === 0;
+ next.disabled = current === slides.length - 1;
+ }
 
-                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-black border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 02: Investee Acquisition & Joint Operationalisation</h3>
-                        <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-1.5">
-                            The Investee acquires the land title unencumbered on its balance sheet (held as an Excluded Asset), ring-fencing land ownership while executing long-term commercial operational leases with Project Ndegwa.
-                        </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
-                            <li><strong>25-Year Commercial Lease:</strong> Investee grants a 25-year operational lease over grazing and fodder acreage to Kenya OpCo / Tanzania OpCo at Cost-Plus rates.</li>
-                            <li><strong>Hospitality Joint Venture:</strong> A dedicated 50/50 operating vehicle (Hospitality OpCo) is established to build and operate the 900-acre luxury eco-lodge.</li>
-                            <li><strong>Asset Protection:</strong> Land ownership remains unencumbered, shielding core real estate from enterprise liabilities.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
+ function go(i) {
+ current = Math.max(0, Math.min(slides.length - 1, i));
+ slides.forEach((s, n) => {
+ s.classList.toggle('active', n === current);
+ s.inert = n !== current;
+ });
+ syncPager();
+ history.replaceState(null, '', `#${current + 1}`);
+ }
 
-        <!-- PAGE 7: TREASURY & WATERFALL INTEGRATION -->
-        <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Treasury & Waterfall Integration</h2>
-            </header>
+ function setPhoto(i) {
+ photo = i;
+ deck.querySelectorAll('.carousel').forEach(c => {
+ c.dataset.index = i;
+ c.querySelector('.count-pill').textContent = `${i + 1}/${PHOTOS}`;
+ });
+ deck.querySelectorAll('.dots').forEach(d =>
+ [...d.children].forEach((dot, n) => dot.classList.toggle('on', n === i))
+ );
+ syncPager();
+ }
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
-                <div class="avoid-break">
-                    <p>All operational revenues generated by Mountain Side Farms (livestock transfers, fodder sales, avocado export receipts, and hospitality income) are fully integrated into Project Ndegwa's central treasury administration and swept through the established Four-Tier Distribution Waterfall:</p>
-                </div>
+ function step(dir) {
+ if (current === POST) {
+ const target = photo + dir;
+ if (target >= 0 && target < PHOTOS) return setPhoto(target);
+ }
+ go(current + dir);
+ }
 
-                <div class="avoid-break my-4">
-                    <div class="table-wrapper">
-                        <table>
-                            <colgroup>
-                                <col style="width: 15%;">
-                                <col style="width: 25%;">
-                                <col style="width: 60%;">
-                            </colgroup>
-                            <caption>Integration with Project Ndegwa Four-Tier Waterfall</caption>
-                            <thead>
-                                <tr>
-                                    <th>Tier</th>
-                                    <th>Category</th>
-                                    <th>Expansion Cash Flow Application</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-bold text-tq-black">TIER 1</td>
-                                    <td class="font-bold text-tq-black">Direct OPEX & COGS</td>
-                                    <td>Clears farm labor, irrigation power, feed mill inputs, veterinary supplies, and lease charges.</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">TIER 2</td>
-                                    <td class="font-bold text-tq-black">Priority Capital Amortization</td>
-                                    <td>Systematically repays expansion CAPEX (irrigation pivots, eco-lodge buildout, acquisition debt).</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-tq-black">TIER 3</td>
-                                    <td class="font-bold text-tq-black">Operating Reserves</td>
-                                    <td>Replenishes rolling 60-day livestock purchase float and fodder reserve buffer.</td>
-                                </tr>
-                                <tr class="bg-white/50">
-                                    <td class="font-bold text-tq-black">TIER 4</td>
-                                    <td class="font-bold text-tq-black">50/50 Profit Share</td>
-                                    <td>Residual operational net profits distributed equally as ordinary dividends (50% Investor / 50% Investee).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+ postSlide.querySelectorAll('.open-comments').forEach(el =>
+ el.addEventListener('click', () => go(COMMENTS))
+ );
 
-                <div class="avoid-break mt-4">
-                    <p>This treasury structure guarantees that expansion revenues reinforce enterprise liquidity, ensure capital recovery, and protect equal dividend distributions under Project Ndegwa's governance framework.</p>
-                </div>
-            </div>
-        </article>
+ document.querySelector('#dm-page .bubble a').addEventListener('click', e => {
+ e.preventDefault();
+ go(GAME);
+ });
 
-        <!-- PAGE 8: NEXT STEPS & 7-STAGE IMPLEMENTATION SEQUENCE -->
-        <article class="mb-10 print:mb-0 print-canvas-section">
-            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4 print:mb-4">
-                <span class="text-tq-gold font-serif text-2xl md:text-3xl">6.</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps & Implementation Sequence</h2>
-            </header>
+ const fsToggle = document.getElementById('fs-toggle');
+ const fsElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+ fsToggle.addEventListener('click', () => {
+ const root = document.documentElement;
+ if (fsElement()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+ else (root.requestFullscreen || root.webkitRequestFullscreen).call(root);
+ fsToggle.blur();
+ });
+ const syncFs = () => fsToggle.classList.toggle('on', !!fsElement());
+ document.addEventListener('fullscreenchange', syncFs);
+ document.addEventListener('webkitfullscreenchange', syncFs);
 
-            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
-                <p>To execute the Mountain Side Farms expansion option, the Principals shall proceed through a mandatory Seven-Stage Implementation Sequence aligned with Project Ndegwa's governance framework:</p>
+ prev.addEventListener('click', () => step(-1));
+ next.addEventListener('click', () => step(1));
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print-grid-compress mt-4 print:mt-2">
-                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 01</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Discussion, Investment Alignment and Strategy Selection</h4>
-                        <p class="text-xs print:text-[8.5pt] text-tq-charcoal/80 leading-relaxed">Strategic evaluation by the Investment Committee and Board of Directors to evaluate commercial synergies and formally select Strategy 01 or Strategy 02.</p>
-                    </div>
+ addEventListener('keydown', e => {
+ if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+ if (e.target.closest('button') && (e.key === ' ' || e.key === 'Enter')) return;
+ const forward = ['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'n'];
+ const backward = ['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace', 'p'];
+ if (forward.includes(e.key)) { e.preventDefault(); step(1); }
+ else if (backward.includes(e.key)) { e.preventDefault(); step(-1); }
+ else if (e.key === 'Home') { e.preventDefault(); setPhoto(0); go(0); }
+ else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+ });
 
-                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 02</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Term Negotiations and Execution of Term Sheet</h4>
-                        <p class="text-xs print:text-[8.5pt] text-[#080808]/90 leading-relaxed">Negotiation of transaction parameters, valuation mechanics, operational lease terms, and formal execution of Addendum 01 to the Master Term Sheet.</p>
-                    </div>
+ let touchStart = null;
+ addEventListener('touchstart', e => {
+ if (e.touches.length !== 1 || e.target.closest('input, textarea')) { touchStart = null; return; }
+ const t = e.touches[0];
+ touchStart = { x: t.clientX, y: t.clientY, time: Date.now() };
+ }, { passive: true });
+ addEventListener('touchend', e => {
+ if (!touchStart) return;
+ const t = e.changedTouches[0];
+ const dx = t.clientX - touchStart.x;
+ const dy = t.clientY - touchStart.y;
+ const quick = Date.now() - touchStart.time < 800;
+ touchStart = null;
+ if (quick && Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+ }, { passive: true });
+ addEventListener('touchcancel', () => { touchStart = null; });
 
-                    <div class="bg-[#242424] text-tq-ivory border-t-4 border-[#B8B1A3] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#B8B1A3] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 03</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5">Due Diligence Aligned to Investment Strategy</h4>
-                        <p class="text-xs print:text-[8.5pt] text-[#B8B1A3] leading-relaxed">Comprehensive legal, cadastral, environmental, biological, and hydrological due diligence across the 8 registered title deeds and active boreholes in Tanzania.</p>
-                    </div>
+ const input = document.getElementById('comment-input');
+ const list = commentsSlide.querySelector('.list');
+ const quoted = document.getElementById('quoted');
+ input.addEventListener('keydown', e => {
+ if (e.key !== 'Enter' || e.isComposing) return;
+ e.preventDefault();
+ const text = input.value.trim();
+ if (!text) return;
 
-                    <div class="bg-white border-t-4 border-[#242424] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#242424] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 04</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Inclusion into Project Ndegwa Master Plan Capital Allocation</h4>
-                        <p class="text-xs print:text-[8.5pt] text-[#242424] leading-relaxed">Integration of asset parameters, livestock backgrounding quotas, pivot irrigation schedules, and eco-lodge budget line items into the Master Engineering Plan.</p>
-                    </div>
+ const c = document.createElement('div');
+ c.className = 'c mine';
+ c.innerHTML = `
+ <div class="av" style="background:linear-gradient(135deg,#6a82fb,#fc5c7d)">ME</div>
+ <div class="c-body">
+ <div class="c-top"><b>you</b><span class="time">now</span></div>
+ <p class="c-text"></p>
+ <div class="c-sub"><span>Reply</span></div>
+ </div>`;
+ c.querySelector('.c-text').textContent = text;
+ list.append(c);
+ list.scrollTo({ top: list.scrollHeight, behavior: 'smooth' });
+ quoted.textContent = text;
+ input.value = '';
+ input.blur();
+ setTimeout(() => go(DM), 900);
+ });
 
-                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 05</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Capital Allocation at Board Level</h4>
-                        <p class="text-xs print:text-[8.5pt] text-tq-charcoal/80 leading-relaxed">Formal Board Supermajority approval and ring-fencing of expansion capital tranches, establishing escrow drawdown authorizations under the Four-Tier Waterfall.</p>
-                    </div>
+ const vv = window.visualViewport;
+ let lift = 0;
+ function keepFieldVisible() {
+ if (!vv || document.activeElement !== input) return;
+ const field = input.closest('.field').getBoundingClientRect();
+ const visibleBottom = vv.offsetTop + vv.height - 12;
+ lift = Math.max(0, lift + field.bottom - visibleBottom);
+ deck.style.transform = lift ? `translateY(${-lift}px)` : '';
+ }
+ function resetLift() {
+ lift = 0;
+ deck.style.transform = '';
+ scrollTo(0, 0);
+ fit();
+ }
+ input.addEventListener('focus', () => setTimeout(keepFieldVisible, 300));
+ input.addEventListener('blur', resetLift);
+ vv?.addEventListener('resize', keepFieldVisible);
+ vv?.addEventListener('scroll', keepFieldVisible);
 
-                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 06</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Incorporation of New Tanzania OpCo</h4>
-                        <p class="text-xs print:text-[8.5pt] text-[#080808]/90 leading-relaxed">Corporate registration of the Tanzanian operating entity (Tanzania OpCo / SPV), obtaining statutory land approvals, agricultural licences, and DVS clearances.</p>
-                    </div>
-
-                    <div class="bg-[#F4F0E7] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-4 print:p-3 rounded-sm shadow-sm flex flex-col md:col-span-2 avoid-break print:col-span-2">
-                        <span class="text-[#C6A04A] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 07</span>
-                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Execution of Investment</h4>
-                        <p class="text-xs print:text-[8.5pt] text-[#242424] leading-relaxed">Execution of acquisition instruments or operational leases, release of Phase A expansion capital from escrow, and commencement of physical site deployment.</p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-    </main>
-
-    <!-- PAGE 9: CLOSING COVER SLIDE -->
-    <div class="closing-wrapper mt-12 md:mt-16 print:mt-0">
-        <section class="closing-image-section relative w-full h-full overflow-hidden bg-tq-black flex-1">
-            <div class="absolute inset-0 z-0">
-                <div class="w-full h-full bg-tq-charcoal/80"></div>
-                <img src="./Mount Kilimanjaro High Resolution.jpg" alt="Mount Kilimanjaro Wilderness" class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-90" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80'" />
-                <div class="absolute inset-0 bg-gradient-to-r from-tq-black via-tq-black/90 to-transparent print:from-[#080808] print:via-[#080808]/90"></div>
-                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-tq-black to-transparent print:from-[#080808]"></div>
-            </div>
-            
-            <div class="relative z-10 max-w-6xl mx-auto px-10 sm:px-16 print:px-24 h-full flex flex-col justify-center pt-12">
-                <div class="max-w-lg border-l-[3px] border-tq-gold pl-10 print:pl-16">
-                    <div class="mb-8">
-                        <div class="logo-text text-xl md:text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
-                            TERRAQUEST FZCO
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-tq-ivory font-serif text-3xl md:text-4xl mb-4 leading-tight print:text-white">Securing the supply engine.</h3>
-                    <p class="text-tq-stone font-sans text-[15px] leading-relaxed print:text-[#B8B1A3]">
-                        Expanding institutional agricultural corridors across East Africa to anchor liquidity, scale production, and catalyze global trade.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-tq-black text-tq-ivory w-full print:hidden py-8">
-            <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <div class="logo-text text-[14px] font-bold text-tq-stone tracking-[0.1em] font-serif flex items-center leading-none opacity-60 uppercase">
-                        TERRAQUEST FZCO
-                    </div>
-                </div>
-                <div class="text-[11px] text-tq-stone font-sans tracking-[0.1em] uppercase">
-                    &copy; 2026 TerraQuest Investments FZCO. <span class="text-tq-gold/80 ml-2 hidden sm:inline">Global. Sophisticated. Disciplined. Long-Term.</span>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        document.getElementById('btn-print').addEventListener('click', function() {
-            window.print();
-        });
-    </script>
+ go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
 </body>
 </html>
