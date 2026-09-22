@@ -37,7 +37,7 @@
     
     <style>
         @media print {
-            /* 1. Global Page Reset to Strict A4 Dimensions */
+            /* 1. Global A4 Page Setup */
             @page { 
                 size: 210mm 297mm; 
                 margin: 0mm !important; 
@@ -45,7 +45,7 @@
             
             @page cover { margin: 0 !important; }
             
-            /* 2. Body and Main Resets */
+            /* 2. Reset Body and Canvas Wrappers */
             html, body { 
                 margin: 0 !important;
                 padding: 0 !important; 
@@ -59,12 +59,11 @@
             main {
                 margin: 0 !important;
                 padding: 0 !important;
-                max-width: 210mm !important;
                 width: 210mm !important;
                 box-sizing: border-box !important;
             }
             
-            /* 3. STRICT A4 PAGE BOXES - Forces 1 Section = 1 PDF Page */
+            /* 3. STRICT A4 PAGE BOXES WITH OPTICAL VERTICAL CENTERING */
             .hero-section,
             .print-canvas-section,
             .closing-wrapper {
@@ -73,23 +72,23 @@
                 max-height: 297mm !important;
                 min-height: 297mm !important;
                 box-sizing: border-box !important;
-                padding: 12mm 15mm 10mm 15mm !important;
+                padding: 20mm 20mm 20mm 20mm !important;
                 page-break-before: always !important;
                 break-before: page !important;
                 page-break-after: always !important;
                 break-after: page !important;
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
-                overflow: hidden !important; /* ABSOLUTE KILL FOR PDF PAGE SPILLS */
+                overflow: hidden !important; /* ELIMINATES PDF PAGE SPILLS */
                 display: flex !important;
                 flex-direction: column !important;
-                justify-content: flex-start !important;
+                justify-content: center !important; /* BALANCES CONTENT VERTICALLY */
             }
             
             .hero-section { 
                 page-break-before: avoid !important; 
                 break-before: avoid !important;
-                padding: 15mm 15mm 10mm 15mm !important;
+                padding: 20mm !important;
             }
             
             .closing-wrapper {
@@ -99,29 +98,29 @@
                 display: none !important;
             }
             
-            /* 4. Compact Typography for Print */
+            /* 4. Typography & Spacing */
             p, td, li { 
                 orphans: 4 !important; 
                 widows: 4 !important; 
-                font-size: 9.5pt !important; 
-                line-height: 1.45 !important; 
+                font-size: 10pt !important; 
+                line-height: 1.5 !important; 
             }
             
-            h1 { font-size: 32pt !important; line-height: 1.1 !important; }
-            h2 { font-size: 18pt !important; line-height: 1.2 !important; margin: 0 0 8px 0 !important; padding: 0 !important; }
-            h3 { font-size: 13pt !important; line-height: 1.2 !important; margin: 0 0 6px 0 !important; padding: 0 !important; }
-            h4 { font-size: 10pt !important; line-height: 1.2 !important; margin: 0 0 4px 0 !important; padding: 0 !important; }
+            h1 { font-size: 38pt !important; line-height: 1.1 !important; }
+            h2 { font-size: 20pt !important; line-height: 1.25 !important; margin-bottom: 4px !important; }
+            h3 { font-size: 14pt !important; line-height: 1.3 !important; }
+            h4 { font-size: 11pt !important; line-height: 1.3 !important; }
             
             article header { 
-                margin-bottom: 12px !important; 
-                padding-bottom: 6px !important; 
+                margin-bottom: 16px !important; 
+                padding-bottom: 8px !important; 
                 page-break-after: avoid !important; 
-                break-after: avoid !important; 
+                break-after: avoid !important;
             }
             
-            .space-y-7 > * + * { margin-top: 12px !important; }
-            .space-y-6 > * + * { margin-top: 10px !important; }
-            .space-y-5 > * + * { margin-top: 8px !important; }
+            .space-y-7 > * + * { margin-top: 16px !important; }
+            .space-y-6 > * + * { margin-top: 14px !important; }
+            .space-y-5 > * + * { margin-top: 12px !important; }
             
             .avoid-break {
                 page-break-inside: avoid !important;
@@ -129,23 +128,23 @@
                 display: block !important;
             }
             
-            /* 5. Tables in Print */
-            li { page-break-inside: avoid !important; margin-bottom: 3px !important; }
+            /* 5. Tables */
+            li { page-break-inside: avoid !important; margin-bottom: 4px !important; }
             .table-wrapper { 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important; 
                 overflow: visible !important;
-                margin-top: 8px !important;
-                margin-bottom: 8px !important;
+                margin-top: 12px !important;
+                margin-bottom: 12px !important;
             }
-            table { margin: 4px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
+            table { margin: 6px 0 !important; width: 100% !important; table-layout: fixed !important; border-collapse: collapse !important; }
             tr { page-break-inside: avoid !important; break-inside: avoid !important; }
-            caption { font-size: 11pt !important; margin-bottom: 4px !important; padding-bottom: 2px !important; }
-            th, td { padding: 4px 6px !important; font-size: 8pt !important; line-height: 1.35 !important; word-wrap: break-word !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
+            caption { font-size: 12pt !important; margin-bottom: 6px !important; padding-bottom: 2px !important; }
+            th, td { padding: 6px 8px !important; font-size: 8.5pt !important; line-height: 1.4 !important; word-wrap: break-word !important; border: 1px solid rgba(184, 177, 163, 0.3) !important;}
             
-            /* 6. Image Constraints for Clean Page Fit */
+            /* 6. Image Constraints for Balanced Page Framing */
             figure {
-                margin: 6px auto !important; 
+                margin: 10px auto !important; 
                 padding-top: 0 !important; 
                 page-break-inside: avoid !important; 
                 break-inside: avoid !important; 
@@ -157,7 +156,7 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                max-height: 68mm !important; /* Constrains image height to leave room for text */
+                max-height: 80mm !important; /* Fits perfectly alongside text without spilling */
                 object-fit: contain !important;
                 margin: 0 auto !important;
             }
@@ -165,7 +164,7 @@
             .print-grid-compress {
                 display: grid !important;
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                gap: 8px !important;
+                gap: 10px !important;
             }
             
             .no-print { display: none !important; }
@@ -207,7 +206,7 @@
 
     <!-- PAGE 1: COVER SLIDE -->
     <section class="hero-section bg-tq-black text-tq-ivory bg-orbital border-b border-tq-gold relative overflow-hidden min-h-[calc(100vh-80px)] print:min-h-[100vh] flex flex-col justify-center">
-        <div class="hidden print:block text-center mt-6 mb-6 w-full">
+        <div class="hidden print:block text-center mt-6 mb-8 w-full">
             <div class="logo-text text-2xl font-bold text-[#C6A04A] tracking-[0.15em] font-serif leading-none uppercase">
                 TERRAQUEST FZCO
             </div>
@@ -253,17 +252,17 @@
     <main class="max-w-4xl mx-auto px-6 lg:px-8 py-20 md:py-24 print:py-0">
 
         <!-- PAGE 2: CONFIDENTIALITY UNDERTAKING -->
-        <article class="mb-24 print:mb-0 print-canvas-section" style="justify-content: center;">
+        <article class="mb-24 print:mb-0 print-canvas-section">
             <header class="mb-8 pb-4 border-b border-tq-stone/40 text-center">
                 <h2 class="text-2xl md:text-3xl font-serif text-tq-black font-normal uppercase tracking-wide">Important Legal Notice & Supplemental Privilege Covenant</h2>
             </header>
             
-            <div class="font-sans text-[14px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3.5">
+            <div class="font-sans text-[14.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
                 <p class="font-semibold text-tq-black">This Strategic Expansion Memorandum constitutes Addendum 01 to the Master Joint Venture Term Sheet for Project Ndegwa and is strictly private, confidential, and legally privileged.</p>
                 <p>It is furnished by TerraQuest Investments FZCO solely for the confidential evaluation of designated authorized recipients: the Investment Committee and Board of Directors of Golden Nile Trading LLC (the Investor), and the Board of Directors and Principal Shareholders of PineCrest Holdings (the Investee).</p>
                 <p>By reviewing, receiving, or retaining this document, each recipient entity expressly covenants to the following mandatory terms:</p>
                 
-                <ol class="list-decimal pl-5 space-y-3 print:space-y-2 marker:text-tq-gold marker:font-bold">
+                <ol class="list-decimal pl-5 space-y-4 print:space-y-3 marker:text-tq-gold marker:font-bold">
                     <li class="pl-2"><strong>Integration with Master Term Sheet:</strong> This Addendum constitutes a supplemental strategic evaluation instrument directly referencing Project Ndegwa. All terms, governance principles, non-circumvention covenants, and dispute mechanisms established in the Master Term Sheet apply hereto.</li>
                     <li class="pl-2"><strong>Purpose Limitation:</strong> Information contained herein shall be used exclusively to evaluate, negotiate, and formalize the expansion of Project Ndegwa into the Tanzania Beef Corridor and West Kilimanjaro eco-tourism zone.</li>
                     <li class="pl-2"><strong>Reproduction & Distribution Prohibited:</strong> No portion of this document, land valuation data, corporate structuring options, or cross-border logistics layouts may be copied, reproduced, or disclosed to third parties without prior written authorization from both Principals and the Structuring Agent.</li>
@@ -275,17 +274,17 @@
 
         <!-- PAGE 3: EXECUTIVE SUMMARY & ASSET PARAMETERS -->
         <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">1.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Executive Summary & Asset Parameters</h2>
             </header>
             
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
-                <div class="avoid-break mb-4 print:mb-2">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
+                <div class="avoid-break mb-4">
                     <p>Addendum 01 introduces a strategic regional expansion option for Project Ndegwa: the acquisition and operational integration of <strong>Mountain Side Farms</strong>, a rare 9,500-acre titled estate situated in West Kilimanjaro, Tanzania. Located within close proximity to Project Ndegwa's primary rangelands in Narok, Kenya, Mountain Side Farms provides immediate access to the vast Tanzanian national cattle herd (34M+ head), large-scale irrigated fodder multiplication, and high-margin eco-tourism hospitality.</p>
                 </div>
 
-                <div class="avoid-break my-4 print:my-2">
+                <div class="avoid-break my-4">
                     <div class="table-wrapper">
                         <table>
                             <colgroup>
@@ -333,7 +332,7 @@
                     </div>
                 </div>
 
-                <div class="avoid-break mt-3">
+                <div class="avoid-break mt-4">
                     <p>The estate combines immediate operational cash flows (avocado exports and grain farming) with transformational strategic synergies for Project Ndegwa, buffering fodder security for the Narok and Kitengela feedlots while establishing a high-yield livestock backgrounding corridor in Northern Tanzania.</p>
                 </div>
             </div>
@@ -341,24 +340,24 @@
 
         <!-- PAGE 4: GEOGRAPHY & PROJECT NDEGWA SYNERGIES -->
         <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">2.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Regional Geography & Supply Synergies</h2>
             </header>
 
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-4 print:space-y-2.5">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3.5">
                 <div class="avoid-break">
                     <p>Mountain Side Farms occupies a pivotal position in West Kilimanjaro, directly across the southern border from Project Ndegwa's primary rangelands in Narok. This geography enables a cross-border agricultural corridor connecting livestock aggregation in Tanzania to processing and export infrastructure in Kenya and the UAE.</p>
                 </div>
 
-                <div class="my-3 print:my-2">
-                    <figure class="my-2 print:my-1">
+                <div class="my-4">
+                    <figure class="my-2">
                         <img src="./Mount Kilimanjaro High Resolution.jpg" alt="West Kilimanjaro Landscape - Mount Kilimanjaro" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80'">
                     </figure>
                 </div>
 
                 <div class="avoid-break">
-                    <ul class="list-none space-y-3 print:space-y-2 pl-0 my-3 print:my-2">
+                    <ul class="list-none space-y-4 print:space-y-2.5 pl-0 my-3">
                         <li class="relative pl-6">
                             <span class="absolute left-0 top-2 w-1.5 h-1.5 bg-tq-gold rounded-full"></span>
                             <strong class="font-semibold text-tq-black">1. Tanzania Beef Corridor Access:</strong> Tanzania holds Africa's second-largest livestock herd (34M+ cattle). Mountain Side Farms serves as Project Ndegwa's primary backgrounding and quarantine hub, aggregating young bulls from pastoralist networks across Northern Tanzania.
@@ -378,46 +377,46 @@
 
         <!-- PAGE 5: FOUR ENTERPRISE VERTICALS -->
         <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">3.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Four Commercial Enterprise Pillars</h2>
             </header>
 
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-4 print:space-y-2">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
                 <p>Mountain Side Farms diversifies Project Ndegwa's operating base across four high-margin commercial pillars:</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print:grid-cols-2 print:gap-3 my-3 print:my-2">
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1">1. Livestock Aggregation</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 print:grid-cols-2 print:gap-3.5 my-3">
+                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">1. Livestock Aggregation</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Establishes a 10,000-head backgrounding operation. Aggregates native Tanzanian zebu breeds, applying Boran embryo genetic upgrades from Project Ndegwa's IVF cleanroom laboratory to improve carcase yields.
                         </p>
                     </div>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1">2. Irrigated Fodder Buffer</strong>
+                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">2. Irrigated Fodder Buffer</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Deploys center-pivot irrigation across 2,500 acres for Rhodes grass, lucerne, and silage production. Provides dedicated feed security to insulate Project Ndegwa's Narok and Kitengela finishing yards from drought.
                         </p>
                     </div>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1">3. Luxury Eco-Tourism Retreat</strong>
+                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-gold">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">3. Luxury Eco-Tourism Retreat</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Develops a 16-to-24 key luxury safari camp on the 900-acre pristine wilderness section (~7 km from Mount Kilimanjaro's Londorossi Gate), capturing premium mountaineering and conservation tourism revenue.
                         </p>
                     </div>
 
-                    <div class="bg-white p-4 print:p-2.5 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
-                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1">4. Commercial Crop Exports</strong>
+                    <div class="bg-white p-5 print:p-3 border border-tq-stone/20 shadow-sm rounded-sm box-border w-full border-t-4 border-t-tq-black">
+                        <strong class="font-serif text-lg print:text-sm text-tq-black block mb-2 border-b border-tq-stone/30 pb-1.5">4. Commercial Crop Exports</strong>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90">
                             Optimizes existing Hass avocado orchards and commercial wheat rotations, leveraging Project Ndegwa's UAE trading subsidiary (UAE OpCo) to distribute premium produce directly to GCC retail channels.
                         </p>
                     </div>
                 </div>
 
-                <div class="my-3 print:my-1">
-                    <figure class="my-2 print:my-1">
+                <div class="my-3">
+                    <figure class="my-2">
                         <img src="./Luxury Eco Lodge Camp.png" alt="Luxury Wilderness Camp Concept" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80'">
                     </figure>
                 </div>
@@ -426,41 +425,41 @@
 
         <!-- PAGE 6: STRUCTURING PATHWAYS & CORPORATE STRUCTURE -->
         <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">4.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Project Ndegwa Structuring Strategies</h2>
             </header>
 
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-4 print:space-y-2">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
                 <p>To acquire and operationalize Mountain Side Farms within Project Ndegwa, the corporate structure integrates a dedicated <strong>Tanzania OpCo</strong> under the ADGM Holding level (UAE InvestCo):</p>
 
-                <div class="my-3 print:my-1">
-                    <figure class="my-2 print:my-1">
+                <div class="my-3">
+                    <figure class="my-2">
                         <img src="./Proposed Corporate Governance Structure with TZ. Fig.1.png" alt="Proposed Corporate Structure with Tanzania OpCo" class="w-full max-w-3xl h-auto object-contain rounded-sm shadow-sm print:shadow-none mx-auto block" onerror="this.style.display='none'">
                     </figure>
                 </div>
 
                 <p class="mt-2">Two distinct transaction structures are presented for review by the Investment Committee and Board of Directors:</p>
 
-                <div class="space-y-4 print:space-y-2.5 my-3 print:my-2">
-                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-gold border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 01: Joint Equity Acquisition (SPV Buyout)</h3>
+                <div class="space-y-5 print:space-y-3 my-3">
+                    <div class="bg-white p-5 print:p-3 border-l-4 border-tq-gold border border-tq-stone/20 rounded-sm shadow-sm">
+                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1.5">Strategy 01: Joint Equity Acquisition (SPV Buyout)</h3>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-2">
                             UAE InvestCo incorporates a wholly owned subsidiary (Tanzania SPV) to acquire 100% of the titles and assets of Mountain Side Farms for USD 28,000,000.
                         </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
+                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-1">
                             <li><strong>Funding Mechanism:</strong> Funded via Investor asset-backed capital commitment appended to Account 2.</li>
                             <li><strong>Capital Amortization:</strong> Acquisition capital is amortized under Tier 2 of Project Ndegwa's Revenue Waterfall.</li>
                             <li><strong>Governance:</strong> Fully consolidated under Project Ndegwa's non-dilutive 50/50 ordinary equity parity.</li>
                         </ul>
                     </div>
 
-                    <div class="bg-white p-4 print:p-2.5 border-l-4 border-tq-black border border-tq-stone/20 rounded-sm shadow-sm">
-                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1">Strategy 02: Investee Acquisition & Joint Operationalisation</h3>
+                    <div class="bg-white p-5 print:p-3 border-l-4 border-tq-black border border-tq-stone/20 rounded-sm shadow-sm">
+                        <h3 class="font-serif text-base print:text-sm text-tq-black mb-1.5">Strategy 02: Investee Acquisition & Joint Operationalisation</h3>
                         <p class="text-xs print:text-[8.5pt] leading-relaxed text-tq-charcoal/90 mb-2">
                             The Investee acquires the land title unencumbered on its balance sheet (held as an Excluded Asset), ring-fencing land ownership while executing long-term commercial operational leases with Project Ndegwa.
                         </p>
-                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-0.5">
+                        <ul class="list-disc pl-5 text-[11px] print:text-[8pt] text-tq-charcoal/80 space-y-1">
                             <li><strong>25-Year Commercial Lease:</strong> Investee grants a 25-year operational lease over grazing and fodder acreage to Kenya OpCo / Tanzania OpCo at Cost-Plus rates.</li>
                             <li><strong>Hospitality Joint Venture:</strong> A dedicated 50/50 operating vehicle (Hospitality OpCo) is established to build and operate the 900-acre luxury eco-lodge.</li>
                             <li><strong>Asset Protection:</strong> Land ownership remains unencumbered, shielding core real estate from enterprise liabilities.</li>
@@ -472,17 +471,17 @@
 
         <!-- PAGE 7: TREASURY & WATERFALL INTEGRATION -->
         <article class="mb-24 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">5.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Treasury & Waterfall Integration</h2>
             </header>
 
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-6 print:space-y-4">
                 <div class="avoid-break">
                     <p>All operational revenues generated by Mountain Side Farms (livestock transfers, fodder sales, avocado export receipts, and hospitality income) are fully integrated into Project Ndegwa's central treasury administration and swept through the established Four-Tier Distribution Waterfall:</p>
                 </div>
 
-                <div class="avoid-break my-4 print:my-2">
+                <div class="avoid-break my-4">
                     <div class="table-wrapper">
                         <table>
                             <colgroup>
@@ -524,7 +523,7 @@
                     </div>
                 </div>
 
-                <div class="avoid-break mt-3">
+                <div class="avoid-break mt-4">
                     <p>This treasury structure guarantees that expansion revenues reinforce enterprise liquidity, ensure capital recovery, and protect equal dividend distributions under Project Ndegwa's governance framework.</p>
                 </div>
             </div>
@@ -532,55 +531,55 @@
 
         <!-- PAGE 8: NEXT STEPS & 7-STAGE IMPLEMENTATION SEQUENCE -->
         <article class="mb-10 print:mb-0 print-canvas-section">
-            <header class="mb-6 pb-3 border-b border-tq-stone/40 flex items-baseline gap-4 print:mb-4">
+            <header class="mb-8 pb-4 border-b border-tq-stone/40 flex items-baseline gap-4 print:mb-4">
                 <span class="text-tq-gold font-serif text-2xl md:text-3xl">6.</span>
                 <h2 class="text-3xl md:text-4xl font-serif text-tq-black font-normal">Next Steps & Implementation Sequence</h2>
             </header>
 
-            <div class="font-sans text-[15px] print:text-[9.5pt] leading-relaxed text-tq-charcoal space-y-4 print:space-y-2">
+            <div class="font-sans text-[15.5px] print:text-[10pt] leading-relaxed text-tq-charcoal space-y-5 print:space-y-3">
                 <p>To execute the Mountain Side Farms expansion option, the Principals shall proceed through a mandatory Seven-Stage Implementation Sequence aligned with Project Ndegwa's governance framework:</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 print-grid-compress mt-4 print:mt-2">
-                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 01</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Discussion, Investment Alignment and Strategy Selection</h4>
-                        <p class="text-xs print:text-[8pt] text-tq-charcoal/80 leading-relaxed">Strategic evaluation by the Investment Committee and Board of Directors to evaluate commercial synergies and formally select Strategy 01 or Strategy 02.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print-grid-compress mt-4 print:mt-2">
+                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 01</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Discussion, Investment Alignment and Strategy Selection</h4>
+                        <p class="text-xs print:text-[8.5pt] text-tq-charcoal/80 leading-relaxed">Strategic evaluation by the Investment Committee and Board of Directors to evaluate commercial synergies and formally select Strategy 01 or Strategy 02.</p>
                     </div>
 
-                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 02</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Term Negotiations and Execution of Term Sheet</h4>
-                        <p class="text-xs print:text-[8pt] text-[#080808]/90 leading-relaxed">Negotiation of transaction parameters, valuation mechanics, operational lease terms, and formal execution of Addendum 01 to the Master Term Sheet.</p>
+                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 02</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Term Negotiations and Execution of Term Sheet</h4>
+                        <p class="text-xs print:text-[8.5pt] text-[#080808]/90 leading-relaxed">Negotiation of transaction parameters, valuation mechanics, operational lease terms, and formal execution of Addendum 01 to the Master Term Sheet.</p>
                     </div>
 
-                    <div class="bg-[#242424] text-tq-ivory border-t-4 border-[#B8B1A3] p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#B8B1A3] font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 03</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1">Due Diligence Aligned to Investment Strategy</h4>
-                        <p class="text-xs print:text-[8pt] text-[#B8B1A3] leading-relaxed">Comprehensive legal, cadastral, environmental, biological, and hydrological due diligence across the 8 registered title deeds and active boreholes in Tanzania.</p>
+                    <div class="bg-[#242424] text-tq-ivory border-t-4 border-[#B8B1A3] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-[#B8B1A3] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 03</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5">Due Diligence Aligned to Investment Strategy</h4>
+                        <p class="text-xs print:text-[8.5pt] text-[#B8B1A3] leading-relaxed">Comprehensive legal, cadastral, environmental, biological, and hydrological due diligence across the 8 registered title deeds and active boreholes in Tanzania.</p>
                     </div>
 
-                    <div class="bg-white border-t-4 border-[#242424] p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#242424] font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 04</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Inclusion into Project Ndegwa Master Plan Capital Allocation</h4>
-                        <p class="text-xs print:text-[8pt] text-[#242424] leading-relaxed">Integration of asset parameters, livestock backgrounding quotas, pivot irrigation schedules, and eco-lodge budget line items into the Master Engineering Plan.</p>
+                    <div class="bg-white border-t-4 border-[#242424] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-[#242424] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 04</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Inclusion into Project Ndegwa Master Plan Capital Allocation</h4>
+                        <p class="text-xs print:text-[8.5pt] text-[#242424] leading-relaxed">Integration of asset parameters, livestock backgrounding quotas, pivot irrigation schedules, and eco-lodge budget line items into the Master Engineering Plan.</p>
                     </div>
 
-                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 05</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Capital Allocation at Board Level</h4>
-                        <p class="text-xs print:text-[8pt] text-tq-charcoal/80 leading-relaxed">Formal Board Supermajority approval and ring-fencing of expansion capital tranches, establishing escrow drawdown authorizations under the Four-Tier Waterfall.</p>
+                    <div class="bg-white border-t-4 border-tq-gold p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-tq-gold font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 05</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Capital Allocation at Board Level</h4>
+                        <p class="text-xs print:text-[8.5pt] text-tq-charcoal/80 leading-relaxed">Formal Board Supermajority approval and ring-fencing of expansion capital tranches, establishing escrow drawdown authorizations under the Four-Tier Waterfall.</p>
                     </div>
 
-                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col avoid-break">
-                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 06</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Incorporation of New Tanzania OpCo</h4>
-                        <p class="text-xs print:text-[8pt] text-[#080808]/90 leading-relaxed">Corporate registration of the Tanzanian operating entity (Tanzania OpCo / SPV), obtaining statutory land approvals, agricultural licences, and DVS clearances.</p>
+                    <div class="bg-white border-t-4 border-[#080808] p-4 print:p-3 rounded-sm shadow-sm flex flex-col avoid-break">
+                        <span class="text-[#080808] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 06</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Incorporation of New Tanzania OpCo</h4>
+                        <p class="text-xs print:text-[8.5pt] text-[#080808]/90 leading-relaxed">Corporate registration of the Tanzanian operating entity (Tanzania OpCo / SPV), obtaining statutory land approvals, agricultural licences, and DVS clearances.</p>
                     </div>
 
-                    <div class="bg-[#F4F0E7] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-4 print:p-2.5 rounded-sm shadow-sm flex flex-col md:col-span-2 avoid-break print:col-span-2">
-                        <span class="text-[#C6A04A] font-bold font-sans text-xs print:text-[7.5pt] tracking-widest uppercase mb-1">Stage 07</span>
-                        <h4 class="font-serif text-sm print:text-[9pt] leading-tight mb-1 text-tq-black">Execution of Investment</h4>
-                        <p class="text-xs print:text-[8pt] text-[#242424] leading-relaxed">Execution of acquisition instruments or operational leases, release of Phase A expansion capital from escrow, and commencement of physical site deployment.</p>
+                    <div class="bg-[#F4F0E7] border-t-4 border-[#C6A04A] outline outline-1 outline-[#B8B1A3]/30 p-4 print:p-3 rounded-sm shadow-sm flex flex-col md:col-span-2 avoid-break print:col-span-2">
+                        <span class="text-[#C6A04A] font-bold font-sans text-xs print:text-[8pt] tracking-widest uppercase mb-1">Stage 07</span>
+                        <h4 class="font-serif text-sm print:text-[9.5pt] leading-tight mb-1.5 text-tq-black">Execution of Investment</h4>
+                        <p class="text-xs print:text-[8.5pt] text-[#242424] leading-relaxed">Execution of acquisition instruments or operational leases, release of Phase A expansion capital from escrow, and commencement of physical site deployment.</p>
                     </div>
                 </div>
             </div>
