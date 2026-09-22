@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="520" viewBox="0 0 1800 520" role="img" aria-labelledby="title desc">
+  <title id="title">PlayformIQ logo</title>
+  <desc id="desc">PlayformIQ wordmark with colorful play-bubble icon and IQ mark.</desc>
+  <defs>
+    <linearGradient id="bubble" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE500"/>
+      <stop offset="55%" stop-color="#FFB900"/>
+      <stop offset="100%" stop-color="#FF6A00"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00695C"/>
+      <stop offset="55%" stop-color="#22A94A"/>
+      <stop offset="100%" stop-color="#A7D900"/>
+    </linearGradient>
+    <linearGradient id="iq" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD800"/>
+      <stop offset="45%" stop-color="#FF7A00"/>
+      <stop offset="100%" stop-color="#FF4D2E"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#00695C" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- Play bubble icon -->
+  <g transform="translate(40 65)" filter="url(#shadow)">
+    <circle cx="245" cy="105" r="58" fill="url(#green)" opacity=".95"/>
+    <circle cx="78" cy="230" r="48" fill="url(#green)" opacity=".92"/>
+    <circle cx="55" cy="120" r="48" fill="#FF5A18"/>
+    <circle cx="320" cy="250" r="32" fill="url(#green)"/>
+    <circle cx="330" cy="65" r="18" fill="#FFD600"/>
+    <circle cx="365" cy="165" r="13" fill="#FF8A00"/>
+    <circle cx="110" cy="45" r="15" fill="#A6D900"/>
+
+    <path d="M105 88
+             C105 49 136 25 180 25
+             H270
+             C324 25 356 57 356 111
+             V195
+             C356 246 325 278 276 278
+             H205
+             L160 315
+             V278
+             H174
+             C133 278 105 246 105 195 Z"
+          fill="url(#bubble)"/>
+
+    <!-- white P -->
+    <path d="M160 82 H216
+             C258 82 282 104 282 137
+             C282 171 258 191 217 191
+             H196 V229
+             H160 Z
+             M196 112 V163 H214
+             C235 163 246 154 246 137
+             C246 120 235 112 214 112 Z"
+          fill="#FFFFFF"/>
+
+    <!-- orange play triangle -->
+    <path d="M208 124 L208 153 L235 138.5 Z" fill="#FF7A00"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="Lato, Arial, sans-serif" font-weight="900" fill="#003F3F">
+    <text x="430" y="300" font-size="188" letter-spacing="-8">Playform</text>
+  </g>
+
+  <!-- I -->
+  <rect x="1320" y="145" width="38" height="165" rx="19" fill="url(#iq)"/>
+
+  <!-- Q -->
+  <circle cx="1465" cy="225" r="78" fill="none" stroke="url(#green)" stroke-width="38"/>
+  <path d="M1515 276 L1570 331" stroke="#6BCB18" stroke-width="38" stroke-linecap="round"/>
+
+  <!-- Tagline -->
+  <text x="435" y="390" font-family="Lato, Arial, sans-serif" font-size="52" font-weight="400"
+        fill="#064B4B" letter-spacing="1">Turn audiences into participants.</text>
+</svg>
