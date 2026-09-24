@@ -1,0 +1,812 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Working Paper: Guaranteed Fund | SIB &amp; Terraquest</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+        
+        :root {
+            --color-espresso: #2C1810;
+            --color-espresso-dark: #1E100B;
+            --color-gold: #C69214;
+            --color-gold-light: #FDF8ED;
+            --color-gold-border: rgba(198, 146, 20, 0.4);
+            --color-cream: #FAF8F5;
+        }
+
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            color: #27272a;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Top Bar Styling */
+        .top-action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .master-container {
+            width: 100%;
+            max-width: 210mm;
+            margin: 28px 0 60px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* Individual A4 Page Blocks */
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16mm 18mm 14mm 18mm;
+            overflow: hidden;
+        }
+
+        .cover-page {
+            padding: 0;
+            background-color: #ffffff;
+            border: 10px solid #2C1810;
+        }
+
+        .back-cover {
+            padding: 0;
+            background-color: #1E100B;
+            border: 10px solid #2C1810;
+            color: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, .serif-heading {
+            font-family: 'Georgia', serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .text-espresso { color: #2C1810; }
+        .bg-espresso { background-color: #2C1810; }
+        .border-espresso { border-color: #2C1810; }
+
+        .text-gold { color: #C69214; }
+        .bg-gold { background-color: #C69214; }
+        .border-gold { border-color: #C69214; }
+        .bg-card { background-color: #FAF8F5; }
+
+        p {
+            line-height: 1.65;
+            font-size: 0.88rem;
+            color: #3f3f46;
+            margin-bottom: 0.95rem;
+            text-align: justify;
+        }
+
+        p strong {
+            color: #2C1810;
+            font-weight: 600;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #2C1810;
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+            margin-top: 6px;
+        }
+
+        .section-badge {
+            background-color: #2C1810;
+            color: #FFB81C;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2C1810;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e4e4e7;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e4e4e7;
+            padding-top: 8px;
+            margin-top: auto;
+            font-size: 0.68rem;
+            color: #71717a;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+
+        th {
+            background-color: #2C1810;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+            letter-spacing: 0.05em;
+            padding: 7px 8px;
+            border: 1px solid #2C1810;
+        }
+
+        td {
+            border: 1px solid #e4e4e7;
+            padding: 6px 8px;
+            vertical-align: middle;
+            color: #27272a;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fbfbfa;
+        }
+
+        .highlight-row {
+            background-color: #FDF8ED !important;
+            font-weight: 600;
+        }
+
+        .formula-card {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFEB 100%);
+            border-left: 4px solid #C69214;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin: 12px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .top-action-bar {
+                display: none !important;
+            }
+            .master-container {
+                margin: 0 !important;
+                gap: 0 !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
+            .a4-page {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                padding: 16mm 18mm 14mm 18mm !important;
+            }
+            .cover-page, .back-cover {
+                border: 10px solid #2C1810 !important;
+                padding: 0 !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" data-snapdom="injected-import"></head>
+<body>
+
+    <!-- TOP INTERACTIVE ACTION BAR (Hidden in Print) -->
+    <div class="top-action-bar">
+        <div class="max-w-6xl mx-auto px-6 py-3.5 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-slate-950 font-bold shadow-md">
+                    <i class="fa-solid fa-file-contract text-sm"></i>
+                </div>
+                <div>
+                    <div class="text-white font-semibold text-sm tracking-wide flex items-center gap-2">Working Paper: Guaranteed Asset <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-mono font-medium">RBA TABLE G / CAT 4</span></div>
+                    <div class="text-slate-400 text-xs">Standard Investment Bank Limited ("SIB") &amp; Terraquest Investments FZCO • Institutional Guaranteed Asset Class</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden sm:block pr-3 border-r border-slate-700">
+                    <span class="text-slate-400 text-xs block">Standard Investment Bank Limited ("SIB") &amp; Terraquest Investments FZCO • Institutional Guaranteed Asset Class</span>
+                    <span class="text-slate-200 text-xs font-semibold">A4 Multi-Page Ready (6 Pages)</span>
+                </div>
+                <button onclick="window.print()" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-amber-500/25 transition-all flex items-center gap-2 transform active:scale-95 cursor-pointer">
+                    <i class="fa-solid fa-print text-sm"></i>
+                    <span class="">Print / Save as PDF</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENT CONTAINER -->
+    <div class="master-container">
+
+        <!-- ==========================================
+             PAGE 1: COVER PAGE
+        =========================================== -->
+        <div class="a4-page cover-page">
+            <div class="h-full flex flex-col justify-between p-10 relative bg-[#FAF8F5]">
+                <!-- Decorative Border Accent -->
+                <div class="absolute inset-4 border border-[#2C1810]/20 pointer-events-none"></div>
+
+                <!-- Top Metadata Header -->
+                <div class="relative z-10 flex justify-between items-start border-b border-[#2C1810]/20 pb-5">
+                    <div class="flex items-center gap-3">
+                        <!-- SIB Emblem -->
+                        <div class="w-10 h-10 bg-[#2C1810] flex items-center justify-center rounded">
+                            <span class="text-[#FFB81C] font-bold text-xs tracking-wider">SIB</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-[#2C1810] uppercase tracking-widest">Standard Investment Bank</span>
+                            <span class="block text-[10px] text-zinc-500 font-medium">Licensed Investment Bank &amp; Approved Issuer</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block bg-[#2C1810] text-[#FFB81C] text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded mb-1">Confidential / Restricted</span>
+                        <div class="text-[9px] font-mono text-zinc-600">REF: SIB-TQ-WP-2026-V1</div>
+                    </div>
+                </div>
+
+                <!-- Center Cover Body -->
+                <div class="relative z-10 flex flex-col items-center text-center my-auto py-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#2C1810]/5 border border-[#C69214]/40 rounded-full mb-6">
+                        <span class="w-2 h-2 rounded-full bg-[#C69214]"></span>
+                        <span class="text-[11px] font-bold tracking-widest uppercase text-[#2C1810]">Institutional Working Paper</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl text-[#2C1810] font-bold tracking-tight serif-heading leading-tight mb-4 max-w-xl">
+                        Financially Engineered Guaranteed Fund
+                    </h1>
+                    <p class="text-base text-zinc-700 max-w-lg mb-8 font-normal leading-relaxed text-center">Structuring an Engineered Guaranteed Asset Class (RBA Table G, Category 4) — Bankruptcy-Remote, Senior Secured Trade Finance Asset Allocation for Kenyan Retirement Funds</p>
+
+                    <!-- Key Metrics Pill Box -->
+                    <div class="w-full max-w-lg grid grid-cols-3 gap-3 bg-white p-4 rounded-xl border border-[#2C1810]/15 shadow-sm mb-6"><div class="border-r border-zinc-200 pr-2"><div class="text-[8.5px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Target Scale</div><div class="text-sm font-bold text-[#2C1810]">USD 400.0M</div><div class="text-[9.5px] text-[#C69214] font-semibold">~KES 54.0B | ~9.0% Share</div></div><div class="border-r border-zinc-200 pr-2"><div class="text-[8.5px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Guaranteed Segment</div><div class="text-sm font-bold text-[#2C1810]">KES 597.07B</div><div class="text-[9.5px] text-emerald-600 font-semibold">19.35% Sector Share</div></div><div class=""><div class="text-[8.5px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Industry AUM</div><div class="text-sm font-bold text-[#2C1810]">KES 3,166.84B</div><div class="text-[9.5px] text-zinc-500 font-semibold">~USD 23.46B (Jun '26)</div></div></div>
+
+                    <!-- Target Sector Definition -->
+                    <div class="text-xs text-zinc-600 uppercase tracking-widest font-semibold flex items-center gap-3">
+                        <span class="">Retirement Benefits Authority</span>
+                        <span class="w-1 h-1 rounded-full bg-[#C69214]"></span>
+                        <span class="">Two Rivers SEZ (TRIFIC)</span>
+                        <span class="w-1 h-1 rounded-full bg-[#C69214]"></span>
+                        <span class="">Zambia Repo Facility</span>
+                    </div>
+                </div>
+
+                <!-- Bottom Sign-off / Entity Footnote -->
+                <div class="relative z-10 pt-4 border-t border-[#2C1810]/20">
+                    <div class="grid grid-cols-2 gap-8 text-left text-xs mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded bg-white border border-zinc-300 flex items-center justify-center font-bold text-[#2C1810]">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <span class="block text-[9px] text-zinc-500 uppercase font-bold tracking-wider">Strategic Co-Arranger &amp; Approved Issuer</span>
+                                <span class="font-bold text-[#2C1810] text-xs">Standard Investment Bank Limited</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded bg-white border border-zinc-300 flex items-center justify-center font-bold text-[#C69214]">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <span class="block text-[9px] text-zinc-500 uppercase font-bold tracking-wider">Structuring Partner &amp; Asset Originator</span>
+                                <span class="font-bold text-[#2C1810] text-xs">Terraquest Investments FZCO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-[8px] text-zinc-500 text-center uppercase tracking-wider">
+                        August 2026 • Nairobi, Kenya • Strictly Private &amp; Institutional Circulation Only
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 2: EXECUTIVE SUMMARY & AUM LEAGUE TABLE
+        =========================================== -->
+        <div class="a4-page">
+            <div>
+                <!-- Page Top Header -->
+                <div class="page-header">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-xs uppercase text-[#2C1810] tracking-wider">Working Paper</span>
+                        <span class="text-zinc-300">|</span>
+                        <span class="text-[11px] text-zinc-500">Guaranteed Fund Institutional Structuring</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-400">Section 1.0</span>
+                </div>
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-badge">1.0</span>
+                    <h2 class="section-title-text serif-heading">Approved Issuers Market Structure &amp; AUM</h2>
+                </div>
+
+                <p class="">The Kenyan Guaranteed Fund market holds <strong class="">KES 597.07 billion</strong>, with five incumbent life insurers controlling <strong class="">83.42% (KES 498.07 billion)</strong> of total segment assets. Deploying a <strong class="">USD 400M (~KES 54.0B)</strong> allocation positions SIB immediately as the <strong class="">#6 Approved Issuer nationwide</strong>. All 19 active issuers operate this asset class as an unsegregated balance sheet liability (Deposit Administration Contract) commingled within their general life funds. Pension trustees operate as unsecured creditors exposed to insurance underwriting volatility, real estate illiquidity, and insurer corporate solvency.</p>
+
+                <!-- League Table -->
+                <div class="my-3 border border-zinc-200 rounded-md overflow-hidden shadow-xs">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="w-8 text-center">Rank</th>
+                                <th class="">Approved Issuer</th>
+                                <th class="text-right">Dec 2025 (KES)</th>
+                                <th class="text-right">Jun 2026 (KES)</th>
+                                <th class="text-right">Market Share</th>
+                                <th class="text-center">HY Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center font-bold">1</td>
+                                <td class="">The Jubilee Insurance Company of Kenya Limited</td>
+                                <td class="text-right mono text-xs">119,125,783,854</td>
+                                <td class="text-right mono text-xs font-semibold">136,611,240,421</td>
+                                <td class="text-right font-medium">22.88%</td>
+                                <td class="text-center text-emerald-700 font-semibold">+14.68%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center font-bold">2</td>
+                                <td class="">ICEA Lion Life Assurance Limited</td>
+                                <td class="text-right mono text-xs">126,179,981,465</td>
+                                <td class="text-right mono text-xs font-semibold">135,353,660,462</td>
+                                <td class="text-right font-medium">22.67%</td>
+                                <td class="text-center text-emerald-700 font-semibold">+7.27%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center font-bold">3</td>
+                                <td class="">Britam Life Assurance Company Kenya Limited</td>
+                                <td class="text-right mono text-xs">77,271,688,116</td>
+                                <td class="text-right mono text-xs font-semibold">87,216,832,735</td>
+                                <td class="text-right font-medium">14.61%</td>
+                                <td class="text-center text-emerald-700 font-semibold">+12.87%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center font-bold">4</td>
+                                <td class="">Kenindia Assurance Company Limited</td>
+                                <td class="text-right mono text-xs">63,661,274,133</td>
+                                <td class="text-right mono text-xs font-semibold">81,044,671,706</td>
+                                <td class="text-right font-medium">13.57%</td>
+                                <td class="text-center text-emerald-700 font-semibold">+27.31%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center font-bold">5</td>
+                                <td class="">GA Life Assurance Limited</td>
+                                <td class="text-right mono text-xs">50,361,071,740</td>
+                                <td class="text-right mono text-xs font-semibold">57,842,372,224</td>
+                                <td class="text-right font-medium">9.69%</td>
+                                <td class="text-center text-emerald-700 font-semibold">+14.86%</td>
+                            </tr>
+                            <tr class="bg-zinc-100 font-bold border-y-2 border-zinc-400">
+                                <td class="text-center">—</td>
+                                <td class="">Top 5 Concentration Subtotal</td>
+                                <td class="text-right mono text-xs">436,599,799,308</td>
+                                <td class="text-right mono text-xs">498,068,777,548</td>
+                                <td class="text-right">83.42%</td>
+                                <td class="text-center text-emerald-700">+14.08%</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="text-center font-bold text-[#C69214]">Target</td>
+                                <td class="font-bold text-[#2C1810]">Standard Investment Bank (Proposed USD 400M)</td>
+                                <td class="text-right mono text-xs text-zinc-500">—</td>
+                                <td class="text-right mono text-xs font-bold text-[#2C1810]">54,000,000,000</td>
+                                <td class="text-right font-bold text-[#C69214]">~9.04%</td>
+                                <td class="text-center font-bold text-amber-600">New Entry</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">6</td>
+                                <td class="">CIC Life Assurance Limited</td>
+                                <td class="text-right mono text-xs">20,176,318,194</td>
+                                <td class="text-right mono text-xs">22,997,836,363</td>
+                                <td class="text-right">3.85%</td>
+                                <td class="text-center text-emerald-700">+13.98%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">7</td>
+                                <td class="">Pioneer Assurance Company Ltd.</td>
+                                <td class="text-right mono text-xs">13,182,648,546</td>
+                                <td class="text-right mono text-xs">15,371,764,902</td>
+                                <td class="text-right">2.57%</td>
+                                <td class="text-center text-emerald-700">+16.61%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">8</td>
+                                <td class="">Equity Life Assurance Company (Kenya) Limited</td>
+                                <td class="text-right mono text-xs">11,689,460,611</td>
+                                <td class="text-right mono text-xs">13,714,803,526</td>
+                                <td class="text-right">2.30%</td>
+                                <td class="text-center text-emerald-700">+17.33%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">9</td>
+                                <td class="">APA Life Assurance Limited</td>
+                                <td class="text-right mono text-xs">10,803,237,163</td>
+                                <td class="text-right mono text-xs">12,791,024,723</td>
+                                <td class="text-right">2.14%</td>
+                                <td class="text-center text-emerald-700">+18.40%</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">10–19</td>
+                                <td class="text-zinc-600">Other Issuers (UAP, Madison, Kenyan Alliance, Sanlam, etc.)</td>
+                                <td class="text-right mono text-xs">29,942,194,297</td>
+                                <td class="text-right mono text-xs">34,121,481,545</td>
+                                <td class="text-right">5.72%</td>
+                                <td class="text-center text-emerald-700">+13.96%</td>
+                            </tr>
+                            <tr class="bg-[#2C1810] text-white font-bold">
+                                <td class="text-center text-[#FFB81C]">TOTAL</td>
+                                <td class="">All 19 Active Issuers (RBA Universe)</td>
+                                <td class="text-right mono text-xs">522,393,658,119</td>
+                                <td class="text-right mono text-xs text-[#FFB81C]">597,065,588,607</td>
+                                <td class="text-right">100.00%</td>
+                                <td class="text-center text-emerald-400">+14.29%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 1.1: The Misnomer -->
+                <div class="mt-4"><h3 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-1.5 flex items-center gap-2"><span class="w-1.5 h-3 bg-[#C69214] rounded-xs inline-block"></span>1.1 REGULATORY MISNOMER &amp; STATUTORY JURISPRUDENCE</h3><p class="text-[11px] text-zinc-600 !mb-2 leading-relaxed">The term 'Guaranteed Fund' conflates four disparate legal and regulatory regimes across Kenya's financial framework:</p><div class="border border-zinc-200 rounded overflow-hidden shadow-xs mb-2"><table><thead><tr><th class="text-left">Regulatory Body</th><th class="text-left">Governing Law</th><th class="text-left">Statutory Definition</th><th class="text-left">Legal Basis</th><th class="text-left">Structural Function</th></tr></thead><tbody><tr><td class="font-bold text-[#2C1810]">Retirement Benefits Authority (RBA)</td><td class="">Retirement Benefits Act (1997)</td><td class="font-semibold text-emerald-800">Approved Asset Class (Table G, Cat. 4)</td><td class="">Forms &amp; Fees Regulations, 2000</td><td class="">Prescribed statutory investment class</td></tr><tr><td class="font-bold text-[#2C1810]">Capital Markets Authority (CMA)</td><td class="">Capital Markets Act (Cap. 485A)</td><td class="">Collective Investment Scheme (CIS)</td><td class="">Section 24, Cap. 485A</td><td class="">Retail pooled NAV vehicle</td></tr><tr><td class="font-bold text-[#2C1810]">Insurance Regulatory Authority (IRA)</td><td class="">Insurance Act (Cap. 487)</td><td class="">Deposit Administration Policy</td><td class="">Section 72, Cap. 487</td><td class="">Actuarial life fund pool (4% floor)</td></tr><tr><td class="font-bold text-[#2C1810]">Central Bank of Kenya (CBK)</td><td class="">Banking Act (Cap. 488)</td><td class="">Commercial Credit Guarantee</td><td class="">CBK Prudential Guidelines</td><td class="">Off-balance-sheet credit facility</td></tr></tbody></table></div><div class="p-2 bg-amber-50/60 border border-amber-200 rounded text-[11px] text-[#2C1810] font-medium leading-normal"><strong>Legal Conclusion:</strong> Under RBA jurisprudence, this product is an allowable Investment Asset Class governed by contract, not a variable-NAV Collective Investment Scheme.</div></div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <span class="">Standard Investment Bank Limited &amp; Terraquest Investments FZCO</span>
+                <span class="">Page 2 of 6</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 3: STATUTORY BASIS & JV GOVERNANCE
+        =========================================== -->
+        <div class="a4-page">
+            <div><div class="page-header"><div class="flex items-center gap-2"><span class="font-bold text-xs uppercase text-[#2C1810] tracking-wider">Working Paper</span><span class="text-zinc-300">|</span><span class="text-[11px] text-zinc-500">Strategic Architecture &amp; Statutory Parity</span></div><span class="text-[10px] font-mono text-zinc-400">Section 2.0</span></div><div class="section-header"><span class="section-badge">2.0</span><h2 class="section-title-text serif-heading">THE PRODUCT VISION</h2></div><p class="text-xs leading-relaxed text-zinc-700 !mb-2.5">Sub-Saharan Africa faces an annual trade finance deficit exceeding <strong>USD 120 billion (~KES 5.54 trillion)</strong> driven by structural dollar liquidity shortages and commercial bank retrenchment. The <strong>SIB–Terraquest partnership</strong> converts high-yielding, senior-secured trade finance transactions into institutional-grade, capital-preserved asset allocations for retirement funds.</p><div class="formula-card !my-2"><div class="text-[9.5px] text-zinc-500 uppercase tracking-wider font-bold mb-1.5">Statutory Definition: Regulation 2 of Retirement Benefits (Forms and Fees) Regulations, 2000</div><div class="text-xs font-mono text-[#2C1810] bg-white p-2.5 rounded border border-amber-200"><strong>"Approved Issuer"</strong>&nbsp;<span style="font-size: 0.75rem;" class="">=&nbsp;</span><div><span style="font-size: 0.75rem;"><br></span></div><div><span style="font-size: 0.75rem;" class="">[A] An insurer registered under Insurance Act (Cap. 487) </span><strong style="font-size: 0.75rem;">&nbsp;</strong><div><div><strong><br></strong></div><div><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OR&nbsp;</strong></div><div><br></div><div class="">[B] Any other issuer approved in writing under <strong>Capital Markets Act (Cap. 485A)</strong> or written law</div></div></div></div></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 my-2.5"><div class="p-2.5 bg-[#FAF8F5] border-l-2 border-[#C69214] rounded-r"><div class="text-xs font-bold text-[#2C1810] mb-0.5">Statutory Parity</div><p class="text-[10px] text-zinc-600 !mb-0 leading-normal">Insurance dominance of this asset clas refects historical underwritting habit rather than statutory excusivity. The Reteriment Benefit Act provides specifically for capital market liencees to develop a guranteed fund.</p></div><div class="p-2.5 bg-[#FAF8F5] border-l-2 border-[#2C1810] rounded-r"><div class="text-xs font-bold text-[#2C1810] mb-0.5">Non-Insurance Scope</div><p class="text-[10px] text-zinc-600 !mb-0 leading-normal">SIB underwrites capital preservation and fixed returns without actuarial risk, operating under Section 24 of Cap. 485A.</p></div><div class="p-2.5 bg-[#FAF8F5] border-l-2 border-amber-600 rounded-r"><div class="text-xs font-bold text-[#2C1810] mb-0.5">100% Portfolio Ceiling</div><p class="text-[10px] text-zinc-600 !mb-0 leading-normal">Under Table G (Category 4), retirement schemes may allocate up to 100% of fund assets into Approved Issuer guaranteed funds.</p></div></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3"><div><h4 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-1 flex items-center gap-1.5"><i class="fa-solid fa-scale-balanced text-[#C69214] text-xs"></i> 2.2 Corporate Governance Structure</h4><ul class="text-[10.5px] text-zinc-600 space-y-1 pl-3 border-l border-zinc-300"><li class=""><strong>Housing Vehicle:</strong> TRIFIC SEZ SPV serves as passive capital conduit with zero staff or operational liabilities.</li><li class=""><strong>Equity Parity:</strong> 50/50 shareholding between SIB and Terraquest for corporate governance control.</li><li class=""><strong>Board Composition:</strong> 5 seats total — 2 SIB directors, 2 Terraquest directors, and 1 Independent Chair.</li><li class=""><strong>Negative Veto:</strong> SIB holds an unyielding negative veto at Investment Committee level over every pipeline asset.</li></ul></div><div><h4 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-1 flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-[#C69214] text-xs"></i> 2.3 Accounting Treatment &amp; FX Mechanics</h4><ul class="text-[10.5px] text-zinc-600 space-y-1 pl-3 border-l border-zinc-300"><li class=""><strong>IAS 28 / IFRS 11 Equity Method:</strong> JV accounted off-balance sheet as net investment line item, shielding SIB's balance sheet.</li><li class=""><strong>Regulatory Capital Shield:</strong> Preserves CMA capital adequacy and liquid ratio compliance without recognizing USD 400M debt.</li><li class=""><strong>Currency Mechanics:</strong> KES subscriptions converted to USD at spot on receipt, securing hard-currency principal lock.</li><li class=""><strong>Yield Spread Mechanics:</strong> Underlying trade book earns 9.0%–12.0% gross p.a. against a 6.0% net guaranteed floor.</li></ul></div></div><div class="mt-3 p-2.5 bg-amber-50/60 border border-amber-200 rounded-md"><div class="text-[10px] font-bold text-[#2C1810] uppercase tracking-wider mb-1 flex items-center justify-between"><span class="">Yield Distribution &amp; Spread Mechanics Waterfall</span><span class="text-emerald-700 font-mono text-[10px]">Gross Asset Yield: 9.0% – 12.0% p.a. (USD)</span></div><div class="grid grid-cols-4 gap-2 text-center mt-1.5"><div class="bg-white p-1.5 rounded border border-amber-200"><div class="text-[8.5px] text-zinc-500 font-bold uppercase">Net Guaranteed Floor</div><div class="text-xs font-bold text-[#2C1810]">6.00% p.a.</div><div class="text-[7.5px] text-zinc-400">Contractual Base</div></div><div class="bg-white p-1.5 rounded border border-amber-200"><div class="text-[8.5px] text-zinc-500 font-bold uppercase">Liquidity Buffer</div><div class="text-xs font-bold text-[#2C1810]">1.0% – 1.5%</div><div class="text-[7.5px] text-zinc-400">Rolling Reserve</div></div><div class="bg-white p-1.5 rounded border border-amber-200"><div class="text-[8.5px] text-zinc-500 font-bold uppercase">Scheme Bonus</div><div class="text-xs font-bold text-[#2C1810]">1.0% – 2.5%</div><div class="text-[7.5px] text-zinc-400">Performance Upside</div></div><div class="bg-white p-1.5 rounded border border-amber-200"><div class="text-[8.5px] text-zinc-500 font-bold uppercase">Structuring Carry</div><div class="text-xs font-bold text-[#2C1810]">1.0% – 2.0%</div><div class="text-[7.5px] text-zinc-400">SIB &amp; Terraquest JV</div></div></div></div></div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <span class="">Standard Investment Bank Limited &amp; Terraquest Investments FZCO</span>
+                <span class="">Page 3 of 6</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 4: STRUCTURAL ENTITY FLOW & CREDIT HIERARCHY
+        =========================================== -->
+        <div class="a4-page">
+            <div>
+                <!-- Page Top Header -->
+                <div class="page-header">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-xs uppercase text-[#2C1810] tracking-wider">Working Paper</span>
+                        <span class="text-zinc-300">|</span>
+                        <span class="text-[11px] text-zinc-500">Bankruptcy-Remote Entity Architecture</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-400">Section 3.0</span>
+                </div>
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-badge">3.0</span>
+                    <h2 class="section-title-text serif-heading">Structural Entity Flow &amp; Credit Hierarchy</h2>
+                </div>
+
+                <p class="!mb-3">
+                    The corporate structure strictly separates institutional investors, the contracting vehicle, the legal asset holder, and the final borrowers. This establishes a clean, legally enforceable credit hierarchy that ensures bankruptcy remoteness at every tier.
+                </p>
+
+                <!-- High-Fidelity SVG Flow Diagram -->
+                <div class="my-2 p-3 bg-[#FAF8F5] border border-zinc-200 rounded-lg shadow-inner">
+                    <svg viewBox="0 0 680 340" class="w-full h-auto">
+                        <!-- Top Investor Tier -->
+                        <rect x="30" y="10" width="180" height="42" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.5"></rect>
+                        <text x="120" y="27" font-size="10" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">PENSION SCHEME A</text>
+                        <text x="120" y="42" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Tier-1 Institutional Fund</text>
+
+                        <rect x="250" y="10" width="180" height="42" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.5"></rect>
+                        <text x="340" y="27" font-size="10" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">PENSION SCHEME B</text>
+                        <text x="340" y="42" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Guaranteed Allocation</text>
+
+                        <rect x="470" y="10" width="180" height="42" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.5"></rect>
+                        <text x="560" y="27" font-size="10" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">PENSION SCHEME C</text>
+                        <text x="560" y="42" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Hard Currency Mandate</text>
+
+                        <!-- Connector Lines from Schemes -->
+                        <line x1="120" y1="52" x2="120" y2="70" stroke="#C69214" stroke-width="1.5"></line>
+                        <line x1="340" y1="52" x2="340" y2="70" stroke="#C69214" stroke-width="1.5"></line>
+                        <line x1="560" y1="52" x2="560" y2="70" stroke="#C69214" stroke-width="1.5"></line>
+                        <line x1="120" y1="70" x2="560" y2="70" stroke="#C69214" stroke-width="1.5"></line>
+                        <line x1="340" y1="70" x2="340" y2="82" stroke="#C69214" stroke-width="1.5"></line>
+                        <polygon points="340,86 336,78 344,78" fill="#C69214"></polygon>
+
+                        <!-- Guarantee Contract Line -->
+                        <rect x="30" y="88" width="620" height="30" rx="3" fill="#2C1810"></rect>
+                        <text x="340" y="102" font-size="9" font-weight="700" fill="#FFB81C" text-anchor="middle" font-family="'Inter', sans-serif" letter-spacing="1">MASTER GUARANTEED FUND CONTRACT LINE</text>
+                        <text x="340" y="113" font-size="7.5" fill="#f4f4f5" text-anchor="middle" font-family="'Inter', sans-serif">Contractual Returns Underwritten by SIB Approved Issuer Corporate Guarantee Undertaking</text>
+
+                        <!-- Down Arrow to TRIFIC SPV -->
+                        <line x1="340" y1="118" x2="340" y2="135" stroke="#2C1810" stroke-width="1.5"></line>
+                        <polygon points="340,140 336,132 344,132" fill="#2C1810"></polygon>
+
+                        <!-- TRIFIC SEZ SPV -->
+                        <rect x="180" y="142" width="320" height="46" rx="4" fill="#FAF8F5" stroke="#C69214" stroke-width="2"></rect>
+                        <text x="340" y="160" font-size="11" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">TRIFIC SEZ SPV LIMITED</text>
+                        <text x="340" y="173" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Capital Housing Vehicle | 50% SIB : 50% Terraquest</text>
+                        <text x="340" y="183" font-size="7.5" font-weight="600" fill="#C69214" text-anchor="middle" font-family="'Inter', sans-serif">Bankruptcy Remote • Zero Operating Overhead</text>
+
+                        <!-- Branching to Sub-SPVs -->
+                        <line x1="340" y1="188" x2="340" y2="202" stroke="#2C1810" stroke-width="1.5"></line>
+                        <line x1="120" y1="202" x2="560" y2="202" stroke="#2C1810" stroke-width="1.5"></line>
+                        <line x1="120" y1="202" x2="120" y2="216" stroke="#2C1810" stroke-width="1.5"></line>
+                        <line x1="340" y1="202" x2="340" y2="216" stroke="#2C1810" stroke-width="1.5"></line>
+                        <line x1="560" y1="202" x2="560" y2="216" stroke="#2C1810" stroke-width="1.5"></line>
+                        <polygon points="120,220 116,212 124,212" fill="#2C1810"></polygon>
+                        <polygon points="340,220 336,212 344,212" fill="#2C1810"></polygon>
+                        <polygon points="560,220 556,212 564,212" fill="#2C1810"></polygon>
+
+                        <!-- Tier 3: TRFF Sub-SPVs -->
+                        <rect x="30" y="222" width="180" height="48" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.2"></rect>
+                        <text x="120" y="238" font-size="9.5" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">TRFF-1 SPV (Zambia)</text>
+                        <text x="120" y="251" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">USD 100M Series 1 Grain Repo</text>
+                        <text x="120" y="262" font-size="7.5" font-weight="600" fill="#C69214" text-anchor="middle" font-family="'Inter', sans-serif">100% Owned by Trust Corporation</text>
+
+                        <rect x="250" y="222" width="180" height="48" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.2"></rect>
+                        <text x="340" y="238" font-size="9.5" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">TRFF-2 SPV (Tanzania)</text>
+                        <text x="340" y="251" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Sovereign Agri Trade Facility</text>
+                        <text x="340" y="262" font-size="7.5" font-weight="600" fill="#C69214" text-anchor="middle" font-family="'Inter', sans-serif">100% Owned by Trust Corporation</text>
+
+                        <rect x="470" y="222" width="180" height="48" rx="4" fill="#ffffff" stroke="#2C1810" stroke-width="1.2"></rect>
+                        <text x="560" y="238" font-size="9.5" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">TRFF-N SPV (Trade Credit)</text>
+                        <text x="560" y="251" font-size="8" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Tier-1 Commodity House Paper</text>
+                        <text x="560" y="262" font-size="7.5" font-weight="600" fill="#C69214" text-anchor="middle" font-family="'Inter', sans-serif">100% Owned by Trust Corporation</text>
+
+                        <!-- Down Arrows to Obligors -->
+                        <line x1="120" y1="270" x2="120" y2="284" stroke="#71717a" stroke-width="1" stroke-dasharray="3,2"></line>
+                        <line x1="340" y1="270" x2="340" y2="284" stroke="#71717a" stroke-width="1" stroke-dasharray="3,2"></line>
+                        <line x1="560" y1="270" x2="560" y2="284" stroke="#71717a" stroke-width="1" stroke-dasharray="3,2"></line>
+
+                        <!-- Tier 4: Underlying Obligors -->
+                        <rect x="30" y="286" width="180" height="38" rx="3" fill="#FAF8F5" stroke="#a1a1aa" stroke-width="1"></rect>
+                        <text x="120" y="302" font-size="9" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">FRA ZAMBIA</text>
+                        <text x="120" y="315" font-size="7.5" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Food Reserve Agency Sovereign Repo</text>
+
+                        <rect x="250" y="286" width="180" height="38" rx="3" fill="#FAF8F5" stroke="#a1a1aa" stroke-width="1"></rect>
+                        <text x="340" y="302" font-size="9" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">SOVEREIGN / UTILITY TZN</text>
+                        <text x="340" y="315" font-size="7.5" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">State-Backed Commodity Offtake</text>
+
+                        <rect x="470" y="286" width="180" height="38" rx="3" fill="#FAF8F5" stroke="#a1a1aa" stroke-width="1"></rect>
+                        <text x="560" y="302" font-size="9" font-weight="700" fill="#2C1810" text-anchor="middle" font-family="'Inter', sans-serif">BLUE-CHIP / COMMODITY HOUSE</text>
+                        <text x="560" y="315" font-size="7.5" fill="#71717a" text-anchor="middle" font-family="'Inter', sans-serif">Confirmed LC / Avalized Notes</text>
+                    </svg>
+                </div>
+
+                <!-- Section 3.1: Credit Hierarchy Detailed Roles -->
+                <div class="mt-3">
+                    <h3 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <span class="w-1.5 h-3 bg-[#C69214] rounded-xs inline-block"></span>
+                        3.1 Credit Hierarchy &amp; STRUCTURING.</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] text-zinc-600"><div class="p-2.5 bg-white border border-zinc-200 rounded"><strong class="text-[#2C1810] block mb-0.5">1. Pension Schemes (The Investors):</strong>Contractual senior debt holders under the Master Guaranteed Fund Agreement, with direct rights to the 6.0% USD guaranteed floor without taking equity or operating risk in the SPV.</div><div class="p-2.5 bg-white border border-zinc-200 rounded"><strong class="text-[#2C1810] block mb-0.5">2. TRIFIC SEZ SPV (Capital Housing):</strong>Special Economic Zone entity incorporated inside Two Rivers SEZ. Executes the guarantee contracts, houses capital flows, and interfaces with the RBA-licensed Custodian under preferential tax treaties.</div><div class="p-2.5 bg-white border border-zinc-200 rounded"><strong class="text-[#2C1810] block mb-0.5">3. TRFF Sub-SPVs (Bankruptcy-Remote Vehicles):</strong>Dedicated Trade Receivables Finance Facilities (LLCs) holding specific loan portfolios and pledge instruments. Each vehicle is 100% owned by an RBA-licensed Independent Corporate Trustee.</div><div class="p-2.5 bg-white border border-zinc-200 rounded"><strong class="text-[#2C1810] block mb-0.5">4. Corporate Obligors (Borrowers):</strong>Sovereign bodies (e.g., Food Reserve Agency of Zambia), state utilities, and blue-chip trading conglomerates issuing short-term, self-liquidating trade paper with clear legal recourse.</div></div>
+                </div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <span class="">Standard Investment Bank Limited &amp; Terraquest Investments FZCO</span>
+                <span class="">Page 4 of 6</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 5: ASSET DEPLOYMENT & 4-LAYER DE-RISKING
+        =========================================== -->
+        <div class="a4-page">
+            <div>
+                <!-- Page Top Header -->
+                <div class="page-header">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-xs uppercase text-[#2C1810] tracking-wider">Working Paper</span>
+                        <span class="text-zinc-300">|</span>
+                        <span class="text-[11px] text-zinc-500">Asset Deployment &amp; Multi-Tier De-Risking</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-400">Section 4.0 &amp; 5.0</span>
+                </div>
+
+                <!-- Section 4.0: Asset Deployment -->
+                <div class="section-header">
+                    <span class="section-badge">4.0</span>
+                    <h2 class="section-title-text serif-heading">Asset Deployment FRAMEWORK</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div class=""><h4 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-1 flex items-center gap-1.5"><i class="fa-solid fa-list-check text-[#C69214]"></i> 4.1 Permitted Trade Universe</h4><p class="text-[11px] text-zinc-600 !mb-2">The vehicle deploys capital exclusively into self-liquidating, short-term Structured Trade Products. Unsecured debt and speculative trading are strictly prohibited:</p><ul class="text-[10.5px] text-zinc-600 space-y-1 pl-3 border-l border-zinc-300"><li class=""><strong>Sovereign Agencies:</strong> Central Banks, Food Reserve Agencies (FRA Zambia repo), and state-owned energy utilities.</li><li class=""><strong>Multinational Corporates:</strong> Tier-1 FMCG, telecommunications, and industrial off-takers with verified credit lines.</li><li class=""><strong>Commodity Aggregators:</strong> Top-tier international trading houses backed by binding and verified offtake contracts.</li><li class=""><strong>Financial Institutions:</strong> Avalized promissory notes and confirmed irrevocable documentary letters of credit.</li></ul></div><div class=""><h4 class="text-xs font-bold text-[#2C1810] uppercase tracking-wide mb-1 flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-[#C69214]"></i> 4.2 Single Deployment Architecture</h4><p class="text-[11px] text-zinc-600 !mb-2">High-conviction institutional deployment architecture designed for ring-fenced credit execution:</p><ul class="text-[10.5px] text-zinc-600 space-y-1 pl-3 border-l border-zinc-300"><li class=""><strong>Tranche Concentration:</strong> Statutory authority to deploy up to 100% of an individual tranche into an isolated sovereign facility.</li><li class=""><strong>Isolation Remoteness:</strong> Tranches are partitioned in discrete TRFF LLCs, eliminating cross-cohort or cross-facility contagion.</li><li class=""><strong>Tenor Limits:</strong> Strict 365-day maximum tenor limits, maintaining 90–180 day weighted average liquidity turnover.</li></ul></div></div>
+
+                <!-- Section 5.0: Structured De-Risking -->
+                <div class="section-header mt-5">
+                    <span class="section-badge">5.0</span>
+                    <h2 class="section-title-text serif-heading">Structured De-Risking &amp; Protection Hierarchy</h2>
+                </div>
+
+                <p class="!mb-2 text-xs">
+                    Protection is engineered through institutional Secured Trade Finance Structuring rather than relying on third-party insurance as its primary safeguard:
+                </p>
+
+                <!-- De-Risking Flow Formula Card -->
+                <div class="bg-zinc-50 border border-zinc-200 rounded p-2.5 text-center my-2">
+                    <span class="text-[11px] font-mono font-bold text-[#2C1810]">
+                        Layer 1 (Collateral) &nbsp;➔&nbsp; Layer 2 (Escrow/IPU) &nbsp;➔&nbsp; Layer 3 (Reserves) &nbsp;➔&nbsp; Layer 4 (SIB Backstop)
+                    </span>
+                </div>
+
+                <!-- 4 Layer Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-2">
+                    <!-- Layer 1 -->
+                    <div class="p-3 bg-[#FAF8F5] border border-zinc-200 rounded">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#C69214]">Layer 1 • Physical Security</span>
+                            <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">~150% Cover</span>
+                        </div>
+                        <h5 class="text-xs font-bold text-[#2C1810] mb-1">Senior Secured Trade Collateral &amp; Title Retention</h5>
+                        <p class="text-[10.5px] text-zinc-600 !mb-0 leading-relaxed">
+                            Perfected first-priority fixed charge over underlying traded commodities, electronic warehouse receipts, or confirmed bills of lading with mandatory over-collateralization haircuts.
+                        </p>
+                    </div>
+
+                    <!-- Layer 2 -->
+                    <div class="p-3 bg-[#FAF8F5] border border-zinc-200 rounded">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#C69214]">Layer 2 • Cash Controls</span>
+                            <span class="text-[10px] bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded">Tripartite</span>
+                        </div>
+                        <h5 class="text-xs font-bold text-[#2C1810] mb-1">Irrevocable Payment Undertakings &amp; Escrow</h5>
+                        <p class="text-[10.5px] text-zinc-600 !mb-0 leading-relaxed">
+                            Commercial buyer and sovereign payments completely bypass borrower operating accounts, flowing directly into tripartite cash collection escrow accounts controlled by the Custodian.
+                        </p>
+                    </div>
+
+                    <!-- Layer 3 -->
+                    <div class="p-3 bg-[#FAF8F5] border border-zinc-200 rounded">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#C69214]">Layer 3 • Sovereign Liquidity</span>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">1.0% - 1.5%</span>
+                        </div>
+                        <h5 class="text-xs font-bold text-[#2C1810] mb-1">Sovereign Repositories &amp; Programme Cash Reserves</h5>
+                        <p class="text-[10.5px] text-zinc-600 !mb-0 leading-relaxed">
+                            Binding repurchase undertakings by sovereign agencies/ministries of finance, backed by a dedicated segregated cash liquidity reserve maintained at the Programme level.
+                        </p>
+                    </div>
+
+                    <!-- Layer 4 -->
+                    <div class="p-3 bg-[#FAF8F5] border border-zinc-200 rounded">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#C69214]">Layer 4 • Institutional Floor</span>
+                            <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-1.5 py-0.5 rounded">Contractual</span>
+                        </div>
+                        <h5 class="text-xs font-bold text-[#2C1810] mb-1">SIB Approved Issuer Corporate Guarantee Backstop</h5>
+                        <p class="text-[10.5px] text-zinc-600 !mb-0 leading-relaxed">
+                            SIB's primary contractual undertaking assuring schemes timely return of 100% invested principal and the guaranteed 6.00% net hard-currency floor under Cap. 485A.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <span class="">Standard Investment Bank Limited &amp; Terraquest Investments FZCO</span>
+                <span class="">Page 5 of 6</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 6: IMPLEMENTATION ROADMAP & BACK COVER
+        =========================================== -->
+        <div class="a4-page">
+            <div>
+                <!-- Page Top Header -->
+                <div class="page-header">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-xs uppercase text-[#2C1810] tracking-wider">Working Paper</span>
+                        <span class="text-zinc-300">|</span>
+                        <span class="text-[11px] text-zinc-500">Execution Plan &amp; Next Milestones</span>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-400">Section 6.0</span>
+                </div>
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-badge">6.0</span>
+                    <h2 class="section-title-text serif-heading">Joint Implementation Roadmap</h2>
+                </div>
+
+                <p class="!mb-3">
+                    The phased implementation plan outlines operational, regulatory, and capital structuring milestones leading from initial seed transaction to comprehensive institutional syndication:
+                </p>
+
+                <!-- Roadmap Table -->
+                <div class="border border-zinc-200 rounded-md overflow-hidden shadow-xs mb-4">
+                    <table><thead class=""><tr><th class="w-12 text-center">Step</th><th class="w-44">Milestone</th><th class="">Critical Path Deliverables</th><th class="w-36 text-right">Lead Party</th></tr></thead><tbody class=""><tr><td class="text-center font-bold text-[#C69214]">01</td><td class="font-bold text-[#2C1810]">Term Sheet</td><td class="">Execute JV Agreement; commit internal USD 100M anchor capital for the Zambia TRFF facility.</td><td class="text-right font-medium text-xs">SIB &amp; Terraquest</td></tr><tr><td class="text-center font-bold text-[#C69214]">02</td><td class="font-bold text-[#2C1810]">Courtesy Calls</td><td class="">Conduct executive briefings with RBA and CMA leadership on TRIFIC SEZ SPV structure and licensing parity.</td><td class="text-right font-medium text-xs">SIB Executive</td></tr><tr><td class="text-center font-bold text-[#C69214]">03</td><td class="font-bold text-[#2C1810]">Legal Counsel</td><td class="">Retain Tier-1 banking counsel to draft Master Guaranteed Fund contracts, Trust Deeds, and SEZ filings.</td><td class="text-right font-medium text-xs">SIB &amp; Terraquest</td></tr><tr><td class="text-center font-bold text-[#C69214]">04</td><td class="font-bold text-[#2C1810]">Seed Transaction</td><td class="">Disburse USD 100M into FRA Zambia repo facility, establishing a live, revenue-generating seed asset.</td><td class="text-right font-medium text-xs">Terraquest</td></tr><tr><td class="text-center font-bold text-[#C69214]">05</td><td class="font-bold text-[#2C1810]">Fund Setup</td><td class="">Incorporate TRIFIC SEZ SPV; appoint Independent Trustee and Custodian; lock FX spot execution mechanisms.</td><td class="text-right font-medium text-xs">Operations &amp; Legal</td></tr><tr><td class="text-center font-bold text-[#C69214]">06</td><td class="font-bold text-[#2C1810]">Pension Roadshow</td><td class="">Launch distribution roadshow across Tier-1 RBA pension schemes using the live USD 100M asset as proof-of-concept.</td><td class="text-right font-medium text-xs">SIB Institutional</td></tr></tbody></table>
+                </div>
+
+                <!-- Sign-Off & Closing Engagement Box -->
+                <div class="mt-4 p-4 bg-[#FAF8F5] border border-[#2C1810]/20 rounded-lg">
+                    <div class="flex items-center justify-between border-b border-zinc-200 pb-2 mb-3">
+                        <span class="text-xs font-bold text-[#2C1810] uppercase tracking-wider">Institutional Engagement Contact</span>
+                        <span class="text-[10px] text-zinc-500 font-mono">STRICTLY RESTRICTED CIRCULATION</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <span class="block font-bold text-[#2C1810]">Standard Investment Bank Limited</span>
+                            <span class="text-zinc-600 block text-[11px]">Fixed Income, Global Markets &amp; CIS Divisions</span>
+                            <span class="text-zinc-500 block text-[10px] mt-1">JKUAT Towers, 16th Floor, Kenyatta Avenue, Nairobi</span>
+                        </div>
+                        <div>
+                            <span class="block font-bold text-[#2C1810]">Terraquest Investments FZCO</span>
+                            <span class="text-zinc-600 block text-[11px]">Trade Finance &amp; Commodity Structuring</span>
+                            <span class="text-zinc-500 block text-[10px] mt-1">DSO-IFZA, Dubai Silicon Oasis, Dubai, UAE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Footer -->
+            <div class="page-footer">
+                <span class="">Standard Investment Bank Limited &amp; Terraquest Investments FZCO</span>
+                <span class="">Page 6 of 6</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body></html>
