@@ -1,0 +1,1025 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Market Validation Questionnaire: Regulated Lenders, Agricultural Insurers &amp; Agri-Aggregators in Kenya</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0f172a',
+              slate: '#1e293b',
+              muted: '#475569',
+              border: '#e2e8f0',
+              terra: '#d97706',
+              terraDark: '#b45309',
+              terraLight: '#fef3c7',
+              surface: '#f8fafc'
+            }
+          },
+          fontFamily: {
+            serif: ['Merriweather', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Print and Document Layout Styles -->
+<style data-purpose="document-layout">
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm 12mm 12mm;
+      }
+      body {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .a4-page {
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 0 8mm 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      .page-break-avoid {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+
+    @media screen {
+      body {
+        background-color: #cbd5e1;
+      }
+      .a4-page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 16mm 18mm;
+        margin: 24px auto;
+        background: #ffffff;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+      }
+    }
+
+    .answer-line {
+      border-bottom: 1px dashed #cbd5e1;
+      height: 18px;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+    .answer-box {
+      border: 1px solid #cbd5e1;
+      background-color: #f8fafc;
+      border-radius: 3px;
+      min-height: 38px;
+    }
+  </style>
+<!-- END: Print and Document Layout Styles -->
+</head>
+<body class="text-brand-slate font-sans antialiased text-xs leading-relaxed selection:bg-amber-100 selection:text-amber-900">
+<!-- BEGIN: Persistent Control Bar -->
+<aside class="no-print sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-700 text-slate-100 py-2.5 px-4 shadow-md" data-purpose="sticky-header">
+<div class="max-w-[210mm] mx-auto flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+<div>
+<span class="font-mono text-xs font-semibold uppercase tracking-wider text-amber-400">Market Validation Questionnaire</span>
+<span class="text-slate-400 mx-1.5">|</span>
+<span class="text-xs text-slate-300 font-medium">TerraQuest Consulting &amp; NEC Corporation</span>
+</div>
+<span class="hidden md:inline-flex text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded border border-slate-700 font-mono">A4 Multi-Page Ready (Print Optimized)</span>
+</div>
+<button class="bg-[#d97706] hover:bg-[#b45309] text-white font-mono uppercase font-bold text-xs px-4 py-2 rounded shadow flex items-center gap-2 cursor-pointer transition" onclick="window.print()">
+        🖨 PRINT / SAVE AS PDF
+      </button>
+</div>
+</aside>
+<!-- END: Persistent Control Bar -->
+<!-- BEGIN: Page 1 - Title, Regulatory Framework & Table 1 -->
+<main class="a4-page flex flex-col justify-between" id="page-1">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-4 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Institutional Title & Badge Header -->
+<div class="flex items-start justify-between gap-4 mb-4 pb-3 border-b-2 border-slate-900">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-amber-100 text-amber-900 font-mono text-[9px] uppercase px-2 py-0.5 rounded font-bold tracking-wider">ACIP Dataset Validation Framework</span>
+<span class="text-slate-400 text-[10px]">•</span>
+<span class="font-mono text-[9px] text-slate-500 uppercase">Kenya Agri-Finance Ecosystem</span>
+</div>
+<h1 class="text-xl md:text-2xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
+            Market Validation Questionnaire: Kenya Agri-Finance Ecosystem
+          </h1>
+<p class="text-[11px] text-slate-600 mt-1 leading-normal font-sans">
+            Comprehensive Field Inquiry Tool for Regulated Lenders, Agricultural Insurers, and Aggregator Cooperatives under the ACIP Dataset Validation Framework
+          </p>
+</div>
+<div class="flex-shrink-0 p-1 bg-white flex items-center justify-end"><img alt="TerraQuest Investments Logo" class="h-10 max-h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdtrGQKbaEfIuIpt6rU8MZ6bz-SU3FjY8vAFcWtTCkR02uFu3AK9iTTrP1ckJd5D1KWWRUUoO18a0MW0BZXxLDEnf57naA5QRkgf7S4FRfBv4_-uIcZbsI69MfQpeyTlg3b0nC8G5ViA3nu5F4GieBwELjDFAwGWhwRa_Lqc_O14_4C4F0vUqYrMNc6fnXVagbVi925aG9dHX83Vd55VIQGVrpl4hDoeOmVU36uSrTWSkqNY3SLNapszWq9-hkCjrzSg"></div>
+</div>
+<!-- Institutional Context Summary -->
+<section class="bg-slate-50 border-l-4 border-amber-600 p-2.5 mb-4 rounded-r" data-purpose="context-summary">
+<p class="font-semibold text-slate-900 text-xs mb-1">Proposed Lender Validation Questionnaire:</p>
+<p class="text-slate-700 text-[11px] mb-1">
+          The proposed focus centres on regulated lenders across three key regulatory bodies, as detailed in Table 1 below:
+        </p>
+<ul class="list-disc list-inside text-[11px] text-slate-700 space-y-0.5 font-medium ml-1">
+<li class="">Central Bank Of Kenya</li>
+<li class="">Sacco Societies Regulatory Authority</li>
+<li class="">Commissioner for Co-operative Development</li>
+</ul>
+</section>
+<!-- Section Title for Table 1 -->
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 font-mono">
+          Table 1: Regulators, Target Financial Institutions, and Their Relevance in Agricultural Finance
+        </h2>
+<span class="text-[10px] font-mono text-slate-500">Source: CBK / SASRA / MoCD 2026 Registry</span>
+</div>
+<!-- Table 1 Content -->
+<div class="overflow-hidden border border-slate-300 rounded text-[10px]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-900 text-slate-100 font-mono text-[9px] uppercase tracking-wider">
+<th class="py-1.5 px-2 border-r border-slate-700 w-1/4">Institution / License Type</th>
+<th class="py-1.5 px-2 border-r border-slate-700 w-1/4">Categorises</th>
+<th class="py-1.5 px-2 border-r border-slate-700 w-1/12 text-center">No. Of Licensee's</th>
+<th class="py-1.5 px-2">Agri-Validation Relevance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200">
+<!-- Group 1: CBK -->
+<tr class="bg-amber-50/70 border-b border-amber-200 font-semibold text-amber-900 font-mono text-[9px]">
+<td class="py-1 px-2" colspan="4">
+                1. Regulated by CBK under the Banking Act.
+              </td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">Commercial Banks</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Categorized into Tiers 1, 2, and 3.</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">39</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">High for wholesale lending (funding aggregators/SACCOs) and commercial estates. Retail smallholder lending is usually restricted or requires de-risking guarantees.</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">Microfinance Banks (MFBs)</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Deposit-taking; licensed as Nationwide or Community.</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">14</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">Extremely high. Deeply embedded in rural areas, heavily reliant on cash-flow underwriting, group models, and alternative data for smallholder lending.</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">Digital Credit Providers (DCPs)</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Applies to fintechs and app-based digital lenders.</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">252</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">High for agile, data-driven lending. Prime targets for integrating API-based datasets (Apollo/VunaPay) to issue instant, unsecured mobile credit to farmers.</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">Mortgage Finance Companies</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Focused purely on real estate and property.</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">2</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">Low relevance. Focused on long-term property financing rather than seasonal agricultural working capital.</td>
+</tr>
+<!-- Group 2: SASRA -->
+<tr class="bg-amber-50/70 border-b border-amber-200 font-semibold text-amber-900 font-mono text-[9px]">
+<td class="py-1 px-2" colspan="4">
+                2. Regulated by SASRA - Total 352
+              </td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">SACCOs &amp; Credit-Only MFIs (Non-CBK Regulated) - Deposit-taking SACCOs</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Deposit-taking</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">176</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">Massive relevance. Though outside CBK purview, they handle the bulk of rural agri-finance and are critical targets for input and collection data solutions.</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">SACCOs - Non-Deposit Taking</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">Non-Deposit Taking</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">176</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">Highly active in rural primary producer check-off systems.</td>
+</tr>
+<!-- Group 3: Commissioner for Co-operative Development -->
+<tr class="bg-amber-50/70 border-b border-amber-200 font-semibold text-amber-900 font-mono text-[9px]">
+<td class="py-1 px-2" colspan="4">
+                3. Regulated by the Commissioner for Co-operative Development
+              </td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="py-1.5 px-2 font-medium border-r border-slate-200 text-slate-900">Agricultural &amp; Marketing Cooperatives</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-slate-600">(Ministry of Co-operatives) under the Co-operative Societies Act.</td>
+<td class="py-1.5 px-2 border-r border-slate-200 text-center font-mono font-bold text-slate-800">~10,000</td>
+<td class="py-1.5 px-2 text-slate-700 leading-snug">Extremely high. They act as lenders by providing input pre-financing and cash advances against future crop deliveries. Prime targets for VunaPay (automated check-off) and CropScope (yield forecasting).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Interviewee Profile Header Block for Page 1 -->
+<div class="mt-4 border border-dashed border-slate-300 p-2.5 rounded bg-slate-50">
+<span class="font-mono text-[9px] uppercase font-bold text-slate-700 tracking-wider block mb-1">Target Institution Participant Profile</span>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-[10px]">
+<div><span class="text-slate-500">Institution:</span> <div class="answer-line"></div></div>
+<div><span class="text-slate-500">License Class:</span> <div class="answer-line"></div></div>
+<div><span class="text-slate-500">Interviewee Title:</span> <div class="answer-line"></div></div>
+<div><span class="text-slate-500">Date &amp; Location:</span> <div class="answer-line"></div></div>
+</div>
+</div>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 1 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 1 -->
+<!-- BEGIN: Page 2 - Table 2: Proposed Lender Questionnaire (Sections 1 to 4) -->
+<main class="a4-page flex flex-col justify-between" id="page-2">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-3 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Title Block -->
+<div class="mb-3">
+<span class="text-amber-700 font-mono text-[9px] font-bold uppercase tracking-wider">Lender Diagnostic Instrument</span>
+<h2 class="text-base font-serif font-bold text-slate-900">Table 2: Proposed Lender Questionnaire</h2>
+<p class="text-[10px] text-slate-600">Focus areas 1 through 4: Portfolio baselines, product structuring, underwriting governance, and fund disbursement integrity.</p>
+</div>
+<!-- Section 1 -->
+<section class="border border-slate-200 rounded p-2.5 mb-2.5 bg-white shadow-xs" data-purpose="survey-section-1">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1.5 mb-2 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">1. Portfolio Baseline, Agri-Lending Appetite and Potential fund base.</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[9px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Agricultural Portfolio Growth &amp; Risk Appetite Index (APGRA)</span>
+</div>
+<div class="space-y-1.5 text-[10.5px]">
+<div>
+<span class="text-slate-800 font-medium">• What’s your total loan book?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What percentage of your total gross loan book is allocated to agriculture?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Do you support the Agro-value chain and what products do you support customers with?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Which value chains and borrower segments (smallholder, outgrower schemes, commercial) are prioritized?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What are your current vs. target NPL ratios in agriculture compared to other loan books?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Would verified cohort repayment baselines lower entry barriers for new value chains?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Does historical transaction consistency justify expanding total Agri-portfolio limits?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the target loan book expansion (%)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Do you have any priority budgets to design and/or implement data lending tools?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Do you have a base of grant support or technical assistance facilities that allow the business to develop Agri tools for the customer base?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 2 -->
+<section class="border border-slate-200 rounded p-2.5 mb-2.5 bg-white shadow-xs" data-purpose="survey-section-2">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1.5 mb-2 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">2. Product Design &amp; Credit Structuring</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[9px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Agronomy-Linked Credit Structuring Potential (ACSP)</span>
+</div>
+<div class="space-y-1.5 text-[10.5px]">
+<div>
+<span class="text-slate-800 font-medium">• Do you have specific facilities designed for Agri-business? Or are you in the process of developing this? If not, are Agri-business products of interest in the short/medium or long term? What does your credit product development lifecycle look like?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Of the products you have, what's their repayment vs security design- bullet repayment, seasonal amortization, input loans, trade finance?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Are repayment schedules dynamically mapped to crop phenology and harvest calendars, or fixed calendar tenors?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What data tools or agronomic inputs are currently used during product modeling?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can satellite-derived crop cycle timelines automate loan tenors and moratorium periods?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Would predictive yield modeling enable structured input financing against expected output?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4 in two columns to balance page -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+<!-- Section 3 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-3">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">3. Underwriting, Risk Rating &amp; Collateral</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: Supply Chain Working Capital &amp; Credit Scaling Potential (SWCCSP)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What is your current credit scoring process?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What percentage of loans require traditional physical collateral vs. cash-flow underwriting?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How do you assess creditworthiness for unbanked smallholders lacking credit bureau history?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How do you evaluate counterparty risk when lending to farmer groups or aggregator-backed schemes?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can verified digital procurement and payout histories replace traditional land/asset collateral for unsecured risk rating?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can historical credit default benchmarks be integrated directly into your scorecard to pre-approve farmers?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 4 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-4">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">4. Disbursement Governance (Retail &amp; Wholesale/Non-Bank)</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: Closed-Loop Payment Integration Potential (CPIP)</span>
+<span class="text-slate-500 text-[8px] italic block">Note: Reduction in fund diversion risk; preference for direct-to-vendor payment rails.</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• How are funds disbursed (mobile money, bank transfer, direct voucher to input agro-dealers, or bulk line to aggregators)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• For non-retail lenders (wholesale to cooperatives/agribusinesses), how do you monitor onward utilization and prevent input diversion?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the operational cost and leakage rate during disbursement?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can closed-loop payment rails verify genuine input purchases and direct vendor disbursements?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can remote boundary and planting verification act as a prerequisite condition precedent (CP) before releasing secondary tranches?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 2 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 2 -->
+<!-- BEGIN: Page 3 - Table 2 (Continued): Sections 5 to 9 -->
+<main class="a4-page flex flex-col justify-between" id="page-3">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-3 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Title Block -->
+<div class="mb-3">
+<span class="text-amber-700 font-mono text-[9px] font-bold uppercase tracking-wider">Lender Diagnostic Instrument (Cont.)</span>
+<h2 class="text-base font-serif font-bold text-slate-900">Table 2: Proposed Lender Questionnaire (Continued)</h2>
+<p class="text-[10px] text-slate-600">Focus areas 5 through 9: In-season intelligence, off-taker settlement, default verification, technical integration, and regulatory boundaries.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-2.5">
+<!-- Section 5 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-5">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">5. In-Season Monitoring &amp; Early Warning</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: Commercial Solution Addressable Potential (CSAP)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• How do credit officers monitor crop health and field progress post-disbursement?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the annual budget and frequency for on-site farm inspections?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How are regional climate shocks (drought, flood, pest outbreaks) detected prior to maturity?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can satellite indices (NDVI, soil moisture, rainfall anomalies) eliminate 50%+ of physical farm inspection costs?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Would automated parametric alerts trigger early loan restructuring before technical default occurs?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 6 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-6">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">6. Harvest Settlement &amp; Off-taker Risk</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: Speed-Verified Portfolio Recovery Yield Potential (VPRY)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• How are repayments captured at harvest (voluntary branch/mobile repayment, check-off via off-taker, warehouse receipt)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Do you bank? Or receive all payments from customers? How do you detect and mitigate side-selling when lending under contract farming or outgrower schemes?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What mechanisms track actual crop yields against pre-season expectations?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can yield prediction benchmarks detect production-to-delivery discrepancies indicative of side-selling?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can automated source-deduction integrations execute split-payments directly upon produce delivery?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-2.5">
+<!-- Section 7 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-7">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">7. Collections, and Default Baselines</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: Speed Verified Portfolio Recovery Yield potential (VPRY)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• How do you verify whether a default is driven by genuine agronomic/climate distress versus willful strategic default (moral hazard)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What are your current recovery benchmarks for written-off Agri-debt?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can objective satellite weather and loss verification substantiate distress for restructuring or insurance triggers?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can historical smallholder repayment velocity models improve collection sequencing and recovery targeting?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 8 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-8">
+<div class="border-b border-slate-200 pb-1 mb-1.5">
+<h3 class="font-bold text-slate-900 text-xs leading-tight">8. Systems Integration, Tech Stack, Commercial and Data Privacy</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block mt-0.5">Metric: API Commercialization &amp; Integration Readiness potential (ACIR)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What Core Banking System (CBS) and Loan Origination System (LOS) are currently deployed?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Does your IT infrastructure support real-time API queries, or is batch file processing required?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What pricing model have you tried previously on any solution? commercially viable? per-API query fee, basis points on disbursed volume?, or enterprise annual license?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the maximum acceptable cost per credit check / underwritten loan (USD/KES)?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 9 Full Width -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="survey-section-9">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1 mb-1.5 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">9. Regulatory Framework</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[8.5px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Regulatory Compliance &amp; Innovation Readiness Index (RCIRI)</span>
+</div>
+<div class="space-y-1.5 text-[10.5px]">
+<div>
+<span class="text-slate-800 font-medium">• What are the main regulatory compliance and data protection requirements (e.g., Data Protection Act, CBK/SASRA/Ministry guidelines) governing the integration of third-party digital credit scoring and underwriting tools?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What customer consent mechanisms and data localization/sovereignty protocols are required when sharing farmer transaction or geolocation data with external tech platforms?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What regulatory approval frameworks or sandbox engagements are needed before rolling out novel digital lending products or automated credit decisioning models?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 3 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 3 -->
+<!-- BEGIN: Page 4 - Proposed Insurance Business Market Validation Questionnaire -->
+<main class="a4-page flex flex-col justify-between" id="page-4">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-3 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Title Block -->
+<div class="mb-3">
+<span class="text-amber-700 font-mono text-[9px] font-bold uppercase tracking-wider">Underwriting &amp; Actuarial Diagnostic</span>
+<h2 class="text-base font-serif font-bold text-slate-900">Proposed Insurance Business Market Validation Questionnaire</h2>
+<p class="text-[10px] text-slate-600">Calibrated for licensed insurers under the Insurance Regulatory Authority (IRA) governing agricultural lines, parametric triggers, and credit life covers.</p>
+</div>
+<!-- Regulatory Context Block & Table -->
+<div class="bg-slate-50 border border-slate-200 rounded p-2.5 mb-3">
+<p class="text-[10.5px] text-slate-800 mb-1.5 leading-relaxed">
+          Under the Insurance Act (Cap 487), IRA classifies insurers into 14 general and 7 long-term lines. This sprint focuses on key licenses driving agricultural risk, micro-insurance, and credit safety nets:
+          <span class="font-bold text-slate-900">Core ACIP Validation Target Licenses (2026 IRA Classification)</span>
+</p>
+<div class="overflow-hidden border border-slate-300 rounded text-[9.5px]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-800 text-slate-100 font-mono text-[8.5px] uppercase">
+<th class="py-1 px-2 border-r border-slate-700 w-1/4">IRA Class</th>
+<th class="py-1 px-2 border-r border-slate-700 w-1/6">Count</th>
+<th class="py-1 px-2 border-r border-slate-700 w-1/4">Scope</th>
+<th class="py-1 px-2">Strategic Relevance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200">
+<tr class="hover:bg-white">
+<td class="py-1 px-2 font-bold text-slate-900 border-r border-slate-200">Class 14: Agriculture</td>
+<td class="py-1 px-2 font-mono border-r border-slate-200">32 General</td>
+<td class="py-1 px-2 border-r border-slate-200 text-slate-700">Crops, livestock, aquaculture, &amp; parametric risk.</td>
+<td class="py-1 px-2 text-slate-700"><span class="font-bold text-amber-800">Primary Target:</span> Leverages historical satellite &amp; weather data to price yield covers.</td>
+</tr>
+<tr class="hover:bg-white">
+<td class="py-1 px-2 font-bold text-slate-900 border-r border-slate-200">Class 13: Microinsurance</td>
+<td class="py-1 px-2 font-mono border-r border-slate-200">5 Micro</td>
+<td class="py-1 px-2 border-r border-slate-200 text-slate-700">Low-premium smallholder coverage.</td>
+<td class="py-1 px-2 text-slate-700"><span class="font-bold text-slate-900">High Fit:</span> Uses digital registries and rails for instant distribution &amp; payouts.</td>
+</tr>
+<tr class="hover:bg-white">
+<td class="py-1 px-2 font-bold text-slate-900 border-r border-slate-200">Class 35: Group Credit</td>
+<td class="py-1 px-2 font-mono border-r border-slate-200">22 Life</td>
+<td class="py-1 px-2 border-r border-slate-200 text-slate-700">Group borrower loan protection against major shocks.</td>
+<td class="py-1 px-2 text-slate-700"><span class="font-bold text-slate-900">High Fit:</span> Uses credit profiles to price bundled credit-life products.</td>
+</tr>
+<tr class="hover:bg-white">
+<td class="py-1 px-2 font-bold text-slate-900 border-r border-slate-200">Class 37: Investment</td>
+<td class="py-1 px-2 font-mono border-r border-slate-200">18 Life</td>
+<td class="py-1 px-2 border-r border-slate-200 text-slate-700">Long-term contingency structures.</td>
+<td class="py-1 px-2 text-slate-700"><span class="font-bold text-slate-900">Strategic Fit:</span> Pairs multi-year capital with aggregator-level parametric covers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Insurance Sections 1 & 2 -->
+<div class="space-y-2.5">
+<!-- Section 1 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-1">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1 mb-1.5 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">1. Underwriting Portfolio Baseline &amp; Agri-Appetite</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[8.5px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Agricultural Portfolio Expansion &amp; Risk Appetite Index (APGRA)</span>
+</div>
+<div class="space-y-1 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What is your gross written premium (GWP) for agricultural insurance (crop &amp; livestock) over the past 3 years?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is your current loss ratio in the agricultural line versus other general insurance classes?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Which agricultural value chains (e.g., maize, tea, coffee, dairy, horticulture) do you currently underwrite, and which are prioritized for expansion?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the distribution mix between standalone agricultural policies and bundled credit-linked insurance products?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 2 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-2">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1 mb-1.5 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">2. Actuarial Modeling, Baseline Data &amp; Basis Risk</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[8.5px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Commercial Solution Addressable Potential (CSAP)</span>
+</div>
+<div class="space-y-1 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What historical datasets (meteorological, remote sensing, crop cut experiments) do you use to price crop insurance products?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How do you measure, manage, and mitigate basis risk in index-based and parametric insurance covers?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Would access to high-resolution, historical satellite-derived agronomic baselines (10+ years) enable you to underwrite unserved value chains?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4 in two columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+<!-- Section 3 -->
+<section class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="insurance-section-3">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-[11px] leading-tight">3. Parametric Product Structuring &amp; Index Calibration</h3>
+<span class="text-amber-800 font-mono text-[8px] block">Metric: Crop-Stage Parametric Cover Potential (CPCP)</span>
+</div>
+<div class="space-y-1 text-[9.5px]">
+<div>
+<span class="text-slate-800 font-medium">• Do you offer multi-peril crop insurance (MPCI), area yield index insurance (AYII), or weather index insurance (WII)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How do you define index trigger levels and exit points across distinct phenological stages (germination, vegetative, flowering, maturity)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can dynamic satellite-tracked planting dates replace fixed calendar-based trigger windows to reduce basis risk?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 4 -->
+<section class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="insurance-section-4">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-[11px] leading-tight">4. Policyholder Enrollment, KYC &amp; Geotagging</h3>
+<span class="text-amber-800 font-mono text-[8px] block">Metric: Digital KYC &amp; Geotagging Adoption Potential (DKGAP)</span>
+</div>
+<div class="space-y-1 text-[9.5px]">
+<div>
+<span class="text-slate-800 font-medium">• How are smallholder policyholders currently enrolled and onboarded (aggregators, MFBs, digital self-enrollment)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What percentage of insured farm plots have GPS-verified boundary polygon data versus rough centroid coordinates?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the average operational onboarding cost per insured smallholder?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 4 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 4 -->
+<!-- BEGIN: Page 5 - Insurance Questionnaire (Cont.) & Transition to Aggregators -->
+<main class="a4-page flex flex-col justify-between" id="page-5">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-3 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Title Block -->
+<div class="mb-3">
+<span class="text-amber-700 font-mono text-[9px] font-bold uppercase tracking-wider">Insurance Protocol (Cont.) &amp; Value Chain Bridging</span>
+<h2 class="text-base font-serif font-bold text-slate-900">Insurance Questionnaire: Claims, Reinsurance &amp; Compliance</h2>
+<p class="text-[10px] text-slate-600">Completing Sections 5 through 9 for insurance risk syndication and claims automation.</p>
+</div>
+<!-- Sections 5 to 7 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-2.5">
+<!-- Section 5 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-5">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-xs">5. In-Season Risk Monitoring &amp; Accumulation</h3>
+<span class="text-amber-800 font-mono text-[8px] block">Metric: Claim Adjustment &amp; Payout Efficiency Index (CAPEI)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• How do you track portfolio risk accumulation across contiguous geographical zones during the season?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Do you maintain automated early warning mechanisms for drought, excessive rain, or vegetative depression before harvest?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Could mid-season satellite anomaly alerts trigger pre-claim advisories to aggregators and lenders?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 6 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-6">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-xs">6. Claims Assessment, Ground-Truthing &amp; CCE Costs</h3>
+<span class="text-amber-800 font-mono text-[8px] block">Metric: Reinsurance Treaty Readmission &amp; Capacity Index (RTRCI)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What is your operational process and expense structure for executing Crop Cut Experiments (CCEs) and manual loss adjustments?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What is the average duration between trigger occurrence and final claim payout settlement to the policyholder?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Can automated satellite yield verification substitute manual CCE field sampling by 70%+?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 7 & 8 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-2.5">
+<!-- Section 7 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-7">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-xs">7. Payout Settlement Governance &amp; Distribution</h3>
+<span class="text-amber-800 font-mono text-[8px] block">Metric: Supply Chain Trade Predictability &amp; Intake Accuracy Index (SCTPIAI)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What payment channels are used to distribute claim proceeds (mobile money, direct credit to lending institution, coop check-off account)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• When policies are credit-linked, how are indemnities divided between debt settlement and direct cash payouts to farmers?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What are the major reconciliation challenges and leakage risks during mass claim distribution?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Section 8 -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-8">
+<div class="border-b border-slate-200 pb-1 mb-1">
+<h3 class="font-bold text-slate-900 text-xs">8. Reinsurance Treaty Structuring, Cession &amp; Capacity</h3>
+<span class="text-amber-800 font-mono text-[8.5px] block">Metric: Reinsurer acceptance feasibility; impact of ACIP datasets on reducing reinsurance rate-on-line (RoL)</span>
+</div>
+<div class="space-y-1.5 text-[10px]">
+<div>
+<span class="text-slate-800 font-medium">• What proportion of your agricultural risk portfolio is ceded to international and regional reinsurers (e.g., Swiss Re, Africa Re, Kenya Re)?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What are the core data prerequisites and audit trails mandated by reinsurers before underwriting parametric treaties in Kenya?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• Would independent satellite verification datasets lower reinsurance rate-on-line (RoL) and unlock expanded reinsurance capacity?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 9 Full Width -->
+<section class="border border-slate-200 rounded p-2.5 bg-white shadow-xs" data-purpose="insurance-section-9">
+<div class="flex flex-wrap items-center justify-between border-b border-slate-200 pb-1 mb-1.5 gap-1">
+<h3 class="font-bold text-slate-900 text-xs">9. Regulatory Environment</h3>
+<span class="bg-slate-100 text-slate-700 font-mono text-[8.5px] px-1.5 py-0.5 rounded border border-slate-300 font-medium">Metric: Regulatory Compliance &amp; Innovation Readiness Index (RCIRI)</span>
+</div>
+<div class="space-y-1.5 text-[10.5px]">
+<div>
+<span class="text-slate-800 font-medium">• What are the Insurance Regulatory Authority (IRA) compliance requirements for filing new parametric or index-based insurance products under the Sandbox or standard filing framework?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• How do consumer protection guidelines mandate the disclosure of index parameters and basis risk disclaimers to smallholder farmers?</span>
+<div class="answer-line"></div>
+</div>
+<div>
+<span class="text-slate-800 font-medium">• What data localization, consent, and storage regulations govern the sharing of farmer agronomic and insurance loss data with external tech platforms?</span>
+<div class="answer-line"></div>
+</div>
+</div>
+</section>
+<!-- Institutional Bridge Notice -->
+<div class="mt-3 p-2 bg-slate-50 border border-slate-200 rounded text-[9.5px] text-slate-600 flex items-center justify-between">
+<span class="">Proceed to Page 6 for the Agri-Aggregator &amp; Producer Cooperative Diagnostic Instrument.</span>
+<span class="font-mono font-bold text-slate-700 uppercase">Section II: Off-Taker &amp; Supply Chain Framework</span>
+</div>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 5 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 5 -->
+<!-- BEGIN: Page 6 - Aggregator & Cooperative Market Validation Questionnaire & Sign-Off -->
+<main class="a4-page flex flex-col justify-between" id="page-6">
+<div>
+<!-- Running Header -->
+<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-3 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+<span class="">TERRAQUEST: CONSULTING / NEC CORPORATION</span>
+<span class="text-amber-700 font-bold tracking-normal">STRICTLY PRIVATE &amp; CONFIDENTIAL</span>
+</div>
+<!-- Title Block -->
+<div class="mb-3">
+<span class="text-amber-700 font-mono text-[9px] font-bold uppercase tracking-wider">Field Operations &amp; Commercial Off-Take</span>
+<h2 class="text-base font-serif font-bold text-slate-900">Aggregator &amp; Cooperative Market Validation Questionnaire</h2>
+<p class="text-[10px] text-slate-600">Structured inquiries covering off-taker operations, farmer check-offs, yield forecasting, side-selling control, and multi-party loan deductions.</p>
+</div>
+<!-- Aggregator Sections 1 to 8 in 2 Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px]">
+<!-- Item 1 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-1">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">1. Sourcing Model, Acreage Baseline &amp; Intake</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• What is your active contracted farmer base, total under management acreage, and annual crop tonnage delivered across primary value chains?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• What percentage of smallholders operate under formalized outgrower schemes versus spot-market sourcing?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 2 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-2">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">2. Production Forecasting &amp; Trade Predictability</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• How do you currently estimate pre-harvest aggregate yields to commit forward commercial contracts to buyers/exporters?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• What is your historical variance percentage between pre-season estimated volume and actual gate delivery?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 3 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-3">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">3. Input Pre-Financing &amp; Working Capital Risk</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• Do you provide seed, fertilizer, or agrochemical advances to farmers? What is your current loss/default rate on seasonal input loans?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• How do you finance input books—balance sheet cash, commercial bank credit lines, or off-balance-sheet donor facilities?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 4 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-4">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">4. In-Season Crop Health &amp; Field Extension Opex</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• How many field extension officers do you deploy, and what is your annual expenditure on physical agronomist visits?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• Can remote sensing-based crop vegetative index tracking reduce your field agronomy operating expenditure?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 5 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-5">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">5. Side-Selling Prevention &amp; Yield Reconciliation</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• What percentage of expected yield is lost to side-selling to middlemen during harvest peak periods?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• Could parcel-level yield estimation tools alert management when delivered volumes deviate suspiciously from farm output?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 6 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-6">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">6. Produce Intake, Digital Weighing &amp; Settlement</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• Are produce collection centers equipped with digital scales integrated into an ERP, or are deliveries recorded manually on paper manifests?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• What is the average duration between farmgate weigh-in and farmer receipt of mobile money payout?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 7 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-7">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">7. Multi-Party Split Deductions &amp; Loan Recovery</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• Do you execute check-off split payments to recover third-party loans (MFBs, SACCOs, input providers) at the point of produce sale?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• What automated payment rails (e.g., VunaPay API, M-Pesa B2C) are currently deployed to execute simultaneous deductions?</p>
+<div class="answer-line"></div>
+</div>
+<!-- Item 8 -->
+<div class="border border-slate-200 rounded p-2 bg-white shadow-xs" data-purpose="aggregator-section-8">
+<div class="flex items-center justify-between border-b border-slate-200 pb-1 mb-1">
+<h4 class="font-bold text-slate-900 text-[11px]">8. Trading Commitments &amp; ERP Integration</h4>
+<span class="font-mono text-[8px] bg-slate-100 text-slate-700 px-1 rounded">Metric: DSAP</span>
+</div>
+<p class="text-slate-800 leading-snug">• What Enterprise Resource Planning (ERP) or farm management software (e.g., SAP, Farmforce, custom database) do you maintain?</p>
+<div class="answer-line"></div>
+<p class="text-slate-800 leading-snug">• What pricing structure would your organization support for predictive crop monitoring: per-farmer fee, or basis points on handled tonnage?</p>
+<div class="answer-line"></div>
+</div>
+</div>
+<!-- Institutional Sign-Off Block -->
+<section class="mt-3 border-2 border-slate-900 rounded p-3 bg-white" data-purpose="validation-sign-off">
+<div class="flex justify-between items-center border-b border-slate-300 pb-1 mb-2">
+<h4 class="font-mono uppercase font-bold text-xs text-slate-900 tracking-wider">Institutional Validation &amp; Verification Endorsement</h4>
+<span class="text-[9px] font-mono text-slate-500">ACIP Field Verification Protocol • Kenya Market Validation Series</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[10px]">
+<div>
+<span class="font-bold text-slate-700 block">Lead Field Executive / Enumerator:</span>
+<div class="mt-1"><span class="text-slate-500">Full Name:</span> <div class="answer-line"></div></div>
+<div class="mt-1"><span class="text-slate-500">Staff ID / Designation:</span> <div class="answer-line"></div></div>
+<div class="mt-1"><span class="text-slate-500">Signature:</span> <div class="answer-line"></div></div>
+</div>
+<div>
+<span class="font-bold text-slate-700 block">Participating Financial / Agro Entity:</span>
+<div class="mt-1"><span class="text-slate-500">Institution Name:</span> <div class="answer-line"></div></div>
+<div class="mt-1"><span class="text-slate-500">Respondent Name &amp; Title:</span> <div class="answer-line"></div></div>
+<div class="mt-1"><span class="text-slate-500">Official Stamp / Signature:</span> <div class="answer-line"></div></div>
+</div>
+<div>
+<span class="font-bold text-slate-700 block">Quality Assurance &amp; Data Review:</span>
+<div class="mt-1"><span class="text-slate-500">Audit Status:</span> [ &nbsp; ] Verified &nbsp; [ &nbsp; ] Pending Review</div>
+<div class="mt-1"><span class="text-slate-500">Validation Date:</span> <div class="answer-line"></div></div>
+<div class="mt-1"><span class="text-slate-500">Regional Hub:</span> Nairobi, Republic of Kenya</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Running Footer -->
+<div class="flex justify-between items-center border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-500">
+<span class="">TERRAQUEST: CONSULTING | Agricultural Finance &amp; Market Structuring Practice</span>
+<span class="">PAGE 6 OF 6</span>
+<span class="">MARKET VALIDATION QUESTIONNAIRE — 2026</span>
+</div>
+</main>
+<!-- END: Page 6 -->
+
+
+</body></html>
