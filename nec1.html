@@ -1,10 +1,13 @@
-<!DOCTYPE html><html lang="en" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Commercial Proposal: NEC Market Validation in Kenya</title>
-<!-- Tailwind CSS v3 with Plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Commercial Proposal: NEC Market Validation in Kenya</title>
+  
+  <!-- Tailwind CSS v3 with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -31,8 +34,9 @@
       }
     }
   </script>
-<!-- Typography Styles -->
-<style data-purpose="typography">
+
+  <!-- Typography Styles -->
+  <style data-purpose="typography">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     body {
@@ -50,8 +54,9 @@
       font-variant-numeric: tabular-nums;
     }
   </style>
-<!-- Layout and Print Architecture Styles -->
-<style data-purpose="layout-print">
+
+  <!-- Layout and Print Architecture Styles -->
+  <style data-purpose="layout-print">
     /* Screen View Container */
     .master-container {
       max-width: 210mm;
@@ -78,10 +83,17 @@
 
     /* Print Specific Rules */
     @media print {
+      @page {
+        margin: 0; /* Strips browser default margins */
+        size: A4;
+      }
+      
       body {
         background-color: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
       .no-print {
@@ -96,319 +108,445 @@
 
       .page-block {
         width: 100% !important;
-        height: auto !important;
+        height: 297mm !important; /* Force exact A4 height */
         min-height: 297mm !important;
         margin: 0 !important;
-        padding: 18mm 18mm !important;
+        padding: 15mm 18mm !important; /* Slight padding buffer for print */
         box-shadow: none !important;
         page-break-after: always !important;
         break-after: page !important;
+        page-break-inside: avoid !important;
       }
 
+      /* Prevent the final page block from spawning an empty page after it */
       .page-block:last-child {
         page-break-after: avoid !important;
-        break-after: avoid !important;
-      }
-
-      * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        break-after: auto !important;
       }
     }
   </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" data-snapdom="injected-import"></head>
+</head>
 <body class="py-0 sm:py-6 antialiased selection:bg-amber-100 selection:text-amber-900">
-<!-- BEGIN: FloatingActionBar -->
-<aside class="no-print sticky top-0 z-50 bg-[#141210]/95 backdrop-blur-md border-b border-amber-900/40 text-stone-200 px-4 py-3 shadow-2xl" data-purpose="floating-action-bar">
-<div class="max-w-[210mm] mx-auto flex items-center justify-between gap-4">
-<div class="flex items-center gap-2">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5KjaMUmOHOLEnT_LvNk_DTCTwlLdwL74laKNVfmbEusIJQqoMtj3TYSFv6-OO_Ua6zC3fkQFQ8wGNLg4GWwCVxBxBbvpRCVR0VSyotsbwgkb05SqWpUW0WpVIjs5v-V1rF89ns1nEShfixRRlCaLWGH8y_y2iTXwOJD5PnMdkE9gdtUTgQFRpvlUD6Wx7Bs6bdAeMu61jHzqpC-HgGxO1DS2uF721IYfFrjG7O3h8knJI95R2ounF5S2oWsOpnCkVeg" alt="TerraQuest Investments" class="h-7 object-contain mr-1.5 inline-block"><span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-<span class="font-semibold text-xs tracking-wider uppercase text-amber-400">Commercial Proposal</span>
-<span class="text-stone-500">|</span>
-<span class="text-xs text-stone-300 font-medium">NEC Corporation</span>
-</div>
-<div class="hidden sm:block text-xs text-stone-400 font-sans tracking-wide">
+
+  <!-- BEGIN: FloatingActionBar -->
+  <aside class="no-print sticky top-0 z-50 bg-[#141210]/95 backdrop-blur-md border-b border-amber-900/40 text-stone-200 px-4 py-3 shadow-2xl" data-purpose="floating-action-bar">
+    <div class="max-w-[210mm] mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5KjaMUmOHOLEnT_LvNk_DTCTwlLdwL74laKNVfmbEusIJQqoMtj3TYSFv6-OO_Ua6zC3fkQFQ8wGNLg4GWwCVxBxBbvpRCVR0VSyotsbwgkb05SqWpUW0WpVIjs5v-V1rF89ns1nEShfixRRlCaLWGH8y_y2iTXwOJD5PnMdkE9gdtUTgQFRpvlUD6Wx7Bs6bdAeMu61jHzqpC-HgGxO1DS2uF721IYfFrjG7O3h8knJI95R2ounF5S2oWsOpnCkVeg" alt="TerraQuest Investments" class="h-7 object-contain mr-1.5 inline-block"><span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+        <span class="font-semibold text-xs tracking-wider uppercase text-amber-400">Commercial Proposal</span>
+        <span class="text-stone-500">|</span>
+        <span class="text-xs text-stone-300 font-medium">NEC Corporation</span>
+      </div>
+      <div class="hidden sm:block text-xs text-stone-400 font-sans tracking-wide">
         A4 Multi-Page Ready (3 Pages)
       </div>
-<button class="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-md hover:shadow-amber-500/20 active:scale-95" onclick="window.print()" type="button">
-<svg class="w-3.5 h-3.5 fill-current" fill="currentColor" viewBox="0 0 20 20">
-<path clip-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" fill-rule="evenodd"></path>
-</svg>
+      <button class="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-md hover:shadow-amber-500/20 active:scale-95" onclick="window.print()" type="button">
+        <svg class="w-3.5 h-3.5 fill-current" fill="currentColor" viewBox="0 0 20 20">
+          <path clip-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" fill-rule="evenodd"></path>
+        </svg>
         Print / Save as PDF
       </button>
-</div>
-</aside>
-<!-- END: FloatingActionBar -->
-<!-- Master Sheet Document Wrapper -->
-<main class="master-container mx-auto mt-4 sm:mt-6 mb-12">
-<!-- ========================================== -->
-<!-- BEGIN: Page 1 - Cover Page -->
-<!-- ========================================== -->
-<article class="page-block" data-purpose="document-cover-page" id="page-1">
-<!-- Top Running Header -->
-<header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
-<div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Hl0d9c2xkPx6fIsqBHx43dkEyirKfCYZsZ2_rjzJ74Z6_f6cceFcJgUUy0EggI-7nFCjiYgBi56B7unqre458JJfW0993ZxmmF_ZSecd4Bf-wZNxQrXSEbqemlDugG42-iYFhZXkKo4TZabnRm3nscinrzQYlfY487KUyG4nYw5NpWLHKMxFAVcRx67p4ivIoJ_bIO-6SfmhD3eNfTtl8lhrUoliFFwgd0QFEEDFV8-A8VGne2fjOTQ3r_ALmaRT4w" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="font-medium text-stone-600">NEC Corporation</span></div></div>
-<div class="font-medium text-stone-600">
-          Strictly Private &amp; Confidential</div>
-</header>
-<!-- Center Hero Area -->
-<section class="my-auto py-4 flex flex-col justify-center text-center"><!-- Badge -->
-<div class="mb-4 flex justify-center"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7kVQ3fYoCph2uu3ohSpg8DS4PM5SL2Tds-s-r-P_KNsj7kekejNY3lP_b21qOYcYl6xfSqRyQ0_CG3DYjhkNwjw4AFWKdElY_kt1TRAJzoAtW7DJnAt2TXMjXwVAExut5WrRP8uMvTLNsFeDrshPGPI96OBnm0TRmme9TX2RDDbfG4rs5FU1PuXRWFztG3gzZcv80sF7lXT5X0gmIMry0qWUNQAsqUdp0D4vhc_VG2qYJlSotLvm_98c98fsHKADgIA" alt="TerraQuest Investments FZCO" class="h-12 object-contain block mx-auto" style="height: 52px; max-width: 280px;"></div>
-<div class="inline-flex items-center justify-center gap-2 self-center px-3 py-0.5 bg-cream-dark border border-amber-800/20 text-amber-900 text-[10px] tracking-[0.2em] font-semibold uppercase mb-3">
-<span class="w-1.5 h-1.5 bg-amber-700"></span>
+    </div>
+  </aside>
+  <!-- END: FloatingActionBar -->
+
+  <!-- Master Sheet Document Wrapper (Added print:mb-0 to prevent blank tail page) -->
+  <main class="master-container mx-auto mt-4 sm:mt-6 mb-12 print:mb-0">
+    
+    <!-- ========================================== -->
+    <!-- BEGIN: Page 1 - Cover Page -->
+    <!-- ========================================== -->
+    <article class="page-block" data-purpose="document-cover-page" id="page-1">
+      <!-- Top Running Header -->
+      <header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
+        <div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Hl0d9c2xkPx6fIsqBHx43dkEyirKfCYZsZ2_rjzJ74Z6_f6cceFcJgUUy0EggI-7nFCjiYgBi56B7unqre458JJfW0993ZxmmF_ZSecd4Bf-wZNxQrXSEbqemlDugG42-iYFhZXkKo4TZabnRm3nscinrzQYlfY487KUyG4nYw5NpWLHKMxFAVcRx67p4ivIoJ_bIO-6SfmhD3eNfTtl8lhrUoliFFwgd0QFEEDFV8-A8VGne2fjOTQ3r_ALmaRT4w" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="font-medium text-stone-600">NEC Corporation</span></div></div>
+        <div class="font-medium text-stone-600">Strictly Private &amp; Confidential</div>
+      </header>
+      
+      <!-- Center Hero Area -->
+      <section class="my-auto py-4 flex flex-col justify-center text-center">
+        <!-- Badge -->
+        <div class="mb-4 flex justify-center"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7kVQ3fYoCph2uu3ohSpg8DS4PM5SL2Tds-s-r-P_KNsj7kekejNY3lP_b21qOYcYl6xfSqRyQ0_CG3DYjhkNwjw4AFWKdElY_kt1TRAJzoAtW7DJnAt2TXMjXwVAExut5WrRP8uMvTLNsFeDrshPGPI96OBnm0TRmme9TX2RDDbfG4rs5FU1PuXRWFztG3gzZcv80sF7lXT5X0gmIMry0qWUNQAsqUdp0D4vhc_VG2qYJlSotLvm_98c98fsHKADgIA" alt="TerraQuest Investments FZCO" class="h-12 object-contain block mx-auto" style="height: 52px; max-width: 280px;"></div>
+        <div class="inline-flex items-center justify-center gap-2 self-center px-3 py-0.5 bg-cream-dark border border-amber-800/20 text-amber-900 text-[10px] tracking-[0.2em] font-semibold uppercase mb-3">
+          <span class="w-1.5 h-1.5 bg-amber-700"></span>
           Commercial Proposal
         </div>
-<!-- Main Title -->
-<h1 class="text-3xl sm:text-4xl text-espresso font-normal tracking-tight leading-tight max-w-xl mx-auto mb-2">
+        
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-4xl text-espresso font-normal tracking-tight leading-tight max-w-xl mx-auto mb-2">
           Commercial Proposal: NEC Market Validation in Kenya
         </h1>
-<!-- Subtitle -->
-<p class="text-stone-600 text-sm sm:text-base font-serif italic max-w-lg mx-auto mb-5 leading-relaxed">
+        
+        <!-- Subtitle -->
+        <p class="text-stone-600 text-sm sm:text-base font-serif italic max-w-lg mx-auto mb-5 leading-relaxed">
           Validating the ACIP Datasets across Kenyan Agri-Finance &amp; Enterprise Data Consumers
         </p>
-<!-- Metadata Metrics Card Grid -->
-<div class="bg-cream border border-stone-200/80 p-4 rounded-none text-left mb-4 shadow-sm">
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-3 border-b border-stone-200 text-xs">
-<div>
-<span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Target Scale</span>
-<span class="text-sm font-bold text-espresso">60+ Targets</span>
-<span class="block text-[9px] text-stone-500">21 Core + 40 Expanded</span>
-</div>
-<div>
-<span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Monthly Unit Cost</span>
-<span class="text-sm font-bold text-amber-800 tabular-nums">$1,800 USD</span>
-<span class="block text-[9px] text-stone-500">Per Calendar Month</span>
-</div>
-<div>
-<span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Proposed Budget</span>
-<span class="text-sm font-bold text-amber-800 tabular-nums">$10,800 USD</span>
-<span class="block text-[9px] text-stone-500">6-Month Total Value</span>
-</div>
-<div>
-<span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Engagement Term</span>
-<span class="text-sm font-bold text-espresso">6 Months</span>
-<span class="block text-[9px] text-stone-500">Incl. 1-Mo Trial Sprint</span>
-</div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 text-[10px]">
-<div>
-<span class="text-stone-400 uppercase tracking-wider font-medium">Prepared By:</span>
-<p class="font-bold text-stone-800">TerraQuest: Consulting</p>
-</div>
-<div>
-<span class="text-stone-400 uppercase tracking-wider font-medium">Prepared For:</span>
-<p class="font-bold text-stone-800">NEC Corporation</p>
-</div>
-<div>
-<span class="text-stone-400 uppercase tracking-wider font-medium">Engagement Date:</span>
-<p class="font-bold text-stone-800 tabular-nums">September 24, 2026</p>
-</div>
-</div>
-</div>
-<!-- Project Scope Overview Box -->
-<div class="border border-stone-200 bg-white p-4 text-left">
-<div class="flex items-center gap-2 mb-2">
-<span class="h-3 w-1 bg-amber-700"></span>
-<h2 class="text-xs font-bold uppercase tracking-wider text-espresso">Target Validation Scope &amp; Datasets</h2>
-</div>
-<p class="text-xs text-stone-600 leading-relaxed mb-2.5">
+        
+        <!-- Metadata Metrics Card Grid -->
+        <div class="bg-cream border border-stone-200/80 p-4 rounded-none text-left mb-4 shadow-sm">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-3 border-b border-stone-200 text-xs">
+            <div>
+              <span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Target Scale</span>
+              <span class="text-sm font-bold text-espresso">60+ Targets</span>
+              <span class="block text-[9px] text-stone-500">21 Core + 40 Expanded</span>
+            </div>
+            <div>
+              <span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Monthly Unit Cost</span>
+              <span class="text-sm font-bold text-amber-800 tabular-nums">$1,800 USD</span>
+              <span class="block text-[9px] text-stone-500">Per Calendar Month</span>
+            </div>
+            <div>
+              <span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Proposed Budget</span>
+              <span class="text-sm font-bold text-amber-800 tabular-nums">$10,800 USD</span>
+              <span class="block text-[9px] text-stone-500">6-Month Total Value</span>
+            </div>
+            <div>
+              <span class="block text-[9px] uppercase tracking-wider font-semibold text-stone-400">Engagement Term</span>
+              <span class="text-sm font-bold text-espresso">6 Months</span>
+              <span class="block text-[9px] text-stone-500">Incl. 1-Mo Trial Sprint</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 text-[10px]">
+            <div>
+              <span class="text-stone-400 uppercase tracking-wider font-medium">Prepared By:</span>
+              <p class="font-bold text-stone-800">TerraQuest: Consulting</p>
+            </div>
+            <div>
+              <span class="text-stone-400 uppercase tracking-wider font-medium">Prepared For:</span>
+              <p class="font-bold text-stone-800">NEC Corporation</p>
+            </div>
+            <div>
+              <span class="text-stone-400 uppercase tracking-wider font-medium">Engagement Date:</span>
+              <p class="font-bold text-stone-800 tabular-nums">September 24, 2026</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Scope Overview Box -->
+        <div class="border border-stone-200 bg-white p-4 text-left">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="h-3 w-1 bg-amber-700"></span>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-espresso">Target Validation Scope &amp; Datasets</h2>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed mb-2.5">
             A structured market validation engagement designed to establish genuine market appetite, commercial readiness, and willingness-to-pay for three core datasets (“ACIP Data Sets”) among senior credit risk and agricultural product structuring executives:
           </p>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-<div class="bg-cream p-2.5 border-l-2 border-stone-400">
-<span class="font-semibold text-espresso block text-[11px]">CropScope Data</span>
-<span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Agricultural, weather, and satellite observations for farm productivity.</span>
-</div>
-<div class="bg-cream p-2.5 border-l-2 border-stone-400">
-<span class="font-semibold text-espresso block text-[11px]">Apollo Agriculture Data</span>
-<span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Underwriting, loan performance, and historical repayment records.</span>
-</div>
-<div class="bg-cream p-2.5 border-l-2 border-stone-400">
-<span class="font-semibold text-espresso block text-[11px]">VunaPay Data</span>
-<span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Produce procurement, off-taker sales, and transaction histories.</span>
-</div>
-</div>
-</div></section>
-<!-- Bottom Sign-off Footer -->
-<footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500"><div class="">
-<span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
-<span class="">Agri-Finance and Trade Structuring Practice</span>
-</div>
-<div class="text-right">
-<span class="block tracking-wider uppercase">CONFIDENTIAL</span>
-<span class="text-stone-400">Page 1 of 3</span>
-</div></footer>
-</article>
-<!-- END: Page 1 -->
-<!-- ========================================== -->
-<!-- BEGIN: Page 2 - Work Plan & Execution Timeline -->
-<!-- ========================================== -->
-<article class="page-block" data-purpose="work-plan-timeline" id="page-2">
-<!-- Top Running Header -->
-<header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
-<div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKRRs5qUTP7gAsSOyaJhQFS-pkovxaRV95QwEYgknHDj__U82jQ0JeO3nOJNaBQxsKB0-tGtylce3-bnzhl92B2EHYA2oaqViQvO4yDqJNOsw8BaEvGnyGKI7j3IDORBrAj8eJPZnFJt0zAvzu_j-wSI6660usymtYT5r5NKq9FVGUWKtEeYzxvzQHj5Ei1lwmijltxJN0-_NAaNFIcnAE4Dyi2rZHT0mDTomnYoNnjdROhNNBo2o5jovxVqG0qkoQ6w" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="w-1.5 h-1.5 bg-amber-600"></span><span class="">Work Plan &amp; Execution Roadmap</span></div></div>
-<div class="font-medium text-stone-600">
-          Section 1.0
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-cream p-2.5 border-l-2 border-stone-400">
+              <span class="font-semibold text-espresso block text-[11px]">CropScope Data</span>
+              <span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Agricultural, weather, and satellite observations for farm productivity.</span>
+            </div>
+            <div class="bg-cream p-2.5 border-l-2 border-stone-400">
+              <span class="font-semibold text-espresso block text-[11px]">Apollo Agriculture Data</span>
+              <span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Underwriting, loan performance, and historical repayment records.</span>
+            </div>
+            <div class="bg-cream p-2.5 border-l-2 border-stone-400">
+              <span class="font-semibold text-espresso block text-[11px]">VunaPay Data</span>
+              <span class="text-stone-600 text-[10px] leading-snug block mt-0.5">Produce procurement, off-taker sales, and transaction histories.</span>
+            </div>
+          </div>
         </div>
-</header>
-<!-- Main Content Area -->
-<section class="my-auto py-2"><div class="flex items-baseline gap-2 mb-1.5"><span class="text-amber-800 font-bold text-xs">1.0</span><h2 class="text-base font-serif font-bold text-espresso tracking-tight">WORK PLAN &amp; EXECUTION TIMELINE</h2></div><p class="text-[10px] text-stone-600 leading-snug mb-2">The validation is executed exclusively with <span class="text-espresso font-semibold">senior-level team members in product development, credit risk, and structuring of Agri-products</span>. These stakeholders constitute the actual data consumers within financial institutions, microfinanciers, and agricultural off-takers with budgetary and structuring authority.</p><div class="border border-stone-200 bg-cream p-2.5 mb-2"><div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5"><div class="flex items-center gap-2"><span class="bg-espresso text-amber-400 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 1</span><h3 class="text-[11px] font-bold text-espresso uppercase">Month 1: The Trial Phase (Initial Validation Sprint)</h3></div><span class="text-[9px] font-bold text-amber-800 uppercase tracking-wider">$1,800 USD</span></div><p class="text-[10px] text-stone-600 mb-1.5 leading-tight">A low-commitment 1-month trial sprint providing NEC with immediate visibility and primary feedback from core institutions prior to committing to the broader execution cycle:</p><div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[9px]"><div class="bg-white p-1.5 border border-stone-200"><span class="font-bold text-amber-900 block text-[9px]">Week 1: Rapid Alignment</span><p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Dataset mapping (CropScope, Apollo, VunaPay), hypothesis framing, and objection-handling matrices.</p></div><div class="bg-white p-1.5 border border-stone-200"><span class="font-bold text-amber-900 block text-[9px]">Week 2: Target Prioritization</span><p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Prioritizing the initial list of 21 targets; leveraging warm institutional relationships to secure meetings.</p></div><div class="bg-white p-1.5 border border-stone-200"><span class="font-bold text-amber-900 block text-[9px]">Weeks 3 &amp; 4: Deep-Dives</span><p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Conducting 6 to 8 deep-dive interviews with senior data consumers; stress-testing ACIP use-cases.</p></div></div><div class="mt-1.5 pt-1.5 border-t border-stone-200/80 flex items-center justify-between text-[9px]"><span class="font-semibold text-espresso"><strong class="text-amber-800">Month 1 Deliverable:</strong> Go/No-Go Review and Initial Validation Report</span><span class="text-stone-500 text-[8px]">Early feedback, perceived value drivers &amp; friction points</span></div></div><div class="border border-stone-200 bg-white p-2.5 mb-2"><div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5"><div class="flex items-center gap-2"><span class="bg-stone-700 text-stone-200 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 2</span><h3 class="text-[11px] font-bold text-espresso uppercase">Months 2 &amp; 3: Initial Pipeline Completion</h3></div><span class="text-[9px] font-bold text-stone-700 uppercase tracking-wider">$3,600 USD</span></div><ul class="text-[9px] text-stone-600 space-y-0.5 list-disc pl-4 leading-snug"><li class="">Structured engagements with all remaining viable targets from the initial list of 21 targets.</li><li class="">Maintain executive meeting quality rather than superficial outreach, allowing senior risk officers time to examine sample schemas.</li><li class="">Identify specific dataset pairing preferences (e.g., combining satellite observations with transactional off-taker receipts).</li></ul><div class="mt-1.5 pt-1.5 border-t border-stone-100 flex items-center justify-between text-[9px]"><span class="font-semibold text-espresso"><strong class="text-stone-800">Month 3 Deliverable:</strong> Interim Progress Report</span><span class="text-stone-500 text-[8px]">Analysis of demand, integration capabilities, and commercial appetite across the 21 targets</span></div></div><div class="border border-stone-200 bg-white p-2.5 mb-2"><div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5"><div class="flex items-center gap-2"><span class="bg-stone-700 text-stone-200 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 3</span><h3 class="text-[11px] font-bold text-espresso uppercase">Months 4 &amp; 5: Extended Pipeline Development &amp; Execution</h3></div><span class="text-[9px] font-bold text-stone-700 uppercase tracking-wider">$3,600 USD</span></div><div class="text-[9px] text-stone-600"><strong class="text-stone-800 block mb-0.5">Lead Generation (40 Targets):</strong><p class="leading-snug">Identify and profile 40 additional qualified institutional targets across adjacent segments: Agri-Processors, Large SACCOs, Input Providers, and Warehouse Managers.</p></div><div class="mt-1.5 pt-1.5 border-t border-stone-100 flex items-center justify-between text-[9px]"><span class="font-semibold text-espresso"><strong class="text-stone-800">Months 4 &amp; 5 Deliverables:</strong> Monthly Status Updates</span><span class="text-stone-500 text-[8px]">Continuous market telemetry &amp; prospect reaction tracking</span></div></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"><div class="border border-stone-200 bg-cream p-2.5 flex flex-col justify-between"><div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1"><span class="bg-amber-900 text-amber-200 text-[8px] font-bold px-1.5 py-0.5 uppercase">Phase 4: Month 6</span><span class="text-[9px] font-bold text-amber-800 tabular-nums">$1,800 USD</span></div><strong class="text-[10px] text-espresso block mb-0.5">Final Consolidation &amp; Reporting</strong><p class="text-[8px] text-stone-600 leading-tight mb-1.5">Synthesize findings across all 60+ engagements (21 original + 40 expanded). Detailed readiness assessment, willingness-to-pay indicators, and priority integration requests.</p><span class="text-[8px] font-bold text-stone-800 block mt-auto pt-1 border-t border-stone-200/60">Deliverable: Final Market Validation Report &amp; Exec Readout</span></div><div class="border-2 border-amber-700 bg-cream p-2 flex flex-col justify-between"><div><div class="flex justify-between items-center border-b border-amber-800/20 pb-0.5 mb-1"><span class="bg-amber-900 text-amber-200 text-[7px] font-bold px-1 py-0.5 uppercase tracking-wider">Potential Extension</span><span class="text-[8px] font-bold text-amber-800 uppercase">Post-Month 6</span></div><strong class="text-[9px] text-espresso block mb-0.5">PoC Conversion &amp; Structuring</strong><p class="text-[8px] text-stone-600 leading-tight mb-1">Directly re-engage the 3-5 highest-intent prospects to structure live Proof of Concepts (PoCs), transitioning validation into multi-year commercial data licensing agreements.</p></div><div class="bg-white border-l-2 border-amber-700 p-1.5 mt-0.5"><div class="flex items-center gap-1 mb-0.5"><span class="w-1 h-1 bg-amber-700"></span><span class="text-[7px] font-bold uppercase tracking-wider text-amber-900">CRITICAL REGULATORY NOTE: Multi-Regulator Engagement Strategy</span></div><p class="text-[7px] text-stone-600 leading-tight mb-0.5">Because the ACIP data sets bridge finance, insurance, and agriculture, commercial deployment requires strict compliance. Post-close of the initial scope, TerraQuest will facilitate structured engagements with the necessary regulatory bodies before any live PoC launch:</p><ul class="text-[7px] text-stone-700 space-y-0.5 leading-tight"><li class=""><strong class="text-espresso">• CBK &amp; SASRA:</strong> To clear alternative data usage for credit scoring and closed-loop disbursements for Banks, MFBs, and SACCOs.</li><li class=""><strong class="text-espresso">• IRA (Insurance Regulatory Authority):</strong> To ensure CropScope's parametric triggers meet the Insurance Regulatory Authority's compliance standards.</li><li class=""><strong class="text-espresso">• Ministry of Co-operatives:</strong> To validate VunaPay check-off integrations with agricultural cooperatives.</li><li class=""><strong class="text-espresso">• ODPC (Office of the Data Protection Commissioner):</strong> A mandatory clearance to ensure the cross-pollination of Apollo credit data and VunaPay digital registries complies with Kenya's stringent Data Protection Act.</li></ul></div><span class="text-[7px] font-bold text-stone-700 block mt-1">Outcome: Contracted Pilots, Live ACIP Deployment &amp; Regulatory Clearance</span></div></div></section>
-<!-- Bottom Sign-off Footer -->
-<footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500"><div class="">
-<span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
-<span class="">Agri-Finance and Trade Structuring Practice</span>
-</div>
-<div class="text-right">
-<span class="block tracking-wider uppercase">CONFIDENTIAL</span>
-<span class="text-stone-400">Page 2 of 3</span>
-</div></footer>
-</article>
-<!-- END: Page 2 -->
-<!-- ========================================== -->
-<!-- BEGIN: Page 3 - Commercial Pricing & Terms -->
-<!-- ========================================== -->
-<article class="page-block" data-purpose="commercial-pricing-terms" id="page-3">
-<!-- Top Running Header -->
-<header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
-<div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZGyDDgh8p0GlCC0FIycuOklRAhMA0fpltTMnZVi-zoCK-WeMHPZLQOEjnIaiP6cLv0emmzUypM1QA0bfxJXbK5e11bAxhuLh8o5My4gIGTx-QOc49hzr_MAlP6mFWpymdWrP5g5-bAqSoidE0LDMrH_15SK9UrYdyk2lhTdB1rDraeP-YykqwaDQVtUkoOxBTtmavweK7rOAGWqqCdK_WvOrCeI-tOHeuKXl1myetS0y2QELNFlkqgXgRxZB9DNrx7g" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="w-1.5 h-1.5 bg-amber-600"></span><span class="">Commercial Structuring &amp; Engagement Terms</span></div></div>
-<div class="font-medium text-stone-600">
-          Sections 2.0 – 4.0
+      </section>
+      
+      <!-- Bottom Sign-off Footer -->
+      <footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500">
+        <div>
+          <span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
+          <span>Agri-Finance and Trade Structuring Practice</span>
         </div>
-</header>
-<!-- Main Content Area -->
-<section class="my-auto py-2">
-<!-- SECTION 2: PRICING -->
-<div class="mb-4">
-<div class="flex items-baseline gap-2 mb-2">
-<span class="text-amber-800 font-bold text-xs">2.0</span>
-<h2 class="text-base font-serif font-bold text-espresso tracking-tight">COMMERCIAL PRICING &amp; STRUCTURE</h2>
-</div>
-<!-- Pricing Table -->
-<div class="border border-stone-200 overflow-hidden mb-2.5">
-<table class="w-full text-left border-collapse text-[10px]">
-<thead>
-<tr class="bg-espresso text-stone-200 uppercase tracking-wider text-[9px]">
-<th class="py-2 px-3 font-semibold">Phase / Scope</th>
-<th class="py-2 px-3 font-semibold">Duration</th>
-<th class="py-2 px-3 font-semibold">Key Milestones &amp; Deliverables</th>
-<th class="py-2 px-3 font-semibold text-right">Fee (USD)</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-stone-200 font-normal">
-<tr class="bg-cream">
-<td class="py-2 px-3 font-bold text-espresso">Phase 1: Trial Sprint</td>
-<td class="py-2 px-3 text-stone-600">Month 1 (1 Mo)</td>
-<td class="py-2 px-3 text-stone-600">Inquiry Framework, 6-8 Engagements, Initial Validation Report (Go/No-Go)</td>
-<td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$1,800</td>
-</tr>
-<tr class="bg-white">
-<td class="py-2 px-3 font-bold text-espresso">Phase 2: Initial Pipeline</td>
-<td class="py-2 px-3 text-stone-600">Months 2-3 (2 Mos)</td>
-<td class="py-2 px-3 text-stone-600">Complete remaining engagements from core 21 targets, Interim Report</td>
-<td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$3,600</td>
-</tr>
-<tr class="bg-cream">
-<td class="py-2 px-3 font-bold text-espresso">Phase 3: Extended Pipeline</td>
-<td class="py-2 px-3 text-stone-600">Months 4-5 (2 Mos)</td>
-<td class="py-2 px-3 text-stone-600">40 New Leads Generated &amp; Engaged (SACCOs, Processors), Monthly Updates</td>
-<td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$3,600</td>
-</tr>
-<tr class="bg-white">
-<td class="py-2 px-3 font-bold text-espresso">Phase 4: Consolidation</td>
-<td class="py-2 px-3 text-stone-600">Month 6 (1 Mo)</td>
-<td class="py-2 px-3 text-stone-600">Final Data Synthesis, Comprehensive Market Report, Exec Management Readout</td>
-<td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$1,800</td>
-</tr>
-<tr class="bg-stone-100 font-bold border-t-2 border-stone-300">
-<td class="py-2 px-3 text-amber-900 uppercase">Total Engagement</td>
-<td class="py-2 px-3 text-stone-800">6 Months</td>
-<td class="py-2 px-3 text-stone-800">Comprehensive Validation across 60+ Institutional Targets</td>
-<td class="py-2 px-3 text-right text-sm text-amber-900 tabular-nums">$10,800</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="text-[9px] text-stone-500 italic">
+        <div class="text-right">
+          <span class="block tracking-wider uppercase">CONFIDENTIAL</span>
+          <span class="text-stone-400">Page 1 of 3</span>
+        </div>
+      </footer>
+    </article>
+    <!-- END: Page 1 -->
+
+    <!-- ========================================== -->
+    <!-- BEGIN: Page 2 - Work Plan & Execution Timeline -->
+    <!-- ========================================== -->
+    <article class="page-block" data-purpose="work-plan-timeline" id="page-2">
+      <!-- Top Running Header -->
+      <header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
+        <div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKRRs5qUTP7gAsSOyaJhQFS-pkovxaRV95QwEYgknHDj__U82jQ0JeO3nOJNaBQxsKB0-tGtylce3-bnzhl92B2EHYA2oaqViQvO4yDqJNOsw8BaEvGnyGKI7j3IDORBrAj8eJPZnFJt0zAvzu_j-wSI6660usymtYT5r5NKq9FVGUWKtEeYzxvzQHj5Ei1lwmijltxJN0-_NAaNFIcnAE4Dyi2rZHT0mDTomnYoNnjdROhNNBo2o5jovxVqG0qkoQ6w" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="w-1.5 h-1.5 bg-amber-600"></span><span>Work Plan &amp; Execution Roadmap</span></div></div>
+        <div class="font-medium text-stone-600">Section 1.0</div>
+      </header>
+      
+      <!-- Main Content Area -->
+      <section class="my-auto py-2">
+        <div class="flex items-baseline gap-2 mb-1.5">
+          <span class="text-amber-800 font-bold text-xs">1.0</span>
+          <h2 class="text-base font-serif font-bold text-espresso tracking-tight">WORK PLAN &amp; EXECUTION TIMELINE</h2>
+        </div>
+        <p class="text-[10px] text-stone-600 leading-snug mb-2">The validation is executed exclusively with <span class="text-espresso font-semibold">senior-level team members in product development, credit risk, and structuring of Agri-products</span>. These stakeholders constitute the actual data consumers within financial institutions, microfinanciers, and agricultural off-takers with budgetary and structuring authority.</p>
+        
+        <div class="border border-stone-200 bg-cream p-2.5 mb-2">
+          <div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5">
+            <div class="flex items-center gap-2">
+              <span class="bg-espresso text-amber-400 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 1</span>
+              <h3 class="text-[11px] font-bold text-espresso uppercase">Month 1: The Trial Phase (Initial Validation Sprint)</h3>
+            </div>
+            <span class="text-[9px] font-bold text-amber-800 uppercase tracking-wider">$1,800 USD</span>
+          </div>
+          <p class="text-[10px] text-stone-600 mb-1.5 leading-tight">A low-commitment 1-month trial sprint providing NEC with immediate visibility and primary feedback from core institutions prior to committing to the broader execution cycle:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[9px]">
+            <div class="bg-white p-1.5 border border-stone-200">
+              <span class="font-bold text-amber-900 block text-[9px]">Week 1: Rapid Alignment</span>
+              <p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Dataset mapping (CropScope, Apollo, VunaPay), hypothesis framing, and objection-handling matrices.</p>
+            </div>
+            <div class="bg-white p-1.5 border border-stone-200">
+              <span class="font-bold text-amber-900 block text-[9px]">Week 2: Target Prioritization</span>
+              <p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Prioritizing the initial list of 21 targets; leveraging warm institutional relationships to secure meetings.</p>
+            </div>
+            <div class="bg-white p-1.5 border border-stone-200">
+              <span class="font-bold text-amber-900 block text-[9px]">Weeks 3 &amp; 4: Deep-Dives</span>
+              <p class="text-stone-500 text-[8px] mt-0.5 leading-snug">Conducting 6 to 8 deep-dive interviews with senior data consumers; stress-testing ACIP use-cases.</p>
+            </div>
+          </div>
+          <div class="mt-1.5 pt-1.5 border-t border-stone-200/80 flex items-center justify-between text-[9px]">
+            <span class="font-semibold text-espresso"><strong class="text-amber-800">Month 1 Deliverable:</strong> Go/No-Go Review and Initial Validation Report</span>
+            <span class="text-stone-500 text-[8px]">Early feedback, perceived value drivers &amp; friction points</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 bg-white p-2.5 mb-2">
+          <div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5">
+            <div class="flex items-center gap-2">
+              <span class="bg-stone-700 text-stone-200 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 2</span>
+              <h3 class="text-[11px] font-bold text-espresso uppercase">Months 2 &amp; 3: Initial Pipeline Completion</h3>
+            </div>
+            <span class="text-[9px] font-bold text-stone-700 uppercase tracking-wider">$3,600 USD</span>
+          </div>
+          <ul class="text-[9px] text-stone-600 space-y-0.5 list-disc pl-4 leading-snug">
+            <li>Structured engagements with all remaining viable targets from the initial list of 21 targets.</li>
+            <li>Maintain executive meeting quality rather than superficial outreach, allowing senior risk officers time to examine sample schemas.</li>
+            <li>Identify specific dataset pairing preferences (e.g., combining satellite observations with transactional off-taker receipts).</li>
+          </ul>
+          <div class="mt-1.5 pt-1.5 border-t border-stone-100 flex items-center justify-between text-[9px]">
+            <span class="font-semibold text-espresso"><strong class="text-stone-800">Month 3 Deliverable:</strong> Interim Progress Report</span>
+            <span class="text-stone-500 text-[8px]">Analysis of demand, integration capabilities, and commercial appetite across the 21 targets</span>
+          </div>
+        </div>
+
+        <div class="border border-stone-200 bg-white p-2.5 mb-2">
+          <div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1.5">
+            <div class="flex items-center gap-2">
+              <span class="bg-stone-700 text-stone-200 text-[9px] font-bold px-1.5 py-0.5 uppercase tracking-wide">Phase 3</span>
+              <h3 class="text-[11px] font-bold text-espresso uppercase">Months 4 &amp; 5: Extended Pipeline Development &amp; Execution</h3>
+            </div>
+            <span class="text-[9px] font-bold text-stone-700 uppercase tracking-wider">$3,600 USD</span>
+          </div>
+          <div class="text-[9px] text-stone-600">
+            <strong class="text-stone-800 block mb-0.5">Lead Generation (40 Targets):</strong>
+            <p class="leading-snug">Identify and profile 40 additional qualified institutional targets across adjacent segments: Agri-Processors, Large SACCOs, Input Providers, and Warehouse Managers.</p>
+          </div>
+          <div class="mt-1.5 pt-1.5 border-t border-stone-100 flex items-center justify-between text-[9px]">
+            <span class="font-semibold text-espresso"><strong class="text-stone-800">Months 4 &amp; 5 Deliverables:</strong> Monthly Status Updates</span>
+            <span class="text-stone-500 text-[8px]">Continuous market telemetry &amp; prospect reaction tracking</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="border border-stone-200 bg-cream p-2.5 flex flex-col justify-between">
+            <div class="flex justify-between items-center border-b border-stone-200 pb-1 mb-1">
+              <span class="bg-amber-900 text-amber-200 text-[8px] font-bold px-1.5 py-0.5 uppercase">Phase 4: Month 6</span>
+              <span class="text-[9px] font-bold text-amber-800 tabular-nums">$1,800 USD</span>
+            </div>
+            <strong class="text-[10px] text-espresso block mb-0.5">Final Consolidation &amp; Reporting</strong>
+            <p class="text-[8px] text-stone-600 leading-tight mb-1.5">Synthesize findings across all 60+ engagements (21 original + 40 expanded). Detailed readiness assessment, willingness-to-pay indicators, and priority integration requests.</p>
+            <span class="text-[8px] font-bold text-stone-800 block mt-auto pt-1 border-t border-stone-200/60">Deliverable: Final Market Validation Report &amp; Exec Readout</span>
+          </div>
+          
+          <div class="border-2 border-amber-700 bg-cream p-2 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center border-b border-amber-800/20 pb-0.5 mb-1">
+                <span class="bg-amber-900 text-amber-200 text-[7px] font-bold px-1 py-0.5 uppercase tracking-wider">Potential Extension</span>
+                <span class="text-[8px] font-bold text-amber-800 uppercase">Post-Month 6</span>
+              </div>
+              <strong class="text-[9px] text-espresso block mb-0.5">PoC Conversion &amp; Structuring</strong>
+              <p class="text-[8px] text-stone-600 leading-tight mb-1">Directly re-engage the 3-5 highest-intent prospects to structure live Proof of Concepts (PoCs), transitioning validation into multi-year commercial data licensing agreements.</p>
+            </div>
+            <div class="bg-white border-l-2 border-amber-700 p-1.5 mt-0.5">
+              <div class="flex items-center gap-1 mb-0.5">
+                <span class="w-1 h-1 bg-amber-700"></span>
+                <span class="text-[7px] font-bold uppercase tracking-wider text-amber-900">CRITICAL REGULATORY NOTE: MULTI-REGULATOR ENGAGEMENT STRATEGY</span>
+              </div>
+              <p class="text-[7px] text-stone-600 leading-tight mb-0.5">Because the ACIP data sets bridge finance, insurance, and agriculture, commercial deployment requires strict compliance. Post-close of the initial scope, TerraQuest will facilitate structured engagements with the necessary regulatory bodies before any live PoC launch:</p>
+              <ul class="text-[7px] text-stone-700 space-y-0.5 leading-tight">
+                <li><strong class="text-espresso">• CBK &amp; SASRA:</strong> To clear alternative data usage for credit scoring and closed-loop disbursements for Banks, MFBs, and SACCOs.</li>
+                <li><strong class="text-espresso">• IRA (Insurance Regulatory Authority):</strong> To ensure CropScope's parametric triggers meet the Insurance Regulatory Authority's compliance standards.</li>
+                <li><strong class="text-espresso">• Ministry of Co-operatives:</strong> To validate VunaPay check-off integrations with agricultural cooperatives.</li>
+                <li><strong class="text-espresso">• ODPC (Office of the Data Protection Commissioner):</strong> A mandatory clearance to ensure the cross-pollination of Apollo credit data and VunaPay digital registries complies with Kenya's stringent Data Protection Act.</li>
+              </ul>
+            </div>
+            <span class="text-[7px] font-bold text-stone-700 block mt-1">Outcome: Contracted Pilots, Live ACIP Deployment &amp; Regulatory Clearance</span>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Bottom Sign-off Footer -->
+      <footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500">
+        <div>
+          <span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
+          <span>Agri-Finance and Trade Structuring Practice</span>
+        </div>
+        <div class="text-right">
+          <span class="block tracking-wider uppercase">CONFIDENTIAL</span>
+          <span class="text-stone-400">Page 2 of 3</span>
+        </div>
+      </footer>
+    </article>
+    <!-- END: Page 2 -->
+
+    <!-- ========================================== -->
+    <!-- BEGIN: Page 3 - Commercial Pricing & Terms -->
+    <!-- ========================================== -->
+    <article class="page-block" data-purpose="commercial-pricing-terms" id="page-3">
+      <!-- Top Running Header -->
+      <header class="border-b border-stone-200 pb-3 flex justify-between items-center text-[10px] tracking-widest text-stone-500 uppercase">
+        <div class="flex items-center gap-1.5"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZGyDDgh8p0GlCC0FIycuOklRAhMA0fpltTMnZVi-zoCK-WeMHPZLQOEjnIaiP6cLv0emmzUypM1QA0bfxJXbK5e11bAxhuLh8o5My4gIGTx-QOc49hzr_MAlP6mFWpymdWrP5g5-bAqSoidE0LDMrH_15SK9UrYdyk2lhTdB1rDraeP-YykqwaDQVtUkoOxBTtmavweK7rOAGWqqCdK_WvOrCeI-tOHeuKXl1myetS0y2QELNFlkqgXgRxZB9DNrx7g" alt="TerraQuest Investments" class="h-7 object-contain block"><span class="text-stone-300">/</span><span class="w-1.5 h-1.5 bg-amber-600"></span><span>Commercial Structuring &amp; Engagement Terms</span></div></div>
+        <div class="font-medium text-stone-600">Sections 2.0 – 4.0</div>
+      </header>
+      
+      <!-- Main Content Area -->
+      <section class="my-auto py-2">
+        <!-- SECTION 2: PRICING -->
+        <div class="mb-4">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-amber-800 font-bold text-xs">2.0</span>
+            <h2 class="text-base font-serif font-bold text-espresso tracking-tight">COMMERCIAL PRICING &amp; STRUCTURE</h2>
+          </div>
+          
+          <!-- Pricing Table -->
+          <div class="border border-stone-200 overflow-hidden mb-2.5">
+            <table class="w-full text-left border-collapse text-[10px]">
+              <thead>
+                <tr class="bg-espresso text-stone-200 uppercase tracking-wider text-[9px]">
+                  <th class="py-2 px-3 font-semibold">Phase / Scope</th>
+                  <th class="py-2 px-3 font-semibold">Duration</th>
+                  <th class="py-2 px-3 font-semibold">Key Milestones &amp; Deliverables</th>
+                  <th class="py-2 px-3 font-semibold text-right">Fee (USD)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 font-normal">
+                <tr class="bg-cream">
+                  <td class="py-2 px-3 font-bold text-espresso">Phase 1: Trial Sprint</td>
+                  <td class="py-2 px-3 text-stone-600">Month 1 (1 Mo)</td>
+                  <td class="py-2 px-3 text-stone-600">Inquiry Framework, 6-8 Engagements, Initial Validation Report (Go/No-Go)</td>
+                  <td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$1,800</td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="py-2 px-3 font-bold text-espresso">Phase 2: Initial Pipeline</td>
+                  <td class="py-2 px-3 text-stone-600">Months 2-3 (2 Mos)</td>
+                  <td class="py-2 px-3 text-stone-600">Complete remaining engagements from core 21 targets, Interim Report</td>
+                  <td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$3,600</td>
+                </tr>
+                <tr class="bg-cream">
+                  <td class="py-2 px-3 font-bold text-espresso">Phase 3: Extended Pipeline</td>
+                  <td class="py-2 px-3 text-stone-600">Months 4-5 (2 Mos)</td>
+                  <td class="py-2 px-3 text-stone-600">40 New Leads Generated &amp; Engaged (SACCOs, Processors), Monthly Updates</td>
+                  <td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$3,600</td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="py-2 px-3 font-bold text-espresso">Phase 4: Consolidation</td>
+                  <td class="py-2 px-3 text-stone-600">Month 6 (1 Mo)</td>
+                  <td class="py-2 px-3 text-stone-600">Final Data Synthesis, Comprehensive Market Report, Exec Management Readout</td>
+                  <td class="py-2 px-3 text-right font-bold text-espresso tabular-nums">$1,800</td>
+                </tr>
+                <tr class="bg-stone-100 font-bold border-t-2 border-stone-300">
+                  <td class="py-2 px-3 text-amber-900 uppercase">Total Engagement</td>
+                  <td class="py-2 px-3 text-stone-800">6 Months</td>
+                  <td class="py-2 px-3 text-stone-800">Comprehensive Validation across 60+ Institutional Targets</td>
+                  <td class="py-2 px-3 text-right text-sm text-amber-900 tabular-nums">$10,800</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-[9px] text-stone-500 italic">
             * All figures in United States Dollars (USD), exclusive of applicable local withholding or value-added taxes. Domestic in-person engagements within Nairobi metropolitan area are fully inclusive.
           </p>
-</div>
-<!-- SECTION 3: PAYMENT TERMS -->
-<div class="mb-4">
-<div class="flex items-baseline gap-2 mb-2">
-<span class="text-amber-800 font-bold text-xs">3.0</span>
-<h2 class="text-base font-serif font-bold text-espresso tracking-tight">PAYMENT TERMS &amp; MILESTONES</h2>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[10px]">
-<div class="border border-stone-200 bg-white p-2.5">
-<span class="text-amber-800 font-bold block text-[9px] uppercase">Invoice 1: $1,800</span>
-<p class="text-stone-600 mt-1 leading-snug">Payable upon contract signing and official Month 1 Trial Sprint commencement.</p>
-</div>
-<div class="border border-stone-200 bg-white p-2.5">
-<span class="text-stone-800 font-bold block text-[9px] uppercase">Invoice 2: $3,600</span>
-<p class="text-stone-600 mt-1 leading-snug">Payable upon successful Month 1 Go/No-Go approval and Month 2 commencement (or two $1,800 monthly tranches).</p>
-</div>
-<div class="border border-stone-200 bg-white p-2.5">
-<span class="text-stone-800 font-bold block text-[9px] uppercase">Invoice 3: $3,600</span>
-<p class="text-stone-600 mt-1 leading-snug">Payable at Month 4 commencement for extended 40-target pipeline development (or two $1,800 monthly tranches).</p>
-</div>
-<div class="border border-stone-200 bg-white p-2.5">
-<span class="text-amber-800 font-bold block text-[9px] uppercase">Invoice 4: $1,800</span>
-<p class="text-stone-600 mt-1 leading-snug">Payable upon delivery of Final Market Validation Report and executive readout in Month 6.</p>
-</div>
-</div>
-</div>
-<!-- SECTION 4: TERRAQUEST ADVANTAGE -->
-<div class="mb-4">
-<div class="flex items-baseline gap-2 mb-2">
-<span class="text-amber-800 font-bold text-xs">4.0</span>
-<h2 class="text-base font-serif font-bold text-espresso tracking-tight">THE TERRAQUEST ADVANTAGE</h2>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3"><div class="border-t-2 border-amber-700 bg-cream p-3">
-<h3 class="text-xs font-bold text-espresso mb-1">Deep Local Context</h3>
-<p class="text-[9px] text-stone-600 leading-relaxed">Deep network to senior decision-makers in the Kenyan Agri-Finance ecosystem.&nbsp;</p>
-</div>
-<div class="border-t-2 border-amber-700 bg-cream p-3">
-<h3 class="text-xs font-bold text-espresso mb-1">Structured Methodology</h3>
-<p class="text-[9px] text-stone-600 leading-relaxed">Rigorous detail for validating complex, data-driven agricultural products.
-</p>
-</div>
-<div class="border-t-2 border-amber-700 bg-cream p-3">
-<h3 class="text-xs font-bold text-espresso mb-1">Commercial Focus</h3>
-<p class="text-[9px] text-stone-600 leading-relaxed">A keen focus on driving deep market context and identifying commercial opportunities.&nbsp;</p>
-</div></div>
-</div>
-<!-- Signatures / Institutional Commitment Block -->
-<div class="border border-stone-200 bg-cream-light p-3 text-[10px]">
-<div class="grid grid-cols-2 gap-6">
-<div>
-<span class="block text-[8px] uppercase tracking-wider text-stone-500 font-semibold mb-1">Submitted on Behalf of:</span>
-<p class="font-bold text-espresso">TerraQuest Investments FZCO</p>
-<div class="mt-4 border-b border-stone-300 w-3/4"></div>
-<span class="text-[8px] text-stone-500 block mt-1">Authorized Representative</span>
-</div>
-<div>
-<span class="block text-[8px] uppercase tracking-wider text-stone-500 font-semibold mb-1">Accepted and Agreed:</span>
-<p class="font-bold text-espresso">NEC Corporation</p>
-<div class="mt-4 border-b border-stone-300 w-3/4"></div>
-<span class="text-[8px] text-stone-500 block mt-1">Authorized Signatory</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Bottom Sign-off Footer -->
-<footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500"><div class="">
-<span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
-<span class="">Agri-Finance and Trade Structuring Practice</span>
-</div>
-<div class="text-right">
-<span class="block tracking-wider uppercase">CONFIDENTIAL</span>
-<span class="text-stone-400">Page 3 of 3</span>
-</div></footer>
-</article>
-<!-- END: Page 3 -->
-</main>
+        </div>
 
+        <!-- SECTION 3: PAYMENT TERMS -->
+        <div class="mb-4">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-amber-800 font-bold text-xs">3.0</span>
+            <h2 class="text-base font-serif font-bold text-espresso tracking-tight">PAYMENT TERMS &amp; MILESTONES</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[10px]">
+            <div class="border border-stone-200 bg-white p-2.5">
+              <span class="text-amber-800 font-bold block text-[9px] uppercase">Invoice 1: $1,800</span>
+              <p class="text-stone-600 mt-1 leading-snug">Payable upon contract signing and official Month 1 Trial Sprint commencement.</p>
+            </div>
+            <div class="border border-stone-200 bg-white p-2.5">
+              <span class="text-stone-800 font-bold block text-[9px] uppercase">Invoice 2: $3,600</span>
+              <p class="text-stone-600 mt-1 leading-snug">Payable upon successful Month 1 Go/No-Go approval and Month 2 commencement (or two $1,800 monthly tranches).</p>
+            </div>
+            <div class="border border-stone-200 bg-white p-2.5">
+              <span class="text-stone-800 font-bold block text-[9px] uppercase">Invoice 3: $3,600</span>
+              <p class="text-stone-600 mt-1 leading-snug">Payable at Month 4 commencement for extended 40-target pipeline development (or two $1,800 monthly tranches).</p>
+            </div>
+            <div class="border border-stone-200 bg-white p-2.5">
+              <span class="text-amber-800 font-bold block text-[9px] uppercase">Invoice 4: $1,800</span>
+              <p class="text-stone-600 mt-1 leading-snug">Payable upon delivery of Final Market Validation Report and executive readout in Month 6.</p>
+            </div>
+          </div>
+        </div>
 
+        <!-- SECTION 4: TERRAQUEST ADVANTAGE -->
+        <div class="mb-4">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-amber-800 font-bold text-xs">4.0</span>
+            <h2 class="text-base font-serif font-bold text-espresso tracking-tight">THE TERRAQUEST ADVANTAGE</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="border-t-2 border-amber-700 bg-cream p-3">
+              <h3 class="text-xs font-bold text-espresso mb-1">Deep Local Context</h3>
+              <p class="text-[9px] text-stone-600 leading-relaxed">Deep network to senior decision-makers in the Kenyan Agri-Finance ecosystem.</p>
+            </div>
+            <div class="border-t-2 border-amber-700 bg-cream p-3">
+              <h3 class="text-xs font-bold text-espresso mb-1">Structured Methodology</h3>
+              <p class="text-[9px] text-stone-600 leading-relaxed">Rigorous detail for validating complex, data-driven agricultural products.</p>
+            </div>
+            <div class="border-t-2 border-amber-700 bg-cream p-3">
+              <h3 class="text-xs font-bold text-espresso mb-1">Commercial Focus</h3>
+              <p class="text-[9px] text-stone-600 leading-relaxed">A keen focus on true willingness-to-pay and converting early institutional curiosity into contracted post-month-6 commercial pilot implementations.</p>
+            </div>
+          </div>
+        </div>
 
-
-</body></html>
+        <!-- Signatures / Institutional Commitment Block -->
+        <div class="border border-stone-200 bg-cream-light p-3 text-[10px]">
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <span class="block text-[8px] uppercase tracking-wider text-stone-500 font-semibold mb-1">Submitted on Behalf of:</span>
+              <p class="font-bold text-espresso">TerraQuest Investments FZCO</p>
+              <div class="mt-4 border-b border-stone-300 w-3/4"></div>
+              <span class="text-[8px] text-stone-500 block mt-1">Authorized Representative</span>
+            </div>
+            <div>
+              <span class="block text-[8px] uppercase tracking-wider text-stone-500 font-semibold mb-1">Accepted and Agreed:</span>
+              <p class="font-bold text-espresso">NEC Corporation</p>
+              <div class="mt-4 border-b border-stone-300 w-3/4"></div>
+              <span class="text-[8px] text-stone-500 block mt-1">Authorized Signatory</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Bottom Sign-off Footer -->
+      <footer class="border-t border-stone-200 pt-3 flex justify-between items-end text-[9px] text-stone-500">
+        <div>
+          <span class="block font-semibold uppercase tracking-wider text-stone-700">TERRAQUEST: CONSULTING</span>
+          <span>Agri-Finance and Trade Structuring Practice</span>
+        </div>
+        <div class="text-right">
+          <span class="block tracking-wider uppercase">CONFIDENTIAL</span>
+          <span class="text-stone-400">Page 3 of 3</span>
+        </div>
+      </footer>
+    </article>
+    <!-- END: Page 3 -->
+  </main>
+</body>
+</html>
