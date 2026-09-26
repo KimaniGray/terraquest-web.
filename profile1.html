@@ -90,15 +90,45 @@
         margin-top: 10px;
       }
 
-      /* Smart page breaking: Avoid splitting cards, sections, and images across pages */
-      section, article, .print-card, img {
+      /* Let sections and cards flow across a page break instead of forcing
+         the whole block onto a fresh page. Forcing whole blocks is what was
+         leaving large empty gaps at the bottom of every page — each block
+         didn't fit in the space left over, so it jumped entirely to the
+         next page and wasted that leftover space. Only images stay
+         protected, since a photo cut mid-way looks broken. */
+      section, article, .print-card {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
+
+      img {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
-      
+
       h1, h2, h3 {
         page-break-after: avoid !important;
         break-after: avoid !important;
+      }
+
+      p, li {
+        orphans: 3;
+        widows: 3;
+      }
+
+      /* Tighten the vertical rhythm for print so more content settles onto
+         each page instead of running out of room quickly. */
+      .mb-10 { margin-bottom: 8mm !important; }
+      .mb-6 { margin-bottom: 5mm !important; }
+      .gap-6 { gap: 5mm !important; }
+      .p-6 { padding: 4mm !important; }
+      .lg\:p-8 { padding: 4mm !important; }
+      .lg\:p-10 { padding: 6mm !important; }
+
+      /* Photos take up a lot of vertical space at their on-screen height;
+         shrink them for print so text has more room to breathe into. */
+      .h-56, .sm\:h-72, .lg\:h-80 {
+        height: 45mm !important;
       }
     }
   </style>
