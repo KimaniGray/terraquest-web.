@@ -1,108 +1,88 @@
 <!DOCTYPE html>
-<html class="dark" lang="en" style="">
+<html class="dark" lang="en">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="web_standard" name="shell-type">
+  <title>Terraquest Investments FZCO profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@400;500;600&amp;family=Playfair+Display:wght@400;600&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  
   <style>
     @layer base {
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        overscroll-behavior: none;
-      }
-      main > :first-child {
-        margin-top: 0 !important;
-      }
-      main > :last-child {
-        margin-bottom: 0 !important;
-      }
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
     }
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    /* CRITICAL PRINT STYLES FOR A4 PDF EXPORT */
+    ::-webkit-scrollbar { display: none; }
+
     @media print {
       @page {
-        size: A4; /* Force A4 geometry */
-        margin: 15mm; /* Standard professional margins */
+        size: A4 portrait;
+        margin: 12mm;
       }
-      .no-print {
-        display: none !important; /* Hide UI controls */
-      }
+      
       body {
-        background: #ffffff !important; /* Force light mode background */
-        color: #121414 !important; /* Force dark text for legibility */
-        -webkit-print-color-adjust: exact !important; /* Ensure background colors/gradients print */
+        /* Force desktop layout to prevent mobile stacking and spilling on A4 */
+        min-width: 1024px !important;
+        background-color: #121414 !important; /* Preserve dark theme */
+        -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
-      /* Prevent awkward page breaks inside core sections */
-      section, article {
+      
+      .no-print {
+        display: none !important;
+      }
+      
+      main {
+        padding-top: 0 !important; /* Remove top padding when header is hidden */
+      }
+
+      /* Smart page breaking: Avoid splitting cards and images */
+      article, .print-card, img {
         page-break-inside: avoid;
         break-inside: avoid;
       }
-      /* Ensure text variants are readable on light background during print */
-      .text-on-surface-variant {
-        color: #333333 !important;
-      }
-      .bg-surface-container, .bg-surface-container-low, .bg-surface-container-lowest {
-         background-color: #f8f9fa !important; /* Lighten dark containers for print contrast */
-         border: 1px solid #e2e8f0 !important; /* Add subtle borders to define structure in print */
-      }
-      /* Ensure the primary gold text remains visible or turns dark if needed */
-      .text-primary {
-         color: #d4af37 !important; /* Keep the institutional gold */
-      }
-      /* Override the dark gradient background on the text block for print readability */
-      .print-bg-override {
-          background-image: none !important;
-          background-color: #f8f9fa !important;
-          color: #121414 !important;
-      }
-      .print-bg-override p {
-          color: #121414 !important;
+      
+      /* Keep headers attached to their following content */
+      h1, h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
       }
     }
   </style>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "secondary-fixed-dim": "#c7c6c6", "on-primary-fixed-variant": "#574500", "primary-fixed-dim": "#e9c349", "primary-fixed": "#ffe088", "inverse-surface": "#e2e2e2", "primary": "#f2ca50", "tertiary": "#8fddd1", "on-secondary-fixed-variant": "#464747", "on-tertiary": "#003732", "tertiary-container": "#73c1b6", "secondary": "#c7c6c6", "tertiary-fixed-dim": "#86d5c9", "on-primary": "#3c2f00", "secondary-container": "#464747", "outline-variant": "#4d4635", "surface": "#121414", "on-tertiary-fixed-variant": "#005049", "inverse-primary": "#735c00", "on-error-container": "#ffdad6", "tertiary-fixed": "#a2f1e5", "surface-container-high": "#282a2a", "background": "#121414", "surface-bright": "#383939", "surface-variant": "#333535", "on-primary-container": "#554300", "error-container": "#93000a", "outline": "#99907c", "error": "#ffb4ab", "primary-container": "#d4af37", "on-background": "#e2e2e2", "on-error": "#690005", "secondary-fixed": "#e3e2e2", "surface-container-low": "#1a1c1c", "surface-tint": "#e9c349", "on-tertiary-fixed": "#00201d", "on-surface-variant": "#d0c5af", "surface-container-lowest": "#0d0f0f", "surface-container": "#1e2020", "on-surface": "#e2e2e2", "inverse-on-surface": "#2f3131", "on-secondary-container": "#b6b5b4", "on-secondary-fixed": "#1b1c1c", "on-primary-fixed": "#241a00", "on-secondary": "#303030", "surface-container-highest": "#333535", "surface-dim": "#121414", "on-tertiary-container": "#004f47"
-          },
-          "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-          "spacing": { "margin-mobile": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-sm": "0.5rem", "margin": "3rem", "gutter": "1.5rem" },
-          "fontFamily": {
-            "body-lg": [ "Inter" ], "display-hero": [ "Noto Serif" ], "caption": [ "Inter" ], "subheading": [ "Playfair Display" ], "display-hero-mobile": [ "Noto Serif" ], "headline-lg-mobile": [ "Noto Serif" ], "ui-medium": [ "Inter" ], "headline-lg": [ "Noto Serif" ], "headline-md": [ "Noto Serif" ], "body-md": [ "Inter" ]
-          },
-          "fontSize": {
-            "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "display-hero": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "caption": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "subheading": [ "20px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-hero-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "32px", "fontWeight": "400" } ], "ui-medium": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ]
-          }
-        }
-      }
+    tailwind.config = { 
+      darkMode: "class", 
+      theme: { 
+        extend: { 
+          "colors": { 
+            "secondary-fixed-dim": "#c7c6c6", "on-primary-fixed-variant": "#574500", "primary-fixed-dim": "#e9c349", "primary-fixed": "#ffe088", "inverse-surface": "#e2e2e2", "primary": "#f2ca50", "tertiary": "#8fddd1", "on-secondary-fixed-variant": "#464747", "on-tertiary": "#003732", "tertiary-container": "#73c1b6", "secondary": "#c7c6c6", "tertiary-fixed-dim": "#86d5c9", "on-primary": "#3c2f00", "secondary-container": "#464747", "outline-variant": "#4d4635", "surface": "#121414", "on-tertiary-fixed-variant": "#005049", "inverse-primary": "#735c00", "on-error-container": "#ffdad6", "tertiary-fixed": "#a2f1e5", "surface-container-high": "#282a2a", "background": "#121414", "surface-bright": "#383939", "surface-variant": "#333535", "on-primary-container": "#554300", "error-container": "#93000a", "outline": "#99907c", "error": "#ffb4ab", "primary-container": "#d4af37", "on-background": "#e2e2e2", "on-error": "#690005", "secondary-fixed": "#e3e2e2", "surface-container-low": "#1a1c1c", "surface-tint": "#e9c349", "on-tertiary-fixed": "#00201d", "on-surface-variant": "#d0c5af", "surface-container-lowest": "#0d0f0f", "surface-container": "#1e2020", "on-surface": "#e2e2e2", "inverse-on-surface": "#2f3131", "on-secondary-container": "#b6b5b4", "on-secondary-fixed": "#1b1c1c", "on-primary-fixed": "#241a00", "on-secondary": "#303030", "surface-container-highest": "#333535", "surface-dim": "#121414", "on-tertiary-container": "#004f47" 
+          }, 
+          "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, 
+          "spacing": { "margin-mobile": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-sm": "0.5rem", "margin": "3rem", "gutter": "1.5rem" }, 
+          "fontFamily": { "body-lg": [ "Inter" ], "display-hero": [ "Noto Serif" ], "caption": [ "Inter" ], "subheading": [ "Playfair Display" ], "display-hero-mobile": [ "Noto Serif" ], "headline-lg-mobile": [ "Noto Serif" ], "ui-medium": [ "Inter" ], "headline-lg": [ "Noto Serif" ], "headline-md": [ "Noto Serif" ], "body-md": [ "Inter" ] }, 
+          "fontSize": { "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "display-hero": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "caption": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "subheading": [ "20px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-hero-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "0", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "32px", "fontWeight": "400" } ], "ui-medium": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ] } 
+        } 
+      } 
     };
   </script>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+  
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md no-print">
     <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin h-16 flex items-center justify-between border-b border-outline-variant/30">
-      <div class="flex items-center gap-space-sm">
-        <div class="flex flex-col"></div>
-      </div>
+      <div class="flex items-center gap-space-sm"></div>
       <div class="flex items-center gap-space-md">
         <button onclick="window.print()" type="button" class="bg-primary hover:bg-primary-fixed text-[#121414] font-ui-medium text-ui-medium font-medium px-5 py-2.5 rounded-full flex items-center gap-space-xs transition-colors shadow-sm">
           <span class="material-symbols-outlined text-[18px]">download</span>
-          <span class="">Download Corporate Profile (PDF)</span>
+          <span>Download Corporate Profile (PDF)</span>
         </button>
       </div>
     </div>
@@ -112,14 +92,11 @@
     <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
       <div class="flex flex-col w-full text-on-surface">
         
-        <!-- TOP INSTITUTIONAL ACTION BAR (Web Only) -->
         <aside aria-label="Document Controls" class="no-print w-full bg-surface-container-low py-space-sm px-space-md mb-space-lg flex flex-wrap items-center justify-between gap-space-sm">
           <div class="flex items-center gap-space-xs text-on-surface-variant"></div>
         </aside>
 
-        <!-- FORMAL DOSSIER COVER / HEADER -->
-        <section class="w-full bg-surface-container-low p-space-lg lg:p-space-xl mb-space-xl relative overflow-hidden">
-          <!-- Subtle architectural gold hairline accent band -->
+        <section class="w-full bg-surface-container-low p-space-lg lg:p-space-xl mb-space-xl relative overflow-hidden print-card">
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-container to-surface-container-low"></div>
           
           <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
@@ -134,8 +111,7 @@
             </div>
           </div>
 
-          <!-- TABLE OF CONTENTS PILLARS -->
-          <div class="w-full mt-space-lg relative overflow-hidden border border-outline-variant/30 rounded-lg">
+          <div class="w-full mt-space-lg relative overflow-hidden border border-outline-variant/30 rounded-lg print-card">
             <div class="w-full h-56 sm:h-72 lg:h-80 relative overflow-hidden">
               <img src="Maize Profile Pic.jpg" alt="Vibrant golden maize and corn agricultural harvest representing African productive sector assets" class="w-full h-full object-cover object-center filter brightness-95 contrast-105">
               <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-space-md lg:p-space-lg">
@@ -151,7 +127,7 @@
             </div>
           </div>
           
-          <div class="w-full mt-space-xl pt-space-lg bg-surface-container-lowest/50 p-space-md">
+          <div class="w-full mt-space-xl pt-space-lg bg-surface-container-lowest/50 p-space-md print-card">
             <span class="font-caption text-caption text-primary uppercase tracking-[0.18em] block mb-space-sm">Table of Contents</span>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm text-on-surface">
               <a class="p-space-sm bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between group" href="#who-we-are">
@@ -174,28 +150,21 @@
           </div>
         </section>
 
-        <!-- SECTION 1: WHO WE ARE -->
         <section class="w-full mb-space-xl" id="who-we-are">
           <div class="flex items-center gap-space-sm mb-space-md">
             <span class="font-caption text-caption text-primary uppercase tracking-[0.2em] bg-surface-container px-space-sm py-space-xs">SECTION 01</span>
             <h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">WHO WE ARE</h2>
           </div>
           <div class="flex flex-col gap-space-lg">
-            <div class="grid grid-cols-1 gap-space-lg bg-surface-container-low p-space-lg border border-outline-variant/20">
+            <div class="grid grid-cols-1 gap-space-lg bg-surface-container-low p-space-lg border border-outline-variant/20 print-card">
               <div class="flex flex-col justify-between w-full">
-                <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-md">
-                  TerraQuest Investment FZCO exists to power the next generation of investments across Africa. Our mandate is to transform productive regional sectors—spanning agriculture, trade, manufacturing, and financial infrastructure—into bankable, capital-protected assets ready for institutional scale.
-                </p>
-                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-md">
-                  Africa does not lack liquidity; it lacks the de-risked, investment-grade structures required to deploy it. We serve institutional capital at both ends of this divide. For African pension funds, SACCOs, and commercial banks stewarding over $1.5 Trillion in domestic assets, we structure secure, capital-protected assets that allow domestic capital to lead. For GCC family offices, DFIs, and global capital partners, we provide validated market entry—crowding in international liquidity behind domestic first-loss buffers and sovereign credibility to achieve protected, risk-adjusted returns.
-                </p>
-                <p class="font-body-lg text-body-lg text-secondary leading-relaxed">
-                  To deliver this mandate, TerraQuest operates through specialized execution desks designed to bridge global financial centers with African operational realities. In Dubai, our Capital &amp; Structuring Desk—located at Business Bay—leads balance sheet structuring, instrument design, and international liquidity aggregation across the GCC and global markets. In Nairobi, our Regional Execution Desk is anchored by operators with over 25 years of direct leadership across the entire agricultural value chain. Our people have built, owned, and run primary assets at every stage—from commercial seed breeding, rangeland management, and irrigated farming to cold-chain logistics, agro-industrial processing plants, and cross-border trade routes. This hands-on operational heritage connects institutional balance sheets directly to ground execution, ensuring capital is actively managed and safeguarded by people who know how these industries operate from the inside out.
-                </p>
+                <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-md">TerraQuest Investment FZCO exists to power the next generation of investments across Africa. Our mandate is to transform productive regional sectors—spanning agriculture, trade, manufacturing, and financial infrastructure—into bankable, capital-protected assets ready for institutional scale.</p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-md">Africa does not lack liquidity; it lacks the de-risked, investment-grade structures required to deploy it. We serve institutional capital at both ends of this divide. For African pension funds, SACCOs, and commercial banks stewarding over $1.5 Trillion in domestic assets, we structure secure, capital-protected assets that allow domestic capital to lead. For GCC family offices, DFIs, and global capital partners, we provide validated market entry—crowding in international liquidity behind domestic first-loss buffers and sovereign credibility to achieve protected, risk-adjusted returns.</p>
+                <p class="font-body-lg text-body-lg text-secondary leading-relaxed">To deliver this mandate, TerraQuest operates through specialized execution desks designed to bridge global financial centers with African operational realities. Our team brings together seasoned investment professionals and veteran operators with deep domain experience managing capital and executing complex transactions across the entire agricultural value chain—from upstream cultivation and aggregation, through post-harvest processing, industrial storage, and cold-chain logistics, to sovereign-level distribution, cross-border commodity trade, and structured export off-take.</p>
               </div>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm print-card">
               <div class="bg-surface-container p-space-md flex flex-col justify-between">
                 <span class="font-caption text-caption uppercase tracking-wider text-primary">DUBAI DESK&nbsp;</span>
                 <span class="font-body-md text-body-md text-on-surface mt-space-xs">GCC Market Coverage with a deep focus on catalytic capital raising strategies, mobilizing institutional balance sheets, sovereign liquidity, and bespoke structuring across global financial centers.</span>
@@ -208,21 +177,19 @@
           </div>
         </section>
 
-        <!-- SECTION 2: WHAT WE DO -->
         <section class="w-full mb-space-xl" id="what-we-do">
           <div class="flex items-center gap-space-sm mb-space-md">
             <span class="font-caption text-caption text-primary uppercase tracking-[0.2em] bg-surface-container px-space-sm py-space-xs">SECTION 02</span>
             <h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">WHAT WE DO</h2>
           </div>
           
-          <!-- Overview Text -->
-          <div class="p-space-lg bg-surface-container-low text-on-surface mb-space-lg print-bg-override" style="background-image: linear-gradient(rgba(18, 20, 20, 0.9), rgba(26, 28, 28, 0.98)), url('https://lh3.googleusercontent.com/aida/AEtjO1XauLI5KBJChHyXrEyhZ2CVP_V_GvfE95ptu7bpPTMhX1MFmNIsPhZlgVUGJEV6EGN2oXoerR4cdpgD6-zHPQK-g2D_8Cium44UaPIDLtep8nVAoWkNNW-ERBftDL_bb4S6kxl_Zb4L4xN78cQ_bI5NGVkBzs-YyAyiox06fQQLphr9YR6pIilHSpislpzat5pZjwMBXuslb22GlsHVfXjDjQPjzI0rfv_BwicXj61Pf7XWlRfrkTyovWU'); background-size: cover; background-position: center center; image-rendering: -webkit-optimize-contrast;">
+          <div class="p-space-lg bg-surface-container-low text-on-surface mb-space-lg print-card" style="background-image: linear-gradient(rgba(18, 20, 20, 0.9), rgba(26, 28, 28, 0.98)), url('https://lh3.googleusercontent.com/aida/AEtjO1XauLI5KBJChHyXrEyhZ2CVP_V_GvfE95ptu7bpPTMhX1MFmNIsPhZlgVUGJEV6EGN2oXoerR4cdpgD6-zHPQK-g2D_8Cium44UaPIDLtep8nVAoWkNNW-ERBftDL_bb4S6kxl_Zb4L4xN78cQ_bI5NGVkBzs-YyAyiox06fQQLphr9YR6pIilHSpislpzat5pZjwMBXuslb22GlsHVfXjDjQPjzI0rfv_BwicXj61Pf7XWlRfrkTyovWU'); background-size: cover; background-position: center center; image-rendering: -webkit-optimize-contrast;">
             <p class="font-body-lg text-body-lg leading-relaxed text-on-surface">
               TerraQuest delivers institutional solutions through two integrated divisions: Corporate Finance &amp; Advisory and Asset Management. Operating across our priority sectors—Agriculture, Regional Trade, Manufacturing, and Financial Infrastructure—our structures mobilize commercial and institutional capital by pairing private investment with domestic first-loss anchors. We design the instruments, conduct primary market research, secure regulatory clearances, and execute the physical governance required to safeguard institutional value.
             </p>
           </div>
           
-          <div class="w-full mb-space-lg relative overflow-hidden border border-outline-variant/30 rounded h-64 sm:h-72 lg:h-80">
+          <div class="w-full mb-space-lg relative overflow-hidden border border-outline-variant/30 rounded h-64 sm:h-72 lg:h-80 print-card">
             <img src="Silo Infrastructure Pic.png" alt="Vast modern commercial agro-industrial grain terminal complex, steel silos, and logistics fleet" class="w-full h-full object-cover object-center filter brightness-95 contrast-105">
             <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-space-md lg:p-space-lg">
               <div class="flex items-center gap-space-xs mb-1">
@@ -233,10 +200,9 @@
             </div>
           </div>
           
-          <!-- Two Integrated Divisions -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
-            <!-- Division 1: Corporate Finance & Advisory -->
-            <div class="bg-surface-container-low p-space-lg flex flex-col justify-between">
+            <!-- Division 1 -->
+            <div class="bg-surface-container-low p-space-lg flex flex-col justify-between print-card">
               <div>
                 <div class="flex items-center justify-between gap-space-sm pb-space-sm mb-space-md">
                   <h3 class="font-headline-md text-headline-md text-on-surface">Corporate Finance &amp; Advisory</h3>
@@ -274,8 +240,8 @@
               </div>
             </div>
             
-            <!-- Division 2: Asset Management -->
-            <div class="bg-surface-container-low p-space-lg flex flex-col justify-between">
+            <!-- Division 2 -->
+            <div class="bg-surface-container-low p-space-lg flex flex-col justify-between print-card">
               <div>
                 <div class="flex items-center justify-between gap-space-sm pb-space-sm mb-space-md">
                   <h3 class="font-headline-md text-headline-md text-on-surface">Asset Management</h3>
@@ -309,7 +275,6 @@
           </div>
         </section>
 
-        <!-- SECTION 3: CASE STUDIES -->
         <section class="w-full mb-space-xl" id="case-studies">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-lg">
             <div>
@@ -321,10 +286,9 @@
             </p>
           </div>
           
-          <!-- 6 Institutional Dossier Cards -->
           <div class="grid grid-cols-1 gap-space-lg">
-            <!-- CASE STUDY 1 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">01</span>
@@ -336,7 +300,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Platform Owner</span>
@@ -366,16 +329,15 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Repo Model:</strong> Built around a Master Repurchase Agreement. Tsavo buys grain from farmers and transfers clear warehouse receipts to the facility, agreeing to buy them back at a set forward price once sold to off-takers.</p>
-                    <p class=""><strong class="text-on-surface">Physical Security:</strong> Funds release only against verified inventory held by independent warehouse collateral managers, backed by escrow accounts and comprehensive transit insurance.</p>
-                    <p class=""><strong class="text-on-surface">Result:</strong> Farmers get paid immediately at the gate, regional millers secure steady grain supplies, and investors capture reliable trade margins backed by physical inventory.</p>
+                    <p><strong class="text-on-surface">Repo Model:</strong> Built around a Master Repurchase Agreement. Tsavo buys grain from farmers and transfers clear warehouse receipts to the facility, agreeing to buy them back at a set forward price once sold to off-takers.</p>
+                    <p><strong class="text-on-surface">Physical Security:</strong> Funds release only against verified inventory held by independent warehouse collateral managers, backed by escrow accounts and comprehensive transit insurance.</p>
+                    <p><strong class="text-on-surface">Result:</strong> Farmers get paid immediately at the gate, regional millers secure steady grain supplies, and investors capture reliable trade margins backed by physical inventory.</p>
                   </div>
                 </div>
               </div>
             </article>
 
-            <!-- CASE STUDY 2 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">02</span>
@@ -387,7 +349,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Client</span>
@@ -417,16 +378,15 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Cross-Border Buying:</strong> The fund purchases physical grain during harvest surplus in producing regions like Zambia, locking in baseline reserves and releasing stock directly to industrial millers in deficit markets like Kenya when seasonal shortages drive prices up.</p>
-                    <p class=""><strong class="text-on-surface">First-Loss Protection:</strong> Sovereign and concessionary capital absorbs initial downside risk, shielding institutional investors from price volatility.</p>
-                    <p class=""><strong class="text-on-surface">Result:</strong> Millers get predictable feedstock prices year-round, national grain reserves stay stocked, and institutional funds earn asset-backed returns.</p>
+                    <p><strong class="text-on-surface">Cross-Border Buying:</strong> The fund purchases physical grain during harvest surplus in producing regions like Zambia, locking in baseline reserves and releasing stock directly to industrial millers in deficit markets like Kenya when seasonal shortages drive prices up.</p>
+                    <p><strong class="text-on-surface">First-Loss Protection:</strong> Sovereign and concessionary capital absorbs initial downside risk, shielding institutional investors from price volatility.</p>
+                    <p><strong class="text-on-surface">Result:</strong> Millers get predictable feedstock prices year-round, national grain reserves stay stocked, and institutional funds earn asset-backed returns.</p>
                   </div>
                 </div>
               </div>
             </article>
 
-            <!-- CASE STUDY 3 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">03</span>
@@ -438,7 +398,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Client</span>
@@ -468,16 +427,15 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Local Capital Anchors First:</strong> NSSF Uganda backed the program by taking the subordinated Class A notes. This clear vote of local confidence gave international lenders the comfort to join.</p>
-                    <p class=""><strong class="text-on-surface">Crowding-In Global Scale:</strong> That domestic anchor unlocked senior debt lines from DFIs and international banks at a 10x ratio.</p>
-                    <p class=""><strong class="text-on-surface">Tangible Assets:</strong> Capital flows straight into commercial grain silos, drying towers, sorting facilities, and cold storage hubs.</p>
+                    <p><strong class="text-on-surface">Local Capital Anchors First:</strong> NSSF Uganda backed the program by taking the subordinated Class A notes. This clear vote of local confidence gave international lenders the comfort to join.</p>
+                    <p><strong class="text-on-surface">Crowding-In Global Scale:</strong> That domestic anchor unlocked senior debt lines from DFIs and international banks at a 10x ratio.</p>
+                    <p><strong class="text-on-surface">Tangible Assets:</strong> Capital flows straight into commercial grain silos, drying towers, sorting facilities, and cold storage hubs.</p>
                   </div>
                 </div>
               </div>
             </article>
 
-            <!-- CASE STUDY 4 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">04</span>
@@ -489,7 +447,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Client</span>
@@ -519,16 +476,15 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Vendor Financing:</strong> Structured a 5-year equipment credit package directly with Danish manufacturer Andritz, including a 6-month repayment grace period after commissioning.</p>
-                    <p class=""><strong class="text-on-surface">DFI Guarantees:</strong> Brought in IFU (Denmark’s DFI) through its Africa Facility to issue guarantees backstopping the supplier credit line.</p>
-                    <p class=""><strong class="text-on-surface">Captive Energy:</strong> Built a closed-loop system where waste maize cobs from the feed plant feed an on-site biomass plant, powering the factory at a fraction of grid rates.</p>
+                    <p><strong class="text-on-surface">Vendor Financing:</strong> Structured a 5-year equipment credit package directly with Danish manufacturer Andritz, including a 6-month repayment grace period after commissioning.</p>
+                    <p><strong class="text-on-surface">DFI Guarantees:</strong> Brought in IFU (Denmark’s DFI) through its Africa Facility to issue guarantees backstopping the supplier credit line.</p>
+                    <p><strong class="text-on-surface">Captive Energy:</strong> Built a closed-loop system where waste maize cobs from the feed plant feed an on-site biomass plant, powering the factory at a fraction of grid rates.</p>
                   </div>
                 </div>
               </div>
             </article>
 
-            <!-- CASE STUDY 5 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">05</span>
@@ -540,7 +496,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Client</span>
@@ -570,16 +525,15 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Corporate Holding Structure:</strong> Used an Abu Dhabi Global Market (ADGM) holding company to own the upstream operating assets in Kenya and Tanzania alongside a dedicated trading desk in the UAE.</p>
-                    <p class=""><strong class="text-on-surface">Structured Cash Waterfall:</strong> All sales from livestock (beef, goat, sheep, and camel), feed crops, and fodder clear through a strict account hierarchy: operating costs first, capital repayment second, operating cash reserves third, and net profits split 50/50.</p>
-                    <p class=""><strong class="text-on-surface">Operational Mechanics:</strong> Livestock graze on volcanic rangelands in Tanzania supported by 2,500 acres of irrigated fodder, then finish in Kenya for export to the UAE under zero-tariff trade agreements.</p>
+                    <p><strong class="text-on-surface">Corporate Holding Structure:</strong> Used an Abu Dhabi Global Market (ADGM) holding company to own the upstream operating assets in Kenya and Tanzania alongside a dedicated trading desk in the UAE.</p>
+                    <p><strong class="text-on-surface">Structured Cash Waterfall:</strong> All sales from livestock (beef, goat, sheep, and camel), feed crops, and fodder clear through a strict account hierarchy: operating costs first, capital repayment second, operating cash reserves third, and net profits split 50/50.</p>
+                    <p><strong class="text-on-surface">Operational Mechanics:</strong> Livestock graze on volcanic rangelands in Tanzania supported by 2,500 acres of irrigated fodder, then finish in Kenya for export to the UAE under zero-tariff trade agreements.</p>
                   </div>
                 </div>
               </div>
             </article>
 
-            <!-- CASE STUDY 6 -->
-            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md">
+            <article class="bg-surface-container-low p-space-lg flex flex-col gap-space-md print-card">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs pb-space-sm">
                 <div class="flex items-center gap-space-xs">
                   <span class="font-caption text-caption text-on-primary bg-primary px-space-xs py-0.5 font-semibold">06</span>
@@ -591,7 +545,6 @@
                 </div>
               </div>
               
-              <!-- Metadata Grid -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs bg-surface-container p-space-md text-on-surface">
                 <div>
                   <span class="font-caption text-caption text-secondary uppercase tracking-widest block text-[10px]">Acquiring Principal</span>
@@ -621,10 +574,10 @@
                 <div class="lg:col-span-6 bg-surface-container p-space-md">
                   <span class="font-ui-medium text-ui-medium text-primary uppercase tracking-wider block mb-space-xs">How It Works</span>
                   <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    <p class=""><strong class="text-on-surface">Clean Ownership Transition:</strong> Executed a structured buyout that gave the exiting founder a full, clean cash realization while preserving supplier contracts, core operations, and 700+ farm jobs.</p>
-                    <p class=""><strong class="text-on-surface">Special Economic Zone Relocation:</strong> Shifted holding and processing operations into the Trific SEZ, securing a 10% corporate tax rate for the first decade and zero withholding tax on overseas dividends.</p>
-                    <p class=""><strong class="text-on-surface">Waste-to-Value Industrial Expansion:</strong> Deployed $4M into an industrial drying line, converting the 50% fresh field waste into high-margin dried culinary herbs for export to European and Gulf food manufacturers.</p>
-                    <p class=""><strong class="text-on-surface">Asset Reactivation:</strong> Reactivated 78 acres of dormant rose greenhouses, re-entering European cut-flower export markets without new capital construction.</p>
+                    <p><strong class="text-on-surface">Clean Ownership Transition:</strong> Executed a structured buyout that gave the exiting founder a full, clean cash realization while preserving supplier contracts, core operations, and 700+ farm jobs.</p>
+                    <p><strong class="text-on-surface">Special Economic Zone Relocation:</strong> Shifted holding and processing operations into the Trific SEZ, securing a 10% corporate tax rate for the first decade and zero withholding tax on overseas dividends.</p>
+                    <p><strong class="text-on-surface">Waste-to-Value Industrial Expansion:</strong> Deployed $4M into an industrial drying line, converting the 50% fresh field waste into high-margin dried culinary herbs for export to European and Gulf food manufacturers.</p>
+                    <p><strong class="text-on-surface">Asset Reactivation:</strong> Reactivated 78 acres of dormant rose greenhouses, re-entering European cut-flower export markets without new capital construction.</p>
                   </div>
                 </div>
               </div>
@@ -632,8 +585,7 @@
           </div>
         </section>
 
-        <!-- SECTION 4: CONTACT -->
-        <section class="w-full mb-space-xl" id="contact">
+        <section class="w-full mb-space-xl print-card" id="contact">
           <div class="flex items-center gap-space-sm mb-space-md">
             <span class="font-caption text-caption text-primary uppercase tracking-[0.2em] bg-surface-container px-space-sm py-space-xs">SECTION 04</span>
             <h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">CONTACT</h2>
@@ -646,6 +598,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+              
               <!-- Dubai Structuring Desk -->
               <div class="bg-surface-container p-space-lg flex flex-col justify-between">
                 <div class="flex flex-col gap-space-xs">
@@ -654,7 +607,7 @@
                     <span class="font-ui-medium text-ui-medium uppercase tracking-wider font-semibold">Capital &amp; Structuring Desk</span>
                   </div>
                   <p class="font-body-md text-body-md text-on-surface">Bay View Tower, 10th Floor</p>
-                  <p class="font-body-md text-body-md text-on-surface">Business Bay, Dubai, U.A.E</p>
+                  <p class="font-body-md text-body-md text-on-surface">Business Bay, Dubai, U.A.E.</p>
                 </div>
               </div>
               
@@ -670,7 +623,7 @@
                 </div>
               </div>
               
-              <!-- Unified Communications & Inquiries for Both Desks -->
+              <!-- Unified Communications -->
               <div class="md:col-span-2 bg-surface-container p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md border-t border-outline-variant/20">
                 <div class="flex flex-col gap-space-xs">
                   <span class="font-body-md text-body-md text-on-surface font-medium">Please send all inquiries to:</span>
