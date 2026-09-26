@@ -101,6 +101,16 @@
         break-inside: auto !important;
       }
 
+      /* The two photo containers use overflow-hidden + rounded-lg together
+         (nothing else in the page does). They hold an absolutely-positioned
+         caption over the image, so letting a print engine split that box
+         is what produced the duplicated "ghost" caption text — the caption
+         got redrawn on both fragments. These need to stay intact. */
+      .overflow-hidden.rounded-lg {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
       img {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
@@ -112,8 +122,8 @@
       }
 
       p, li {
-        orphans: 3;
-        widows: 3;
+        orphans: 2;
+        widows: 2;
       }
 
       /* Tighten the vertical rhythm for print so more content settles onto
@@ -129,6 +139,17 @@
          shrink them for print so text has more room to breathe into. */
       .h-56, .sm\:h-72, .lg\:h-80 {
         height: 45mm !important;
+      }
+
+      /* Smaller, tighter section-heading rows leave more usable room on a
+         page before the "don't strand a heading alone at page-bottom" rule
+         has to push the whole heading block to the next page. */
+      h2 {
+        font-size: 1.35rem !important;
+        margin-top: 0 !important;
+      }
+      .mb-4 {
+        margin-bottom: 3mm !important;
       }
     }
   </style>
