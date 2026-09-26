@@ -2,10 +2,12 @@
 <html class="dark" lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
   <title>Terraquest Investments FZCO profile</title>
   
-  <!-- Favicon -->
+  <!-- Favicon (this is the ONLY place the logo graphic is referenced now —
+       it shows as the browser tab icon / document icon, never as an
+       in-page image) -->
   <link rel="icon" href="Terraquest Favicon Black.png" type="image/png">
   
   <!-- Fonts & Icons -->
@@ -25,18 +27,18 @@
     @media print {
       @page {
         size: A4 portrait;
-        /* Creates a perfect, balanced 20mm border on all 4 sides of EVERY page */
-        margin: 20mm; 
+        /* Balanced border on all 4 sides of every page */
+        margin: 18mm 16mm;
       }
-      
+
       html, body {
         background-color: #121414 !important;
         color: #e2e2e2 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        /* Remove internal padding hacks and let the @page margin do the balancing */
-        padding: 0 !important; 
         margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
         min-height: 100vh;
       }
 
@@ -51,17 +53,38 @@
         background-color: #121414 !important;
         z-index: -1;
       }
-      
+
       .no-print {
         display: none !important;
       }
-      
+
+      /* Let the page flow fluidly inside the @page margin instead of forcing
+         a fixed desktop width. A fixed min-width was what pushed content
+         past the printable area and made it look jammed against one edge
+         with no matching margin on the other side. */
       main {
-        padding-top: 0 !important;
-        /* Force desktop layout scale so it doesn't compress into a mobile view in the PDF */
-        min-width: 1024px !important; 
+        padding: 0 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+      }
+
+      main .max-w-\[1440px\] {
+        max-width: 100% !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      /* Collapse every responsive grid to a single column for print. This is
+         what guarantees the same, balanced left/right margin on every card,
+         regardless of which browser or OS is doing the printing. */
+      .grid {
+        display: block !important;
+      }
+      .grid > * + * {
+        margin-top: 10px;
       }
 
       /* Smart page breaking: Avoid splitting cards, sections, and images across pages */
@@ -113,9 +136,7 @@
   
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md no-print border-b border-outline-variant/30">
     <div class="max-w-[1440px] mx-auto px-5 lg:px-12 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <img src="Terraquest Favicon Black.png" alt="TerraQuest" class="h-8 w-auto">
-      </div>
+      <div class="flex items-center gap-2"></div>
       <div class="flex items-center gap-4">
         <button onclick="window.print()" type="button" class="bg-primary hover:bg-primary-fixed text-[#121414] text-[13px] font-medium px-5 py-2.5 rounded-full flex items-center gap-2 transition-colors shadow-sm">
           <span class="material-symbols-outlined text-[18px]">download</span>
@@ -135,7 +156,7 @@
           
           <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div class="flex flex-col gap-1 max-w-3xl min-w-0">
-              <h1 class="font-display text-4xl sm:text-5xl text-primary font-normal tracking-tight uppercase">
+              <h1 class="font-display text-2xl sm:text-3xl text-primary font-normal tracking-tight uppercase">
                 TERRAQUEST INVESTMENTS FZCO
               </h1>
               <p class="font-sans text-lg sm:text-xl mt-2 text-white">
