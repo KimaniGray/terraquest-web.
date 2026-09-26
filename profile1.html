@@ -27,8 +27,10 @@
     @media print {
       @page {
         size: A4 portrait;
-        /* Balanced border on all 4 sides of every page */
-        margin: 18mm 16mm;
+        /* Zero page margin = true full bleed. The dark background now
+           reaches the physical edge of every page; breathing room for the
+           text is added on the content itself below, not on the page. */
+        margin: 0;
       }
 
       html, body {
@@ -58,15 +60,16 @@
         display: none !important;
       }
 
-      /* Let the page flow fluidly inside the @page margin instead of forcing
-         a fixed desktop width. A fixed min-width was what pushed content
-         past the printable area and made it look jammed against one edge
-         with no matching margin on the other side. */
+      /* Let the page flow fluidly and add the visual inset here, on the
+         content, instead of on @page. A fixed min-width previously pushed
+         content past the printable area and made it look jammed against
+         one edge with no matching margin on the other. */
       main {
-        padding: 0 !important;
+        padding: 16mm 14mm !important;
         width: 100% !important;
         min-width: 0 !important;
         max-width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       main .max-w-\[1440px\] {
