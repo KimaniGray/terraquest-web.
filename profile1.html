@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
 <title>Terraquest Investments FZCO profile</title>
 <!-- Favicon -->
-<link href="Terraquest Favicon Black.png" rel="icon" type="image/png"/>
+<link href="Terraquest Favicon Black.png" rel="icon" type="image/png">
 <!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
     @layer base {
       html, body { margin: 0; padding: 0; }
@@ -19,94 +17,104 @@
     ::-webkit-scrollbar { display: none; }
 
     /* Web Layout Styling */
-    .print-page {
+    .a4-page {
       margin-bottom: 2.5rem;
     }
 
     /* Master-Grade A4 Print and PDF Stylesheet */
+    @page {
+      size: A4 portrait;
+      margin: 0 !important;
+    }
+
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #121414 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      width: 100% !important;
+    }
+
     @media print {
-      @page {
-        size: A4 portrait;
-        margin: 0;
-      }
       html, body {
-        background-color: #121414 !important;
-        color: #e2e2e2 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
         margin: 0 !important;
         padding: 0 !important;
-        width: 100% !important;
-        min-height: 100%;
-      }
-      /* Full background color persistence across every printed sheet */
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
         background-color: #121414 !important;
-        z-index: -1;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        width: 210mm !important;
+        max-width: 210mm !important;
       }
-      .no-print {
+
+      /* Target every page container so each exact A4 page is filled completely with dark background */
+      .a4-page, section.print-page, .page-sheet, [data-page] {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 0 !important;
+        padding: 16mm 16mm !important;
+        box-sizing: border-box !important;
+        background-color: #121414 !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+
+      .a4-page:first-of-type, section.print-page:first-of-type {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+
+      /* Ensure web navigation bar or download button is completely hidden in print */
+      header.nav-header, .no-print, #download-btn {
         display: none !important;
       }
+
       main {
         padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
       }
+
       main .max-w-\[1440px\] {
         max-width: 100% !important;
-        padding: 14mm 14mm !important;
+        padding: 0 !important;
         margin: 0 !important;
       }
-      /* Each page is an intentional, vertically-centered presentation canvas */
-      .print-page {
-        min-height: 297mm;
-        height: 297mm;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        break-before: page !important;
-        page-break-before: always !important;
-        padding: 12mm 0 !important;
-        margin-bottom: 0 !important;
-        box-sizing: border-box !important;
-      }
-      .print-page:first-of-type {
-        break-before: auto !important;
-        page-break-before: auto !important;
-      }
-      .print-page:last-of-type {
-        break-after: auto !important;
-        page-break-after: auto !important;
-      }
+
       .print-card, article, section {
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
-      /* Images stay intact without distortion */
+
       img {
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
-      /* Prevent orphan headings */
+
       h1, h2, h3 {
         break-after: avoid !important;
         page-break-after: avoid !important;
       }
+
       p, li {
         orphans: 2;
         widows: 2;
       }
+
       .h-56, .sm\:h-72, .lg\:h-80 {
-        height: 52mm !important;
+        height: 48mm !important;
       }
     }
   </style>
@@ -122,6 +130,7 @@
             "primary-container": "#d4af37", 
             "on-primary": "#3c2f00", 
             "secondary": "#c7c6c6", 
+            "secondary-fixed": "#e3e2e2",
             "tertiary": "#8fddd1", 
             "surface": "#121414", 
             "surface-container-lowest": "#0d0f0f", 
@@ -143,31 +152,33 @@
   </script>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary">
-<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md no-print border-b border-outline-variant/30">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md no-print border-b border-outline-variant/30 nav-header">
 <div class="max-w-[1440px] mx-auto px-5 lg:px-12 h-16 flex items-center justify-between">
 <div class="flex items-center gap-2"><span class="font-sans text-xs tracking-widest uppercase font-semibold text-secondary">Corporate Finance and Advisory Profile</span></div>
-<div class="flex items-center gap-4"><button class="bg-primary hover:bg-primary-fixed text-[#121414] text-[13px] font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 transition-colors shadow-sm cursor-pointer active:scale-95 group" onclick="window.print()" title="Print / Export PDF" type="button"><span class="material-symbols-outlined text-[18px]">print</span><span class="hidden sm:inline">Download Corporate Profile (PDF)</span><span class="inline sm:hidden">Print PDF</span></button></div>
+<div class="flex items-center gap-4"><button class="bg-primary hover:bg-primary-fixed text-[#121414] text-[13px] font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 transition-colors shadow-sm cursor-pointer active:scale-95 group" id="download-btn" onclick="window.print()" title="Print / Export PDF" type="button"><span class="material-symbols-outlined text-[18px]">print</span><span class="hidden sm:inline">Download Corporate Profile (PDF)</span><span class="inline sm:hidden">Print PDF</span></button></div>
 </div>
 </header>
-<main class="w-full pt-20 bg-surface">
-<div class="max-w-[1440px] mx-auto px-5 lg:px-12">
-<div class="flex flex-col w-full text-on-surface">
+<main class="w-full pt-20 print:pt-0 bg-surface">
+<div class="max-w-[1440px] mx-auto px-5 lg:px-12 print:px-0">
+<div class="flex flex-col w-full text-on-surface items-center">
 <!-- PAGE 1: COVER & TABLE OF CONTENTS -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">CORPORATE PROFILE</span>
 </div>
 <div class="text-right font-medium text-primary">Corporate Finance Portfolio</div>
 </div>
-<section class="w-full bg-surface-container-low p-6 lg:p-10 relative overflow-hidden print-card rounded-md border border-outline-variant/20 my-auto">
+<section class="w-full bg-surface-container-low p-6 lg:p-10 relative overflow-hidden print-card rounded-md border border-outline-variant/20 flex-1 flex flex-col justify-between my-auto">
 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-container to-surface-container-low"></div>
+<div>
 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
 <div class="flex flex-col gap-1 max-w-3xl min-w-0">
-<h1 class="font-display text-2xl sm:text-3xl text-[#d4af37] font-bold uppercase tracking-[0.18em]">
-                  TERRAQUEST INVESTMENTS FZCO
-                </h1>
-<p class="font-display text-2xl mt-3 text-secondary-fixed font-normal tracking-wide leading-relaxed">Anchoring Markets. Catalysing Global Capital.</p>
+<h1 class="font-display text-2xl sm:text-3xl text-[#d4af37] font-bold uppercase tracking-[0.18em]" style="font-family: &quot;Noto Serif&quot;, serif; letter-spacing: 0.16em;">
+                    TERRAQUEST INVESTMENTS FZCO
+                  </h1>
+<p class="font-display text-xl sm:text-2xl mt-3 text-secondary-fixed font-medium tracking-wide leading-relaxed">Anchoring Markets. Catalysing Global Capital.</p>
 </div>
 <div class="flex flex-col items-start lg:items-end justify-between gap-1 shrink-0 text-left lg:text-right">
 <span class="font-sans text-[11px] font-medium text-secondary uppercase tracking-widest">Dubai • Nairobi</span>
@@ -175,13 +186,14 @@
 </div>
 <div class="w-full mt-6 relative overflow-hidden border border-outline-variant/30 rounded-lg print-card">
 <div class="w-full h-56 sm:h-72 lg:h-80 relative overflow-hidden">
-<img alt="Vibrant golden maize and corn agricultural harvest representing African productive sector assets" class="w-full h-full object-cover object-center filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApsZY8IDB3067XvhPYYpXE_-0XGo5EwJ7_Yxo1jEoVyY_ubl3spN0WslYcCPxVcBYpIytmwvy4Jk0KbMD1fLDcpcCKVZ6PPVCwr6D4zelbC8Np4QyHmBX36QfOzuBv3FQ3_Q8h3E_7KFjNdfbKgOkpmJ8tDappOp9eJPMoiK15AB3chgLtlgJhAICdFdmEcGBC0c6MQIfJVB9Oc5OFz1LnvtEm3vJqyTCVny6iFEebN8mDk3HgBzOF6uuC_F0sF1GuXiA"/>
+<img alt="Vibrant golden maize and corn agricultural harvest representing African productive sector assets" class="w-full h-full object-cover object-center filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtI7Lm7gWJMfGKbmmu-E9Gicnp8AdY-2N7kDbOhGckLEY7VrmIuwxtu_snZtXLk0cuMNcNInQKeGliGYqj4HlA2RPt2wQWCwfcBImcmU7LpVFXvrfMgUWJzysvKQI5CJ3WQy4NOKQRJQm_mvEGJqLXfjr_7jUvQzuTy7xIJzkd1DuUz27xGJraApyhc00lxI6OPYlmcgjIlEV4QUMnx6An-_Kue4hHLFyO76BH6jDhegduvsAxwV-SDIdggf2O2fR4GaI">
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-4 lg:p-6">
 <div class="flex items-center gap-2 mb-1">
 <span class="w-2 h-2 bg-primary inline-block rounded-full"></span>
-<span class="font-sans text-[11px] text-primary uppercase tracking-[0.2em] font-semibold">Powering the next generation of African investments</span>
+<span class="font-sans text-[11px] text-primary uppercase tracking-[0.2em] font-semibold">Powering the next generation of african investments</span>
 </div>
 <h2 class="font-display text-2xl text-on-surface font-medium tracking-tight leading-snug max-w-2xl">De-risking assets and redefining Agriculture</h2>
+</div>
 </div>
 </div>
 </div>
@@ -215,9 +227,11 @@
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 01 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 2: SECTION 01 WHO WE ARE -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -226,9 +240,10 @@
 </div>
 <div class="text-right font-medium text-primary">
     INSTITUTIONAL MANDATE &amp; DESKS
-  </div>
 </div>
-<section class="w-full print-card my-auto" id="who-we-are">
+</div>
+<section class="w-full print-card flex-1 flex flex-col justify-between my-auto" id="who-we-are">
+<div>
 <div class="flex items-center gap-2 mb-4">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 01</span>
 <h2 class="font-display text-2xl sm:text-3xl text-on-surface">WHO WE ARE</h2>
@@ -252,14 +267,17 @@
 </div>
 </div>
 </div>
+</div>
 </section>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 02 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 3: SECTION 02 WHAT WE DO -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -268,100 +286,109 @@
 </div>
 <div class="text-right font-medium text-primary">
     DIVISIONS &amp; CAPABILITIES
+</div>
+</div>
+<section class="w-full print-card flex-1 flex flex-col justify-between my-auto" id="what-we-do"><div class="flex flex-col h-full justify-between gap-3">
+  <div>
+    <div class="flex items-center gap-2 mb-2">
+      <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-0.5 rounded-sm">SECTION 02</span>
+      <h2 class="font-display text-2xl sm:text-3xl text-on-surface">WHAT WE DO</h2>
+    </div>
+    <div class="p-3.5 sm:p-4 bg-surface-container-low text-on-surface border border-outline-variant/20 rounded-md print-card">
+      <p class="font-sans text-xs sm:text-[13px] leading-relaxed text-on-surface-variant">
+        <strong class="text-on-surface font-semibold">TerraQuest delivers institutional solutions through two integrated divisions: Corporate Finance &amp; Advisory and Asset Management.</strong> Operating across our priority sectors—Agriculture, Regional Trade, Manufacturing, and Financial Infrastructure—our structures mobilize commercial and institutional capital by pairing private investment with domestic first-loss anchors. We design the instruments, conduct primary market research, secure regulatory clearances, and execute the physical governance required to safeguard institutional value.
+      </p>
+    </div>
   </div>
-</div>
-<section class="w-full print-card my-auto" id="what-we-do">
-<div class="flex items-center gap-2 mb-3">
-<span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 02</span>
-<h2 class="font-display text-2xl sm:text-3xl text-on-surface">WHAT WE DO</h2>
-</div>
-<div class="p-5 lg:p-6 bg-surface-container-low text-on-surface mb-4 border border-outline-variant/20 rounded-md print-card">
-<p class="font-sans text-sm sm:text-base leading-relaxed text-on-surface-variant">
-<strong class="text-on-surface font-semibold">TerraQuest delivers institutional solutions through two integrated divisions: Corporate Finance &amp; Advisory and Asset Management.</strong> Operating across our priority sectors—Agriculture, Regional Trade, Manufacturing, and Financial Infrastructure—our structures mobilize commercial and institutional capital by pairing private investment with domestic first-loss anchors. We design the instruments, conduct primary market research, secure regulatory clearances, and execute the physical governance required to safeguard institutional value.
-              </p>
-</div>
-<div class="w-full mb-4 relative overflow-hidden border border-outline-variant/30 rounded-lg h-44 sm:h-56 lg:h-64 print-card">
-<img alt="TerraQuest Silo Infrastructure" class="w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmNrTDu9UPr9dcoflmETEfNcgCZ5ji_H4bMvNcIIR9fNTNEKm7n6EbCND7qeTZ0Xr-qZ5tRf81J0oNa14mPTQpSIao0vRPzpL9b3XphlbiMJtEjWMocCGwsutpRqWOn0WP8RoCI9zCsMw_H82v1UVMk7KMCNH4jFhtEzeuaxR9FO9E5eZCSvGDFI7aFzrTVav6JA53SucwfnjTxMYTLgilR7rojL2uuBuakcjcBuTY1E91b1lWeYHs3sXx-dTBCzXR0ME" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; object-fit: cover; width: 100%; height: 100%; display: block;"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-4 lg:p-5">
-<div class="flex items-center gap-2 mb-1">
-<span class="w-2 h-2 bg-primary inline-block rounded-full"></span>
-<span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em]">REAL ASSETS &amp; TANGIBLE AGRI-INFRASTRUCTURE</span>
-</div>
-<h3 class="font-display text-lg sm:text-xl text-on-surface font-medium tracking-tight leading-snug max-w-2xl">We create secure opportunities for follow on global capital flows into the African Continent.</h3>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-<div class="bg-surface-container-low p-5 flex flex-col justify-between print-card border border-outline-variant/20 rounded-md">
-<div>
-<div class="flex items-center justify-between gap-2 pb-2 mb-3 border-b border-outline-variant/20">
-<h3 class="font-display text-lg sm:text-xl font-medium text-on-surface">Corporate Finance &amp; Advisory</h3>
-<span class="material-symbols-outlined text-primary text-[22px]">corporate_fare</span>
-</div>
-<p class="font-sans text-xs sm:text-sm text-on-surface-variant mb-3 leading-relaxed">
-                    Our advisory practice provides transaction structuring, capital raising, commercial consulting, and primary sector research for institutional investors, global corporates, DFIs, and regional enterprises:
-                  </p>
-<div class="flex flex-col gap-2">
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Capital Raising &amp; Syndication</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Aggregating GCC family office liquidity, international private debt, and DFI balance sheets to syndicate multi-tranche facilities anchored by domestic first-loss capital.
-                      </p>
-</div>
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Blended Finance Structuring</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Designing subordinated note programs, sovereign de-risking mechanisms, and concessionary credit guarantees that absorb initial portfolio risk to crowd in commercial liquidity at scale.
-                      </p>
-</div>
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Strategic Consulting &amp; Transaction Advisory</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Delivering commercial market-entry roadmaps, off-take agreement design, balance-sheet restructuring, and regulatory alignment across regional ministries, central banks, and sector authorities.
-                      </p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-surface-container-low p-5 flex flex-col justify-between print-card border border-outline-variant/20 rounded-md">
-<div>
-<div class="flex items-center justify-between gap-2 pb-2 mb-3 border-b border-outline-variant/20">
-<h3 class="font-display text-lg sm:text-xl font-medium text-on-surface">Asset Management</h3>
-<span class="material-symbols-outlined text-primary text-[22px]">account_balance_wallet</span>
-</div>
-<p class="font-sans text-xs sm:text-sm text-on-surface-variant mb-3 leading-relaxed">
-                    Our asset management practice governs direct, asset-backed investments structured under proprietary holding entities and Special Economic Zone (SEZ) frameworks:
-                  </p>
-<div class="flex flex-col gap-2">
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Structured Trade Finance</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Capital-protected revolving trade facilities and Commodity Repurchase (Repo) programs governed by Master Repurchase Agreements (MRAs). Facilities are secured by institutional escrow, monitored warehouse receipts, and direct physical custody.
-                      </p>
-</div>
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Strategic Asset Turnaround</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Acquiring, restructuring, and expanding high-potential productive assets. We deploy targeted growth capital and active operational management to optimize capacity, establish waste-to-value production lines, and open export markets.
-                      </p>
-</div>
-<div class="p-3 bg-surface-container rounded-sm border border-outline-variant/10">
-<span class="font-sans text-[12px] font-medium text-primary block mb-0.5">Infrastructure Asset Deployment</span>
-<p class="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        Mobilizing long-term institutional capital to construct and operate essential post-harvest handling, cold-chain storage, and regional agro-industrial processing hubs.
-                      </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
+  <div class="w-full relative overflow-hidden border border-outline-variant/30 rounded-lg h-28 sm:h-32 md:h-36 print-card shrink-0">
+    <img alt="Silo Infrastructure" class="w-full h-full object-cover object-center filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPhofDjllGWkSIaHfabZ5Vet5MnpsnJ2oDFFDu8s0pY4smag77PmCCYsamTXfoyZn0S1gVywh8dTpKAc5rTBWXi857pdFiMF8gBA7rMUg_Pi8R9pnU-wW2gqFb3AScZ_X-Dvpe2ZNlKfIDaDGhy2my7hJFUlXHzBqLeqmny3jxI3wmklZHRnSd_yc9RcarhDASbFZvyQNa4P2rvgoLYqM6ieL34E4fgKWNwcuvkzbwK64_h5-VjIktFADKYjqFFcAXOc">
+    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-3 sm:p-4">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="w-1.5 h-1.5 bg-primary inline-block rounded-full"></span>
+        <span class="font-sans text-[10px] font-medium text-primary uppercase tracking-[0.2em]">REAL ASSETS &amp; TANGIBLE AGRI-INFRASTRUCTURE</span>
+      </div>
+      <h3 class="font-display text-xs sm:text-sm md:text-base text-on-surface font-medium tracking-tight leading-snug max-w-2xl">We create secure opportunities for follow on global capital flows into the African Continent.</h3>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-3 flex-1">
+    <!-- Corporate Finance & Advisory Card -->
+    <div class="bg-surface-container-low p-3.5 sm:p-4 flex flex-col justify-between print-card border border-outline-variant/20 rounded-md">
+      <div>
+        <div class="flex items-center justify-between gap-2 pb-1.5 mb-2 border-b border-outline-variant/20">
+          <h3 class="font-display text-sm sm:text-base font-medium text-on-surface">Corporate Finance &amp; Advisory</h3>
+          <span class="material-symbols-outlined text-primary text-[18px] sm:text-[20px]">corporate_fare</span>
+        </div>
+        <p class="font-sans text-[11px] text-on-surface-variant mb-2 leading-snug">
+          Our advisory practice provides transaction structuring, capital raising, commercial consulting, and primary sector research for institutional investors, global corporates, DFIs, and regional enterprises:
+        </p>
+        <div class="flex flex-col gap-1.5">
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Capital Raising &amp; Syndication</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Aggregating GCC family office liquidity, international private debt, and DFI balance sheets to syndicate multi-tranche facilities anchored by domestic first-loss capital.
+            </p>
+          </div>
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Blended Finance Structuring</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Designing subordinated note programs, sovereign de-risking mechanisms, and concessionary credit guarantees that absorb initial portfolio risk to crowd in commercial liquidity at scale.
+            </p>
+          </div>
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Strategic Consulting &amp; Transaction Advisory</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Delivering commercial market-entry roadmaps, off-take agreement design, balance-sheet restructuring, and regulatory alignment across regional ministries, central banks, and sector authorities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asset Management Card -->
+    <div class="bg-surface-container-low p-3.5 sm:p-4 flex flex-col justify-between print-card border border-outline-variant/20 rounded-md">
+      <div>
+        <div class="flex items-center justify-between gap-2 pb-1.5 mb-2 border-b border-outline-variant/20">
+          <h3 class="font-display text-sm sm:text-base font-medium text-on-surface">Asset Management</h3>
+          <span class="material-symbols-outlined text-primary text-[18px] sm:text-[20px]">account_balance_wallet</span>
+        </div>
+        <p class="font-sans text-[11px] text-on-surface-variant mb-2 leading-snug">
+          Our asset management practice governs direct, asset-backed investments structured under proprietary holding entities and Special Economic Zone (SEZ) frameworks:
+        </p>
+        <div class="flex flex-col gap-1.5">
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Structured Trade Finance</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Capital-protected revolving trade facilities and Commodity Repurchase (Repo) programs governed by Master Repurchase Agreements (MRAs). Facilities are secured by institutional escrow, monitored warehouse receipts, and direct physical custody.
+            </p>
+          </div>
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Strategic Asset Turnaround</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Acquiring, restructuring, and expanding high-potential productive assets. We deploy targeted growth capital and active operational management to optimize capacity, establish waste-to-value production lines, and open export markets.
+            </p>
+          </div>
+          <div class="p-2 bg-surface-container rounded-sm border border-outline-variant/10">
+            <span class="font-sans text-[11px] font-medium text-primary block mb-0.5">Infrastructure Asset Deployment</span>
+            <p class="font-sans text-[10px] sm:text-[11px] text-on-surface-variant leading-relaxed">
+              Mobilizing long-term institutional capital to construct and operate essential post-harvest handling, cold-chain storage, and regional agro-industrial processing hubs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 03 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 4: CASE STUDY 01 -->
-<div class="print-page" id="case-studies"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none" id="case-studies">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -370,9 +397,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     TSAVO GLOBAL TRADE CREDIT FACILITY
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 01</span>
@@ -416,8 +443,8 @@
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">The Context &amp; Solution</span>
 <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
-                  Moving food crops across East and Southern Africa is broken by late payments, lack of seasonal liquidity, and constant default risk. TerraQuest created and owns Tsavo Global Trade Credit as a standing trade finance engine. It funds the purchase, storage, and cross-border delivery of core grains (maize, pulses, oilseeds) and export crops (cocoa, coffee).
-                </p>
+                    Moving food crops across East and Southern Africa is broken by late payments, lack of seasonal liquidity, and constant default risk. TerraQuest created and owns Tsavo Global Trade Credit as a standing trade finance engine. It funds the purchase, storage, and cross-border delivery of core grains (maize, pulses, oilseeds) and export crops (cocoa, coffee).
+                  </p>
 </div>
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">How It Works</span>
@@ -428,14 +455,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 04 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 5: CASE STUDY 02 -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -444,9 +473,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     TSAVO RESILIENCE FOOD FUND I
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 02</span>
@@ -490,8 +519,8 @@
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">The Context &amp; Solution</span>
 <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
-                  Severe swings in grain prices regularly hurt commercial food processors, squeeze animal feed mills, and threaten regional food security. Working directly with the Food Reserve Agency of Zambia (FRA Zambia), TerraQuest structured this fund to act as an economic shock absorber across Southern and Eastern Africa.
-                </p>
+                    Severe swings in grain prices regularly hurt commercial food processors, squeeze animal feed mills, and threaten regional food security. Working directly with the Food Reserve Agency of Zambia (FRA Zambia), TerraQuest structured this fund to act as an economic shock absorber across Southern and Eastern Africa.
+                  </p>
 </div>
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">How It Works</span>
@@ -502,14 +531,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 05 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 6: CASE STUDY 03 -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -518,9 +549,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     TSAVOINFRA DEBT ISSUANCE
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 03</span>
@@ -564,8 +595,8 @@
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">The Context &amp; Solution</span>
 <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
-                  East Africa loses up to a third of its harvest simply because drying and storage facilities do not exist. To solve this, TerraQuest structured TsavoINFRA as a multi-year infrastructure program to fund the physical assets required across primary farming belts.
-                </p>
+                    East Africa loses up to a third of its harvest simply because drying and storage facilities do not exist. To solve this, TerraQuest structured TsavoINFRA as a multi-year infrastructure program to fund the physical assets required across primary farming belts.
+                  </p>
 </div>
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">How It Works</span>
@@ -576,14 +607,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 06 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 7: CASE STUDY 04 -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -592,9 +625,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     MODA INDUSTRIAL PROCESSING
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 04</span>
@@ -648,14 +681,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 07 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 8: CASE STUDY 05 -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -664,9 +699,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     PROJECT NDEGWA • LIVESTOCK VALUE CHAIN
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 05</span>
@@ -710,8 +745,8 @@
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">The Context &amp; Solution</span>
 <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
-                  To build an export pipeline of premium beef, goat, sheep, and camel into the Gulf, TerraQuest structured Project Ndegwa to connect upstream livestock rangelands in Tanzania directly with finishing yards in Kenya and institutional distribution channels in Dubai.
-                </p>
+                    To build an export pipeline of premium beef, goat, sheep, and camel into the Gulf, TerraQuest structured Project Ndegwa to connect upstream livestock rangelands in Tanzania directly with finishing yards in Kenya and institutional distribution channels in Dubai.
+                  </p>
 </div>
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">How It Works</span>
@@ -723,14 +758,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 08 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 9: CASE STUDY 06 -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -739,9 +776,9 @@
 </div>
 <div class="text-right font-medium text-primary">
     PROJECT DEAD SEA • HERB TURNAROUND
-  </div>
 </div>
-<section class="my-auto w-full">
+</div>
+<div class="flex-1 flex flex-col justify-between my-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 print-card"><div class="">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 03 • CASE STUDY 06</span>
@@ -785,8 +822,8 @@
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">The Context &amp; Solution</span>
 <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
-                  TerraQuest structured and executed the full buyout of a premier Kenyan commercial herb exporter to facilitate a clean exit for its original owner-founder. The business generated $8.9M in baseline annual revenue shipping fresh basil, mint, and coriander to European retailers, but was constrained by succession dynamics and cosmetic grading waste. TerraQuest stepped in as acquiring principal to institutionalize governance and unlock dormant processing capacity.
-                </p>
+                    TerraQuest structured and executed the full buyout of a premier Kenyan commercial herb exporter to facilitate a clean exit for its original owner-founder. The business generated $8.9M in baseline annual revenue shipping fresh basil, mint, and coriander to European retailers, but was constrained by succession dynamics and cosmetic grading waste. TerraQuest stepped in as acquiring principal to institutionalize governance and unlock dormant processing capacity.
+                  </p>
 </div>
 <div class="lg:col-span-6 bg-surface-container p-4 rounded-sm border border-outline-variant/10">
 <span class="font-sans text-[13px] font-medium text-primary uppercase tracking-widest block mb-2">How It Works</span>
@@ -797,14 +834,16 @@
 </div>
 </div>
 </article>
-</section>
+</div>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 09 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 10: SECTION 04 PARTNERS -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -813,9 +852,10 @@
 </div>
 <div class="text-right font-medium text-primary">
     BANKS &amp; UNDERWRITERS SYNDICATE
-  </div>
 </div>
-<section class="w-full print-card my-auto" id="partners">
+</div>
+<section class="w-full print-card flex-1 flex flex-col justify-between my-auto" id="partners">
+<div>
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-6">
 <div class="flex items-center gap-2">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 04</span>
@@ -828,7 +868,7 @@
 <div>
 <div class="flex items-center gap-2 pb-3 mb-5 border-b border-primary/40">
 <span class="material-symbols-outlined text-primary text-[22px]">account_balance</span>
-<h3 class="font-display text-base sm:text-lg font-semibold text-primary tracking-wide uppercase">Leading Commercial Banks</h3>
+<h3 class="font-display text-base sm:text-lg font-semibold text-primary tracking-wide uppercase" style="font-family: &quot;Noto Serif&quot;, serif; letter-spacing: 0.05em;">Leading Commercial Banks</h3>
 </div>
 <div class="flex flex-col gap-3">
 <div class="p-4 bg-surface-container rounded-sm border border-outline-variant/15 flex items-center hover:border-primary/40 transition-colors">
@@ -854,7 +894,7 @@
 <div>
 <div class="flex items-center gap-2 pb-3 mb-5 border-b border-tertiary/40">
 <span class="material-symbols-outlined text-tertiary text-[22px]">shield</span>
-<h3 class="font-display text-base sm:text-lg font-semibold text-tertiary tracking-wide uppercase">Leading Insurance Underwriters</h3>
+<h3 class="font-display text-base sm:text-lg font-semibold text-tertiary tracking-wide uppercase" style="font-family: &quot;Noto Serif&quot;, serif; letter-spacing: 0.05em;">Leading Insurance Underwriters</h3>
 </div>
 <div class="flex flex-col gap-3">
 <div class="p-4 bg-surface-container rounded-sm border border-outline-variant/15 flex items-center hover:border-tertiary/40 transition-colors">
@@ -876,14 +916,17 @@
 </div>
 </div>
 </div>
+</div>
 </section>
 <div class="print-footer pt-3 mt-3 border-t border-outline-variant/20 text-[10px] font-sans text-secondary flex items-center justify-between">
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 10 / 11</div>
-</div></div>
+</div>
+</div>
 <!-- PAGE 11: SECTION 05 CONTACT -->
-<div class="print-page"><div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
+<div class="a4-page w-full flex flex-col justify-between bg-surface border border-outline-variant/10 print:border-none">
+<div class="print-header pb-2 mb-3 border-b border-outline-variant/20 text-[10px] tracking-widest uppercase font-sans text-secondary flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
 <span class="font-medium text-on-surface">TERRAQUEST INVESTMENTS FZCO</span>
@@ -892,9 +935,10 @@
 </div>
 <div class="text-right font-medium text-primary">
     INVESTMENT INQUIRIES &amp; OFFICES
-  </div>
 </div>
-<section class="w-full print-card my-auto" id="contact">
+</div>
+<section class="w-full print-card flex-1 flex flex-col justify-between my-auto" id="contact">
+<div>
 <div class="flex items-center gap-2 mb-4">
 <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1 rounded-sm">SECTION 05</span>
 <h2 class="font-display text-2xl sm:text-3xl text-on-surface">CONTACT</h2>
@@ -902,7 +946,7 @@
 <div class="bg-surface-container-low p-6 lg:p-10 border border-outline-variant/20 rounded-md">
 <div class="mb-6 pb-4 border-b border-outline-variant/10">
 <h3 class="font-display text-xl sm:text-2xl text-on-surface font-medium">TerraQuest Investments FZCO</h3>
-<p class="font-display text-[13px] font-normal text-primary tracking-widest uppercase mt-2">Anchoring Markets. Catalysing Global Capital.</p>
+<p class="font-sans text-[11px] font-medium text-primary uppercase tracking-widest mt-2">Anchoring Markets. Catalysing Global Capital.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="bg-surface-container p-6 flex flex-col justify-between rounded-sm border border-outline-variant/15">
@@ -932,13 +976,14 @@
 <div class="flex flex-wrap items-center gap-4 text-on-surface-variant">
 <a class="font-sans text-sm text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="https://www.terraqi.trade" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[16px] text-primary">language</span>www.terraqi.trade
-                    </a>
+                      </a>
 <a class="font-sans text-sm text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="mailto:info@terraqi.trade">
 <span class="material-symbols-outlined text-[16px] text-primary">mail</span>info@terraqi.trade
-                    </a>
+                      </a>
 <a class="font-sans text-sm text-on-surface hover:text-primary transition-colors flex items-center gap-2" href="mailto:operations@terraqi.trade">
 <span class="material-symbols-outlined text-[16px] text-primary">send</span>operations@terraqi.trade
-                    </a>
+                      </a>
+</div>
 </div>
 </div>
 </div>
@@ -948,7 +993,8 @@
 <div class="">DUBAI SILICON OASIS (DSO-FZCO-24892) | DUBAI • NAIROBI</div>
 <div class="hidden sm:block text-outline uppercase tracking-wider text-[9px]">Strictly Private &amp; Confidential</div>
 <div class="font-medium text-primary tracking-widest uppercase">PAGE 11 / 11</div>
-</div></div>
+</div>
+</div>
 </div>
 </div>
 </main>
@@ -963,4 +1009,6 @@
       </div>
 </div>
 </footer>
+
+
 </body></html>
