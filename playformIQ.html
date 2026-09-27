@@ -1,0 +1,712 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-on-surface":"#303030","surface-container":"#1f1f1f","on-surface-variant":"#d8c3ac","surface-tint":"#ffb956","on-tertiary":"#183800","secondary":"#a5cfc2","on-tertiary-fixed":"#0c2000","error":"#ffb4ab","primary":"#ffce8f","on-background":"#e2e2e2","surface-container-low":"#1b1b1b","on-surface":"#e2e2e2","primary-container":"#ffa800","outline":"#a08e79","on-tertiary-container":"#285500","on-secondary":"#0c372e","secondary-fixed":"#c1ecde","surface-container-highest":"#353535","on-error":"#690005","on-secondary-fixed":"#002019","on-primary-fixed-variant":"#643f00","on-secondary-container":"#94beb1","surface":"#131313","tertiary-container":"#6dd201","secondary-container":"#264e44","on-primary-fixed":"#2a1800","error-container":"#93000a","on-primary-container":"#684200","surface-variant":"#353535","surface-bright":"#393939","primary-fixed":"#ffddb5","primary-fixed-dim":"#ffb956","inverse-primary":"#835400","outline-variant":"#534433","on-secondary-fixed-variant":"#264e44","tertiary-fixed":"#93fc3e","on-primary":"#462b00","surface-container-high":"#2a2a2a","surface-container-lowest":"#0e0e0e","secondary-fixed-dim":"#a5cfc2","on-error-container":"#ffdad6","on-tertiary-fixed-variant":"#265100","tertiary":"#88ef31","surface-dim":"#131313","inverse-surface":"#e2e2e2","tertiary-fixed-dim":"#78df1c","background":"#131313"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter":"1rem","space-sm":"0.5rem","margin":"1rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.25rem","space-xl":"2rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"],"display-stat":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Inter"],"label-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"800"}],"display-stat":["48px",{lineHeight:"52px",letterSpacing:"-0.04em",fontWeight:"800"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"34px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-sm":["10px",{lineHeight:"12px",letterSpacing:"0.06em",fontWeight:"700"}],"headline-xl-mobile":["32px",{lineHeight:"38px",letterSpacing:"-0.025em",fontWeight:"800"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><main class="w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden bg-surface py-8 px-4 sm:px-6 lg:px-12 flex flex-col items-center">
+<!-- Ambient Radiance Backgrounds -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-primary-container/10 via-tertiary-container/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-secondary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+<!-- Header Stage Telemetry -->
+<header class="w-full max-w-7xl flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 z-10">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-high p-2 rounded-xl flex items-center shadow-lg"><img alt="PlayformIQ Official Logo" class="h-9 object-contain rounded-lg bg-white px-2 py-1 shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1XtWHI7Egq25x1i0IoB4BF_w7ap-GRm_1dta9Xx2nSwWavpkVICG8-7-VVmKbefbXyqLRIZeoNXoMy0AUeGIaqlWTP94Xu0IlaNc0G1EYTUv5AWGm1_EO9Rzs5bfJ3Rjcr-4yKMuXuKSpuKBNfikQdIvzuncXOlR2W0e5G1Lgb90CZFTqIwDH-4YAnni8LSMG5woNddFgszWsdTy7v69jXwhpJI5G1HKP5ee9jXFEfedvWdHM3aK2oCEQ"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-tertiary tracking-widest uppercase">Live Campaign Simulator</span>
+</div>
+<p class="font-headline-sm text-on-surface">BMW X7 M60i Viral Social-to-HUD Funnel</p>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="flex items-center flex-wrap gap-3">
+<div class="bg-surface-container px-4 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase">Benchmark</span>
+<span class="font-headline-sm text-primary font-bold">1,850 pts <span class="font-label-sm text-secondary font-normal">(@mediamk)</span></span>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase">Auto-Dispatch Latency</span>
+<span class="font-headline-sm text-tertiary font-bold">0.38s</span>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-xl flex flex-col">
+<span class="font-label-sm text-on-surface-variant uppercase">Engagement Rate</span>
+<span class="font-headline-sm text-primary-container font-bold">68.4%</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace Stage -->
+<div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start z-10">
+<!-- Left Column: Interactive Director / Stepper -->
+<div class="lg:col-span-3 flex flex-col gap-4 order-2 lg:order-1">
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-xl flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Campaign Funnel</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary text-[11px] font-semibold">5 Steps</span>
+</div>
+<!-- Funnel Control Buttons -->
+<div class="flex flex-col gap-2" id="stageControls">
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group bg-surface-container-low" data-stage="1" onclick="setStage(1)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">1</span>
+<div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Instagram Reel</h4>
+<p class="font-body-sm text-on-surface-variant text-[11px]">@mediamk X7 launch</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
+</button>
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="2" onclick="setStage(2)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">2</span>
+<div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Comments Trigger</h4>
+<p class="font-body-sm text-on-surface-variant text-[11px]">Auto-DM keyword 'PLAY'</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
+</button>
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-high" data-stage="3" onclick="setStage(3)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-primary">3</span>
+<div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Direct Message Bot</h4>
+<p class="font-body-sm text-on-surface-variant text-[11px]">Instant dispatch card</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-primary">chevron_right</span>
+</button>
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="4" onclick="setStage(4)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">4</span>
+<div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Playform HUD Quiz</h4>
+<p class="font-body-sm text-on-surface-variant text-[11px]">BMW telemetry gamification</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
+</button>
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="5" onclick="setStage(5)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">5</span>
+<div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">VIP Viral Reward</h4>
+<p class="font-body-sm text-on-surface-variant text-[11px]">Story sticker &amp; leaderboard</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<button class="px-4 py-2 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-highest transition-colors flex items-center gap-1 font-label-md" onclick="prevStage()">
+<span class="material-symbols-outlined text-sm">arrow_back</span> Prev
+            </button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-bold hover:bg-surface-tint transition-all flex items-center gap-1 font-label-md shadow-md" onclick="nextStage()">
+              Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Details Card -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-xl flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Haptic &amp; Audio</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-tertiary">ACTIVE</span>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant text-xs leading-relaxed">
+            Synthesized Web Audio triggers realistic click feedback and victory chimes when interacting inside the virtual simulator screen.
+          </p>
+<div class="flex items-center gap-2 mt-2">
+<button class="w-full py-2 bg-surface-container text-on-surface rounded-lg font-label-sm flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors" onclick="testChime()">
+<span class="material-symbols-outlined text-xs text-primary">volume_up</span> Test Audio Tone
+            </button>
+</div>
+</div>
+</div>
+<!-- Center Column: Realistic Smartphone Container Frame -->
+<div class="lg:col-span-6 flex justify-center order-1 lg:order-2">
+<div class="relative w-full max-w-[390px] select-none">
+<!-- Physical Hardware Outer Frame (Natural Titanium Polish) -->
+<div class="relative bg-surface-container-highest p-[11px] rounded-[52px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(255,168,0,0.15)] ring-0">
+<!-- Left Mechanical Buttons: Action & Volume Rockers -->
+<div class="absolute -left-[14px] top-28 w-[3px] h-8 bg-[#454545] rounded-l-sm"></div>
+<div class="absolute -left-[14px] top-42 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
+<div class="absolute -left-[14px] top-58 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
+<!-- Right Mechanical Button: Power/Siri Key -->
+<div class="absolute -right-[14px] top-40 w-[3px] h-16 bg-[#454545] rounded-r-sm"></div>
+<!-- OLED Inner Display Bezel -->
+<div class="relative w-full h-[770px] bg-black rounded-[42px] overflow-hidden flex flex-col">
+<!-- Dynamic Island & Status Bar Glass -->
+<div class="absolute top-0 inset-x-0 h-11 z-50 flex items-center justify-between px-7 pt-1 pointer-events-none">
+<span class="font-label-md text-white text-[13px] font-bold">9:41</span>
+<!-- Dynamic Island Capsule -->
+<div class="w-28 h-6 bg-black rounded-full flex items-center justify-between px-2.5 mx-auto">
+<div class="w-2.5 h-2.5 rounded-full bg-[#151515] flex items-center justify-center">
+<div class="w-1 h-1 rounded-full bg-[#08182b]"></div>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-white">
+<span class="material-symbols-outlined text-[13px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[13px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- SCREEN STAGE VIEWS CONTAINER -->
+<div class="relative w-full h-full pt-10 flex flex-col bg-surface-container-lowest text-white overflow-hidden" id="phoneScreen">
+<!-- ================= STAGE 1: INSTAGRAM REEL ================= -->
+<div class="stage-view absolute inset-0 pt-11 pb-6 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 opacity-0 pointer-events-none" id="stageView1">
+<!-- Video Canvas Simulation -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-gradient-to-b from-surface-container-high via-surface-container to-black flex items-center justify-center relative overflow-hidden">
+<img alt="BMW X7 flagship" class="absolute w-full h-full object-cover filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9WJlV7xxuhuY3FVyh_KFELFCHZ6KZS1vqjM9xkqrbqxqgGVipakbNTq4WRHY5m9M4QX6yCkFgmUWaJWOcRNHayFzDTzGnmkreZF7bYQW2OBrh9-RvSFycRIM9tm0Umsd-jzwvqXR8j10EiTvbCkgSEV_fSYSNSb1y1QHVPF2NxhT3j3TXdpxL6aqSVp9Jeb9Ds5uiwwT6Ad8y3oiR_BRviZHHnCGnF3ipFecvJg0gRuk9LKCXfnjpTUo9K1X1Nd_SbQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+</div>
+</div>
+<!-- Reel Header -->
+<div class="relative z-10 flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-base font-bold tracking-tight">Reels</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</div>
+<!-- Right Floating Action Sidebar -->
+<div class="absolute right-3 bottom-28 z-20 flex flex-col items-center gap-5">
+<button class="flex flex-col items-center gap-1 group" onclick="triggerLike(this)">
+<div class="w-11 h-11 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-white group-hover:text-red-500 transition-colors">favorite</span>
+</div>
+<span class="font-label-sm text-[11px]">84.2K</span>
+</button>
+<button class="flex flex-col items-center gap-1 group" onclick="setStage(2)">
+<div class="w-11 h-11 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center ring-0">
+<span class="material-symbols-outlined text-2xl text-primary">chat_bubble</span>
+</div>
+<span class="font-label-sm text-[11px] text-primary">12.9K</span>
+</button>
+<button class="flex flex-col items-center gap-1">
+<div class="w-11 h-11 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-white">send</span>
+</div>
+<span class="font-label-sm text-[11px]">24.1K</span>
+</button>
+<button class="flex flex-col items-center gap-1 animate-bounce" onclick="setStage(4)">
+<div class="w-11 h-11 rounded-full bg-tertiary/20 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-tertiary">sports_score</span>
+</div>
+<span class="font-label-sm text-[10px] text-tertiary font-bold">PLAY</span>
+</button>
+</div>
+<!-- Bottom Reel Meta & CTA Overlay -->
+<div class="relative z-10 flex flex-col gap-3 pb-4">
+<div class="flex items-center gap-2.5">
+<img alt="Influencer avatar" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxCk6l2zQW-lp-lShi4QEUXkFMBF-DD7BDoSUeqLU0TnhaUjW_RRDlvJqRoyuCG5-t9nX1SkfYjHUqu5IXqX7MhXD-Gi-4DNLlZ0dKOil0eY226nfQgmxMkupDxIQbZ3EnYp45A-48eb9AFRNXTDTHu-pTYZSl9Gx46PVI94oObRWtZZX7VSLXNlmPuLhrRqk-X4A-bDYXUEtx9Lpw4nQlqjkJ7CX8aq-CHhzQFhabc-681r2V5k6YFXTLTC85TPf5wA">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md font-bold text-sm">mediamk</span>
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+<span class="text-xs text-on-surface-variant font-medium">• Follow</span>
+</div>
+</div>
+<p class="font-body-sm text-xs text-on-surface leading-tight max-w-[270px]">
+                      Taking the new BMW X7 M60i V8 through its paces. Can anyone beat my track telemetry of <span class="text-primary font-bold">1,850 pts</span>?
+                    </p>
+<!-- Interactive Floating Callout Trigger -->
+<div class="cursor-pointer bg-surface/90 backdrop-blur-md p-3 rounded-xl flex items-center justify-between shadow-xl" onclick="setStage(2)">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-label-md text-xs text-primary font-bold">Comment "PLAY" for instant challenge</span>
+</div>
+<span class="material-symbols-outlined text-xs text-primary">arrow_forward</span>
+</div>
+<!-- Audio Bar Track -->
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">music_note</span>
+<span class="font-label-sm text-[11px] truncate">mediamk • Original Audio - BMW M Exhaust V8 Sound</span>
+</div>
+</div>
+</div>
+<!-- ================= STAGE 2: COMMENTS SHEET ================= -->
+<div class="stage-view absolute inset-0 pt-11 pb-4 flex flex-col justify-end transition-opacity duration-300 z-20 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none" id="stageView2">
+<!-- Bottom Sheet Drawer Surface -->
+<div class="w-full bg-surface-container-high rounded-t-3xl p-4 flex flex-col max-h-[82%] h-[82%] relative shadow-2xl">
+<div class="w-10 h-1 bg-on-surface-variant/30 rounded-full mx-auto mb-3"></div>
+<div class="flex items-center justify-between pb-3">
+<h3 class="font-headline-sm text-sm font-bold">Comments <span class="font-body-sm text-on-surface-variant text-xs">(12.9K)</span></h3>
+<button class="material-symbols-outlined text-on-surface-variant text-base" onclick="setStage(1)">close</button>
+</div>
+<!-- Comments List -->
+<div class="flex-1 overflow-y-auto flex flex-col gap-3.5 pr-1 text-xs">
+<!-- Pinned Automated Verification Bot -->
+<div class="bg-surface-container p-3 rounded-xl flex items-start gap-2.5">
+<img alt="PlayformIQ Bot" class="w-6 h-6 rounded-md object-contain bg-white p-0.5" src="https://lh3.googleusercontent.com/aida/AEtjO1XtWHI7Egq25x1i0IoB4BF_w7ap-GRm_1dta9Xx2nSwWavpkVICG8-7-VVmKbefbXyqLRIZeoNXoMy0AUeGIaqlWTP94Xu0IlaNc0G1EYTUv5AWGm1_EO9Rzs5bfJ3Rjcr-4yKMuXuKSpuKBNfikQdIvzuncXOlR2W0e5G1Lgb90CZFTqIwDH-4YAnni8LSMG5woNddFgszWsdTy7v69jXwhpJI5G1HKP5ee9jXFEfedvWdHM3aK2oCEQ">
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md font-bold text-primary">playformiq</span>
+<span class="bg-primary/20 text-primary px-1.5 py-0.2 rounded text-[9px] font-bold">BOT</span>
+<span class="text-on-surface-variant text-[10px]">Pinned</span>
+</div>
+<p class="font-body-sm text-[11.5px] text-on-surface mt-1">
+                            Reply <span class="font-bold text-tertiary">PLAY</span> and our telemetry engine will instantly DM your verified benchmark link!
+                          </p>
+</div>
+</div>
+<!-- Simulated User Comment with Trigger -->
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center text-xs font-bold text-secondary">
+                          AK
+                        </div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md font-bold text-white">alex.k</span>
+<span class="text-on-surface-variant text-[10px]">Just now</span>
+</div>
+<p class="font-body-sm text-white font-bold text-sm text-primary">PLAY</p>
+<span class="text-[10px] text-tertiary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[10px]">bolt</span> Auto-DM sent in 0.4s
+                          </span>
+</div>
+<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
+</div>
+<!-- Other Community Comment -->
+<div class="flex items-start gap-2.5 opacity-70">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-xs">
+                          GT
+                        </div>
+<div class="flex-1">
+<span class="font-label-md font-bold">gt3_driver</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">The kidney grille looks unbelievable in that sapphire black spec.</p>
+</div>
+<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
+</div>
+</div>
+<!-- Bottom Comment Bar with Simulated Tap -->
+<div class="pt-3">
+<div class="bg-surface-container px-3.5 py-2.5 rounded-full flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant text-xs">
+<img alt="You" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2i8BFZ9ZLU2qtMjtdiRZ53_rGXRJUVB_S6hQunnRlx_T7Cude9TRy2CEahbVyxqOuF58uuYmP2iq7VA0PWdt6rALfU7eP2AJYH2T5kpD8VBbnoOWini-6tg6qrWT3P5Gja6mHLF8kND5lX5HrLA6sp1M6yTtcGM049tWj6dpaslvIqQ02Uiu_N9UT7QUlKe7hdaw5XgsrT6Fr4AUCHmFg9GVUS0pQg-jb5mCEKcef7k9pUdH3WEYx8W17upftI6MT6A">
+<span class="">Add a comment for @mediamk...</span>
+</div>
+<button class="bg-primary text-on-primary font-bold text-xs px-3 py-1 rounded-full hover:scale-105 transition-transform flex items-center gap-1" onclick="setStage(3)">
+<span class="">Send PLAY</span>
+<span class="material-symbols-outlined text-xs">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= STAGE 3: INSTAGRAM DIRECT MESSAGE ================= -->
+<div class="stage-view absolute inset-0 pt-11 pb-4 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface opacity-100" id="stageView3">
+<!-- DM Header -->
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-xl text-on-surface" onclick="setStage(2)">arrow_back</button>
+<div class="flex items-center gap-2">
+<img alt="Playform Engine" class="w-7 h-7 rounded-full bg-white p-0.5 object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XtWHI7Egq25x1i0IoB4BF_w7ap-GRm_1dta9Xx2nSwWavpkVICG8-7-VVmKbefbXyqLRIZeoNXoMy0AUeGIaqlWTP94Xu0IlaNc0G1EYTUv5AWGm1_EO9Rzs5bfJ3Rjcr-4yKMuXuKSpuKBNfikQdIvzuncXOlR2W0e5G1Lgb90CZFTqIwDH-4YAnni8LSMG5woNddFgszWsdTy7v69jXwhpJI5G1HKP5ee9jXFEfedvWdHM3aK2oCEQ">
+<div>
+<div class="flex items-center gap-1">
+<span class="font-label-md font-bold text-xs text-white">PlayformIQ Engine</span>
+<span class="material-symbols-outlined text-primary text-[11px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<span class="text-[10px] text-tertiary">Active now • Verified Campaign</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">info</span>
+</div>
+<!-- Message Thread -->
+<div class="flex-1 flex flex-col justify-end gap-3 pb-2 overflow-y-auto">
+<!-- Outgoing User Bubble -->
+<div class="self-end bg-primary-container text-on-primary-container px-4 py-2 rounded-2xl rounded-tr-xs font-label-md text-xs font-bold">
+                      PLAY
+                    </div>
+<!-- Instant Automated DM Rich Card Payload -->
+<div class="self-start max-w-[90%] bg-surface-container p-3 rounded-2xl rounded-tl-xs flex flex-col gap-2.5 shadow-xl">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-tertiary text-[10px] uppercase tracking-wider font-bold">Fast-Track Telemetry</span>
+<span class="text-[10px] text-on-surface-variant">0.38s response</span>
+</div>
+<!-- Vehicle Mini Card -->
+<div class="rounded-xl overflow-hidden bg-black relative p-2 flex flex-col items-center">
+<img alt="BMW X7 Car preview" class="w-full h-24 object-contain filter drop-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA85vWjsbaNklmw3inYm05KiltuKqgXFBdJmYp5_Sn2GOUpjF6SUjTdQEX06AqP5alJtmaeAf4ZyVUqkuYwy05TgYi5zupGFUxiGvqsxJe7_UsDh_8eOkAXyEgSHm3nBgN3dmLshz9Cqxuq34LIBid-mJa3HZK_YAjFEkfex9FXIrVj8ExlPBG02YH9jYX65Ltb2PvNenEGfrx3vK-H1jaLUeym6U1gSfKZX9GDY9c97zKw7ouuchEDYZT3n8imBHYWQQ">
+<div class="w-full flex items-center justify-between mt-1 px-1">
+<span class="font-headline-sm text-xs font-bold text-white">BMW X7 M60i</span>
+<span class="font-label-sm text-[10px] text-primary">523 HP TwinTurbo</span>
+</div>
+</div>
+<p class="font-body-sm text-[11.5px] text-on-surface leading-tight">
+                        Hey! You replied to <span class="text-secondary font-bold">@mediamk</span>'s Reel. Think you can beat his <span class="text-primary font-bold">1,850 pts</span> record?
+                      </p>
+<!-- Action Button inside DM -->
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-on-primary font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="setStage(4)">
+<span class="material-symbols-outlined text-sm">sports_esports</span>
+<span class="">Launch Playform HUD Challenge</span>
+</button>
+</div>
+<span class="text-center text-[10px] text-on-surface-variant">Automated verified dispatch via Playform Direct API</span>
+</div>
+<!-- DM Input Mockup -->
+<div class="bg-surface-container-high px-3 py-2 rounded-full flex items-center justify-between text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base">sentiment_satisfied</span>
+<span class="flex-1 px-2 text-[11px]">Message PlayformIQ...</span>
+<span class="material-symbols-outlined text-base">mic</span>
+</div>
+</div>
+<!-- ================= STAGE 4: PLAYFORMIQ TRIVIA GAME HUD ================= -->
+<div class="stage-view absolute inset-0 pt-11 pb-4 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest opacity-0 pointer-events-none" id="stageView4">
+<!-- HUD Top Telemetry Bar -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-[11px] text-white font-bold tracking-widest uppercase">STAGE 04/20</span>
+</div>
+<div class="bg-tertiary/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">bolt</span>
+<span class="font-headline-sm text-xs font-bold text-tertiary" id="scoreTracker">1,540 PTS</span>
+</div>
+</div>
+<!-- Progress Bar with gradient glow -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-gradient-to-r from-primary to-tertiary rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Live Quiz Card -->
+<div class="flex-1 flex flex-col justify-center my-2 gap-3">
+<!-- Car Silhouette Telemetry Window -->
+<div class="w-full bg-surface-container/70 backdrop-blur-md rounded-2xl p-3 flex flex-col relative overflow-hidden shadow-lg">
+<div class="flex items-center justify-between z-10">
+<span class="text-[10px] font-label-sm text-on-surface-variant tracking-wider uppercase">V8 TwinPower Turbo</span>
+<span class="text-[10px] font-label-sm text-primary font-bold">@mediamk TARGET: 1,850</span>
+</div>
+<div class="relative w-full h-28 flex items-center justify-center my-1">
+<img alt="BMW X7" class="max-h-full object-contain filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxuv9ooHuIyx2GW9bHtdcF5HbQRqZqQQokgSrlbRZVGdjmDdcsSIKHO_Kjnwe6muzGHowOFZn2vXxPBY1vVR9-Em-V3WH50xGa2m6qXpF-b7OrAMZ4QvpwkUNN1rKT11SdXBdiUFLWyvYkzfupR7Okh_X7eBNrFrFFDgBFHXxg1TYqyBH1pQW6C54FY8PK0OzTFFeC8BzjWCTPCWkD6qFcfJQGEc-ySaaVCokh7bVYg1623dMu740w0DFoU5GkfLiksA">
+</div>
+<div class="z-10 bg-black/60 backdrop-blur-sm p-2 rounded-xl">
+<h4 class="font-headline-sm text-xs font-bold text-white">What is the 0-60 mph acceleration timing for the 2024 BMW X7 M60i?</h4>
+</div>
+</div>
+<!-- Interactive Quiz Options (A, B, C, D) -->
+<div class="flex flex-col gap-2" id="triviaAnswers">
+<button class="quiz-option w-full p-2.5 rounded-xl bg-surface-container flex items-center justify-between text-left transition-all hover:bg-surface-container-high group" onclick="handleAnswer(this, false)">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-lg bg-surface flex items-center justify-center font-label-sm text-on-surface font-bold text-[11px]">A</span>
+<span class="font-body-md text-xs text-on-surface">5.8 Seconds</span>
+</div>
+<span class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+<button class="quiz-option w-full p-2.5 rounded-xl bg-surface-container flex items-center justify-between text-left transition-all hover:bg-surface-container-high group" onclick="handleAnswer(this, true)">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-lg bg-surface flex items-center justify-center font-label-sm text-primary font-bold text-[11px]">B</span>
+<span class="font-body-md text-xs text-on-surface font-semibold">4.5 Seconds</span>
+</div>
+<span class="material-symbols-outlined text-xs text-tertiary hidden" id="correctCheck">check_circle</span>
+</button>
+<button class="quiz-option w-full p-2.5 rounded-xl bg-surface-container flex items-center justify-between text-left transition-all hover:bg-surface-container-high group" onclick="handleAnswer(this, false)">
+<div class="flex items-center gap-2.5">
+<span class="w-6 h-6 rounded-lg bg-surface flex items-center justify-center font-label-sm text-on-surface font-bold text-[11px]">C</span>
+<span class="font-body-md text-xs text-on-surface">3.9 Seconds</span>
+</div>
+<span class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Bottom HUD Status -->
+<div class="bg-surface-container/60 p-2.5 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary">timer</span>
+<span class="font-label-sm text-[11px] text-white">08.4s Remaining</span>
+</div>
+<button class="font-label-sm text-[11px] text-secondary font-bold flex items-center gap-0.5 hover:underline" onclick="setStage(5)">
+                      Skip to Victory <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- ================= STAGE 5: VIRAL LOOP & REWARD ================= -->
+<div class="stage-view absolute inset-0 pt-11 pb-4 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest opacity-0 pointer-events-none" id="stageView5">
+<!-- Victory Banner -->
+<div class="pt-2 text-center flex flex-col items-center">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary mb-2">
+<span class="material-symbols-outlined text-xs">emoji_events</span>
+<span class="font-label-sm text-[11px] uppercase tracking-wider font-bold">Benchmark Surpassed!</span>
+</div>
+<h2 class="font-headline-lg text-2xl font-bold text-white">1,920 PTS</h2>
+<p class="font-body-sm text-[11px] text-secondary">You beat @mediamk by +70 PTS</p>
+</div>
+<!-- 4:5 Instagram Story Share Sticker Preview -->
+<div class="my-auto w-full max-w-[270px] mx-auto bg-surface-container-high rounded-2xl p-3 flex flex-col items-center gap-2 shadow-2xl relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-xl pointer-events-none"></div>
+<!-- Header inside card -->
+<div class="w-full flex items-center justify-between">
+<img alt="PlayformIQ Badge" class="h-5 object-contain bg-white px-1.5 py-0.5 rounded" src="https://lh3.googleusercontent.com/aida/AEtjO1XtWHI7Egq25x1i0IoB4BF_w7ap-GRm_1dta9Xx2nSwWavpkVICG8-7-VVmKbefbXyqLRIZeoNXoMy0AUeGIaqlWTP94Xu0IlaNc0G1EYTUv5AWGm1_EO9Rzs5bfJ3Rjcr-4yKMuXuKSpuKBNfikQdIvzuncXOlR2W0e5G1Lgb90CZFTqIwDH-4YAnni8LSMG5woNddFgszWsdTy7v69jXwhpJI5G1HKP5ee9jXFEfedvWdHM3aK2oCEQ">
+<span class="bg-primary/20 text-primary font-label-sm px-2 py-0.5 rounded-full text-[9px] font-bold">VERIFIED SCORE</span>
+</div>
+<!-- Hero Vehicle image inside Story card -->
+<div class="w-full h-24 flex items-center justify-center my-1 relative">
+<img alt="BMW X7" class="max-h-full object-contain filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGiDsLImAWKPS51lFkC-Z2qwC3TcGM-H7VzF7pZmoyhUnKu5eIhhpdDhIAVmh67oJRNzLbS-RyYBhxGOBD6leYZEVhWceNCMGMSK9mQQZ71AvKRmBsxw__uvaJ4dW37uxKPXxAhaQWglXY52aowOvcRs0Poky5jgDP6EEUVYCkRbRl1W1zZPANoEAmZxIndqnjR8qOSO4C67Z7HjnF3jevsjs6uMuFbx6MuOYR3ByGyj91aCJ1NveJCJGyTyF7ytDoLg">
+</div>
+<div class="w-full text-center">
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">BMW Track Day Qualifier</p>
+<h4 class="font-headline-sm text-sm text-white font-bold">VIP Thermal Club Entry</h4>
+</div>
+<!-- QR and Challenge sticker -->
+<div class="w-full bg-black/50 p-2 rounded-xl flex items-center justify-between">
+<div class="text-left">
+<span class="text-[9px] text-tertiary font-bold block">BEAT MY RUN</span>
+<span class="text-[8px] text-on-surface-variant">Tap to accept challenge</span>
+</div>
+<div class="w-7 h-7 bg-white rounded-md p-0.5 flex items-center justify-center">
+<div class="w-full h-full bg-black flex items-center justify-center text-[7px] font-bold text-white">QR</div>
+</div>
+</div>
+</div>
+<!-- Viral Social Share Actions -->
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2" onclick="simulateStoryShare()">
+<span class="material-symbols-outlined text-base">history_edu</span>
+<span class="">Share to Instagram Story</span>
+</button>
+<button class="w-full py-2 rounded-xl bg-surface-container text-on-surface text-xs font-label-md flex items-center justify-center gap-1 hover:bg-surface-container-high transition-colors" onclick="setStage(1)">
+<span class="material-symbols-outlined text-xs">restart_alt</span> Restart Simulator Experience
+                    </button>
+</div>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-1 inset-x-0 h-4 flex items-center justify-center z-50 pointer-events-none">
+<div class="w-32 h-1 bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Campaign Telemetry & Strategy Specs -->
+<div class="lg:col-span-3 flex flex-col gap-4 order-3">
+<!-- Live Funnel Metrics Bento -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-xl flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Funnel Conversions</span>
+<span class="material-symbols-outlined text-tertiary text-sm">trending_up</span>
+</div>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Reel Comment to DM</span>
+<span class="text-primary font-bold">68.4%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[68.4%] h-full bg-primary rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">DM Link to HUD Open</span>
+<span class="text-secondary font-bold">92.1%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[92.1%] h-full bg-secondary rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">20-Q Quiz Completion</span>
+<span class="text-tertiary font-bold">84.2%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[84.2%] h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">IG Story Viral Reshare</span>
+<span class="text-surface-tint font-bold">41.8%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[41.8%] h-full bg-surface-tint rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+<div>
+<div class="font-label-md text-xs font-bold text-white">0.38s Auto-Dispatch</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Zero human dropoff bottleneck</p>
+</div>
+</div>
+</div>
+<!-- Official Brand Ecosystem -->
+<div class="bg-surface-container-low p-5 rounded-2xl shadow-xl flex flex-col gap-3">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Partner Integration</span>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+<img alt="Influencer Profile" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiTsL6dc-nsEFL1XDv30WsyxLVIX3f14qwTqnAYF2MV6Pf-XIzpSsUWhyyC9Fdm3-xIMRDl50M4wHdq9mnxGbLUfZph4oR8XAWz_eh1_AOx_w31xPm63hemYtW7-NdvgptDC5uJC8f0eE9g6w56-P7TfUPls7E-s9ZoQt_CXPfzDfSDpnFl_thsvclAqfim-MzJ_6P8wC2IE2QnFPmkqfLp1qQysOVjcRn8tyjmhI59KzHGHxgUIf3iLmfGMjEw15Tgw">
+<div>
+<h4 class="font-headline-sm text-sm font-bold text-white">@mediamk</h4>
+<p class="font-body-sm text-xs text-secondary font-medium">Automotive Content Creator</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+<div class="w-10 h-10 rounded-full bg-black flex items-center justify-center">
+<span class="font-headline-sm text-xs font-extrabold text-white">BMW</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-sm font-bold text-white">BMW X7 M60i</h4>
+<p class="font-body-sm text-xs text-on-surface-variant">4.4L TwinPower V8 • 523 HP</p>
+</div>
+</div>
+</div>
+<!-- Simulation Notice Badge -->
+<div class="p-4 rounded-xl bg-surface-container border-0 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="font-body-sm text-xs text-on-surface-variant">
+            Full client-side simulation loaded with live reactive sound chimes and native state switches.
+          </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let currentStage = 1;
+  const totalStages = 5;
+
+  // Web Audio Synthesizer for Interactive Haptic Feedback SFX
+  let audioCtx = null;
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function playTone(freq, duration, type = 'sine') {
+    try {
+      initAudio();
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    } catch (e) {
+      // Audio fallback silent
+    }
+  }
+
+  function testChime() {
+    playTone(523.25, 0.15, 'triangle'); // C5
+    setTimeout(() => playTone(659.25, 0.2, 'sine'), 100); // E5
+  }
+
+  function playSuccessChime() {
+    playTone(587.33, 0.12, 'sine');
+    setTimeout(() => playTone(880.00, 0.25, 'sine'), 100);
+  }
+
+  function setStage(stageNumber) {
+    if (stageNumber < 1 || stageNumber > totalStages) return;
+    currentStage = stageNumber;
+    playTone(340, 0.08, 'triangle');
+
+    // Update screen views
+    for (let i = 1; i <= totalStages; i++) {
+      const view = document.getElementById(`stageView${i}`);
+      if (view) {
+        if (i === currentStage) {
+          view.classList.remove('opacity-0', 'pointer-events-none');
+          view.classList.add('opacity-100');
+        } else {
+          view.classList.remove('opacity-100');
+          view.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+    }
+
+    // Update Left Controls Sidebar Highlight
+    document.querySelectorAll('.stage-nav-btn').forEach(btn => {
+      const stage = parseInt(btn.getAttribute('data-stage'));
+      const numBadge = btn.querySelector('span:first-child');
+      const arrowIcon = btn.querySelector('.material-symbols-outlined');
+      
+      if (stage === currentStage) {
+        btn.classList.add('bg-surface-container-high');
+        btn.classList.remove('bg-surface-container-low');
+        if (numBadge) {
+          numBadge.classList.add('text-primary');
+          numBadge.classList.remove('text-on-surface-variant');
+        }
+        if (arrowIcon) {
+          arrowIcon.classList.add('text-primary');
+          arrowIcon.classList.remove('text-on-surface-variant');
+        }
+      } else {
+        btn.classList.remove('bg-surface-container-high');
+        btn.classList.add('bg-surface-container-low');
+        if (numBadge) {
+          numBadge.classList.remove('text-primary');
+          numBadge.classList.add('text-on-surface-variant');
+        }
+        if (arrowIcon) {
+          arrowIcon.classList.remove('text-primary');
+          arrowIcon.classList.add('text-on-surface-variant');
+        }
+      }
+    });
+  }
+
+  function nextStage() {
+    if (currentStage < totalStages) {
+      setStage(currentStage + 1);
+    } else {
+      setStage(1);
+    }
+  }
+
+  function prevStage() {
+    if (currentStage > 1) {
+      setStage(currentStage - 1);
+    }
+  }
+
+  function triggerLike(el) {
+    playTone(600, 0.1, 'sine');
+    const icon = el.querySelector('.material-symbols-outlined');
+    if (icon) {
+      icon.classList.toggle('text-red-500');
+      icon.style.fontVariationSettings = icon.classList.contains('text-red-500') ? "'FILL' 1" : "'FILL' 0";
+    }
+  }
+
+  function handleAnswer(buttonElement, isCorrect) {
+    if (isCorrect) {
+      playSuccessChime();
+      buttonElement.classList.add('bg-tertiary/20');
+      const check = document.getElementById('correctCheck');
+      if (check) check.classList.remove('hidden');
+      const tracker = document.getElementById('scoreTracker');
+      if (tracker) tracker.innerText = "1,920 PTS";
+      setTimeout(() => {
+        setStage(5);
+      }, 700);
+    } else {
+      playTone(200, 0.18, 'sawtooth');
+      buttonElement.classList.add('bg-error/20');
+      setTimeout(() => {
+        buttonElement.classList.remove('bg-error/20');
+      }, 500);
+    }
+  }
+
+  function simulateStoryShare() {
+    playSuccessChime();
+    alert("Story card exported to Instagram Stories clipboard buffer with verified badge!");
+  }
+</script></main>
+
+</body></html>
