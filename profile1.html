@@ -121,6 +121,20 @@
          the box abruptly closes mid-sentence and a new one opens on the
          next page. Keeping them intact avoids that, while everything
          around them (sections/articles) still flows normally. */
+      /* Each case study, and the contact section, gets its own page and
+         sits vertically centered on it — the leftover space is distributed
+         evenly above and below instead of collecting at the bottom. */
+      .print-page {
+        min-height: 297mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        break-before: page;
+        break-inside: avoid;
+        padding: 16mm 14mm;
+        box-sizing: border-box;
+      }
+
       .keep-intact, .rounded-sm {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
@@ -403,6 +417,7 @@
           
           <div class="grid grid-cols-1 gap-6">
             
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -450,7 +465,9 @@
                 </div>
               </div>
             </article>
+            </div>
 
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -498,7 +515,9 @@
                 </div>
               </div>
             </article>
+            </div>
 
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -546,7 +565,9 @@
                 </div>
               </div>
             </article>
+            </div>
 
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -594,7 +615,9 @@
                 </div>
               </div>
             </article>
+            </div>
 
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -643,7 +666,9 @@
                 </div>
               </div>
             </article>
+            </div>
 
+            <div class="print-page">
             <article class="bg-surface-container-low p-6 flex flex-col gap-4 print-card border border-outline-variant/20 rounded-md">
               <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-outline-variant/10">
                 <div class="flex items-center gap-2">
@@ -691,9 +716,11 @@
                 </div>
               </div>
             </article>
+            </div>
           </div>
         </section>
 
+<div class="print-page">
         <section class="w-full mb-10 print-card" id="contact">
           <div class="flex items-center gap-2 mb-4">
             <span class="font-sans text-[11px] font-medium text-primary uppercase tracking-[0.2em] bg-surface-container px-2 py-1">SECTION 04</span>
@@ -749,6 +776,7 @@
             </div>
           </div>
         </section>
+        </div>
       </div>
     </div>
   </main>
