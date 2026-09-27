@@ -115,6 +115,18 @@
         break-inside: avoid !important;
       }
 
+      /* These two long intro-text boxes (and the small labeled info/stat
+         cards throughout, which share the "rounded-sm" class) have their
+         own background and border. Letting a page break fall inside one of
+         them makes Chrome draw a border edge at the cut, which looks like
+         the box abruptly closes mid-sentence and a new one opens on the
+         next page. Keeping them intact avoids that, while everything
+         around them (sections/articles) still flows normally. */
+      .keep-intact, .rounded-sm {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
       img {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
@@ -268,7 +280,7 @@
             <h2 class="font-display text-2xl sm:text-3xl text-on-surface">WHO WE ARE</h2>
           </div>
           <div class="flex flex-col gap-6">
-            <div class="grid grid-cols-1 gap-6 bg-surface-container-low p-6 lg:p-8 border border-outline-variant/20">
+            <div class="grid grid-cols-1 gap-6 bg-surface-container-low p-6 lg:p-8 border border-outline-variant/20 keep-intact">
               <div class="flex flex-col justify-between w-full">
                 <p class="font-sans text-base text-on-surface leading-relaxed mb-4">TerraQuest Investments FZCO exists to power the next generation of investments across Africa. Our mandate is to transform productive regional sectors—spanning agriculture, trade, manufacturing, and financial infrastructure—into bankable, capital-protected assets ready for institutional scale.</p>
                 <p class="font-sans text-base text-on-surface-variant leading-relaxed mb-4">Africa does not lack liquidity; it lacks the de-risked, investment-grade structures required to deploy it. We serve institutional capital at both ends of this divide. For African pension funds, SACCOs, and commercial banks stewarding over $1.5 Trillion in domestic assets, we structure secure, capital-protected assets that allow domestic capital to lead. For GCC family offices, DFIs, and global capital partners, we provide validated market entry—crowding in international liquidity behind domestic first-loss buffers and sovereign credibility to achieve protected, risk-adjusted returns.</p>
@@ -295,7 +307,7 @@
             <h2 class="font-display text-2xl sm:text-3xl text-on-surface">WHAT WE DO</h2>
           </div>
           
-          <div class="p-6 lg:p-8 bg-surface-container-low text-on-surface mb-6 border border-outline-variant/20">
+          <div class="p-6 lg:p-8 bg-surface-container-low text-on-surface mb-6 border border-outline-variant/20 keep-intact">
             <p class="font-sans text-base leading-relaxed text-on-surface-variant">
               <strong class="text-on-surface font-semibold">TerraQuest delivers institutional solutions through two integrated divisions: Corporate Finance &amp; Advisory and Asset Management.</strong> Operating across our priority sectors—Agriculture, Regional Trade, Manufacturing, and Financial Infrastructure—our structures mobilize commercial and institutional capital by pairing private investment with domestic first-loss anchors. We design the instruments, conduct primary market research, secure regulatory clearances, and execute the physical governance required to safeguard institutional value.
             </p>
