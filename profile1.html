@@ -27,14 +27,13 @@
     @media print {
       @page {
         size: A4 portrait;
-        /* @page margin re-applies on EVERY printed page, unlike padding on
-           an element (which only takes effect at the very start/end of that
-           element's box). This is what gives every page — not just the
-           first — a consistent inset. The dark background still reaches
-           the true physical edge because the body::before layer below is
-           position: fixed, and fixed elements paint to the full page box,
-           ignoring @page margin entirely. */
-        margin: 16mm 14mm;
+        /* True bleed requires zero page margin — margin is always
+           paper-white in printed/PDF output, and nothing in CSS can paint
+           over it (a fixed-position layer still can't reach past it, that
+           assumption was wrong). The trade-off: the top inset below only
+           reliably applies on page 1, not every page, since padding on an
+           element only takes effect once, at the very start of its box. */
+        margin: 0;
       }
 
       html, body {
@@ -69,7 +68,7 @@
          content past the printable area and made it look jammed against
          one edge with no matching margin on the other. */
       main {
-        padding: 0 !important;
+        padding: 16mm 14mm !important;
         width: 100% !important;
         min-width: 0 !important;
         max-width: 100% !important;
