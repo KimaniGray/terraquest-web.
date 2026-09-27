@@ -14,7 +14,7 @@
 <span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
 <span class="font-label-sm text-tertiary tracking-widest uppercase">Live Campaign Simulator</span>
 </div>
-<p class="font-headline-sm text-on-surface">BMW X7 M60i Viral Social-to-HUD Funnel</p>
+<p class="font-headline-sm text-on-surface">BMW X7 Trivia Campaign</p>
 </div>
 </div>
 <!-- Quick Metrics Strip -->
@@ -44,15 +44,15 @@
 </div>
 <!-- Funnel Control Buttons -->
 <div class="flex flex-col gap-2" id="stageControls">
-<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group bg-surface-container-low" data-stage="1" onclick="setStage(1)">
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group bg-surface-container-high" data-stage="1" onclick="setStage(1)">
 <div class="flex items-center gap-3">
-<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">1</span>
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-primary">1</span>
 <div>
 <h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Instagram Reel</h4>
 <p class="font-body-sm text-on-surface-variant text-[11px]">@mediamk X7 launch</p>
 </div>
 </div>
-<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
+<span class="material-symbols-outlined text-sm text-primary">chevron_right</span>
 </button>
 <button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="2" onclick="setStage(2)">
 <div class="flex items-center gap-3">
@@ -64,15 +64,15 @@
 </div>
 <span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
 </button>
-<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-high" data-stage="3" onclick="setStage(3)">
+<button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="3" onclick="setStage(3)">
 <div class="flex items-center gap-3">
-<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-primary">3</span>
+<span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant">3</span>
 <div>
 <h4 class="font-headline-sm text-sm text-on-surface font-bold leading-tight">Direct Message Bot</h4>
 <p class="font-body-sm text-on-surface-variant text-[11px]">Instant dispatch card</p>
 </div>
 </div>
-<span class="material-symbols-outlined text-sm text-primary">chevron_right</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span>
 </button>
 <button class="stage-nav-btn text-left p-3.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low" data-stage="4" onclick="setStage(4)">
 <div class="flex items-center gap-3">
@@ -157,14 +157,9 @@
 <!-- SCREEN STAGE VIEWS CONTAINER -->
 <div class="relative w-full h-full pt-10 flex flex-col bg-surface-container-lowest text-white overflow-hidden" id="phoneScreen">
 <!-- ================= STAGE 1: INSTAGRAM REEL ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-6 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 opacity-0 pointer-events-none" id="stageView1">
+<div class="stage-view absolute inset-0 pt-11 pb-6 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 opacity-100" id="stageView1">
 <!-- Video Canvas Simulation -->
-<div class="absolute inset-0 z-0">
-<div class="w-full h-full bg-gradient-to-b from-surface-container-high via-surface-container to-black flex items-center justify-center relative overflow-hidden">
-<img alt="BMW X7 flagship" class="absolute w-full h-full object-cover filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9WJlV7xxuhuY3FVyh_KFELFCHZ6KZS1vqjM9xkqrbqxqgGVipakbNTq4WRHY5m9M4QX6yCkFgmUWaJWOcRNHayFzDTzGnmkreZF7bYQW2OBrh9-RvSFycRIM9tm0Umsd-jzwvqXR8j10EiTvbCkgSEV_fSYSNSb1y1QHVPF2NxhT3j3TXdpxL6aqSVp9Jeb9Ds5uiwwT6Ad8y3oiR_BRviZHHnCGnF3ipFecvJg0gRuk9LKCXfnjpTUo9K1X1Nd_SbQ">
-<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-</div>
-</div>
+<div class="absolute inset-0 z-0"><div class="w-full h-full bg-black flex items-center justify-center relative overflow-hidden"><img alt="BMW X7 flagship" class="w-full h-full object-center filter object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf48XE9HDIDoOF7r_4SP1J1Mt1ZPhB33sUJczwfqjQ6MnSPpdY29oGXqhGropoJSmoQ-WBITm84G4ZAGdG9hezhKOgyR_DdWBIIyhL06Jcvyg2VrUTvquTgQWWMRGmj0xIiV-VZin1YiQ6y5N5urzH30-oiI8-fTnE1g1MAP_e5uKkKLC1Wf-1hledXrjcDC7tKmYLtHDAvtwYET-_jruiDP1MguaodqYsdm85sijNQBudPSPVNkjXQ9O4DKgFkHykrA"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/30 pointer-events-none"></div></div></div>
 <!-- Reel Header -->
 <div class="relative z-10 flex items-center justify-between pt-2">
 <div class="flex items-center gap-2">
@@ -298,7 +293,7 @@
 </div>
 </div>
 <!-- ================= STAGE 3: INSTAGRAM DIRECT MESSAGE ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-4 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface opacity-100" id="stageView3">
+<div class="stage-view absolute inset-0 pt-11 pb-4 px-4 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface opacity-0 pointer-events-none" id="stageView3">
 <!-- DM Header -->
 <div class="flex items-center justify-between pb-3">
 <div class="flex items-center gap-3">
