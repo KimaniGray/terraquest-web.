@@ -1,55 +1,259 @@
-<!DOCTYPE html><html class="dark" lang="en" style="width: 1280px; height: 1157px; overflow: hidden; position: relative;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.no-scrollbar::-webkit-scrollbar{display:none;}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}
-@keyframes messageIn { from { opacity: 0; transform: translateY(10px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.msg-anim { animation: messageIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-</style><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-on-surface":"#303030","surface-container":"#1f1f1f","on-surface-variant":"#d8c3ac","surface-tint":"#ffb956","on-tertiary":"#183800","secondary":"#a5cfc2","on-tertiary-fixed":"#0c2000","error":"#ffb4ab","primary":"#ffce8f","on-background":"#e2e2e2","surface-container-low":"#1b1b1b","on-surface":"#e2e2e2","primary-container":"#ffa800","outline":"#a08e79","on-tertiary-container":"#285500","on-secondary":"#0c372e","secondary-fixed":"#c1ecde","surface-container-highest":"#353535","on-error":"#690005","on-secondary-fixed":"#002019","on-primary-fixed-variant":"#643f00","on-secondary-container":"#94beb1","surface":"#0e0e0e","tertiary-container":"#6dd201","secondary-container":"#264e44","on-primary-fixed":"#2a1800","error-container":"#93000a","on-primary-container":"#684200","surface-variant":"#252525","surface-bright":"#393939","primary-fixed":"#ffddb5","primary-fixed-dim":"#ffb956","inverse-primary":"#835400","outline-variant":"#534433","on-secondary-fixed-variant":"#264e44","tertiary-fixed":"#93fc3e","on-primary":"#462b00","surface-container-high":"#2a2a2a","surface-container-lowest":"#000000","secondary-fixed-dim":"#a5cfc2","on-error-container":"#ffdad6","on-tertiary-fixed-variant":"#265100","tertiary":"#88ef31","surface-dim":"#131313","inverse-surface":"#e2e2e2","tertiary-fixed-dim":"#78df1c","background":"#000000"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter":"1rem","space-sm":"0.5rem","margin":"1rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.25rem","space-xl":"2rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"],"display-stat":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Inter"],"label-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"800"}],"display-stat":["48px",{lineHeight:"52px",letterSpacing:"-0.04em",fontWeight:"800"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"34px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-sm":["10px",{lineHeight:"12px",letterSpacing:"0.06em",fontWeight:"700"}],"headline-xl-mobile":["32px",{lineHeight:"38px",letterSpacing:"-0.025em",fontWeight:"800"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"400"}]}}}}</script></head><body class="bg-[#000000] font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-black"><main class="w-full bg-[#000000] min-h-screen"><div class="flex flex-col w-full">
-<div class="relative w-full overflow-hidden bg-[#000000] py-8 px-4 sm:px-6 lg:px-12 flex flex-col items-center">
-<!-- Ambient Radiance Backgrounds -->
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-primary-container/10 via-tertiary-container/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
-<div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 blur-3xl pointer-events-none rounded-full"></div>
-<div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-secondary-container/10 blur-3xl pointer-events-none rounded-full"></div>
-<!-- Header Stage Telemetry -->
-
-<!-- Main Workspace Stage -->
-<div class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between pb-6 mb-2 border-b border-surface-container gap-4 z-20"><div class="flex items-center gap-4"><div class="h-11 px-3 py-1 bg-white rounded-xl shadow-md flex items-center justify-center border border-white/20"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqIGf3V69yxUCZLULEBGSWKT15EFBCm5yEGPxV7eiwDYtRAjcMbNRHXME_tzcdrO-OoheKiGbW5HWif-J_kzKCHZQcZGK_-36Q9cB5CRWI_vBuKXU0fWNUoyDfD-cFuAxBPRi03IA6z9wUMCmfFbJfhrG1ZmJHl7E6ebDxXP5lpLW7Mk23u34nl6wXsBMJoGjJ4xjODQNPbVFc4r5i4NG9WCCF0Lh-Gp2GekGUk-aSh120XRaSVtfT_AcstL8Kqmuw5g" alt="PlayformIQ Logo" class="h-8 object-contain"></div><div><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="text-[11px] font-mono uppercase tracking-wider text-tertiary font-bold">Live Interactive Simulator</span></div><h1 class="font-headline-lg text-2xl md:text-3xl font-extrabold text-white tracking-tight">NEW X7 Trivia Campaign Demo</h1></div></div><div class="flex items-center gap-3"><div class="px-3.5 py-1.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-center gap-2"><span class="text-xs text-on-surface-variant font-medium">Host Benchmark:</span><span class="text-xs font-bold text-primary">1,850 pts (@mediamk)</span></div><div class="px-3.5 py-1.5 rounded-xl bg-surface-container border border-tertiary/40 flex items-center gap-2"><span class="text-xs text-on-surface-variant font-medium">DM Open Rate:</span><span class="text-xs font-bold text-tertiary">94.2%</span></div></div></div><div class="w-full max-w-7xl flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 gap-4 z-20"><div class="flex items-center gap-3.5"><div class="bg-white px-3 py-1.5 rounded-xl border border-white/20 shadow-md flex items-center justify-center flex-shrink-0"></div><div class="flex flex-col text-left"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span></div></div></div><div class="flex items-center gap-3 flex-wrap"><div class="bg-surface-container-low border border-surface-container-highest px-3.5 py-1.5 rounded-xl shadow-md flex items-center gap-2.5"><span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">DM Open Rate</span><span class="font-headline-sm text-xs font-extrabold text-tertiary">94.2%</span></div></div></div><div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start z-10">
-<!-- Left Column: Interactive Director / Stepper & Persona Switcher -->
-<div class="lg:col-span-3 flex flex-col gap-4 order-2 lg:order-1">
-<!-- Persona Switcher Widget -->
-<div class="bg-surface-container-low border border-surface-container-highest p-4 rounded-2xl shadow-xl flex flex-col gap-3"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="font-label-sm text-primary uppercase tracking-wider font-bold">Influencer&nbsp;</span></div><span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-label-sm text-[10px] font-bold">Benchmark: 1,850 pts</span></div><div class="p-2.5 rounded-xl bg-surface-container-high border border-primary/50 flex items-center justify-between"><div class="flex items-center gap-2.5"><img class="w-9 h-9 rounded-full object-cover border-2 border-primary shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0r_Fx0LpleiOGRXXE72vEwOGZOEWD1hb-Q1PUQ_9KpG19VHeYP_SOKnePayFzgwFtZKZMPEIu4g0qISNNXw8Ln8CHumDF8fO6DpwCh9e_ZfOkZLN34l2Kv5cGML9jboWj3CxUn5P08D_xtPU1b8eoHvpkC5dYjGecuJnoPhQIt0DLdWbMQVT7BCMuao8bScrowzh7-T5d-WCNoL1VC78F9KSgg-fFLGNeswlsGzcvn5s1mHGZ3cvAj93Rg_VtTQnuQA" alt="@mediamk"><div class="text-left"><div class="flex items-center gap-1"><span class="text-xs font-bold text-white">@mediamk</span><span class="material-symbols-outlined text-[#0095f6] text-[13px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span><span class="bg-primary text-black text-[8px] font-extrabold px-1 rounded">HOST &amp; INFLUENCER</span></div><span class="text-[9.5px] text-tertiary font-semibold">1,850 pts Host Benchmark</span></div></div><span class="text-[10px] text-on-surface-variant font-mono">Campaign Lead</span></div><div class="flex items-center justify-between pt-1"><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">Followers (3 Challengers):</span><span class="text-[9px] text-secondary font-semibold">Active</span></div><div class="grid grid-cols-3 gap-2" id="personaSelector"><button class="p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-85 hover:opacity-100 text-center" id="personaBtn-sarah" onclick="setPersona('sarah')"><img class="w-9 h-9 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE" alt="Sarah"><span class="font-label-sm text-[11px] font-bold text-white truncate w-full">Sarah</span><span class="text-[9px] text-on-surface-variant font-bold leading-none">1,920 pt #3</span></button><button class="p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-85 hover:opacity-100 text-center" id="personaBtn-marcus" onclick="setPersona('marcus')"><img class="w-9 h-9 rounded-full object-cover border border-white/20 shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA" alt="Marcus"><span class="font-label-sm text-[11px] font-bold text-white truncate w-full flex items-center justify-center gap-0.5">Marcus</span><span class="text-[9px] text-on-surface-variant font-extrabold leading-none">1,960 pt #2</span></button><button class="p-2 rounded-xl bg-surface-container-high border-2 border-primary flex flex-col items-center gap-1 transition-all text-center ring-2 ring-primary/40" id="personaBtn-dan" onclick="setPersona('dan')"><div class="relative"><img class="w-9 h-9 rounded-full object-cover border-2 border-primary shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ" alt="Dan"><span class="absolute -bottom-1 -right-1 text-[9px] bg-tertiary text-black px-1 rounded-full font-black shadow">👑</span></div><span class="font-label-sm text-[11px] font-bold text-primary truncate w-full flex items-center justify-center gap-0.5">Dan 👑</span><span class="text-[9px] text-tertiary font-bold leading-none">2,040 pt #1</span></button></div></div>
-<!-- Funnel Stepper -->
-<div class="bg-surface-container-low border border-surface-container-highest p-5 rounded-2xl shadow-xl flex flex-col gap-4">
-<div class="flex items-center justify-between">
-<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Campaign Funnel</span>
-<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary text-[11px] font-semibold">5 Stages</span>
+<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>NEW X7 Trivia Campaign Demo - PlayformIQ</title><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.no-scrollbar::-webkit-scrollbar{display:none;}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}
+@keyframes messageIn { from { opacity: 0; transform: translateY(8px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.msg-anim { animation: messageIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes pulseSubtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.65; } }
+.pulse-subtle { animation: pulseSubtle 2.5s infinite ease-in-out; }
+</style><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container": "#1f1f1f",
+          "on-background": "#e2e2e2",
+          "surface": "#131313",
+          "on-surface-variant": "#d8c3ac",
+          "on-primary-container": "#684200",
+          "background": "#000000",
+          "secondary-fixed": "#c1ecde",
+          "primary-fixed": "#ffddb5",
+          "on-primary": "#462b00",
+          "inverse-on-surface": "#303030",
+          "on-secondary-fixed-variant": "#264e44",
+          "on-tertiary-fixed-variant": "#265100",
+          "secondary-fixed-dim": "#a5cfc2",
+          "on-tertiary": "#183800",
+          "on-tertiary-container": "#285500",
+          "on-primary-fixed-variant": "#643f00",
+          "outline-variant": "#534433",
+          "on-error": "#690005",
+          "inverse-primary": "#835400",
+          "error-container": "#93000a",
+          "secondary": "#a5cfc2",
+          "surface-bright": "#393939",
+          "surface-container-highest": "#353535",
+          "error": "#ffb4ab",
+          "on-surface": "#e2e2e2",
+          "primary": "#ffce8f",
+          "primary-container": "#ffa800",
+          "surface-container-high": "#2a2a2a",
+          "tertiary-fixed": "#93fc3e",
+          "on-tertiary-fixed": "#0c2000",
+          "on-secondary": "#0c372e",
+          "on-error-container": "#ffdad6",
+          "inverse-surface": "#e2e2e2",
+          "surface-tint": "#ffb956",
+          "tertiary": "#88ef31",
+          "tertiary-fixed-dim": "#78df1c",
+          "outline": "#a08e79",
+          "tertiary-container": "#6dd201",
+          "surface-container-low": "#1b1b1b",
+          "on-secondary-fixed": "#002019",
+          "surface-variant": "#353535",
+          "primary-fixed-dim": "#ffb956",
+          "surface-dim": "#131313",
+          "on-primary-fixed": "#2a1800",
+          "on-secondary-container": "#94beb1",
+          "surface-container-lowest": "#0e0e0e",
+          "secondary-container": "#264e44"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "1rem",
+          "gutter": "1rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "label-lg": ["Inter"],
+          "display-stat": ["Plus Jakarta Sans"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "body-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Plus Jakarta Sans"],
+          "label-md": ["Inter"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "label-sm": ["Inter"]
+        }
+      }
+    }
+  }
+</script></head><body class="bg-black font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-black min-h-screen flex flex-col justify-start" style="cursor: grabbing; user-select: none;"><main class="w-full bg-black min-h-screen relative overflow-x-hidden flex flex-col items-center">
+<!-- Ambient Lighting Glows -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-primary-container/15 via-tertiary-container/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute bottom-10 left-10 w-96 h-96 bg-primary/5 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute bottom-20 right-10 w-[450px] h-[450px] bg-secondary-container/15 blur-3xl pointer-events-none rounded-full"></div>
+<!-- ================= 1. TOP HEADER ================= -->
+<header class="w-full max-w-[1400px] px-6 pt-6 pb-4 border-b border-surface-container flex flex-col md:flex-row items-center justify-between gap-4 z-30">
+<div class="flex items-center gap-4">
+<!-- PlayformIQ Logo in Crisp White Badge Container -->
+<div class="h-12 px-3.5 py-1.5 bg-white rounded-xl shadow-lg flex items-center justify-center border border-white/40 flex-shrink-0">
+<img alt="PlayformIQ Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAVhhtqtnEDC5uJyEde-ohIqhETH9A5wRf1quDITERGzC9yR_d_lAB0evaXjtCgRuxahTpxynoVVCWNDDm8HoXAg7NH_xnTKh_IOUAfLoiC8WQYRLuIN4NLXydSvkmxXed9BrHe4BxVKvulutS6-vsB_6pqy1EJ2wmZNIIgnSKwQh2ffNAKB1FdUaemP8MIHrQVUX5o-1m1rhRSYg7ZHB-K5JH7YA_syEprCQEw9z4Ax9uduh4rkAIj4vK_TCj6TCppQ">
 </div>
-<!-- Funnel Control Buttons -->
-<div class="flex flex-col gap-2" id="stageControls"><button class="stage-nav-btn text-left p-2.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container border bg-surface-container-high border-primary/40" data-stage="1" onclick="setStage(1)"><div class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform font-bold text-primary">1</span><h4 class="font-headline-sm text-xs text-on-surface font-bold leading-tight">X7 Campaign Launch</h4></div><span class="material-symbols-outlined text-sm text-primary">chevron_right</span></button><button class="stage-nav-btn text-left p-2.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low border border-transparent" data-stage="2" onclick="setStage(2)"><div class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform font-bold text-on-surface-variant">2</span><h4 class="font-headline-sm text-xs text-on-surface font-bold leading-tight">Engagement Layer</h4></div><span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span></button><button class="stage-nav-btn text-left p-2.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low border border-transparent" data-stage="3" onclick="setStage(3)"><div class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform text-on-surface-variant font-bold">3</span><h4 class="font-headline-sm text-xs text-on-surface font-bold leading-tight">Automation Dispatch</h4></div><span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span></button><button class="stage-nav-btn text-left p-2.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low border border-transparent" data-stage="4" onclick="setStage(4)"><div class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform font-bold text-on-surface-variant">4</span><h4 class="font-headline-sm text-xs text-on-surface font-bold leading-tight">Trivia / Gamification</h4></div><span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span></button><button class="stage-nav-btn text-left p-2.5 rounded-xl transition-all duration-300 flex items-center justify-between group hover:bg-surface-container bg-surface-container-low border border-transparent" data-stage="5" onclick="setStage(5)"><div class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface flex items-center justify-center font-label-md group-hover:scale-105 transition-transform font-bold text-on-surface-variant">5</span><h4 class="font-headline-sm text-xs text-on-surface font-bold leading-tight">Feedback &amp; Rewards</h4></div><span class="material-symbols-outlined text-sm text-on-surface-variant">chevron_right</span></button></div>
-<div class="pt-2 flex flex-col gap-2 border-t border-surface-container"><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">check_circle</span> ✓ Story Published: Live Now (2,040 pts 👑)</button><div class="flex items-center justify-between"><button class="px-3 py-2 rounded-xl bg-surface-container-high text-primary border border-primary/30 font-bold hover:bg-surface-container-highest transition-all flex items-center gap-1 font-label-md text-xs shadow-sm active:scale-95" onclick="setStage(5)"><span class="material-symbols-outlined text-sm">leaderboard</span> Leaderboard</button><button class="px-3 py-2 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-highest transition-colors flex items-center gap-1 font-label-md text-xs active:scale-95" onclick="setStage(4)"><span class="material-symbols-outlined text-sm">sports_esports</span> Trivia HUD</button><button class="px-3 py-2 rounded-xl bg-surface-container text-on-surface-variant hover:text-white transition-colors flex items-center gap-1 font-label-md text-xs active:scale-95" onclick="setStage(1)"><span class="material-symbols-outlined text-sm">replay</span> Reset</button></div></div>
-</div>
-<!-- Campaign Prize Card -->
-<div class="bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-high border border-primary/30 p-4 rounded-2xl shadow-xl flex flex-col gap-2">
+<div class="flex flex-col text-left">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-lg">emoji_events</span>
-<span class="font-label-sm text-white font-bold uppercase tracking-wider text-[11px]">The Grand Prize</span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-[11px] font-mono uppercase tracking-widest text-tertiary font-bold">Interactive Simulator</span>
 </div>
-<p class="font-headline-sm text-xs font-bold text-white leading-snug">VIP BMW Experience Drive Day</p>
-<p class="font-body-sm text-[11px] text-on-surface-variant">Beat @mediamk's benchmark of <span class="text-primary font-bold">1,850 pts</span> on PlayformIQ to enter the Thermal Club Qualifier drawing!</p>
+<h1 class="font-headline-lg text-2xl lg:text-3xl font-extrabold text-white tracking-tight">NEW X7 Trivia Campaign Demo</h1>
 </div>
 </div>
-<!-- Center Column: Realistic Smartphone Container Frame -->
-<div class="lg:col-span-6 flex justify-center order-1 lg:order-2">
+<!-- Key Campaign Live Telemetry Badges -->
+<div class="flex items-center gap-2.5 flex-wrap justify-end">
+
+
+
+</div>
+</header>
+<!-- ================= 2. THREE-COLUMN MASTER ARCHITECTURE ================= -->
+<div class="w-full max-w-[1400px] px-4 lg:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start z-20 flex-1">
+<!-- ================= A. LEFT COLUMN (Menu Tabs - 5 Sections & Persona Switcher) ================= -->
+<div class="lg:col-span-3 flex flex-col gap-4">
+<!-- Menu Tabs: 5 Sections -->
+<div class="bg-surface-container-low border border-surface-container-highest p-4 rounded-2xl shadow-xl flex flex-col gap-2.5">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="font-label-md text-xs uppercase tracking-wider text-on-surface-variant font-bold">Campaign Stages</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary text-[10px] font-bold">5 Sections</span>
+</div>
+<nav class="flex flex-col gap-1.5" id="navTabsContainer">
+<!-- Tab 1 -->
+<button class="stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container border-transparent hover:border-surface-container-highest text-white/80 hover:text-white" id="tabBtn1" onclick="switchMasterSection(1)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-on-surface-variant font-mono border border-white/10">1</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold leading-tight">1. X7 Campaign Launch</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">3-Slide Carousel &amp; Captions</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">arrow_forward_ios</span>
+</button>
+<!-- Tab 2 -->
+<button class="stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container-high border-primary/50 text-white shadow-md" id="tabBtn2" onclick="switchMasterSection(2)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-primary font-mono border border-primary/30">2</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold leading-tight">2. Engagement Layer</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">Comment-to-DM Trigger Engine</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-primary">arrow_forward_ios</span>
+</button>
+<!-- Tab 3 -->
+<button class="stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container border-transparent hover:border-surface-container-highest text-white/80 hover:text-white" id="tabBtn3" onclick="switchMasterSection(3)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-on-surface-variant font-mono border border-white/10">3</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold leading-tight">3. Automation Dispatch</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">0.38s Webhook DM Bot Link</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">arrow_forward_ios</span>
+</button>
+<!-- Tab 4 -->
+<button class="stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container border-transparent hover:border-surface-container-highest text-white/80 hover:text-white" id="tabBtn4" onclick="switchMasterSection(4)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-on-surface-variant font-mono border border-white/10">4</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold leading-tight">4. Trivia / Gamification</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">Interactive PlayformIQ Quiz HUD</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">arrow_forward_ios</span>
+</button>
+<!-- Tab 5 -->
+<button class="stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container border-transparent hover:border-surface-container-highest text-white/80 hover:text-white" id="tabBtn5" onclick="switchMasterSection(5)">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-on-surface-variant font-mono border border-white/10">5</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold leading-tight">5. Feedback &amp; Rewards</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">Scorecards, Story &amp; Leaderboard</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">arrow_forward_ios</span>
+</button>
+</nav>
+</div>
+<!-- Follower Persona Switcher (Sarah, Marcus, Dan) -->
+<div class="bg-surface-container-low border border-surface-container-highest p-4 rounded-2xl shadow-xl flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">group</span>
+<span class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider">Follower Challenger</span>
+</div>
+<span class="text-[9.5px] bg-primary/20 text-primary font-bold px-2 py-0.5 rounded-full font-mono">3 Personas</span>
+</div>
+<!-- Influencer Benchmark Reference -->
+<div class="p-2.5 rounded-xl bg-surface-container border border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="@mediamk" class="w-8 h-8 rounded-full object-cover border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACiH04axIiVe9TiDHzFlRQ0a8CUTLTHPhj_bFd7hl60iGQpjlkmuPsZj2oW8ysj73UHk7b9mJ-Ifjo74V15is7JukVBI30tMorY1gdPJuprK_gLSpcZWkQRda11-IBnfungHnHitwG1HZFM_zsCV3sJ9MnuvYibKOh6aYchl6sRHzd9RoWa_6LAHxyZVs5kyGGDRQrrtIfurNiXfBRjQ7RnVbWBMycIsFftKudoms1TG7z4AXtzICW5pv_TgUHq0sUug">
+<div class="flex flex-col text-left leading-tight">
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-white">@mediamk</span>
+<span class="material-symbols-outlined text-[#0095f6] text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<span class="text-[10px] text-primary font-medium">Host Benchmark: 1,850 pts</span>
+</div>
+</div>
+<span class="text-[9px] bg-primary/10 text-primary uppercase px-1.5 py-0.5 rounded font-bold font-mono">Target</span>
+</div>
+<!-- 3 Personas Selection Grid -->
+<div class="grid grid-cols-3 gap-2" id="personaSelector">
+<button class="p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-75 hover:opacity-100 text-center" id="personaBtn-sarah" onclick="setFollowerPersona('sarah')">
+<img alt="Sarah" class="w-8 h-8 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE">
+<span class="font-label-sm text-[11px] font-bold text-white truncate w-full">Sarah</span>
+<span class="text-[9px] text-secondary font-bold font-mono">1,920 pt</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-75 hover:opacity-100 text-center" id="personaBtn-marcus" onclick="setFollowerPersona('marcus')">
+<img alt="Marcus" class="w-8 h-8 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA">
+<span class="font-label-sm text-[11px] font-bold text-white truncate w-full">Marcus</span>
+<span class="text-[9px] text-secondary font-bold font-mono">1,960 pt</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-high border-2 border-primary flex flex-col items-center gap-1 transition-all text-center ring-2 ring-primary/40" id="personaBtn-dan" onclick="setFollowerPersona('dan')">
+<div class="relative">
+<img alt="Dan" class="w-8 h-8 rounded-full object-cover border border-primary shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
+<span class="absolute -bottom-1 -right-1 text-[8px] bg-tertiary text-black px-1 rounded-full font-black shadow">👑</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-primary truncate w-full">Dan 👑</span>
+<span class="text-[9px] text-tertiary font-bold font-mono">2,040 pt</span>
+</button>
+</div>
+<!-- Quick Action Controls / Presentation Reset -->
+<div class="pt-2 border-t border-surface-container flex items-center justify-between gap-2">
+<button class="w-1/2 py-2 px-2.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-all text-xs font-semibold flex items-center justify-center gap-1" onclick="switchMasterSection(1); showSlide(1);">
+<span class="material-symbols-outlined text-sm">replay</span> Reset Demo
+        </button>
+<button class="w-1/2 py-2 px-2.5 rounded-xl bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all text-xs font-bold flex items-center justify-center gap-1" onclick="switchMasterSection(4)">
+<span class="material-symbols-outlined text-sm">sports_esports</span> Play HUD
+        </button>
+</div>
+</div>
+<!-- Campaign Grand Prize Teaser -->
+
+</div>
+<!-- ================= B. CENTER COLUMN (Smartphone Display - Dynamically Updates) ================= -->
+<div class="lg:col-span-5 flex justify-center">
 <div class="relative w-full max-w-[390px] select-none">
-<!-- Physical Hardware Outer Frame -->
-<div class="relative bg-[#1c1c1e] p-[11px] rounded-[52px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_40px_rgba(255,168,0,0.12)] ring-1 ring-white/10">
-<!-- Left Mechanical Buttons -->
-<div class="absolute -left-[14px] top-28 w-[3px] h-8 bg-[#454545] rounded-l-sm"></div>
-<div class="absolute -left-[14px] top-42 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
-<div class="absolute -left-[14px] top-58 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
-<!-- Right Power Key -->
-<div class="absolute -right-[14px] top-40 w-[3px] h-16 bg-[#454545] rounded-r-sm"></div>
-<!-- OLED Inner Display Bezel -->
-<div class="relative w-full h-[770px] bg-black rounded-[42px] overflow-hidden flex flex-col">
-<!-- Dynamic Island & Status Bar Glass -->
+<!-- Physical Smartphone Outer Chassis -->
+<div class="relative bg-[#1c1c1e] p-[10px] rounded-[52px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95),0_0_40px_rgba(255,168,0,0.12)] ring-1 ring-white/10">
+<!-- Mechanical Edge Buttons -->
+<div class="absolute -left-[13px] top-28 w-[3px] h-8 bg-[#454545] rounded-l-sm"></div>
+<div class="absolute -left-[13px] top-40 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
+<div class="absolute -left-[13px] top-56 w-[3px] h-12 bg-[#454545] rounded-l-sm"></div>
+<div class="absolute -right-[13px] top-36 w-[3px] h-16 bg-[#454545] rounded-r-sm"></div>
+<!-- OLED Inner Screen (760px viewport height) -->
+<div class="relative w-full h-[760px] bg-black rounded-[42px] overflow-hidden flex flex-col">
+<!-- Authentic iOS Status Bar -->
 <div class="absolute top-0 inset-x-0 h-11 z-50 flex items-center justify-between px-7 pt-1 pointer-events-none">
 <span class="font-label-md text-white text-[13px] font-bold">9:41</span>
 <!-- Dynamic Island Capsule -->
@@ -61,27 +265,36 @@
 <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
 </div>
 </div>
-<div class="flex items-center gap-1.5 text-white"><span class="material-symbols-outlined text-[12px] opacity-75">bluetooth</span><span class="material-symbols-outlined text-[13px]">signal_cellular_4_bar</span><span class="material-symbols-outlined text-[13px]">wifi</span><div class="flex items-center"><div class="relative w-6 h-3 rounded-[3.5px] border border-white/80 p-[1px] flex items-center"><div class="h-full w-[70%] bg-white rounded-xs flex items-center justify-center"><span class="text-[8px] font-extrabold text-black font-label-sm leading-none select-none pl-0.5">70</span></div><div class="h-full w-[30%] flex items-center justify-center"><span class="text-[7px] font-bold text-white leading-none select-none">%</span></div></div><div class="w-[1.5px] h-1.5 bg-white/70 rounded-r-xs -ml-[0.5px]"></div></div></div>
+<!-- Battery with 70% inside -->
+<div class="flex items-center gap-1.5 text-white">
+<span class="material-symbols-outlined text-[13px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[13px]">wifi</span>
+<div class="flex items-center">
+<div class="relative w-6 h-3 rounded-[3.5px] border border-white/80 p-[1px] flex items-center">
+<div class="h-full w-[70%] bg-white rounded-xs flex items-center justify-center">
+<span class="text-[8px] font-extrabold text-black font-label-sm leading-none select-none pl-0.5">70</span>
 </div>
-<!-- SCREEN STAGE VIEWS CONTAINER -->
-<div class="relative w-full h-full pt-10 flex flex-col bg-surface-container-lowest text-white overflow-hidden" id="phoneScreen">
-<!-- ================= STAGE 1: INSTAGRAM REEL / TEASER WITH 3-IMAGE CAROUSEL & 3 SYNCED CAPTIONS ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-3 flex flex-col justify-between transition-opacity duration-300 z-20 opacity-100" id="stageView1">
-<!-- Header -->
-<div class="flex items-center justify-between px-3.5 py-1.5 border-b border-surface-container/50 bg-black/90 backdrop-blur-md z-30">
-<button class="text-white hover:opacity-80 transition-opacity p-0.5"><span class="material-symbols-outlined text-2xl font-bold">add</span></button>
-<span class="font-headline-sm text-sm text-white font-bold tracking-tight">Instagram</span>
-<div class="flex items-center gap-3 text-white">
-<button class="relative hover:opacity-80 transition-opacity p-0.5"><span class="material-symbols-outlined text-2xl">favorite</span><span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span></button>
+<div class="h-full w-[30%] flex items-center justify-center">
+<span class="text-[7px] font-bold text-white leading-none select-none">%</span>
 </div>
 </div>
-<!-- Scrollable Post View -->
-<div class="flex-1 overflow-y-auto flex flex-col pb-3 text-white text-xs no-scrollbar">
-<!-- Post Creator Info -->
-<div class="flex items-center justify-between px-3 py-2 pt-2.5">
+<div class="w-[1.5px] h-1.5 bg-white/70 rounded-r-xs -ml-[0.5px]"></div>
+</div>
+</div>
+</div>
+<!-- SCREEN CONTAINER: DYNAMIC DISPLAY VIEWS -->
+<div class="relative w-full h-full pt-10 flex flex-col bg-surface-container-lowest text-white overflow-hidden" id="phoneScreenContainer">
+<!-- ====== VIEW 1: X7 CAMPAIGN LAUNCH (Instagram Carousel Post) ====== -->
+<div class="phone-view-stage absolute inset-0 pt-11 pb-2 flex flex-col justify-between transition-opacity duration-300 z-20 opacity-0 pointer-events-none" id="phoneView1">
+<!-- IG Post Header -->
+<div class="flex items-center justify-between px-3.5 py-1.5 border-b border-surface-container/50 bg-black/90 backdrop-blur-md z-30"><div class="w-6"></div><span class="font-headline-sm text-sm text-white font-bold tracking-tight text-center">Instagram</span><div class="flex items-center gap-3 text-white"><span class="material-symbols-outlined text-2xl">favorite</span></div></div>
+<!-- Post Scrollable Body -->
+<div class="flex-1 overflow-y-auto flex flex-col pb-2 text-white text-xs no-scrollbar">
+<!-- Creator bar -->
+<div class="flex items-center justify-between px-3 py-2">
 <div class="flex items-center gap-2.5">
-<div class="p-[1.5px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#fa7e1e] via-[#d62976] via-[#962fbf] to-[#4f5bd5]">
-<img alt="@mediamk" class="w-8 h-8 rounded-full object-cover border border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANrVdZgAo6JmuwtJMA1MhPCUnqT2jrFOSngUd188NSur82XgX2x_6Cg3uY_edgakLo-SFPqB9VjCouvm0uJrd5zDErMGqO-Gw6fyFRJjheBiG1Vvpf2bIAbrQWsUfWuhQCiEQy4BPDGNtmpAyauGfSN-W9YkanDuvXMjjDNc7aWcPhSBuzAByVrTsI0M3pqQXBLxj22oPaxApmmbYSjMzsd1me06kx0BvCxZBec6TU5NCDJYBrIPfSiR72fEQ60_xPow">
+<div class="p-[1.5px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#fa7e1e] to-[#d62976]">
+<img alt="@mediamk" class="w-8 h-8 rounded-full object-cover border border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxJZsCtmBFfG9OrxLbisrsOQ0s5azjllJxtJdd0VVEPKyMXxjYePEFA3t5AuomYSay1q0TVcMCpMRpSWS_s9x-OLNQWq9-cKRR9zDUnTVjXazfBV7MlDjzZA9YnofDIFMLXYfd_mW8fIogUdCRC4b7mscjQMEhEeiFcTqaKlujYlHxGVAHiFz3N8U4gyxQRFMuW-YQqlVQA82eyqG4tLjmgJzX-dROz7VwVIF-h2Pgzm0NMh4jj61HzXXAE8dTxCoOJw">
 </div>
 <div class="flex flex-col text-left">
 <div class="flex items-center gap-1 leading-none">
@@ -89,292 +302,338 @@
 <span class="material-symbols-outlined text-[#0095f6] text-[13px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
 <span class="text-[11px] text-on-surface-variant font-medium">• Follow</span>
 </div>
-<span class="text-[10px] text-on-surface-variant flex items-center gap-0.5 mt-0.5">
-<span class="material-symbols-outlined text-[10px]">location_on</span> BMW Welt • Munich
-        </span>
+
 </div>
 </div>
-<span class="material-symbols-outlined text-base text-on-surface-variant cursor-pointer">more_horiz</span>
+<span class="material-symbols-outlined text-base text-on-surface-variant">more_horiz</span>
 </div>
-<!-- Hero Media Window with BMW X7 Photo Carousel -->
-<div class="relative w-full h-[320px] bg-black overflow-hidden group select-none flex flex-col justify-between items-center mx-auto" id="igCarouselContainer"><div class="relative w-full h-full overflow-hidden flex items-center justify-center"><div class="carousel-slide absolute inset-0 transition-opacity duration-300 opacity-100 z-10 flex items-center justify-center" id="postSlide1"><img alt="BMW X7 Exterior Launch" class="w-full h-full object-cover filter brightness-95 mx-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZElM09WLpj4Z-stgPTRevWVkwxOP9iGkiyfffsZ3Z8fDCzq4hpG89JRFNo2lmjZsnFXXXu37McI7DZ4V94VSxJsiVFIlth765CSL7x-zTGtGwzoSk5Re9w6qN1mwv05b0j-eynaYYq8xzRl7nBtMBxaHWaGlQ9fnRdVETeZmNMhvOwK9vSi_8xhNUiqmcnqxpRJOS-yfISnA6Xyg42QW7fvjbNPkEWRLje0mbbQyYbesE-jXaGaUBArbImSVhcl60wg"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/20 pointer-events-none"></div><div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-primary/30 flex items-center gap-1.5 shadow-lg"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-[10px] text-primary font-bold">NEW 2026 BMW X7</span></div><div class="absolute bottom-6 inset-x-3 bg-black/80 backdrop-blur-md p-2 rounded-xl border border-white/10 flex items-center justify-between"><span class="font-label-sm text-[10px] text-tertiary font-bold tracking-wider uppercase">Slide 1 of 3: The Setup</span><span class="bg-primary/20 text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold">@mediamk</span></div></div><div class="carousel-slide absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none z-10 flex items-center justify-center" id="postSlide2"><img alt="BMW X7 Cockpit Interior" class="w-full h-full object-cover filter brightness-95 mx-auto block" src="https://lh3.googleusercontent.com/aida/AEtjO1V84ai_6LduprmD74iiSwhHJNEmyQCW-EIqCqJkCYsKy6S2cJrvGT7bnBF6JZsyHNVU9sX0GI7URSQrk03hHIMjquFl4IOMW_6g9h40l1DzH07IoyoJTMFtbYZufDgZNPifUO9LCSAE5xiTtqdOBG451TMd3E8JLvnCwHxyv0CRMdiRlza2PnrgWpkrxPwuBS87dKLAzOigf-FTCUBJUF6_68FClSuWY4H1yCPGOiDC5BG3Y-mEKNlrWQ8"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/20 pointer-events-none"></div><div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-secondary/40 flex items-center gap-1.5 shadow-lg"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-[10px] text-secondary font-bold">CURVED DISPLAY &amp; COCKPIT</span></div><div class="absolute bottom-6 inset-x-3 bg-black/80 backdrop-blur-md p-2 rounded-xl border border-white/10 flex items-center justify-between"><span class="font-label-sm text-[10px] text-secondary font-bold tracking-wider uppercase">Slide 2 of 3: X7 Challenge</span><span class="bg-secondary/20 text-secondary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold">BMW Kenya</span></div></div><div class="carousel-slide absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none z-10 flex items-center justify-center" id="postSlide3"><img alt="PlayformIQ Benchmark Score 1,850 PTS" class="w-full h-full object-cover filter brightness-95 mx-auto block" src="https://lh3.googleusercontent.com/aida/AEtjO1WJ8H5gCfCpgKXSHncMR5lmjfFN6bxNvixm1v9FabSQKK7km384I85GZC4-yUh3gySbh6SPJV_S-oAay1APrxGZhWZ9C2RiwnrzullhU7ZqhfevXUA6jNQPYJ9KHKXBNRGcr19YelVyC8dSph4wEqh3CpkN5nzLmJ0Y8BD0P3ogDut1bvvHKB-MSISIIe0cgj---6UNoxnsoIVhWW8TP3oYXJ6Ih6Eim29SbKxtpLlITZGEyWkp7KcsRIU"><div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/20 pointer-events-none"></div><div class="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-tertiary/40 flex items-center gap-1.5 shadow-lg"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-[10px] text-tertiary font-bold">VERIFIED BENCHMARK: 1,850 PTS</span></div><div class="absolute bottom-6 inset-x-3 bg-black/80 backdrop-blur-md p-2 rounded-xl border border-white/10 flex items-center justify-between"><span class="font-label-sm text-[10px] text-primary font-bold tracking-wider uppercase">Slide 3 of 3: Beat 1,850 PTS</span><span class="bg-tertiary/20 text-tertiary font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold">1,850 PTS TO BEAT</span></div></div></div><button aria-label="Previous slide" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-all border border-white/15" onclick="carouselPrev(event)"><span class="material-symbols-outlined text-sm">chevron_left</span></button><button aria-label="Next slide" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-all border border-white/15" onclick="carouselNext(event)"><span class="material-symbols-outlined text-sm">chevron_right</span></button></div>
-<!-- Carousel Pagination Bar Placed Directly Above Action Bar -->
-<div class="relative px-3 pt-2 pb-1 flex flex-col gap-1.5 bg-black border-t border-white/10"><div class="flex items-center justify-between w-full"><div class="flex items-center gap-1.5"><button class="px-2 py-0.5 rounded bg-primary text-black font-label-sm text-[9.5px] font-bold shadow-sm transition-all hover:brightness-110" onclick="showSlide(1)">1. Exterior</button><button class="px-2 py-0.5 rounded bg-surface-container-high text-white hover:text-secondary font-label-sm text-[9.5px] font-medium transition-all" onclick="showSlide(2)">2. Interior</button><button class="px-2 py-0.5 rounded bg-surface-container-high text-white hover:text-tertiary font-label-sm text-[9.5px] font-medium transition-all" onclick="showSlide(3)">3. 1,850 pts</button></div><div class="flex items-center gap-1.5" id="carouselDots"><button class="w-2.5 h-2.5 rounded-full bg-primary transition-all duration-300" id="dot-1" onclick="showSlide(1)"></button><button class="w-2 h-2 rounded-full bg-white/30 transition-all duration-300" id="dot-2" onclick="showSlide(2)"></button><button class="w-2 h-2 rounded-full bg-white/30 transition-all duration-300" id="dot-3" onclick="showSlide(3)"></button></div><span class="bg-surface-container-high px-2 py-0.5 rounded-full text-[10px] font-bold text-primary font-mono tracking-wider border border-white/10" id="slideCounterPill">1 / 3</span></div></div>
-<!-- Action Bar -->
-<div class="px-3 py-2 flex items-center justify-between w-full select-none">
-<div class="flex items-center gap-3.5 text-white">
-<!-- Like Button with Counter -->
-<button class="flex items-center gap-1.5 group cursor-pointer active:scale-95 transition-transform" id="igLikeBtn" onclick="togglePostLike(this)">
-<svg class="w-[23px] h-[23px] transition-colors" fill="none" id="igLikeIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-</svg>
-<span class="text-[12.5px] font-semibold tracking-tight text-white" id="igLikeCount">15.9K</span>
+<!-- 3-Image Carousel Container -->
+<div class="relative w-full h-[320px] bg-black overflow-hidden flex flex-col justify-between items-center" id="igCarouselWindow">
+<!-- Slide 1: BMW X7 Sunset Photo -->
+<div class="carousel-item absolute inset-0 transition-opacity duration-300 opacity-100 flex items-center justify-center" id="slideItem1"><img alt="BMW X7 Sunset Launch" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv4ycvhNKz3A_3X6CtB_kDRwKds-RJbwxzz1GPinMQDPAV-sKDAJ_mW-NX6CZId8PBlKkvT199RmaMpJ59HOnaAut2lKzMSUnbNwdcnul20_Umg4ApbtUxYlbOLf1qssfuPIl4tgHt--C2DHvliJKXBy_Hhs56yao1Ah_kd6BFIdfbDBf1a5sDX4qvBLIYT2Ou5E47kAxvQU-tSQP3IBYw3P7MmRqC4gEigf1htA2DHwtMMHHfL-8Oquht2fVKFeU3Og"></div>
+<!-- Slide 2: X7 Interior Cockpit -->
+<div class="carousel-item absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center" id="slideItem2"><img alt="X7 Interior Cockpit" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V84ai_6LduprmD74iiSwhHJNEmyQCW-EIqCqJkCYsKy6S2cJrvGT7bnBF6JZsyHNVU9sX0GI7URSQrk03hHIMjquFl4IOMW_6g9h40l1DzH07IoyoJTMFtbYZufDgZNPifUO9LCSAE5xiTtqdOBG451TMd3E8JLvnCwHxyv0CRMdiRlza2PnrgWpkrxPwuBS87dKLAzOigf-FTCUBJUF6_68FClSuWY4H1yCPGOiDC5BG3Y-mEKNlrWQ8"></div>
+<!-- Slide 3: Trivia Results Benchmark -->
+<div class="carousel-item absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center" id="slideItem3"><img alt="Trivia Results 1,850 pts" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WJ8H5gCfCpgKXSHncMR5lmjfFN6bxNvixm1v9FabSQKK7km384I85GZC4-yUh3gySbh6SPJV_S-oAay1APrxGZhWZ9C2RiwnrzullhU7ZqhfevXUA6jNQPYJ9KHKXBNRGcr19YelVyC8dSph4wEqh3CpkN5nzLmJ0Y8BD0P3ogDut1bvvHKB-MSISIIe0cgj---6UNoxnsoIVhWW8TP3oYXJ6Ih6Eim29SbKxtpLlITZGEyWkp7KcsRIU"></div>
+<!-- Carousel Next / Prev Controls -->
+<button aria-label="Previous slide" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-all border border-white/15" onclick="carouselPrevSlide(event)">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
 </button>
-<!-- Comment Button with Counter -->
-<button class="flex items-center gap-1.5 group cursor-pointer active:scale-95 transition-transform hover:opacity-80" onclick="setStage(2)">
-<svg class="w-[23px] h-[23px]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-</svg>
-<span class="text-[12.5px] font-semibold tracking-tight text-white">511</span>
-</button>
-<!-- Repost / Retweet Loop with Counter -->
-<button class="flex items-center gap-1.5 group cursor-pointer active:scale-95 transition-transform hover:opacity-80" id="igRepostBtn" onclick="toggleRepost(this)">
-<svg class="w-[23px] h-[23px]" fill="none" id="igRepostIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-<path d="M17 1l4 4-4 4"></path>
-<path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-<path d="M7 23l-4-4 4-4"></path>
-<path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-</svg>
-<span class="text-[12.5px] font-semibold tracking-tight text-white" id="igRepostCount">309</span>
-</button>
-<!-- Share / DM Paper Plane with Counter -->
-<button class="flex items-center gap-1.5 group cursor-pointer active:scale-95 transition-transform hover:opacity-80" onclick="setStage(2); triggerDmFlowAnimation();">
-<svg class="w-[23px] h-[23px] -rotate-12 translate-y-[-1px]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-<line x1="22" x2="11" y1="2" y2="13"></line>
-<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-</svg>
-<span class="text-[12.5px] font-semibold tracking-tight text-white">244</span>
+<button aria-label="Next slide" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-all border border-white/15" onclick="carouselNextSlide(event)">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
 </button>
 </div>
-<!-- Bookmark / Save Button -->
-<button class="group cursor-pointer active:scale-95 transition-transform text-white hover:opacity-80 p-0.5" id="igBookmarkBtn" onclick="toggleBookmark(this)">
-<svg class="w-[23px] h-[23px] transition-all" fill="none" id="igBookmarkIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-</svg>
+<!-- Centered Carousel Dots Bar Directly Above Action Bar -->
+<div class="px-3 pt-2.5 pb-1 flex items-center justify-between bg-black"><div class="w-10"></div><div class="flex items-center gap-1.5" id="carouselDotsRow"><button class="w-2 h-2 rounded-full bg-primary transition-all duration-300" id="slideDot1" onclick="showSlide(1)"></button><button class="w-2 h-2 rounded-full bg-white/30 transition-all duration-300" id="slideDot2" onclick="showSlide(2)"></button><button class="w-2 h-2 rounded-full bg-white/30 transition-all duration-300" id="slideDot3" onclick="showSlide(3)"></button></div><span class="text-[10px] font-mono text-on-surface-variant font-medium w-10 text-right" id="slideCounterText">1 / 3</span></div>
+<!-- Engagement Bar (Heart, Comment, Repost, Paper Plane, Save) -->
+<div class="px-3 py-1.5 flex items-center justify-between w-full select-none border-b border-surface-container/30">
+<div class="flex items-center gap-3 text-white">
+<button class="flex items-center gap-1 text-white hover:text-red-400" onclick="togglePostLike(this)">
+<svg class="w-5 h-5" fill="none" id="igLikeIcon" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+<span class="text-xs font-semibold">15.9K</span>
+</button>
+<button class="flex items-center gap-1 text-white hover:text-primary" onclick="switchMasterSection(2)">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+<span class="text-xs font-semibold">511</span>
+</button>
+<button class="flex items-center gap-1 text-white hover:text-tertiary" onclick="switchMasterSection(2)">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+<span class="text-xs font-semibold">309</span>
+</button>
+<button class="flex items-center gap-1 text-white hover:text-primary transition-colors" onclick="switchMasterSection(3)"><svg class="w-6 h-6 stroke-white fill-none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg><span class="text-xs font-semibold">244</span></button>
+</div>
+<button class="text-white hover:text-primary">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
 </button>
 </div>
-<!-- Likes -->
-<div class="px-3 pb-1 text-xs text-white font-semibold">
-    Liked by <span class="text-primary font-bold">sarah_drive</span> and <span class="">28,491 others</span>
+<!-- Synchronized Captions per Slide -->
+<div class="px-3 pt-2 pb-1 flex flex-col gap-1.5" id="carouselCaptionArea">
+<p class="text-[11.5px] leading-snug text-on-surface" id="postSyncedCaption">
+<span class="font-bold text-white mr-1 font-label-md">mediamk</span>
+<span id="captionDynamicText" class="">Apparently BMW thinks I don't know this car as well as I think I do. Cut to the X7.</span>
+</p>
+<div class="flex flex-col gap-1 mt-1 text-left"><p class="text-[11.5px] leading-snug text-on-surface"><span class="text-white font-medium">Comment "Play X7 Challenge" to play and win a VIP drive experience.</span></p><button class="text-[11px] text-[#8e8e8e] text-left hover:text-white transition-colors pt-0.5" onclick="switchMasterSection(2)">View all 511 comments</button></div>
 </div>
-<!-- SYNCHRONIZED CAPTION CONTAINER (Updates dynamically with active slide) -->
-<div class="px-3 py-1 flex flex-col gap-1.5" id="syncedCaptionContainer"><p class="text-[11.5px] leading-snug text-on-surface" id="syncedCaptionText"><span class="font-bold text-white mr-1.5 font-label-md">mediamk</span>@BMWkenya doesn't think I know the NEW 2026, X7 BMW</p><button class="mt-1 w-full py-2 px-3 rounded-xl bg-gradient-to-r from-primary/20 via-surface-container-high to-primary/10 border border-primary/40 flex items-center justify-between text-left hover:brightness-110 transition-all cursor-pointer" onclick="setStage(2); triggerDmFlowAnimation();"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">chat</span><span class="text-[11px] text-white font-medium">Comment <span class="text-primary font-bold">"Play X7 Challenge"</span> or DM to beat 1,850 pts</span></div><span class="material-symbols-outlined text-sm text-primary">arrow_forward</span></button></div>
 </div>
-<!-- Instagram Nav Bottom Bar -->
+<!-- IG Bottom Dock -->
 <div class="w-full bg-black/95 border-t border-surface-container/40 px-5 py-2 flex items-center justify-between text-white z-30">
-<button class=""><span class="material-symbols-outlined text-2xl text-primary">home</span></button>
-<button class=""><span class="material-symbols-outlined text-2xl text-on-surface-variant">movie</span></button>
-<button class="relative" onclick="setStage(2)"><span class="material-symbols-outlined text-2xl text-white">send</span><span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 text-[8px] font-bold rounded-full flex items-center justify-center text-white">3</span></button>
-<button class=""><span class="material-symbols-outlined text-2xl text-on-surface-variant">search</span></button>
-<img alt="User" class="w-6 h-6 rounded-full object-cover border border-white/40 cursor-pointer" id="navBottomUserAvatar" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE">
+<span class="material-symbols-outlined text-2xl text-primary">home</span>
+<span class="material-symbols-outlined text-2xl text-on-surface-variant">movie</span>
+<button class="relative" onclick="switchMasterSection(3)"><svg class="w-6 h-6 stroke-white fill-none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg><span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 text-[8px] font-bold rounded-full flex items-center justify-center text-white">1</span></button>
+<span class="material-symbols-outlined text-2xl text-on-surface-variant">search</span>
+<img alt="User" class="w-6 h-6 rounded-full object-cover border border-white/40" id="dockAvatarImg" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
 </div>
 </div>
-<!-- ================= STAGE 2: LIVE INSTAGRAM DIRECT MESSAGE (DM) VIEW (INSIDE BMWkenya DM) ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-2 flex flex-col justify-between transition-opacity duration-300 z-20 bg-black opacity-0 pointer-events-none" id="stageView2"><div class="flex items-center justify-between px-3 py-2 border-b border-[#262626] bg-black/95 backdrop-blur-md z-30"><div class="flex items-center gap-2.5"><button class="text-white hover:opacity-75 transition-opacity p-0.5 -ml-1 flex items-center justify-center" onclick="setStage(1)"><span class="material-symbols-outlined text-[23px]">arrow_back</span></button><div class="relative flex-shrink-0"><div class="relative w-9 h-9"><img class="w-9 h-9 rounded-full object-cover border-2 border-primary shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA" alt="Marcus"><span class="absolute -bottom-0.5 -right-0.5 text-[9px] bg-tertiary text-black px-1 rounded-full font-black shadow">👑</span></div></div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5 leading-tight"><span class="font-label-md font-bold text-[13px] text-white tracking-tight">marcus_k</span><span class="material-symbols-outlined text-tertiary text-[13px]">verified</span><span class="px-1.5 py-0.2 rounded-full bg-primary/20 text-primary text-[9px] font-bold">#1 Leader</span></div><span class="text-[10px] text-tertiary font-medium leading-none mt-0.5 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Active now • P2P Challenge Chat</span></div></div><div class="flex items-center gap-3 text-white"><button class="hover:opacity-75 transition-opacity p-0.5"><span class="material-symbols-outlined text-[22px]">call</span></button><button class="hover:opacity-75 transition-opacity p-0.5"><span class="material-symbols-outlined text-[22px]">more_vert</span></button></div></div><div class="flex-1 overflow-y-auto px-3 py-2 flex flex-col justify-start gap-2.5 no-scrollbar" id="dmChatScrollContainer"><div class="text-center my-1"><span class="text-[10px] text-[#8e8e8e] font-semibold uppercase tracking-wider">DIRECT CHALLENGE • TODAY 8:48 AM</span></div><div class="flex items-start gap-2 w-full pt-1 msg-anim"><div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mt-1 border border-primary/40"><img src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA" alt="Marcus" class="w-full h-full object-cover"></div><div class="flex flex-col gap-1.5 max-w-[85%]"><div class="bg-[#262626] text-white px-3.5 py-2.5 rounded-[18px] text-[12px] leading-snug border border-white/5"><p class="text-white font-medium">Dan, beat my <span class="text-tertiary font-bold">1,960 pts</span> on the BMW X7 challenge if you can! 🏎️💨 Think you can match my score on the M60i V8 round?</p></div><div class="flex items-center flex-wrap gap-1.5 pl-1"><span class="px-2 py-0.5 rounded-full bg-[#1c1c1e] border border-white/10 text-[10px] text-white font-medium flex items-center gap-1">🔥 1</span><span class="px-2 py-0.5 rounded-full bg-[#1c1c1e] border border-white/10 text-[10px] text-white font-medium flex items-center gap-1">🏆 1</span></div></div></div><div class="flex items-start gap-2 w-full pl-9 msg-anim"><div class="w-full max-w-[285px] bg-[#1a1a1a] rounded-[20px] overflow-hidden border-2 border-primary/50 shadow-xl"><div class="relative w-full h-40 bg-black overflow-hidden group cursor-pointer" onclick="setStage(4)"><img alt="BMW X7 Challenge" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAupHcpxHlCsBE3qeZXACsXwlLQjWSujssxNgaG7C2yjhUL4Wjjb4tEMt-O6ZkDwsWSxdgNPSzJBnUEoTCZbHPEmgz2wefmPfB9VozYDfajWflYELG4A2MHKKT3yyicuT89ldaTS7jYwAh7_10vej5R1oFock1z4zQQ6KFGCsAeYSEDIA8H6ts0m0-W1qwLM633v7yOdOiOuYypr6F7gaYZtUJMHodpaZtPKl6IeISXirmR5rsEwjfryR9rN7629t428w"><div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div><div class="absolute top-2 left-2 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded-full border border-tertiary/40 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="text-[9px] font-bold text-tertiary tracking-wide">TARGET TO BEAT: 1,960 PTS (@marcus_k)</span></div><div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[10px] text-white"><span class="font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-tertiary">verified</span> Official Challenge Link</span><span class="bg-primary text-black font-extrabold px-1.5 py-0.2 rounded text-[9px]">TAP TO PLAY</span></div></div><div class="p-2.5 bg-[#151515] flex flex-col gap-2 border-t border-white/10"><div class="flex items-center justify-between"><span class="text-[10px] font-mono text-on-surface-variant truncate">playform.iq/challenge/bmw-x7</span><span class="text-[9px] bg-tertiary/20 text-tertiary font-bold px-1.5 py-0.2 rounded">1 Retake Allowed</span></div><button class="w-full py-2 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1" onclick="setStage(4)"><span class="">ACCEPT &amp; PLAY CHALLENGE ➔</span></button></div></div></div><div class="flex flex-col items-end gap-1 w-full pt-1 msg-anim" id="dmStep1"><div class="max-w-[85%] bg-[#0095f6] text-white px-3.5 py-2.5 rounded-[18px] rounded-br-[4px] text-[12.5px] leading-snug shadow-sm"><p class="font-medium" id="dmUserTriggerBubble">Challenge accepted. Let's see what this M60i V8 can do! 🔥</p></div><div class="flex items-center gap-1 text-[9.5px] text-[#8e8e8e] pr-1 font-normal"><span class="text-tertiary font-medium">Delivered &amp; Seen 8:49 AM</span><span class="material-symbols-outlined text-[12px] text-[#0095f6]">done_all</span></div></div><div class="bg-surface-container/70 p-2.5 rounded-xl border border-primary/40 flex items-center justify-between mt-1"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">cell_tower</span><div class="text-left"><span class="text-[11px] text-white font-medium block">@BMWkenya automated trigger synced</span><span class="text-[9px] text-tertiary font-semibold">Dan (@autotalk_dan) challenge session initiated</span></div></div><button class="px-2.5 py-1.5 rounded-lg bg-primary text-black font-bold text-[10px] hover:bg-surface-tint active:scale-95 transition-all flex items-center gap-1" onclick="setStage(4)">Play Challenge ➔</button></div></div><div class="px-3 pt-1.5 pb-2 bg-black border-t border-[#262626] flex items-center gap-2 z-30"><button class="w-8 h-8 rounded-full bg-[#0095f6] text-white flex items-center justify-center hover:opacity-90 active:scale-95 transition-all flex-shrink-0"><span class="material-symbols-outlined text-[17px]">photo_camera</span></button><div class="flex-1 bg-[#262626] rounded-full px-3.5 py-1.5 flex items-center justify-between border border-transparent focus-within:border-[#404040]"><input class="bg-transparent text-white text-xs placeholder-[#8e8e8e] focus:outline-none w-full" id="dmInputField" placeholder="Send reaction or reply..." readonly="" type="text" value="Challenge accepted. Let's see what this M60i V8 can do! 🔥"><div class="flex items-center gap-2 text-white flex-shrink-0 ml-1"><button class="text-[#a8a8a8] hover:text-white"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="text-[#a8a8a8] hover:text-white"><span class="material-symbols-outlined text-[18px]">image</span></button><button class="text-[#a8a8a8] hover:text-white"><span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span></button></div></div><button class="text-[#0095f6] font-bold text-xs px-2 py-1 hover:brightness-125 transition-all flex-shrink-0" id="dmSendBtn" onclick="setStage(4)">Start ➔</button></div></div>
-<!-- ================= STAGE 3: AUTOMATED BOT LINK DISPATCH FROM BMWKENYA & PLAYFORMIQ ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-2 flex flex-col justify-between transition-opacity duration-300 z-20 bg-black opacity-0 pointer-events-none" id="stageView3">
-<!-- Bot DM Header Bar -->
-<div class="flex items-center justify-between px-3 py-2 border-b border-[#262626] bg-black/95 backdrop-blur-md z-30">
-<div class="flex items-center gap-2.5">
-<button class="text-white hover:opacity-75 transition-opacity p-0.5 -ml-1 flex items-center justify-center" onclick="setStage(2)">
-<span class="material-symbols-outlined text-[23px]">arrow_back</span>
-</button>
-<div class="relative flex-shrink-0">
-<div class="w-8 h-8 rounded-full bg-white p-[2px] ring-1 ring-primary/40 flex items-center justify-center overflow-hidden">
-<svg class="w-full h-full" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<circle cx="50" cy="50" fill="#000000" r="48" stroke="#707070" stroke-width="3"></circle>
-<circle cx="50" cy="50" fill="#FFFFFF" r="32"></circle>
-<path d="M50 18 A32 32 0 0 1 82 50 L50 50 Z" fill="#0066B1"></path>
-<path d="M50 50 L18 50 A32 32 0 0 1 50 18 Z" fill="#FFFFFF"></path>
-<path d="M50 50 L50 82 A32 32 0 0 1 18 50 Z" fill="#0066B1"></path>
-<path d="M50 50 L82 50 A32 32 0 0 1 50 82 Z" fill="#FFFFFF"></path>
-<circle cx="50" cy="50" fill="none" r="32" stroke="#000000" stroke-width="1.5"></circle>
-<text fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="900" text-anchor="middle" x="50" y="14">BMW</text>
-</svg>
+<!-- ====== VIEW 2: ENGAGEMENT LAYER (Instagram Comments Sheet) ====== -->
+<div class="phone-view-stage absolute inset-0 pt-11 flex flex-col justify-end transition-opacity duration-300 z-20 bg-transparent opacity-100" id="phoneView2"><div class="absolute inset-0 bg-black/60 backdrop-blur-xs cursor-pointer z-10" onclick="switchMasterSection(1)"><div class="p-3 flex items-center justify-between opacity-40"><div class="flex items-center gap-2"><img alt="mediamk" class="w-7 h-7 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxJZsCtmBFfG9OrxLbisrsOQ0s5azjllJxtJdd0VVEPKyMXxjYePEFA3t5AuomYSay1q0TVcMCpMRpSWS_s9x-OLNQWq9-cKRR9zDUnTVjXazfBV7MlDjzZA9YnofDIFMLXYfd_mW8fIogUdCRC4b7mscjQMEhEeiFcTqaKlujYlHxGVAHiFz3N8U4gyxQRFMuW-YQqlVQA82eyqG4tLjmgJzX-dROz7VwVIF-h2Pgzm0NMh4jj61HzXXAE8dTxCoOJw"><span class="text-xs font-bold text-white">mediamk</span></div><span class="text-[10px] text-white/70">Tap to dismiss</span></div><div class="px-3 opacity-30"><div class="w-full h-32 rounded-xl bg-surface-container overflow-hidden"><img alt="Post background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv4ycvhNKz3A_3X6CtB_kDRwKds-RJbwxzz1GPinMQDPAV-sKDAJ_mW-NX6CZId8PBlKkvT199RmaMpJ59HOnaAut2lKzMSUnbNwdcnul20_Umg4ApbtUxYlbOLf1qssfuPIl4tgHt--C2DHvliJKXBy_Hhs56yao1Ah_kd6BFIdfbDBf1a5sDX4qvBLIYT2Ou5E47kAxvQU-tSQP3IBYw3P7MmRqC4gEigf1htA2DHwtMMHHfL-8Oquht2fVKFeU3Og"></div></div></div><div class="relative z-20 w-full h-[76%] bg-[#1c1c1e] rounded-t-[24px] border-t border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden"><div class="pt-2.5 pb-2 px-4 border-b border-surface-container/50 bg-[#1c1c1e] flex flex-col items-center gap-1.5"><div class="w-10 h-1 bg-white/30 rounded-full mx-auto cursor-pointer hover:bg-white/50 transition-colors" onclick="switchMasterSection(1)"></div><div class="w-full flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="text-[9.5px] text-tertiary font-mono font-bold uppercase tracking-wider">Host Live Feed</span></div><h4 class="font-headline-sm text-xs font-bold text-white tracking-tight">Comments (511)</h4><button class="text-white/70 hover:text-white transition-colors p-0.5" onclick="switchMasterSection(1)"><span class="material-symbols-outlined text-lg">close</span></button></div></div><div class="flex-1 overflow-y-auto px-3.5 py-2.5 flex flex-col gap-2.5 no-scrollbar"><div class="p-2 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">smart_toy</span><span class="text-[10px] text-primary font-medium">Trigger: <strong>"Play X7 Challenge"</strong></span></div><span class="text-[8.5px] bg-tertiary text-black px-1.5 py-0.5 rounded font-black font-mono">ACTIVE BOT</span></div><div class="flex items-start gap-2.5 msg-anim"><img alt="Sarah" class="w-7 h-7 rounded-full object-cover border border-white/20 mt-0.5" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE"><div class="flex-1 flex flex-col"><div class="flex items-center gap-1.5"><span class="font-label-md text-xs font-bold text-white">sarah_drive</span><span class="text-[9.5px] text-on-surface-variant font-mono">14m</span></div><p class="text-[11.5px] text-white/90 mt-0.5 leading-snug">Play X7 Challenge! Bringing the heat to your score @mediamk 🔥</p><button class="mt-1 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/60 border border-tertiary/40 hover:border-tertiary w-fit text-left transition-colors cursor-pointer group" onclick="switchMasterSection(3)"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="text-[9px] text-tertiary font-mono group-hover:underline">@BMWkenya sent verified link via DM ➔</span></button></div></div><div class="flex items-start gap-2.5 msg-anim"><img alt="Marcus" class="w-7 h-7 rounded-full object-cover border border-white/20 mt-0.5" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA"><div class="flex-1 flex flex-col"><div class="flex items-center gap-1.5"><span class="font-label-md text-xs font-bold text-white">marcus_k</span><span class="text-[9.5px] text-on-surface-variant font-mono">9m</span></div><p class="text-[11.5px] text-white/90 mt-0.5 leading-snug">Play X7 Challenge. Let's see if 1,850 pts can survive the V8 trivia.</p><button class="mt-1 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/60 border border-tertiary/40 hover:border-tertiary w-fit text-left transition-colors cursor-pointer group" onclick="switchMasterSection(3)"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="text-[9px] text-tertiary font-mono group-hover:underline">@BMWkenya sent verified link via DM ➔</span></button></div></div><div class="flex items-start gap-2.5 msg-anim bg-surface-container/60 p-2 rounded-xl border border-primary/40"><div class="relative"><img alt="Dan" class="w-7 h-7 rounded-full object-cover border-2 border-primary mt-0.5" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"><span class="absolute -bottom-1 -right-1 text-[7px] bg-tertiary text-black px-1 rounded-full font-black">👑</span></div><div class="flex-1 flex flex-col"><div class="flex items-center gap-1.5"><span class="font-label-md text-xs font-bold text-white">autotalk_dan</span><span class="px-1 py-0.2 rounded bg-primary text-black text-[8px] font-black uppercase">CHALLENGER</span><span class="text-[9.5px] text-on-surface-variant font-mono">Just now</span></div><p class="text-[11.5px] text-primary font-medium mt-0.5 leading-snug">Play X7 Challenge! Going for #1 spot today 🏁</p><div class="mt-1.5 flex items-center justify-between bg-black/60 p-1.5 rounded-lg border border-tertiary/50"><span class="text-[8.5px] text-tertiary font-mono">DM Link Sent • Tap to inspect</span><button class="px-2 py-0.5 rounded bg-tertiary text-black font-extrabold text-[8.5px] flex items-center gap-0.5" onclick="switchMasterSection(3)">View DM ➔</button></div></div></div></div><div class="p-2.5 bg-black border-t border-[#262626] flex items-center gap-2"><img alt="mediamk" class="w-7 h-7 rounded-full object-cover border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxJZsCtmBFfG9OrxLbisrsOQ0s5azjllJxtJdd0VVEPKyMXxjYePEFA3t5AuomYSay1q0TVcMCpMRpSWS_s9x-OLNQWq9-cKRR9zDUnTVjXazfBV7MlDjzZA9YnofDIFMLXYfd_mW8fIogUdCRC4b7mscjQMEhEeiFcTqaKlujYlHxGVAHiFz3N8U4gyxQRFMuW-YQqlVQA82eyqG4tLjmgJzX-dROz7VwVIF-h2Pgzm0NMh4jj61HzXXAE8dTxCoOJw"><div class="flex-1 bg-[#262626] rounded-full px-3 py-1.5 flex items-center justify-between border border-transparent"><span class="text-on-surface-variant text-[11px] font-medium">Reply as @mediamk...</span><span class="material-symbols-outlined text-xs text-on-surface-variant">send</span></div></div></div></div>
+<!-- ====== VIEW 3: AUTOMATION DISPATCH (BMWkenya Direct Message Bot) ====== -->
+<div class="phone-view-stage absolute inset-0 pt-11 pb-2 flex flex-col justify-between transition-opacity duration-300 z-20 bg-black opacity-0 pointer-events-none" id="phoneView3">
+<!-- DM Header with BMW logo -->
+<div class="flex items-center justify-between px-3 py-2 border-b border-[#262626] bg-black/95"><div class="flex items-center gap-2"><button class="text-white hover:opacity-75 flex items-center justify-center" onclick="switchMasterSection(2)"><svg class="w-5 h-5 stroke-white fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button><div class="relative w-8 h-8 rounded-full bg-white p-[2px] ring-1 ring-primary/40 flex items-center justify-center overflow-hidden"><svg class="w-full h-full" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" fill="#000000" r="48" stroke="#707070" stroke-width="3"></circle><circle cx="50" cy="50" fill="#FFFFFF" r="32"></circle><path d="M50 18 A32 32 0 0 1 82 50 L50 50 Z" fill="#0066B1"></path><path d="M50 50 L18 50 A32 32 0 0 1 50 18 Z" fill="#FFFFFF"></path><path d="M50 50 L50 82 A32 32 0 0 1 18 50 Z" fill="#0066B1"></path><path d="M50 50 L82 50 A32 32 0 0 1 50 82 Z" fill="#FFFFFF"></path><circle cx="50" cy="50" fill="none" r="32" stroke="#000000" stroke-width="1.5"></circle><text fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="900" text-anchor="middle" x="50" y="14">BMW</text></svg></div><div class="flex flex-col text-left leading-none"><div class="flex items-center gap-1"><span class="font-label-md font-bold text-xs text-white">BMWkenya</span><span class="material-symbols-outlined text-[#0095f6] text-[13px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span></div><span class="text-[9.5px] text-tertiary mt-0.5">Automated Dispatch Engine</span></div></div><div class="flex items-center gap-2"><span class="text-[9px] bg-primary/20 text-primary font-mono font-bold px-2 py-0.5 rounded-full">0.38s Webhook</span><button class="text-white hover:opacity-75 flex items-center justify-center"><svg class="w-5 h-5 stroke-white fill-none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div>
+<!-- Message Stream -->
+<div class="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2.5 no-scrollbar">
+<div class="text-center my-1">
+<span class="text-[9.5px] text-[#8e8e8e] font-semibold uppercase tracking-wider">TRIGGERED BY INSTAGRAM COMMENT • 8:49 AM</span>
 </div>
-<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-tertiary rounded-full border-2 border-black"></span>
+<!-- Outgoing Comment Mirror -->
+<div class="flex flex-col items-end gap-1 w-full msg-anim">
+<div class="bg-[#0095f6] text-white px-3 py-2 rounded-[18px] rounded-br-[4px] text-xs">
+                    Play X7 Challenge
+                  </div>
+<span class="text-[9px] text-[#8e8e8e] flex items-center gap-0.5 pr-1">Delivered <span class="material-symbols-outlined text-[11px] text-[#0095f6]">done_all</span></span>
 </div>
-<div class="flex flex-col text-left">
-<div class="flex items-center gap-1 leading-tight">
-<span class="font-label-md font-bold text-[13px] text-white tracking-tight">BMWkenya</span>
-<span class="material-symbols-outlined text-[#0095f6] text-[13px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
-</div>
-<span class="text-[10px] text-tertiary font-medium leading-none mt-0.5">Stage 3: Verified Challenge Link Dispatch</span>
-</div>
-</div>
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold">Latency: 0.38s</span>
-</div>
-</div>
-<!-- Bot Chat Stream with Verified Link Card -->
-<div class="flex-1 overflow-y-auto px-3 py-3 flex flex-col justify-start gap-3 no-scrollbar">
-<div class="text-center my-0.5">
-<span class="text-[10px] text-[#8e8e8e] font-semibold uppercase tracking-wider">INSTANT AUTOMATED DISPATCH</span>
-</div>
-<!-- Bot Message -->
+<!-- Automated Welcome Text -->
 <div class="flex items-start gap-2 w-full msg-anim">
-<div class="w-6 h-6 rounded-full bg-white p-[1px] ring-1 ring-white/10 flex-shrink-0 mt-1 overflow-hidden">
-<svg class="w-full h-full" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<circle cx="50" cy="50" fill="#000000" r="48"></circle>
-<path d="M50 18 A32 32 0 0 1 82 50 L50 50 Z" fill="#0066B1"></path>
-<path d="M50 50 L18 50 A32 32 0 0 1 50 18 Z" fill="#FFFFFF"></path>
-<path d="M50 50 L50 82 A32 32 0 0 1 18 50 Z" fill="#0066B1"></path>
-<path d="M50 50 L82 50 A32 32 0 0 1 50 82 Z" fill="#FFFFFF"></path>
-</svg>
+<div class="w-6 h-6 rounded-full bg-white p-[1px] flex-shrink-0 mt-1">
+<svg class="w-full h-full" fill="none" viewBox="0 0 100 100"><circle cx="50" cy="50" fill="#000" r="48"></circle><path d="M50 18 A32 32 0 0 1 82 50 L50 50 Z" fill="#0066B1"></path><path d="M50 50 L18 50 A32 32 0 0 1 50 18 Z" fill="#FFF"></path><path d="M50 50 L50 82 A32 32 0 0 1 18 50 Z" fill="#0066B1"></path><path d="M50 50 L82 50 A32 32 0 0 1 50 82 Z" fill="#FFF"></path></svg>
 </div>
-<div class="flex flex-col gap-2 max-w-[88%]">
-<div class="bg-[#262626] text-white px-3.5 py-2.5 rounded-[18px] text-[12px] leading-relaxed border border-white/5">
-<p class="">Welcome to the <span class="font-bold text-white">BMW X7 VIP Trivia Challenge</span>! Your entry has been validated by @BMWkenya. Beat @mediamk's benchmark score of <span class="font-bold text-primary">1,850 PTS</span> to unlock your entry into the VIP Experience Drive Day drawing!</p>
-</div>
-<!-- Rich Card Preview Link -->
-<div class="bg-[#1a1a1a] rounded-2xl border border-primary/50 overflow-hidden shadow-xl">
+<div class="flex flex-col gap-2 max-w-[85%]">
+<div class="bg-[#262626] text-white p-3 rounded-[18px] text-[11.5px] leading-snug border border-white/5">
+                      Welcome to the <strong class="text-white">BMW X7 VIP Trivia Challenge</strong>! Your entry has been authenticated by @BMWkenya. Beat @mediamk's benchmark score of <strong class="text-primary">1,850 PTS</strong> to enter the Thermal Club Drive Day drawing!
+                    </div>
+<!-- Single-use Verified Challenge Link Card -->
+<div class="bg-[#1a1a1a] rounded-2xl border-2 border-primary/50 overflow-hidden shadow-xl">
 <div class="relative h-28 w-full bg-black">
-<img alt="BMW X7 Trivia Launch" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe0U6UxP0UgkPHChtUexgP2Exb57GCuiuDbBNShyXqgOdfdDm5bdkHoefYNcDggrwHLuAl8rKNj2GrnnWAhLsklPnSZOvXxr2WAiPuIxTESEZJqvU8ms5wRER9V9_tRhBE-iVQm_6ZY9fjycikMs2wf1UO8TtUt9aAFLQD_rIIhlCIBAHCHcmYysNNILdMQ7k6Uo-T2p6E9WjwEdOcdqD7xdDq8tzC-db-bKdc7WcaCRQcqyG1MkvHrwKhqonrD_xWlQ">
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+<img alt="BMW X7 Challenge" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_rgfUUVKmdYQ_T9xcDJ9F8lC06yHs99X07f_g-1he1J7HDKecoQIAxlb8bYNvx0GbU7o3zPe2TqKzjFN8R0ATp_wvRh7WrP2sxGlk-B1z3AHJ6FamqOVZ4I3s73ghF7StQ4Xaq8-2JURQvIk_w6HV6e6kOtk7PeVhDngCAgwO_spz5ignoiv9H5LUihjClQcpRHipbn5sG8rp1NH8xDc2-CJ2XdanlsbsuEE-O_ZNO5Ux0ls-br0LLEXuAHvUj7_6Zw">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
 <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between">
-<span class="text-[11px] font-headline-sm font-bold text-white">BMW X7 Trivia Challenge</span>
-<span class="bg-tertiary/20 text-tertiary text-[9px] font-bold px-1.5 py-0.5 rounded border border-tertiary/40">20 QUESTIONS</span>
+<span class="text-[11px] font-headline-sm font-bold text-white">Play and Win X7 campaign</span>
+
 </div>
 </div>
-<div class="p-3 flex flex-col gap-2 bg-surface-container-high/90">
+<div class="p-2.5 bg-[#141414] flex flex-col gap-2 border-t border-white/10">
 <div class="flex items-center justify-between text-[10px]">
-<span class="text-on-surface-variant font-mono">playform.iq/challenge/bmw-x7</span>
-<span class="text-primary font-bold">1,850 PTS CUTOFF</span>
+<span class="text-on-surface-variant font-mono">playformiq.com/bmw-x7-challenge</span>
+
 </div>
-<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="setStage(4)">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-extrabold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="switchMasterSection(4)">
 <span class="material-symbols-outlined text-[16px]">sports_esports</span>
-<span class="">Launch Playform HUD ➔</span>
-</button>
+                          Launch Playform HUD ➔
+                        </button>
 </div>
 </div>
-<span class="text-[9.5px] text-[#8e8e8e] pl-1 font-normal">Delivered by @BMWkenya in 0.38 seconds • Seen</span>
+<span class="text-[9px] text-[#8e8e8e] pl-1">Delivered via automated webhook in 0.38s</span>
 </div>
 </div>
 </div>
-<!-- Bottom CTA bar -->
-<div class="p-3 bg-black border-t border-[#262626] flex items-center justify-between">
-<span class="text-[11px] text-on-surface-variant">Tap link above to enter challenge</span>
-<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-bold text-xs hover:bg-surface-container-highest" onclick="setStage(4)">
-      Enter Game ➔
-    </button>
+<!-- DM Input Footer -->
+<div class="p-2 bg-black border-t border-[#262626] flex items-center justify-between px-3">
+<span class="text-[10px] text-on-surface-variant">Token validated. Tap Launch HUD above.</span>
+<button class="px-3 py-1 rounded-lg bg-primary text-black font-bold text-xs" onclick="switchMasterSection(4)">Launch ➔</button>
 </div>
 </div>
-<!-- ================= STAGE 4: PLAYFORMIQ TRIVIA GAME HUD ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-4 px-3 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest opacity-0 pointer-events-none" id="stageView4"><div class="flex flex-col gap-1.5 pt-1"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><div class="relative"><img class="w-7 h-7 rounded-full object-cover border-2 border-primary shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ" alt="Dan"><span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-tertiary border border-black animate-pulse"></span></div><div class="flex flex-col text-left"><div class="flex items-center gap-1"><span class="font-label-sm text-[10.5px] text-white font-bold tracking-tight leading-none">Dan (@autotalk_dan)</span><span class="text-[8px] bg-tertiary/20 text-tertiary font-bold px-1 rounded">Completed</span></div><span class="text-[9px] text-tertiary font-medium mt-0.5 flex items-center gap-1">⏱ Complete 2/2 • 2,040 PTS</span></div></div><div class="bg-tertiary/20 px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-tertiary/50 shadow-sm"><span class="material-symbols-outlined text-xs text-tertiary">bolt</span><span class="font-headline-sm text-xs font-extrabold text-tertiary">2,040 PTS</span></div></div></div><div class="pt-1 flex flex-col gap-1"><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="setStage(5)">View Final Scorecard &amp; Leaderboard ➔</button></div></div>
-<!-- ================= STAGE 5: COMPLETED SCORECARD & POST-TO-WIN MODAL ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-3 px-3 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest overflow-y-auto no-scrollbar opacity-0 pointer-events-none" id="stageView5"><div class="pt-1 flex flex-col items-center text-center gap-1"><div class="w-full bg-gradient-to-r from-tertiary/20 via-tertiary/10 to-transparent border border-tertiary/60 rounded-xl px-2.5 py-1.5 flex items-center justify-between shadow-md mb-1 text-left animate-pulse"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-base font-bold">check_circle</span><span class="text-[10px] text-white font-semibold leading-tight">✓ Story published to your profile! Inbound friend challenge links are now active.</span></div><span class="text-[9px] bg-tertiary text-black font-extrabold px-1.5 py-0.5 rounded">LIVE</span></div><div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 via-tertiary/20 to-primary/20 text-primary border border-primary/50 shadow-md"><span class="material-symbols-outlined text-sm font-extrabold text-tertiary">emoji_events</span><span class="font-label-sm text-[10px] uppercase tracking-wider font-extrabold text-primary">RANK #1 OVERALL 👑</span><span class="material-symbols-outlined text-xs text-[#0095f6]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span></div><div class="flex items-center gap-2"><h2 class="font-headline-lg text-2xl font-extrabold text-white tracking-tight">2,040 PTS</h2><span class="bg-tertiary text-black font-extrabold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[12px] font-black">crown</span> NEW CHAMPION</span></div><p class="font-body-sm text-[11px] text-tertiary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-xs text-tertiary">trending_up</span> +80 PTS ahead of @marcus_k • 100% Accuracy (2/2)</p></div><div class="my-1 w-full bg-gradient-to-r from-tertiary/15 via-surface-container-high to-primary/15 border-2 border-tertiary/70 rounded-xl p-2.5 flex items-center justify-between shadow-xl relative overflow-hidden"><div class="flex items-center gap-2.5"><div class="relative p-[2px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#962fbf]"><img alt="@autotalk_dan" class="w-11 h-11 rounded-full object-cover border-2 border-black shadow-md" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"><span class="absolute -bottom-1 -right-1 text-[11px] bg-tertiary text-black px-1 rounded-full font-black shadow">👑</span></div><div class="flex flex-col text-left"><div class="flex items-center gap-1"><span class="font-headline-sm text-xs font-bold text-white leading-tight">@autotalk_dan</span><span class="text-[8px] bg-primary text-black font-extrabold px-1 rounded">YOU</span></div><span class="font-label-sm text-[10px] text-tertiary font-extrabold">Story Active • 2,040 pts 👑</span><span class="text-[9px] text-white/80 font-medium">Speed Bonus +540 PTS • 1.8s</span></div></div><div class="relative w-16 h-12 rounded-lg overflow-hidden border border-white/10 flex-shrink-0"><img alt="BMW X7 M60i" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxqMkB5o4Rk6kyQImKeFBd_zmf0Eea5EUHXVN6Ku1uK7eF9w5SaLEYYKSf1NIs2lA4LGEZ1SUMysqk7P9_CpF00asB8nVF3v16QNpM8iipYG6FznlTu40Wc9-sWX0VYDI0QLIaK3A8A4JpwzcW0x5vU9WMHPL04LHLYtk0IBtW7WrXXa3F_TPgJdsOnnwfSarLdoBD8wqQlO1_hHHuwI4X-rTHVwP3rcbufMt0EFsCLSr8dbRawRRMQH-5NgQWLbd27Q"><div class="absolute inset-0 bg-black/30 flex items-end p-0.5"><span class="text-[7px] font-bold text-white bg-black/80 px-1 rounded">BMW X7</span></div></div></div><div class="w-full bg-gradient-to-r from-primary/20 via-surface-container-high to-tertiary/20 border border-primary/50 rounded-xl p-2 flex items-center justify-between shadow-sm my-0.5"><div class="flex items-center gap-2 text-left"><span class="material-symbols-outlined text-primary text-lg">card_membership</span><div><span class="font-label-sm text-[10.5px] font-bold text-white block leading-tight">🏆 VIP BMW X7 Track Experience Pass Unlocked!</span><span class="text-[9px] text-tertiary font-medium">Thermal Club Qualifier Invitation Dispatched</span></div></div><span class="text-[9px] bg-tertiary text-black font-extrabold px-1.5 py-0.5 rounded shadow-sm">CLAIMED</span></div><div class="w-full flex flex-col gap-1.5 my-1"><div class="flex items-center justify-between px-1"><span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Live Follower Leaderboard</span><span class="text-[9px] bg-primary/10 text-primary font-bold px-1.5 py-0.2 rounded-full border border-primary/30">Host Benchmark: 1,850 PTS</span></div><div class="flex flex-col gap-1 max-h-[175px] overflow-y-auto no-scrollbar pr-0.5"><div class="p-1.5 px-2 rounded-lg bg-gradient-to-r from-tertiary/20 via-surface-container-high to-surface-container border-2 border-tertiary flex items-center justify-between shadow-md"><div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-tertiary text-black font-black text-[10px] flex items-center justify-center flex-shrink-0">1</span><div class="relative p-[1.5px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#962fbf]"><img alt="@autotalk_dan" class="w-7 h-7 rounded-full object-cover border border-black" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"></div><div class="text-left leading-tight"><div class="flex items-center gap-1"><span class="text-xs font-bold text-white">@autotalk_dan</span><span class="text-[8px] bg-primary text-black font-bold px-1 rounded">YOU 👑</span></div><span class="text-[9px] text-tertiary font-semibold">Story Active • 2,040 pts</span></div></div><div class="text-right leading-tight"><span class="font-headline-sm text-xs font-extrabold text-tertiary block">2,040</span><span class="text-[8px] text-tertiary font-bold">#1 CHAMPION</span></div></div><div class="p-1.5 px-2 rounded-lg bg-surface-container border border-surface-container-highest flex items-center justify-between opacity-90"><div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-surface-bright text-white font-extrabold text-[10px] flex items-center justify-center flex-shrink-0">2</span><img alt="@marcus_k" class="w-7 h-7 rounded-full object-cover border border-white/30" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA"><div class="text-left leading-tight"><div class="flex items-center gap-1"><span class="text-xs font-bold text-white">@marcus_k</span><span class="text-[8px] bg-surface-bright text-on-surface-variant font-bold px-1 rounded">🥈 2nd</span></div><span class="text-[9px] text-on-surface-variant font-medium">Previous Leader</span></div></div><div class="text-right leading-tight"><span class="font-headline-sm text-xs font-bold text-white block">1,960</span><span class="text-[8px] text-on-surface-variant font-medium">-80 vs #1</span></div></div><div class="p-1.5 px-2 rounded-lg bg-surface-container border border-surface-container-highest flex items-center justify-between opacity-80"><div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-surface text-on-surface-variant font-bold text-[10px] flex items-center justify-center flex-shrink-0">3</span><img alt="@sarah_drive" class="w-7 h-7 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE"><div class="text-left leading-tight"><div class="flex items-center gap-1"><span class="text-xs font-medium text-white block">@sarah_drive</span><span class="text-[8px] bg-surface-bright text-on-surface-variant font-bold px-1 rounded">🥉 3rd</span></div><span class="text-[9px] text-on-surface-variant font-medium">Prize Qualifier</span></div></div><div class="text-right leading-tight"><span class="font-headline-sm text-xs font-bold text-white block">1,920</span><span class="text-[8px] text-on-surface-variant font-medium">-120 vs #1</span></div></div><div class="p-1.5 px-2 rounded-lg bg-surface-container border border-surface-container-highest flex items-center justify-between opacity-75"><div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-primary/20 text-primary font-bold text-[10px] flex items-center justify-center flex-shrink-0">4</span><img alt="@mediamk" class="w-7 h-7 rounded-full object-cover border border-primary/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5lslg8pn7wSma2Ed6eNmaX6Qb-yi3PbrWeHpkZu0u5BKHaJvSouBoVkVTQ1xMx4VBbIM9rutrFSE69ACiHtio9xPyu0rwoXXb-JUBBlElxX4CtYjS5zuOUWjSH0xqa3JPWl-In4BbRfIIC0x_WoPuwQQgalnlD_auvE-p79T2Wdeltrg45r35NdZ5VnVQRMmsujSTFdozgk38U6_cUN2ARf96VhqJjQGTa2bA12rNK2m3bperRqUF_xUZSaYDoaq8-g"><div class="text-left leading-tight"><div class="flex items-center gap-1"><span class="text-xs font-medium text-white block">@mediamk</span><span class="text-[8px] bg-primary/20 text-primary font-bold px-1 rounded">HOST</span></div><span class="text-[9px] text-primary font-medium">Benchmark Standard</span></div></div><div class="text-right leading-tight"><span class="font-headline-sm text-xs font-bold text-primary block">1,850</span><span class="text-[8px] text-primary font-medium">Benchmark</span></div></div></div></div><div class="flex flex-col gap-1.5 pt-1"><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">check_circle</span> ✓ Story Published (Live)</button><button class="w-full py-2 px-3 rounded-xl bg-surface-container border border-surface-container-highest text-white font-label-md text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" onclick="setStage(2)"><span class="material-symbols-outlined text-sm text-primary">send</span><span class="">Send Challenge to Another Friend ➔</span></button></div></div>
-<!-- ================= STAGE 6: IN-GAME LEADERBOARD (THE 3 PERSONAS & RANKINGS) ================= -->
-<div class="stage-view absolute inset-0 pt-11 pb-3 px-3 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest opacity-0 pointer-events-none" id="stageView6">
-<!-- Leaderboard Header -->
-<div class="pt-1 flex flex-col gap-1.5 text-center">
-<div class="flex items-center justify-between border-b border-surface-container pb-2">
-<div class="flex items-center gap-1.5">
-<img class="h-4 bg-white px-1.5 py-0.5 rounded object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyjKIQ_7YCKJ7QCTmyaR5fZ_0KMFt_3RYA6hQpKCa7BxZiCAjbmHDLFW93hPv4anIz8qwumJWdhK9kRcD-6gbQHE7HVXejWau4kKl0PLEzmHzHMFzR4cz53c5oblWLHYyC0A-8dBxHY1IK7HsFMnlwZ9b7wikNp8AceHlGBjAK6gVt5GHZ3z9XPVobGJbez750nVFqAyE9aBi8L_Z5kiCgkRSjaEK7_cod-gESud7Va7rVKbt9uo0rv1BeJtswzM0M7Q">
-</div>
-<span class="font-headline-sm text-xs font-bold text-white">Reward and Give away - VIP Leaderboard</span>
-<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">Live Synced</span>
-</div>
-<!-- Benchmark Banner -->
-<div class="bg-surface-container-high border border-primary/40 rounded-xl p-2 flex items-center justify-between text-left">
+<!-- ====== VIEW 4: TRIVIA / GAMIFICATION (Interactive PlayformIQ Quiz HUD) ====== -->
+<div class="phone-view-stage absolute inset-0 pt-11 pb-3 px-3 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest opacity-0 pointer-events-none" id="phoneView4">
+<!-- HUD Top Bar -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between">
 <div class="flex items-center gap-2">
-<img class="w-7 h-7 rounded-full object-cover border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDsqGXYOPEK0T7MmI7IR-OvSn3zEAdOpFBCy0oyiHdbfU44IEyr2ArrFx7atRlo3EwbOKiPTBB5FInB8cYb1Eyv16Cc0ofxkWZOY2Agwd3aUmJBGX7ww9rrlN3AWPuuepW3AEQ58DH0oz6u4m8WOjf-7iZH77nf13sSb-2XL3bR_kXvL1_2yPx9Lgr9RcPjm_PSkbfiEtQuYizeXmNVBsIM3WJfy0JIvZnQKbaX_IEx5MuFiO3KeLScps5v2KwZEDGQ">
-<div>
-<span class="text-[9px] text-on-surface-variant uppercase tracking-wider block font-bold">Target to Beat</span>
-<span class="text-xs font-bold text-white">@mediamk Benchmark</span>
+<img alt="PlayformIQ" class="h-4 bg-white px-1.5 py-0.5 rounded object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBvNkAcyNcXiaAGL0zg895bhrEA4LUc6dFs7gMq7nhCuiv631sMnwXquyW7yKU6ktIYsZateTFmPhAh4Bfa9umA2qKLZZtCXH8sJeJ6e5o2ejfCM2LxnYDiEObm0LSkS_jroygMRx-UwprPTMQinyd6MlwFIcQowkQnrUHWMgpKMXROeXzv8NlDEtUdb-UPdvA7ROdmzFnvfpvGOrkLJtey-E4qfGYmWZG2u64aA6vuR5B5X-ZxYsw-lzH5Ir-axS_1Q">
+<span class="text-[10px] font-mono text-tertiary uppercase font-bold tracking-wider">X7 FLAGSHIP QUIZ</span>
+</div>
+<!-- Live Timer and Multiplier -->
+<div class="flex items-center gap-1.5">
+
+<div class="bg-tertiary/20 px-2 py-0.5 rounded-full flex items-center gap-1 border border-tertiary/50">
+<span class="material-symbols-outlined text-xs text-tertiary animate-pulse">timer</span>
+
 </div>
 </div>
-<div class="text-right">
-<span class="font-headline-sm text-xs font-extrabold text-primary">1,850 PTS</span>
-<span class="text-[9px] text-secondary block font-semibold">Prize Cutoff</span>
 </div>
-</div>
-</div>
-<!-- Leaderboard Ranking Rows (Personas) -->
-<div class="flex-1 overflow-y-auto my-2 flex flex-col gap-2 no-scrollbar pr-0.5">
-<!-- Rank 1: @sarah_drive (WINNER / BEAT BENCHMARK) -->
-<div class="p-2.5 rounded-xl bg-gradient-to-r from-tertiary/15 via-surface-container-high to-surface-container border-2 border-tertiary/60 flex items-center justify-between shadow-md relative overflow-hidden">
-<div class="flex items-center gap-2.5">
-<div class="w-6 h-6 rounded-full bg-tertiary text-black flex items-center justify-center font-bold text-xs flex-shrink-0">
-          1
-        </div>
+<!-- Host Benchmark vs Follower Score Tracker -->
+<div class="p-2 rounded-xl bg-surface-container-high border border-primary/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
 <div class="relative">
-<img class="w-9 h-9 rounded-full object-cover border-2 border-tertiary" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE">
-<span class="absolute -bottom-1 -right-1 text-xs">👑</span>
+<img alt="Dan" class="w-7 h-7 rounded-full object-cover border border-primary" id="hudUserAvatar" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-tertiary border border-black animate-pulse"></span>
 </div>
-<div class="flex flex-col text-left">
-<div class="flex items-center gap-1">
-<span class="font-headline-sm text-xs font-bold text-white">@sarah_drive</span>
-<span class="material-symbols-outlined text-tertiary text-[12px]">verified</span>
-</div>
-<span class="text-[9px] font-bold text-tertiary bg-tertiary/20 px-1.5 py-0.2 rounded w-fit uppercase">
-            🏆 PRIZE QUALIFIER
-          </span>
+<div class="flex flex-col text-left leading-none">
+<span class="text-xs font-bold text-white" id="hudUserName">Dan (@autotalk_dan)</span>
+<span class="text-[9px] text-tertiary font-mono mt-0.5">Target: &gt;1,850 pts</span>
 </div>
 </div>
-<div class="text-right">
-<span class="font-headline-sm text-sm font-extrabold text-tertiary block">1,920</span>
-<span class="text-[9px] text-secondary font-bold">+70 vs Host</span>
+<div class="text-right leading-none">
+<span class="font-headline-sm text-sm font-extrabold text-tertiary font-mono" id="hudScoreDisplay">1,590 PTS</span>
+<span class="text-[9px] text-on-surface-variant block mt-0.5">Q 2 of 2</span>
 </div>
 </div>
-<!-- Rank 2: @mediamk (HOST BENCHMARK) -->
-<div class="p-2.5 rounded-xl bg-surface-container-high border border-primary/40 flex items-center justify-between">
-<div class="flex items-center gap-2.5">
-<div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0">
-          2
-        </div>
-<img class="w-9 h-9 rounded-full object-cover border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5lslg8pn7wSma2Ed6eNmaX6Qb-yi3PbrWeHpkZu0u5BKHaJvSouBoVkVTQ1xMx4VBbIM9rutrFSE69ACiHtio9xPyu0rwoXXb-JUBBlElxX4CtYjS5zuOUWjSH0xqa3JPWl-In4BbRfIIC0x_WoPuwQQgalnlD_auvE-p79T2Wdeltrg45r35NdZ5VnVQRMmsujSTFdozgk38U6_cUN2ARf96VhqJjQGTa2bA12rNK2m3bperRqUF_xUZSaYDoaq8-g">
-<div class="flex flex-col text-left">
-<div class="flex items-center gap-1">
-<span class="font-headline-sm text-xs font-bold text-white">@mediamk</span>
-<span class="material-symbols-outlined text-[#0095f6] text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
-<span class="text-[9px] text-primary font-bold bg-primary/10 px-1 rounded">HOST</span>
-</div>
-<span class="text-[9px] text-on-surface-variant font-medium">Benchmark Standard</span>
+<!-- Question Progress Bar -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary w-3/4 rounded-full"></div>
 </div>
 </div>
-<div class="text-right">
-<span class="font-headline-sm text-sm font-extrabold text-primary block">1,850</span>
-<span class="text-[9px] text-on-surface-variant">Benchmark</span>
+<!-- Question Media & Content -->
+<div class="flex-1 flex flex-col justify-center gap-2.5 my-1">
+<div class="relative w-full h-32 rounded-xl overflow-hidden border border-white/10">
+<img alt="BMW X7 TwinPower Turbo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuBBgtdjAqzZH07lIJAs6kIfEPwfLlOe3x1TjP6NgWIh0X0CbSfU03XJ_NYp1PCqGmQCBRj5D1Xq9FCGypdajaSfAL5H64gcXN1rpMyDqi35Xjb0UpCudtVikb84lujwRR7PY8AWvT15_1DlTk1OSqmn1ftDmT25thCy7oZFnOsEnUZPZ_j1TRPD7Q6d08KHyAcshIIkiPWC9SeiKcmsx3b6_oBGTMLBLzm-IBdUmsJbjYhFC_OnhQS7VI7ZwK3g0wWg">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+<div class="absolute bottom-2 left-2.5 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded text-[9.5px] font-mono text-white border border-white/20">
+                    CATEGORY: M-PERFORMANCE POWERTRAIN
+                  </div>
 </div>
+<div class="px-1 text-left">
+<span class="text-[10px] text-primary font-bold tracking-wider uppercase">Question 02: Flagship Dynamics</span>
+<h3 class="font-headline-sm text-xs font-bold text-white leading-snug mt-0.5">
+                    What powertrain powers the BMW X7 M60i, achieving 0-60 mph in just 4.5 seconds?
+                  </h3>
 </div>
-<!-- Rank 3: @marcus_k -->
-<div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-center justify-between">
-<div class="flex items-center gap-2.5">
-<div class="w-6 h-6 rounded-full bg-surface text-on-surface-variant flex items-center justify-center font-bold text-xs flex-shrink-0">
-          3
-        </div>
-<img class="w-9 h-9 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA">
-<div class="flex flex-col text-left">
-<span class="font-headline-sm text-xs font-bold text-white">Reward and Give away - VIP Leaderboard</span>
-<span class="text-[9px] text-on-surface-variant font-medium">Finished 20/20 Qs</span>
-</div>
-</div>
-<div class="text-right">
-<span class="font-headline-sm text-sm font-bold text-white block">1,810</span>
-<span class="text-[9px] text-error font-medium">-40 vs Host</span>
-</div>
-</div>
-<!-- Rank 4: @autotalk_dan -->
-<div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-center justify-between">
-<div class="flex items-center gap-2.5">
-<div class="w-6 h-6 rounded-full bg-surface text-on-surface-variant flex items-center justify-center font-bold text-xs flex-shrink-0">
-          4
-        </div>
-<img class="w-9 h-9 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
-<div class="flex flex-col text-left">
-<span class="font-headline-sm text-xs font-bold text-white">Reward and Give away - VIP Leaderboard</span>
-<span class="text-[9px] text-on-surface-variant font-medium">Finished 19/20 Qs</span>
-</div>
-</div>
-<div class="text-right">
-<span class="font-headline-sm text-sm font-bold text-white block">1,740</span>
-<span class="text-[9px] text-error font-medium">-110 vs Host</span>
-</div>
-</div>
-</div>
-<!-- Bottom CTA in Leaderboard -->
-<div class="pt-2 flex flex-col gap-1.5">
-<div class="p-2 rounded-xl bg-tertiary/10 border border-tertiary/30 text-center">
-<p class="text-[10px] text-tertiary font-bold">18.4% of participants beat 1,850 pts and qualified!</p>
-</div>
-<button class="w-full py-2.5 rounded-xl bg-primary text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:bg-surface-tint active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="setStage(1)">
-<span class="material-symbols-outlined text-sm">restart_alt</span>
-<span class="">Restart Simulator Experience</span>
+<!-- Answer Choices -->
+<div class="flex flex-col gap-1.5" id="quizAnswersArea">
+<button class="quiz-btn w-full p-2.5 rounded-xl bg-surface-container border border-surface-container-highest hover:border-primary/50 text-left flex items-center justify-between transition-all group" onclick="selectQuizAnswer(this, true)">
+<span class="text-xs text-white font-medium">A. 4.4-liter BMW M TwinPower Turbo V8 + 48V Mild Hybrid</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant group-hover:text-primary">radio_button_unchecked</span>
+</button>
+<button class="quiz-btn w-full p-2 rounded-xl bg-surface-container border border-surface-container-highest hover:border-primary/50 text-left flex items-center justify-between transition-all group" onclick="selectQuizAnswer(this, false)">
+<span class="text-xs text-white font-medium">B. Single Turbo Inline-3 Cylinder Engine</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">radio_button_unchecked</span>
+</button>
+<button class="quiz-btn w-full p-2 rounded-xl bg-surface-container border border-surface-container-highest hover:border-primary/50 text-left flex items-center justify-between transition-all group" onclick="selectQuizAnswer(this, false)">
+<span class="text-xs text-white font-medium">C. Naturally Aspirated 2.0L Diesel Unit</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">radio_button_unchecked</span>
 </button>
 </div>
 </div>
-<div class="absolute inset-0 z-40 bg-black flex flex-col justify-between overflow-hidden transition-all duration-300" id="igStoryShareModal" style="display: none; pointer-events: none;" data-stitch-orig-opacity="0"><div class="absolute inset-0 bg-cover bg-center filter brightness-[0.6] transform scale-105" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCtvQSgsDhoGr1LdFgfemjcdxUucvg6LcCILPD5MpPea2FF1d8ObNep5Uh541U0j1rvX-lZILb3LBt1j0Ox9jeeToNx-7Wd6qVIjwos1MoVQEhMFZv1j2A_mn2B4gHS1jf4DiJ-8Vqh-zHAg3G4dXuY_CF_FO2CIQDxVI5ppOpVxA40NlDsnPxV_460_3XGqtEOLcZ06RHTD6YOlnroctlsvTYaJVFGZzFuiEdd5xKx6vbQCY87AIJs8OZw7h4_gbijRg&quot;);"></div><div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/85 pointer-events-none"></div><!-- Story Header Bar --><div class="relative z-30 pt-11 px-4 flex items-center justify-between text-white"><div class="flex items-center gap-2"><div class="relative w-8 h-8 rounded-full border-2 border-primary overflow-hidden p-[1px]"><img alt="Dan" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"></div><div class="flex flex-col text-left leading-tight"><span class="font-label-md text-xs font-bold text-white flex items-center gap-1">autotalk_dan <span class="material-symbols-outlined text-[12px] text-tertiary">verified</span></span><span class="text-[9px] text-white/80 font-medium">1m • Your Story</span></div></div><div class="flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10"><span class="font-label-md text-xs font-extrabold hover:opacity-80 cursor-pointer">Aa</span><span class="material-symbols-outlined text-base text-primary">sticky_note_2</span><span class="material-symbols-outlined text-base hover:opacity-80 cursor-pointer">draw</span><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">auto_stories</span> Dan Story Share Active (2,040 pts) 👑</button></div></div><!-- Main Interactive Story Canvas Stickers --><div class="relative z-30 flex-1 flex flex-col items-center justify-center px-4"><div class="w-full max-w-[290px] bg-black/85 backdrop-blur-xl border-2 border-primary/60 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col items-center text-center gap-2.5 relative select-none transform transition-transform hover:scale-[1.02]"><div class="absolute -top-3.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1"><span class="material-symbols-outlined text-[13px] font-black">emoji_events</span> I BEAT EVERYONE! 👑 2,040 PTS</div><div class="flex items-center justify-between w-full pt-1 px-1 border-b border-white/10 pb-2"><div class="flex items-center gap-1.5"><img alt="PlayformIQ Logo" class="h-4 bg-white px-1.5 py-0.5 rounded object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XtWHI7Egq25x1i0IoB4BF_w7ap-GRm_1dta9Xx2nSwWavpkVICG8-7-VVmKbefbXyqLRIZeoNXoMy0AUeGIaqlWTP94Xu0IlaNc0G1EYTUv5AWGm1_EO9Rzs5bfJ3Rjcr-4yKMuXuKSpuKBNfikQdIvzuncXOlR2W0e5G1Lgb90CZFTqIwDH-4YAnni8LSMG5woNddFgszWsdTy7v69jXwhpJI5G1HKP5ee9jXFEfedvWdHM3aK2oCEQ"><span class="text-[9px] font-bold text-on-surface-variant font-mono uppercase">BMW X7 VIP TRIVIA</span></div><span class="bg-tertiary/20 text-tertiary border border-tertiary/40 text-[8px] font-extrabold px-1.5 py-0.5 rounded">100% ACCURACY</span></div><div class="relative my-0.5"><div class="w-14 h-14 rounded-full border-2 border-primary p-0.5 relative mx-auto shadow-lg"><img alt="Dan" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"><span class="absolute -bottom-1 -right-1 text-sm bg-tertiary text-black rounded-full px-1 shadow font-bold leading-none py-0.5">👑</span></div></div><div class="leading-tight"><p class="text-xs font-bold text-white">@autotalk_dan took #1 Overall Champion!</p><h3 class="text-3xl font-extrabold text-tertiary font-headline-xl tracking-tight leading-none my-1">2,040 PTS</h3><p class="text-[10px] text-on-surface-variant font-medium leading-snug">#1 on the Leaderboard ahead of <span class="text-white font-bold">@marcus_k</span> (1,960 pts) &amp; <span class="text-primary font-bold">@mediamk</span> (1,850 pts)</p></div><div class="w-full bg-primary/10 border border-primary/30 rounded-xl p-2 flex items-center gap-2 text-left"><span class="material-symbols-outlined text-primary text-base flex-shrink-0">card_membership</span><div class="leading-none"><span class="text-[10px] font-bold text-white block">🏆 VIP BMW X7 Track Pass Winner</span><span class="text-[8.5px] text-tertiary font-semibold">Thermal Club Qualifier Invitation Claimed</span></div></div><!-- Official Instagram Story Link Sticker --><div class="w-full bg-gradient-to-r from-primary/20 via-white/10 to-primary/20 hover:brightness-110 border-2 border-primary/50 rounded-xl py-2 px-3 flex items-center justify-between text-left transition-all cursor-pointer shadow-md active:scale-95" onclick="document.getElementById('igStoryShareModal').style.display='none'; setStage(2);"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">link</span><div class="leading-tight"><span class="text-[11px] font-bold text-white block font-mono">playform.iq/bmw-x7</span><span class="text-[9px] text-tertiary font-bold">TAP TO BEAT MY SCORE ➔</span></div></div><span class="material-symbols-outlined text-sm text-primary">arrow_forward</span></div></div><div class="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 border border-white/10 backdrop-blur-md text-[10px] text-white/90"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Story Interactive Challenge Sticker Attached</div></div><!-- Bottom Story Sharing Controls & Actions --><div class="relative z-30 pb-4 px-3 flex flex-col gap-2"><div class="flex items-center justify-between text-white gap-2"><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">auto_stories</span> Dan Story Share Active (2,040 pts) 👑</button><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">auto_stories</span> Dan Story Share Active (2,040 pts) 👑</button><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">auto_stories</span> Dan Story Share Active (2,040 pts) 👑</button></div><button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all ring-2 ring-tertiary/50" onclick="setStage(5); document.getElementById('igStoryShareModal').style.display='flex'; document.getElementById('igStoryShareModal').style.opacity='1';"><span class="material-symbols-outlined text-base font-black">auto_stories</span> Dan Story Share Active (2,040 pts) 👑</button></div></div></div>
-<!-- iOS Home Indicator -->
+<!-- HUD Bottom Controls -->
+<div class="pt-1 flex flex-col gap-1.5">
+<div class="hidden p-2 rounded-xl bg-tertiary/20 border border-tertiary/60 flex items-center justify-between" id="quizFeedbackBox">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span class="text-[11px] text-white font-bold">CORRECT! +450 PTS (Combo x2.5)</span>
+</div>
+<span class="text-[10px] text-tertiary font-bold font-mono">Total: 2,040 PTS</span>
+</div>
+<button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-primary via-primary-container to-surface-tint text-black font-headline-sm text-xs font-bold text-center tracking-tight shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="switchMasterSection(5)">
+                  View Final Scorecard &amp; Leaderboard ➔
+                </button>
+</div>
+</div>
+<!-- ====== VIEW 5: FEEDBACK & REWARDS (Scorecards, Story & Leaderboard) ====== -->
+<div class="phone-view-stage absolute inset-0 pt-11 pb-3 px-3 flex flex-col justify-between transition-opacity duration-300 z-20 bg-surface-container-lowest overflow-y-auto no-scrollbar opacity-0 pointer-events-none" id="phoneView5">
+<!-- Live Story Published Banner -->
+<div class="pt-1 flex flex-col items-center text-center gap-1">
+<div class="w-full bg-gradient-to-r from-tertiary/20 via-tertiary/10 to-transparent border border-tertiary/60 rounded-xl px-2.5 py-1.5 flex items-center justify-between shadow-md mb-1 text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-base font-bold">check_circle</span>
+<span class="text-[10px] text-white font-semibold leading-tight">✓ Story published! Follower challenge link active.</span>
+</div>
+<span class="text-[9px] bg-tertiary text-black font-extrabold px-1.5 py-0.5 rounded">LIVE</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 via-tertiary/20 to-primary/20 text-primary border border-primary/50 shadow-md">
+<span class="material-symbols-outlined text-sm font-extrabold text-tertiary">emoji_events</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider font-extrabold text-primary">RANK #1 OVERALL 👑</span>
+<span class="material-symbols-outlined text-xs text-[#0095f6]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<h2 class="font-headline-lg text-2xl font-extrabold text-white tracking-tight" id="rewardPointsDisplay">2,040 PTS</h2>
+<span class="bg-tertiary text-black font-extrabold text-[10px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-black">crown</span> NEW CHAMPION
+                  </span>
+</div>
+<p class="font-body-sm text-[11px] text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">trending_up</span> +190 PTS ahead of Host @mediamk (1,850 pts)
+                </p>
+</div>
+<!-- Persona Winner Showcase Card -->
+<div class="my-1 w-full bg-gradient-to-r from-tertiary/15 via-surface-container-high to-primary/15 border-2 border-tertiary/70 rounded-xl p-2.5 flex items-center justify-between shadow-xl">
+<div class="flex items-center gap-2.5">
+<div class="relative p-[2px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#962fbf]">
+<img alt="@autotalk_dan" class="w-10 h-10 rounded-full object-cover border-2 border-black" id="scorecardAvatarImg" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
+<span class="absolute -bottom-1 -right-1 text-[10px] bg-tertiary text-black px-1 rounded-full font-black shadow">👑</span>
+</div>
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-xs font-bold text-white leading-tight" id="scorecardUsername">@autotalk_dan</span>
+<span class="text-[8px] bg-primary text-black font-extrabold px-1 rounded">YOU</span>
+</div>
+<span class="font-label-sm text-[10px] text-tertiary font-extrabold">Story Active • 2,040 pts 👑</span>
+<span class="text-[9px] text-white/80 font-medium">Speed Bonus +540 PTS • 1.8s</span>
+</div>
+</div>
+<div class="relative w-14 h-11 rounded-lg overflow-hidden border border-white/10 flex-shrink-0">
+<img alt="BMW X7" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuLc-UlaePQbajBjmoPw8qOIvuoZGMnQNys81azUOKmvY7LG54zT3eFzboIhsEd5DeZzM9wVmQknIVL7fXmaUYbdRFTLjwksD2MReKAC3VrEu0NoqCzkBXI4biBXgVoty1qMkMYk0RX7foT3x2RhdhV6qkYJiAKYNQy1P40tKEbWWbwxpU8lTMEXchPdxOrdC-SvAGfTLxxikz2s_WQH56lQsWBDbF8NUqIEX7r8b37q5AJXtXQbnVuKT-AQK8B17Knw">
+<div class="absolute inset-0 bg-black/30 flex items-end p-0.5">
+<span class="text-[6.5px] font-bold text-white bg-black/80 px-0.5 rounded">BMW X7</span>
+</div>
+</div>
+</div>
+<!-- VIP Track Pass Unlocked -->
+<div class="w-full bg-gradient-to-r from-primary/20 via-surface-container-high to-tertiary/20 border border-primary/50 rounded-xl p-2 flex items-center justify-between shadow-sm my-0.5">
+<div class="flex items-center gap-2 text-left">
+<span class="material-symbols-outlined text-primary text-lg">card_membership</span>
+<div>
+<span class="font-label-sm text-[10.5px] font-bold text-white block leading-tight">🏆 VIP BMW X7 Track Experience Pass Unlocked!</span>
+<span class="text-[9px] text-tertiary font-medium">Thermal Club Qualifier Invitation Dispatched</span>
+</div>
+</div>
+<span class="text-[8.5px] bg-tertiary text-black font-extrabold px-1.5 py-0.5 rounded shadow-sm">CLAIMED</span>
+</div>
+<!-- Live Follower Leaderboard Rankings -->
+<div class="w-full flex flex-col gap-1 my-1">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Community Leaderboard</span>
+<span class="text-[9px] text-primary font-bold">Host Benchmark: 1,850 PTS</span>
+</div>
+<div class="flex flex-col gap-1 max-h-[145px] overflow-y-auto no-scrollbar pr-0.5">
+<!-- Rank 1: Dan -->
+<div class="p-1.5 px-2 rounded-lg bg-gradient-to-r from-tertiary/20 via-surface-container-high to-surface-container border-2 border-tertiary flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-tertiary text-black font-black text-[10px] flex items-center justify-center flex-shrink-0">1</span>
+<img alt="@autotalk_dan" class="w-6 h-6 rounded-full object-cover border border-black" src="https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ">
+<div class="text-left leading-none">
+<span class="text-xs font-bold text-white">@autotalk_dan 👑</span>
+<span class="text-[8.5px] text-tertiary font-semibold block mt-0.5">Rank #1 Champion</span>
+</div>
+</div>
+<span class="font-mono text-xs font-extrabold text-tertiary">2,040</span>
+</div>
+<!-- Rank 2: Marcus -->
+<div class="p-1.5 px-2 rounded-lg bg-surface-container border border-surface-container-highest flex items-center justify-between opacity-90">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface-bright text-white font-extrabold text-[10px] flex items-center justify-center flex-shrink-0">2</span>
+<img alt="@marcus_k" class="w-6 h-6 rounded-full object-cover border border-white/30" src="https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA">
+<div class="text-left leading-none">
+<span class="text-xs font-medium text-white">@marcus_k</span>
+<span class="text-[8.5px] text-on-surface-variant block mt-0.5">Runner Up</span>
+</div>
+</div>
+<span class="font-mono text-xs font-bold text-white">1,960</span>
+</div>
+<!-- Rank 3: Sarah -->
+<div class="p-1.5 px-2 rounded-lg bg-surface-container border border-surface-container-highest flex items-center justify-between opacity-80">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface text-on-surface-variant font-bold text-[10px] flex items-center justify-center flex-shrink-0">3</span>
+<img alt="@sarah_drive" class="w-6 h-6 rounded-full object-cover border border-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE">
+<div class="text-left leading-none">
+<span class="text-xs font-medium text-white">@sarah_drive</span>
+<span class="text-[8.5px] text-on-surface-variant block mt-0.5">Prize Qualifier</span>
+</div>
+</div>
+<span class="font-mono text-xs font-bold text-white">1,920</span>
+</div>
+<!-- Rank 4: @mediamk (Host Benchmark) -->
+<div class="p-1.5 px-2 rounded-lg bg-surface-container border border-primary/30 flex items-center justify-between opacity-75">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary/20 text-primary font-bold text-[10px] flex items-center justify-center flex-shrink-0">4</span>
+<img alt="@mediamk" class="w-6 h-6 rounded-full object-cover border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_w9y38RIzvjJCYTrISA9U5WWQuPq2ByFynl7u6eMJcJ8mC8DiauOMNXV_VGOI_fh2d9GQ44PwDKLwuxoCI-EApqIwW0Y4ZKcFVBqpJdbEen3bS0ysk_ms-rm5T9ezSPWJV5Q2B6csTvqD8RBWApJd5qsHXe_X0a1YYs06hDwZoG6xVNnIG_9uiG4LwI1rfIMZ2NFj7mw8tpby5IN4wCuHDPk3O5ZpcoUihtQ0tEvQRaHFf0Za64H9YtEKOlaOZdQL0w">
+<div class="text-left leading-none">
+<span class="text-xs font-medium text-primary">@mediamk (Host)</span>
+<span class="text-[8.5px] text-primary/80 block mt-0.5">Benchmark Cutoff</span>
+</div>
+</div>
+<span class="font-mono text-xs font-bold text-primary">1,850</span>
+</div>
+</div>
+</div>
+<!-- Share to Story Action Button -->
+<div class="flex flex-col gap-1.5 pt-1">
+<button class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-tertiary via-tertiary-container to-tertiary text-black font-headline-sm text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg hover:brightness-110 active:scale-95 transition-all" onclick="triggerStoryModal()">
+<span class="material-symbols-outlined text-base">auto_stories</span>
+                  Share Scorecard to Instagram Story ➔
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom iOS Home Indicator -->
 <div class="absolute bottom-1 inset-x-0 h-4 flex items-center justify-center z-50 pointer-events-none">
 <div class="w-32 h-1 bg-white/40 rounded-full"></div>
 </div>
@@ -382,180 +641,266 @@
 </div>
 </div>
 </div>
-<!-- Right Column: Campaign Telemetry & Strategy Specs -->
-<div class="lg:col-span-3 flex flex-col gap-4 order-3"><div class="bg-surface-container-low border border-surface-container-highest p-5 rounded-2xl shadow-xl flex flex-col gap-4"><div class="flex items-center justify-between border-b border-surface-container pb-3"><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-base">hub</span><span class="font-label-sm text-primary uppercase tracking-wider font-bold text-[11px]">Distribution Architecture</span></div><h3 class="font-headline-sm text-sm font-extrabold text-white mt-1">CAMPAIGN DISTRIBUTION MECHANICS</h3><p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">How we distribute the Trivia Campaign across Instagram:</p></div></div><div class="flex flex-col gap-2.5"><div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 hover:border-primary/40 transition-all"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-primary flex-shrink-0 mt-0.5">1</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Link In Bio</span><span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-label-sm text-[8.5px] font-bold uppercase">Evergreen</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Permanent campaign destination link on <span class="text-white font-medium">@mediamk</span> and <span class="text-white font-medium">@BMWkenya</span> profile bios directing directly into PlayformIQ.</p></div></div><div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 hover:border-secondary/40 transition-all"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-secondary flex-shrink-0 mt-0.5">2</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Hyperlink in Stories</span><span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-label-sm text-[8.5px] font-bold uppercase">Sticker</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Interactive sticker links embedded in influencer &amp; brand 24h stories driving seamless 1-tap participation.</p></div></div><div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 hover:border-tertiary/40 transition-all"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-tertiary flex-shrink-0 mt-0.5">3</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Comment to DM</span><span class="px-1.5 py-0.2 rounded bg-tertiary/20 text-tertiary font-label-sm text-[8.5px] font-bold uppercase">Keyword Loop</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Trigger word automated loop: commenting <span class="text-white font-medium">"Play X7 Challenge"</span> instantly triggers an automated inbound DM from @BMWkenya.</p></div></div><div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 hover:border-primary/40 transition-all"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-primary flex-shrink-0 mt-0.5">4</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">DM to Brand Page</span><span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-label-sm text-[8.5px] font-bold uppercase">Direct Inbound</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Direct inbound DM conversation to <span class="text-white font-medium">@BMWkenya</span> with <span class="text-white font-medium">"I accept the X7 challenge"</span>, initiating immediate automated bot verification &amp; game link dispatch.</p></div></div></div><div class="pt-2 border-t border-surface-container flex flex-col gap-2"><div class="p-2.5 rounded-xl bg-gradient-to-r from-tertiary/10 via-primary/10 to-surface-container border border-tertiary/30 flex items-center justify-center text-center"><span class="font-label-sm text-[10.5px] text-tertiary font-bold tracking-wide uppercase flex items-center gap-1.5"><span class="material-symbols-outlined text-sm font-bold text-tertiary">bolt</span> Multi-Channel Follower Activation • Zero Human Bottleneck</span></div></div></div><div class="bg-surface-container-low border border-surface-container-highest p-4 rounded-2xl shadow-xl flex flex-col gap-2"><div class="flex items-center justify-between"><span class="font-label-sm text-white font-bold uppercase tracking-wider text-[11px] flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-sm">verified_user</span> Official Brand Integration</span><span class="text-[9px] bg-primary/20 text-primary font-bold px-1.5 py-0.5 rounded">BMWkenya</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">Scoring over <span class="text-primary font-bold">1,850 pts</span> automatically qualifies followers for the exclusive VIP BMW Drive Experience drawing at Thermal Club.</p></div></div>
+<!-- ================= C. RIGHT COLUMN (Dynamic Notes Panel - 5 Dedicated Overlays) ================= -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-low border border-surface-container-highest p-5 rounded-2xl shadow-xl flex flex-col gap-4 relative min-h-[580px]">
+<!-- ====== OVERLAY 1: X7 CAMPAIGN LAUNCH NOTES ====== -->
+<div class="notes-panel-stage flex-col gap-3.5 transition-opacity duration-300 hidden opacity-0" id="notesOverlay1">
+<div class="flex items-center justify-between border-b border-surface-container pb-3">
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">campaign</span>
+<span class="font-label-sm text-primary uppercase tracking-wider font-bold text-[11px]">Stage 01 • Campaign Launch</span>
+</div>
+<h3 class="font-headline-sm text-base font-extrabold text-white mt-1">Campaign Launch &amp; Distribution Mechanics</h3>
+<p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">High-intent multi-touchpoint acquisition directly into PlayformIQ.</p>
+</div>
+</div>
+<!-- CLICKABLE DEMO LINK -->
+<a class="p-3 rounded-xl bg-gradient-to-r from-primary/20 via-surface-container to-tertiary/10 border-2 border-primary/50 flex items-center justify-between hover:brightness-110 active:scale-98 transition-all group shadow-md" href="javascript:void(0)" onclick="switchMasterSection(4)">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary text-black flex items-center justify-center flex-shrink-0 font-bold shadow">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+</div>
+<div class="flex flex-col text-left leading-tight">
+<span class="text-xs font-bold text-white group-hover:text-primary transition-colors">Launch Campaign Link</span>
+<span class="text-[10.5px] font-mono text-tertiary">playformiq.com/bmw-x7-challenge</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-primary group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+<!-- 3 Possible Distribution Possibilities clearly broken down -->
+<div class="flex flex-col gap-2 pt-1"><span class="font-label-sm text-[11px] text-white uppercase font-bold tracking-wider">4 Core Distribution Possibilities:</span><div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-primary flex-shrink-0 mt-0.5">1</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Link In Bio (Evergreen Anchor)</span><span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-mono text-[8.5px] font-bold">EVERGREEN</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Pinned to Influencers profiles</p></div></div><div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-secondary flex-shrink-0 mt-0.5">2</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Hyperlink in Stories (1-Tap Link Sticker)</span><span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-mono text-[8.5px] font-bold">1-TAP LINK</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">High-conversion native link sticker embedded in influencer &amp; brand 24h stories, driving instant mobile web participation in 1 tap.</p></div></div><div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-tertiary flex-shrink-0 mt-0.5">3</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">Comment-to-DM (Keyword Trigger Engine)</span><span class="px-1.5 py-0.2 rounded bg-tertiary/20 text-tertiary font-mono text-[8.5px] font-bold">KEYWORD LOOP</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Trigger phrase automated webhook: followers commenting <strong class="text-white">"Play X7 Challenge"</strong> instantly receive tokenized link dispatch directly into their Instagram DM.</p></div></div><div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-surface-bright flex items-center justify-center font-bold text-xs text-primary flex-shrink-0 mt-0.5">4</div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-xs font-bold text-white">DM to Brand Page (Direct Inbound)</span><span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-mono text-[8.5px] font-bold">DIRECT INBOUND</span></div><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">Direct inbound messages to <strong class="text-white">@BMWkenya</strong> automatically initialize the PlayformIQ qualification session with instant token issuance.</p></div></div></div>
+<!-- Strategy Summary -->
+<div class="p-3 rounded-xl bg-primary/10 border border-primary/30 flex items-center gap-2 text-left">
+<span class="material-symbols-outlined text-primary text-lg flex-shrink-0">bolt</span>
+<p class="text-[11px] text-white/90 leading-tight">
+<strong>Strategic Objective:</strong> Zero app installs required. Followers move from feed exposure into verified gameplay in less than 3 seconds.
+          </p>
+</div>
+</div>
+<!-- ====== OVERLAY 2: ENGAGEMENT LAYER NOTES ====== -->
+<div class="notes-panel-stage flex-col gap-3.5 transition-opacity duration-300 flex opacity-100" id="notesOverlay2">
+<div class="flex items-center justify-between border-b border-surface-container pb-3">
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base">forum</span>
+<span class="font-label-sm text-secondary uppercase tracking-wider font-bold text-[11px]">Stage 02 • Community</span>
+</div>
+<h3 class="font-headline-sm text-base font-extrabold text-white mt-1">Engagement &amp; Community Challenger Loop</h3>
+<p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">Transforming passive audience comments into an active competitive arena.</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col gap-2 text-left">
+<span class="font-label-sm text-xs font-bold text-white">The Follower Persona Dynamic:</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">
+            By highlighting distinct follower personas—<strong class="text-white">Sarah</strong> (1,920 pt), <strong class="text-white">Marcus</strong> (1,960 pt), and <strong class="text-white">Dan</strong> (2,040 pt)—audiences see real-time peer benchmarks rather than untouchable brand advertising.
+          </p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-2.5 rounded-xl bg-surface-container border border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">key</span>
+<span class="text-xs text-white font-medium">Trigger Keyword: "Play X7 Challenge"</span>
+</div>
+<span class="text-[9px] bg-tertiary/20 text-tertiary px-1.5 py-0.5 rounded font-mono font-bold">100% Match</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container border border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">flash_on</span>
+<span class="text-xs text-white font-medium">Zero-Dropoff Handshake</span>
+</div>
+<span class="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-mono font-bold">Automated</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-r from-secondary/15 via-surface-container to-secondary/10 border border-secondary/40 text-left">
+<span class="font-headline-sm text-xs font-bold text-white block">Algorithmic Boost for the Main Post</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-1">
+            Hundreds of comments containing the trigger phrase signal high velocity to Instagram's recommendation feed, dramatically expanding organic reach beyond existing followers.
+          </p>
+</div>
+</div>
+<!-- ====== OVERLAY 3: AUTOMATION DISPATCH NOTES ====== -->
+<div class="notes-panel-stage flex-col gap-3.5 transition-opacity duration-300 hidden opacity-0" id="notesOverlay3">
+<div class="flex items-center justify-between border-b border-surface-container pb-3">
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">cell_tower</span>
+<span class="font-label-sm text-primary uppercase tracking-wider font-bold text-[11px]">Stage 03 • Automation</span>
+</div>
+<h3 class="font-headline-sm text-base font-extrabold text-white mt-1">Zero-Lag DM Automation Architecture</h3>
+<p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">High-speed webhooks dispatch personalized links in sub-0.4s.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 text-left">
+<div class="p-3 rounded-xl bg-surface-container border border-white/10 flex flex-col gap-1">
+<span class="text-[10px] text-on-surface-variant uppercase font-mono">Response Latency</span>
+<span class="font-headline-sm text-lg font-bold text-tertiary">0.38s</span>
+<span class="text-[9.5px] text-on-surface-variant">Instant Webhook Dispatch</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container border border-white/10 flex flex-col gap-1">
+<span class="text-[10px] text-on-surface-variant uppercase font-mono">DM Open Rate</span>
+<span class="font-headline-sm text-lg font-bold text-primary">94.2%</span>
+<span class="text-[9.5px] text-on-surface-variant">Native Direct Message</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col gap-1.5 text-left">
+<span class="font-label-sm text-xs font-bold text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">token</span>
+            Tokenized Single-Player Authentication
+          </span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">Every link embeds a unique token directly mapped to both the referring influencer and follower handle. This provides end-to-end attribution analytics to pinpoint which creators drive peak conversion velocity, measure precise campaign ROI, and verify participant eligibility for the grand prize draw.</p>
+</div>
+<div class="p-3 rounded-xl bg-tertiary/10 border border-tertiary/30 text-left">
+<span class="text-[11px] text-tertiary font-bold block">Zero Human Bottleneck</span>
+<p class="text-[10.5px] text-on-surface-variant leading-snug mt-0.5">
+            The entire qualification funnel handles tens of thousands of concurrent users simultaneously without manual intervention from BMW brand managers.
+          </p>
+</div>
+</div>
+<!-- ====== OVERLAY 4: TRIVIA / GAMIFICATION NOTES ====== -->
+<div class="notes-panel-stage flex-col gap-3.5 transition-opacity duration-300 hidden opacity-0" id="notesOverlay4">
+<div class="flex items-center justify-between border-b border-surface-container pb-3">
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-base">sports_esports</span>
+<span class="font-label-sm text-tertiary uppercase tracking-wider font-bold text-[11px]">Stage 04 • Gamification</span>
+</div>
+<h3 class="font-headline-sm text-base font-extrabold text-white mt-1">PlayformIQ Gamified Brand Immersion</h3>
+<p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">Turning vehicle specification education into high-stakes gaming.</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 text-left">
+<span class="material-symbols-outlined text-primary text-lg flex-shrink-0 mt-0.5">speed</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold text-white">Dynamic Speed &amp; Accuracy Scoring</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">
+                Questions calculate points using speed decaying timers. Fast, accurate responses earn combo multipliers (up to 2.5x), separating casual fans from true enthusiasts.
+              </p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-2.5 text-left">
+<span class="material-symbols-outlined text-secondary text-lg flex-shrink-0 mt-0.5">directions_car</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-xs font-bold text-white">High-Impact Product Immersion</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-snug mt-0.5">
+                Highlights flagship features: BMW M60i V8 powertrain, curved display cockpit, Sky Lounge panoramic sunroof, and illuminated kidney grille.
+              </p>
 </div>
 </div>
 </div>
+<div class="p-3 rounded-xl bg-surface-container border border-primary/40 flex items-center justify-between">
+<div class="flex flex-col text-left">
+<span class="text-[10px] text-on-surface-variant uppercase font-mono">Target Host Score</span>
+<span class="text-xs font-bold text-primary">1,850 pts (@mediamk)</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-tertiary text-black font-extrabold text-xs shadow-sm hover:brightness-110 active:scale-95 transition-all" onclick="selectQuizAnswer(null, true)">
+            Simulate Correct Answer ➔
+          </button>
+</div>
+</div>
+<!-- ====== OVERLAY 5: FEEDBACK & REWARDS NOTES ====== -->
+<div class="notes-panel-stage flex-col gap-3.5 transition-opacity duration-300 hidden opacity-0" id="notesOverlay5">
+<div class="flex items-center justify-between border-b border-surface-container pb-3">
+<div class="flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">social_leaderboard</span>
+<span class="font-label-sm text-primary uppercase tracking-wider font-bold text-[11px]">Stage 05 • Viral Engine</span>
+</div>
+<h3 class="font-headline-sm text-base font-extrabold text-white mt-1">Viral Distribution Loop &amp; Reward Fulfillment</h3>
+<p class="font-body-sm text-[11.5px] text-on-surface-variant leading-tight mt-0.5">Closing the loop by driving secondary viral participant waves.</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col gap-1.5 text-left">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">auto_stories</span>
+<span class="font-label-sm text-xs font-bold text-white">1-Tap Instagram Story Sticker</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-snug">
+            Participants who beat the host receive an auto-generated Story graphic showing their score, leaderboard rank, and an interactive "Beat My Score" challenge link sticker.
+          </p>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-r from-primary/15 via-surface-container to-tertiary/15 border border-primary/40 flex flex-col gap-1.5 text-left">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-xs font-bold text-white">Thermal Club Qualifier Draw</span>
+<span class="text-[9px] bg-tertiary text-black font-extrabold px-1.5 py-0.2 rounded font-mono">18.4% QUALIFIED</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-snug">
+            Automated ticket dispatch: users who cross <strong class="text-primary">1,850 pts</strong> receive an encrypted verification QR code for BMW's VIP driving day in California.
+          </p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-between">
+<div class="flex flex-col text-left">
+<span class="text-[10px] text-on-surface-variant uppercase font-mono">Loop Status</span>
+<span class="text-xs font-bold text-tertiary">Compounding Flywheel</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-white border border-white/20 hover:bg-surface-container-highest text-xs font-bold" onclick="switchMasterSection(1)">
+            Restart Demo ↺
+          </button>
+</div>
+<div class="bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-high border border-primary/30 p-3.5 rounded-2xl shadow-xl flex flex-col gap-1.5 text-left"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">emoji_events</span><span class="font-label-sm text-white font-bold uppercase tracking-wider text-[10px]">The Grand Prize</span></div><p class="font-headline-sm text-xs font-bold text-white leading-tight">VIP BMW Experience Drive Day</p><p class="font-body-sm text-[11px] text-on-surface-variant leading-snug">Beat @mediamk's benchmark of <span class="text-primary font-bold">1,850 pts</span> on PlayformIQ to enter the Thermal Club drawing.</p></div></div>
+</div>
+<!-- Official Brand Integration Card -->
+<div class="bg-surface-container-low border border-surface-container-highest p-4 rounded-2xl shadow-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-white font-bold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span> Official Brand Integration
+        </span>
+<span class="text-[9px] bg-primary/20 text-primary font-bold px-1.5 py-0.5 rounded font-mono">BMWkenya</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed text-left">
+        Scoring over <span class="text-primary font-bold">1,850 pts</span> automatically qualifies followers for the exclusive VIP BMW Drive Experience drawing at Thermal Club.
+      </p>
+</div>
+</div>
+</div>
+<!-- ================= JAVASCRIPT LOGIC ================= -->
 <script>
-  let currentStage = 1;
-  const totalStages = 6;
-  let currentSlide = 1;
-  const totalSlides = 3;
+  let activeMasterSection = 1;
+  const totalMasterSections = 5;
 
-  // Synced Captions Data per slide
-  const slideCaptions = {
-    1: {
-      badge: "Slide 1 of 3: The Setup",
-      text: "Apparently BMW thinks I don't know this car as well as I think I do. 🚗💨 When the key arrived for the new 2024 BMW X7, I thought it was just another weekend drive..."
-    },
-    2: {
-      badge: "Slide 2 of 3: The Challenge",
-      text: "So they gave me a challenge. Testing every bit of knowledge from the twin-turbo V8 powertrain to the iDrive 8 curved cockpit dynamics. Locked in and went all out..."
-    },
-    3: {
-      badge: "Slide 3 of 3: The Call to Action",
-      text: "Now I want to know if you can beat me. I scored 1,850 pts on @playformiq. Tap the DM icon to send 'I accept the X7 challenge' to @BMWkenya to enter the challenge and beat my benchmark score! 🏁🔥"
-    }
+  let activeCarouselSlide = 1;
+  const totalCarouselSlides = 3;
+
+  const carouselCaptions = {
+    1: "Apparently BMW thinks I don't know this car as well as I think I do. Cut to the X7.",
+    2: "So they gave me a challenge. Quick quiz on the screen.",
+    3: "Now I want to know if you can beat me. Comment 'Play X7 Challenge' and win a drive experience with this beauty."
   };
 
-  function showSlide(index) {
-    if (index < 1 || index > totalSlides) return;
-    currentSlide = index;
+  // Switch Master Section (Left Tab, Center Phone, Right Notes Overlay)
+  function switchMasterSection(sectionIndex) {
+    if (sectionIndex < 1 || sectionIndex > totalMasterSections) return;
+    activeMasterSection = sectionIndex;
 
-    // Update slides visibility
-    for (let i = 1; i <= totalSlides; i++) {
-      const slide = document.getElementById(`postSlide${i}`);
-      const dot = document.getElementById(`dot-${i}`);
-      if (slide) {
-        if (i === currentSlide) {
-          slide.classList.remove('opacity-0', 'pointer-events-none');
-          slide.classList.add('opacity-100');
+    // 1. Update Left Menu Tabs
+    for (let i = 1; i <= totalMasterSections; i++) {
+      const tab = document.getElementById(`tabBtn${i}`);
+      if (tab) {
+        const numBadge = tab.querySelector('span:first-child');
+        const arrow = tab.querySelector('.material-symbols-outlined');
+        if (i === activeMasterSection) {
+          tab.className = "stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container-high border-primary/50 text-white shadow-md";
+          if (numBadge) {
+            numBadge.className = "w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-primary font-mono border border-primary/30";
+          }
+          if (arrow) arrow.className = "material-symbols-outlined text-sm text-primary";
         } else {
-          slide.classList.remove('opacity-100');
-          slide.classList.add('opacity-0', 'pointer-events-none');
+          tab.className = "stage-nav-tab w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between border bg-surface-container border-transparent hover:border-surface-container-highest text-white/80 hover:text-white";
+          if (numBadge) {
+            numBadge.className = "w-7 h-7 rounded-lg bg-black flex items-center justify-center font-bold text-xs text-on-surface-variant font-mono border border-white/10";
+          }
+          if (arrow) arrow.className = "material-symbols-outlined text-sm text-on-surface-variant";
         }
       }
-      if (dot) {
-        if (i === currentSlide) {
-          dot.className = "w-2 h-2 rounded-full bg-primary transition-all duration-300";
-        } else {
-          dot.className = "w-2 h-2 rounded-full bg-white/30 transition-all duration-300";
-        }
-      }
     }
 
-    // Update Counter Pill
-    const pill = document.getElementById('slideCounterPill');
-    if (pill) pill.innerText = `${currentSlide} / ${totalSlides}`;
-
-    // Update Synced Caption Text
-    const textEl = document.getElementById('syncedCaptionText');
-    if (textEl) {
-      textEl.innerHTML = `<span class="font-bold text-white mr-1.5 font-label-md">mediamk</span> ${slideCaptions[currentSlide].text}`;
-    }
-  }
-
-  function carouselNext(e) {
-    if (e) e.stopPropagation();
-    if (currentSlide < totalSlides) {
-      showSlide(currentSlide + 1);
-    } else {
-      showSlide(1);
-    }
-  }
-
-  function carouselPrev(e) {
-    if (e) e.stopPropagation();
-    if (currentSlide > 1) {
-      showSlide(currentSlide - 1);
-    } else {
-      showSlide(totalSlides);
-    }
-  }
-
-  // Personas Data with customized DM triggers
-  const personas = {
-    sarah: {
-      name: "sarah_drive",
-      displayName: "Sarah",
-      score: 1920,
-      rank: 1,
-      isWinner: true,
-      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE",
-      dmText: "I accept the X7 challenge"
-    },
-    marcus: {
-      name: "marcus_k",
-      displayName: "Marcus",
-      score: 1810,
-      rank: 3,
-      isWinner: false,
-      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA",
-      dmText: "I accept the X7 challenge"
-    },
-    dan: {
-      name: "autotalk_dan",
-      displayName: "Dan",
-      score: 1740,
-      rank: 4,
-      isWinner: false,
-      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ",
-      dmText: "I accept the X7 challenge"
-    }
-  };
-
-  let activePersona = 'sarah';
-
-  function setPersona(personaKey) {
-    activePersona = personaKey;
-    const data = personas[personaKey];
-
-    // Update Persona Selector UI
-    ['sarah', 'marcus', 'dan'].forEach(key => {
-      const btn = document.getElementById(`personaBtn-${key}`);
-      if (btn) {
-        if (key === personaKey) {
-          btn.className = 'p-2 rounded-xl bg-surface-container-high border-2 border-primary flex flex-col items-center gap-1 transition-all text-center';
-        } else {
-          btn.className = 'p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-70 hover:opacity-100 text-center';
-        }
-      }
-    });
-
-    // Update Stage 2 DM text & bottom nav avatar
-    const dmBubble = document.getElementById('dmUserTriggerBubble');
-    if (dmBubble) dmBubble.innerText = data.dmText;
-    const navAvatar = document.getElementById('navBottomUserAvatar');
-    if (navAvatar) navAvatar.src = data.avatar;
-
-    // Update Scorecard View (Stage 5)
-    const cardPoints = document.getElementById('scorecardPoints');
-    const cardBadge = document.getElementById('scorecardStatusBadge');
-    const cardSub = document.getElementById('scorecardSub');
-    const cardAvatar = document.getElementById('scorecardAvatar');
-    const cardUsername = document.getElementById('scorecardUsername');
-    const cardRank = document.getElementById('scorecardRankText');
-
-    if (cardPoints) cardPoints.innerText = `${data.score.toLocaleString()} PTS`;
-    if (cardAvatar) cardAvatar.src = data.avatar;
-    if (cardUsername) cardUsername.innerText = `@${data.name}`;
-
-    if (data.isWinner) {
-      if (cardBadge) cardBadge.innerText = "YOU BEAT MEDIAMK! PRIZE UNLOCKED! 🏆";
-      if (cardSub) cardSub.innerText = `Beat Host benchmark (1,850 pts) by +${data.score - 1850} PTS`;
-      if (cardRank) cardRank.innerText = `Rank #${data.rank} • Prize Qualifier 🏁`;
-    } else {
-      if (cardBadge) cardBadge.innerText = "CHALLENGE COMPLETE!";
-      if (cardSub) cardSub.innerText = `${1850 - data.score} PTS shy of Host benchmark (1,850 pts)`;
-      if (cardRank) cardRank.innerText = `Rank #${data.rank} • Runner Up`;
-    }
-  }
-
-  function triggerDmFlowAnimation() {
-    const scrollContainer = document.getElementById('dmChatScrollContainer');
-    if (scrollContainer) scrollContainer.scrollTop = 0;
-  }
-
-  function setStage(stageNumber) {
-    if (stageNumber < 1 || stageNumber > totalStages) return;
-    currentStage = stageNumber;
-
-    // Update screen views
-    for (let i = 1; i <= totalStages; i++) {
-      const view = document.getElementById(`stageView${i}`);
+    // 2. Update Center Phone View
+    for (let i = 1; i <= totalMasterSections; i++) {
+      const view = document.getElementById(`phoneView${i}`);
       if (view) {
-        if (i === currentStage) {
+        if (i === activeMasterSection) {
           view.classList.remove('opacity-0', 'pointer-events-none');
           view.classList.add('opacity-100');
         } else {
@@ -565,77 +910,158 @@
       }
     }
 
-    // Trigger DM sequence when navigating to Stage 2
-    if (currentStage === 2) {
-      triggerDmFlowAnimation();
+    // 3. Update Right Notes Panel Overlay
+    for (let i = 1; i <= totalMasterSections; i++) {
+      const overlay = document.getElementById(`notesOverlay${i}`);
+      if (overlay) {
+        if (i === activeMasterSection) {
+          overlay.classList.remove('hidden', 'opacity-0');
+          overlay.classList.add('flex', 'opacity-100');
+        } else {
+          overlay.classList.remove('flex', 'opacity-100');
+          overlay.classList.add('hidden', 'opacity-0');
+        }
+      }
+    }
+  }
+
+  // 3-Image Carousel Functions
+  function showSlide(index) {
+    if (index < 1 || index > totalCarouselSlides) return;
+    activeCarouselSlide = index;
+
+    for (let i = 1; i <= totalCarouselSlides; i++) {
+      const slide = document.getElementById(`slideItem${i}`);
+      const dot = document.getElementById(`slideDot${i}`);
+      if (slide) {
+        if (i === activeCarouselSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.remove('opacity-100');
+          slide.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+      if (dot) {
+        if (i === activeCarouselSlide) {
+          dot.className = "w-2 h-2 rounded-full bg-primary transition-all duration-300";
+        } else {
+          dot.className = "w-2 h-2 rounded-full bg-white/30 transition-all duration-300";
+        }
+      }
     }
 
-    // Update Left Controls Sidebar Highlight
-    document.querySelectorAll('.stage-nav-btn').forEach(btn => {
-      const stage = parseInt(btn.getAttribute('data-stage'));
-      const numBadge = btn.querySelector('span:first-child');
-      const arrowIcon = btn.querySelector('.material-symbols-outlined');
-      
-      if (stage === currentStage) {
-        btn.classList.add('bg-surface-container-high', 'border-primary/40');
-        btn.classList.remove('bg-surface-container-low', 'border-transparent');
-        if (numBadge) {
-          numBadge.classList.add('text-primary');
-          numBadge.classList.remove('text-on-surface-variant');
-        }
-        if (arrowIcon) {
-          arrowIcon.classList.add('text-primary');
-          arrowIcon.classList.remove('text-on-surface-variant');
-        }
-      } else {
-        btn.classList.remove('bg-surface-container-high', 'border-primary/40');
-        btn.classList.add('bg-surface-container-low', 'border-transparent');
-        if (numBadge) {
-          numBadge.classList.remove('text-primary');
-          numBadge.classList.remove('text-on-surface-variant');
-        }
-        if (arrowIcon) {
-          arrowIcon.classList.remove('text-primary');
-          arrowIcon.classList.add('text-on-surface-variant');
+    const counter = document.getElementById('slideCounterText');
+    if (counter) counter.innerText = `${activeCarouselSlide} / ${totalCarouselSlides}`;
+
+    const captionText = document.getElementById('captionDynamicText');
+    if (captionText) captionText.innerText = carouselCaptions[activeCarouselSlide];
+  }
+
+  function carouselNextSlide(e) {
+    if (e) e.stopPropagation();
+    if (activeCarouselSlide < totalCarouselSlides) {
+      showSlide(activeCarouselSlide + 1);
+    } else {
+      showSlide(1);
+    }
+  }
+
+  function carouselPrevSlide(e) {
+    if (e) e.stopPropagation();
+    if (activeCarouselSlide > 1) {
+      showSlide(activeCarouselSlide - 1);
+    } else {
+      showSlide(totalCarouselSlides);
+    }
+  }
+
+  // Personas
+  const personaData = {
+    sarah: {
+      name: "sarah_drive",
+      displayName: "Sarah",
+      score: 1920,
+      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1W20X9xcWmCyGsXWJj2t-jyhT_O4Y7wEdzRgGaF8xv8GNlzmdSKPqIQyy0qMH_CWs-gtcyDMhqh_PNLvpwW3Yb3Lnef_3FFDophu5yAa8PUPplud5Cm5Rn5RxwiUj_qdzAMx2uyfVc3s6Dh4KNKRmq5I11Q6mF80cNjh1z9M1uxyYTfZnK_WEKDEyD4q0LpS04IFsk8aBOVT6FIsSrjo5Xx8pZqwXQhD4JNqNUfB9p_B2h6BYZRXjRjhYE"
+    },
+    marcus: {
+      name: "marcus_k",
+      displayName: "Marcus",
+      score: 1960,
+      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1XsnaDXzbM4ao8GOXEzbyRwxIYmD1BIeIGsXYRUAm9WLZAxdpIJJ68wppnVQGEY7WqUZYw7XBSgD3ZGl1cLhQaJjFVbdbPt2amIM4Cs1rl5vBC-aaaVZ0IyorfvrrWNH4XJtV1L-vmQ3AlAct6oxSa4WBdDOK4yOrx9Ln05TyLGRCfwkHaYBxhJEX755qZL-k-Ago9Kc3v61iO6YEcCbWwJY2_6mcP8KLkww5QFWFMpMx2ZNB-phUDnsA"
+    },
+    dan: {
+      name: "autotalk_dan",
+      displayName: "Dan 👑",
+      score: 2040,
+      avatar: "https://lh3.googleusercontent.com/aida/AEtjO1W8Yi283rL57mDPSNTTzAYgFuxhlri9tNRLnKgDXuTcl6ZUC_oKRdZ726QEoah0ZKnoSqVe6gtvSotBZpr9rO82fxka4KaZqQwyKF3VfI-NyOw4A-jWVaomWtXYj99LhK_LWJT9fXIEMlicyIOUIKGvm0LRhPukakXimymSF88lVVnqn65IZM5EbpUvQzOKjoSDuzW68ufuABf1C0Egk3pG4rr_CwXIQ5zSbbZpgGtWeD958JKtzlE-mQ"
+    }
+  };
+
+  function setFollowerPersona(key) {
+    const data = personaData[key];
+    ['sarah', 'marcus', 'dan'].forEach(p => {
+      const btn = document.getElementById(`personaBtn-${p}`);
+      if (btn) {
+        if (p === key) {
+          btn.className = "p-2 rounded-xl bg-surface-container-high border-2 border-primary flex flex-col items-center gap-1 transition-all text-center ring-2 ring-primary/40";
+        } else {
+          btn.className = "p-2 rounded-xl bg-surface-container border border-surface-container-highest flex flex-col items-center gap-1 transition-all opacity-75 hover:opacity-100 text-center";
         }
       }
     });
+
+    const dockAvatar = document.getElementById('dockAvatarImg');
+    if (dockAvatar) dockAvatar.src = data.avatar;
+
+    const hudAvatar = document.getElementById('hudUserAvatar');
+    if (hudAvatar) hudAvatar.src = data.avatar;
+
+    const hudName = document.getElementById('hudUserName');
+    if (hudName) hudName.innerText = `${data.displayName} (@${data.name})`;
+
+    const hudScore = document.getElementById('hudScoreDisplay');
+    if (hudScore) hudScore.innerText = `${(data.score - 450).toLocaleString()} PTS`;
+
+    const scoreAvatar = document.getElementById('scorecardAvatarImg');
+    if (scoreAvatar) scoreAvatar.src = data.avatar;
+
+    const scoreUsername = document.getElementById('scorecardUsername');
+    if (scoreUsername) scoreUsername.innerText = `@${data.name}`;
+
+    const rewardPoints = document.getElementById('rewardPointsDisplay');
+    if (rewardPoints) rewardPoints.innerText = `${data.score.toLocaleString()} PTS`;
   }
 
-  function nextStage() {
-    if (currentStage < totalStages) {
-      setStage(currentStage + 1);
-    } else {
-      setStage(1);
-    }
-  }
+  // Quiz Interaction
+  function selectQuizAnswer(btn, isCorrect) {
+    const feedback = document.getElementById('quizFeedbackBox');
+    const timer = document.getElementById('quizTimerText');
+    const scoreDisplay = document.getElementById('hudScoreDisplay');
 
-  function prevStage() {
-    if (currentStage > 1) {
-      setStage(currentStage - 1);
-    }
-  }
-
-  function handleAnswer(buttonElement, isCorrect) {
     if (isCorrect) {
-      buttonElement.classList.add('bg-tertiary/20');
-      const check = document.getElementById('correctCheck');
-      if (check) check.classList.remove('hidden');
-      const tracker = document.getElementById('scoreTracker');
-      if (tracker) tracker.innerText = `${personas[activePersona].score} PTS`;
+      if (btn) {
+        btn.classList.add('bg-tertiary/20', 'border-tertiary/60');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.innerText = 'check_circle';
+          icon.className = 'material-symbols-outlined text-sm text-tertiary';
+        }
+      }
+      if (feedback) feedback.classList.remove('hidden');
+      if (scoreDisplay) scoreDisplay.innerText = "2,040 PTS";
+      if (timer) timer.innerText = "1.8s (Bonus!)";
       setTimeout(() => {
-        setStage(5);
+        switchMasterSection(5);
       }, 700);
     } else {
-      buttonElement.classList.add('bg-error/20');
-      setTimeout(() => {
-        buttonElement.classList.remove('bg-error/20');
-      }, 500);
+      if (btn) {
+        btn.classList.add('bg-error/20', 'border-error/50');
+        setTimeout(() => {
+          btn.classList.remove('bg-error/20', 'border-error/50');
+        }, 500);
+      }
     }
-  }
-
-  function simulateStoryShare() {
-    alert("Scorecard copied to Instagram Story sticker clipboard! Ready to publish.");
   }
 
   function togglePostLike(btn) {
@@ -652,161 +1078,10 @@
     }
   }
 
-  function toggleRepost(btn) {}
-
-  function toggleBookmark(btn) {
-    const icon = document.getElementById('igBookmarkIcon');
-    if (icon) {
-      const isFilled = icon.getAttribute('fill') !== 'none';
-      if (!isFilled) {
-        icon.setAttribute('fill', '#ffce8f');
-        icon.setAttribute('stroke', '#ffce8f');
-      } else {
-        icon.setAttribute('fill', 'none');
-        icon.setAttribute('stroke', 'currentColor');
-      }
-    }
+  function triggerStoryModal() {
+    alert("Scorecard and 1-tap interactive link sticker copied to Instagram Story! Challenge published live.");
   }
-</script></main>
+</script>
+</main>
 
-
-<script class="">
-const triviaQuestions = [
-  {
-    qNum: 'Q 1/2',
-    category: 'BMW X7 Design & Heritage',
-    difficulty: 'DIFFICULTY: VIP PRO',
-    feature: 'Illuminated Kidney Grille',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCuT1rC9_q2rIryqarP4utEoPhplqMNRXs6gcq5uqbGB0MTQtFf6_mLctlMcpj5A-QtRPzMs4EQdU6o5oq-PJk3LRr2lu4vozwzLs_m47WH362Ynx1T7a9qFb6JMWFuoAkInxc7L_N0jDt6QYlQIyoHriBZzHWMC8gcveiYoMByaiSj0MPu8UKcvZPB4JE3MtDmoI7Ek1c1cH_M-j5pS2UCEO01RQlcZjuBYTQy1MznUl5kpzxrTLxJNA81fg2AOmYfNg',
-    question: 'What exclusive front-end lighting feature is standard on the BMW X7?',
-    options: [
-      'Illuminated Iconic Glow Kidney Grille',
-      'Single Round Halogen Cluster',
-      'Retractable Hidden Carbon Air Scoops',
-      'Matte Black Mesh Bumper Flaps'
-    ],
-    correctIdx: 0,
-    scoreAfter: 1470,
-    delta: '+450 PTS',
-    deltaGapText: '-380 PTS to Beat Host',
-    progress: '50%',
-    btnLabel: 'Next Question ➔'
-  },
-  {
-    qNum: 'Q 2/2',
-    category: 'BMW X7 Interior & Luxury',
-    difficulty: 'DIFFICULTY: FLAGSHIP',
-    feature: 'Panoramic Sky Lounge & Seating',
-    img: 'https://lh3.googleusercontent.com/aida/AEtjO1V84ai_6LduprmD74iiSwhHJNEmyQCW-EIqCqJkCYsKy6S2cJrvGT7bnBF6JZsyHNVU9sX0GI7URSQrk03hHIMjquFl4IOMW_6g9h40l1DzH07IoyoJTMFtbYZufDgZNPifUO9LCSAE5xiTtqdOBG451TMd3E8JLvnCwHxyv0CRMdiRlza2PnrgWpkrxPwuBS87dKLAzOigf-FTCUBJUF6_68FClSuWY4H1yCPGOiDC5BG3Y-mEKNlrWQ8',
-    question: 'What is the standard seating capacity and layout in the flagship BMW X7?',
-    options: [
-      '7-passenger with 3rd-row panoramic glass sunroof & split tailgate',
-      '4-passenger strict executive coupe layout',
-      '5-passenger fixed bench without folding',
-      '2-passenger open-air sport cabin'
-    ],
-    correctIdx: 0,
-    scoreAfter: 1920,
-    delta: '+450 PTS — BENCHMARK BEATEN!',
-    deltaGapText: '+70 PTS Ahead of Benchmark (1,850 PTS)',
-    progress: '100%',
-    btnLabel: 'View Final Scorecard & Results ➔'
-  }
-];
-
-let activeQuestionIdx = 0;
-let answeredCurrent = false;
-
-function renderQuestionUI(idx) {
-  const q = triviaQuestions[idx];
-  answeredCurrent = false;
-  const header = document.getElementById('triviaStageHeaderLabel');
-  if (header) header.innerText = `STAGE 04: TRIVIA CHALLENGE • ${q.qNum}`;
-  const catBadge = document.getElementById('triviaCategoryBadge');
-  if (catBadge) catBadge.innerText = q.category;
-  const diffBadge = document.getElementById('triviaDifficultyBadge');
-  if (diffBadge) diffBadge.innerText = q.difficulty;
-  const featTag = document.getElementById('triviaFeatureTag');
-  if (featTag) featTag.innerText = q.feature;
-  const img = document.getElementById('triviaQuestionImg');
-  if (img) img.src = q.img;
-  const qText = document.getElementById('activeQuestionText');
-  if (qText) qText.innerText = q.question;
-  const prog = document.getElementById('triviaProgressBar');
-  if (prog) prog.style.width = q.progress;
-
-  const letters = ['A', 'B', 'C', 'D'];
-  for (let i = 0; i < 4; i++) {
-    const textEl = document.getElementById(`textOpt${letters[i]}`);
-    if (textEl) textEl.innerText = q.options[i];
-    const btn = document.getElementById(`answerOpt${letters[i]}`);
-    if (btn) {
-      btn.className = 'quiz-option w-full p-2 rounded-xl bg-surface-container border border-surface-container-highest flex items-center justify-between text-left transition-all hover:bg-surface-container-high group active:scale-95';
-    }
-    const icon = document.getElementById(`icon${letters[i]}`);
-    if (icon) icon.classList.add('hidden');
-  }
-
-  const feedback = document.getElementById('feedbackBanner');
-  if (feedback) feedback.classList.add('hidden');
-  const deltaPill = document.getElementById('scoreDeltaPill');
-  if (deltaPill) deltaPill.classList.add('hidden');
-}
-
-function handleOptionSelect(optIdx) {
-  if (answeredCurrent) return;
-  const q = triviaQuestions[activeQuestionIdx];
-  const letters = ['A', 'B', 'C', 'D'];
-  const selectedBtn = document.getElementById(`answerOpt${letters[optIdx]}`);
-  const selectedIcon = document.getElementById(`icon${letters[optIdx]}`);
-
-  if (optIdx === q.correctIdx) {
-    answeredCurrent = true;
-    if (selectedBtn) {
-      selectedBtn.classList.remove('bg-surface-container');
-      selectedBtn.classList.add('bg-tertiary/20', 'border-tertiary/60');
-    }
-    if (selectedIcon) {
-      selectedIcon.innerText = 'check_circle';
-      selectedIcon.className = 'material-symbols-outlined text-sm text-tertiary';
-      selectedIcon.classList.remove('hidden');
-    }
-    const tracker = document.getElementById('scoreTracker');
-    if (tracker) tracker.innerText = `${q.scoreAfter.toLocaleString()} PTS`;
-    const deltaPill = document.getElementById('scoreDeltaPill');
-    if (deltaPill) {
-      deltaPill.classList.remove('hidden');
-      deltaPill.innerText = '+450';
-    }
-    const deltaText = document.getElementById('benchmarkDeltaText');
-    if (deltaText) deltaText.innerText = q.deltaGapText;
-
-    const feedback = document.getElementById('feedbackBanner');
-    const fbText = document.getElementById('feedbackBannerText');
-    const nextBtn = document.getElementById('nextQuestionBtn');
-    if (fbText) fbText.innerHTML = `CORRECT! <span class="text-tertiary">${q.delta}</span>`;
-    if (nextBtn) nextBtn.innerHTML = `${q.btnLabel}`;
-    if (feedback) feedback.classList.remove('hidden');
-  } else {
-    if (selectedBtn) {
-      selectedBtn.classList.add('bg-error/20', 'border-error/40');
-      setTimeout(() => {
-        selectedBtn.classList.remove('bg-error/20', 'border-error/40');
-      }, 600);
-    }
-  }
-}
-
-function autoSolveCurrentQuestion() {
-  handleOptionSelect(0);
-}
-
-function nextTriviaStep() {
-  if (activeQuestionIdx === 0) {
-    activeQuestionIdx = 1;
-    renderQuestionUI(1);
-  } else {
-    setStage(5);
-  }
-}
-</script></body></html>
+</body></html>
