@@ -202,39 +202,115 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        /* PRINT STYLES */
+        /* PRINT / PDF STYLES — TRUE A4, ONE .a4-page = ONE PDF PAGE */
         @media print {
-            body {
-                background: white !important;
-                padding: 0 !important;
+            @page {
+                size: A4 portrait;
                 margin: 0 !important;
             }
+
+            html {
+                width: 210mm !important;
+                min-width: 210mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #ffffff !important;
+            }
+
+            body {
+                width: 210mm !important;
+                min-width: 210mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #ffffff !important;
+                display: block !important;
+                overflow: visible !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             .top-action-bar {
                 display: none !important;
             }
+
             .master-container {
+                display: block !important;
+                width: 210mm !important;
+                max-width: 210mm !important;
                 margin: 0 !important;
-                gap: 0 !important;
-                width: 100% !important;
-                max-width: none !important;
+                padding: 0 !important;
             }
+
+            /*
+             * Keep every page at the physical A4 size.
+             * box-sizing:border-box means the padding is included
+             * inside the 210 × 297 mm page dimensions.
+             */
             .a4-page {
-                box-shadow: none !important;
-                margin: 0 !important;
-                width: 100% !important;
+                box-sizing: border-box !important;
+                width: 210mm !important;
+                min-width: 210mm !important;
+                max-width: 210mm !important;
                 height: 297mm !important;
+                min-height: 297mm !important;
                 max-height: 297mm !important;
-                page-break-after: always !important;
-                break-after: page !important;
+                margin: 0 !important;
                 padding: 16mm 18mm 14mm 18mm !important;
+                overflow: hidden !important;
+                position: relative !important;
+                display: flex !important;
+                flex-direction: column !important;
+                box-shadow: none !important;
+                page-break-before: auto !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                break-before: auto !important;
+                break-after: page !important;
+                break-inside: avoid !important;
             }
-            .cover-page, .back-cover {
+
+            .a4-page:last-child {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            /*
+             * Prevent flex children from forcing an A4 page taller than
+             * 297 mm. The footer remains anchored inside the page.
+             */
+            .a4-page > div:first-child {
+                min-height: 0 !important;
+                max-height: calc(297mm - 30mm) !important;
+                overflow: hidden !important;
+                flex: 0 1 auto !important;
+            }
+
+            .page-footer {
+                flex: 0 0 auto !important;
+            }
+
+            .cover-page,
+            .back-cover {
                 border: 10px solid #2C1810 !important;
                 padding: 0 !important;
             }
-            @page {
-                size: A4 portrait;
-                margin: 0;
+
+            /*
+             * Keep tables, cards and diagrams together where possible.
+             * SVGs remain vector and scale to the available page width.
+             */
+            table,
+            .formula-card,
+            .section-header,
+            .page-header,
+            svg {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            img,
+            svg {
+                max-width: 100% !important;
             }
         }
     </style>
