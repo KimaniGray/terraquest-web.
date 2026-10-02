@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW X7 Kenya Launch 2026 - Offline Interactive Campaign</title>
+  <!-- Pure Vanilla HTML, CSS & JavaScript - No TypeScript or Build Tools Required -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #0b1514;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .container {
+      width: 100%;
+      max-width: 440px;
+      min-height: 680px;
+      background: linear-gradient(180deg, #001f1f 0%, #003F3F 45%, #002b2b 100%);
+      border-radius: 36px;
+      border: 4px solid #1e3a38;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #b7e9c7;
+    }
+    .badge-orange {
+      background: rgba(255, 138, 0, 0.2);
+      color: #ff8a00;
+    }
+    .hud {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .hud-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hud-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+    }
+    .hud-val {
+      font-size: 16px;
+      font-weight: 900;
+      color: #ffd600;
+      font-family: monospace;
+    }
+    .q-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .q-badge {
+      font-size: 10px;
+      font-weight: 800;
+      color: #ffd600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .q-stem {
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: #ffffff;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .opt-btn {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+    .opt-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
+    .opt-letter {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .opt-btn.correct {
+      background: #4cd964;
+      color: #003f3f;
+      border-color: #4cd964;
+    }
+    .opt-btn.correct .opt-letter {
+      background: #003f3f;
+      color: #4cd964;
+    }
+    .opt-btn.wrong {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #f87171;
+    }
+    .rationale-card {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(183, 233, 199, 0.3);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #f8fafc;
+      margin-bottom: 12px;
+      display: none;
+    }
+    .rationale-card.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .btn-cta {
+      width: 100%;
+      background: linear-gradient(90deg, #4cd964, #00e676);
+      color: #003f3f;
+      font-size: 13px;
+      font-weight: 900;
+      padding: 14px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(76, 217, 100, 0.4);
+      transition: all 0.2s ease;
+    }
+    .btn-cta:hover {
+      filter: brightness(1.1);
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <!-- Intro Screen -->
+    <div id="intro-screen" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+      <div>
+        <div class="header-pill">
+          <span class="badge">BMW Kenya · Inchcape Kenya</span>
+          <span class="badge badge-orange" id="total-q-badge">8 Questions</span>
+        </div>
+        <div style="text-align: center; margin: 36px 0;">
+          <div style="font-size: 11px; font-weight: 800; color: #ffd600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;">MULTIPLE CHOICE CAMPAIGN</div>
+          <h1 style="font-size: 24px; font-weight: 900; line-height: 1.2; margin-bottom: 8px;">BMW X7 Kenya Launch 2026</h1>
+          <p style="font-size: 12px; color: rgba(255, 255, 255, 0.8); line-height: 1.5;">Master authentic engineering questions on the 2026 BMW X7 SAV to unlock VIP drive access & M-PESA cash vouchers.</p>
+        </div>
+        <div class="hud" style="margin-top: 20px;">
+          <div class="hud-card">
+            <span class="hud-label">Ghost Target</span>
+            <span class="hud-val">1850 pts</span>
+          </div>
+          <div class="hud-card">
+            <span class="hud-label">Grand Prize</span>
+            <span class="hud-val" style="font-size: 12px;">Track Drive</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-cta" onclick="startCampaign()">Start Challenge</button>
+        <div style="text-align: center; font-size: 11px; color: rgba(255, 255, 255, 0.5); margin-top: 8px;">15s countdown · Speed bonus active · Offline ready</div>
+      </div>
+    </div>
+
+    <!-- Gameplay Screen -->
+    <div id="game-screen" style="display: none; flex-direction: column; justify-content: space-between; height: 100%;">
+      <div>
+        <div class="header-pill">
+          <span class="badge" id="q-counter">Question 1 of 8</span>
+          <span class="badge badge-orange" id="score-display">0 pts</span>
+        </div>
+        <div class="hud">
+          <div class="hud-card">
+            <span class="hud-label">Time</span>
+            <span class="hud-val" id="timer-display">15s</span>
+          </div>
+          <div class="hud-card">
+            <span class="hud-label">Streak</span>
+            <span class="hud-val" id="streak-display">0x</span>
+          </div>
+        </div>
+        <div class="q-card">
+          <div class="q-badge" id="q-badge-text">QUESTION 01</div>
+          <div class="q-stem" id="q-stem-text">Loading question...</div>
+        </div>
+        <div class="options-list" id="options-container"></div>
+        <div class="rationale-card" id="rationale-box">
+          <div style="font-size: 10px; font-weight: 800; color: #b7e9c7; text-transform: uppercase; margin-bottom: 4px;">BMW Engineering Insight</div>
+          <div id="rationale-text"></div>
+          <button id="next-btn" class="btn-cta" style="margin-top: 10px; padding: 10px; font-size: 12px; display: none;" onclick="manualNext()">Next Question &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victory-screen" style="display: none; flex-direction: column; justify-content: space-between; height: 100%;">
+      <div>
+        <div class="header-pill">
+          <span class="badge">Challenge Completed</span>
+          <span class="badge badge-orange" id="final-rank">Rank #1 (Top 2%)</span>
+        </div>
+        <div style="text-align: center; margin: 24px 0;">
+          <div style="font-size: 32px; font-weight: 900; color: #4cd964; margin-bottom: 4px;" id="final-score">0 pts</div>
+          <div style="font-size: 13px; font-weight: 700; color: #ffd600;" id="score-message">Creator Benchmark Beaten!</div>
+        </div>
+        <div class="q-card" style="margin-bottom: 12px;">
+          <div class="q-badge">Reward Status</div>
+          <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-bottom: 4px;">Tier 2: KES 2,500 M-PESA Cash Voucher</div>
+          <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); margin-bottom: 10px;">Direct Safaricom B2C disbursement simulation.</div>
+          <input type="tel" class="input-field" id="phone-input" value="+254 712 345 678" placeholder="Kenyan Mobile Number" />
+          <button class="btn-cta" id="claim-btn" style="padding: 10px; font-size: 12px;" onclick="claimReward()">Claim KES 2,500 via M-PESA</button>
+          <div id="claim-status" style="font-size: 11px; color: #4cd964; font-weight: 700; margin-top: 8px; display: none;"></div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-cta" style="background: rgba(255, 255, 255, 0.15); color: #fff; margin-top: 8px;" onclick="restartCampaign()">Play Again &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Embedded Campaign Data
+    const CAMPAIGN = {
+      name: "BMW X7 Kenya Launch 2026",
+      brand: "BMW Kenya",
+      questions: [
+  {
+    "id": 1,
+    "badge": "QUESTION 01 OF 08",
+    "points": 100,
+    "stem": "What type of vehicle is the BMW X7?",
+    "options": [
+      {
+        "id": "1a",
+        "letter": "A",
+        "text": "Compact Hatchback",
+        "isCorrect": false
+      },
+      {
+        "id": "1b",
+        "letter": "B",
+        "text": "Full-Size Luxury SUV",
+        "isCorrect": true
+      },
+      {
+        "id": "1c",
+        "letter": "C",
+        "text": "2-Door Sports Coupe",
+        "isCorrect": false
+      },
+      {
+        "id": "1d",
+        "letter": "D",
+        "text": "Electric City Sedan",
+        "isCorrect": false
+      }
+    ],
+    "tip": "The BMW X7 flagship SAV features 3 rows of standard seating."
+  },
+  {
+    "id": 2,
+    "badge": "QUESTION 02 OF 08",
+    "points": 100,
+    "stem": "What is standard twin-turbo horsepower output of 2026 BMW X7 M60i?",
+    "options": [
+      {
+        "id": "2a",
+        "letter": "A",
+        "text": "523 hp",
+        "isCorrect": true
+      },
+      {
+        "id": "2b",
+        "letter": "B",
+        "text": "445 hp",
+        "isCorrect": false
+      },
+      {
+        "id": "2c",
+        "letter": "C",
+        "text": "617 hp",
+        "isCorrect": false
+      },
+      {
+        "id": "2d",
+        "letter": "D",
+        "text": "375 hp",
+        "isCorrect": false
+      }
+    ],
+    "tip": "Equipped with 4.4-liter BMW M TwinPower Turbo V-8 engine."
+  },
+  {
+    "id": 3,
+    "badge": "QUESTION 03 OF 08",
+    "points": 100,
+    "stem": "How many seating rows does BMW X7 feature as standard?",
+    "options": [
+      {
+        "id": "3a",
+        "letter": "A",
+        "text": "2 Rows (5 Seats)",
+        "isCorrect": false
+      },
+      {
+        "id": "3b",
+        "letter": "B",
+        "text": "3 Rows (Up to 7 Seats)",
+        "isCorrect": true
+      },
+      {
+        "id": "3c",
+        "letter": "C",
+        "text": "1 Row (2 Seats)",
+        "isCorrect": false
+      },
+      {
+        "id": "3d",
+        "letter": "D",
+        "text": "4 Rows Commercial",
+        "isCorrect": false
+      }
+    ],
+    "tip": "Accommodates up to 7 passengers with generous legroom."
+  },
+  {
+    "id": 4,
+    "badge": "QUESTION 04 OF 08",
+    "points": 100,
+    "stem": "Which signature front design element is illuminated on 2026 BMW X7?",
+    "options": [
+      {
+        "id": "4a",
+        "letter": "A",
+        "text": "BMW Iconic Glow Kidney Grille",
+        "isCorrect": true
+      },
+      {
+        "id": "4b",
+        "letter": "B",
+        "text": "Underbody Neon Accent",
+        "isCorrect": false
+      },
+      {
+        "id": "4c",
+        "letter": "C",
+        "text": "Dual Chrome Roof Rails",
+        "isCorrect": false
+      },
+      {
+        "id": "4d",
+        "letter": "D",
+        "text": "Retractable Bumper Winglets",
+        "isCorrect": false
+      }
+    ],
+    "tip": "The illuminated grille creates distinctive night-time presence."
+  },
+  {
+    "id": 5,
+    "badge": "QUESTION 05 OF 08",
+    "points": 100,
+    "stem": "What active chassis system masters highway and off-road terrain in Kenya?",
+    "options": [
+      {
+        "id": "5a",
+        "letter": "A",
+        "text": "Fixed Leaf Springs",
+        "isCorrect": false
+      },
+      {
+        "id": "5b",
+        "letter": "B",
+        "text": "Two-Axle Air Suspension with Adaptive M Dynamics",
+        "isCorrect": true
+      },
+      {
+        "id": "5c",
+        "letter": "C",
+        "text": "Standard Coil Dampers",
+        "isCorrect": false
+      },
+      {
+        "id": "5d",
+        "letter": "D",
+        "text": "Rigid Beam Axle",
+        "isCorrect": false
+      }
+    ],
+    "tip": "Two-axle air suspension automatically adjusts vehicle ride height."
+  },
+  {
+    "id": 6,
+    "badge": "QUESTION 06 OF 08",
+    "points": 100,
+    "stem": "What performance or luxury feature defines the BMW X7 (Question 6)?",
+    "options": [
+      {
+        "id": "6a",
+        "letter": "A",
+        "text": "Primary engineering feature (Correct)",
+        "isCorrect": true
+      },
+      {
+        "id": "6b",
+        "letter": "B",
+        "text": "Secondary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "6c",
+        "letter": "C",
+        "text": "Tertiary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "6d",
+        "letter": "D",
+        "text": "Quaternary alternative option",
+        "isCorrect": false
+      }
+    ],
+    "tip": "BMW X7 flagship SAV engineering specification and customer rationale."
+  },
+  {
+    "id": 7,
+    "badge": "QUESTION 07 OF 08",
+    "points": 100,
+    "stem": "What performance or luxury feature defines the BMW X7 (Question 7)?",
+    "options": [
+      {
+        "id": "7a",
+        "letter": "A",
+        "text": "Primary engineering feature (Correct)",
+        "isCorrect": true
+      },
+      {
+        "id": "7b",
+        "letter": "B",
+        "text": "Secondary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "7c",
+        "letter": "C",
+        "text": "Tertiary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "7d",
+        "letter": "D",
+        "text": "Quaternary alternative option",
+        "isCorrect": false
+      }
+    ],
+    "tip": "BMW X7 flagship SAV engineering specification and customer rationale."
+  },
+  {
+    "id": 8,
+    "badge": "QUESTION 08 OF 08",
+    "points": 100,
+    "stem": "What performance or luxury feature defines the BMW X7 (Question 8)?",
+    "options": [
+      {
+        "id": "8a",
+        "letter": "A",
+        "text": "Primary engineering feature (Correct)",
+        "isCorrect": true
+      },
+      {
+        "id": "8b",
+        "letter": "B",
+        "text": "Secondary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "8c",
+        "letter": "C",
+        "text": "Tertiary alternative option",
+        "isCorrect": false
+      },
+      {
+        "id": "8d",
+        "letter": "D",
+        "text": "Quaternary alternative option",
+        "isCorrect": false
+      }
+    ],
+    "tip": "BMW X7 flagship SAV engineering specification and customer rationale."
+  }
+],
+      settings: {
+  "questionTimer": 15,
+  "speedBonusEnabled": true,
+  "speedBonusYield": 10,
+  "benchmarkTargetScore": 1850,
+  "benchmarkCreatorHandle": "@mediamk",
+  "quizFeedbackTiming": "instant",
+  "quizPassThreshold": 80,
+  "quizReadingPace": "relaxed",
+  "puzzleGridSize": "3x3",
+  "puzzleMoveLimit": 15,
+  "puzzleAsset": "BMW X7 M60i Front Fascia",
+  "puzzleShowNumbers": true,
+  "puzzleShowSilhouette": true
+},
+      rewards: {
+  "tier1": {
+    "name": "Tier 1: Grand Prize",
+    "condition": "Score > 1,850 Points",
+    "mechanism": "Non-Cash: Experience",
+    "title": "BMW X7 VIP Weekend Drive Experience",
+    "inventory": "10 Slots (Strict Cap)"
+  },
+  "tier2": {
+    "name": "Tier 2: Runner-Up",
+    "condition": "Score 1,400 – 1,849 Points",
+    "disbursementRail": "Cash: M-PESA Direct API",
+    "payoutAmount": 2500,
+    "poolCap": 200,
+    "budgetTotal": 500000
+  },
+  "tier3": {
+    "name": "Tier 3: Participation Unlock",
+    "condition": "Any 100% Completion",
+    "assetClass": "Non-Cash: Digital Asset",
+    "title": "Digital Fan Badge + Showroom VIP Pass",
+    "inventory": "Unlimited (Auto-Issued)"
+  }
+},
+      meta: {
+  "brand": "BMW Kenya",
+  "campaignName": "BMW X7 Kenya Launch 2026",
+  "slug": "playformiq.io/e/bmw-x7-kenya-2026",
+  "scheduledTime": "Tomorrow, 09:00 EAT (Nairobi)",
+  "status": "live",
+  "creators": [
+    {
+      "name": "MediaMK",
+      "handle": "@mediamk",
+      "platform": "TikTok / IG Live",
+      "targetScore": 1850
+    },
+    {
+      "name": "Faith Njeri",
+      "handle": "@faith_kenya",
+      "platform": "Instagram",
+      "targetScore": 1720
+    },
+    {
+      "name": "Kevin Otieno",
+      "handle": "@kevin_wheels",
+      "platform": "TikTok",
+      "targetScore": 1680
+    }
+  ]
+}
+    };
+
+    let currentIndex = 0;
+    let score = 0;
+    let streak = 0;
+    let timer = null;
+    let secondsLeft = 15;
+    let answered = false;
+
+    function startCampaign() {
+      currentIndex = 0;
+      score = 0;
+      streak = 0;
+      document.getElementById('intro-screen').style.display = 'none';
+      document.getElementById('victory-screen').style.display = 'none';
+      document.getElementById('game-screen').style.display = 'flex';
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      answered = false;
+      secondsLeft = CAMPAIGN.settings.questionTimer || 15;
+      document.getElementById('rationale-box').classList.remove('show');
+      document.getElementById('next-btn').style.display = 'none';
+
+      const q = CAMPAIGN.questions[currentIndex];
+      document.getElementById('q-counter').innerText = 'Question ' + (currentIndex + 1) + ' of ' + CAMPAIGN.questions.length;
+      document.getElementById('score-display').innerText = score.toLocaleString() + ' pts';
+      document.getElementById('timer-display').innerText = secondsLeft + 's';
+      document.getElementById('streak-display').innerText = streak + 'x';
+      document.getElementById('q-badge-text').innerText = 'QUESTION 0' + (currentIndex + 1);
+      document.getElementById('q-stem-text').innerText = q.stem;
+      document.getElementById('rationale-text').innerText = q.tip;
+
+      const optsContainer = document.getElementById('options-container');
+      optsContainer.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.innerHTML = '<span class="opt-letter">' + opt.letter + '</span><span>' + opt.text + '</span>';
+        btn.onclick = () => selectOption(opt, btn, q);
+        optsContainer.appendChild(btn);
+      });
+
+      clearInterval(timer);
+      timer = setInterval(() => {
+        secondsLeft--;
+        document.getElementById('timer-display').innerText = secondsLeft + 's';
+        if (secondsLeft <= 0) {
+          clearInterval(timer);
+          if (!answered) handleTimeout();
+        }
+      }, 1000);
+    }
+
+    function selectOption(opt, btn, q) {
+      if (answered) return;
+      answered = true;
+      clearInterval(timer);
+
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(b => b.disabled = true);
+
+      document.getElementById('rationale-box').classList.add('show');
+
+      if (opt.isCorrect) {
+        btn.classList.add('correct');
+        const speedBonus = secondsLeft * (CAMPAIGN.settings.speedBonusYield || 10);
+        const pts = (q.points || 100) + speedBonus;
+        score += pts;
+        streak++;
+        document.getElementById('score-display').innerText = score.toLocaleString() + ' pts';
+        document.getElementById('streak-display').innerText = streak + 'x';
+        setTimeout(() => nextQuestion(), 1500);
+      } else {
+        btn.classList.add('wrong');
+        streak = 0;
+        document.getElementById('streak-display').innerText = '0x';
+        allBtns.forEach((b, idx) => {
+          if (q.options[idx].isCorrect) b.classList.add('correct');
+        });
+        document.getElementById('next-btn').style.display = 'block';
+      }
+    }
+
+    function handleTimeout() {
+      answered = true;
+      streak = 0;
+      document.getElementById('rationale-box').classList.add('show');
+      document.getElementById('next-btn').style.display = 'block';
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(b => b.disabled = true);
+    }
+
+    function manualNext() {
+      nextQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentIndex + 1 < CAMPAIGN.questions.length) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        finishCampaign();
+      }
+    }
+
+    function finishCampaign() {
+      clearInterval(timer);
+      document.getElementById('game-screen').style.display = 'none';
+      document.getElementById('victory-screen').style.display = 'flex';
+      document.getElementById('final-score').innerText = score.toLocaleString() + ' pts';
+      const wonTier1 = score >= (CAMPAIGN.settings.benchmarkTargetScore || 1850);
+      document.getElementById('score-message').innerText = wonTier1 
+        ? 'VIP Grand Prize Unlocked! (Track Drive)' 
+        : 'Tier 2 Unlocked: KES 2,500 M-PESA Cash Voucher';
+    }
+
+    function claimReward() {
+      const phone = document.getElementById('phone-input').value;
+      const ref = 'QKJ' + Math.floor(100000 + Math.random() * 900000) + 'B2C';
+      document.getElementById('claim-status').innerText = '✓ Safaricom M-PESA sent KES 2,500 to ' + phone + ' (Ref: ' + ref + ')';
+      document.getElementById('claim-status').style.display = 'block';
+      document.getElementById('claim-btn').disabled = true;
+      document.getElementById('claim-btn').innerText = 'Disbursed ✓';
+    }
+
+    function restartCampaign() {
+      startCampaign();
+    }
+  </script>
+</body>
+</html>
