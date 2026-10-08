@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchIQ - Kivuli Build & Drive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    body { background-color: #FAF9F6; color: #0B5345; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; user-select: none; }
+
+    .app-container {
+      width: 100%; max-width: 900px; min-height: min(80vh, 700px);
+      background: #FFFFFF; border-radius: 32px; border: 1px solid #E2E8F0;
+      box-shadow: 0 20px 40px -10px rgba(11, 83, 69, 0.08);
+      padding: 32px 40px; display: flex; flex-direction: column; position: relative; overflow: hidden;
+    }
+
+    .header-pill { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; width: 100%; z-index: 10; }
+    .brand-logo-pill { display: flex; align-items: center; gap: 10px; background: #F8FAFC; padding: 6px 16px 6px 6px; border-radius: 9999px; font-size: 13px; font-weight: 800; border: 1px solid #E2E8F0; }
+    .kivuli-icon { width: 28px; height: 28px; background: linear-gradient(135deg, #00A651, #0B5345); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-style: italic; }
+    .badge-iq { background: rgba(255, 138, 0, 0.1); padding: 8px 16px; border-radius: 9999px; font-size: 11px; font-weight: 800; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+    p { font-size: clamp(15px, 2vw, 17px); color: #64748B; line-height: 1.6; font-weight: 500; }
+    
+    .btn-primary {
+      width: 100%; background: #0B5345; color: #FFFFFF; font-size: 16px; font-weight: 800;
+      padding: 18px; border-radius: 16px; border: none; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(11, 83, 69, 0.2); transition: all 0.2s ease; margin-top: 24px;
+    }
+    .btn-primary:hover:not(:disabled) { transform: translateY(-2px); background: #00A651; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Visual Configurator Grid */
+    .config-section { margin-bottom: 32px; }
+    .config-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 12px; }
+    .visual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    
+    .visual-card {
+      background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 16px; padding: 24px 16px;
+      text-align: center; cursor: pointer; transition: all 0.2s ease;
+    }
+    .visual-card:hover { border-color: #00A651; transform: translateY(-4px); }
+    .visual-card.selected { border-color: #00A651; background: rgba(0, 166, 81, 0.05); }
+    
+    .color-swatch { width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .emoji-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+    .card-label { font-size: 14px; font-weight: 800; color: #0B5345; }
+
+    /* Driving Simulation */
+    #screen-sim { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #0B5345; z-index: 20; display: none; flex-direction: column; align-items: center; justify-content: center; }
+    .road-wrap { width: 100%; height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-top: 40px; }
+    .road-lines {
+      position: absolute; width: 200%; height: 4px; background: repeating-linear-gradient(90deg, transparent, transparent 20px, #FFD600 20px, #FFD600 60px);
+      animation: drive 0.5s linear infinite;
+    }
+    .car-sprite { font-size: 64px; position: relative; z-index: 2; animation: bounce 0.4s ease-in-out infinite alternate; }
+    .sim-text { color: white; font-size: 24px; font-weight: 900; margin-top: 32px; animation: pulse 1s infinite; }
+    
+    @keyframes drive { from { transform: translateX(0); } to { transform: translateX(-80px); } }
+    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+    /* Result Screen */
+    .result-layout { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; height: 100%; }
+    .result-card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 24px; padding: 32px; text-align: center; }
+    .result-tag { font-size: 12px; font-weight: 800; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .result-title { font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin-bottom: 12px; }
+    
+    .input-field { width: 100%; padding: 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E2E8F0; margin-bottom: 16px; outline: none; font-weight: 600; }
+    .input-field:focus { border-color: #00A651; }
+
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (min-width: 768px) {
+      .result-layout { grid-template-columns: 1fr 1fr; text-align: left; }
+      .result-card { text-align: left; }
+    }
+    @media (max-width: 480px) {
+      .app-container { border-radius: 0; border: none; min-height: 100dvh; padding: 24px 20px; }
+      .visual-grid { grid-template-columns: 1fr; gap: 8px; }
+      .visual-card { padding: 16px; display: flex; align-items: center; text-align: left; gap: 16px; }
+      .color-swatch { margin: 0; width: 32px; height: 32px; }
+      .emoji-icon { margin: 0; font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <div class="header-pill">
+      <div class="brand-logo-pill"><div class="kivuli-icon">K</div><span>Kivuli Motors</span></div>
+      <span class="badge-iq">LaunchIQ</span>
+    </div>
+
+    <!-- 1. INTRO / CONFIGURATOR -->
+    <div id="screen-config" class="fade-in" style="display: flex; flex-direction: column; flex-grow: 1;">
+      <div style="margin-bottom: 32px; text-align: center;">
+        <h1>Build Your Kivuli</h1>
+        <p>Select your specs and hit the road to discover your perfect vehicle profile.</p>
+      </div>
+
+      <div class="config-section">
+        <div class="config-title">1. Select Paint Code</div>
+        <div class="visual-grid" id="color-grid">
+          <div class="visual-card" onclick="selectConfig('color', 'urban', this)">
+            <div class="color-swatch" style="background: linear-gradient(135deg, #94A3B8, #64748B);"></div>
+            <div class="card-label">City Slate</div>
+          </div>
+          <div class="visual-card" onclick="selectConfig('color', 'x', this)">
+            <div class="color-swatch" style="background: linear-gradient(135deg, #D97706, #B45309);"></div>
+            <div class="card-label">Safari Orange</div>
+          </div>
+          <div class="visual-card" onclick="selectConfig('color', 'family', this)">
+            <div class="color-swatch" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);"></div>
+            <div class="card-label">Ocean Blue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="config-section">
+        <div class="config-title">2. Select Terrain Setup</div>
+        <div class="visual-grid" id="terrain-grid">
+          <div class="visual-card" onclick="selectConfig('terrain', 'urban', this)">
+            <span class="emoji-icon">🏙️</span>
+            <div class="card-label">Highway Touring</div>
+          </div>
+          <div class="visual-card" onclick="selectConfig('terrain', 'x', this)">
+            <span class="emoji-icon">⛰️</span>
+            <div class="card-label">Off-Road Package</div>
+          </div>
+          <div class="visual-card" onclick="selectConfig('terrain', 'family', this)">
+            <span class="emoji-icon">🏕️</span>
+            <div class="card-label">Comfort Suspension</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="drive-btn" disabled onclick="startDrive()">Take the Test Drive →</button>
+    </div>
+
+    <!-- 2. DRIVING SIMULATION -->
+    <div id="screen-sim">
+      <div class="road-wrap">
+        <div class="road-lines"></div>
+        <div class="car-sprite" id="sim-car">🚙</div>
+      </div>
+      <div class="sim-text">Analyzing your drive...</div>
+    </div>
+
+    <!-- 3. RESULT SCREEN -->
+    <div id="screen-result" style="display: none; flex-direction: column; flex-grow: 1; justify-content: center;">
+      <div class="result-layout">
+        <div class="result-card fade-in">
+          <div class="result-tag" id="r-tag">The Explorer</div>
+          <h2 class="result-title" id="r-title">Kivuli X</h2>
+          <p style="font-size: 15px; color: #64748B; line-height: 1.6;" id="r-desc">You built a vehicle designed for freedom. Based on your configuration, the Kivuli X provides the capability you need to go further.</p>
+          <button class="btn-primary" style="background: transparent; border: 2px solid #0B5345; color: #0B5345; box-shadow: none; padding: 12px;">View Spec Sheet</button>
+        </div>
+
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Claim your VIP Test Drive</div>
+          <p style="font-size: 14px; color: #64748B; margin-bottom: 24px;">Be the first to experience your build in the real world.</p>
+          <input type="text" class="input-field" placeholder="Full Name" />
+          <input type="tel" class="input-field" placeholder="Phone Number" />
+          <button class="btn-primary" id="lead-btn" style="margin-top: 8px;" onclick="submitLead()">Lock in my Drive</button>
+          <div id="lead-status" style="font-size: 14px; color: #00A651; font-weight: 800; text-align: center; margin-top: 16px; display: none;">✓ VIP Access Secured</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let selections = { color: null, terrain: null };
+
+    const profiles = {
+      urban: { title: "Kivuli Urban", tag: "The City Driver", desc: "Sleek and perfectly tuned for the city. You configured a vehicle prioritizing comfort and style.", icon: "🚘" },
+      x: { title: "Kivuli X", tag: "The Explorer", desc: "You don't just want to get somewhere. You configured a rugged build ready for absolute freedom.", icon: "🚙" },
+      family: { title: "Kivuli Family", tag: "The Protector", desc: "Space, safety, and practicality. You built the perfect command center for road trips and daily runs.", icon: "🚐" }
+    };
+
+    function selectConfig(type, value, el) {
+      // Handle UI selection
+      const siblings = document.getElementById(`${type}-grid`).children;
+      for(let node of siblings) node.classList.remove('selected');
+      el.classList.add('selected');
+
+      // Store data
+      selections[type] = value;
+
+      // Enable button if both selected
+      if(selections.color && selections.terrain) {
+        document.getElementById('drive-btn').disabled = false;
+      }
+    }
+
+    function startDrive() {
+      // Determine profile based on terrain weight (terrain dictates car type more than color)
+      const resultKey = selections.terrain; 
+      const profile = profiles[resultKey];
+
+      // Setup Sim
+      document.getElementById('sim-car').innerText = profile.icon;
+      document.getElementById('screen-config').style.display = 'none';
+      document.getElementById('screen-sim').style.display = 'flex';
+
+      // Run Sim for 3 seconds, then show results
+      setTimeout(() => {
+        document.getElementById('screen-sim').style.display = 'none';
+        showResults(profile);
+      }, 3000);
+    }
+
+    function showResults(profile) {
+      document.getElementById('screen-result').style.display = 'flex';
+      document.getElementById('r-tag').innerText = profile.tag;
+      document.getElementById('r-title').innerText = profile.title;
+      document.getElementById('r-desc').innerText = profile.desc;
+    }
+
+    function submitLead() {
+      document.getElementById('lead-btn').style.display = 'none';
+      document.getElementById('lead-status').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
