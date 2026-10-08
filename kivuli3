@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlayformIQ — See It in Action</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+:root{--t:#00695c;--d:#003f3f;--o:#ff8a00;--m:#b7e9c7;--y:#ffd600;--bg:#fbfaf6;--ink:#163b38}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",sans-serif}
+header{height:70px;background:white;border-bottom:1px solid #dce9e5;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;position:sticky;top:0;z-index:10}.logo{font:800 25px "Bricolage Grotesque";color:var(--d)}.logo i{color:var(--o);font-style:normal}nav a{margin-left:25px;text-decoration:none;color:var(--ink);font-size:12px;font-weight:700}
+.hero{min-height:520px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 7vw;position:relative;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;z-index:-1}.hero:before{width:260px;height:260px;right:-70px;top:70px;background:var(--m)}.hero:after{width:180px;height:180px;left:-50px;bottom:20px;background:var(--y)}
+.eyebrow,.tag{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--t)}h1,h2,h3{font-family:"Bricolage Grotesque";color:var(--d);line-height:1.03}h1{font-size:clamp(52px,8vw,95px);margin:14px 0}h1 span{color:var(--o)}.hero p{max-width:650px;line-height:1.6;color:#5a716d}.btn{border:0;background:var(--t);color:white;border-radius:999px;padding:13px 21px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}.btn:disabled{opacity:0.5;cursor:not-allowed;}
+section{padding:85px 6vw}.intro{text-align:center;max-width:760px;margin:auto}.intro h2{font-size:clamp(38px,5vw,64px);margin:12px 0}.intro p{color:#5a716d;line-height:1.6}.cards{max-width:1180px;margin:42px auto 0;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}.card{grid-column:span 2;background:white;border:1px solid #dce9e5;border-radius:24px;padding:24px;min-height:275px;display:flex;flex-direction:column;box-shadow:0 8px 30px #003f3f0b}.card:nth-child(4){grid-column:2/span 2}.card:nth-child(5){grid-column:4/span 2}.pill{width:max-content;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:800}.launch{background:#ffe0bd;color:#955000}.learn{background:#d8f2df;color:#17713a}.prod{background:#fff0ae;color:#695600}.event{background:#e9defb;color:#594090}.reward{background:#dcecff;color:#315d8b}.icon{font-size:38px;margin:22px 0 12px}.card h3{font-size:26px;margin:0 0 9px}.card p{font-size:12px;line-height:1.55;color:#627772}.card .btn{margin-top:auto;text-align:center;font-size:11px}
+.poss{background:var(--m);text-align:center}.poss h2{font-size:clamp(42px,6vw,72px)}.chips{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;max-width:850px;margin:30px auto}.chips span{background:white;border-radius:999px;padding:10px 15px;font-size:11px;font-weight:800;color:var(--t)}
+.contact{background:var(--d);color:white;display:flex;justify-content:space-between;align-items:center;gap:30px}.contact h2{color:white;font-size:clamp(40px,5vw,65px)}.contact p{color:#c7d9d4}.contact .btn{background:var(--o)}
+.game{max-width:850px;margin:55px auto;padding:0 20px}.game h1{font-size:clamp(45px,7vw,75px)}.panel{background:white;border:1px solid #dce9e5;border-radius:26px;padding:28px;margin-top:28px;box-shadow:0 15px 45px #003f3f0c}.choices,.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.choice,.tile{border:1px solid #dce9e5;background:#f7faf8;border-radius:17px;padding:18px;cursor:pointer;font-weight:700;text-align:center;transition:all 0.2s;}.tile:hover{border-color:var(--t);transform:translateY(-2px);}.tile.selected{border:3px solid var(--t);background:#e8f7ef}.visual{height:240px;border-radius:20px;background:linear-gradient(135deg,#e8f7f0,#fff2d7);display:flex;align-items:center;justify-content:center;font-size:95px}.big{font:800 46px "Bricolage Grotesque";color:var(--d);margin:16px 0}.center{text-align:center}.mini{font-size:10px;color:#728681;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;}.bar,.meter{height:10px;background:#edf2f0;border-radius:20px;overflow:hidden}.bar>div,.meter>div{height:100%;background:var(--o)}.collect{height:90px;border:1px solid #dce9e5;border-radius:17px;background:#f7faf8;font-size:30px;cursor:pointer}.collect.done{background:var(--m)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.leader{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #edf2f0}
+.form-input{width:100%;padding:14px;border-radius:12px;border:1px solid #dce9e5;margin-bottom:12px;font-family:inherit;font-weight:600;outline:none;}
+footer{text-align:center;padding:24px;background:#002f2f;color:#b8ceca;font-size:10px}
+@media(max-width:700px){nav{display:none}.cards{display:block}.card{margin:14px 0}.card:nth-child(4),.card:nth-child(5){margin-left:0}.choices,.tiles,.grid{grid-template-columns:1fr}.contact{display:block}}
+
+/* Custom Animations for Kivuli Game */
+@keyframes driveBtw { from { transform: translateY(0px); } to { transform: translateY(-8px); } }
+@keyframes roadMove { from { background-position: 0 0; } to { background-position: 0 100px; } }
+</style>
+</head>
+<body>
+<header><a class="logo" href="#top">Playform<i>IQ</i></a><nav><a href="#showcase">Showcase</a><a href="#possibilities">Possibilities</a><a href="#contact">Contact</a></nav></header>
+
+<div id="top">
+<section class="hero"><div class="eyebrow">SEE IT IN ACTION</div><h1>Turn audiences into <span>participants.</span></h1><p>Launch something. Teach something. Help people discover. Activate an event. Reward participation.</p><a class="btn" href="#showcase">Explore the experiences ↓</a></section>
+
+<section id="showcase">
+<div class="intro"><div class="eyebrow">FIVE PRODUCTS · FIVE EXPERIENCES</div><h2>What could PlayformIQ do for your brand?</h2><p>Don't just read about participation. Try it.</p></div>
+<div class="cards">
+<div class="card"><span class="pill launch">LAUNCHIQ</span><div class="icon">🚗</div><h3>Build. Drive. Discover.</h3><p><b>Kivuli Motors</b> turns a product launch into a personalised vehicle experience.</p><button class="btn" onclick="launch()">Try LaunchIQ →</button></div>
+<div class="card"><span class="pill learn">LEARNINGIQ</span><div class="icon">🔧</div><h3>Diagnose. Solve. Master.</h3><p><b>JuaFuel</b> turns technical learning into an interactive challenge.</p><button class="btn" onclick="learn()">Try LearningIQ →</button></div>
+<div class="card"><span class="pill prod">PRODUCTIQ</span><div class="icon">🧩</div><h3>Build your match.</h3><p><b>MajiFresh</b> lets people create a taste profile and discover their product match.</p><button class="btn" onclick="product()">Try ProductIQ →</button></div>
+<div class="card"><span class="pill event">EVENTSIQ</span><div class="icon">🗺️</div><h3>Explore. Collect. Compete.</h3><p><b>Sauti360</b> turns an audience into active participants.</p><button class="btn" onclick="eventDemo()">Try EventsIQ →</button></div>
+<div class="card"><span class="pill reward">REWARDIQ</span><div class="icon">🎯</div><h3>Complete. Collect. Unlock.</h3><p><b>PesaLinka</b> turns participation into points, achievements and rewards.</p><button class="btn" onclick="reward()">Try RewardIQ →</button></div>
+</div></section>
+
+<section id="possibilities" class="poss"><div class="intro"><div class="eyebrow">THE PARTICIPATION ENGINE</div><h2>People don't just consume.<br>They <span>do something.</span></h2><div class="chips"><span>Answer</span><span>Choose</span><span>Build</span><span>Solve</span><span>Discover</span><span>Collect</span><span>Explore</span><span>Compete</span><span>Create</span><span>Win</span></div><p>PlayformIQ combines interactions into experiences designed around what your audience needs to do.</p></div></section>
+
+<section id="contact" class="contact"><div><div class="eyebrow" style="color:#b7e9c7">YOUR BRAND · YOUR OBJECTIVE</div><h2>What could we create for you?</h2><p>These examples are only the starting point.</p></div><a class="btn" href="mailto:hello@playformiq.com">Let's build it →</a></section>
+<footer>PLAYFORMIQ · Illustrative experiences — created to show what's possible.</footer>
+</div>
+
+<div id="demo"></div>
+
+<script>
+const D=document.getElementById('demo');
+function shell(tag,title,lead,body){D.innerHTML=`<section class="game"><a href="#showcase" onclick="closeDemo()" style="color:#00695c;font-size:12px;font-weight:800;text-decoration:none">← Back to showcase</a><div style="margin-top:30px"><span class="tag">${tag}</span><h1>${title}</h1><p style="color:#5a716d;line-height:1.6">${lead}</p>${body}</div></section>`;window.scrollTo({top:D.offsetTop-60,behavior:'smooth'})}
+function closeDemo(){D.innerHTML=''}
+
+/* =========================================
+   1. KIVULI MOTORS (LAUNCHIQ) - UPGRADED
+   ========================================= */
+let kivuliSelections = { color: null, terrain: null };
+
+function launch() {
+  kivuliSelections = { color: null, terrain: null };
+  shell('LAUNCHIQ · KIVULI MOTORS', 'Build your Kivuli.', 'Select your specs and hit the road to discover your perfect vehicle profile.', `
+    <div class="panel">
+      <h3>1. Select Paint Code</h3>
+      <div class="tiles">
+        <div class="tile color-tile" onclick="selectKivuli('color', 'urban', this)"><div style="height:24px;width:24px;background:#64748B;border-radius:50%;margin:0 auto 8px;"></div>City Slate</div>
+        <div class="tile color-tile" onclick="selectKivuli('color', 'x', this)"><div style="height:24px;width:24px;background:#D97706;border-radius:50%;margin:0 auto 8px;"></div>Safari Orange</div>
+        <div class="tile color-tile" onclick="selectKivuli('color', 'family', this)"><div style="height:24px;width:24px;background:#1D4ED8;border-radius:50%;margin:0 auto 8px;"></div>Ocean Blue</div>
+      </div>
+      
+      <h3 style="margin-top:24px">2. Select Terrain Setup</h3>
+      <div class="tiles">
+        <div class="tile terrain-tile" onclick="selectKivuli('terrain', 'urban', this)"><span style="font-size:24px;display:block;margin-bottom:8px;">🏙️</span>Highway Touring</div>
+        <div class="tile terrain-tile" onclick="selectKivuli('terrain', 'x', this)"><span style="font-size:24px;display:block;margin-bottom:8px;">⛰️</span>Off-Road Package</div>
+        <div class="tile terrain-tile" onclick="selectKivuli('terrain', 'family', this)"><span style="font-size:24px;display:block;margin-bottom:8px;">🏕️</span>Comfort Suspension</div>
+      </div>
+      
+      <button class="btn" id="drive-btn" disabled onclick="startKivuliDrive()" style="width:100%; margin-top:30px; padding:16px; font-size:16px;">Take the Test Drive →</button>
+    </div>
+  `);
+}
+
+function selectKivuli(type, val, el) {
+  document.querySelectorAll('.' + type + '-tile').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  kivuliSelections[type] = val;
+  if (kivuliSelections.color && kivuliSelections.terrain) {
+    document.getElementById('drive-btn').disabled = false;
+  }
+}
+
+function startKivuliDrive() {
+  shell('LAUNCHIQ · KIVULI MOTORS', 'Test Drive in Progress...', 'Analyzing your build configuration...', `
+    <div class="panel center" style="background:var(--t); color:white; min-height: 250px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; width:100%; height:200%; background: repeating-linear-gradient(180deg, transparent, transparent 40px, rgba(255,255,255,0.1) 40px, rgba(255,255,255,0.1) 80px); animation: roadMove 0.5s linear infinite;"></div>
+      <div style="font-size: 80px; position:relative; z-index:2; animation: driveBtw 0.4s infinite alternate ease-in-out;">🚙</div>
+    </div>
+  `);
+  setTimeout(showKivuliResult, 2500);
+}
+
+function showKivuliResult() {
+  let result = { title: 'Kivuli Urban', tag: 'The City Driver', desc: 'Sleek and perfectly tuned for the city. You configured a vehicle prioritizing comfort and style.' };
+  if (kivuliSelections.terrain === 'x') result = { title: 'Kivuli X', tag: 'The Explorer', desc: 'You don\'t just want to get somewhere. You configured a rugged build ready for absolute freedom.' };
+  if (kivuliSelections.terrain === 'family') result = { title: 'Kivuli Family', tag: 'The Protector', desc: 'Space, safety, and practicality. You built the perfect command center for road trips and daily runs.' };
+
+  shell('LAUNCHIQ · KIVULI MOTORS', 'Meet your match.', 'Your choices created a personalised product discovery experience.', `
+    <div class="panel center">
+      <div class="mini" style="color:var(--o)">${result.tag}</div>
+      <div class="big">${result.title}</div>
+      <p style="max-width:400px; margin:0 auto 24px;">${result.desc}</p>
+      
+      <div style="background:#f7faf8; padding:24px; border-radius:16px; max-width: 400px; margin:0 auto; border:1px solid #dce9e5;">
+         <h4 style="margin:0 0 12px; color:var(--t);">Claim your VIP Test Drive</h4>
+         <input type="text" class="form-input" placeholder="Full Name">
+         <input type="tel" class="form-input" placeholder="Phone Number">
+         <button class="btn" style="width:100%" onclick="this.innerText='✓ VIP Access Secured'; this.style.background='var(--m)'; this.style.color='var(--d)';">Lock in my Drive</button>
+      </div>
+    </div>
+  `);
+}
+
+
+/* =========================================
+   2. JUAFUEL (LEARNINGIQ) - ORIGINAL
+   ========================================= */
+let q=0,score=0;const questions=[['A customer reports unusual engine noise after an oil change. What should you check first?',['Oil level and specification','Vehicle colour','Headlights','Number plate']],['Which factor matters most when selecting engine oil?',['Engine specification','Tyre colour','Radio system','Seat fabric']],['What is a key purpose of engine oil?',['Reduce friction and protect components','Increase fuel tank size','Improve paint quality','Cool the tyres']]];
+function learn(){q=0;score=0;askLearn()}
+function askLearn(){if(q>=questions.length){shell('LEARNINGIQ → REWARDIQ','Engine Expert unlocked.','Learning produced an achievement — and the achievement can trigger a reward.',`<div class="panel center"><div class="big">🏆 Engine Expert</div><p>You scored <b>${score}/${questions.length*10}</b>.</p><p>Achievement unlocked. <b>100 JuaPoints</b> can now be issued through RewardIQ.</p><a class="btn" href="#showcase" onclick="closeDemo()">See the other experiences →</a></div>`);return}let x=questions[q];shell('LEARNINGIQ · JUAFUEL','The Engine Expert.','Diagnose the problem. Choose the right answer. Build your technical score.',`<div class="panel"><div class="mini">QUESTION ${q+1} OF ${questions.length}</div><div class="bar"><div style="width:${q/questions.length*100}%"></div></div><h2>${x[0]}</h2><div class="choices" style="grid-template-columns:1fr 1fr;">${x[1].map((a,i)=>`<div class="choice" onclick="answerLearn(${i})">${a}</div>`).join('')}</div></div>`)}
+function answerLearn(i){if(i===0)score+=10;q++;askLearn()}
+
+/* =========================================
+   3. MAJIFRESH (PRODUCTIQ) - ORIGINAL
+   ========================================= */
+let gp=0;const groups=[['Pick your vibe',['Fresh 🌿','Bold 🔥','Classic ✨']],['Pick your moment',['With friends 👥','On the go 🏃','At home 🛋️']],['Choose your flavour mood',['Citrus 🍋','Fruity 🍓','Original 💧']]];let picks=[];
+function product(){gp=0;picks=[];pickProduct()}
+function pickProduct(){if(gp>=groups.length){let m=picks.includes('Fresh 🌿')&&picks.includes('Citrus 🍋')?'MajiFresh Lime':'MajiFresh Original';shell('PRODUCTIQ · MAJIFRESH','Ladha yako ni gani?','Build your taste profile and discover the product that fits you.',`<div class="panel center"><div class="big">💧 ${m}</div><p>Your choices created a product recommendation based on your preferences.</p><a class="btn" href="#contact" onclick="closeDemo()">Build a ProductIQ experience →</a></div>`);return}let g=groups[gp];shell('PRODUCTIQ · MAJIFRESH','Build your match.','Choose what feels right. Your choices create your product profile.',`<div class="panel"><h2>${g[0]}</h2><div class="tiles">${g[1].map((x,i)=>`<div class="tile" onclick="chooseProduct('${x}',this)">${x}</div>`).join('')}</div></div>`)}
+function chooseProduct(x,el){document.querySelectorAll('.tile').forEach(t=>t.classList.remove('selected'));el.classList.add('selected');picks[gp]=x;setTimeout(()=>{gp++;pickProduct()},350)}
+
+/* =========================================
+   4. SAUTI360 (EVENTSIQ) - ORIGINAL
+   ========================================= */
+let found=0;function eventDemo(){found=0;eventScreen()}
+function eventScreen(){shell('EVENTSIQ · SAUTI360','Choose Your Vibe.','Explore the event, collect three hidden moments and climb the live leaderboard.',`<div class="panel"><h2>Mission: Find 3 Sauti360 moments</h2><p>${found}/3 collected</p><div class="grid">${['🎤','🎧','🎸','🥁','🎹','⭐','🔥','🎶'].map((x,i)=>`<button class="collect ${i<found?'done':''}" onclick="collect(${i})">${i<found?'✓':x}</button>`).join('')}</div></div><div class="panel"><h2>Live leaderboard</h2><div class="leader"><b>1. Akinyi</b><span>920</span></div><div class="leader"><b>2. Brian</b><span>870</span></div><div class="leader"><b>3. You</b><span>${700+found*80}</span></div></div>`)}
+function collect(i){if(found<3){found++;eventScreen();if(found===3)setTimeout(()=>alert('Mission complete — you are officially part of the Sauti360 crowd.'),50)}}
+
+/* =========================================
+   5. PESALINKA (REWARDIQ) - ORIGINAL
+   ========================================= */
+let pts=0;function reward(){pts=0;rewardScreen()}function rewardScreen(){shell('REWARDIQ · PESALINKA','Every action counts.','Complete participation challenges, collect points and unlock your reward.',`<div class="panel"><div class="center"><div class="big">🎯 ${pts} PesaPoints</div></div><div class="choices" style="grid-template-columns:1fr 1fr;">${[['Answer the challenge',10],['Complete your profile',20],['Invite a friend',50]].map((x,i)=>`<div class="choice" onclick="addPoints(${i},${x[1]})"><b>+${x[1]} PesaPoints</b><br>${x[0]}</div>`).join('')}</div></div>${pts>=80?`<div class="panel center"><div class="big">🎁 KSh 500 Voucher</div><p>Participation has become a reward.</p><button class="btn" onclick="location.hash='contact';closeDemo()">Build a rewards experience →</button></div>`:''}`)}
+function addPoints(i,n){pts+=n;rewardScreen()}
+</script>
+</body></html>
