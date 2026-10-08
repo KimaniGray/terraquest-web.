@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kivuli Motors - Which Kivuli Are You?</title>
+  <title>LaunchIQ - Kivuli Motors</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
 
@@ -24,7 +24,7 @@
     /* Responsive Container */
     .app-container {
       width: 100%;
-      max-width: 900px; /* Expanded for desktop */
+      max-width: 900px;
       min-height: min(80vh, 700px);
       background: #FFFFFF;
       border-radius: 32px;
@@ -37,7 +37,6 @@
       overflow-y: auto;
     }
 
-    /* Content Wrapper to keep text readable on wide screens */
     .content-wrapper {
       width: 100%;
       max-width: 600px;
@@ -124,7 +123,6 @@
     /* Question Card */
     .q-stem { font-size: clamp(20px, 3vw, 28px); font-weight: 800; line-height: 1.3; color: #0B5345; margin-bottom: 32px; }
     
-    /* Responsive Grid for Options */
     .options-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -147,7 +145,7 @@
       gap: 16px;
       transition: all 0.2s ease;
     }
-    .opt-btn:hover { border-color: #00A651; background: #F8FAFC; transform: translateY(-2px); }
+    .opt-btn:hover:not(:disabled) { border-color: #00A651; background: #F8FAFC; transform: translateY(-2px); }
     .opt-btn.selected { border-color: #00A651; background: rgba(0, 166, 81, 0.05); color: #00A651; }
     .opt-letter {
       width: 32px; height: 32px;
@@ -158,7 +156,7 @@
     }
     .opt-btn.selected .opt-letter { background: #00A651; color: #FFFFFF; }
 
-    /* Responsive Result Screen */
+    /* Result Screen Layout */
     .result-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -188,13 +186,14 @@
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Media Queries */
+    /* Media Queries for Desktop/Tablet */
     @media (min-width: 768px) {
       .options-grid { grid-template-columns: 1fr 1fr; }
       .result-layout { grid-template-columns: 1fr 1fr; text-align: left; }
       .result-card { text-align: left; }
     }
     
+    /* Media Queries for Mobile Edge-to-Edge */
     @media (max-width: 480px) {
       body { padding: 0; }
       .app-container { border-radius: 0; border: none; min-height: 100dvh; padding: 24px 20px; }
@@ -211,14 +210,15 @@
         <div class="kivuli-icon">K</div>
         <span>Kivuli Motors</span>
       </div>
-      <span class="badge-iq" id="top-badge">ProductIQ</span>
+      <span class="badge-iq" id="top-badge">LaunchIQ</span>
     </div>
 
     <!-- 1. INTRO SCREEN -->
     <div id="screen-intro" class="content-wrapper">
       <div style="margin-bottom: 40px; text-align: center;">
+        <h2 style="font-size: 14px; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; font-weight: 800;">2026 Lineup Launch</h2>
         <h1>Which Kivuli<br>Are You?</h1>
-        <p>Your next car should fit your life. Answer a few questions and discover the Kivuli model that matches your personality, lifestyle, and priorities.</p>
+        <p>Kivuli Motors is launching a new way to discover your next vehicle. Answer a few questions and get matched to the vehicle that fits your lifestyle perfectly.</p>
       </div>
       <button class="btn-primary" onclick="startGame()">Start Experience →</button>
       <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #94A3B8; font-weight: 600;">Takes 45 seconds · Personality Match</div>
@@ -238,21 +238,23 @@
     <!-- 3. RESULT SCREEN -->
     <div id="screen-result" style="display: none; flex-direction: column; flex-grow: 1; justify-content: center;">
       <div class="result-layout">
-        <!-- Left: Profile -->
+        
+        <!-- Left: Product Match -->
         <div class="result-card fade-in">
-          <div class="result-tag" id="r-tag">Your Profile</div>
+          <div class="result-tag" id="r-tag">The Explorer</div>
           <h2 class="result-title" id="r-title">Kivuli X</h2>
-          <p class="result-desc" id="r-desc">Built for drivers who want flexibility, capability and the freedom to go further.</p>
+          <p class="result-desc" id="r-desc">You don't just want to get somewhere. You want to see what's beyond the next turn. Built for drivers who want flexibility, capability and the freedom to go further.</p>
+          <button class="btn-primary" style="background: transparent; border: 2px solid #0B5345; color: #0B5345; box-shadow: none; margin-top: 16px; padding: 12px;">Explore The Kivuli X</button>
         </div>
 
-        <!-- Right: Lead Capture -->
+        <!-- Right: Lead Capture / Action -->
         <div class="fade-in" style="animation-delay: 0.2s;">
           <div style="font-size: 18px; font-weight: 800; color: #0B5345; margin-bottom: 8px;">Want to take the next step?</div>
-          <p style="font-size: 14px; color: #64748B; margin-bottom: 24px;">Leave your details to explore this model or book a test drive.</p>
-          <input type="text" class="input-field" placeholder="Name" />
-          <input type="tel" class="input-field" placeholder="Phone Number" />
+          <p style="font-size: 14px; color: #64748B; margin-bottom: 24px;">Be the first to test drive your match. Leave your details below.</p>
+          <input type="text" class="input-field" placeholder="Full Name" />
+          <input type="tel" class="input-field" placeholder="Phone Number / Email" />
           <button class="btn-primary" id="lead-btn" style="margin-top: 8px;" onclick="submitLead()">Talk to Kivuli</button>
-          <div id="lead-status" style="font-size: 14px; color: #00A651; font-weight: 800; text-align: center; margin-top: 16px; display: none;">✓ Inquiry Sent Successfully</div>
+          <div id="lead-status" style="font-size: 14px; color: #00A651; font-weight: 800; text-align: center; margin-top: 16px; display: none;">✓ Lead Captured Successfully</div>
         </div>
       </div>
     </div>
@@ -305,7 +307,7 @@
 
     const profiles = {
       Urban: { title: "Kivuli Urban", tag: "The City Driver", desc: "Sleek, refined, and perfectly tuned for navigating the city. You value comfort and style in your daily commute." },
-      X: { title: "Kivuli X", tag: "The Explorer", desc: "You don't just want to get somewhere. You want to see what's beyond the next turn. Built for flexibility and capability." },
+      X: { title: "Kivuli X", tag: "The Explorer", desc: "You don't just want to get somewhere. You want to see what's beyond the next turn. Built for flexibility, capability and the freedom to go further." },
       Family: { title: "Kivuli Family", tag: "The Protector", desc: "Space, safety, and practicality are your priorities. Built to handle school runs, road trips, and everything in between." }
     };
 
