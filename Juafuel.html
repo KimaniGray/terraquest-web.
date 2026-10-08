@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JuaFuel - Mtaalamu wa Injini</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    body {
+      background-color: #FAF9F6;
+      color: #0B5345;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      user-select: none;
+    }
+
+    /* Responsive Container */
+    .app-container {
+      width: 100%;
+      max-width: 900px;
+      min-height: min(80vh, 700px);
+      background: #FFFFFF;
+      border-radius: 32px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 20px 40px -10px rgba(11, 83, 69, 0.08);
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    /* Brand Header */
+    .header-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+    .brand-logo-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F8FAFC;
+      padding: 6px 16px 6px 6px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #0B5345;
+      border: 1px solid #E2E8F0;
+      letter-spacing: -0.02em;
+    }
+    .juafuel-icon {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #FFB800, #FF6B00);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 900; font-size: 16px;
+    }
+    .badge-iq {
+      background: rgba(0, 166, 81, 0.1);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #00A651;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* HUD (Heads Up Display for Scoring) */
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .score-display {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #FF8A00;
+    }
+
+    /* Fluid Typography */
+    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; color: #0B5345; }
+    p { font-size: clamp(15px, 2vw, 17px); color: #64748B; line-height: 1.6; font-weight: 500; }
+    
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(90deg, #00A651, #0B5345);
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 18px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 166, 81, 0.2);
+      transition: all 0.2s ease;
+      margin-top: 24px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 166, 81, 0.3); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%; height: 8px;
+      background: #F1F5F9;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00A651;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* Question Card */
+    .q-stem { font-size: clamp(20px, 3vw, 24px); font-weight: 800; line-height: 1.4; color: #0B5345; margin-bottom: 24px; }
+    
+    .options-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    
+    .opt-btn {
+      width: 100%;
+      background: #FFFFFF;
+      border: 2px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 16px;
+      color: #0B5345;
+      font-size: clamp(14px, 2vw, 15px);
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s ease;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: #00A651; background: #F8FAFC; transform: translateY(-2px); }
+    
+    /* Assessment Styling: Right/Wrong */
+    .opt-btn.correct { border-color: #00A651; background: rgba(0, 166, 81, 0.08); color: #00A651; }
+    .opt-btn.wrong { border-color: #EF4444; background: rgba(239, 68, 68, 0.08); color: #EF4444; }
+    
+    .opt-letter {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: #F1F5F9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 900; color: #64748B; flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .opt-btn.correct .opt-letter { background: #00A651; color: #FFFFFF; }
+    .opt-btn.wrong .opt-letter { background: #EF4444; color: #FFFFFF; }
+
+    /* Rationale / Feedback Box */
+    .rationale-box {
+      background: #F8FAFC;
+      border-left: 4px solid #00A651;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 24px;
+      display: none;
+    }
+    .rationale-title { font-size: 12px; font-weight: 800; color: #00A651; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .rationale-text { font-size: 14px; color: #475569; line-height: 1.5; font-weight: 500; }
+
+    /* Responsive Result Screen */
+    .result-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .result-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+    }
+    .result-score { font-size: 48px; font-weight: 900; color: #00A651; line-height: 1; margin-bottom: 8px; }
+    .result-tier { font-size: 24px; font-weight: 900; color: #0B5345; margin-bottom: 12px; }
+    .result-desc { font-size: 15px; color: #64748B; line-height: 1.6; }
+    
+    /* RewardIQ Handshake UI */
+    .reward-box {
+      background: linear-gradient(135deg, #FFB800, #FF6B00);
+      border-radius: 24px;
+      padding: 32px;
+      color: #FFFFFF;
+    }
+    .reward-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    
+    .input-field {
+      width: 100%; padding: 16px; border-radius: 12px;
+      background: #FFFFFF; border: 1px solid transparent;
+      color: #0B5345; font-size: 15px; font-weight: 600;
+      margin-bottom: 16px; outline: none;
+    }
+
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (min-width: 768px) {
+      .options-grid { grid-template-columns: 1fr 1fr; }
+      .result-layout { grid-template-columns: 1fr 1fr; text-align: left; }
+      .result-card { text-align: left; }
+    }
+    
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .app-container { border-radius: 0; border: none; min-height: 100dvh; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container" id="app">
+    
+    <!-- BRAND HEADER -->
+    <div class="header-pill">
+      <div class="brand-logo-pill">
+        <div class="juafuel-icon">⚡</div>
+        <span>JuaFuel</span>
+      </div>
+      <span class="badge-iq" id="top-badge">LearningIQ</span>
+    </div>
+
+    <!-- 1. INTRO SCREEN -->
+    <div id="screen-intro" class="content-wrapper">
+      <div style="margin-bottom: 40px; text-align: center;">
+        <h2 style="font-size: 14px; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 800;">Technical Assessment</h2>
+        <h1>Mtaalamu<br>wa Injini</h1>
+        <p>Je, wewe ni Mtaalamu wa Injini? Test your knowledge of engine lubrication. Achieve a perfect score to unlock your certification and JuaPoints.</p>
+      </div>
+      <button class="btn-primary" onclick="startGame()">Start Assessment →</button>
+      <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #94A3B8; font-weight: 600;">5 Questions · 10 Points Each</div>
+    </div>
+
+    <!-- 2. GAME SCREEN -->
+    <div id="screen-game" style="display: none; flex-direction: column; flex-grow: 1; width: 100%;">
+      <div class="hud">
+        <div style="font-size: 12px; font-weight: 800; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.1em;" id="q-counter">Q1 of 5</div>
+        <div class="score-display" id="score-display">0 PTS</div>
+      </div>
+      
+      <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+      
+      <div id="question-container" class="fade-in">
+        <div class="q-stem" id="q-text">Loading...</div>
+        <div class="options-grid" id="options-container"></div>
+        
+        <!-- Feedback Rationale -->
+        <div class="rationale-box fade-in" id="rationale-container">
+          <div class="rationale-title" id="rationale-title">Explanation</div>
+          <div class="rationale-text" id="rationale-text">...</div>
+        </div>
+
+        <button class="btn-primary" id="next-btn" style="display: none;" onclick="nextQuestion()">Next Question →</button>
+      </div>
+    </div>
+
+    <!-- 3. RESULT SCREEN -->
+    <div id="screen-result" style="display: none; flex-direction: column; flex-grow: 1; justify-content: center;">
+      <div class="result-layout">
+        
+        <!-- Left: LearningIQ Profile -->
+        <div class="result-card fade-in">
+          <div style="font-size: 12px; font-weight: 800; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Final Score</div>
+          <div class="result-score" id="r-score">50</div>
+          <div class="result-tier" id="r-tier">Mtaalamu wa Injini</div>
+          <p class="result-desc" id="r-desc">Excellent. You know your engines and lubricants inside out.</p>
+        </div>
+
+        <!-- Right: RewardIQ Handshake -->
+        <div class="reward-box fade-in" style="animation-delay: 0.2s;" id="reward-section">
+          <div class="reward-badge">RewardIQ Enabled</div>
+          <h3 style="font-size: 24px; font-weight: 900; margin-bottom: 8px;">Achievement Unlocked</h3>
+          <p style="font-size: 14px; margin-bottom: 24px; line-height: 1.5; color: rgba(255,255,255,0.9);">You've earned <strong>100 JuaPoints</strong>. Enter your mechanic ID or phone number to claim your reward.</p>
+          
+          <input type="tel" class="input-field" placeholder="Phone Number / ID" />
+          <button class="btn-primary" style="background: #FFFFFF; color: #FF8A00; box-shadow: none;" id="claim-btn" onclick="claimReward()">Claim 100 JuaPoints</button>
+          <div id="claim-status" style="font-size: 14px; color: #FFFFFF; font-weight: 800; text-align: center; margin-top: 16px; display: none;">✓ Points added to your JuaFuel Wallet</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "What is the primary purpose of engine oil?",
+        options: ["To cool the vehicle only", "To lubricate engine components and reduce friction", "To increase fuel tank capacity", "To clean the vehicle exterior"],
+        correct: 1, // Index of correct answer
+        rationale: "Correct. Engine oil reduces friction and helps protect moving metal components from wear and overheating."
+      },
+      {
+        question: "Which factor is most important when selecting engine oil?",
+        options: ["Engine specification and viscosity", "Vehicle paint colour", "Tyre size", "Stereo system brand"],
+        correct: 0,
+        rationale: "Always match the oil viscosity and specification to the engine manufacturer's design requirements."
+      },
+      {
+        question: "A mechanic notices increased engine noise after an oil change. What should be checked first?",
+        options: ["Oil level and specification", "Vehicle paint", "Headlights", "Number plate"],
+        correct: 0,
+        rationale: "Low oil levels or the incorrect viscosity can cause immediate valve train noise due to lack of lubrication."
+      },
+      {
+        question: "What can happen when the wrong lubricant is used?",
+        options: ["Improved performance automatically", "Increased wear or inadequate protection", "Better paint quality", "Larger fuel tank"],
+        correct: 1,
+        rationale: "Incorrect oil breaks down faster and fails to protect the engine under heat and stress."
+      },
+      {
+        question: "When should lubricant selection be based on manufacturer specifications?",
+        options: ["Only in winter", "Only for old cars", "Always", "Never"],
+        correct: 2,
+        rationale: "The manufacturer determines the exact tolerances required for the engine. Always follow their specs."
+      }
+    ];
+
+    const tiers = {
+      apprentice: { title: "Apprentice", desc: "You're getting started. Keep learning about lubrication basics." },
+      technician: { title: "Technician", desc: "Good technical knowledge. You understand the core principles." },
+      expert: { title: "Mtaalamu wa Injini", desc: "Excellent. You know your engines and lubricants inside out." }
+    };
+
+    let currentQ = 0;
+    let score = 0;
+    const letters = ['A', 'B', 'C', 'D'];
+    let hasAnswered = false;
+
+    function startGame() {
+      document.getElementById('screen-intro').style.display = 'none';
+      document.getElementById('screen-game').style.display = 'flex';
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      hasAnswered = false;
+      const q = quizData[currentQ];
+      
+      document.getElementById('q-counter').innerText = `Q${currentQ + 1} of ${quizData.length}`;
+      document.getElementById('progress-bar').style.width = `${((currentQ) / quizData.length) * 100}%`;
+      
+      // Hide next button and rationale
+      document.getElementById('next-btn').style.display = 'none';
+      document.getElementById('rationale-container').style.display = 'none';
+      
+      const qContainer = document.getElementById('question-container');
+      qContainer.classList.remove('fade-in');
+      void qContainer.offsetWidth; // trigger reflow
+      qContainer.classList.add('fade-in');
+
+      document.getElementById('q-text').innerText = q.question;
+      
+      const optsDiv = document.getElementById('options-container');
+      optsDiv.innerHTML = '';
+      
+      q.options.forEach((optText, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.innerHTML = `<span class="opt-letter">${letters[index]}</span><span>${optText}</span>`;
+        btn.onclick = () => handleAnswer(index, btn, q);
+        optsDiv.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(selectedIndex, btn, q) {
+      if (hasAnswered) return;
+      hasAnswered = true;
+
+      const optsDiv = document.getElementById('options-container');
+      const allBtns = optsDiv.querySelectorAll('.opt-btn');
+      
+      // Disable all clicks
+      allBtns.forEach(b => b.disabled = true);
+
+      const isCorrect = (selectedIndex === q.correct);
+      
+      if (isCorrect) {
+        btn.classList.add('correct');
+        score += 10;
+        document.getElementById('score-display').innerText = `${score} PTS`;
+        document.getElementById('rationale-title').innerText = "Correct";
+        document.getElementById('rationale-title').style.color = "#00A651";
+      } else {
+        btn.classList.add('wrong');
+        // Highlight correct answer
+        allBtns[q.correct].classList.add('correct');
+        document.getElementById('rationale-title').innerText = "Incorrect";
+        document.getElementById('rationale-title').style.color = "#EF4444";
+      }
+
+      // Show rationale and Next button
+      document.getElementById('rationale-text').innerText = q.rationale;
+      document.getElementById('rationale-container').style.display = 'block';
+      document.getElementById('next-btn').style.display = 'block';
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ < quizData.length) {
+        loadQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('screen-game').style.display = 'none';
+      document.getElementById('screen-result').style.display = 'flex';
+      
+      document.getElementById('top-badge').innerText = "Assessment Complete";
+      document.getElementById('top-badge').style.background = "rgba(255, 138, 0, 0.1)";
+      document.getElementById('top-badge').style.color = "#FF8A00";
+
+      document.getElementById('r-score').innerText = score;
+
+      let tierKey = "apprentice";
+      if (score >= 30) tierKey = "technician";
+      if (score === 50) tierKey = "expert";
+
+      const result = tiers[tierKey];
+      document.getElementById('r-tier').innerText = result.title;
+      document.getElementById('r-desc').innerText = result.desc;
+
+      // Logic for RewardIQ integration
+      if (score >= 30) {
+        // Show reward box
+        document.getElementById('reward-section').style.display = 'block';
+      } else {
+        // Hide reward box if score is too low
+        const rewardBox = document.getElementById('reward-section');
+        rewardBox.innerHTML = `
+          <h3 style="font-size: 24px; font-weight: 900; margin-bottom: 8px;">Keep Learning</h3>
+          <p style="font-size: 14px; margin-bottom: 24px; line-height: 1.5; color: rgba(255,255,255,0.9);">You need at least 30 points to unlock JuaFuel rewards. Review the training manuals and try again.</p>
+          <button class="btn-primary" style="background: #FFFFFF; color: #FF8A00; box-shadow: none;" onclick="location.reload()">Retake Assessment</button>
+        `;
+      }
+    }
+
+    function claimReward() {
+      document.getElementById('claim-btn').style.display = 'none';
+      document.getElementById('claim-status').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
