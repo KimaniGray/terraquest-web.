@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlayformIQ — Turn audiences into participants.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --green:#00A651;
+  --teal:#0B5345;
+  --yellow:#FFB800;
+  --orange:#FF6B00;
+  --bg:#FAF9F6;
+  --ink:#122C29;
+  --muted:#60736F;
+  --line:#DDE9E5;
+  --white:#fff;
+  --shadow:0 18px 50px rgba(11,83,69,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Plus Jakarta Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1180px,88vw);margin:auto}
+.nav{
+  position:sticky;top:0;z-index:50;height:74px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6vw;background:rgba(250,249,246,.82);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(221,233,229,.75)
+}
+.logo{font-size:24px;font-weight:800;letter-spacing:-.06em;color:var(--teal)}
+.logo span{color:var(--orange)}
+.navlinks{display:flex;gap:30px;align-items:center;font-size:13px;font-weight:700}
+.navlinks a{transition:color .2s}
+.navlinks a:hover{color:var(--green)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:999px;padding:14px 22px;
+  background:var(--teal);color:white;font-weight:800;font-size:12px;
+  cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,83,69,.18)}
+.btn.orange{background:linear-gradient(135deg,var(--yellow),var(--orange))}
+.btn.outline{background:transparent;color:var(--teal);border:1px solid var(--teal)}
+.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:800;color:var(--green);text-transform:uppercase}
+.hero{
+  position:relative;overflow:hidden;text-align:center;
+  padding:110px 0 80px;min-height:650px;
+  display:flex;align-items:center
+}
+.hero:before,.hero:after,.orb{
+  content:"";position:absolute;border-radius:50%;pointer-events:none
+}
+.hero:before{width:280px;height:280px;right:-90px;top:70px;background:linear-gradient(135deg,#FFB800,#FF6B00);opacity:.16}
+.hero:after{width:230px;height:230px;left:-80px;bottom:20px;background:var(--green);opacity:.13}
+.orb{width:74px;height:74px;background:var(--yellow);opacity:.12;top:145px;left:15%}
+.hero h1{
+  max-width:900px;margin:16px auto 22px;
+  font-size:clamp(48px,7.5vw,92px);line-height:.98;
+  letter-spacing:-.065em;color:#142522
+}
+.hero p{max-width:650px;margin:0 auto 30px;color:var(--muted);line-height:1.75;font-size:15px}
+.mechanics{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  margin:65px auto 48px;max-width:900px
+}
+.mechanic{text-align:center}
+.mechanic-icon{
+  width:76px;height:76px;margin:0 auto 16px;border-radius:50%;
+  display:grid;place-items:center;font-size:30px;color:white;
+  box-shadow:0 12px 30px rgba(11,83,69,.13)
+}
+.mi1{background:linear-gradient(135deg,var(--yellow),var(--orange))}
+.mi2{background:linear-gradient(135deg,#00A651,#0B5345)}
+.mi3{background:linear-gradient(135deg,#FFB800,#FF6B00)}
+.mi4{background:var(--teal)}
+.mechanic strong{display:block;font-size:12px;letter-spacing:.08em}
+.mechanic span{display:block;color:var(--muted);font-size:11px;margin-top:6px}
+.hero-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+  text-align:left;background:var(--teal);color:#fff;
+  border-radius:30px;padding:27px 32px;box-shadow:var(--shadow)
+}
+.hero-banner .statement{font-size:20px;font-weight:800;line-height:1.35}
+.hero-banner .accent{color:#FFD45A}
+.proof{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+.proof-item{text-align:center;font-size:10px;font-weight:700;color:#fff}
+.proof-icon{display:block;font-size:17px;margin-bottom:5px}
+
+section{padding:100px 0}
+.section-head{max-width:700px;margin-bottom:38px}
+.section-head h2{font-size:clamp(38px,5vw,62px);line-height:1.02;letter-spacing:-.055em;margin:10px 0 14px}
+.section-head p{color:var(--muted);line-height:1.7}
+.apps{background:#fff}
+.app-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+}
+.app-card{
+  border:1px solid var(--line);border-radius:26px;padding:28px;
+  background:#fff;min-height:225px;display:flex;flex-direction:column;
+  transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.app-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#BFDAD2}
+.app-top{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
+.app-emoji{font-size:25px}
+.app-card h3{font-size:24px;letter-spacing:-.04em;margin:17px 0 8px}
+.app-card p{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 20px}
+.app-card .btn{margin-top:auto;align-self:flex-start}
+.app-card:last-child{grid-column:1/-1}
+
+.demos{background:var(--bg)}
+.demo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.demo-card{
+  position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);
+  border-radius:28px;padding:30px;min-height:320px;box-shadow:0 10px 35px rgba(11,83,69,.06)
+}
+.demo-card:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  right:-80px;top:-70px;background:linear-gradient(135deg,var(--yellow),var(--orange));opacity:.10
+}
+.demo-card h3{font-size:28px;letter-spacing:-.05em;margin:10px 0}
+.demo-card p{color:var(--muted);font-size:13px;line-height:1.65;max-width:520px}
+.demo-card .category{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--green);text-transform:uppercase}
+.demo-card .line{font-weight:800;color:var(--teal);margin:16px 0}
+.demo-card .btn{position:relative;z-index:2}
+.closing{text-align:center;padding:100px 0;background:#fff}
+.closing h2{font-size:clamp(42px,6vw,76px);line-height:1;letter-spacing:-.06em;margin:14px auto 25px;max-width:800px}
+.closing p{max-width:600px;margin:0 auto 25px;color:var(--muted);line-height:1.7}
+.stack{display:flex;flex-direction:column;gap:4px;font-size:20px;font-weight:800;color:var(--teal);margin:35px 0}
+.contact{background:var(--teal);color:white}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.contact h2,.partners h2,.about h2{font-size:clamp(40px,5vw,64px);line-height:1.02;letter-spacing:-.055em;margin:10px 0 18px}
+.contact p{color:#C5DAD4;line-height:1.75}
+.form{
+  background:#fff;border-radius:28px;padding:30px;color:var(--ink);
+  box-shadow:var(--shadow)
+}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:11px;font-weight:800;margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid var(--line);border-radius:13px;padding:13px 14px;
+  background:#FAFCFB;color:var(--ink);outline:none
+}
+.field textarea{min-height:120px;resize:vertical}
+.form .btn{width:100%}
+.partners{background:var(--bg)}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.partner-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px}
+.partner-card h3{margin:0 0 10px;font-size:20px}
+.partner-card p{margin:0;color:var(--muted);line-height:1.65;font-size:13px}
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px}
+.about-main{font-size:clamp(26px,3vw,40px);line-height:1.25;font-weight:700;letter-spacing:-.04em}
+.about-side{display:grid;gap:28px}
+.about-side div{border-top:1px solid var(--line);padding-top:18px}
+.about-side strong{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.about-side p{margin:0;color:var(--muted);line-height:1.7;font-size:13px}
+footer{padding:28px 0;background:#073B32;color:#B9D2CB;font-size:10px;text-align:center;letter-spacing:.08em}
+
+/* Demo modal */
+.modal{position:fixed;inset:0;background:rgba(7,45,39,.58);backdrop-filter:blur(10px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{width:min(720px,94vw);max-height:90vh;overflow:auto;background:var(--bg);border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.25);position:relative}
+.modal-head{padding:28px 30px 10px;display:flex;justify-content:space-between;gap:20px}
+.close{border:0;background:#E9F1EE;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--teal)}
+.modal-body{padding:10px 30px 32px}
+.modal-body h2{font-size:clamp(34px,6vw,52px);line-height:1;letter-spacing:-.055em;margin:10px 0}
+.modal-body p{color:var(--muted);line-height:1.7}
+.question{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;margin-top:20px}
+.options{display:grid;gap:10px;margin-top:18px}
+.option{padding:15px;border:1px solid var(--line);border-radius:14px;background:#FAFCFB;text-align:left;cursor:pointer;font-weight:700}
+.option:hover{border-color:var(--green);background:#F1FAF5}
+.result{background:var(--teal);color:white;border-radius:24px;padding:28px;margin-top:20px}
+.result p{color:#C7DDD6}
+.profile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+.profile-choice{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff;cursor:pointer;font-weight:700}
+.profile-choice.selected{border:2px solid var(--green);background:#EAF8F0}
+@media(max-width:800px){
+  .nav{padding:0 5vw}.navlinks{display:none}.nav .btn{padding:11px 16px}
+  .hero{padding:80px 0 60px;min-height:auto}
+  .mechanics{grid-template-columns:repeat(2,1fr)}
+  .hero-banner{display:block}.proof{justify-content:flex-start;margin-top:22px}
+  .app-grid,.demo-grid,.contact-grid,.about-grid{grid-template-columns:1fr}
+  .app-card:last-child{grid-column:auto}
+  .partner-grid{grid-template-columns:1fr}
+  section{padding:75px 0}
+}
+@media(max-width:500px){
+  .container{width:90vw}.hero h1{font-size:48px}
+  .mechanics{gap:25px 8px}.hero-banner{padding:24px}
+  .app-card,.demo-card{padding:24px}.profile-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="#top">Playform<span>IQ</span></a>
+  <nav class="navlinks">
+    <a href="#applications">Solutions</a>
+    <a href="#demos">Demo</a>
+    <a href="#partners">Partners</a>
+    <a href="#about">About</a>
+  </nav>
+  <a class="btn" href="#contact">Contact Us</a>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="orb"></div>
+  <div class="container">
+    <div class="eyebrow">THE INTERACTIVE PARTICIPATION PLATFORM</div>
+    <h1>Turn audiences into participants.</h1>
+
+    <div class="mechanics">
+      <div class="mechanic">
+        <div class="mechanic-icon mi1">🏆</div>
+        <strong>CHALLENGES</strong><span>Spark action.</span>
+      </div>
+      <div class="mechanic">
+        <div class="mechanic-icon mi2">?</div>
+        <strong>QUIZZES</strong><span>Drive engagement.</span>
+      </div>
+      <div class="mechanic">
+        <div class="mechanic-icon mi3">▥</div>
+        <strong>PREDICTIONS</strong><span>Create buzz.</span>
+      </div>
+      <div class="mechanic">
+        <div class="mechanic-icon mi4">🎁</div>
+        <strong>REWARDS</strong><span>Fuel loyalty.</span>
+      </div>
+    </div>
+
+    <div class="hero-banner">
+      <div class="statement">The <span class="accent">interactive participation</span> platform<br>for modern brands.</div>
+      <div class="proof">
+        <div class="proof-item"><span class="proof-icon">◈</span>Brands</div>
+        <div class="proof-item"><span class="proof-icon">✦</span>Creators</div>
+        <div class="proof-item"><span class="proof-icon">⌁</span>Data</div>
+        <div class="proof-item"><span class="proof-icon">◎</span>Community</div>
+        <div class="proof-item"><span class="proof-icon">↗</span>Growth</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="applications" class="apps">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">BUSINESS APPLICATIONS</div>
+    <h2>What are you trying to achieve?</h2>
+  </div>
+  <div class="app-grid">
+    <article class="app-card">
+      <div class="app-top"><div class="eyebrow">LAUNCHIQ</div><div class="app-emoji">🚀</div></div>
+      <h3>Launch Something</h3><p>Turn a product launch into an interactive experience.</p>
+      <a class="btn" href="#demos">See How →</a>
+    </article>
+    <article class="app-card">
+      <div class="app-top"><div class="eyebrow">LEARNINGIQ</div><div class="app-emoji">🎓</div></div>
+      <h3>Teach Something</h3><p>Turn knowledge and training into participation.</p>
+      <a class="btn" href="#demos">See How →</a>
+    </article>
+    <article class="app-card">
+      <div class="app-top"><div class="eyebrow">EVENTSIQ</div><div class="app-emoji">🎪</div></div>
+      <h3>Activate an Event</h3><p>Turn audiences and attendees into participants.</p>
+      <a class="btn" href="#demos">See How →</a>
+    </article>
+    <article class="app-card">
+      <div class="app-top"><div class="eyebrow">PRODUCTIQ</div><div class="app-emoji">🔍</div></div>
+      <h3>Help People Discover</h3><p>Turn product discovery into an interactive experience.</p>
+      <a class="btn" href="#demos">See How →</a>
+    </article>
+    <article class="app-card">
+      <div class="app-top"><div class="eyebrow">REWARDIQ</div><div class="app-emoji">🏆</div></div>
+      <h3>Reward Participation</h3><p>Turn participation and achievement into recognition and rewards.</p>
+      <a class="btn" href="#demos">See How →</a>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="demos" class="demos">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">DEMONSTRATION FUNNELS</div>
+    <h2>See participation in action.</h2>
+  </div>
+  <div class="demo-grid">
+    <article class="demo-card" id="kivuli">
+      <div class="category">🚗 KIVULI MOTORS · Automotive</div>
+      <h3>Which Kivuli Are You?</h3>
+      <p>Your next car should fit your life.<br>Answer a few questions and discover the Kivuli that matches your personality, lifestyle and priorities.</p>
+      <div class="line">Discover. Answer. Get your match.</div>
+      <button class="btn" onclick="openDemo('kivuli')">Try the Experience →</button>
+    </article>
+
+    <article class="demo-card" id="juafuel">
+      <div class="category">🛢️ JUAFUEL · Energy &amp; Lubricants</div>
+      <h3>The Engine Expert</h3>
+      <p>Put your technical knowledge to the test.<br>Answer questions, complete challenges and discover how much you really know about engines and lubricants.</p>
+      <div class="line">Learn. Test. Achieve.</div>
+      <button class="btn" onclick="openDemo('juafuel')">Try the Experience →</button>
+    </article>
+
+    <article class="demo-card" id="majifresh">
+      <div class="category">🥤 MAJIFRESH · Consumer</div>
+      <h3>What’s Your Taste?</h3>
+      <p>Answer a few questions and discover the flavour profile that matches you.<br>Then share your result.</p>
+      <div class="line">Discover your match.</div>
+      <button class="btn" onclick="openDemo('majifresh')">Try the Experience →</button>
+    </article>
+
+    <article class="demo-card" id="sauti360">
+      <div class="category">🎵 SAUTI360 · Entertainment</div>
+      <h3>Choose Your Vibe</h3>
+      <p>What's your vibe?<br>Vote. Predict. Compete. See what everyone else thinks.<br>Turn an audience into part of the conversation.</p>
+      <div class="line">Vote. Predict. Compete.</div>
+      <button class="btn" onclick="openDemo('sauti360')">Try the Experience →</button>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="closing">
+<div class="container">
+  <div class="eyebrow">THE POSSIBILITIES</div>
+  <h2>These are just examples.</h2>
+  <p>We built this universe of interactive demonstrations to show you exactly what is possible.</p>
+  <div class="stack"><span>Your audience.</span><span>Your business.</span><span>Your objective.</span><span>Your experience.</span></div>
+  <h3 style="font-size:24px">What could PlayformIQ create for your brand?</h3>
+  <a class="btn orange" href="#contact">Let's Build It →</a>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container contact-grid">
+  <div>
+    <div class="eyebrow" style="color:#B7E9C7">DEMO / CONTACT</div>
+    <h2>See what PlayformIQ could do for your business.</h2>
+    <p>Tell us what you're trying to achieve, who you want to engage, and what you want people to do. We'll show you how to turn it into an interactive experience.</p>
+  </div>
+  <form class="form" onsubmit="event.preventDefault(); alert('Thank you. Your demo request has been captured.');">
+    <div class="field"><label>Who is your audience?</label><select><option>Employees</option><option>Customers</option><option>Event Attendees</option><option>Dealers</option></select></div>
+    <div class="field"><label>What is the goal?</label><select><option>Launch</option><option>Train</option><option>Discover</option><option>Convert</option></select></div>
+    <div class="field"><label>Brief details</label><textarea></textarea></div>
+    <button class="btn" type="submit">Request a Demo</button>
+    <a class="btn outline" style="width:100%;margin-top:10px" href="mailto:hello@playformiq.com">Build With Us</a>
+  </form>
+</div>
+</section>
+
+<section id="partners" class="partners">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">PARTNERS</div>
+    <h2>Build with PlayformIQ.</h2>
+    <p>PlayformIQ is built to work with businesses, agencies, creators, and partners who want to create new ways for audiences to participate.</p>
+  </div>
+  <div class="partner-grid">
+    <article class="partner-card"><h3>Agencies</h3><p>White-label campaigns for your clients.</p></article>
+    <article class="partner-card"><h3>Creators</h3><p>Turn your social reach into interactive games and verifiable leads.</p></article>
+    <article class="partner-card"><h3>Brands</h3><p>Build immersive experiences for your community.</p></article>
+  </div>
+  <a class="btn" style="margin-top:30px" href="#contact">Become a Partner →</a>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="container">
+  <div class="eyebrow">ABOUT</div>
+  <h2>About PlayformIQ</h2>
+  <div class="about-grid">
+    <div class="about-main">Audiences shouldn't just consume experiences. They should participate in them.</div>
+    <div class="about-side">
+      <div><strong>What we believe</strong><p>Audiences shouldn't just consume experiences. They should participate in them.</p></div>
+      <div><strong>What we're building</strong><p>A platform that helps businesses turn participation into engagement, learning, insight, and action.</p></div>
+      <div><strong>Why we're different</strong><p>We don't start with technology. We start with what you want people to do.</p></div>
+    </div>
+  </div>
+  <a class="btn" style="margin-top:32px" href="#contact">Talk to Us</a>
+</div>
+</section>
+</main>
+
+<footer>PLAYFORMIQ</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeDemo()">
+  <div class="modal-box">
+    <div class="modal-head"><div id="modalTag" class="eyebrow"></div><button class="close" onclick="closeDemo()">×</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const modal=document.getElementById('modal'), tag=document.getElementById('modalTag'), body=document.getElementById('modalBody');
+
+function openDemo(type){
+  modal.classList.add('open');
+  if(type==='kivuli') renderKivuli();
+  if(type==='juafuel') renderJua(0,0);
+  if(type==='majifresh') renderMaji(0,[]);
+  if(type==='sauti360') renderSauti();
+}
+function closeDemo(){modal.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDemo()});
+
+function renderKivuli(){
+  tag.textContent='KIVULI MOTORS · AUTOMOTIVE';
+  body.innerHTML=`<h2>Which Kivuli Are You?</h2>
+  <p>Your next car should fit your life. Answer a few questions and discover the Kivuli that matches your personality, lifestyle and priorities.</p>
+  <div class="question"><b>What best describes how you use your car?</b>
+  <div class="options">
+    <button class="option" onclick="kivuliResult('Urban')">Mostly city driving</button>
+    <button class="option" onclick="kivuliResult('Explorer')">Road trips and exploration</button>
+    <button class="option" onclick="kivuliResult('Family')">Family and everyday life</button>
+    <button class="option" onclick="kivuliResult('All-Rounder')">A bit of everything</button>
+  </div></div>`;
+}
+function kivuliResult(x){
+  body.innerHTML=`<h2>Your Kivuli match.</h2><p>You chose <b>${x}</b>.</p>
+  <div class="result"><h3 style="margin-top:0">Discover. Answer. Get your match.</h3><p>This is where the experience would continue into personalised product discovery.</p></div>`;
+}
+
+const juaQs=[
+ ['What should you check when selecting engine oil?',['Engine specification','Vehicle colour','Radio system','Seat fabric']],
+ ['What is a key purpose of engine oil?',['Reduce friction and protect components','Increase fuel tank size','Improve paint quality','Cool the tyres']],
+ ['What would you want to understand before choosing a lubricant?',['The application and specification','The dashboard colour','The seat fabric','The number plate']]
+];
+function renderJua(i,score){
+  tag.textContent='JUAFUEL · ENERGY & LUBRICANTS';
+  if(i>=juaQs.length){
+    body.innerHTML=`<h2>Engine Expert</h2><p>Learn. Test. Achieve.</p>
+    <div class="result"><h3 style="margin-top:0">Achievement unlocked.</h3><p>You scored <b>${score}/${juaQs.length}</b>.</p></div>`;return;
+  }
+  const q=juaQs[i];
+  body.innerHTML=`<h2>The Engine Expert</h2><p>Put your technical knowledge to the test.</p>
+  <div class="question"><div class="eyebrow">QUESTION ${i+1} OF ${juaQs.length}</div><h3>${q[0]}</h3>
+  <div class="options">${q[1].map((a,n)=>`<button class="option" onclick="renderJua(${i+1},${score+(n===0?1:0)})">${a}</button>`).join('')}</div></div>`;
+}
+
+const majiGroups=[
+ ['Choose your flavour mood',['Citrus','Fruity','Original']],
+ ['Choose your moment',['With friends','On the go','At home']],
+ ['Choose your vibe',['Fresh','Bold','Classic']]
+];
+function renderMaji(i,picks){
+  tag.textContent='MAJIFRESH · CONSUMER';
+  if(i>=majiGroups.length){
+    const profile=picks.join(' · ');
+    body.innerHTML=`<h2>What’s Your Taste?</h2><p>Then share your result.</p>
+    <div class="result"><h3 style="margin-top:0">Your flavour profile</h3><p>${profile}</p><p>This is where the experience reveals the matching MajiFresh product and sharing action.</p></div>`;return;
+  }
+  const g=majiGroups[i];
+  body.innerHTML=`<h2>What’s Your Taste?</h2><p>Answer a few questions and discover the flavour profile that matches you.</p>
+  <div class="question"><div class="eyebrow">STEP ${i+1} OF ${majiGroups.length}</div><h3>${g[0]}</h3>
+  <div class="profile-grid">${g[1].map(x=>`<button class="profile-choice" onclick="renderMaji(${i+1},${JSON.stringify(picks.concat(x))})">${x}</button>`).join('')}</div></div>`;
+}
+
+function renderSauti(){
+  tag.textContent='SAUTI360 · ENTERTAINMENT';
+  body.innerHTML=`<h2>Choose Your Vibe</h2><p>What's your vibe?</p>
+  <div class="question"><h3>Vote for the vibe.</h3><div class="options">
+    <button class="option" onclick="sautiResult('The crowd chose this vibe.')">🔥 Bold</button>
+    <button class="option" onclick="sautiResult('The crowd chose this vibe.')">🎧 Smooth</button>
+    <button class="option" onclick="sautiResult('The crowd chose this vibe.')">🎤 Live</button>
+  </div></div>`;
+}
+function sautiResult(text){
+  body.innerHTML=`<h2>Choose Your Vibe</h2><p>${text}</p>
+  <div class="result"><h3 style="margin-top:0">Vote. Predict. Compete.</h3><p>See what everyone else thinks and turn an audience into part of the conversation.</p></div>`;
+}
+</script>
+</body>
+</html>
