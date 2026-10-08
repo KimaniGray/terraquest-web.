@@ -10,35 +10,42 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
     
     body {
-      background-color: #FAF9F6; /* Clean off-white background */
+      background-color: #FAF9F6;
       color: #0B5345;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 12px;
+      padding: 24px;
       user-select: none;
     }
 
+    /* Responsive Container */
     .app-container {
       width: 100%;
-      max-width: 420px;
-      min-height: 800px;
+      max-width: 900px; /* Expanded for desktop */
+      min-height: min(80vh, 700px);
       background: #FFFFFF;
       border-radius: 32px;
       border: 1px solid #E2E8F0;
       box-shadow: 0 20px 40px -10px rgba(11, 83, 69, 0.08);
-      padding: 24px 20px;
+      padding: 32px 40px;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow-y: auto;
     }
 
-    @media (max-width: 480px) {
-      body { padding: 0; }
-      .app-container { border-radius: 0; border: none; min-height: 100dvh; }
+    /* Content Wrapper to keep text readable on wide screens */
+    .content-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
     }
 
     /* Brand Header */
@@ -47,60 +54,61 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 24px;
+      width: 100%;
     }
     .brand-logo-pill {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: #F8FAFC;
-      padding: 6px 14px 6px 6px;
+      padding: 6px 16px 6px 6px;
       border-radius: 9999px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       color: #0B5345;
       border: 1px solid #E2E8F0;
     }
     .kivuli-icon {
-      width: 24px; height: 24px;
+      width: 28px; height: 28px;
       background: linear-gradient(135deg, #00A651, #0B5345);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 900; font-style: italic; font-size: 12px;
+      color: white; font-weight: 900; font-style: italic; font-size: 14px;
     }
     .badge-iq {
       background: rgba(255, 138, 0, 0.1);
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 9999px;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 800;
       color: #FF8A00;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    /* Typography & Core UI */
-    h1 { font-size: 32px; font-weight: 900; line-height: 1.1; margin-bottom: 12px; color: #0B5345; }
-    p { font-size: 15px; color: #64748B; line-height: 1.5; font-weight: 500; }
+    /* Fluid Typography */
+    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; color: #0B5345; }
+    p { font-size: clamp(15px, 2vw, 17px); color: #64748B; line-height: 1.6; font-weight: 500; }
     
     .btn-primary {
       width: 100%;
       background: #0B5345;
       color: #FFFFFF;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
-      padding: 16px;
+      padding: 18px;
       border-radius: 16px;
       border: none;
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(11, 83, 69, 0.2);
       transition: all 0.2s ease;
-      margin-top: auto;
+      margin-top: 24px;
     }
     .btn-primary:hover { transform: translateY(-2px); background: #00A651; }
 
     /* Progress Bar */
     .progress-track {
-      width: 100%; height: 6px;
+      width: 100%; height: 8px;
       background: #F1F5F9;
       border-radius: 9999px;
       margin-bottom: 24px;
@@ -114,66 +122,90 @@
     }
 
     /* Question Card */
-    .q-stem { font-size: 20px; font-weight: 800; line-height: 1.3; color: #0B5345; margin-bottom: 20px; }
+    .q-stem { font-size: clamp(20px, 3vw, 28px); font-weight: 800; line-height: 1.3; color: #0B5345; margin-bottom: 32px; }
+    
+    /* Responsive Grid for Options */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
     
     .opt-btn {
       width: 100%;
       background: #FFFFFF;
       border: 2px solid #E2E8F0;
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       color: #0B5345;
-      font-size: 14px;
+      font-size: clamp(14px, 2vw, 16px);
       font-weight: 700;
       text-align: left;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 12px;
       transition: all 0.2s ease;
     }
     .opt-btn:hover { border-color: #00A651; background: #F8FAFC; transform: translateY(-2px); }
     .opt-btn.selected { border-color: #00A651; background: rgba(0, 166, 81, 0.05); color: #00A651; }
     .opt-letter {
-      width: 28px; height: 28px;
+      width: 32px; height: 32px;
       border-radius: 50%;
       background: #F1F5F9;
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 900; color: #64748B; flex-shrink: 0;
+      font-size: 14px; font-weight: 900; color: #64748B; flex-shrink: 0;
     }
     .opt-btn.selected .opt-letter { background: #00A651; color: #FFFFFF; }
 
-    /* Result Screen */
+    /* Responsive Result Screen */
+    .result-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    
     .result-card {
       background: #F8FAFC;
       border: 1px solid #E2E8F0;
       border-radius: 24px;
-      padding: 24px;
+      padding: 32px;
       text-align: center;
-      margin-bottom: 24px;
     }
-    .result-tag { font-size: 11px; font-weight: 800; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-    .result-title { font-size: 28px; font-weight: 900; margin-bottom: 8px; color: #0B5345; }
-    .result-desc { font-size: 14px; color: #64748B; line-height: 1.5; }
+    .result-tag { font-size: 12px; font-weight: 800; color: #FF8A00; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .result-title { font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin-bottom: 12px; color: #0B5345; }
+    .result-desc { font-size: 15px; color: #64748B; line-height: 1.6; }
     
     .input-field {
-      width: 100%; padding: 14px 16px; border-radius: 12px;
+      width: 100%; padding: 16px; border-radius: 12px;
       background: #FFFFFF; border: 1px solid #E2E8F0;
-      color: #0B5345; font-size: 14px; font-weight: 600;
-      margin-bottom: 12px; outline: none; transition: border-color 0.2s;
+      color: #0B5345; font-size: 15px; font-weight: 600;
+      margin-bottom: 16px; outline: none; transition: border-color 0.2s;
     }
     .input-field:focus { border-color: #00A651; }
 
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      .options-grid { grid-template-columns: 1fr 1fr; }
+      .result-layout { grid-template-columns: 1fr 1fr; text-align: left; }
+      .result-card { text-align: left; }
+    }
+    
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .app-container { border-radius: 0; border: none; min-height: 100dvh; padding: 24px 20px; }
+    }
   </style>
 </head>
 <body>
 
   <div class="app-container" id="app">
     
-    <!-- BRAND HEADER (Persistent) -->
+    <!-- BRAND HEADER -->
     <div class="header-pill">
       <div class="brand-logo-pill">
         <div class="kivuli-icon">K</div>
@@ -183,48 +215,51 @@
     </div>
 
     <!-- 1. INTRO SCREEN -->
-    <div id="screen-intro" style="display: flex; flex-direction: column; flex-grow: 1;">
-      <div style="margin-top: 40px; margin-bottom: 40px;">
+    <div id="screen-intro" class="content-wrapper">
+      <div style="margin-bottom: 40px; text-align: center;">
         <h1>Which Kivuli<br>Are You?</h1>
-        <p>Your next car should fit your life. Answer a few questions and discover the Kivuli model that matches your personality, lifestyle and priorities.</p>
+        <p>Your next car should fit your life. Answer a few questions and discover the Kivuli model that matches your personality, lifestyle, and priorities.</p>
       </div>
       <button class="btn-primary" onclick="startGame()">Start Experience →</button>
-      <div style="text-align: center; margin-top: 16px; font-size: 11px; color: #94A3B8; font-weight: 600;">Takes 45 seconds · Personality Match</div>
+      <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #94A3B8; font-weight: 600;">Takes 45 seconds · Personality Match</div>
     </div>
 
     <!-- 2. GAME SCREEN -->
-    <div id="screen-game" style="display: none; flex-direction: column; flex-grow: 1;">
+    <div id="screen-game" style="display: none; flex-direction: column; flex-grow: 1; width: 100%;">
       <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
-      <div style="font-size: 11px; font-weight: 800; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;" id="q-counter">Question 1 of 5</div>
+      <div style="font-size: 12px; font-weight: 800; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;" id="q-counter">Question 1 of 5</div>
       
       <div id="question-container" class="fade-in">
         <div class="q-stem" id="q-text">Loading...</div>
-        <div id="options-container"></div>
+        <div class="options-grid" id="options-container"></div>
       </div>
     </div>
 
     <!-- 3. RESULT SCREEN -->
-    <div id="screen-result" style="display: none; flex-direction: column; flex-grow: 1;">
-      <div class="result-card fade-in">
-        <div class="result-tag" id="r-tag">Your Profile</div>
-        <h2 class="result-title" id="r-title">Kivuli X</h2>
-        <p class="result-desc" id="r-desc">Built for drivers who want flexibility, capability and the freedom to go further.</p>
-      </div>
+    <div id="screen-result" style="display: none; flex-direction: column; flex-grow: 1; justify-content: center;">
+      <div class="result-layout">
+        <!-- Left: Profile -->
+        <div class="result-card fade-in">
+          <div class="result-tag" id="r-tag">Your Profile</div>
+          <h2 class="result-title" id="r-title">Kivuli X</h2>
+          <p class="result-desc" id="r-desc">Built for drivers who want flexibility, capability and the freedom to go further.</p>
+        </div>
 
-      <div class="fade-in" style="animation-delay: 0.2s; flex-grow: 1;">
-        <div style="font-size: 16px; font-weight: 800; color: #0B5345; margin-bottom: 8px;">Want to take the next step?</div>
-        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">Leave your details to explore this model or book a test drive.</p>
-        <input type="text" class="input-field" placeholder="Name" />
-        <input type="tel" class="input-field" placeholder="Phone Number" />
-        <button class="btn-primary" id="lead-btn" onclick="submitLead()">Talk to Kivuli</button>
-        <div id="lead-status" style="font-size: 13px; color: #00A651; font-weight: 800; text-align: center; margin-top: 12px; display: none;">✓ Inquiry Sent Successfully</div>
+        <!-- Right: Lead Capture -->
+        <div class="fade-in" style="animation-delay: 0.2s;">
+          <div style="font-size: 18px; font-weight: 800; color: #0B5345; margin-bottom: 8px;">Want to take the next step?</div>
+          <p style="font-size: 14px; color: #64748B; margin-bottom: 24px;">Leave your details to explore this model or book a test drive.</p>
+          <input type="text" class="input-field" placeholder="Name" />
+          <input type="tel" class="input-field" placeholder="Phone Number" />
+          <button class="btn-primary" id="lead-btn" style="margin-top: 8px;" onclick="submitLead()">Talk to Kivuli</button>
+          <div id="lead-status" style="font-size: 14px; color: #00A651; font-weight: 800; text-align: center; margin-top: 16px; display: none;">✓ Inquiry Sent Successfully</div>
+        </div>
       </div>
     </div>
 
   </div>
 
   <script>
-    // GAME DATA & WEIGHTS [Urban, X, Family]
     const quizData = [
       {
         question: "What matters most when choosing your next car?",
@@ -275,7 +310,7 @@
     };
 
     let currentQ = 0;
-    let scores = [0, 0, 0]; // [Urban, X, Family]
+    let scores = [0, 0, 0];
     const letters = ['A', 'B', 'C'];
 
     function startGame() {
@@ -291,7 +326,7 @@
       
       const qContainer = document.getElementById('question-container');
       qContainer.classList.remove('fade-in');
-      void qContainer.offsetWidth; // trigger reflow
+      void qContainer.offsetWidth;
       qContainer.classList.add('fade-in');
 
       document.getElementById('q-text').innerText = q.question;
@@ -309,11 +344,9 @@
     }
 
     function handleAnswer(weights, btn) {
-      // Disable clicks during transition
       document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
       btn.classList.add('selected');
 
-      // Add scores
       scores[0] += weights[0];
       scores[1] += weights[1];
       scores[2] += weights[2];
@@ -333,7 +366,6 @@
       document.getElementById('screen-result').style.display = 'flex';
       document.getElementById('top-badge').innerText = "Match Found";
 
-      // Determine winner
       let maxScore = Math.max(...scores);
       let winnerKey = "Urban";
       if (scores[1] === maxScore) winnerKey = "X";
