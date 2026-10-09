@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B5345">
+<title>Which Kivuli Are You? | PlayformIQ Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--green:#00A651;--teal:#0B5345;--yellow:#FFB800;--orange:#FF6B00;--paper:#FAF9F6;--ink:#17231f;--muted:#66736d;--line:#e4e9e5;--white:#fff;--shadow:0 18px 50px rgba(11,83,69,.10}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,sans-serif;line-height:1.55}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #ffb800;outline-offset:3px}
+.topbar{height:76px;padding:0 clamp(18px,5vw,72px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(11,83,69,.08);background:rgba(250,249,246,.88);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em;font-size:1.25rem;color:var(--teal);text-decoration:none}
+.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--teal));display:grid;place-items:center;color:white;font-size:1.05rem}
+.brand small{display:block;font-size:.64rem;letter-spacing:.14em;color:var(--muted);font-weight:700;text-transform:uppercase}
+.nav-right{font-size:.86rem;color:var(--muted);font-weight:600}
+.wrap{width:min(1100px,calc(100% - 36px));margin:auto}
+.hero{position:relative;overflow:hidden;padding:70px 0 44px;text-align:center}
+.bubble{position:absolute;border-radius:50%;filter:blur(1px);opacity:.45;pointer-events:none}
+.b1{width:210px;height:210px;background:radial-gradient(circle,var(--yellow),transparent 70%);top:0;left:-45px}
+.b2{width:250px;height:250px;background:radial-gradient(circle,#7cdb9d,transparent 70%);right:-60px;top:45px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal);background:#e7f5eb;border:1px solid #cdebd6;padding:7px 13px;border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow span{width:7px;height:7px;border-radius:50%;background:var(--green)}
+h1{font-size:clamp(2.5rem,6vw,4.9rem);line-height:1.02;letter-spacing:-.065em;margin:22px auto 18px;max-width:850px;font-weight:800}
+.gradient-text{background:linear-gradient(90deg,var(--green),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(1rem,2vw,1.18rem);max-width:650px;margin:0 auto;color:var(--muted)}
+.hero-note{margin-top:18px!important;font-size:.8rem!important;color:#7b867f!important}
+.btn{border:0;border-radius:14px;padding:14px 20px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .18s,background .18s;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(11,83,69,.17)}
+.btn-primary:hover{background:#08463b;box-shadow:0 12px 25px rgba(11,83,69,.22)}
+.btn-green{background:var(--green);color:#fff}
+.btn-light{background:#eef4ef;color:var(--teal);border:1px solid #dce7df}
+.btn-outline{background:transparent;color:var(--teal);border:1px solid #b7c8bd}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.hero .btn{margin-top:28px;min-width:210px}
+.content{padding:18px 0 72px}
+.game-shell{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar,.game-card,.result-card,.form-card{background:var(--white);border:1px solid rgba(11,83,69,.08);border-radius:24px;box-shadow:var(--shadow)}
+.sidebar{padding:24px;position:sticky;top:96px}
+.sidebar h2{font-size:1rem;margin:0 0 8px;letter-spacing:-.03em}
+.sidebar p{font-size:.85rem;color:var(--muted);margin:0}
+.steps{display:grid;gap:14px;margin-top:25px}
+.step{display:flex;gap:11px;align-items:center;font-size:.82rem;font-weight:700;color:#89958e}
+.step-number{height:30px;width:30px;flex:none;border-radius:10px;display:grid;place-items:center;background:#f0f3f0;color:#7c8881;font-size:.76rem}
+.step.active{color:var(--teal)}.step.active .step-number{background:var(--teal);color:#fff}
+.step.done{color:var(--green)}.step.done .step-number{background:#e2f6e8;color:var(--green)}
+.mini-note{font-size:.76rem!important;margin-top:24px!important;padding-top:18px;border-top:1px solid var(--line)}
+.game-card{padding:clamp(22px,4vw,42px);min-height:475px}
+.screen{display:none}.screen.active{display:block;animation:fadeIn .24s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--green);margin-bottom:10px}
+h2.screen-title{font-size:clamp(1.7rem,3.7vw,2.65rem);line-height:1.12;letter-spacing:-.055em;margin:0 0 12px}
+.lead{color:var(--muted);margin:0 0 24px;max-width:650px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.feature{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fcfdfb}
+.feature-icon{font-size:1.4rem;margin-bottom:8px}.feature strong{display:block;font-size:.86rem}.feature span{font-size:.75rem;color:var(--muted)}
+.disclaimer{font-size:.77rem;color:#718078;background:#f7f8f5;border-radius:12px;padding:12px 14px;margin:18px 0}
+.progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:var(--muted);font-size:.8rem;font-weight:700}
+.progress-track{height:7px;background:#edf1ed;border-radius:99px;overflow:hidden;margin-bottom:30px}
+.progress-fill{height:100%;width:12.5%;background:linear-gradient(90deg,var(--green),#70d58b);border-radius:99px;transition:width .25s}
+.question-number{display:inline-flex;padding:6px 10px;border-radius:9px;background:#e8f6ec;color:var(--teal);font-size:.76rem;font-weight:800;margin-bottom:13px}
+.question-title{font-size:clamp(1.45rem,3vw,2rem);line-height:1.2;letter-spacing:-.045em;margin:0 0 22px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.answer{display:flex;align-items:flex-start;gap:12px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:16px;min-height:84px;color:var(--ink);transition:border .15s,background .15s,transform .15s}
+.answer:hover{border-color:#9fcdb0;transform:translateY(-1px)}
+.answer.selected{border-color:var(--green);background:#f0fbf3;box-shadow:0 0 0 2px rgba(0,166,81,.08)}
+.answer-letter{display:grid;place-items:center;width:28px;height:28px;flex:none;border-radius:9px;background:#f0f3f0;color:var(--teal);font-weight:800;font-size:.78rem}
+.answer.selected .answer-letter{background:var(--green);color:#fff}
+.answer-text{font-size:.9rem;font-weight:600;line-height:1.4;padding-top:3px}
+.validation{min-height:24px;color:#b54708;font-size:.8rem;margin-top:10px}
+.question-actions{display:flex;justify-content:space-between;gap:12px;margin-top:20px}
+.result-hero{border-radius:20px;background:linear-gradient(135deg,#0B5345,#073d34);padding:clamp(24px,4vw,38px);color:#fff;position:relative;overflow:hidden}
+.result-hero:after{content:"";position:absolute;width:260px;height:260px;right:-80px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(255,184,0,.55),transparent 68%)}
+.result-tag{font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a6edbc}
+.result-hero h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.06em;margin:13px 0}
+.result-hero p{color:#dcebe2;max-width:600px;margin:0}
+.result-pill{display:inline-flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);padding:8px 12px;border-radius:999px;font-size:.77rem;font-weight:700;margin-top:18px}
+.result-details{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px}
+.detail-panel{border:1px solid var(--line);border-radius:18px;padding:22px}
+.detail-panel h3{font-size:1rem;margin:0 0 10px}
+.detail-panel p{font-size:.88rem;color:var(--muted);margin:0}
+.priority-list{padding:0;margin:0;list-style:none;display:grid;gap:10px}
+.priority-list li{display:flex;gap:9px;font-size:.84rem;color:#4f5e56}
+.tick{width:22px;height:22px;flex:none;display:grid;place-items:center;border-radius:7px;background:#e5f7eb;color:var(--green);font-weight:900}
+.result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.form-card{padding:clamp(22px,4vw,34px);margin-top:20px}
+.form-card h3{margin:0 0 8px;font-size:1.45rem;letter-spacing:-.04em}
+.form-card>p{color:var(--muted);font-size:.88rem;margin:0 0 22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:7px}.field.full{grid-column:1/-1}
+.field label{font-size:.8rem;font-weight:800;color:#34443b}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dbe3dc;background:#fff;border-radius:11px;padding:12px 13px;color:var(--ink)}
+.field textarea{resize:vertical;min-height:95px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;color:var(--muted);margin:16px 0}
+.consent input{margin-top:4px;accent-color:var(--green)}
+.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.form-error{color:#b42318;font-size:.8rem;margin-top:10px;min-height:20px}
+.confirmation{border:1px solid #c8e9d2;background:#f1fbf4;border-radius:16px;padding:20px;margin-top:18px}
+.confirmation h4{margin:0 0 7px;color:var(--teal)}
+.confirmation p{margin:0;color:#53665a;font-size:.87rem}
+.footer{background:var(--teal);color:#fff;padding:34px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer p{font-size:.8rem;color:#c9dfd2;margin:4px 0 0}
+.footer .brand{color:#fff}.footer .brand small{color:#c9dfd2}
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(10,30,23,.55);z-index:30;align-items:center;justify-content:center;padding:18px}
+.modal-backdrop.open{display:flex}
+.modal{width:min(500px,100%);background:#fff;border-radius:22px;padding:28px;box-shadow:0 20px 80px #0003}
+.modal h3{margin:0 0 8px;font-size:1.5rem;letter-spacing:-.04em}.modal p{color:var(--muted);font-size:.9rem}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#17231f;color:#fff;border-radius:12px;padding:12px 16px;font-size:.84rem;z-index:50;transition:.2s;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+@media(max-width:820px){.game-shell{grid-template-columns:1fr}.sidebar{position:static}.steps{grid-template-columns:repeat(3,1fr);gap:8px}.step{font-size:.72rem;align-items:flex-start}.step-number{width:26px;height:26px;border-radius:8px}.mini-note{margin-top:15px!important;padding-top:13px}.result-details{grid-template-columns:1fr}}
+@media(max-width:560px){.topbar{height:66px}.nav-right{font-size:.72rem}.hero{padding:52px 0 30px}.content{padding-bottom:44px}.feature-grid{grid-template-columns:1fr}.feature{display:flex;align-items:center;gap:12px;padding:12px}.feature-icon{margin:0}.answers{grid-template-columns:1fr}.answer{min-height:68px}.question-actions .btn{padding:12px 14px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-inner{align-items:flex-start;flex-direction:column}.steps{grid-template-columns:1fr 1fr}.game-card{padding:20px;border-radius:20px}.sidebar{padding:20px;border-radius:20px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="PlayformIQ home">
+    <span class="brand-mark">P</span><span>PlayformIQ<small>Interactive experiences</small></span>
+  </a>
+  <div class="nav-right">DEMO 01 / 05 &nbsp;·&nbsp; Kivuli Motors</div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="bubble b1"></div><div class="bubble b2"></div>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow"><span></span> Kivuli Motors · Product discovery</div>
+    <h1>Which <span class="gradient-text">Kivuli</span><br>are you?</h1>
+    <p>Your next car should fit your life. Answer a few questions and discover the Kivuli profile that matches your personality, lifestyle and priorities.</p>
+    <p class="hero-note">A quick, interactive discovery experience · About 2 minutes</p>
+    <button class="btn btn-primary" id="heroStart">Find my Kivuli <span aria-hidden="true">→</span></button>
+  </div>
+</section>
+
+<section class="content wrap" id="experience">
+<div class="game-shell">
+  <aside class="sidebar">
+    <h2>Your journey</h2>
+    <p>Eight quick questions lead to your personalised profile.</p>
+    <div class="steps" aria-label="Game steps">
+      <div class="step active" id="step1"><span class="step-number">1</span><span>Start</span></div>
+      <div class="step" id="step2"><span class="step-number">2</span><span>Answer</span></div>
+      <div class="step" id="step3"><span class="step-number">3</span><span>Your match</span></div>
+      <div class="step" id="step4"><span class="step-number">4</span><span>Enquire</span></div>
+    </div>
+    <p class="mini-note">This is an illustrative demo. Profiles describe preferences and are not real vehicle models or verified vehicle specifications.</p>
+  </aside>
+
+  <div class="game-card">
+    <section class="screen active" id="welcomeScreen">
+      <div class="kicker">A little about you</div>
+      <h2 class="screen-title">Let’s find your driving personality.</h2>
+      <p class="lead">There are no right or wrong answers. Just choose what feels most like you. We’ll use your choices to find the profile that best fits your preferences.</p>
+      <div class="feature-grid">
+        <div class="feature"><div class="feature-icon">🧭</div><div><strong>Made for your life</strong><span>Your routine, your priorities</span></div></div>
+        <div class="feature"><div class="feature-icon">⚡</div><div><strong>Eight quick questions</strong><span>Simple choices, no long forms</span></div></div>
+        <div class="feature"><div class="feature-icon">🎯</div><div><strong>A personal result</strong><span>Discover your Kivuli profile</span></div></div>
+      </div>
+      <div class="disclaimer">The four result profiles are illustrative categories created for this demo. They are not confirmed Kivuli Motors models.</div>
+      <button class="btn btn-primary" id="startButton">Start the experience <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section class="screen" id="questionScreen" aria-live="polite">
+      <div class="progress-head"><span id="questionCounter">QUESTION 1 OF 8</span><span id="progressPercent">13% complete</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="question-number" id="questionNumber">QUESTION 01</div>
+      <h2 class="question-title" id="questionTitle"></h2>
+      <div class="answers" id="answers"></div>
+      <div class="validation" id="questionError" role="alert"></div>
+      <div class="question-actions">
+        <button class="btn btn-light" id="backButton">← Back</button>
+        <button class="btn btn-primary" id="nextButton">Continue →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="resultScreen">
+      <div class="result-hero">
+        <div class="result-tag">Your Kivuli match</div>
+        <h2 id="resultTitle">You're The Urban Explorer</h2>
+        <p id="resultDescription"></p>
+        <div class="result-pill" id="resultPill">Your driving personality</div>
+      </div>
+      <div class="result-details">
+        <div class="detail-panel">
+          <h3>Why this profile fits</h3>
+          <p id="resultWhy"></p>
+        </div>
+        <div class="detail-panel">
+          <h3>Your priorities</h3>
+          <ul class="priority-list" id="priorityList"></ul>
+        </div>
+      </div>
+      <div class="disclaimer">This is a lifestyle-based result, not a recommendation for a specific vehicle. Model availability, features and specifications have not been verified in this demo.</div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="enquireButton">Make a vehicle enquiry <span aria-hidden="true">→</span></button>
+        <button class="btn btn-light" id="shareButton">Share my result ↗</button>
+        <button class="btn btn-outline" id="replayButton">Play again ↻</button>
+      </div>
+    </section>
+
+    <section class="screen" id="enquiryScreen">
+      <div class="kicker">Take the next step</div>
+      <h2 class="screen-title">Let's talk about your next drive.</h2>
+      <p class="lead">Tell us how you'd prefer to be contacted. Your selected profile will be included with this demo enquiry.</p>
+      <div class="disclaimer"><strong>Your profile:</strong> <span id="enquiryProfile"></span><br>This demo does not connect to a Kivuli Motors CRM or send information to a dealer.</div>
+      <form id="enquiryForm" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="fullName">Your name *</label><input id="fullName" name="fullName" autocomplete="name" required placeholder="e.g. Alex Kamau"></div>
+          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="phone">Phone number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+254 ..."></div>
+          <div class="field"><label for="contactMethod">Preferred contact method *</label><select id="contactMethod" name="contactMethod" required><option value="">Choose one</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select></div>
+          <div class="field full"><label for="message">Anything you'd like us to know? (optional)</label><textarea id="message" name="message" placeholder="Tell us what you would like to explore..."></textarea></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>I understand this is a demo and consent to using the details I enter to prepare a local enquiry preview. No information will be sent to Kivuli Motors from this page.</span></label>
+        <div class="form-error" id="formError" role="alert"></div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Prepare enquiry preview →</button>
+          <button type="button" class="btn btn-light" id="backToResult">← Back to my result</button>
+        </div>
+      </form>
+      <div id="confirmation" class="confirmation hidden" role="status">
+        <h4>Demo enquiry prepared</h4>
+        <p id="confirmationText"></p>
+        <p style="margin-top:10px"><strong>Important:</strong> This preview is stored only in this page session. It has not been sent to Kivuli Motors.</p>
+        <div class="form-actions"><button type="button" class="btn btn-primary" id="copyEnquiry">Copy enquiry summary</button><button type="button" class="btn btn-light" id="returnResult">Return to result</button></div>
+      </div>
+    </section>
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="brand"><span class="brand-mark">P</span><span>PlayformIQ<small>Turn audiences into participants.</small></span></div>
+    <div><strong>Kivuli Motors · Which Kivuli Are You?</strong><p>Illustrative interactive demo built for product discovery.</p></div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="restartModal" role="dialog" aria-modal="true" aria-labelledby="restartTitle">
+  <div class="modal">
+    <h3 id="restartTitle">Start a fresh journey?</h3>
+    <p>Your current answers and result will be cleared so you can try a different set of answers.</p>
+    <div class="modal-actions"><button class="btn btn-primary" id="confirmRestart">Start again</button><button class="btn btn-light" id="cancelRestart">Keep my result</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+  const profiles = {
+    A: {
+      name: "The Urban Explorer",
+      title: "You're The Urban Explorer",
+      short: "You value convenience and flexibility.",
+      description: "You value convenience, flexibility and a vehicle that fits into your everyday routine. Your answers suggest that city life and practical journeys are central to your driving preferences.",
+      why: "Your choices lean towards everyday convenience, city routines and keeping daily journeys simple. You seem to value a vehicle profile that fits naturally into the rhythm of your day.",
+      priorities: ["Everyday convenience", "City and local journeys", "Flexible daily routines"],
+      vibe: "Practical, flexible and always on the move"
+    },
+    B: {
+      name: "The Family Companion",
+      title: "You're The Family Companion",
+      short: "You put people and practicality first.",
+      description: "You think about the people travelling with you. Your answers point towards practicality, shared journeys and making everyday trips work for everyone.",
+      why: "Your answers put passengers, family activities and practical needs near the centre of your driving life. You seem to plan journeys around the people who matter to you.",
+      priorities: ["Passenger and family needs", "Practical everyday use", "Shared journeys and outings"],
+      vibe: "Considerate, practical and people-first"
+    },
+    C: {
+      name: "The Adventure Seeker",
+      title: "You're The Adventure Seeker",
+      short: "You enjoy variety and exploring new places.",
+      description: "You enjoy variety and the possibility of somewhere new. Your answers suggest that flexibility and the freedom to explore are important parts of your driving life.",
+      why: "Your choices suggest that you enjoy varied plans, different destinations and the possibility of exploring beyond your usual routine. Flexibility is a recurring theme in your answers.",
+      priorities: ["Variety of journeys", "Exploring new places", "Flexible plans and destinations"],
+      vibe: "Curious, adaptable and ready to explore"
+    },
+    D: {
+      name: "The Executive Driver",
+      title: "You're The Executive Driver",
+      short: "You value comfort and a composed experience.",
+      description: "You value comfort, composure and a vehicle that fits around professional and personal commitments. Your answers suggest that how you experience the journey matters to you.",
+      why: "Your answers lean towards professional travel, comfort and moving between commitments. You seem to value a driving experience that feels considered and fits around your day.",
+      priorities: ["Comfort and composure", "Professional commitments", "Work and personal travel"],
+      vibe: "Purposeful, composed and considered"
+    }
+  };
+
+  const questions = [
+    {text:"What does a typical week behind the wheel look like for you?", options:[
+      ["Mostly city trips, errands and daily routines","A"],["School runs, family trips and carrying passengers","B"],["A mix of city travel and exploring new places","C"],["Commuting to work, meetings and professional commitments","D"]
+    ]},
+    {text:"Who is most often travelling with you?", options:[
+      ["Usually just me, or one other person","A"],["Family members or several passengers","B"],["Different people, depending on the trip","C"],["Colleagues, clients or business associates","D"]
+    ]},
+    {text:"Which kind of journey sounds most like your ideal drive?", options:[
+      ["A smooth trip across town with everything within reach","A"],["A relaxed outing with the people closest to me","B"],["A scenic route somewhere I have not explored before","C"],["A comfortable drive to an important destination","D"]
+    ]},
+    {text:"What matters most when choosing a vehicle for your life?", options:[
+      ["Everyday convenience and versatility","A"],["Practicality for passengers and family needs","B"],["Flexibility for different journeys and plans","C"],["Comfort and a professional driving experience","D"]
+    ]},
+    {text:"It's the weekend. Which plan appeals to you most?", options:[
+      ["Explore a new café, shop or neighbourhood","A"],["Spend time with family or friends on an outing","B"],["Take a road trip and see somewhere different","C"],["Enjoy a planned getaway with comfort and convenience","D"]
+    ]},
+    {text:"What do you most want your vehicle to make easier?", options:[
+      ["Getting around efficiently during a busy day","A"],["Managing the needs of passengers and everyday family life","B"],["Handling a variety of plans and destinations","C"],["Moving between work and personal commitments comfortably","D"]
+    ]},
+    {text:"Which statement best describes your approach to travel?", options:[
+      ["I like my journeys to be simple and convenient","A"],["I plan around the people travelling with me","B"],["I enjoy variety and the freedom to explore","C"],["I value comfort, composure and arriving ready for the day","D"]
+    ]},
+    {text:"Choose the priority you would be least willing to compromise on.", options:[
+      ["Convenience for everyday life","A"],["Practicality for the people who matter to me","B"],["Versatility for the journeys I want to take","C"],["Comfort for work and personal travel","D"]
+    ]}
+  ];
+
+  let current = 0;
+  let answers = Array(questions.length).fill(null);
+  let resultKey = null;
+  let enquirySummary = "";
+  const $ = id => document.getElementById(id);
+  const screens = ["welcomeScreen","questionScreen","resultScreen","enquiryScreen"];
+  const showScreen = id => {
+    screens.forEach(s => $(s).classList.toggle("active", s === id));
+    const stepMap = {welcomeScreen:1,questionScreen:2,resultScreen:3,enquiryScreen:4};
+    const activeStep = stepMap[id];
+    [1,2,3,4].forEach(n => {
+      const el = $("step"+n);
+      el.classList.toggle("active", n === activeStep);
+      el.classList.toggle("done", n < activeStep);
+      el.querySelector(".step-number").textContent = n < activeStep ? "✓" : String(n);
+    });
+    if (id !== "welcomeScreen") $("experience").scrollIntoView({behavior:"smooth",block:"start"});
+  };
+  const toast = message => {
+    $("toast").textContent = message;
+    $("toast").classList.add("show");
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => $("toast").classList.remove("show"), 2600);
+  };
+  const renderQuestion = () => {
+    const q = questions[current];
+    $("questionCounter").textContent = `QUESTION ${current+1} OF ${questions.length}`;
+    $("progressPercent").textContent = `${Math.round(((current+1)/questions.length)*100)}% complete`;
+    $("progressFill").style.width = `${((current+1)/questions.length)*100}%`;
+    $("progressBar").setAttribute("aria-valuenow", String(current+1));
+    $("questionNumber").textContent = `QUESTION ${String(current+1).padStart(2,"0")}`;
+    $("questionTitle").textContent = q.text;
+    $("answers").innerHTML = "";
+    q.options.forEach(([label,key], idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "answer" + (answers[current] === key ? " selected" : "");
+      btn.setAttribute("aria-pressed", answers[current] === key ? "true" : "false");
+      btn.innerHTML = `<span class="answer-letter">${String.fromCharCode(65+idx)}</span><span class="answer-text"></span>`;
+      btn.querySelector(".answer-text").textContent = label;
+      btn.addEventListener("click", () => {
+        answers[current] = key;
+        $("questionError").textContent = "";
+        [...$("answers").children].forEach((b,i) => {
+          b.classList.toggle("selected", i === idx);
+          b.setAttribute("aria-pressed", i === idx ? "true" : "false");
+        });
+      });
+      $("answers").appendChild(btn);
+    });
+    $("backButton").disabled = current === 0;
+    $("nextButton").textContent = current === questions.length-1 ? "See my match →" : "Continue →";
+    $("questionError").textContent = "";
+  };
+  const calculateResult = () => {
+    const scores = {A:0,B:0,C:0,D:0};
+    answers.forEach(k => { if (k) scores[k]++; });
+    const max = Math.max(...Object.values(scores));
+    let tied = Object.keys(scores).filter(k => scores[k] === max);
+    if (tied.length === 1) return tied[0];
+    // Approved tie-break: Q8 if it is among tied profiles, then scan Q7 back to Q1.
+    const finalAnswer = answers[7];
+    if (tied.includes(finalAnswer)) return finalAnswer;
+    for (let i=6; i>=0; i--) if (tied.includes(answers[i])) return answers[i];
+    return "A"; // Defensive fallback; unreachable with eight valid answers.
+  };
+  const renderResult = () => {
+    resultKey = calculateResult();
+    const p = profiles[resultKey];
+    $("resultTitle").textContent = p.title;
+    $("resultDescription").textContent = p.description;
+    $("resultPill").textContent = p.vibe;
+    $("resultWhy").textContent = p.why;
+    $("priorityList").innerHTML = "";
+    p.priorities.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = '<span class="tick">✓</span><span></span>';
+      li.lastElementChild.textContent = item;
+      $("priorityList").appendChild(li);
+    });
+    $("enquiryProfile").textContent = p.name;
+    showScreen("resultScreen");
+  };
+  const startGame = () => {
+    current = 0;
+    answers = Array(questions.length).fill(null);
+    resultKey = null;
+    $("confirmation").classList.add("hidden");
+    $("enquiryForm").classList.remove("hidden");
+    $("enquiryForm").reset();
+    renderQuestion();
+    showScreen("questionScreen");
+  };
+
+  $("heroStart").addEventListener("click", () => { startGame(); });
+  $("startButton").addEventListener("click", startGame);
+  $("nextButton").addEventListener("click", () => {
+    if (!answers[current]) {
+      $("questionError").textContent = "Choose an answer to continue.";
+      return;
+    }
+    if (current < questions.length-1) { current++; renderQuestion(); }
+    else { renderResult(); }
+  });
+  $("backButton").addEventListener("click", () => {
+    if (current > 0) { current--; renderQuestion(); }
+    else showScreen("welcomeScreen");
+  });
+  $("enquireButton").addEventListener("click", () => {
+    $("enquiryProfile").textContent = profiles[resultKey].name;
+    $("confirmation").classList.add("hidden");
+    $("enquiryForm").classList.remove("hidden");
+    showScreen("enquiryScreen");
+  });
+  $("backToResult").addEventListener("click", () => showScreen("resultScreen"));
+  $("returnResult").addEventListener("click", () => showScreen("resultScreen"));
+  $("replayButton").addEventListener("click", () => $("restartModal").classList.add("open"));
+  $("cancelRestart").addEventListener("click", () => $("restartModal").classList.remove("open"));
+  $("confirmRestart").addEventListener("click", () => {
+    $("restartModal").classList.remove("open");
+    startGame();
+  });
+  $("restartModal").addEventListener("click", e => { if (e.target === $("restartModal")) $("restartModal").classList.remove("open"); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") $("restartModal").classList.remove("open"); });
+
+  $("shareButton").addEventListener("click", async () => {
+    const p = profiles[resultKey];
+    const shareData = {title:"Which Kivuli Are You?",text:`My Kivuli driving profile is ${p.name}: ${p.short} Try the PlayformIQ demo!`,url:location.href.split("#")[0]};
+    try {
+      if (navigator.share) { await navigator.share(shareData); }
+      else if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+        toast("Your result text and link have been copied.");
+      } else {
+        const text = `${shareData.text} ${shareData.url}`;
+        const ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly",""); ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+        const ok = document.execCommand("copy");ta.remove();
+        if (ok) toast("Your result text and link have been copied."); else showShareFallback(text);
+      }
+    } catch (err) {
+      if (err && err.name !== "AbortError") showShareFallback(`${shareData.text} ${shareData.url}`);
+    }
+  });
+  function showShareFallback(text) {
+    const encoded = encodeURIComponent(text);
+    const modal = $("restartModal");
+    $("restartTitle").textContent = "Share your result";
+    const p = modal.querySelector("p");
+    p.textContent = text;
+    $("confirmRestart").textContent = "Copy text";
+    $("cancelRestart").textContent = "Close";
+    modal.classList.add("open");
+    const confirm = () => {
+      const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();
+      try { document.execCommand("copy"); toast("Share text copied where supported."); } catch(e) { toast("Select and copy the share text from the dialog."); }
+      ta.remove(); modal.classList.remove("open");
+      $("confirmRestart").removeEventListener("click",confirm);
+      $("confirmRestart").textContent="Start again";$("cancelRestart").textContent="Keep my result";
+      $("restartTitle").textContent="Start a fresh journey?";
+      p.textContent="Your current answers and result will be cleared so you can try a different set of answers.";
+    };
+    const close = () => {
+      modal.classList.remove("open");$("confirmRestart").removeEventListener("click",confirm);$("cancelRestart").removeEventListener("click",close);
+      $("confirmRestart").textContent="Start again";$("cancelRestart").textContent="Keep my result";$("restartTitle").textContent="Start a fresh journey?";
+      p.textContent="Your current answers and result will be cleared so you can try a different set of answers.";
+    };
+    $("confirmRestart").addEventListener("click",confirm);
+    $("cancelRestart").addEventListener("click",close);
+  }
+
+  $("enquiryForm").addEventListener("submit", e => {
+    e.preventDefault();
+    $("formError").textContent = "";
+    const name = $("fullName").value.trim();
+    const email = $("email").value.trim();
+    const phone = $("phone").value.trim();
+    const method = $("contactMethod").value;
+    const message = $("message").value.trim();
+    if (!name || !email || !method || !$("consent").checked) {
+      $("formError").textContent = "Please complete your name, email, preferred contact method and demo consent.";
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      $("formError").textContent = "Enter a valid email address.";
+      $("email").focus();
+      return;
+    }
+    if (method === "Phone" && !phone) {
+      $("formError").textContent = "Please add a phone number for your preferred contact method.";
+      $("phone").focus();
+      return;
+    }
+    const p = profiles[resultKey];
+    const lines = [
+      "KIVULI MOTORS — DEMO ENQUIRY PREVIEW",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not provided"}`,
+      `Preferred contact method: ${method}`,
+      `Matched profile: ${p.name}`,
+      `Profile summary: ${p.short}`,
+      `Message: ${message || "No additional message"}`,
+      "Status: Local demo preview only — not sent to Kivuli Motors."
+    ];
+    enquirySummary = lines.join("\n");
+    $("confirmationText").textContent = `Thanks, ${name}. Your enquiry preview for “${p.name}” is ready. No information has been transmitted.`;
+    $("enquiryForm").classList.add("hidden");
+    $("confirmation").classList.remove("hidden");
+    $("confirmation").scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+  $("copyEnquiry").addEventListener("click", async () => {
+    if (!enquirySummary) return;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(enquirySummary);
+        toast("Enquiry summary copied.");
+      } else {
+        const ta=document.createElement("textarea");ta.value=enquirySummary;document.body.appendChild(ta);ta.select();
+        const ok=document.execCommand("copy");ta.remove();
+        toast(ok ? "Enquiry summary copied." : "Copy is unavailable in this browser.");
+      }
+    } catch (e) { toast("Copy is unavailable in this browser."); }
+  });
+})();
+</script>
+</body>
+</html>
