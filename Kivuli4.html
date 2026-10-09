@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchIQ - Kivuli Configurator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+          },
+          colors: {
+            brand: { teal: '#00695C', dark: '#122C29', orange: '#FF8A00', mint: '#B7E9C7', bg: '#FAF9F6' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #FAF9F6; color: #122C29; }
+    .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Custom Radio Selection Glow */
+    .option-card { transition: all 0.2s ease; }
+    .option-card:hover { border-color: #00695C; transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 105, 92, 0.1); }
+    .option-card.selected { border-color: #00695C; background-color: #F0Fdf4; box-shadow: 0 0 0 1px #00695C; }
+    
+    /* Telemetry Spinner */
+    .spinner { border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid #00A651; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto 24px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8">
+
+  <!-- Main App Container -->
+  <div class="w-full max-w-4xl bg-white rounded-[2rem] border border-slate-200 shadow-2xl overflow-hidden flex flex-col min-h-[600px] relative">
+    
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6 sm:px-10 border-b border-slate-100 z-10 bg-white">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-brand-teal to-teal-900 flex items-center justify-center text-white font-display font-bold italic">K</div>
+        <span class="font-bold text-sm tracking-wide text-brand-dark uppercase">Kivuli Motors</span>
+      </div>
+      <span class="px-3 py-1 rounded-full bg-orange-100 text-brand-orange text-[10px] font-bold tracking-widest uppercase">LaunchIQ Demo</span>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="progress-container" class="w-full h-1.5 bg-slate-100">
+      <div id="progress-bar" class="h-full bg-brand-teal w-0 transition-all duration-500 ease-out"></div>
+    </div>
+
+    <!-- SCREEN 1: THE CONFIGURATOR -->
+    <div id="screen-config" class="flex-grow flex flex-col p-6 sm:p-10">
+      
+      <div class="text-center mb-8">
+        <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-dark mb-2">Build Your Kivuli.</h1>
+        <p class="text-slate-500 text-sm">Configure your perfect setup to reveal your vehicle profile.</p>
+      </div>
+
+      <!-- Step Container (Injected via JS) -->
+      <div id="step-container" class="flex-grow flex flex-col justify-center max-w-2xl mx-auto w-full fade-in">
+        <!-- Content injects here -->
+      </div>
+
+    </div>
+
+    <!-- SCREEN 2: TELEMETRY LOADING -->
+    <div id="screen-telemetry" class="hidden absolute inset-0 bg-brand-dark z-20 flex-col items-center justify-center text-white p-8">
+      <div class="spinner"></div>
+      <h2 class="font-display text-2xl font-bold mb-2">Calibrating Build</h2>
+      <p id="telemetry-text" class="text-brand-mint font-mono text-sm h-6 animate-pulse">Initializing processing engine...</p>
+    </div>
+
+    <!-- SCREEN 3: RESULT & RECEIPT -->
+    <div id="screen-result" class="hidden flex-grow flex-col md:flex-row p-6 sm:p-10 gap-8 bg-slate-50">
+      
+      <!-- Left: The Match & Receipt -->
+      <div class="flex-1 fade-in">
+        <div class="text-[11px] font-bold text-brand-orange tracking-widest uppercase mb-2" id="r-tag">Match Complete</div>
+        <h2 class="font-display text-4xl font-extrabold text-brand-dark mb-3" id="r-title">Kivuli X</h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6" id="r-desc">You configured a rugged, all-terrain build ready for absolute freedom.</p>
+        
+        <!-- The Spec Sheet / Receipt -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+          <h4 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-4 border-b border-slate-100 pb-2">Your Spec Sheet</h4>
+          <ul class="space-y-3 text-sm font-semibold text-brand-dark" id="r-receipt">
+            <!-- Injected via JS -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Lead Capture -->
+      <div class="flex-1 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm fade-in" style="animation-delay: 0.1s;">
+        <h3 class="font-display text-2xl font-bold text-brand-dark mb-2">Claim Your VIP Drive</h3>
+        <p class="text-slate-500 text-sm mb-6">Be the first to experience your exact build in the real world.</p>
+        
+        <div class="space-y-4" id="lead-form">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Full Name</label>
+            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-brand-teal font-medium" placeholder="Jane Doe">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Phone Number</label>
+            <input type="tel" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-brand-teal font-medium" placeholder="+254 700 000 000">
+          </div>
+          <button onclick="submitLead()" class="w-full py-4 rounded-xl bg-brand-teal text-white font-bold shadow-lg shadow-teal-900/20 hover:bg-teal-800 transition-colors mt-2">
+            Lock in my Drive →
+          </button>
+        </div>
+        
+        <!-- Success State -->
+        <div id="lead-success" class="hidden h-full flex-col items-center justify-center text-center py-10">
+          <div class="w-16 h-16 rounded-full bg-brand-mint text-brand-teal flex items-center justify-center text-2xl mb-4">✓</div>
+          <h4 class="font-bold text-brand-dark text-lg">VIP Access Secured</h4>
+          <p class="text-slate-500 text-sm mt-2">We will contact you to arrange your test drive.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // --- 1. GAME DATA ---
+    const steps = [
+      {
+        id: 'color',
+        title: "1. Exterior Paint",
+        options: [
+          { value: 'urban', label: 'City Slate', visual: '<div class="w-10 h-10 rounded-full mx-auto mb-3 shadow-md bg-gradient-to-br from-slate-400 to-slate-600"></div>' },
+          { value: 'x', label: 'Safari Orange', visual: '<div class="w-10 h-10 rounded-full mx-auto mb-3 shadow-md bg-gradient-to-br from-orange-400 to-orange-700"></div>' },
+          { value: 'family', label: 'Ocean Blue', visual: '<div class="w-10 h-10 rounded-full mx-auto mb-3 shadow-md bg-gradient-to-br from-blue-400 to-blue-700"></div>' }
+        ]
+      },
+      {
+        id: 'wheels',
+        title: "2. Wheel Package",
+        options: [
+          { value: 'urban', label: '18" Aero Alloys', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>' },
+          { value: 'x', label: '20" All-Terrain', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3m-13.4-6.4l2.1 2.1m8.6 8.6l2.1 2.1M6.4 17.6l2.1-2.1m8.6-8.6l2.1-2.1"/></svg>' },
+          { value: 'family', label: '19" Touring', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/></svg>' }
+        ]
+      },
+      {
+        id: 'interior',
+        title: "3. Interior Trim",
+        options: [
+          { value: 'urban', label: 'Vegan Leather', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10h14a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4a2 2 0 012-2zM9 10V6a3 3 0 016 0v4"/></svg>' },
+          { value: 'x', label: 'Rugged Canvas', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10h14v8H5zM9 10V6a3 3 0 016 0v4M4 14h16"/></svg>' },
+          { value: 'family', label: 'Premium Nappa', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2zM9 10V5a4 4 0 016 0v5"/></svg>' }
+        ]
+      },
+      {
+        id: 'accessory',
+        title: "4. Roof Accessory",
+        options: [
+          { value: 'urban', label: 'Panoramic Glass', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>' },
+          { value: 'x', label: 'Expedition Rack', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 8h16M6 8V5h12v3M4 12h16M8 12v6M16 12v6"/></svg>' },
+          { value: 'family', label: 'Sleek Cargo Box', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="8" rx="3"/><path d="M8 14v4M16 14v4"/></svg>' }
+        ]
+      }
+    ];
+
+    const profiles = {
+      urban: { title: "Kivuli Urban", tag: "The City Driver", desc: "Sleek and perfectly tuned for the city. Your component choices prioritize comfort, style, and daily efficiency." },
+      x: { title: "Kivuli X", tag: "The Explorer", desc: "You don't just want to get somewhere. You configured a rugged, all-terrain build ready for absolute freedom." },
+      family: { title: "Kivuli Family", tag: "The Protector", desc: "Space, safety, and practicality. You built the perfect command center for road trips and the daily school run." }
+    };
+
+    // --- 2. STATE ---
+    let currentStepIndex = 0;
+    let userSelections = { color: null, wheels: null, interior: null, accessory: null };
+    let userLabels = { color: '', wheels: '', interior: '', accessory: '' }; // For the receipt
+
+    // --- 3. LOGIC ---
+    function renderStep() {
+      const step = steps[currentStepIndex];
+      const container = document.getElementById('step-container');
+      
+      // Update Progress Bar
+      const progress = ((currentStepIndex) / steps.length) * 100;
+      document.getElementById('progress-bar').style.width = progress + '%';
+
+      // Build HTML
+      let html = `
+        <div class="fade-in">
+          <div class="text-xs font-bold text-brand-teal tracking-widest uppercase mb-1">Step ${currentStepIndex + 1} of 4</div>
+          <h2 class="text-xl font-bold text-brand-dark mb-6">${step.title}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      `;
+
+      step.options.forEach(opt => {
+        html += `
+          <div onclick="selectOption('${step.id}', '${opt.value}', '${opt.label}')" 
+               class="option-card bg-white border-2 border-slate-100 rounded-2xl p-6 text-center cursor-pointer">
+            ${opt.visual}
+            <span class="block text-sm font-bold text-brand-dark">${opt.label}</span>
+          </div>
+        `;
+      });
+
+      html += `</div></div>`;
+      container.innerHTML = html;
+    }
+
+    function selectOption(stepId, value, label) {
+      userSelections[stepId] = value;
+      userLabels[stepId] = label;
+
+      // Small delay for visual feedback before auto-advancing
+      setTimeout(() => {
+        if (currentStepIndex < steps.length - 1) {
+          currentStepIndex++;
+          renderStep();
+        } else {
+          // Finished config!
+          document.getElementById('progress-bar').style.width = '100%';
+          startTelemetry();
+        }
+      }, 300);
+    }
+
+    function startTelemetry() {
+      document.getElementById('screen-config').classList.add('hidden');
+      document.getElementById('screen-telemetry').classList.remove('hidden');
+      document.getElementById('screen-telemetry').classList.add('flex');
+
+      const textEl = document.getElementById('telemetry-text');
+      const messages = [
+        `Applying ${userLabels.color} Paint...`,
+        `Mounting ${userLabels.wheels}...`,
+        `Installing ${userLabels.interior}...`,
+        `Securing ${userLabels.accessory}...`,
+        `Finalizing Vehicle Profile...`
+      ];
+
+      // Loop through messages
+      let msgIndex = 0;
+      const interval = setInterval(() => {
+        textEl.innerText = messages[msgIndex];
+        msgIndex++;
+        if (msgIndex >= messages.length) {
+          clearInterval(interval);
+          setTimeout(showResult, 800); // Wait a beat on the last message
+        }
+      }, 700);
+    }
+
+    function showResult() {
+      document.getElementById('screen-telemetry').classList.add('hidden');
+      document.getElementById('screen-telemetry').classList.remove('flex');
+      document.getElementById('screen-result').classList.remove('hidden');
+      document.getElementById('screen-result').classList.add('flex');
+
+      // Calculate Winner
+      let scores = { urban: 0, x: 0, family: 0 };
+      scores[userSelections.color] += 1;
+      scores[userSelections.wheels] += 1.5; // Wheels heavily dictate type
+      scores[userSelections.interior] += 1;
+      scores[userSelections.accessory] += 1;
+
+      let winnerKey = 'urban';
+      let maxScore = 0;
+      for (const [key, value] of Object.entries(scores)) {
+        if (value > maxScore) { maxScore = value; winnerKey = key; }
+      }
+
+      const profile = profiles[winnerKey];
+
+      // Populate UI
+      document.getElementById('r-tag').innerText = profile.tag;
+      document.getElementById('r-title').innerText = profile.title;
+      document.getElementById('r-desc').innerText = profile.desc;
+
+      // Populate Receipt
+      const receiptHTML = `
+        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Paint</span> <span>${userLabels.color}</span></li>
+        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Wheels</span> <span>${userLabels.wheels}</span></li>
+        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Interior</span> <span>${userLabels.interior}</span></li>
+        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Roof</span> <span>${userLabels.accessory}</span></li>
+      `;
+      document.getElementById('r-receipt').innerHTML = receiptHTML;
+    }
+
+    function submitLead() {
+      document.getElementById('lead-form').classList.add('hidden');
+      document.getElementById('lead-success').classList.remove('hidden');
+      document.getElementById('lead-success').classList.add('flex');
+    }
+
+    // Initialize Game
+    renderStep();
+  </script>
+</body>
+</html>
