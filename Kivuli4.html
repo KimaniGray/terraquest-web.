@@ -29,7 +29,7 @@
     /* Custom Radio Selection Glow */
     .option-card { transition: all 0.2s ease; }
     .option-card:hover { border-color: #00695C; transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 105, 92, 0.1); }
-    .option-card.selected { border-color: #00695C; background-color: #F0Fdf4; box-shadow: 0 0 0 1px #00695C; }
+    .option-card.selected { border-color: #00695C; background-color: #f0fdf4; box-shadow: 0 0 0 1px #00695C; transform: translateY(-3px); }
     
     /* Telemetry Spinner */
     .spinner { border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid #00A651; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto 24px; }
@@ -142,9 +142,9 @@
         id: 'wheels',
         title: "2. Wheel Package",
         options: [
-          { value: 'urban', label: '18" Aero Alloys', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>' },
-          { value: 'x', label: '20" All-Terrain', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3m-13.4-6.4l2.1 2.1m8.6 8.6l2.1 2.1M6.4 17.6l2.1-2.1m8.6-8.6l2.1-2.1"/></svg>' },
-          { value: 'family', label: '19" Touring', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/></svg>' }
+          { value: 'urban', label: '18-inch Aero Alloys', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>' },
+          { value: 'x', label: '20-inch All-Terrain', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3m-13.4-6.4l2.1 2.1m8.6 8.6l2.1 2.1M6.4 17.6l2.1-2.1m8.6-8.6l2.1-2.1"/></svg>' },
+          { value: 'family', label: '19-inch Touring', visual: '<svg class="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/></svg>' }
         ]
       },
       {
@@ -176,7 +176,7 @@
     // --- 2. STATE ---
     let currentStepIndex = 0;
     let userSelections = { color: null, wheels: null, interior: null, accessory: null };
-    let userLabels = { color: '', wheels: '', interior: '', accessory: '' }; // For the receipt
+    let userLabels = { color: '', wheels: '', interior: '', accessory: '' }; 
 
     // --- 3. LOGIC ---
     function renderStep() {
@@ -195,9 +195,10 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       `;
 
-      step.options.forEach(opt => {
+      // Pass the loop index instead of the string to avoid quotes breaking the HTML
+      step.options.forEach((opt, idx) => {
         html += `
-          <div onclick="selectOption('${step.id}', '${opt.value}', '${opt.label}')" 
+          <div onclick="selectOption(${currentStepIndex}, ${idx}, this)" 
                class="option-card bg-white border-2 border-slate-100 rounded-2xl p-6 text-center cursor-pointer">
             ${opt.visual}
             <span class="block text-sm font-bold text-brand-dark">${opt.label}</span>
@@ -209,21 +210,31 @@
       container.innerHTML = html;
     }
 
-    function selectOption(stepId, value, label) {
-      userSelections[stepId] = value;
-      userLabels[stepId] = label;
+    function selectOption(stepIdx, optIdx, element) {
+      const step = steps[stepIdx];
+      const opt = step.options[optIdx];
+      
+      userSelections[step.id] = opt.value;
+      userLabels[step.id] = opt.label;
 
-      // Small delay for visual feedback before auto-advancing
+      // Add visual feedback to clicked card
+      const siblings = element.parentElement.children;
+      for(let node of siblings) {
+        node.classList.remove('selected');
+      }
+      element.classList.add('selected');
+
+      // Small delay before gliding to next step
       setTimeout(() => {
         if (currentStepIndex < steps.length - 1) {
           currentStepIndex++;
           renderStep();
         } else {
-          // Finished config!
+          // Finished config! Fill bar and start simulation
           document.getElementById('progress-bar').style.width = '100%';
           startTelemetry();
         }
-      }, 300);
+      }, 400); // 400ms gives enough time to see the selection glow
     }
 
     function startTelemetry() {
@@ -280,10 +291,10 @@
 
       // Populate Receipt
       const receiptHTML = `
-        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Paint</span> <span>${userLabels.color}</span></li>
-        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Wheels</span> <span>${userLabels.wheels}</span></li>
-        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Interior</span> <span>${userLabels.interior}</span></li>
-        <li class="flex justify-between items-center"><span class="text-slate-500 font-medium text-xs">Roof</span> <span>${userLabels.accessory}</span></li>
+        <li class="flex justify-between items-center py-1"><span class="text-slate-500 font-medium text-xs">Paint</span> <span>${userLabels.color}</span></li>
+        <li class="flex justify-between items-center py-1"><span class="text-slate-500 font-medium text-xs">Wheels</span> <span>${userLabels.wheels}</span></li>
+        <li class="flex justify-between items-center py-1"><span class="text-slate-500 font-medium text-xs">Interior</span> <span>${userLabels.interior}</span></li>
+        <li class="flex justify-between items-center py-1"><span class="text-slate-500 font-medium text-xs">Roof</span> <span>${userLabels.accessory}</span></li>
       `;
       document.getElementById('r-receipt').innerHTML = receiptHTML;
     }
