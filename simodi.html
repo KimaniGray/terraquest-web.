@@ -485,46 +485,58 @@
     margin-bottom: 14px !important;
   }
 
-  /* Page 1 Hero - Fix image squeeze and maintain natural proud ratio */
+  /* Page 1 Hero - Full Page Executive Title Sheet */
   #hero {
-    padding: 16px 18px !important;
-    margin-bottom: 12px !important;
+    padding: 20px 24px !important;
+    margin-bottom: 0 !important;
+    min-height: 270mm !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
     background-color: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
   }
   #hero h1 {
-    font-size: 24pt !important;
+    font-size: 26pt !important;
     line-height: 1.15 !important;
-    margin-bottom: 6px !important;
-  }
-  #hero p {
-    font-size: 9pt !important;
-    line-height: 1.4 !important;
     margin-bottom: 8px !important;
   }
+  #hero p {
+    font-size: 9.5pt !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+  }
   #hero [data-purpose="hero-kpi-grid"] {
-    gap: 8px !important;
+    gap: 10px !important;
   }
   #hero [data-purpose="hero-kpi-grid"] > div {
-    padding: 6px 8px !important;
+    padding: 10px 12px !important;
   }
   #hero [data-purpose="hero-kpi-grid"] span.text-lg {
-    font-size: 13pt !important;
-    line-height: 1.2 !important;
-  }
-  #hero img {
-    max-height: 230px !important;
-    height: auto !important;
-    aspect-ratio: 4/3 !important;
-    object-fit: cover !important;
-    width: 100% !important;
+    font-size: 14pt !important;
+    line-height: 1.25 !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] {
-    margin-top: 0 !important;
+    margin-top: 14px !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  #hero img {
+    height: 120mm !important;
+    max-height: 130mm !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
   }
 
   #executive-summary {
-    margin-top: 8px !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
@@ -542,6 +554,8 @@
     margin-top: 8px !important;
     page-break-after: auto !important;
     break-after: auto !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
   }
   #financials .grid.grid-cols-1.md\:grid-cols-2 {
     gap: 10px !important;
@@ -560,6 +574,28 @@
     border: 1px solid #e2e8f0 !important;
     page-break-before: auto !important;
     break-before: auto !important;
+  }
+
+  /* Sections 05, 06 (The Ask), and 07 (Timeline): Smooth continuous flow */
+  #executive-asks, #timeline {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  #executive-asks > div, #timeline > div {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  [data-purpose="five-executive-asks-cards"] {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  [data-purpose="five-executive-asks-cards"] > div {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   /* Methodology & Toll Fee Breakdown Box & 4-card Grid Enhancements */
@@ -673,7 +709,7 @@
 <!-- BEGIN: MainContentContainer -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28" id="document-container">
 <!-- BEGIN: HeroCoverSection -->
-<section class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold-500/30 bg-obsidian-850 p-4 sm:p-10 lg:p-14 shadow-2xl avoid-break" data-purpose="memorandum-hero" id="hero">
+<section class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold-500/30 bg-obsidian-850 p-4 sm:p-10 lg:p-14 shadow-2xl avoid-break print-page-break-after" data-purpose="memorandum-hero" id="hero">
 <!-- Ambient Gold Backlight Glow -->
 <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -1093,9 +1129,7 @@
 </div>
 <span class="px-3 py-1 rounded-full text-xs font-mono bg-gold-500/20 text-gold-300 border border-gold-500/30">83.3% Total</span>
 </div>
-<p class="text-xs text-slate-300 font-light leading-relaxed">
-            Revolving treasury capital deployed for instantaneous cash buyback from artisanal cooperatives, commercial mine sites, and regional trading houses at transparent spot benchmarks.
-          </p>
+<p class="text-xs text-slate-300 font-light leading-relaxed">Dedicated revolving working capital facility structured for continuous raw gold procurement—financing direct cash off-take of gold dust, artisanal doré aggregate, and commercial mine production against real-time international spot benchmarks with continuous capital velocity.</p>
 <div class="space-y-2 pt-2 border-t border-slate-800 text-xs font-mono" data-purpose="liquidity-model">
 <div class="flex justify-between py-1 border-b border-slate-800/60">
 <span class="text-slate-400">Initial Physical Doré Acquisition Float</span>
@@ -1301,7 +1335,7 @@
 </section>
 <!-- END: CapitalRequirementsSection -->
 <!-- BEGIN: ExecutiveAsksAndIncentivesSection -->
-<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-asks" id="executive-asks">
+<section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">The ask</h2>
@@ -1377,7 +1411,7 @@
 </section>
 <!-- END: ExecutiveAsksAndIncentivesSection -->
 <!-- BEGIN: ExecutionTimelineSection -->
-<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-timeline" id="timeline">
+<section class="scroll-mt-24 space-y-6" data-purpose="section-timeline" id="timeline">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">07. The Proposed Implementation Timeline</h2>
