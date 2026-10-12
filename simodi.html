@@ -446,7 +446,7 @@
       }
     }</style>
 <!-- END: Custom Executive Styles -->
-<style class="" data-purpose="refined-print-rules" id="refined-print-overrides">@page {
+<style data-purpose="refined-print-rules" id="refined-print-overrides">@page {
   size: A4 portrait;
   margin: 12mm 14mm 14mm 14mm;
   @top-center {
@@ -484,30 +484,56 @@
     page-break-inside: avoid !important;
   }
 
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
   html, body {
     width: 100% !important;
+    min-height: 100% !important;
     background-color: #fcfbf7 !important;
+    background: #fcfbf7 !important;
     color: #1a1a1a !important;
     font-size: 9pt !important;
     line-height: 1.4 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
   }
 
   body, main, #document-container {
+    background-color: #fcfbf7 !important;
+    background: #fcfbf7 !important;
     padding: 0 !important;
     margin: 0 auto !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
+  /* Eliminate all dark obsidian backgrounds, dark containers, and glow blobs in print */
+  .bg-obsidian-950,
+  .bg-obsidian-900,
+  .bg-obsidian-850,
+  .bg-obsidian-800,
+  [class*="bg-obsidian"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  .blur-3xl,
+  .bg-gold-600\/10,
+  .bg-gold-400\/10 {
+    display: none !important;
+  }
+
   main > section {
     margin-top: 0 !important;
     margin-bottom: 12px !important;
+    background-color: transparent !important;
+    background: transparent !important;
   }
 
   #hero {
-    padding: 22px 26px !important;
+    padding: 22px 24px !important;
     margin-bottom: 0 !important;
     min-height: 250mm !important;
     box-sizing: border-box !important;
@@ -515,6 +541,7 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: 1.5px solid #d4af37 !important;
     box-shadow: none !important;
     break-after: page !important;
@@ -530,6 +557,7 @@
     font-size: 9.5pt !important;
     line-height: 1.42 !important;
     margin-bottom: 10px !important;
+    color: #374151 !important;
   }
   #hero [data-purpose="hero-kpi-grid"] {
     gap: 8px !important;
@@ -537,6 +565,7 @@
   }
   #hero [data-purpose="hero-kpi-grid"] > div {
     padding: 8px 10px !important;
+    background-color: #fdfbf7 !important;
     background: #fdfbf7 !important;
     border: 1px solid #e5e7eb !important;
   }
@@ -552,6 +581,12 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    background: transparent !important;
+  }
+  #hero [data-purpose="hero-stamped-gold-asset"] > div {
+    background-color: #fdfbf7 !important;
+    background: #fdfbf7 !important;
+    border-color: #d4af37 !important;
   }
   #hero img {
     height: 108mm !important;
@@ -559,6 +594,18 @@
     width: 100% !important;
     object-fit: cover !important;
     border-radius: 6px !important;
+  }
+  #hero [data-purpose="hero-stamped-gold-asset"] .bg-gradient-to-t {
+    display: none !important;
+  }
+  #hero [data-purpose="hero-stamped-gold-asset"] span.bg-obsidian-900\/90 {
+    background-color: #fdfbf7 !important;
+    background: #fdfbf7 !important;
+    color: #92400e !important;
+    border-color: #e5e7eb !important;
+  }
+  #hero [data-purpose="hero-stamped-gold-asset"] span.text-slate-300 {
+    color: #374151 !important;
   }
 
   section > div:first-child h2 {
@@ -578,6 +625,7 @@
   #executive-summary .card-print {
     padding: 10px 12px !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: 1px solid #e5e7eb !important;
   }
 
@@ -586,6 +634,7 @@
   }
   #ppp-structure .card-print {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border-color: #e5e7eb !important;
   }
 
@@ -605,6 +654,7 @@
   #financials .rounded-2xl {
     padding: 8px 12px !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: 1px solid #e5e7eb !important;
   }
 
@@ -620,6 +670,7 @@
     margin-top: 8px !important;
     margin-bottom: 8px !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: 1px solid #d1d5db !important;
     border-radius: 8px !important;
     box-shadow: none !important;
@@ -645,6 +696,7 @@
     border-collapse: collapse !important;
     border: 1px solid #e5e7eb !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     font-family: 'JetBrains Mono', ui-monospace, monospace !important;
     table-layout: auto !important;
   }
@@ -666,8 +718,8 @@
     page-break-inside: avoid !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] th,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] th {
+  [data-purpose="gold-price-sensitivity-table"] th,
+  [data-purpose="capex-irr-payback-sensitivity-table"] th {
     background-color: #f8fafc !important;
     color: #92400e !important;
     font-size: 8pt !important;
@@ -678,8 +730,8 @@
     line-height: 1.25 !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td {
+  [data-purpose="gold-price-sensitivity-table"] td,
+  [data-purpose="capex-irr-payback-sensitivity-table"] td {
     padding: 3.5px 6px !important;
     font-size: 7.5pt !important;
     line-height: 1.25 !important;
@@ -688,22 +740,22 @@
     border-bottom: 1px solid #f1f5f9 !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] tr.bg-gold-500\/10,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] tr.bg-gold-500\/10 {
+  [data-purpose="gold-price-sensitivity-table"] tr.bg-gold-500\/10,
+  [data-purpose="capex-irr-payback-sensitivity-table"] tr.bg-gold-500\/10 {
     background-color: #fefce8 !important;
     border-left: 2.5px solid #d97706 !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] span.text-slate-200,
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] span.text-gold-200,
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td.text-white,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-white {
+  [data-purpose="gold-price-sensitivity-table"] span.text-slate-200,
+  [data-purpose="gold-price-sensitivity-table"] span.text-gold-200,
+  [data-purpose="gold-price-sensitivity-table"] td.text-white,
+  [data-purpose="capex-irr-payback-sensitivity-table"] td.text-white {
     color: #111827 !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td.text-gold-300,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-300,
-  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-200 {
+  [data-purpose="gold-price-sensitivity-table"] td.text-gold-300,
+  [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-300,
+  [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-200 {
     color: #92400e !important;
     font-weight: 700 !important;
   }
@@ -716,6 +768,7 @@
   }
   #executive-asks .card-print {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border-color: #e5e7eb !important;
   }
 
@@ -724,6 +777,8 @@
   }
   [data-purpose="five-executive-asks-cards"] > div {
     padding: 8px 10px !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -734,25 +789,69 @@
     page-break-inside: avoid !important;
   }
 
-  body:not(.dark-print-force) #financials .bg-obsidian-900\/90,
-  body:not(.dark-print-force) #financials [data-purpose="gold-price-sensitivity-table"],
-  body:not(.dark-print-force) #financials [data-purpose="capex-irr-payback-sensitivity-table"] {
+  #financials .bg-obsidian-900\/90,
+  #financials [data-purpose="gold-price-sensitivity-table"],
+  #financials [data-purpose="capex-irr-payback-sensitivity-table"] {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border-color: #e5e7eb !important;
   }
 
-  body:not(.dark-print-force) #financials .bg-obsidian-850\/80,
-  body:not(.dark-print-force) #financials .bg-obsidian-900 {
+  #financials .bg-obsidian-850\/80,
+  #financials .bg-obsidian-900 {
     background-color: #fdfbf7 !important;
+    background: #fdfbf7 !important;
     border-color: #e5e7eb !important;
   }
 
-  body:not(.dark-print-force) [data-purpose="hallmarking-security-features"] .bg-obsidian-900,
-  body:not(.dark-print-force) [data-purpose="environmental-safety-section"] .bg-obsidian-900,
-  body:not(.dark-print-force) [data-purpose="five-executive-asks-cards"] > div {
+  [data-purpose="hallmarking-security-features"] .bg-obsidian-900,
+  [data-purpose="environmental-safety-section"] .bg-obsidian-900,
+  [data-purpose="five-executive-asks-cards"] > div {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border-color: #e5e7eb !important;
     color: #1f2937 !important;
+  }
+
+  /* Consistent High-Contrast Text across all cards */
+  p, span, li, h1, h2, h3, h4 {
+    color: inherit;
+  }
+  .text-slate-300,
+  .text-slate-400,
+  .text-slate-200 {
+    color: #374151 !important;
+  }
+  .text-white {
+    color: #111827 !important;
+  }
+  .gold-gradient-text {
+    -webkit-text-fill-color: #92400e !important;
+    color: #92400e !important;
+  }
+  .text-gold-200,
+  .text-gold-300,
+  .text-gold-400 {
+    color: #92400e !important;
+  }
+  .bg-gold-500\/10,
+  .bg-gold-500\/20,
+  .bg-gold-500\/5 {
+    background-color: #fef3c7 !important;
+    background: #fef3c7 !important;
+    border-color: #fde68a !important;
+    color: #92400e !important;
+  }
+  .border-gold-500\/20,
+  .border-gold-500\/30,
+  .border-gold-500\/40,
+  .border-gold-400\/40,
+  .border-slate-800,
+  .border-slate-700\/50,
+  .border-slate-700\/60,
+  .border-slate-800\/60,
+  .border-slate-800\/80 {
+    border-color: #e5e7eb !important;
   }
 }</style></head>
 <body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
@@ -1640,6 +1739,8 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
 
 
 
