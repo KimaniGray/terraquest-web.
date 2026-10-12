@@ -450,7 +450,7 @@
   size: A4 portrait;
   margin: 12mm 14mm 14mm 14mm;
   @top-center {
-    content: "PROJECT SIMODI — STATE GOLD REFINERY | STRICTLY CONFIDENTIAL";
+    content: "PROJECT SIMODI — STATE GOLD REFINERY";
     font-family: 'JetBrains Mono', monospace;
     font-size: 7.5pt;
     letter-spacing: 0.1em;
@@ -463,7 +463,7 @@
     color: #6b7280;
   }
   @bottom-right {
-    content: "INVESTMENT MEMORANDUM | EXECUTIVE DOSSIER";
+    content: "EXECUTIVE PRESENTATION | STATE PARTNERSHIP PPP";
     font-family: 'JetBrains Mono', monospace;
     font-size: 7pt;
     color: #6b7280;
@@ -506,7 +506,6 @@
     margin-bottom: 12px !important;
   }
 
-  /* Page 1 Hero - Title Sheet */
   #hero {
     padding: 22px 26px !important;
     margin-bottom: 0 !important;
@@ -562,7 +561,6 @@
     border-radius: 6px !important;
   }
 
-  /* Section Headers & Content Flow */
   section > div:first-child h2 {
     font-size: 13pt !important;
     color: #111827 !important;
@@ -610,26 +608,106 @@
     border: 1px solid #e5e7eb !important;
   }
 
+  /* Financial Sensitivity Tables: Full Visibility & Clean Ivory Print Theming */
   [data-purpose="gold-price-sensitivity-table"],
   [data-purpose="capex-irr-payback-sensitivity-table"] {
-    padding: 6px 10px !important;
-    margin-top: 6px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 8px 10px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
     background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  table th {
-    padding: 3px 5px !important;
-    font-size: 8pt !important;
-  }
-  table td {
-    padding: 3px 5px !important;
-    font-size: 8pt !important;
+  [data-purpose="gold-price-sensitivity-table"] .overflow-x-auto,
+  [data-purpose="capex-irr-payback-sensitivity-table"] .overflow-x-auto {
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
 
-  /* Seamless flow between Revenue/Methodology and The Executive Asks */
+  [data-purpose="gold-price-sensitivity-table"] table,
+  [data-purpose="capex-irr-payback-sensitivity-table"] table {
+    display: table !important;
+    visibility: visible !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #e5e7eb !important;
+    background-color: #ffffff !important;
+    font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+    table-layout: auto !important;
+  }
+
+  [data-purpose="gold-price-sensitivity-table"] thead,
+  [data-purpose="capex-irr-payback-sensitivity-table"] thead {
+    display: table-header-group !important;
+  }
+
+  [data-purpose="gold-price-sensitivity-table"] tbody,
+  [data-purpose="capex-irr-payback-sensitivity-table"] tbody {
+    display: table-row-group !important;
+  }
+
+  [data-purpose="gold-price-sensitivity-table"] tr,
+  [data-purpose="capex-irr-payback-sensitivity-table"] tr {
+    display: table-row !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] th,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] th {
+    background-color: #f8fafc !important;
+    color: #92400e !important;
+    font-size: 8pt !important;
+    font-weight: 700 !important;
+    padding: 4px 6px !important;
+    border-bottom: 1.5px solid #cbd5e1 !important;
+    border-top: none !important;
+    line-height: 1.25 !important;
+  }
+
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td {
+    padding: 3.5px 6px !important;
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    color: #1f2937 !important;
+    border-top: 1px solid #f1f5f9 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] tr.bg-gold-500\/10,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] tr.bg-gold-500\/10 {
+    background-color: #fefce8 !important;
+    border-left: 2.5px solid #d97706 !important;
+  }
+
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] span.text-slate-200,
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] span.text-gold-200,
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td.text-white,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-white {
+    color: #111827 !important;
+  }
+
+  body:not(.dark-print-force) [data-purpose="gold-price-sensitivity-table"] td.text-gold-300,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-300,
+  body:not(.dark-print-force) [data-purpose="capex-irr-payback-sensitivity-table"] td.text-gold-200 {
+    color: #92400e !important;
+    font-weight: 700 !important;
+  }
+
   #executive-asks {
     break-before: auto !important;
     page-break-before: auto !important;
@@ -1371,7 +1449,7 @@
 <section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
-<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Executive Asks &amp; Legal Ratification</h2>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">The ask</h2>
 </div>
 <div class="space-y-4">
 <p class="text-sm text-slate-300 leading-relaxed font-light">
@@ -1486,7 +1564,7 @@
 </main>
 <!-- END: MainContentContainer -->
 <!-- BEGIN: MainFooter -->
-<footer class="border-t border-gold-500/20 bg-obsidian-950 py-8 text-center text-xs text-slate-500 space-y-2 no-print" data-purpose="site-footer"><div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center space-x-2 text-center sm:text-left"><span class="font-headline font-bold text-gold-400">PROJECT SIMODI GOLD REFINERY</span><span class="text-slate-600">•</span><span class="font-mono text-[11px] text-slate-400">Hargeisa Commercial Facility • Presidency Way</span></div><div class="text-[11px] font-mono text-slate-400 text-center">Strictly Confidential &amp; Privileged • NorthRock Capital LLC &amp; MoEM • TerraQuest Investments FZCO</div><div class="flex items-center space-x-3 text-gold-400"><button class="hover:underline flex items-center space-x-1 transition text-xs font-mono text-gold-300 hover:text-gold-200" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="">Top ↑</span></button></div></div></footer>
+<footer class="border-t border-gold-500/20 bg-obsidian-950 py-8 text-center text-xs text-slate-500 space-y-2 no-print" data-purpose="site-footer"><div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center space-x-2 text-center sm:text-left"><span class="font-headline font-bold text-gold-400">PROJECT SIMODI GOLD REFINERY</span><span class="text-slate-600">•</span><span class="font-mono text-[11px] text-slate-400">Hargeisa Commercial Facility • State Partnership PPP</span></div><div class="text-[11px] font-mono text-slate-400 text-center">NorthRock Capital LLC &amp; Ministry of Energy and Minerals</div><div class="flex items-center space-x-3 text-gold-400"><button class="hover:underline flex items-center space-x-1 transition text-xs font-mono text-gold-300 hover:text-gold-200" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="">Top ↑</span></button></div></div></footer>
 <!-- END: MainFooter -->
 <!-- BEGIN: InteractiveScripts -->
 <script data-purpose="view-and-theme-interactivity">
@@ -1562,6 +1640,8 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
 
 
 
