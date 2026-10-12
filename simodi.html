@@ -1,11 +1,13 @@
-<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
 <title>PROJECT SIMODI | Executive Memorandum &amp; Technical Presentation</title>
 <!-- Fonts Preconnect & Load -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Tailwind Configuration -->
@@ -68,6 +70,12 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .light-print-active .gold-gradient-text {
+      background: linear-gradient(135deg, #78350F 0%, #92400E 40%, #B45309 80%, #78350F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .gold-gradient-border {
       border-image: linear-gradient(135deg, #DFC485, #9E7B26) 1;
     }
@@ -77,6 +85,13 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(223, 196, 133, 0.16);
+    }
+
+    .light-print-active .glass-dark {
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(180, 83, 9, 0.2);
     }
 
     .glass-light {
@@ -99,37 +114,267 @@
     }
   </style>
 <style data-purpose="print-rules">
+    @page {
+      size: A4 portrait;
+      margin: 14mm 16mm 16mm 16mm;
+    }
+
     @media print {
-      body {
-        background-color: #ffffff !important;
-        color: #0b0f15 !important;
-        font-size: 11pt !important;
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
       }
-      .no-print, nav, #nav-dock, button, #theme-toggle, #view-toggle {
+
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        font-size: 9.75pt !important;
+        line-height: 1.62 !important;
+      }
+
+      /* Unified Container Sizing for Print */
+      main, .max-w-7xl, .max-w-5xl, .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Hide Navigation Chrome & Controls */
+      .no-print, header, nav, #nav-dock, button, #theme-toggle, #view-toggle {
         display: none !important;
       }
+
+      /* Page Breaks and Orphan Control */
       .page-break {
         page-break-before: always;
         break-before: page;
       }
-      .gold-gradient-text {
-        -webkit-text-fill-color: #755A1A !important;
-        color: #755A1A !important;
+
+      section, .card, .card-print, table, tr, figure, .avoid-break,
+      [data-purpose="hero-kpi-grid"] > div,
+      [data-purpose="section-executive-summary"] > div > div,
+      [data-purpose="technical-process-stations"] > div,
+      [data-purpose="product-skus"] > div,
+      [data-purpose="five-executive-asks-cards"] > div {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
-      .card-print {
-        background: #ffffff !important;
-        border: 1px solid #d1d5db !important;
+
+      /* ===================================================================
+         DEFAULT PRINT STYLING: Archival Warm Cream / Ivory (#fdfbf7)
+         =================================================================== */
+      body:not(.dark-print-force) {
+        background-color: #fdfbf7 !important;
+        color: #27272a !important;
+      }
+
+      /* Primary Containers & Hero */
+      body:not(.dark-print-force) section {
+        background-color: transparent !important;
+      }
+
+      body:not(.dark-print-force) #hero {
+        background-color: #ffffff !important;
+        border: 1px solid #e4e4e7 !important;
         box-shadow: none !important;
+      }
+
+      body:not(.dark-print-force) .bg-obsidian-950,
+      body:not(.dark-print-force) .bg-obsidian-900 {
+        background-color: #fdfbf7 !important;
+        border-color: #e4e4e7 !important;
+        color: #27272a !important;
+      }
+
+      body:not(.dark-print-force) .bg-obsidian-850,
+      body:not(.dark-print-force) .bg-obsidian-800,
+      body:not(.dark-print-force) .card-print {
+        background-color: #ffffff !important;
+        border-color: #e4e4e7 !important;
+        color: #27272a !important;
+        box-shadow: none !important;
+      }
+
+      /* Typography & Headings: Playfair Display / Noto Serif Charcoal Hierarchy */
+      body:not(.dark-print-force) h1 {
+        font-family: 'Playfair Display', 'Noto Serif', Georgia, serif !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
+        letter-spacing: -0.02em !important;
+      }
+
+      body:not(.dark-print-force) h2,
+      body:not(.dark-print-force) h3 {
+        font-family: 'Playfair Display', 'Noto Serif', Georgia, serif !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
+        letter-spacing: -0.015em !important;
+      }
+
+      body:not(.dark-print-force) h4 {
+        font-family: 'Noto Serif', Georgia, serif !important;
+        font-weight: 700 !important;
         color: #111827 !important;
       }
+
+      /* Gradient Text Fallback to Rich Burnished Bronze in Print */
+      body:not(.dark-print-force) .gold-gradient-text {
+        -webkit-text-fill-color: #92400e !important;
+        color: #92400e !important;
+      }
+
+      body:not(.dark-print-force) .text-white {
+        color: #111827 !important;
+      }
+
+      /* Body Copy & Descriptions: High-legibility deep zinc */
+      body:not(.dark-print-force) p,
+      body:not(.dark-print-force) li,
+      body:not(.dark-print-force) .text-slate-300,
+      body:not(.dark-print-force) .text-slate-200 {
+        color: #27272a !important;
+        line-height: 1.62 !important;
+      }
+
+      /* Footnotes, Disclaimers, and Micro Metadata */
+      body:not(.dark-print-force) .text-slate-400,
+      body:not(.dark-print-force) .text-slate-500,
+      body:not(.dark-print-force) [class*="text-\[9px\]"],
+      body:not(.dark-print-force) [class*="text-\[10px\]"].text-slate-400,
+      body:not(.dark-print-force) [class*="text-\[11px\]"].text-slate-400 {
+        color: #52525b !important;
+      }
+
+      /* Numeral Badges, Accents, and Tags: Amber & Deep Burnished Bronze */
+      body:not(.dark-print-force) .text-gold-200,
+      body:not(.dark-print-force) .text-gold-300,
+      body:not(.dark-print-force) .text-gold-400 {
+        -webkit-text-fill-color: #92400e !important;
+        color: #92400e !important;
+      }
+
+      body:not(.dark-print-force) .bg-gold-500\/10,
+      body:not(.dark-print-force) .bg-gold-500\/20,
+      body:not(.dark-print-force) .bg-gold-500\/5 {
+        background-color: #fef3c7 !important;
+        border-color: #fde68a !important;
+        color: #92400e !important;
+      }
+
+      body:not(.dark-print-force) .border-gold-500\/20,
+      body:not(.dark-print-force) .border-gold-500\/30,
+      body:not(.dark-print-force) .border-gold-500\/40,
+      body:not(.dark-print-force) .border-gold-400\/40,
+      body:not(.dark-print-force) .border-slate-800,
+      body:not(.dark-print-force) .border-slate-700\/50,
+      body:not(.dark-print-force) .border-slate-700\/60,
+      body:not(.dark-print-force) .border-slate-800\/60 {
+        border-color: #e4e4e7 !important;
+      }
+
+      body:not(.dark-print-force) .border-l-4.border-gold-400 {
+        border-left-color: #b45309 !important;
+      }
+
+      body:not(.dark-print-force) .border-l-4.border-slate-400 {
+        border-left-color: #64748b !important;
+      }
+
+      body:not(.dark-print-force) .bg-gold-400 {
+        background-color: #b45309 !important;
+      }
+
+      /* Metrics & Data Grids in JetBrains Mono / ui-monospace */
+      body:not(.dark-print-force) .font-mono {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+      }
+
+      body:not(.dark-print-force) table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        border: 1px solid #e4e4e7 !important;
+        background-color: #ffffff !important;
+      }
+
+      body:not(.dark-print-force) th {
+        background-color: #f8fafc !important;
+        color: #92400e !important;
+        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+        font-weight: 700 !important;
+        padding: 8px 12px !important;
+        border-bottom: 1.5px solid #e2e8f0 !important;
+      }
+
+      body:not(.dark-print-force) td {
+        padding: 8px 12px !important;
+        border-top: 1px solid #e4e4e7 !important;
+        color: #27272a !important;
+      }
+
+      body:not(.dark-print-force) [data-purpose="capex-list"] > div,
+      body:not(.dark-print-force) [data-purpose="liquidity-model"] > div {
+        border-color: #e4e4e7 !important;
+      }
+
+      /* ===================================================================
+         OPTIONAL: Dark Obsidian Print Output (Only if user toggles to dark)
+         =================================================================== */
+      body.dark-print-force {
+        background-color: #0b0d11 !important;
+        color: #f3f4f6 !important;
+      }
+
+      body.dark-print-force .bg-obsidian-950,
+      body.dark-print-force .bg-obsidian-900 {
+        background-color: #0d1017 !important;
+        color: #f3f4f6 !important;
+      }
+
+      body.dark-print-force .bg-obsidian-850,
+      body.dark-print-force .bg-obsidian-800,
+      body.dark-print-force .card-print {
+        background-color: #131720 !important;
+        border-color: #272d3b !important;
+        color: #e5e7eb !important;
+        box-shadow: none !important;
+      }
+
+      body.dark-print-force h1,
+      body.dark-print-force h2,
+      body.dark-print-force h3,
+      body.dark-print-force h4 {
+        color: #f9fafb !important;
+      }
+
+      body.dark-print-force .gold-gradient-text,
+      body.dark-print-force .text-gold-200,
+      body.dark-print-force .text-gold-300,
+      body.dark-print-force .text-gold-400 {
+        -webkit-text-fill-color: #d4af37 !important;
+        color: #d4af37 !important;
+      }
+
+      body.dark-print-force .text-slate-300,
+      body.dark-print-force .text-slate-400 {
+        color: #9ca3af !important;
+      }
+
+      /* Media Print Adjustments */
       img {
         max-width: 100% !important;
         height: auto !important;
-        filter: grayscale(10%) contrast(105%);
       }
+
       header, section, footer {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
       }
     }
   </style>
@@ -156,17 +401,18 @@
 <div class="flex items-center space-x-2 sm:space-x-3">
 <!-- View Mode Switcher -->
 <button class="px-3 py-1.5 rounded-md text-xs font-medium border border-gold-500/30 text-gold-300 hover:bg-gold-500/10 transition flex items-center space-x-1.5" data-purpose="toggle-deck-dossier" id="view-toggle" title="Switch View Mode">
-<svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <span class="hidden sm:inline" id="view-label">Executive View</span>
 </button>
-<!-- Ink-Friendly Theme Switcher -->
-<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-slate-700 hover:border-gold-500/40 text-slate-300 hover:text-gold-200 transition flex items-center space-x-1.5" data-purpose="toggle-theme" id="theme-toggle" title="Toggle Ink-Friendly Light / Obsidian Dark">
-<svg class="w-4 h-4 text-gold-400" fill="currentColor" id="theme-icon" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
-<span class="hidden md:inline text-[11px]">Print Tone</span>
+<!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
+<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Toggle Print Tone: Crisp Ivory vs Dark Obsidian">
+<span class="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" id="theme-indicator-dot"></span>
+<svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<span class="text-[11px] font-mono tracking-wide" id="theme-btn-label">Print Tone: <span class="font-bold text-amber-300" id="theme-mode-text">Ivory</span></span>
 </button>
 <!-- PDF Export Button -->
 <button class="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1.5" data-purpose="pdf-export-trigger" onclick="window.print()">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <span class="">Export PDF</span>
 </button>
 </div>
@@ -198,7 +444,7 @@
 <!-- BEGIN: MainContentContainer -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28">
 <!-- BEGIN: HeroCoverSection -->
-<section class="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl" data-purpose="memorandum-hero" id="hero" data-prev-bg="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl">
+<section class="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl avoid-break" data-prev-bg="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl" data-purpose="memorandum-hero" id="hero">
 <!-- Ambient Gold Backlight Glow -->
 <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -208,7 +454,7 @@
 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
 <span class="text-xs font-mono text-gold-300 tracking-wider uppercase font-semibold">Project Simodi Presentation</span>
 </div>
-<h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class="">
+<h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class=""/>
 <span class="gold-gradient-text font-display block mt-3">Gold Refining Facility</span></h1>
 <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light">A definitive Public-Private Partnership (PPP) structuring Somaliland's flagship 99.9% fine gold refining and certified bullion minting facility in Hargeisa—engineered for institutional off-take, domestic value capture, and international liquidity integration.</p>
 <!-- Executive Micro-Metrics Grid -->
@@ -236,7 +482,7 @@
 <!-- Featured Stamped Product Asset -->
 <div class="lg:col-span-5 relative" data-purpose="hero-stamped-gold-asset">
 <div class="relative group rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950">
-<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-72 sm:h-80 object-cover object-center transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcZXFQ5wr0gZjZ8uejgZbVt0mQ4ydz3MedmfZDo_2Vd51Jhi3IwkYrqWh4ZLC9oAzRWNDtt9tccaAR6rH0TH5rKA9V5FyQXXCuBs2GAvbbLJQOO6PdijyT9cyDwzFxF_0NPE03700gDlWU_MGLt7YcLu71VIf4TxMb-Pnx2XFzu1Z2JIGwQCJ2wbywzOWeHg1X3YcpxoaWluh3NHdXmEaeea2zuRpshGRhwCA4-iW4AwiEPRUGIh_Ldg">
+<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-72 sm:h-80 object-cover object-center transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida/AEtjO1VMZujeEvyqXcPcdtix9Q4AzUjGFZeLhVTauUjxjKvvkuoGelX7b7ybpJJshJFfp7J2uXUTMFOIbnvacVzXvWbuk8zTjWovuei9-ceDHUtyVpkI33iEHGho3qD_hhSV6bFWTKkKFc0a4dr6GdRcycWJ7RBypo4FJAT8G6zPuMnNU6cN2wMy_25TUBIgSYDhyyIAJvE7UgCs7dTlVtl_65Jg4G0ToDixIaAHa_PV6Ex7TdOWx19lrbJr8xU"/>
 <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
 <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs">
 <span class="font-mono text-gold-200 bg-obsidian-900/90 px-2.5 py-1 rounded border border-gold-500/30">
@@ -252,7 +498,7 @@
 </section>
 <!-- END: HeroCoverSection -->
 <!-- BEGIN: ExecutiveSummarySection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-executive-summary" id="executive-summary">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-summary" id="executive-summary">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">01. Executive Summary</h2>
@@ -301,7 +547,7 @@
 </section>
 <!-- END: ExecutiveSummarySection -->
 <!-- BEGIN: PPPStructureSection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-ppp-structure" id="ppp-structure">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-ppp-structure" id="ppp-structure">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">02. Public-Private Partnership (PPP) Structure</h2>
@@ -320,15 +566,15 @@
             </p>
 <div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">USD 5,000,000 Complete CapEx Turnkey Build</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">USD 25,000,000 Revolving Liquidity Float</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">Full Technology Transfer &amp; Domestic Metallurgical Training</span>
 </div>
 </div>
@@ -343,22 +589,22 @@
 <p class="text-xs text-slate-300 leading-relaxed font-light">Providing government regulatory exclusivity, 25-year Build-Own-Operate (BOO) decree, security escorts by the Special Protection Unit (SPU), and airport transit clearance channels.</p>
 <div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">25-Year Statutory Refining &amp; Minting Exclusivity</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">State Mineral Police &amp; Airport Transit Protection</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">Statutory 10% Non-Dilutable Dividend Participation</span>
 </div>
 </div>
 </div>
 </div>
 <!-- Joint Governance Framework Indicator -->
-<div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs avoid-break">
 <div class="flex items-center space-x-3">
 <span class="p-2 rounded bg-gold-500/10 text-gold-400 font-mono font-bold">BOARD</span>
 <span class="text-slate-300">Joint Steering Committee: 3 NorthRock Appointees + 2 Ministerial Representatives</span>
@@ -369,7 +615,7 @@
 </section>
 <!-- END: PPPStructureSection -->
 <!-- BEGIN: TechnicalCircuitSection -->
-<section class="scroll-mt-24 space-y-8 page-break" data-purpose="section-technical-circuit" id="technical-circuit">
+<section class="scroll-mt-24 space-y-8 page-break avoid-break" data-purpose="section-technical-circuit" id="technical-circuit">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">03. Technical and Operational Proposal</h2>
@@ -378,7 +624,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 <!-- Visual Asset: Refinery Induction Pour -->
 <div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
-<img alt="Modern industrial gold refinery facility interior in Africa, featuring focused Black African metallurgist engineers in protective industrial safety gear and face shields operating an induction smelting furnace pouring molten gold into ingot molds" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1XDh-B2thqbU4VTyAcKsUuNEtxPMFfl4vtm3Gg7DQfgFHCYNlcCCtqNsVScsUdzexoVXQYahz8bNAfIgNSsLTBi0GFjJWOPkgnf4uykUwaWyG7pXcAjZdFt5VfJhKChFy2421h6uX9U89hknWm43Ndz3R83GugWO3YBtSpZIW8VdMex4jzvAFexadmtOuXDnZuPFgb5l7-h9v-bJO97Ml2uQy3Yxykg6qEtRzt59IGW-ZBeHyjnoKy6Uhtj">
+<img alt="Modern industrial gold refinery facility interior in Africa, featuring focused Black African metallurgist engineers in protective industrial safety gear and face shields operating an induction smelting furnace pouring molten gold into ingot molds" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WZRDaPlQ5XkfVIeN0hVvpZRNVQk8X6iqQFFA_aSRGedE8pZoGVo1uwJY3EloCrAY7NENha2SiH5h4KBxdeuj_quz2z50WWbgGfn6COSPJ5mAXOGxGIv4tdqDrKFkra3t6RkwZeJ7YzLduq84vYiCnIww49K2Ww2TTaEiQPdSTb4wulRLAS_RXJnt4WcqfHh5wmIlc2h5AHSO2SB9F5QjYwDMb1_1zGyYZKTJMafiOfl-rqDO6Bas5wwfEo"/>
 </div>
 <p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
 <span class="">FIGURE 1: African Metallurgical Engineers • Induction Smelting Circuit</span>
@@ -386,7 +632,7 @@
 </p></div>
 <!-- Visual Asset: Assay Spectrometry Lab -->
 <div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
-<img alt="Modern certified precious metals assay laboratory in East Africa, featuring professional Black African female and male metallurgists in pristine white lab coats and protective safety glasses operating high-tech ICP-OES spectrometry and fire assay analytical balances" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1X6m8pPtCKSHipQauFgf0jIJ1m41c4VCHhcJH_YQMvOQlWVugmJjdSlnuylJyswMslK_NESuiJPKSVcXlkxICveP59vfrBHjoqutGFniEgF270qhZ1LTb_1txUYxrXlJG47Q1aw-e7GxrK-mZXX1C2DOdMzZoiXkFkVeDiI8jz007n7zFyL8n0MsuBLD8b_5e1BeHHk2WJDTPqrkkbmzXXMO4OQ7ttQ5gpSM4_2EGxql_awNpn0jOsiyIsd">
+<img alt="Modern certified precious metals assay laboratory in East Africa, featuring professional Black African female and male metallurgists in pristine white lab coats and protective safety glasses operating high-tech ICP-OES spectrometry and fire assay analytical balances" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WNLAFecjLUnhFZa4mXTAlqiUBwRhqAzOo9p1cCk8vL2R4HcL5waH3iIgBfbTJ9Y2gnbu3X9W_fgXiXOe-rPK_zPlyEjZdCZPkqilpSMAhrivQ5X-yjKXCKzcvFm1VkDoEIHi5QyaPXKczgBtY9ME8Pj3YNLJO_egUvdSf_mumqfBRvfyw4ig2xTlTShxDunBsJypb5h1y6Rnxkt_PCmejT35ITs5nh7ZgK6aoOdMnj_Avbyszr-cBvXDIA"/>
 </div>
 <p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
 <span class="">FIGURE 2: ISO/IEC 17025 Accredited East African Assay &amp; ICP-OES Lab</span>
@@ -453,40 +699,40 @@
 </div>
 </div>
 <!-- Refinery Specifications Table -->
-<div class="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print" data-purpose="refinery-specs-table" data-prev-bg="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print">
+<div class="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print avoid-break" data-prev-bg="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print" data-purpose="refinery-specs-table">
 <table class="w-full text-left text-xs font-mono">
 <thead class="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20" data-prev-bg="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20">
 <tr>
-<th class="py-3 px-4">Subsystem Parameter</th>
-<th class="py-3 px-4">Standard Operational Spec</th>
-<th class="py-3 px-4">Vendor &amp; Certification Grade</th>
-<th class="py-3 px-4">Redundancy / Safety Protocol</th>
+<th class="py-2.5 px-3.5">Subsystem Parameter</th>
+<th class="py-2.5 px-3.5">Standard Operational Spec</th>
+<th class="py-2.5 px-3.5">Vendor &amp; Certification Grade</th>
+<th class="py-2.5 px-3.5">Redundancy / Safety Protocol</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-slate-800 text-slate-300">
 <tr>
-<td class="py-3 px-4 font-semibold text-white">Daily Throughput Capability</td>
-<td class="py-3 px-4 text-gold-200">200 kg / 8-hour shift (~1,000 kg peak/wk)</td>
-<td class="py-3 px-4">ISO 9001:2015 Continuous Quality</td>
-<td class="py-3 px-4">Dual independent induction lines</td>
+<td class="py-2.5 px-3.5 font-semibold text-white">Daily Throughput Capability</td>
+<td class="py-2.5 px-3.5 text-gold-200">200 kg / 8-hour shift (~1,000 kg peak/wk)</td>
+<td class="py-2.5 px-3.5">ISO 9001:2015 Continuous Quality</td>
+<td class="py-2.5 px-3.5">Dual independent induction lines</td>
 </tr>
 <tr>
-<td class="py-3 px-4 font-semibold text-white">Environmental Scrubber System</td>
-<td class="py-3 px-4">Wet Venturi NOx &amp; SO2 caustic tower neutralization</td>
-<td class="py-3 px-4">EU Directives / MoECC Approved</td>
-<td class="py-3 px-4">Redundant chemical circulation pumps</td>
+<td class="py-2.5 px-3.5 font-semibold text-white">Environmental Scrubber System</td>
+<td class="py-2.5 px-3.5">Wet Venturi NOx &amp; SO2 caustic tower neutralization</td>
+<td class="py-2.5 px-3.5">EU Directives / MoECC Approved</td>
+<td class="py-2.5 px-3.5">Redundant chemical circulation pumps</td>
 </tr>
 <tr>
-<td class="py-3 px-4 font-semibold text-white">Assay Precision Verification</td>
-<td class="py-3 px-4">ICP-OES Optical Emission &amp; Cupellation</td>
-<td class="py-3 px-4">ISO/IEC 17025 Accredited Calibration</td>
-<td class="py-3 px-4">Double-blind multi-sample cross check</td>
+<td class="py-2.5 px-3.5 font-semibold text-white">Assay Precision Verification</td>
+<td class="py-2.5 px-3.5">ICP-OES Optical Emission &amp; Cupellation</td>
+<td class="py-2.5 px-3.5">ISO/IEC 17025 Accredited Calibration</td>
+<td class="py-2.5 px-3.5">Double-blind multi-sample cross check</td>
 </tr>
 <tr>
-<td class="py-3 px-4 font-semibold text-white">Compound Perimeter &amp; Vault</td>
-<td class="py-3 px-4">Grade IX Heavy Modular Vault (3 MT bullion)</td>
-<td class="py-3 px-4">EN 1143-1 Security Standard</td>
-<td class="py-3 px-4">Biometric iris access + SPU Armed Squad</td>
+<td class="py-2.5 px-3.5 font-semibold text-white">Compound Perimeter &amp; Vault</td>
+<td class="py-2.5 px-3.5">Grade IX Heavy Modular Vault (3 MT bullion)</td>
+<td class="py-2.5 px-3.5">EN 1143-1 Security Standard</td>
+<td class="py-2.5 px-3.5">Biometric iris access + SPU Armed Squad</td>
 </tr>
 </tbody>
 </table>
@@ -494,7 +740,7 @@
 </section>
 <!-- END: TechnicalCircuitSection -->
 <!-- BEGIN: MintingHubAndProductsSection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-minting-specifications" id="minting-hub">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-minting-specifications" id="minting-hub">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">04. Bullion Product Lines &amp; Stamped Minting Specifications</h2>
@@ -507,7 +753,7 @@
           </p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2" data-purpose="product-skus">
 <!-- SKU 1: 1 Kilo Cast -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">COMMERCIAL / WHOLESALE</span>
@@ -522,7 +768,7 @@
 </div>
 </div>
 <!-- SKU 2: 100g Minted -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">PREMIUM INVESTMENT</span>
@@ -537,7 +783,7 @@
 </div>
 </div>
 <!-- SKU 3: 1 Troy Oz Minted -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">GLOBAL STANDARD</span>
@@ -552,7 +798,7 @@
 </div>
 </div>
 <!-- SKU 4: 10g & 50g Fractional -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">RETAIL FRACTIONAL</span>
@@ -569,9 +815,9 @@
 </div>
 </div>
 <!-- Security & Hallmarking Specifications Card -->
-<div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print" data-purpose="hallmarking-security-features" data-prev-bg="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print">
+<div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print avoid-break" data-prev-bg="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print" data-purpose="hallmarking-security-features">
 <div class="flex items-center space-x-2 text-gold-400">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <h3 class="font-headline text-lg font-bold text-white">Official Hallmarking &amp; Anti-Counterfeiting</h3>
 </div>
 <div class="space-y-3 text-xs text-slate-300">
@@ -598,7 +844,7 @@
 </section>
 <!-- END: MintingHubAndProductsSection -->
 <!-- BEGIN: CapitalRequirementsSection -->
-<section class="scroll-mt-24 space-y-6 page-break" data-purpose="section-financials" id="financials">
+<section class="scroll-mt-24 space-y-6 page-break avoid-break" data-purpose="section-financials" id="financials">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">05. Capital Structure &amp; Deployment Plan ($30M Total)</h2>
@@ -606,7 +852,7 @@
 <!-- High Level Budget Breakdown -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- CapEx USD 5,000,000 -->
-<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
+<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print avoid-break" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
 <div class="flex items-center justify-between">
 <div>
 <span class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">Fixed Assets CapEx</span>
@@ -645,7 +891,7 @@
 </div>
 </div>
 <!-- Float Liquidity USD 25,000,000 -->
-<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
+<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print avoid-break" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
 <div class="flex items-center justify-between">
 <div>
 <span class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">Trading Liquidity Float</span>
@@ -677,7 +923,7 @@
 </div>
 </div>
 <!-- Financial Projections Summary -->
-<div class="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print" data-prev-bg="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print">
+<div class="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print avoid-break" data-prev-bg="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print">
 <h4 class="font-headline font-bold text-white text-base">Annual Production &amp; Projected State Revenue (At 50 MT Target)</h4>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 font-mono text-center">
 <div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
@@ -705,7 +951,7 @@
 </section>
 <!-- END: CapitalRequirementsSection -->
 <!-- BEGIN: ExecutiveAsksAndIncentivesSection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. Key Executive Asks &amp; Fiscal Enactments</h2>
@@ -716,35 +962,35 @@
         </p>
 <!-- 5 Key Asks Grid -->
 <div class="grid grid-cols-1 md:grid-cols-5 gap-3" data-purpose="five-executive-asks-cards">
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 01</span>
 <h4 class="font-headline font-bold text-white text-sm">Direct Operator Licensing</h4>
 <p class="text-xs text-slate-300 font-light">
               Issuance of exclusive Master Refining &amp; Commercial Minting License directly to the NorthRock Capital LLC joint operating company.
             </p>
 </div>
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 02</span>
 <h4 class="font-headline font-bold text-white text-sm">EIA Permit from MoECC</h4>
 <p class="text-xs text-slate-300 font-light">
               Expedited approval of the Environmental Impact Assessment permit (Law No. 79/2018) for the Presidency Way complex including enclosed scrubber circuits.
             </p>
 </div>
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 03</span>
 <h4 class="font-headline font-bold text-white text-sm">Cabinet JV Ratification</h4>
 <p class="text-xs text-slate-300 font-light">
               Formal Council of Ministers ratification of the 90/10 PPP agreement with 25-year statutory exclusivity protections.
             </p>
 </div>
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 04</span>
 <h4 class="font-headline font-bold text-white text-sm">Presidential Decrees</h4>
 <p class="text-xs text-slate-300 font-light">
               Presidential Decrees affirming 25-year exclusivity and mandating state verification of all gold exports through the Simodi Assay Laboratory.
             </p>
 </div>
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 05</span>
 <h4 class="font-headline font-bold text-white text-sm">24-Hr Airport Clearance Channel</h4>
 <p class="text-xs text-slate-300 font-light">
@@ -753,9 +999,9 @@
 </div>
 </div>
 <!-- Fiscal & Statutory Incentives Checklist -->
-<div class="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print" data-prev-bg="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print">
+<div class="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print avoid-break" data-prev-bg="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print">
 <div class="flex items-center space-x-2 text-gold-300">
-<svg class="w-5 h-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path clip-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" fill-rule="evenodd"></path></svg>
+<svg class="w-5 h-5 text-gold-400" fill="currentColor" viewbox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path clip-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" fill-rule="evenodd"></path></svg>
 <h3 class="font-headline text-lg font-bold text-white">Guaranteed Fiscal Incentives Framework</h3>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
@@ -781,35 +1027,35 @@
 </section>
 <!-- END: ExecutiveAsksAndIncentivesSection -->
 <!-- BEGIN: ExecutionTimelineSection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-timeline" id="timeline">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-timeline" id="timeline">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">07. The Proposed Implementation Timeline</h2>
 </div>
 <div class="relative border-l-2 border-gold-500/40 ml-4 pl-6 space-y-6 text-xs font-mono">
 <!-- Milestone 1 -->
-<div class="relative">
+<div class="relative avoid-break">
 <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
 <span class="text-gold-400 font-bold">MONTH 01 - 02</span>
 <h4 class="font-headline text-sm font-bold text-white">Ratification, Site Handover &amp; Equipment Orders</h4>
 <p class="text-slate-400 font-sans text-xs">Signing of Concession Agreement, issuance of Presidential Decrees, procurement of European induction melters and ICP-OES spectrometer.</p>
 </div>
 <!-- Milestone 2 -->
-<div class="relative">
+<div class="relative avoid-break">
 <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
 <span class="text-gold-400 font-bold">MONTH 03 - 05</span>
 <h4 class="font-headline text-sm font-bold text-white">Civil Construction &amp; Vault Engineering</h4>
 <p class="text-slate-400 font-sans text-xs">Fortification of the 1,600 sqm Presidency Way complex, chemical containment lining, installation of dual backup generators and NOx exhaust scrubbers.</p>
 </div>
 <!-- Milestone 3 -->
-<div class="relative">
+<div class="relative avoid-break">
 <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
 <span class="text-gold-400 font-bold">MONTH 06 - 07</span>
 <h4 class="font-headline text-sm font-bold text-white">Equipment Assembly, Calibration &amp; Trial Melts</h4>
 <p class="text-slate-400 font-sans text-xs">Commissioning of 400T minting press, installation of Sartorius balances and ED-XRF analyzers, test refining of 100 kg raw doré batches.</p>
 </div>
 <!-- Milestone 4 -->
-<div class="relative">
+<div class="relative avoid-break">
 <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
 <span class="text-gold-400 font-bold">MONTH 08 - 09</span>
 <h4 class="font-headline text-sm font-bold text-white">Commercial Launch &amp; Hallmarking</h4>
@@ -819,7 +1065,6 @@
 </section>
 <!-- END: ExecutionTimelineSection -->
 <!-- BEGIN: LegalSignoffSection -->
-
 <!-- END: LegalSignoffSection -->
 </main>
 <!-- END: MainContentContainer -->
@@ -828,31 +1073,50 @@
 <!-- END: MainFooter -->
 <!-- BEGIN: InteractiveScripts -->
 <script data-purpose="view-and-theme-interactivity">
-    // Ink-Friendly Print Theme Toggle
+    // Default print tone initialized to Crisp Ivory
     const themeBtn = document.getElementById('theme-toggle');
-    const htmlElem = document.documentElement;
-    let isLightPrintMode = false;
+    const themeModeText = document.getElementById('theme-mode-text');
+    const themeIndicatorDot = document.getElementById('theme-indicator-dot');
+    
+    // Track print tone: starts at Crisp Ivory by default
+    let printTone = 'ivory';
+
+    function setToneUI(tone) {
+      if (tone === 'ivory') {
+        document.body.classList.remove('dark-print-force');
+        if (themeModeText) {
+          themeModeText.textContent = 'Ivory';
+          themeModeText.className = 'font-bold text-amber-300';
+        }
+        if (themeIndicatorDot) {
+          themeIndicatorDot.className = 'w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400';
+        }
+        if (themeBtn) {
+          themeBtn.className = 'p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm';
+          themeBtn.title = 'Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)';
+        }
+      } else {
+        document.body.classList.add('dark-print-force');
+        if (themeModeText) {
+          themeModeText.textContent = 'Dark';
+          themeModeText.className = 'font-bold text-gold-200';
+        }
+        if (themeIndicatorDot) {
+          themeIndicatorDot.className = 'w-2.5 h-2.5 rounded-full border border-gold-400/80 bg-gold-400/40';
+        }
+        if (themeBtn) {
+          themeBtn.className = 'p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-gold-500/40 hover:border-gold-400 bg-obsidian-850/80 hover:bg-gold-500/10 text-gold-300 hover:text-gold-200 transition flex items-center space-x-1.5 shadow-sm';
+          themeBtn.title = 'Current Print Tone: Dark Obsidian (Click to toggle Crisp Ivory)';
+        }
+      }
+    }
+
+    // Initialize default tone on page load
+    setToneUI('ivory');
 
     themeBtn.addEventListener('click', () => {
-      isLightPrintMode = !isLightPrintMode;
-      if (isLightPrintMode) {
-        document.body.classList.remove('bg-obsidian-900', 'text-slate-200');
-        document.body.classList.add('bg-slate-50', 'text-slate-900');
-        document.querySelectorAll('.bg-obsidian-850, .bg-obsidian-800').forEach(el => {
-          el.dataset.prevBg = el.className;
-          el.classList.add('!bg-white', '!text-slate-900', '!border-slate-300', '!shadow-sm');
-        });
-        document.querySelectorAll('.text-white').forEach(el => el.classList.add('!text-slate-900'));
-        document.querySelectorAll('.text-slate-300, .text-slate-400').forEach(el => el.classList.add('!text-slate-700'));
-      } else {
-        document.body.classList.add('bg-obsidian-900', 'text-slate-200');
-        document.body.classList.remove('bg-slate-50', 'text-slate-900');
-        document.querySelectorAll('.bg-obsidian-850, .bg-obsidian-800').forEach(el => {
-          el.classList.remove('!bg-white', '!text-slate-900', '!border-slate-300', '!shadow-sm');
-        });
-        document.querySelectorAll('.text-white').forEach(el => el.classList.remove('!text-slate-900'));
-        document.querySelectorAll('.text-slate-300, .text-slate-400').forEach(el => el.classList.remove('!text-slate-700'));
-      }
+      printTone = (printTone === 'ivory') ? 'dark' : 'ivory';
+      setToneUI(printTone);
     });
 
     // Paged Executive Memorandum vs Executive Deck View Toggle
@@ -881,6 +1145,4 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
-
-
 </body></html>
