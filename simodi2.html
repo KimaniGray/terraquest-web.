@@ -1,816 +1,1051 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
-  <title>PROJECT SIMODI | Executive Strategic Memorandum</title>
-  
-  <!-- Modern, Non-Calligraphic Fonts Only -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Tailwind Configuration -->
-  <script>
+
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
+<title>PROJECT SIMODI | Executive Memorandum &amp; Technical Presentation</title>
+<!-- Fonts Preconnect & Load -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
+          colors: {
+            obsidian: {
+              950: '#040507',
+              900: '#07090C',
+              850: '#0B0F15',
+              800: '#0E131B',
+              700: '#151C28',
+              600: '#1E2838',
+              500: '#2A374A'
+            },
+            gold: {
+              50: '#FFFDF5',
+              100: '#FFF8E6',
+              200: '#FFF2D1',
+              300: '#EED9A2',
+              400: '#DFC485',
+              500: '#D4AF37',
+              600: '#B8942A',
+              700: '#9E7B26',
+              800: '#755A1A',
+              900: '#4D3B0F'
+            }
+          },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            headline: ['Noto Serif', 'serif'],
+            display: ['Playfair Display', 'serif'],
+            serif: ['Noto Serif', 'serif'],
             mono: ['JetBrains Mono', 'monospace']
           },
-          colors: {
-            brand: {
-              black: '#07090C',
-              dark: '#0B0F15',
-              card: '#121822',
-              border: '#1E2838',
-              gold: '#D4AF37',
-              goldlight: '#EED9A2',
-              golddark: '#9E7B26'
-            }
+          boxShadow: {
+            'gold-glow': '0 0 25px -5px rgba(212, 175, 55, 0.25)',
+            'gold-glow-lg': '0 0 45px -10px rgba(212, 175, 55, 0.35)',
+            'inner-gold': 'inset 0 1px 1px 0 rgba(223, 196, 133, 0.2)'
           }
         }
       }
     };
   </script>
-
-  <!-- Strict A4 Page & Print Engine -->
-  <style>
+<!-- BEGIN: Custom Executive Styles -->
+<style data-purpose="typography-and-effects">
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #07090C;
-      color: #E2E8F0;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF2D1 0%, #DFC485 35%, #D4AF37 70%, #9E7B26 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    /* Screen Presentation: Distinct Page Sheets */
-    .a4-sheet {
-      max-width: 210mm;
-      min-height: 297mm;
-      margin: 2rem auto;
-      background-color: #0B0F15;
-      border: 1px solid #1E2838;
-      padding: 12mm 15mm;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+    .light-print-active .gold-gradient-text {
+      background: linear-gradient(135deg, #78350F 0%, #92400E 40%, #B45309 80%, #78350F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    /* Mobile Responsive Overrides */
-    @media (max-width: 768px) {
-      .a4-sheet {
-        max-width: 100%;
-        min-height: auto;
-        margin: 1rem 0;
-        padding: 1.5rem 1rem;
-        border-left: none;
-        border-right: none;
-      }
+    .gold-gradient-border {
+      border-image: linear-gradient(135deg, #DFC485, #9E7B26) 1;
     }
 
-    /* Native Browser PDF & Print Enforcement */
-    @media print {
-      @page {
-        size: A4 portrait;
-        margin: 8mm; /* Strict A4 Margins */
-      }
-      body {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .no-print, header.fixed {
-        display: none !important;
-      }
-      .a4-sheet {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 280mm !important; /* Force content into A4 boundaries */
-        min-height: 280mm !important;
-        margin: 0 !important;
-        padding: 10mm 12mm !important;
-        border: none !important;
-        box-shadow: none !important;
-        page-break-after: always;
-        break-inside: avoid;
-        background-color: #FFFFFF !important;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      /* Print Color Inversions for Legibility */
-      .bg-brand-dark { background-color: #FFFFFF !important; }
-      .bg-brand-card { background-color: #F8FAFC !important; border: 1px solid #E2E8F0 !important; }
-      .border-brand-border { border-color: #CBD5E1 !important; }
-      .text-white, .text-slate-200, .text-slate-300 { color: #0F172A !important; }
-      .text-slate-400 { color: #475569 !important; }
-      .text-brand-gold, .text-brand-goldlight { color: #9E7B26 !important; }
-      .bg-brand-gold\/10 { background-color: #FEF9C3 !important; }
-      .border-brand-gold\/30 { border-color: #D4AF37 !important; }
+    .glass-dark {
+      background: rgba(14, 19, 27, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(223, 196, 133, 0.16);
+    }
+
+    .light-print-active .glass-dark {
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(180, 83, 9, 0.2);
+    }
+
+    .glass-light {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(7, 9, 12, 0.5);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #755A1A;
+      border-radius: 9999px;
     }
   </style>
+<style data-purpose="print-rules">
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 15mm 14mm;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 10pt !important;
+        line-height: 1.45 !important;
+      }
+
+      /* Unified Container Sizing for Print */
+      main, .max-w-7xl, .max-w-5xl, .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Hide Navigation Chrome & Controls */
+      .no-print, header, nav, #nav-dock, button, #theme-toggle, #view-toggle {
+        display: none !important;
+      }
+
+      /* Page Breaks and Orphan Control */
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      section, .card, .card-print, table, tr, figure, .avoid-break {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* DEFAULT PRINT STYLING: Crisp Archival Ivory / White Print Tone */
+      body:not(.dark-print-force) {
+        background-color: #FDFBF7 !important;
+        color: #18181B !important;
+      }
+
+      body:not(.dark-print-force) .bg-obsidian-950,
+      body:not(.dark-print-force) .bg-obsidian-900 {
+        background-color: #F8F6F0 !important;
+        border-color: #E4E4E7 !important;
+        color: #18181B !important;
+      }
+
+      body:not(.dark-print-force) .bg-obsidian-850,
+      body:not(.dark-print-force) .bg-obsidian-800,
+      body:not(.dark-print-force) .card-print {
+        background-color: #FFFFFF !important;
+        border-color: #E4E4E7 !important;
+        color: #27272A !important;
+        box-shadow: none !important;
+      }
+
+      body:not(.dark-print-force) h1,
+      body:not(.dark-print-force) h2,
+      body:not(.dark-print-force) h3,
+      body:not(.dark-print-force) h4 {
+        color: #18181B !important;
+      }
+
+      body:not(.dark-print-force) .gold-gradient-text {
+        -webkit-text-fill-color: #B45309 !important;
+        color: #B45309 !important;
+      }
+
+      body:not(.dark-print-force) .text-gold-200,
+      body:not(.dark-print-force) .text-gold-300,
+      body:not(.dark-print-force) .text-gold-400 {
+        -webkit-text-fill-color: #B45309 !important;
+        color: #B45309 !important;
+      }
+
+      body:not(.dark-print-force) .text-slate-300,
+      body:not(.dark-print-force) .text-slate-400 {
+        color: #3F3F46 !important;
+      }
+
+      body:not(.dark-print-force) th {
+        background-color: #F4F4F5 !important;
+        color: #92400E !important;
+      }
+
+      body:not(.dark-print-force) td {
+        border-color: #E4E4E7 !important;
+        color: #27272A !important;
+      }
+
+      /* OPTIONAL: Dark Obsidian Print Output (Only if user toggles to dark) */
+      body.dark-print-force {
+        background-color: #0b0d11 !important;
+        color: #f3f4f6 !important;
+      }
+
+      body.dark-print-force .bg-obsidian-950,
+      body.dark-print-force .bg-obsidian-900 {
+        background-color: #0d1017 !important;
+        color: #f3f4f6 !important;
+      }
+
+      body.dark-print-force .bg-obsidian-850,
+      body.dark-print-force .bg-obsidian-800,
+      body.dark-print-force .card-print {
+        background-color: #131720 !important;
+        border-color: #272d3b !important;
+        color: #e5e7eb !important;
+        box-shadow: none !important;
+      }
+
+      body.dark-print-force h1,
+      body.dark-print-force h2,
+      body.dark-print-force h3,
+      body.dark-print-force h4 {
+        color: #f9fafb !important;
+      }
+
+      body.dark-print-force .gold-gradient-text,
+      body.dark-print-force .text-gold-200,
+      body.dark-print-force .text-gold-300,
+      body.dark-print-force .text-gold-400 {
+        -webkit-text-fill-color: #d4af37 !important;
+        color: #d4af37 !important;
+      }
+
+      body.dark-print-force .text-slate-300,
+      body.dark-print-force .text-slate-400 {
+        color: #9ca3af !important;
+      }
+
+      /* Media and Table Print Adjustments */
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+      }
+
+      th, td {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+      }
+
+      header, section, footer {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+      }
+    }
+  </style>
+<!-- END: Custom Executive Styles -->
 </head>
-<body class="text-slate-300">
+<body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-4 py-3 sm:px-6 transition-all" data-purpose="executive-header">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<!-- Brand Seal & Project ID -->
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full border border-gold-400/40 bg-obsidian-800 flex items-center justify-center shadow-gold-glow" data-prev-bg="w-10 h-10 rounded-full border border-gold-400/40 bg-obsidian-800 flex items-center justify-center shadow-gold-glow">
+<span class="font-headline font-bold text-gold-400 text-lg tracking-wider">PS</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-headline font-bold tracking-widest text-xs sm:text-sm text-gold-200 uppercase">Project Simodi</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30">CONFIDENTIAL</span>
+</div>
+<p class="text-[11px] text-slate-400 font-mono hidden sm:block">Gold Refining Facility • Executive Presentation</p>
+</div>
+</div>
+<!-- Quick Action Toolset -->
+<div class="flex items-center space-x-2 sm:space-x-3">
+<!-- View Mode Switcher -->
+<button class="px-3 py-1.5 rounded-md text-xs font-medium border border-gold-500/30 text-gold-300 hover:bg-gold-500/10 transition flex items-center space-x-1.5" data-purpose="toggle-deck-dossier" id="view-toggle" title="Switch View Mode">
+<svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="hidden sm:inline" id="view-label">Executive View</span>
+</button>
+<!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
+<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Toggle Print Tone: Crisp Ivory vs Dark Obsidian">
+<span class="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" id="theme-indicator-dot"></span>
+<svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<span class="text-[11px] font-mono tracking-wide" id="theme-btn-label">Print Tone: <span class="font-bold text-amber-300" id="theme-mode-text">Ivory</span></span>
+</button>
+<!-- PDF Export Button -->
+<button class="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1.5" data-purpose="pdf-export-trigger" onclick="window.print()">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Export PDF</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MobileDockNavigation -->
+<nav class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-xl z-50 glass-dark rounded-full py-2 px-3 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print" data-purpose="mobile-pill-nav" id="nav-dock">
+<a class="text-center px-2 py-1 text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex flex-col items-center" href="#executive-summary">
+<span class="">Overview</span>
+</a>
+<a class="text-center px-2 py-1 text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex flex-col items-center" href="#ppp-structure">
+<span class="">PPP Model</span>
+</a>
+<a class="text-center px-2 py-1 text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex flex-col items-center" href="#technical-circuit">
+<span class="">Refinery</span>
+</a>
+<a class="text-center px-2 py-1 text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex flex-col items-center" href="#minting-hub">
+<span class="">Minting</span>
+</a>
+<a class="text-center px-2 py-1 text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex flex-col items-center" href="#financials">
+<span class="">$30M Cap</span>
+</a>
+<a class="text-center px-2.5 py-1 text-[11px] font-mono text-gold-400 font-bold bg-gold-500/10 rounded-full border border-gold-500/30 hover:bg-gold-500/20 transition flex flex-col items-center" href="#executive-asks">
+<span class="">5 Asks</span>
+</a>
+</nav>
+<!-- END: MobileDockNavigation -->
+<!-- BEGIN: MainContentContainer -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28">
+<!-- BEGIN: HeroCoverSection -->
+<section class="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl avoid-break" data-prev-bg="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl" data-purpose="memorandum-hero" id="hero">
+<!-- Ambient Gold Backlight Glow -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center space-x-2 border border-gold-500/40 rounded-full px-3.5 py-1 bg-gold-500/5">
+<span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+<span class="text-xs font-mono text-gold-300 tracking-wider uppercase font-semibold">Project Simodi Presentation</span>
+</div>
+<h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class=""/>
+<span class="gold-gradient-text font-display block mt-3">Gold Refining Facility</span></h1>
+<p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light">A definitive Public-Private Partnership (PPP) structuring Somaliland's flagship 99.9% fine gold refining and certified bullion minting facility in Hargeisa—engineered for institutional off-take, domestic value capture, and international liquidity integration.</p>
+<!-- Executive Micro-Metrics Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 font-mono" data-purpose="hero-kpi-grid">
+<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
+<span class="text-[10px] uppercase text-slate-400 block font-sans">Total Allocation</span>
+<span class="text-lg font-bold text-gold-300">$30,000,000</span>
+<span class="text-[9px] text-slate-500 block">CapEx &amp; Trading Float</span>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
+<span class="text-[10px] uppercase text-slate-400 block font-sans">Refining Capacity</span>
+<span class="text-lg font-bold text-gold-300">50 MT / Annum</span>
+<span class="text-[9px] text-slate-500 block">~1 MT weekly cycle</span>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
+<span class="text-[10px] uppercase text-slate-400 block font-sans">Certified Purity</span>
+<span class="text-lg font-bold text-gold-300">99.9% AU</span>
+<span class="text-[9px] text-slate-500 block">Fine Bullion Spec</span>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print"><span class="text-[10px] uppercase text-slate-400 block font-sans">Investment Structure</span>
+<span class="text-lg font-bold text-gold-300">Permanent</span>
+<span class="text-[9px] text-slate-500 block">Capital Investment Model</span></div>
+</div>
+</div>
+<!-- Featured Stamped Product Asset -->
+<div class="lg:col-span-5 relative" data-purpose="hero-stamped-gold-asset">
+<div class="relative group rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950">
+<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-72 sm:h-80 object-cover object-center transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida/AEtjO1VMZujeEvyqXcPcdtix9Q4AzUjGFZeLhVTauUjxjKvvkuoGelX7b7ybpJJshJFfp7J2uXUTMFOIbnvacVzXvWbuk8zTjWovuei9-ceDHUtyVpkI33iEHGho3qD_hhSV6bFWTKkKFc0a4dr6GdRcycWJ7RBypo4FJAT8G6zPuMnNU6cN2wMy_25TUBIgSYDhyyIAJvE7UgCs7dTlVtl_65Jg4G0ToDixIaAHa_PV6Ex7TdOWx19lrbJr8xU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs">
+<span class="font-mono text-gold-200 bg-obsidian-900/90 px-2.5 py-1 rounded border border-gold-500/30">
+                Official Hallmarked Stamped Ingots
+              </span>
+<span class="font-sans text-[11px] text-slate-300 tracking-wide">
+                999.9 Fine Investment Bars
+              </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroCoverSection -->
+<!-- BEGIN: ExecutiveSummarySection -->
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-summary" id="executive-summary">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">01. Executive Summary</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Scope Card -->
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
+<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
+            01
+          </div>
+<h3 class="font-headline text-lg font-bold text-gold-200">The Project Vision</h3>
+<p class="text-sm text-slate-300 leading-relaxed font-light">Proposed Simodi Gold Refinery inaugurates the primary domestic precious metals refining hub in the Horn of Africa. The state facility integrates fire assay verification, chemical aqua regia hydrometallurgy, high-frequency induction smelting, and hydraulic stamped minting.</p>
+<ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
+<li class="">• Location: Presidency Way district, Hargeisa</li>
+<li class="">• Total Compound: 1,600 m² High-Security Complex</li>
+<li class="">• 3 MT Reinforced Heavy Vault Capacity</li>
+</ul>
+</div>
+<!-- Economic Value Capture -->
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
+<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
+            02
+          </div>
+<h3 class="font-headline text-lg font-bold text-gold-200">National Value Capture</h3>
+<p class="text-sm text-slate-300 leading-relaxed font-light">
+            Transitioning the state from an unrefined, informal doré exporter to an accredited hub. Formalizing artisanal miners (ASM), eradicating unmonitored border smuggling, and unlocking national gold reserve monetization for the Central Bank.
+          </p>
+<ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
+<li class="">• 50 MT annual baseline refining output</li>
+<li class="">• Formalized domestic artisanal miner buyback</li>
+<li class="">• Direct national bullion reserve accumulation</li>
+</ul>
+</div>
+<!-- Global Offtake -->
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
+<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
+            03
+          </div>
+<h3 class="font-headline text-lg font-bold text-gold-200">International Liquidity &amp; Off-Take</h3>
+<p class="text-sm text-slate-300 leading-relaxed font-light">
+            Guaranteed export off-take channel connecting directly into Dubai Multi Commodities Centre (DMCC) and global London Bullion Market Association (LBMA) compliant trading desks with bonded high-security air transport links.
+          </p>
+<ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3"><li class="">• Direct Dubai &amp; Saudi Arabia refinery counter-parties</li><li class="">• Revolving USD 25M instant buyback liquidity float</li><li class="">• Tamper-evident secure packaging with UV authenticity</li></ul>
+</div>
+</div>
+</section>
+<!-- END: ExecutiveSummarySection -->
+<!-- BEGIN: PPPStructureSection -->
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-ppp-structure" id="ppp-structure">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">02. Public-Private Partnership (PPP) Structure</h2>
+</div>
+<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 sm:p-8 space-y-8 card-print" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 sm:p-8 space-y-8 card-print">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Private Partner: NorthRock Capital LLC -->
+<div class="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-gold-400 space-y-4 card-print" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-gold-400 space-y-4 card-print">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono tracking-widest text-gold-400 uppercase font-semibold">Strategic Investor / Operator</span>
+<span class="text-2xl font-headline font-black text-gold-200">90% EQUITY</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">NorthRock Capital LLC</h3>
+<p class="text-xs text-slate-300 leading-relaxed font-light">
+              Responsible for 100% of the private capital deployment, plant construction, cutting-edge induction &amp; assay equipment procurement, operational governance, and DMCC export offtake agreements.
+            </p>
+<div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">USD 5,000,000 Complete CapEx Turnkey Build</span>
+</div>
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">USD 25,000,000 Revolving Liquidity Float</span>
+</div>
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">Full Technology Transfer &amp; Domestic Metallurgical Training</span>
+</div>
+</div>
+</div>
+<!-- Public Sector Partner: MoEM -->
+<div class="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-slate-400 space-y-4 card-print" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-slate-400 space-y-4 card-print">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono tracking-widest text-slate-300 uppercase font-semibold">Public Sector Partner</span>
+<span class="text-2xl font-headline font-black text-slate-200">10% FREE CARRY</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">Ministry of Energy &amp; Minerals (MoEM)</h3>
+<p class="text-xs text-slate-300 leading-relaxed font-light">Providing government regulatory exclusivity, 25-year Build-Own-Operate (BOO) decree, security escorts by the Special Protection Unit (SPU), and airport transit clearance channels.</p>
+<div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">25-Year Statutory Refining &amp; Minting Exclusivity</span>
+</div>
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">State Mineral Police &amp; Airport Transit Protection</span>
+</div>
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<span class="">Statutory 10% Non-Dilutable Dividend Participation</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Joint Governance Framework Indicator -->
+<div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs avoid-break">
+<div class="flex items-center space-x-3">
+<span class="p-2 rounded bg-gold-500/10 text-gold-400 font-mono font-bold">BOARD</span>
+<span class="text-slate-300">Joint Steering Committee: 3 NorthRock Appointees + 2 Ministerial Representatives</span>
+</div>
+<span class="font-mono text-gold-400 tracking-wider">Shared Governance</span>
+</div>
+</div>
+</section>
+<!-- END: PPPStructureSection -->
+<!-- BEGIN: TechnicalCircuitSection -->
+<section class="scroll-mt-24 space-y-8 page-break avoid-break" data-purpose="section-technical-circuit" id="technical-circuit">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">03. Technical and Operational Proposal</h2>
+</div>
+<!-- Technical Circuit Visual & Process Banner -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+<!-- Visual Asset: Refinery Induction Pour -->
+<div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
+<img alt="Modern industrial gold refinery facility interior in Africa, featuring focused Black African metallurgist engineers in protective industrial safety gear and face shields operating an induction smelting furnace pouring molten gold into ingot molds" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WNLAFecjLUnhFZa4mXTAlqiUBwRhqAzOo9p1cCk8vL2R4HcL5waH3iIgBfbTJ9Y2gnbu3X9W_fgXiXOe-rPK_zPlyEjZdCZPkqilpSMAhrivQ5X-yjKXCKzcvFm1VkDoEIHi5QyaPXKczgBtY9ME8Pj3YNLJO_egUvdSf_mumqfBRvfyw4ig2xTlTShxDunBsJypb5h1y6Rnxkt_PCmejT35ITs5nh7ZgK6aoOdMnj_Avbyszr-cBvXDIA"/>
+</div>
+<p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+<span class="">FIGURE 1: African Metallurgical Engineers • Induction Smelting Circuit</span>
+<span class="text-gold-400">Temp: 1,150°C</span>
+</p></div>
+<!-- Visual Asset: Assay Spectrometry Lab -->
+<div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
+<img alt="Modern certified precious metals assay laboratory in East Africa, featuring professional Black African female and male metallurgists in pristine white lab coats and protective safety glasses operating high-tech ICP-OES spectrometry and fire assay analytical balances" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WZRDaPlQ5XkfVIeN0hVvpZRNVQk8X6iqQFFA_aSRGedE8pZoGVo1uwJY3EloCrAY7NENha2SiH5h4KBxdeuj_quz2z50WWbgGfn6COSPJ5mAXOGxGIv4tdqDrKFkra3t6RkwZeJ7YzLduq84vYiCnIww49K2Ww2TTaEiQPdSTb4wulRLAS_RXJnt4WcqfHh5wmIlc2h5AHSO2SB9F5QjYwDMb1_1zGyYZKTJMafiOfl-rqDO6Bas5wwfEo"/>
+</div>
+<p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+<span class="">FIGURE 2: ISO/IEC 17025 Accredited East African Assay &amp; ICP-OES Lab</span>
+<span class="text-gold-400">Purity Tol: ±0.005%</span>
+</p></div>
+</div>
+<!-- Detailed 4-Step Technical Workflow Accordion Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" data-purpose="technical-process-stations">
+<!-- Step 1 -->
+<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
+<div class="flex items-center justify-between font-mono">
+<span class="text-xs text-gold-400 font-bold">STATION 01</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300">Receiving</span>
+</div>
+<h4 class="font-headline font-bold text-white text-base">Intake &amp; Assaying</h4>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Doré receipt under triple CCTV surveillance. Immediate weighing on Sartorius 0.01g balances, preliminary ED-XRF scanning, and destructive Cupellation Fire Assay testing.
+          </p>
+<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+            Tech: ED-XRF • Fire Assay Muffle Furnace • ICP-OES
+          </div>
+</div>
+<!-- Step 2 -->
+<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
+<div class="flex items-center justify-between font-mono">
+<span class="text-xs text-gold-400 font-bold">STATION 02</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300">Pyrometallurgy</span>
+</div>
+<h4 class="font-headline font-bold text-white text-base">Induction &amp; Granulation</h4>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Doré bars melted in 50kW IGBT induction furnaces with mercury abatement. Molten gold poured into chilled water granulators creating high surface-area flakes optimized for chemical digestion.
+          </p>
+<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+            Tech: Chilled Water Granulator • Mercury Scrubber
+          </div>
+</div>
+<!-- Step 3 -->
+<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
+<div class="flex items-center justify-between font-mono">
+<span class="text-xs text-gold-400 font-bold">STATION 03</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300">Hydrometallurgy</span>
+</div>
+<h4 class="font-headline font-bold text-white text-base">Aqua Regia &amp; Refining</h4>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Digestion inside enclosed 800L glass-lined chemical reactors (HCl + HNO3). Selective reduction with Sodium Metabisulfite (SMBS) precipitating pure 99.95%+ gold mud with zero emission scrubbers.
+          </p>
+<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+            Tech: 800L Aqua Regia • SMBS Precipitation • Scrubber
+          </div>
+</div>
+<!-- Step 4 -->
+<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
+<div class="flex items-center justify-between font-mono">
+<span class="text-xs text-gold-400 font-bold">STATION 04</span>
+<span class="text-[10px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300">Fabrication</span>
+</div>
+<h4 class="font-headline font-bold text-white text-base">Hydraulic Minting &amp; Vault</h4>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Refined gold sponge dried and induction-melted into investment ingots. 400-ton stamping presses create pristine proof-finish minted bars, laser engraved with serialized QR certificates.
+          </p>
+<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+            Tech: 400T Press • Laser Serials • 3 MT Heavy Vault
+          </div>
+</div>
+</div>
+<!-- Refinery Specifications Table -->
+<div class="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print avoid-break" data-prev-bg="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print" data-purpose="refinery-specs-table">
+<table class="w-full text-left text-xs font-mono">
+<thead class="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20" data-prev-bg="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20">
+<tr>
+<th class="py-3 px-4">Subsystem Parameter</th>
+<th class="py-3 px-4">Standard Operational Spec</th>
+<th class="py-3 px-4">Vendor &amp; Certification Grade</th>
+<th class="py-3 px-4">Redundancy / Safety Protocol</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800 text-slate-300">
+<tr>
+<td class="py-3 px-4 font-semibold text-white">Daily Throughput Capability</td>
+<td class="py-3 px-4 text-gold-200">200 kg / 8-hour shift (~1,000 kg peak/wk)</td>
+<td class="py-3 px-4">ISO 9001:2015 Continuous Quality</td>
+<td class="py-3 px-4">Dual independent induction lines</td>
+</tr>
+<tr>
+<td class="py-3 px-4 font-semibold text-white">Environmental Scrubber System</td>
+<td class="py-3 px-4">Wet Venturi NOx &amp; SO2 caustic tower neutralization</td>
+<td class="py-3 px-4">EU Directives / MoECC Approved</td>
+<td class="py-3 px-4">Redundant chemical circulation pumps</td>
+</tr>
+<tr>
+<td class="py-3 px-4 font-semibold text-white">Assay Precision Verification</td>
+<td class="py-3 px-4">ICP-OES Optical Emission &amp; Cupellation</td>
+<td class="py-3 px-4">ISO/IEC 17025 Accredited Calibration</td>
+<td class="py-3 px-4">Double-blind multi-sample cross check</td>
+</tr>
+<tr>
+<td class="py-3 px-4 font-semibold text-white">Compound Perimeter &amp; Vault</td>
+<td class="py-3 px-4">Grade IX Heavy Modular Vault (3 MT bullion)</td>
+<td class="py-3 px-4">EN 1143-1 Security Standard</td>
+<td class="py-3 px-4">Biometric iris access + SPU Armed Squad</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: TechnicalCircuitSection -->
+<!-- BEGIN: MintingHubAndProductsSection -->
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-minting-specifications" id="minting-hub">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">04. Bullion Product Lines &amp; Stamped Minting Specifications</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Product Line Catalog -->
+<div class="lg:col-span-7 space-y-4">
+<p class="text-sm text-slate-300 leading-relaxed font-light">
+            All minted bars bear the official national seal, certified fineness guarantee (99.9% / 999.9 Fine Gold), individualized alpha-numeric laser serial numbering, and are sealed within tamper-evident Certicards featuring invisible UV phosphor thread signatures.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2" data-purpose="product-skus">
+<!-- SKU 1: 1 Kilo Cast -->
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[11px] font-mono text-gold-400 font-bold">COMMERCIAL / WHOLESALE</span>
+<span class="text-xs font-mono bg-gold-500/10 px-2 py-0.5 rounded text-gold-300 border border-gold-500/20">999.9 Fine</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-white mt-1">1,000 g (1 Kilo) Cast Bar</h4>
+<p class="text-xs text-slate-400 mt-1">Poured ingot for institutional reserves, central banks, and DMCC off-take trades.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono flex justify-between text-slate-300">
+<span class="">Weight: 32.1507 oz t</span>
+<span class="text-gold-300">Laser Inscribed Seal</span>
+</div>
+</div>
+<!-- SKU 2: 100g Minted -->
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[11px] font-mono text-gold-400 font-bold">PREMIUM INVESTMENT</span>
+<span class="text-xs font-mono bg-gold-500/10 px-2 py-0.5 rounded text-gold-300 border border-gold-500/20">999.9 Fine</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-white mt-1">100 Gram Minted Bar</h4>
+<p class="text-xs text-slate-400 mt-1">Proof mirror-finish stamped ingot with national hallmark and assay seal.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono flex justify-between text-slate-300">
+<span class="">Weight: 3.2150 oz t</span>
+<span class="text-gold-300">Certicard Sealed</span>
+</div>
+</div>
+<!-- SKU 3: 1 Troy Oz Minted -->
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[11px] font-mono text-gold-400 font-bold">GLOBAL STANDARD</span>
+<span class="text-xs font-mono bg-gold-500/10 px-2 py-0.5 rounded text-gold-300 border border-gold-500/20">999.9 Fine</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-white mt-1">1 oz (31.1035 g) Minted Bar</h4>
+<p class="text-xs text-slate-400 mt-1">International standard retail bullion ingot recognized across worldwide bourses.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono flex justify-between text-slate-300">
+<span class="">Weight: 1.0000 oz t</span>
+<span class="text-gold-300">High-Relief Mint</span>
+</div>
+</div>
+<!-- SKU 4: 10g & 50g Fractional -->
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[11px] font-mono text-gold-400 font-bold">RETAIL FRACTIONAL</span>
+<span class="text-xs font-mono bg-gold-500/10 px-2 py-0.5 rounded text-gold-300 border border-gold-500/20">999.9 Fine</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-white mt-1">50 g &amp; 10 g Retail Bars</h4>
+<p class="text-xs text-slate-400 mt-1">Accessible domestic wealth storage units for private citizens and commercial trade.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono flex justify-between text-slate-300">
+<span class="">Weight: 10g • 50g</span>
+<span class="text-gold-300">Anti-Counterfeit Tag</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Security & Hallmarking Specifications Card -->
+<div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print avoid-break" data-prev-bg="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print" data-purpose="hallmarking-security-features">
+<div class="flex items-center space-x-2 text-gold-400">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<h3 class="font-headline text-lg font-bold text-white">Official Hallmarking &amp; Anti-Counterfeiting</h3>
+</div>
+<div class="space-y-3 text-xs text-slate-300">
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
+<span class="font-mono text-gold-300 font-bold block">1. State Ministry Hallmark</span>
+<p class="text-slate-400 font-light">Official certified stamp of the Ministry of Energy &amp; Minerals guaranteeing domestic provenance.</p>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
+<span class="font-mono text-gold-300 font-bold block">2. Micro-Engraved Laser Serialization</span>
+<p class="text-slate-400 font-light">Every bar carries an irreproducible laser-etched 8-character serial number recorded on the central registry blockchain ledger.</p>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
+<span class="font-mono text-gold-300 font-bold block">3. Blister Certicard with Fluorescent Ink</span>
+<p class="text-slate-400 font-light">Hermetically sealed polycarbonate packaging that fractures visibly upon tampering; embedded with ultraviolet reactive inks.</p>
+</div>
+</div>
+<!-- Purity Guarantee Badge -->
+<div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-between">
+<span class="font-mono text-xs text-gold-300 font-bold">GUARANTEED PURITY TOLERANCE</span>
+<span class="font-mono text-xs font-bold text-white">≥ 999.0 parts / 1,000</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: MintingHubAndProductsSection -->
+<!-- BEGIN: CapitalRequirementsSection -->
+<section class="scroll-mt-24 space-y-6 page-break avoid-break" data-purpose="section-financials" id="financials">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">05. Capital Structure &amp; Deployment Plan ($30M Total)</h2>
+</div>
+<!-- High Level Budget Breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- CapEx USD 5,000,000 -->
+<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print avoid-break" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">Fixed Assets CapEx</span>
+<h3 class="font-headline text-2xl font-black text-white">USD 5,000,000</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-xs font-mono bg-gold-500/20 text-gold-300 border border-gold-500/30">16.7% Total</span>
+</div>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Direct turnkey development including civil engineering, European induction furnaces, glass aqua regia circuits, cleanrooms, and vault fortification.
+          </p>
+<div class="space-y-2 pt-2 border-t border-slate-800 text-xs font-mono" data-purpose="capex-list">
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Site Civil Works &amp; Compound Conversion</span>
+<span class="text-white font-bold">$850,000</span>
+</div>
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Refining Machinery &amp; Induction Smelting</span>
+<span class="text-white font-bold">$1,750,000</span>
+</div>
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Accredited Assay Lab (ED-XRF / ICP-OES)</span>
+<span class="text-white font-bold">$650,000</span>
+</div>
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Bar Stamped Minting Line &amp; Tooling Dies</span>
+<span class="text-white font-bold">$500,000</span>
+</div>
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">3 MT High-Security Vault &amp; Iris Locks</span>
+<span class="text-white font-bold">$750,000</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-slate-400">Commissioning, Trial Melts &amp; Permitting</span>
+<span class="text-white font-bold">$500,000</span>
+</div>
+</div>
+</div>
+<!-- Float Liquidity USD 25,000,000 -->
+<div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print avoid-break" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-4 card-print">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">Trading Liquidity Float</span>
+<h3 class="font-headline text-2xl font-black text-white">USD 25,000,000</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-xs font-mono bg-gold-500/20 text-gold-300 border border-gold-500/30">83.3% Total</span>
+</div>
+<p class="text-xs text-slate-300 font-light leading-relaxed">
+            Revolving treasury capital deployed for instantaneous cash buyback from artisanal cooperatives, commercial mine sites, and regional trading houses at transparent spot benchmarks.
+          </p>
+<div class="space-y-2 pt-2 border-t border-slate-800 text-xs font-mono" data-purpose="liquidity-model">
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Initial Physical Doré Acquisition Float</span>
+<span class="text-white font-bold">$15,000,000</span>
+</div>
+<div class="flex justify-between py-1 border-b border-slate-800/60">
+<span class="text-slate-400">Revolving DMCC Transit Settlement Buffer</span>
+<span class="text-white font-bold">$8,000,000</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-slate-400">Foreign Exchange Hedging Reserve</span>
+<span class="text-white font-bold">$2,000,000</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-gold-500/20 mt-4 text-[11px] text-slate-300">
+<span class="text-gold-300 font-bold block mb-1">Liquidity Cycle Velocity:</span>
+            72-hour turnaround cycle between physical gold intake in Hargeisa, refining to 999.9, direct DMCC flight delivery, and repatriation of USD liquidity via SWIFT.
+          </div>
+</div>
+</div>
+<!-- Financial Projections Summary -->
+<div class="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print avoid-break" data-prev-bg="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print">
+<h4 class="font-headline font-bold text-white text-base">Annual Production &amp; Projected State Revenue (At 50 MT Target)</h4>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 font-mono text-center">
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-[10px] text-slate-400 block uppercase">Annual Turnover</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">~$3.2 Billion</span>
+<span class="text-[9px] text-slate-500 block">Spot-dependent</span>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-[10px] text-slate-400 block uppercase">Refining Fee Margin</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">1.2% - 1.8%</span>
+<span class="text-[9px] text-slate-500 block">Gross treatment margin</span>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-[10px] text-slate-400 block uppercase">State 10% Equity Div</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">$4.5M - $6.2M</span>
+<span class="text-[9px] text-slate-500 block">Direct National Treasury intake</span>
+</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-[10px] text-slate-400 block uppercase">New Direct Jobs</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">140+</span>
+<span class="text-[9px] text-slate-500 block">Chemists &amp; Engineers</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CapitalRequirementsSection -->
+<!-- BEGIN: ExecutiveAsksAndIncentivesSection -->
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-asks" id="executive-asks">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. Key Executive Asks &amp; Fiscal Enactments</h2>
+</div>
+<div class="space-y-4">
+<p class="text-sm text-slate-300 leading-relaxed font-light">
+          To finalize the immediate USD 30M deployment and commence equipment shipments, NorthRock Capital LLC requests the Cabinet of Ministers and His Excellency the President to ratify the following statutory instruments:
+        </p>
+<!-- 5 Key Asks Grid -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3" data-purpose="five-executive-asks-cards">
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<span class="text-xs font-mono font-bold text-gold-400">ASK 01</span>
+<h4 class="font-headline font-bold text-white text-sm">Direct Operator Licensing</h4>
+<p class="text-xs text-slate-300 font-light">
+              Issuance of exclusive Master Refining &amp; Commercial Minting License directly to the NorthRock Capital LLC joint operating company.
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<span class="text-xs font-mono font-bold text-gold-400">ASK 02</span>
+<h4 class="font-headline font-bold text-white text-sm">EIA Permit from MoECC</h4>
+<p class="text-xs text-slate-300 font-light">
+              Expedited approval of the Environmental Impact Assessment permit (Law No. 79/2018) for the Presidency Way complex including enclosed scrubber circuits.
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<span class="text-xs font-mono font-bold text-gold-400">ASK 03</span>
+<h4 class="font-headline font-bold text-white text-sm">Cabinet JV Ratification</h4>
+<p class="text-xs text-slate-300 font-light">
+              Formal Council of Ministers ratification of the 90/10 PPP agreement with 25-year statutory exclusivity protections.
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<span class="text-xs font-mono font-bold text-gold-400">ASK 04</span>
+<h4 class="font-headline font-bold text-white text-sm">Presidential Decrees</h4>
+<p class="text-xs text-slate-300 font-light">
+              Presidential Decrees affirming 25-year exclusivity and mandating state verification of all gold exports through the Simodi Assay Laboratory.
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
+<span class="text-xs font-mono font-bold text-gold-400">ASK 05</span>
+<h4 class="font-headline font-bold text-white text-sm">24-Hr Airport Clearance Channel</h4>
+<p class="text-xs text-slate-300 font-light">
+              Establishment of a permanent air-side secure transit protocol at Egal International Airport with SPU armed escorts.
+            </p>
+</div>
+</div>
+<!-- Fiscal & Statutory Incentives Checklist -->
+<div class="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print avoid-break" data-prev-bg="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print">
+<div class="flex items-center space-x-2 text-gold-300">
+<svg class="w-5 h-5 text-gold-400" fill="currentColor" viewbox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path clip-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" fill-rule="evenodd"></path></svg>
+<h3 class="font-headline text-lg font-bold text-white">Guaranteed Fiscal Incentives Framework</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+<div class="p-3 rounded-xl bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-gold-400 font-bold block">10-Year Corporate Holiday</span>
+<p class="text-slate-400 font-sans text-[11px] mt-1">Zero corporate income tax for the first 120 operating months.</p>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-gold-400 font-bold block">100% Tariff Waiver</span>
+<p class="text-slate-400 font-sans text-[11px] mt-1">Zero import duties on all plant, furnaces, chemicals, and laboratory hardware.</p>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-gold-400 font-bold block">Zero-Rated Bullion VAT</span>
+<p class="text-slate-400 font-sans text-[11px] mt-1">Investment-grade gold bars exempt from value-added and sales taxation.</p>
+</div>
+<div class="p-3 rounded-xl bg-obsidian-900 border border-slate-800 card-print">
+<span class="text-gold-400 font-bold block">Withholding Exemption</span>
+<p class="text-slate-400 font-sans text-[11px] mt-1">Free dividend repatriation without foreign exchange restrictions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ExecutiveAsksAndIncentivesSection -->
+<!-- BEGIN: ExecutionTimelineSection -->
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-timeline" id="timeline">
+<div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
+<div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">07. The Proposed Implementation Timeline</h2>
+</div>
+<div class="relative border-l-2 border-gold-500/40 ml-4 pl-6 space-y-6 text-xs font-mono">
+<!-- Milestone 1 -->
+<div class="relative avoid-break">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
+<span class="text-gold-400 font-bold">MONTH 01 - 02</span>
+<h4 class="font-headline text-sm font-bold text-white">Ratification, Site Handover &amp; Equipment Orders</h4>
+<p class="text-slate-400 font-sans text-xs">Signing of Concession Agreement, issuance of Presidential Decrees, procurement of European induction melters and ICP-OES spectrometer.</p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative avoid-break">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
+<span class="text-gold-400 font-bold">MONTH 03 - 05</span>
+<h4 class="font-headline text-sm font-bold text-white">Civil Construction &amp; Vault Engineering</h4>
+<p class="text-slate-400 font-sans text-xs">Fortification of the 1,600 sqm Presidency Way complex, chemical containment lining, installation of dual backup generators and NOx exhaust scrubbers.</p>
+</div>
+<!-- Milestone 3 -->
+<div class="relative avoid-break">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
+<span class="text-gold-400 font-bold">MONTH 06 - 07</span>
+<h4 class="font-headline text-sm font-bold text-white">Equipment Assembly, Calibration &amp; Trial Melts</h4>
+<p class="text-slate-400 font-sans text-xs">Commissioning of 400T minting press, installation of Sartorius balances and ED-XRF analyzers, test refining of 100 kg raw doré batches.</p>
+</div>
+<!-- Milestone 4 -->
+<div class="relative avoid-break">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-400 border-4 border-obsidian-900"></div>
+<span class="text-gold-400 font-bold">MONTH 08 - 09</span>
+<h4 class="font-headline text-sm font-bold text-white">Commercial Launch &amp; Hallmarking</h4>
+<p class="text-slate-400 font-sans text-xs">Full commercial commissioning, inaugural presentation of 1 Kilo and 100g proof bars to the Presidency, commencement of weekly DMCC air-lift export rotations.</p>
+</div>
+</div>
+</section>
+<!-- END: ExecutionTimelineSection -->
+<!-- BEGIN: LegalSignoffSection -->
+<!-- END: LegalSignoffSection -->
+</main>
+<!-- END: MainContentContainer -->
+<!-- BEGIN: MainFooter -->
+<footer class="border-t border-gold-500/20 bg-obsidian-950 py-8 text-center text-xs text-slate-500 space-y-2 no-print" data-purpose="site-footer"><div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center space-x-2 text-center sm:text-left"><span class="font-headline font-bold text-gold-400">PROJECT SIMODI GOLD REFINERY</span><span class="text-slate-600">•</span><span class="font-mono text-[11px] text-slate-400">Hargeisa Commercial Facility • Presidency Way</span></div><div class="text-[11px] font-mono text-slate-400 text-center">Strictly Confidential &amp; Privileged • NorthRock Capital LLC &amp; MoEM • TerraQuest Investments FZCO</div><div class="flex items-center space-x-3 text-gold-400"><button class="hover:underline flex items-center space-x-1 transition text-xs font-mono text-gold-300 hover:text-gold-200" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="">Top ↑</span></button></div></div></footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="view-and-theme-interactivity">
+    // Default print tone initialized to Crisp Ivory
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeModeText = document.getElementById('theme-mode-text');
+    const themeIndicatorDot = document.getElementById('theme-indicator-dot');
+    
+    // Track print tone: starts at Crisp Ivory by default
+    let printTone = 'ivory';
 
-  <!-- Top Navigation Bar -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-brand-black/90 backdrop-blur border-b border-brand-border px-4 sm:px-6 py-3 flex justify-between items-center no-print">
-    <div class="flex items-center space-x-3">
-      <div class="w-8 h-8 flex items-center justify-center rounded border border-brand-gold text-brand-gold font-bold font-mono text-sm">TQ</div>
-      <span class="font-bold text-white tracking-widest uppercase text-xs sm:text-sm">TerraQuest FZCO</span>
-    </div>
-    <button onclick="window.print()" class="bg-brand-gold text-black font-bold uppercase tracking-wider text-xs px-4 py-2 rounded hover:bg-brand-goldlight transition flex items-center space-x-2">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-      <span class="hidden sm:inline">Download A4 PDF</span>
-    </button>
-  </header>
+    function setToneUI(tone) {
+      if (tone === 'ivory') {
+        document.body.classList.remove('dark-print-force');
+        if (themeModeText) {
+          themeModeText.textContent = 'Ivory';
+          themeModeText.className = 'font-bold text-amber-300';
+        }
+        if (themeIndicatorDot) {
+          themeIndicatorDot.className = 'w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400';
+        }
+        if (themeBtn) {
+          themeBtn.className = 'p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm';
+          themeBtn.title = 'Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)';
+        }
+      } else {
+        document.body.classList.add('dark-print-force');
+        if (themeModeText) {
+          themeModeText.textContent = 'Dark';
+          themeModeText.className = 'font-bold text-gold-200';
+        }
+        if (themeIndicatorDot) {
+          themeIndicatorDot.className = 'w-2.5 h-2.5 rounded-full border border-gold-400/80 bg-gold-400/40';
+        }
+        if (themeBtn) {
+          themeBtn.className = 'p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-gold-500/40 hover:border-gold-400 bg-obsidian-850/80 hover:bg-gold-500/10 text-gold-300 hover:text-gold-200 transition flex items-center space-x-1.5 shadow-sm';
+          themeBtn.title = 'Current Print Tone: Dark Obsidian (Click to toggle Crisp Ivory)';
+        }
+      }
+    }
 
-  <!-- Spacing for fixed header -->
-  <div class="h-16 no-print"></div>
+    // Initialize default tone on page load
+    setToneUI('ivory');
 
-  <!-- ================= SHEET 01 ================= -->
-  <section class="a4-sheet">
-    <!-- Header -->
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Strictly Confidential & Legally Privileged
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 01 / 08
-      </div>
-    </div>
+    themeBtn.addEventListener('click', () => {
+      printTone = (printTone === 'ivory') ? 'dark' : 'ivory';
+      setToneUI(printTone);
+    });
 
-    <!-- Title Block -->
-    <div class="space-y-4 mb-8">
-      <span class="inline-block px-3 py-1 border border-brand-gold/30 bg-brand-gold/10 text-brand-gold text-[10px] font-bold tracking-widest uppercase rounded">
-        Public-Private Partnership (PPP) Strategic Memorandum
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-        PROJECT SIMODI
-      </h1>
-      <h2 class="text-xl sm:text-2xl font-semibold text-brand-goldlight">
-        Industrial Gold Refining Facility & Stamped Minting Hub
-      </h2>
-      <p class="text-sm leading-relaxed text-slate-300">
-        Project Simodi Gold Refinery establishes an industrial precious metals processing facility and minting plant in Hargeisa. Structured under a 25-Year concession to process domestic artisanal gold from Awdal, Gabiley, and Sanaag, alongside commercial toll refining, producing certified 99.9% fine gold for global export to the Dubai Multi Commodities Centre (DMCC) corridor.
-      </p>
-    </div>
+    // Paged Executive Memorandum vs Executive Deck View Toggle
+    const viewBtn = document.getElementById('view-toggle');
+    const viewLabel = document.getElementById('view-label');
+    let isDeckMode = false;
 
-    <!-- Metrics Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Total Project Size</div>
-        <div class="text-xl font-bold text-brand-gold font-mono">USD 30M</div>
-        <div class="text-[10px] text-slate-400 mt-1">$5M Facility + $25M Float</div>
-      </div>
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Weekly Capacity</div>
-        <div class="text-xl font-bold text-brand-gold font-mono">1 MT / Wk</div>
-        <div class="text-[10px] text-slate-400 mt-1">1,000 kg / 7-Day Cycle</div>
-      </div>
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Annual Target</div>
-        <div class="text-xl font-bold text-brand-gold font-mono">50 MT / Yr</div>
-        <div class="text-[10px] text-slate-400 mt-1">50 Operating Weeks</div>
-      </div>
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Daily Shift Rate</div>
-        <div class="text-xl font-bold text-white font-mono">200 kg / Day</div>
-        <div class="text-[10px] text-slate-400 mt-1">5-Day Standard Schedule</div>
-      </div>
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Refining Standard</div>
-        <div class="text-xl font-bold text-white font-mono">99.9% Purity</div>
-        <div class="text-[10px] text-slate-400 mt-1">Certified Fine Gold</div>
-      </div>
-      <div class="border border-brand-border bg-brand-card p-4 rounded-lg">
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Concession Term</div>
-        <div class="text-xl font-bold text-white font-mono">25 Years</div>
-        <div class="text-[10px] text-slate-400 mt-1">Exclusive BOO Model</div>
-      </div>
-    </div>
-
-    <!-- Output Standard -->
-    <div class="flex-grow border border-brand-gold/30 bg-brand-card p-5 rounded-lg flex flex-col justify-center mb-8">
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Finished Product Standard</h3>
-        <span class="text-[10px] font-mono border border-brand-gold/50 text-brand-gold px-2 py-1 rounded">OECD Compliant</span>
-      </div>
-      <h4 class="text-lg font-bold text-brand-gold mb-2">Bar Stamped Production & Casting Line</h4>
-      <p class="text-sm text-slate-300 leading-relaxed">
-        High-volume output of 1 kg cast wholesale bullion bars alongside 100g, 50g, 1 oz, and 10g precision stamped retail investment bars carrying the Simodi Hallmark, certified purity seal, and laser-engraved serial code.
-      </p>
-      <p class="text-xs text-slate-400 mt-2 font-mono">Packaging: Tamper-evident certicards with integrated UV security watermarks.</p>
-    </div>
-
-    <!-- Parties -->
-    <div class="grid grid-cols-2 gap-4 border-t border-brand-border pt-4">
-      <div>
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Project Sponsor & Facility Operator (90% Equity):</div>
-        <div class="font-bold text-white text-sm">NorthRock Capital LLC</div>
-        <div class="text-[10px] text-slate-400 mt-1">Northrock Capital Building, Xer Awr / Jigjiga Yar Road Junction, Koodbuur, Hargeisa</div>
-      </div>
-      <div>
-        <div class="text-[10px] font-bold text-slate-400 tracking-wider uppercase mb-1">Host Line Ministry (10% Equity):</div>
-        <div class="font-bold text-white text-sm">Ministry of Energy and Minerals (MoEM)</div>
-        <div class="text-[10px] text-slate-400 mt-1">Presidential Road (Opp. Civil Service Commission), 26 June District, Hargeisa</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 02 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 2: Governance & Institutional Partnership
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 02 / 08
-      </div>
-    </div>
-
-    <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-2">Proposed Public-Private Partnership Structure</h2>
-      <p class="text-sm text-slate-400">25-Year Build-Own-Operate (BOO) Concession ratified by Cabinet and confirmed by Presidential Decree.</p>
-    </div>
-
-    <!-- Equity Split -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 flex-grow">
-      <!-- Operator -->
-      <div class="border border-brand-gold/30 bg-brand-card p-5 rounded-lg flex flex-col">
-        <div class="flex justify-between items-center mb-4 border-b border-brand-border pb-3">
-          <span class="text-xs font-bold text-brand-gold uppercase tracking-widest">Operator & Capital Funder</span>
-          <span class="text-xl font-bold text-white font-mono">90% Equity</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-4">NorthRock Capital LLC</h3>
-        <ul class="space-y-4 text-sm text-slate-300">
-          <li class="flex items-start">
-            <span class="text-brand-gold mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>100% Private Capital:</strong> Commits full USD 30M without sovereign debt or public borrowing.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-brand-gold mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>USD 5M Plant Build-Out:</strong> Funds chemical reactors, induction furnaces, minting line, and assay lab.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-brand-gold mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>USD 25M Purchasing Liquidity:</strong> Spot-indexed cash liquidity pool paid directly to miners daily.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-brand-gold mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>Industrial Operations & Export:</strong> Manages refining, hallmarking, assay testing, and DMCC off-take.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Sovereign -->
-      <div class="border border-brand-border bg-brand-card p-5 rounded-lg flex flex-col">
-        <div class="flex justify-between items-center mb-4 border-b border-brand-border pb-3">
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Sovereign Partner & Host</span>
-          <span class="text-xl font-bold text-white font-mono">10% Equity</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-4">Ministry of Energy & Minerals</h3>
-        <ul class="space-y-4 text-sm text-slate-300">
-          <li class="flex items-start">
-            <span class="text-slate-400 mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>Cabinet Sponsorship:</strong> Formally submits and sponsors the PPP concession for Cabinet ratification.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-slate-400 mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>Direct Operator Licensing:</strong> Grants all statutory permits directly in NorthRock Capital LLC's name.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-slate-400 mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>Presidential Decrees:</strong> Facilitates 25-year exclusivity and mandatory domestic refining policy.</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-slate-400 mr-2 mt-0.5 font-bold">•</span>
-            <span><strong>Cooperative Formalization:</strong> Organizes artisanal miners and coordinates armed transit escorts.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Facility Location -->
-    <div class="border-t border-b border-brand-border py-6 mb-6">
-      <h3 class="text-sm font-bold text-brand-gold uppercase tracking-wider mb-2">Facility Location & Security Corridor</h3>
-      <div class="font-bold text-white mb-2">1,600 Sqm Commercial Facility</div>
-      <p class="text-sm text-slate-300 leading-relaxed">
-        The facility converts an existing 1,600 Sqm commercial precious metals building on Presidency Way in central Hargeisa. Sited directly along the Presidential Palace corridor, the facility operates within a monitored government security perimeter with direct arterial transit to Egal International Airport under police escort.
-      </p>
-    </div>
-
-    <!-- 3 Pillars -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div>
-        <h4 class="text-xs font-bold text-white mb-1">Mandatory Domestic Refining:</h4>
-        <p class="text-xs text-slate-400">Prohibits export of raw gold, crude doré, and mineral concentrates prior to hallmarking.</p>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold text-white mb-1">Digital Intake Register:</h4>
-        <p class="text-xs text-slate-400">Logs seller, mining cooperative, and pit-of-origin meeting OECD Responsible Supply Chain rules.</p>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold text-white mb-1">Electronic Tax Invoicing:</h4>
-        <p class="text-xs text-slate-400">Verifiable digital invoicing connected to the Ministry of Finance and Central Bank.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 03 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 3: Technical Circuit (1 MT / Week Capacity)
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 03 / 08
-      </div>
-    </div>
-
-    <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-2">Key Equipment and Process Flows</h2>
-      <p class="text-sm text-slate-400">Engineered for 1 Metric Ton per operating week (200 kg / day) across four interconnected metallurgical stations.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow mb-6">
-      
-      <!-- Step 01 -->
-      <div class="border border-brand-border bg-brand-card p-5 rounded-lg">
-        <div class="flex items-center space-x-2 mb-3">
-          <span class="text-xs font-mono font-bold text-brand-gold bg-brand-gold/10 px-2 py-1 rounded">STEP 01</span>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Intake & Verification</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Receiving, Assay & Settlement</h3>
-        <p class="text-sm text-slate-300 mb-3">Instant non-destructive analysis for spot cash settlement backed by wet fire assay.</p>
-        <ul class="text-xs text-slate-400 space-y-1.5">
-          <li>• <strong class="text-slate-300">Benchtop ED-XRF:</strong> 60-second non-destructive purity test.</li>
-          <li>• <strong class="text-slate-300">Fire Assay Cupellation:</strong> Lead fusion gravimetric testing.</li>
-          <li>• <strong class="text-slate-300">ICP-OES Spectrometer:</strong> Trace element purity verification.</li>
-          <li>• <strong class="text-slate-300">OECD Traceability:</strong> Barcoded intake batch logging.</li>
-        </ul>
-      </div>
-
-      <!-- Step 02 -->
-      <div class="border border-brand-border bg-brand-card p-5 rounded-lg">
-        <div class="flex items-center space-x-2 mb-3">
-          <span class="text-xs font-mono font-bold text-brand-gold bg-brand-gold/10 px-2 py-1 rounded">STEP 02</span>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pre-Treatment</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Melting, Granulation & Abatement</h3>
-        <p class="text-sm text-slate-300 mb-3">Thermal homogenization and graining for optimal chemical digestion surface area.</p>
-        <ul class="text-xs text-slate-400 space-y-1.5">
-          <li>• <strong class="text-slate-300">Induction Furnaces (x2):</strong> 75 kg tilting units (1,150°C).</li>
-          <li>• <strong class="text-slate-300">Water Granulation Tank:</strong> High-pressure 2-4mm corn.</li>
-          <li>• <strong class="text-slate-300">Mercury Abatement:</strong> Chilled vapor traps & carbon filters.</li>
-          <li>• <strong class="text-slate-300">Closed Retort System:</strong> Eliminates atmospheric mercury.</li>
-        </ul>
-      </div>
-
-      <!-- Step 03 -->
-      <div class="border border-brand-border bg-brand-card p-5 rounded-lg">
-        <div class="flex items-center space-x-2 mb-3">
-          <span class="text-xs font-mono font-bold text-brand-gold bg-brand-gold/10 px-2 py-1 rounded">STEP 03</span>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Refining Circuit</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Chemical Refining & Neutralization</h3>
-        <p class="text-sm text-slate-300 mb-3">Acid dissolution and selective SMBS precipitation yielding 99.9% pure gold sponge.</p>
-        <ul class="text-xs text-slate-400 space-y-1.5">
-          <li>• <strong class="text-slate-300">Aqua Regia Reactors (x3):</strong> 800L jacketed PTFE units.</li>
-          <li>• <strong class="text-slate-300">SMBS Precipitation:</strong> Selective fine gold recovery.</li>
-          <li>• <strong class="text-slate-300">Multi-Stage Scrubbers:</strong> Caustic NOx acid scrubbers.</li>
-          <li>• <strong class="text-slate-300">ETP Plant:</strong> Heavy metal precipitation & filter press.</li>
-        </ul>
-      </div>
-
-      <!-- Step 04 -->
-      <div class="border border-brand-border bg-brand-card p-5 rounded-lg">
-        <div class="flex items-center space-x-2 mb-3">
-          <span class="text-xs font-mono font-bold text-brand-gold bg-brand-gold/10 px-2 py-1 rounded">STEP 04</span>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Minting & Finishing</span>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Casting, Stamping & Vaulting</h3>
-        <p class="text-sm text-slate-300 mb-3">Production of certified stamped investment bars, cast ingots, and secure storage.</p>
-        <ul class="text-xs text-slate-400 space-y-1.5">
-          <li>• <strong class="text-slate-300">Pure Gold Furnaces (x2):</strong> 50 kg dedicated melt.</li>
-          <li>• <strong class="text-slate-300">400-Ton Minting Press:</strong> High-relief mirror finish dies.</li>
-          <li>• <strong class="text-slate-300">Fiber Laser Engraver:</strong> Unique serial number marking.</li>
-          <li>• <strong class="text-slate-300">Class Modular Vault:</strong> 3 MT capacity dual custody.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom Metrics -->
-    <div class="border-t border-brand-border pt-4">
-      <div class="text-[10px] font-bold text-brand-gold uppercase tracking-wider mb-3">Industrial Processing Parameters</div>
-      <div class="grid grid-cols-4 gap-2">
-        <div>
-          <div class="text-[10px] text-slate-400 uppercase mb-1">Weekly Throughput</div>
-          <div class="font-bold text-white font-mono text-sm">1,000 kg / Wk</div>
-        </div>
-        <div>
-          <div class="text-[10px] text-slate-400 uppercase mb-1">Reactor Digestion</div>
-          <div class="font-bold text-white font-mono text-sm">3x 800L Vessels</div>
-        </div>
-        <div>
-          <div class="text-[10px] text-slate-400 uppercase mb-1">Minting Pressure</div>
-          <div class="font-bold text-white font-mono text-sm">400 Metric Tons</div>
-        </div>
-        <div>
-          <div class="text-[10px] text-slate-400 uppercase mb-1">Output Purity</div>
-          <div class="font-bold text-white font-mono text-sm">99.9% Fine Gold</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 04 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 4: Finished Product Specifications
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 04 / 08
-      </div>
-    </div>
-
-    <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-2">Bar Stamped Production & Minting Line</h2>
-      <p class="text-sm text-slate-400">High-relief stamping and certified hallmarking engineered for international retail and institutional trade.</p>
-    </div>
-
-    <div class="border border-brand-border bg-brand-card p-6 rounded-lg mb-8 flex-grow">
-      <h3 class="text-sm font-bold text-brand-gold uppercase tracking-wider mb-6">Mandatory Bar Hallmarks & Quality Assurance</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">1. Official Refinery Hallmark</h4>
-          <p class="text-xs text-slate-400">Simodi Crest and NorthRock hallmark guaranteeing facility provenance and certified legal refining pedigree.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">2. Certified Purity Stamp</h4>
-          <p class="text-xs text-slate-400">Deep-stamped 999.0 / 99.9% FINE GOLD certifying universal purity verified by ICP-OES optical emission spectrometry.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">3. Calibrated Net Weight</h4>
-          <p class="text-xs text-slate-400">Precision blanking punch producing calibrated blanks with zero edge burrs across standard retail and trade weights.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">4. Unique Laser Serial Number</h4>
-          <p class="text-xs text-slate-400">Permanent alphanumeric fiber laser engraved code linked directly to the electronic assay certificate and batch registry.</p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="text-sm font-bold text-brand-gold uppercase tracking-wider mb-4">Production Denominations & Market Segments</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div class="border-t-2 border-brand-gold pt-3">
-          <h4 class="text-sm font-bold text-white mb-1">1 kg Cast Bar</h4>
-          <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">Wholesale</div>
-          <p class="text-xs text-slate-400 mb-3">Institutional settlement, Central Bank reserves, and DMCC wholesale bullion trade.</p>
-          <div class="text-xs font-mono font-bold text-white">99.9% / 1,000g Cast</div>
-        </div>
-        <div class="border-t-2 border-brand-gold pt-3">
-          <h4 class="text-sm font-bold text-white mb-1">100g & 50g Bars</h4>
-          <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">Minted</div>
-          <p class="text-xs text-slate-400 mb-3">Commercial investment, regional wealth storage, and private investor distribution.</p>
-          <div class="text-xs font-mono font-bold text-white">99.9% / 400T Press</div>
-        </div>
-        <div class="border-t-2 border-brand-gold pt-3">
-          <h4 class="text-sm font-bold text-white mb-1">1 oz & 10g Bars</h4>
-          <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">Retail</div>
-          <p class="text-xs text-slate-400 mb-3">Consumer market, regional jewelry fabrication, and liquid retail trade tokens.</p>
-          <div class="text-xs font-mono font-bold text-white">99.9% / Blister Card</div>
-        </div>
-      </div>
-
-      <div class="bg-brand-card border border-brand-border p-4 rounded-lg">
-        <h4 class="text-sm font-bold text-white mb-1">Tamper-Evident Certicard Packaging:</h4>
-        <p class="text-xs text-slate-400">Cleanroom automated blister packaging embedding minted bars into sealed tamper-proof security cards featuring embedded UV watermarks, optical security lines, and individual QR links to the digital assay ledger.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 05 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 5: Financial Allocation & Liquidity Structure
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 05 / 08
-      </div>
-    </div>
-
-    <div class="mb-6 flex justify-between items-end">
-      <div>
-        <h2 class="text-2xl font-bold text-white mb-2">Capital Requirements & Allocation</h2>
-        <p class="text-sm text-slate-400">USD 30,000,000 total capital commitment fully funded by private equity partner.</p>
-      </div>
-      <div class="text-right">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Total</div>
-        <div class="text-2xl font-bold text-brand-gold font-mono">USD 30M</div>
-      </div>
-    </div>
-
-    <!-- CapEx Table -->
-    <div class="mb-8">
-      <div class="flex justify-between items-end border-b-2 border-brand-gold pb-2 mb-4">
-        <div>
-          <h3 class="text-lg font-bold text-white">Gold Processing Facility & Equipment (CapEx)</h3>
-          <p class="text-xs text-brand-gold uppercase tracking-wider font-mono mt-1">Industrial Fit-Out Calibrated for 1 MT / Week Capacity</p>
-        </div>
-        <div class="text-xl font-bold text-white font-mono">USD 5,000,000</div>
-      </div>
-
-      <div class="w-full">
-        <!-- Table Header -->
-        <div class="grid grid-cols-12 gap-4 pb-2 border-b border-brand-border text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-          <div class="col-span-4">Budget Item</div>
-          <div class="col-span-3 text-right">Allocation</div>
-          <div class="col-span-5 pl-4">Scope & Engineering Deliverables</div>
-        </div>
-        <!-- Table Rows -->
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border/50 text-sm">
-          <div class="col-span-4 font-bold text-white">Site Civil & Structural Conversion</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$850,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">1,600 Sqm commercial facility structural fit-out, containment, acid bunding & drainage.</div>
-        </div>
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border/50 text-sm">
-          <div class="col-span-4 font-bold text-white">Refining Machinery & Smelting Circuit</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$1,750,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">3x 800L PTFE chemical reactors, induction melting furnaces, scrubbers & zero-discharge ETP.</div>
-        </div>
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border/50 text-sm">
-          <div class="col-span-4 font-bold text-white">Accredited Assay & Analytical Lab</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$650,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">ICP-OES spectrometer, fire assay lead cupellation battery, balances & benchtop ED-XRF units.</div>
-        </div>
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border/50 text-sm">
-          <div class="col-span-4 font-bold text-white">Bar Stamped Minting & Finishing Line</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$500,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">400T minting press, blanking tools, laser hallmarking engravers & blister packaging units.</div>
-        </div>
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border/50 text-sm">
-          <div class="col-span-4 font-bold text-white">High-Security Vault & Access Control</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$750,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">Class-rated 3 MT capacity vault, ballistic intake counters, dual-custody access & CCTV.</div>
-        </div>
-        <div class="grid grid-cols-12 gap-4 py-4 border-b border-brand-border text-sm">
-          <div class="col-span-4 font-bold text-white">Commissioning, EIA & Contingency</div>
-          <div class="col-span-3 font-mono font-bold text-brand-gold text-right">$500,000</div>
-          <div class="col-span-5 text-xs text-slate-400 pl-4 leading-relaxed">Environmental certification, initial metallurgy test batches, training & operating buffer.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Float -->
-    <div class="mt-auto">
-      <div class="flex justify-between items-end border-b-2 border-brand-gold pb-2 mb-4">
-        <div>
-          <h3 class="text-lg font-bold text-white">Revolving Working Capital Purchasing Float</h3>
-          <p class="text-xs text-brand-gold uppercase tracking-wider font-mono mt-1">Liquidity Engine Powering 1 MT / Week Throughput</p>
-        </div>
-        <div class="text-xl font-bold text-white font-mono">USD 25,000,000</div>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
-        <div>
-          <h4 class="text-sm font-bold text-white mb-2">Immediate Spot Payouts:</h4>
-          <p class="text-xs text-slate-400">Instant cash settlement in USD or Somaliland Shillings paid to local miners upon assay.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-white mb-2">Continuous Inventory Cycling:</h4>
-          <p class="text-xs text-slate-400">Finances gold batches undergoing chemical digestion, minting, vaulting, and transit to Dubai.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-white mb-2">Hybrid Commercial Structure:</h4>
-          <p class="text-xs text-slate-400">Direct float purchasing combined with commercial toll-refining fees from regional miners.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 06 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 6: Institutional Alignment & Strategic Case
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 06 / 08
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-white mb-2">Strategic Rationale: Why This Partnership Is Necessary</h2>
-      <p class="text-sm text-slate-400">Neither private capital nor the state can unlock the precious metals sector independently.</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8 flex-grow">
-      <!-- Why Govt Needs Operator -->
-      <div class="space-y-6">
-        <h3 class="text-sm font-bold text-brand-gold uppercase tracking-widest border-b border-brand-border pb-2">Why the Government Needs the Operator</h3>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">USD 30M Private Capital Commitment:</h4>
-          <p class="text-xs text-slate-400">NorthRock funds the entire industrial facility and liquidity reserve without state debt or drawing on public reserves.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">USD 25M Liquidity Captures Artisanal Gold:</h4>
-          <p class="text-xs text-slate-400">Raw gold leaks across informal borders primarily because miners require immediate cash; instant spot payouts formalize the supply.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">Industrial Technology & DMCC Market Access:</h4>
-          <p class="text-xs text-slate-400">Operator supplies 800L chemical digestion circuits, 400T minting press, ICP-OES certification, and off-take channels into Dubai.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">OECD Supply Chain Governance:</h4>
-          <p class="text-xs text-slate-400">Embeds international traceability standards that give Somaliland bullion international market acceptance.</p>
-        </div>
-      </div>
-
-      <!-- Why Operator Needs Govt -->
-      <div class="space-y-6">
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest border-b border-brand-border pb-2">Why the Operator Needs the Government</h3>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">25-Year Operating Exclusivity:</h4>
-          <p class="text-xs text-slate-400">Processing 1 MT/week requires predictable rules; the state guarantees investment security via Presidential Decree.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">Mandatory Domestic Refining Policy:</h4>
-          <p class="text-xs text-slate-400">State regulations requiring all domestic gold to be refined before export ensure consistent feed for the 50 MT annual capacity.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">Artisanal Formalization & Regional Logistics:</h4>
-          <p class="text-xs text-slate-400">Ministry organizes miners into legal cooperatives and integrates them into formal regional refinery collection depots.</p>
-        </div>
-        
-        <div>
-          <h4 class="text-sm font-bold text-white mb-1">Sovereign Security & Transport Escorts:</h4>
-          <p class="text-xs text-slate-400">Coordinated state security escorting bullion consignments between mining belts, Hargeisa, and Egal International Airport.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Macro Impact -->
-    <div class="border-t border-brand-border pt-6 mt-auto">
-      <h3 class="text-sm font-bold text-brand-gold uppercase tracking-wider mb-4">National Macroeconomic Impact:</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="bg-brand-card p-4 rounded border border-brand-border">
-          <h4 class="text-sm font-bold text-white mb-2">Value Retention:</h4>
-          <p class="text-xs text-slate-400">Keeps refining margins, minting value-add, and processing revenues inside the domestic economy.</p>
-        </div>
-        <div class="bg-brand-card p-4 rounded border border-brand-border">
-          <h4 class="text-sm font-bold text-white mb-2">Forex Reserves:</h4>
-          <p class="text-xs text-slate-400">Official export revenues clear through the Central Bank, strengthening national foreign exchange liquidity.</p>
-        </div>
-        <div class="bg-brand-card p-4 rounded border border-brand-border">
-          <h4 class="text-sm font-bold text-white mb-2">Regional Leadership:</h4>
-          <p class="text-xs text-slate-400">Positions Hargeisa as the certified precious metals refining hub across the entire Horn of Africa.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SHEET 07 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 7: Executive Deliverables & Licensing Pathway
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 07 / 08
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-white mb-2">Key Executive Asks & Licensing Pathway</h2>
-      <p class="text-sm text-slate-400">Actionable administrative, legal, and licensing approvals required to commence facility conversion.</p>
-    </div>
-
-    <!-- Core Prerequisite -->
-    <div class="border border-brand-gold/50 bg-brand-card p-6 rounded-lg mb-8">
-      <div class="flex justify-between items-start mb-4">
-        <div>
-          <div class="text-xs font-mono font-bold text-brand-gold uppercase tracking-widest mb-1">CORE PREREQUISITE #1</div>
-          <h3 class="text-lg font-bold text-white">Direct Licensing in Operator's Name (NorthRock Capital LLC)</h3>
-        </div>
-        <div class="text-right">
-          <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Direct Titling</div>
-          <div class="text-sm font-mono font-bold text-white">25-Year Initial Term</div>
-        </div>
-      </div>
-      <p class="text-sm text-slate-300 leading-relaxed mb-4">
-        All foundational statutory permits—Metallurgical Processing License, Mineral Dealer License, and Commercial Bullion Export License—must be issued directly in the name of NorthRock Capital LLC. This direct legal standing is mandatory to fulfill international compliance, DMCC banking covenants, and legal accountability for the USD 30M private capital deployment.
-      </p>
-      <div class="text-xs text-slate-400 border-t border-brand-border pt-3">
-        <strong class="text-white">Duration:</strong> 25-Year exclusive operating term with statutory renewal upon commercial milestone attainment.
-      </div>
-    </div>
-
-    <!-- 4 Secondary Asks -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
-      
-      <div class="border-l-2 border-brand-gold pl-4">
-        <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-1">ASK 02 • MOECC</div>
-        <div class="text-xs font-mono text-slate-400 mb-2">Law No. 79/2018</div>
-        <h4 class="text-sm font-bold text-white mb-2">EIA Environmental Impact Permit</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Expedited environmental certification formally approving closed emissions wet scrubbers, mercury condenser abatement, and zero-liquid-discharge ETP.</p>
-      </div>
-
-      <div class="border-l-2 border-brand-gold pl-4">
-        <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-1">ASK 03 • CABINET</div>
-        <div class="text-xs font-mono text-slate-400 mb-2">Council of Ministers</div>
-        <h4 class="text-sm font-bold text-white mb-2">Council of Ministers PPP Ratification</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Formal Cabinet review and legal ratification of the 90% (NorthRock) / 10% (MoEM) Public-Private Partnership operating concession agreement.</p>
-      </div>
-
-      <div class="border-l-2 border-brand-gold pl-4">
-        <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-1">ASK 04 • PRESIDENCY</div>
-        <div class="text-xs font-mono text-slate-400 mb-2">Executive Decrees</div>
-        <h4 class="text-sm font-bold text-white mb-2">Presidential Decrees on Exclusivity</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Issuance of executive decrees granting 25-year operational exclusivity and enacting the mandatory domestic gold refining policy.</p>
-      </div>
-
-      <div class="border-l-2 border-brand-gold pl-4">
-        <div class="text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-1">ASK 05 • TRADE & CUSTOMS</div>
-        <div class="text-xs font-mono text-slate-400 mb-2">Egal Airport</div>
-        <h4 class="text-sm font-bold text-white mb-2">24-Hour Expedited Export Clearance</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Streamlined export clearance channel between Trade, Central Bank, and airport customs guaranteeing insured flights clear transit within 24 hours.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= SHEET 08 ================= -->
-  <section class="a4-sheet">
-    <div class="flex justify-between items-start border-b border-brand-border pb-4 mb-6">
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Section 8: Fiscal Incentives & Legal Notice
-      </div>
-      <div class="text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-bold">
-        SHEET 08 / 08
-      </div>
-    </div>
-
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-white mb-2">Statutory Fiscal Incentives Package</h2>
-      <p class="text-sm text-slate-400">Ministry of Finance Development fiscal measures to guarantee purchasing price parity against informal markets.</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 flex-grow">
-      <div class="bg-brand-card border border-brand-border p-5 rounded">
-        <h4 class="text-sm font-bold text-brand-gold mb-2">10-Year Corporate Tax Holiday</h4>
-        <p class="text-xs text-slate-300 leading-relaxed">Full statutory exemption from national corporate income taxes, corporate profits taxes, and turnover levies for ten consecutive years starting upon official plant commissioning.</p>
-      </div>
-      <div class="bg-brand-card border border-brand-border p-5 rounded">
-        <h4 class="text-sm font-bold text-brand-gold mb-2">100% Customs Duty Relief</h4>
-        <p class="text-xs text-slate-300 leading-relaxed">Complete waiver of all import duties, port surcharges, and landing fees on imported chemical reactors, furnaces, 400T minting press, and recurring assay consumables.</p>
-      </div>
-      <div class="bg-brand-card border border-brand-border p-5 rounded">
-        <h4 class="text-sm font-bold text-brand-gold mb-2">Zero-Rated Bullion & Raw Intake</h4>
-        <p class="text-xs text-slate-300 leading-relaxed">Exemption from VAT and transaction sales taxes on raw gold purchases, toll refining fees, and export sales, ensuring cash purchasing parity against untaxed informal buyers.</p>
-      </div>
-      <div class="bg-brand-card border border-brand-border p-5 rounded">
-        <h4 class="text-sm font-bold text-brand-gold mb-2">Withholding Tax Exemption</h4>
-        <p class="text-xs text-slate-300 leading-relaxed">Complete waiver on foreign loan servicing, capital repayments, and dividend repatriations allowing NorthRock Capital LLC to service private financing commitments.</p>
-      </div>
-    </div>
-
-    <!-- Matrix -->
-    <div class="border-t border-brand-border pt-6 mb-8">
-      <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Inter-Ministerial Institutional Matrix:</h3>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-xs text-slate-300">
-        <li class="flex items-start"><span class="text-brand-gold mr-2">•</span> <strong>Office of the President:</strong> Executive Decrees on Exclusivity & Refining Policy.</li>
-        <li class="flex items-start"><span class="text-brand-gold mr-2">•</span> <strong>Ministry of Environment:</strong> Law No. 79/2018 EIA compliance certification.</li>
-        <li class="flex items-start"><span class="text-brand-gold mr-2">•</span> <strong>Ministry of Finance Development:</strong> Fiscal package enactment & customs relief.</li>
-        <li class="flex items-start"><span class="text-brand-gold mr-2">•</span> <strong>Bank of Somaliland:</strong> AML compliance, forex clearing & bullion reserve facility.</li>
-      </ul>
-    </div>
-
-    <!-- Legal -->
-    <div class="mt-auto border border-brand-border bg-brand-card p-5 rounded text-[10px] text-slate-400 leading-relaxed">
-      <strong class="text-white uppercase tracking-wider block mb-2">Legal Notice & Privilege Covenant:</strong>
-      This strategic memorandum is private, confidential, and legally privileged under English Common Law. Prepared by TerraQuest Investments FZCO (Commercial License No. 63337, Dubai Integrated Economic Zones Authority) solely for the evaluation of NorthRock Capital LLC, the Somaliland Ministry of Energy and Minerals, and designated institutional financing partners. Recipients agree not to circumvene, replicate, or use the commercial terms, layouts, or partnership frameworks contained herein.
-      
-      <div class="flex justify-between items-center mt-4 pt-4 border-t border-brand-border font-mono">
-        <div><strong>Advisor:</strong> TerraQuest Investments FZCO<br>Dubai Towers, Business Bay, Dubai, UAE</div>
-        <div class="text-right"><strong>Sponsor:</strong> NorthRock Capital LLC<br>Hargeisa</div>
-      </div>
-    </div>
-  </section>
-
-</body>
-</html>
+    viewBtn.addEventListener('click', () => {
+      isDeckMode = !isDeckMode;
+      const main = document.querySelector('main');
+      if (isDeckMode) {
+        viewLabel.textContent = 'Slide Deck';
+        main.classList.remove('max-w-7xl');
+        main.classList.add('max-w-5xl');
+        document.querySelectorAll('section').forEach(sec => {
+          sec.classList.add('min-h-[75vh]', 'flex', 'flex-col', 'justify-center');
+        });
+      } else {
+        viewLabel.textContent = 'Executive View';
+        main.classList.add('max-w-7xl');
+        main.classList.remove('max-w-5xl');
+        document.querySelectorAll('section').forEach(sec => {
+          sec.classList.remove('min-h-[75vh]', 'flex', 'flex-col', 'justify-center');
+        });
+      }
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>
