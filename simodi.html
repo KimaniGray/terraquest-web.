@@ -448,7 +448,26 @@
 <!-- END: Custom Executive Styles -->
 <style class="" data-purpose="refined-print-rules" id="refined-print-overrides">@page {
   size: A4 portrait;
-  margin: 10mm 12mm 12mm 12mm !important;
+  margin: 12mm 14mm 14mm 14mm;
+  @top-center {
+    content: "PROJECT SIMODI — STATE GOLD REFINERY | STRICTLY CONFIDENTIAL";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    color: #92400e;
+  }
+  @bottom-left {
+    content: "REPUBLIC OF SOMALILAND — MINISTRY OF ENERGY & MINERALS";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: #6b7280;
+  }
+  @bottom-right {
+    content: "INVESTMENT MEMORANDUM | EXECUTIVE DOSSIER";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: #6b7280;
+  }
 }
 
 @media print {
@@ -467,10 +486,12 @@
 
   html, body {
     width: 100% !important;
-    background-color: #fdfbf7 !important;
-    color: #1f2937 !important;
-    font-size: 9.5pt !important;
-    line-height: 1.45 !important;
+    background-color: #fcfbf7 !important;
+    color: #1a1a1a !important;
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   body, main, #document-container {
@@ -482,45 +503,51 @@
 
   main > section {
     margin-top: 0 !important;
-    margin-bottom: 14px !important;
+    margin-bottom: 12px !important;
   }
 
-  /* Page 1 Hero - Full Page Executive Title Sheet */
+  /* Page 1 Hero - Title Sheet */
   #hero {
-    padding: 20px 24px !important;
+    padding: 22px 26px !important;
     margin-bottom: 0 !important;
-    min-height: 270mm !important;
+    min-height: 250mm !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1.5px solid #d4af37 !important;
+    box-shadow: none !important;
     break-after: page !important;
     page-break-after: always !important;
   }
   #hero h1 {
-    font-size: 26pt !important;
+    font-size: 24pt !important;
     line-height: 1.15 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
+    color: #111827 !important;
   }
   #hero p {
     font-size: 9.5pt !important;
-    line-height: 1.45 !important;
-    margin-bottom: 12px !important;
+    line-height: 1.42 !important;
+    margin-bottom: 10px !important;
   }
   #hero [data-purpose="hero-kpi-grid"] {
-    gap: 10px !important;
+    gap: 8px !important;
+    padding-top: 4px !important;
   }
   #hero [data-purpose="hero-kpi-grid"] > div {
-    padding: 10px 12px !important;
+    padding: 8px 10px !important;
+    background: #fdfbf7 !important;
+    border: 1px solid #e5e7eb !important;
   }
   #hero [data-purpose="hero-kpi-grid"] span.text-lg {
-    font-size: 14pt !important;
-    line-height: 1.25 !important;
+    font-size: 13pt !important;
+    line-height: 1.2 !important;
+    color: #92400e !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] {
-    margin-top: 14px !important;
+    margin-top: 10px !important;
     width: 100% !important;
     flex: 1 1 auto !important;
     display: flex !important;
@@ -528,17 +555,24 @@
     justify-content: center !important;
   }
   #hero img {
-    height: 120mm !important;
-    max-height: 130mm !important;
+    height: 108mm !important;
+    max-height: 115mm !important;
     width: 100% !important;
     object-fit: cover !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
+  }
+
+  /* Section Headers & Content Flow */
+  section > div:first-child h2 {
+    font-size: 13pt !important;
+    color: #111827 !important;
+    margin-bottom: 6px !important;
   }
 
   #executive-summary {
     margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    break-before: page !important;
+    page-break-before: always !important;
   }
   #executive-summary > div.grid {
     gap: 8px !important;
@@ -546,102 +580,101 @@
   #executive-summary .card-print {
     padding: 10px 12px !important;
     background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid #e5e7eb !important;
   }
 
-  /* Natural flow for Financials, Revenue Breakdown & Sensitivity Tables */
-  #financials {
-    margin-top: 8px !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
-    break-inside: auto !important;
-    page-break-inside: auto !important;
+  #ppp-structure {
+    margin-top: 10px !important;
   }
-  #financials .grid.grid-cols-1.md\:grid-cols-2 {
-    gap: 10px !important;
+  #ppp-structure .card-print {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+  }
+
+  #technical-circuit {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  #minting-hub {
+    margin-top: 10px !important;
+  }
+
+  #financials {
+    break-before: auto !important;
+    page-break-before: auto !important;
   }
   #financials .rounded-2xl {
-    padding: 12px 14px !important;
+    padding: 8px 12px !important;
     background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid #e5e7eb !important;
   }
 
   [data-purpose="gold-price-sensitivity-table"],
   [data-purpose="capex-irr-payback-sensitivity-table"] {
-    padding: 8px 10px !important;
-    margin-top: 10px !important;
+    padding: 6px 10px !important;
+    margin-top: 6px !important;
     background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    page-break-before: auto !important;
-    break-before: auto !important;
-  }
-
-  /* Sections 05, 06 (The Ask), and 07 (Timeline): Smooth continuous flow */
-  #executive-asks, #timeline {
-    break-before: auto !important;
-    page-break-before: auto !important;
-    break-after: auto !important;
-    page-break-after: auto !important;
-    break-inside: auto !important;
-    page-break-inside: auto !important;
-  }
-  #executive-asks > div, #timeline > div {
-    break-inside: auto !important;
-    page-break-inside: auto !important;
-  }
-  [data-purpose="five-executive-asks-cards"] {
-    break-inside: auto !important;
-    page-break-inside: auto !important;
-  }
-  [data-purpose="five-executive-asks-cards"] > div {
+    border: 1px solid #e5e7eb !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  /* Methodology & Toll Fee Breakdown Box & 4-card Grid Enhancements */
+  table th {
+    padding: 3px 5px !important;
+    font-size: 8pt !important;
+  }
+  table td {
+    padding: 3px 5px !important;
+    font-size: 8pt !important;
+  }
+
+  /* Seamless flow between Revenue/Methodology and The Executive Asks */
+  #executive-asks {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    margin-top: 12px !important;
+    padding-top: 0 !important;
+  }
+  #executive-asks .card-print {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+  }
+
+  [data-purpose="five-executive-asks-cards"] {
+    gap: 6px !important;
+  }
+  [data-purpose="five-executive-asks-cards"] > div {
+    padding: 8px 10px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #timeline {
+    margin-top: 10px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
   body:not(.dark-print-force) #financials .bg-obsidian-900\/90,
   body:not(.dark-print-force) #financials [data-purpose="gold-price-sensitivity-table"],
   body:not(.dark-print-force) #financials [data-purpose="capex-irr-payback-sensitivity-table"] {
     background-color: #ffffff !important;
-    border-color: #e2e8f0 !important;
-    box-shadow: none !important;
+    border-color: #e5e7eb !important;
   }
 
   body:not(.dark-print-force) #financials .bg-obsidian-850\/80,
   body:not(.dark-print-force) #financials .bg-obsidian-900 {
     background-color: #fdfbf7 !important;
     border-color: #e5e7eb !important;
-    box-shadow: none !important;
-  }
-
-  body:not(.dark-print-force) #financials .bg-obsidian-850\/80 span.font-bold,
-  body:not(.dark-print-force) #financials [data-purpose="capex-irr-payback-sensitivity-table"] span.font-bold {
-    color: #92400e !important;
-  }
-
-  body:not(.dark-print-force) #financials .bg-obsidian-850\/80 p,
-  body:not(.dark-print-force) #financials [data-purpose="capex-irr-payback-sensitivity-table"] p {
-    color: #374151 !important;
-  }
-
-  body:not(.dark-print-force) #financials .text-gold-300,
-  body:not(.dark-print-force) #financials .text-gold-400 {
-    color: #92400e !important;
   }
 
   body:not(.dark-print-force) [data-purpose="hallmarking-security-features"] .bg-obsidian-900,
   body:not(.dark-print-force) [data-purpose="environmental-safety-section"] .bg-obsidian-900,
-  body:not(.dark-print-force) [data-purpose="five-executive-asks-cards"] > div,
-  body:not(.dark-print-force) .mt-8.rounded-2xl .bg-obsidian-900 {
-    background-color: #fdfbf7 !important;
+  body:not(.dark-print-force) [data-purpose="five-executive-asks-cards"] > div {
+    background-color: #ffffff !important;
     border-color: #e5e7eb !important;
     color: #1f2937 !important;
-  }
-
-  body:not(.dark-print-force) [data-purpose="hallmarking-security-features"] .bg-obsidian-900 p,
-  body:not(.dark-print-force) [data-purpose="environmental-safety-section"] .bg-obsidian-900 p,
-  body:not(.dark-print-force) .mt-8.rounded-2xl .bg-obsidian-900 p {
-    color: #374151 !important;
   }
 }</style></head>
 <body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
@@ -669,7 +702,7 @@
 <span class="hidden md:inline" id="view-label">Executive View</span>
 </button>
 <!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
-<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1 sm:space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)">
+<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)">
 <span class="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" id="theme-indicator-dot"></span>
 <svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
 <span class="text-[10px] sm:text-[11px] font-mono tracking-wide" id="theme-btn-label"><span class="hidden sm:inline">Print Tone: </span><span class="font-bold text-amber-300" id="theme-mode-text">Ivory</span></span>
@@ -1338,7 +1371,7 @@
 <section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
-<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">The ask</h2>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Executive Asks &amp; Legal Ratification</h2>
 </div>
 <div class="space-y-4">
 <p class="text-sm text-slate-300 leading-relaxed font-light">
@@ -1529,6 +1562,8 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
 
 
 </body></html>
