@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en" style=""><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
 <title>PROJECT SIMODI | Executive Memorandum &amp; Technical Presentation</title>
 <!-- Fonts Preconnect & Load -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Tailwind Configuration -->
@@ -57,7 +55,7 @@
     };
   </script>
 <!-- BEGIN: Custom Executive Styles -->
-<style data-purpose="typography-and-effects">
+<style data-purpose="typography-and-effects" id="executive-typography-effects">
     body {
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -113,10 +111,9 @@
       border-radius: 9999px;
     }
   </style>
-<style data-purpose="print-rules">
-    @page {
+<style data-purpose="print-rules" id="custom-print-stylesheet" class="">@page {
       size: A4 portrait;
-      margin: 14mm 16mm 16mm 16mm;
+      margin: 12mm 14mm 14mm 14mm;
     }
 
     @media print {
@@ -132,18 +129,56 @@
         margin: 0 !important;
         padding: 0 !important;
         box-sizing: border-box !important;
-        font-size: 9.75pt !important;
-        line-height: 1.62 !important;
+        font-size: 10pt !important;
+        line-height: 1.6 !important;
       }
 
       /* Unified Container Sizing for Print */
-      main, .max-w-7xl, .max-w-5xl, .container {
-        max-width: 100% !important;
-        width: 100% !important;
+      body, main, #document-container, .max-w-7xl, .max-w-5xl, .container {
         padding: 0 !important;
         margin: 0 auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
         box-sizing: border-box !important;
         overflow: visible !important;
+      }
+
+      /* Inter-section vertical rhythm */
+      section {
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        break-before: auto !important;
+        page-break-before: auto !important;
+      }
+
+      /* Section headers */
+      section > div:first-child,
+      h2,
+      [data-purpose*="section-"] > div:first-child {
+        margin-bottom: 10px !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+
+      /* Component card padding & grid gaps */
+      .card-print,
+      .card,
+      section > div.rounded-2xl,
+      [data-purpose="section-executive-summary"] > div > div,
+      [data-purpose="technical-process-stations"] > div,
+      [data-purpose="product-skus"] > div,
+      [data-purpose="five-executive-asks-cards"] > div {
+        padding: 10px 14px !important;
+      }
+
+      .grid,
+      [data-purpose="hero-kpi-grid"],
+      [data-purpose="technical-process-stations"],
+      [data-purpose="product-skus"],
+      [data-purpose="five-executive-asks-cards"] {
+        gap: 10px !important;
       }
 
       /* Hide Navigation Chrome & Controls */
@@ -151,10 +186,12 @@
         display: none !important;
       }
 
-      /* Page Breaks and Orphan Control */
-      .page-break {
-        page-break-before: always;
-        break-before: page;
+      /* Continuous Flow: Page Breaks neutralised to auto */
+      .page-break, .page-break-before, .page-break-after {
+        page-break-before: auto !important;
+        break-before: auto !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
 
       section, .card, .card-print, table, tr, figure, .avoid-break,
@@ -167,15 +204,12 @@
         page-break-inside: avoid !important;
       }
 
-      /* ===================================================================
-         DEFAULT PRINT STYLING: Archival Warm Cream / Ivory (#fdfbf7)
-         =================================================================== */
+      /* Archival Warm Cream / Ivory */
       body:not(.dark-print-force) {
         background-color: #fdfbf7 !important;
-        color: #27272a !important;
+        color: #1f2937 !important;
       }
 
-      /* Primary Containers & Hero */
       body:not(.dark-print-force) section {
         background-color: transparent !important;
       }
@@ -190,7 +224,7 @@
       body:not(.dark-print-force) .bg-obsidian-900 {
         background-color: #fdfbf7 !important;
         border-color: #e4e4e7 !important;
-        color: #27272a !important;
+        color: #1f2937 !important;
       }
 
       body:not(.dark-print-force) .bg-obsidian-850,
@@ -198,11 +232,10 @@
       body:not(.dark-print-force) .card-print {
         background-color: #ffffff !important;
         border-color: #e4e4e7 !important;
-        color: #27272a !important;
+        color: #1f2937 !important;
         box-shadow: none !important;
       }
 
-      /* Typography & Headings: Playfair Display / Noto Serif Charcoal Hierarchy */
       body:not(.dark-print-force) h1 {
         font-family: 'Playfair Display', 'Noto Serif', Georgia, serif !important;
         font-weight: 700 !important;
@@ -224,7 +257,6 @@
         color: #111827 !important;
       }
 
-      /* Gradient Text Fallback to Rich Burnished Bronze in Print */
       body:not(.dark-print-force) .gold-gradient-text {
         -webkit-text-fill-color: #92400e !important;
         color: #92400e !important;
@@ -234,25 +266,31 @@
         color: #111827 !important;
       }
 
-      /* Body Copy & Descriptions: High-legibility deep zinc */
       body:not(.dark-print-force) p,
       body:not(.dark-print-force) li,
+      body:not(.dark-print-force) .prose,
+      body:not(.dark-print-force) .text-sm,
+      body:not(.dark-print-force) .text-xs,
       body:not(.dark-print-force) .text-slate-300,
       body:not(.dark-print-force) .text-slate-200 {
-        color: #27272a !important;
-        line-height: 1.62 !important;
+        font-size: 10pt !important;
+        line-height: 1.6 !important;
+        color: #1f2937 !important;
       }
 
-      /* Footnotes, Disclaimers, and Micro Metadata */
       body:not(.dark-print-force) .text-slate-400,
       body:not(.dark-print-force) .text-slate-500,
       body:not(.dark-print-force) [class*="text-\[9px\]"],
-      body:not(.dark-print-force) [class*="text-\[10px\]"].text-slate-400,
-      body:not(.dark-print-force) [class*="text-\[11px\]"].text-slate-400 {
-        color: #52525b !important;
+      body:not(.dark-print-force) [class*="text-\[10px\]"],
+      body:not(.dark-print-force) [class*="text-\[11px\]"],
+      body:not(.dark-print-force) .text-[10px],
+      body:not(.dark-print-force) .text-[11px],
+      body:not(.dark-print-force) .text-[9px] {
+        font-size: 8.5pt !important;
+        line-height: 1.45 !important;
+        color: #4b5563 !important;
       }
 
-      /* Numeral Badges, Accents, and Tags: Amber & Deep Burnished Bronze */
       body:not(.dark-print-force) .text-gold-200,
       body:not(.dark-print-force) .text-gold-300,
       body:not(.dark-print-force) .text-gold-400 {
@@ -291,8 +329,8 @@
         background-color: #b45309 !important;
       }
 
-      /* Metrics & Data Grids in JetBrains Mono / ui-monospace */
-      body:not(.dark-print-force) .font-mono {
+      body:not(.dark-print-force) .font-mono,
+      .font-mono {
         font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
       }
 
@@ -307,25 +345,28 @@
         background-color: #f8fafc !important;
         color: #92400e !important;
         font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+        font-size: 10px !important;
         font-weight: 700 !important;
-        padding: 8px 12px !important;
+        padding: 5px 8px !important;
         border-bottom: 1.5px solid #e2e8f0 !important;
+        line-height: 1.35 !important;
       }
 
       body:not(.dark-print-force) td {
-        padding: 8px 12px !important;
+        padding: 5px 8px !important;
         border-top: 1px solid #e4e4e7 !important;
-        color: #27272a !important;
+        color: #1f2937 !important;
+        font-size: 10px !important;
+        line-height: 1.35 !important;
+        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
       }
 
       body:not(.dark-print-force) [data-purpose="capex-list"] > div,
       body:not(.dark-print-force) [data-purpose="liquidity-model"] > div {
         border-color: #e4e4e7 !important;
+        font-size: 9.5pt !important;
       }
 
-      /* ===================================================================
-         OPTIONAL: Dark Obsidian Print Output (Only if user toggles to dark)
-         =================================================================== */
       body.dark-print-force {
         background-color: #0b0d11 !important;
         color: #f3f4f6 !important;
@@ -361,25 +402,290 @@
         color: #d4af37 !important;
       }
 
-      body.dark-print-force .text-slate-300,
-      body.dark-print-force .text-slate-400 {
+      body.dark-print-force p,
+      body.dark-print-force li,
+      body.dark-print-force .prose,
+      body.dark-print-force .text-sm,
+      body.dark-print-force .text-xs,
+      body.dark-print-force .text-slate-300 {
+        font-size: 10pt !important;
+        line-height: 1.6 !important;
+        color: #e5e7eb !important;
+      }
+
+      body.dark-print-force .text-slate-400,
+      body.dark-print-force .text-slate-500,
+      body.dark-print-force [class*="text-\[9px\]"],
+      body.dark-print-force [class*="text-\[10px\]"],
+      body.dark-print-force [class*="text-\[11px\]"],
+      body.dark-print-force .text-[10px],
+      body.dark-print-force .text-[11px],
+      body.dark-print-force .text-[9px] {
+        font-size: 8.5pt !important;
+        line-height: 1.45 !important;
         color: #9ca3af !important;
       }
 
-      /* Media Print Adjustments */
+      body.dark-print-force th {
+        font-size: 10px !important;
+        padding: 5px 8px !important;
+        line-height: 1.35 !important;
+      }
+
+      body.dark-print-force td {
+        font-size: 10px !important;
+        line-height: 1.35 !important;
+        color: #e5e7eb !important;
+        padding: 5px 8px !important;
+        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+      }
+
       img {
         max-width: 100% !important;
         height: auto !important;
       }
-
-      header, section, footer {
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-      }
-    }
-  </style>
+    }</style>
 <!-- END: Custom Executive Styles -->
-</head>
+<style data-purpose="refined-print-rules" id="refined-print-overrides" class="">@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 10mm 10mm !important;
+}
+
+@media print {
+  /* Continuous flow - remove forced page breaks */
+  .page-break, .page-break-before, .page-break-after, [data-break-before="true"] {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Preserve card/row integrity without forcing section splits */
+  .avoid-break, .card-print, .card, table, tr, figure, [data-purpose="hero-kpi-grid"] > div, [data-purpose="technical-process-stations"] > div, [data-purpose="product-skus"] > div, [data-purpose="five-executive-asks-cards"] > div {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Unified Container Sizing for Print - Zero outer offsets to maximize printable area */
+  html, body, main, #document-container, .print-container, .max-w-7xl, .max-w-5xl, .container, .mx-auto {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* Harmonized Section vertical rhythm & headers */
+  section {
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  section > div:first-child,
+  h2,
+  [data-purpose*="section-"] > div:first-child {
+    margin-bottom: 6px !important;
+    padding-bottom: 4px !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Calibrated Card Padding & Container Gutters */
+  .card-print,
+  .card,
+  section > div.rounded-2xl,
+  section > div.rounded-3xl,
+  [data-purpose="memorandum-hero"],
+  [data-purpose="section-executive-summary"] > div > div,
+  [data-purpose="product-skus"] > div,
+  [data-purpose="five-executive-asks-cards"] > div,
+  [data-purpose="hallmarking-security-features"] {
+    padding: 8px 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .grid,
+  [data-purpose="hero-kpi-grid"],
+  [data-purpose="product-skus"],
+  [data-purpose="five-executive-asks-cards"] {
+    gap: 7px !important;
+  }
+
+  /* Section 03 Technical Circuit Continuous Flow */
+  #technical-circuit, [data-purpose="section-technical-circuit"] {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  #technical-circuit .grid.grid-cols-1.lg\:grid-cols-2 {
+    gap: 7px !important;
+    margin-bottom: 6px !important;
+  }
+
+  #technical-circuit img {
+    max-height: 120px !important;
+    height: 115px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+  }
+
+  #technical-circuit p.font-mono.text-slate-400 {
+    padding: 2px 4px !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* 4-Stage Processing Circuit Stations in Print */
+  [data-purpose="technical-process-stations"] {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  [data-purpose="technical-process-stations"] > div {
+    padding: 6px 8px !important;
+    margin-bottom: 4px !important;
+    break-inside: avoid !important;
+  }
+
+  [data-purpose="technical-process-stations"] h4 {
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+  }
+
+  [data-purpose="technical-process-stations"] p {
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 3px !important;
+  }
+
+  [data-purpose="technical-process-stations"] .pt-2.border-t {
+    padding-top: 3px !important;
+    font-size: 7.5px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Financial Sensitivity Tables Continuous Flow */
+  [data-purpose="gold-price-sensitivity-table"], [data-purpose="capex-irr-payback-sensitivity-table"] {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    margin-top: 0 !important;
+    padding: 8px 10px !important;
+  }
+
+  /* Section 06 Executive Asks Continuous Flow */
+  #executive-asks, [data-purpose="section-executive-asks"] {
+    break-before: auto !important;
+    page-break-before: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Technical & Operational Specifications Table */
+  [data-purpose="refinery-specs-table"] {
+    margin-top: 4px !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+  }
+
+  [data-purpose="refinery-specs-table"] table {
+    margin: 0 !important;
+  }
+
+  /* Table print optimization */
+  table { width: 100% !important; border-collapse: collapse !important; table-layout: auto !important; }
+  thead { display: table-header-group !important; }
+  tbody { display: table-row-group !important; }
+  tr { break-inside: avoid !important; page-break-inside: avoid !important; }
+  th, td { padding: 3px 6px !important; font-size: 8.5px !important; line-height: 1.25 !important; }
+  .overflow-x-auto { overflow: visible !important; }
+
+  /* Ivory mode table borders & hairline contrast */
+  .print-ivory table, body:not(.dark-print-force) table {
+    border: 1px solid #d1d5db !important;
+  }
+  .print-ivory th, body:not(.dark-print-force) th {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #9ca3af !important;
+    border-right: 1px solid #e5e7eb !important;
+  }
+  .print-ivory td, body:not(.dark-print-force) td {
+    border-bottom: 1px solid #e5e7eb !important;
+    border-right: 1px solid #f3f4f6 !important;
+    color: #1f2937 !important;
+  }
+  .print-ivory tr:nth-child(even) td, body:not(.dark-print-force) tr:nth-child(even) td {
+    background-color: #fafafa !important;
+  }
+  .print-ivory tr:hover td, body:not(.dark-print-force) tr:hover td {
+    background-color: transparent !important;
+  }
+
+  /* Ivory Print Mode: Spacing & Line Height */
+  body:not(.dark-print-force) p,
+  .print-ivory p,
+  body.print-mode-ivory p,
+  [data-print-tone="ivory"] p {
+    line-height: 1.5 !important;
+    margin-bottom: 5px !important;
+  }
+
+  body:not(.dark-print-force) h1, .print-ivory h1, body.print-mode-ivory h1 {
+    line-height: 1.15 !important;
+  }
+  body:not(.dark-print-force) h2, body:not(.dark-print-force) h3, .print-ivory h2, .print-ivory h3 {
+    line-height: 1.2 !important;
+  }
+  body:not(.dark-print-force) h4, .print-ivory h4 {
+    line-height: 1.22 !important;
+  }
+
+  body:not(.dark-print-force) ul > li, body:not(.dark-print-force) ol > li,
+  .print-ivory ul > li, .print-ivory ol > li {
+    line-height: 1.4 !important;
+    margin-bottom: 2.5px !important;
+  }
+
+  body:not(.dark-print-force) .card-print p,
+  .print-ivory .card-print p,
+  body.print-mode-ivory .card-print p {
+    line-height: 1.45 !important;
+    margin-bottom: 3.5px !important;
+  }
+
+  body:not(.dark-print-force) .text-slate-400,
+  body:not(.dark-print-force) .text-slate-500,
+  .print-ivory .text-slate-400,
+  .print-ivory .text-slate-500 {
+    line-height: 1.4 !important;
+  }
+
+  /* Dark Obsidian mode print contrast & spacing alignment */
+  .print-dark table, body.dark-print-force table { border: 1px solid #374151 !important; }
+  .print-dark th, body.dark-print-force th { background-color: #1f2937 !important; border-bottom: 1.5px solid #4b5563 !important; }
+  .print-dark td, body.dark-print-force td { border-bottom: 1px solid #262c36 !important; }
+  body.dark-print-force section { margin-bottom: 14px !important; break-before: auto !important; }
+  body.dark-print-force .card-print { margin-bottom: 6px !important; padding: 8px 10px !important; }
+}</style></head>
 <body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
 <!-- BEGIN: MainHeader -->
 <header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-4 py-3 sm:px-6 transition-all" data-purpose="executive-header">
@@ -401,18 +707,18 @@
 <div class="flex items-center space-x-2 sm:space-x-3">
 <!-- View Mode Switcher -->
 <button class="px-3 py-1.5 rounded-md text-xs font-medium border border-gold-500/30 text-gold-300 hover:bg-gold-500/10 transition flex items-center space-x-1.5" data-purpose="toggle-deck-dossier" id="view-toggle" title="Switch View Mode">
-<svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <span class="hidden sm:inline" id="view-label">Executive View</span>
 </button>
 <!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
-<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Toggle Print Tone: Crisp Ivory vs Dark Obsidian">
+<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)">
 <span class="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" id="theme-indicator-dot"></span>
-<svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
 <span class="text-[11px] font-mono tracking-wide" id="theme-btn-label">Print Tone: <span class="font-bold text-amber-300" id="theme-mode-text">Ivory</span></span>
 </button>
 <!-- PDF Export Button -->
 <button class="px-3.5 py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1.5" data-purpose="pdf-export-trigger" onclick="window.print()">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <span class="">Export PDF</span>
 </button>
 </div>
@@ -442,7 +748,7 @@
 </nav>
 <!-- END: MobileDockNavigation -->
 <!-- BEGIN: MainContentContainer -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28">
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28" id="document-container">
 <!-- BEGIN: HeroCoverSection -->
 <section class="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl avoid-break" data-prev-bg="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-10 lg:p-14 shadow-2xl" data-purpose="memorandum-hero" id="hero">
 <!-- Ambient Gold Backlight Glow -->
@@ -454,7 +760,7 @@
 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
 <span class="text-xs font-mono text-gold-300 tracking-wider uppercase font-semibold">Project Simodi Presentation</span>
 </div>
-<h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class=""/>
+<h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class="">
 <span class="gold-gradient-text font-display block mt-3">Gold Refining Facility</span></h1>
 <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light">A definitive Public-Private Partnership (PPP) structuring Somaliland's flagship 99.9% fine gold refining and certified bullion minting facility in Hargeisa—engineered for institutional off-take, domestic value capture, and international liquidity integration.</p>
 <!-- Executive Micro-Metrics Grid -->
@@ -464,11 +770,7 @@
 <span class="text-lg font-bold text-gold-300">$30,000,000</span>
 <span class="text-[9px] text-slate-500 block">CapEx &amp; Trading Float</span>
 </div>
-<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
-<span class="text-[10px] uppercase text-slate-400 block font-sans">Refining Capacity</span>
-<span class="text-lg font-bold text-gold-300">50 MT / Annum</span>
-<span class="text-[9px] text-slate-500 block">~1 MT weekly cycle</span>
-</div>
+<div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print"><span class="text-[10px] uppercase text-slate-400 block font-sans">Refining Capacity</span><span class="text-lg font-bold text-gold-300">12 MT / Annum</span><span class="text-[9px] text-slate-500 block">250 kg / Week (~250 kg weekly cycle)</span></div>
 <div class="p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
 <span class="text-[10px] uppercase text-slate-400 block font-sans">Certified Purity</span>
 <span class="text-lg font-bold text-gold-300">99.9% AU</span>
@@ -482,7 +784,7 @@
 <!-- Featured Stamped Product Asset -->
 <div class="lg:col-span-5 relative" data-purpose="hero-stamped-gold-asset">
 <div class="relative group rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950">
-<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-72 sm:h-80 object-cover object-center transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida/AEtjO1VMZujeEvyqXcPcdtix9Q4AzUjGFZeLhVTauUjxjKvvkuoGelX7b7ybpJJshJFfp7J2uXUTMFOIbnvacVzXvWbuk8zTjWovuei9-ceDHUtyVpkI33iEHGho3qD_hhSV6bFWTKkKFc0a4dr6GdRcycWJ7RBypo4FJAT8G6zPuMnNU6cN2wMy_25TUBIgSYDhyyIAJvE7UgCs7dTlVtl_65Jg4G0ToDixIaAHa_PV6Ex7TdOWx19lrbJr8xU"/>
+<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-72 sm:h-80 object-cover object-center transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida/AEtjO1VMZujeEvyqXcPcdtix9Q4AzUjGFZeLhVTauUjxjKvvkuoGelX7b7ybpJJshJFfp7J2uXUTMFOIbnvacVzXvWbuk8zTjWovuei9-ceDHUtyVpkI33iEHGho3qD_hhSV6bFWTKkKFc0a4dr6GdRcycWJ7RBypo4FJAT8G6zPuMnNU6cN2wMy_25TUBIgSYDhyyIAJvE7UgCs7dTlVtl_65Jg4G0ToDixIaAHa_PV6Ex7TdOWx19lrbJr8xU">
 <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
 <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs">
 <span class="font-mono text-gold-200 bg-obsidian-900/90 px-2.5 py-1 rounded border border-gold-500/30">
@@ -527,7 +829,7 @@
             Transitioning the state from an unrefined, informal doré exporter to an accredited hub. Formalizing artisanal miners (ASM), eradicating unmonitored border smuggling, and unlocking national gold reserve monetization for the Central Bank.
           </p>
 <ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
-<li class="">• 50 MT annual baseline refining output</li>
+<li class="">• 12 MT annual baseline refining output</li>
 <li class="">• Formalized domestic artisanal miner buyback</li>
 <li class="">• Direct national bullion reserve accumulation</li>
 </ul>
@@ -566,15 +868,15 @@
             </p>
 <div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">USD 5,000,000 Complete CapEx Turnkey Build</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">USD 25,000,000 Revolving Liquidity Float</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">Full Technology Transfer &amp; Domestic Metallurgical Training</span>
 </div>
 </div>
@@ -589,15 +891,15 @@
 <p class="text-xs text-slate-300 leading-relaxed font-light">Providing government regulatory exclusivity, 25-year Build-Own-Operate (BOO) decree, security escorts by the Special Protection Unit (SPU), and airport transit clearance channels.</p>
 <div class="space-y-2 text-xs font-mono text-slate-300 pt-2 border-t border-slate-700/60">
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">25-Year Statutory Refining &amp; Minting Exclusivity</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">State Mineral Police &amp; Airport Transit Protection</span>
 </div>
 <div class="flex items-center space-x-2">
-<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
 <span class="">Statutory 10% Non-Dilutable Dividend Participation</span>
 </div>
 </div>
@@ -609,13 +911,13 @@
 <span class="p-2 rounded bg-gold-500/10 text-gold-400 font-mono font-bold">BOARD</span>
 <span class="text-slate-300">Joint Steering Committee: 3 NorthRock Appointees + 2 Ministerial Representatives</span>
 </div>
-<span class="font-mono text-gold-400 tracking-wider">Shared Governance</span>
+<span class="font-mono text-gold-400 tracking-wider">Shared Governance. Shared Prosperity</span>
 </div>
 </div>
 </section>
 <!-- END: PPPStructureSection -->
 <!-- BEGIN: TechnicalCircuitSection -->
-<section class="scroll-mt-24 space-y-8 page-break avoid-break" data-purpose="section-technical-circuit" id="technical-circuit">
+<section class="scroll-mt-24 space-y-8 avoid-break" data-purpose="section-technical-circuit" id="technical-circuit">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">03. Technical and Operational Proposal</h2>
@@ -624,7 +926,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 <!-- Visual Asset: Refinery Induction Pour -->
 <div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
-<img alt="Modern industrial gold refinery facility interior in Africa, featuring focused Black African metallurgist engineers in protective industrial safety gear and face shields operating an induction smelting furnace pouring molten gold into ingot molds" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WZRDaPlQ5XkfVIeN0hVvpZRNVQk8X6iqQFFA_aSRGedE8pZoGVo1uwJY3EloCrAY7NENha2SiH5h4KBxdeuj_quz2z50WWbgGfn6COSPJ5mAXOGxGIv4tdqDrKFkra3t6RkwZeJ7YzLduq84vYiCnIww49K2Ww2TTaEiQPdSTb4wulRLAS_RXJnt4WcqfHh5wmIlc2h5AHSO2SB9F5QjYwDMb1_1zGyYZKTJMafiOfl-rqDO6Bas5wwfEo"/>
+<img alt="Modern industrial gold refinery facility interior in Africa, featuring focused Black African metallurgist engineers in protective industrial safety gear and face shields operating an induction smelting furnace pouring molten gold into ingot molds" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WZRDaPlQ5XkfVIeN0hVvpZRNVQk8X6iqQFFA_aSRGedE8pZoGVo1uwJY3EloCrAY7NENha2SiH5h4KBxdeuj_quz2z50WWbgGfn6COSPJ5mAXOGxGIv4tdqDrKFkra3t6RkwZeJ7YzLduq84vYiCnIww49K2Ww2TTaEiQPdSTb4wulRLAS_RXJnt4WcqfHh5wmIlc2h5AHSO2SB9F5QjYwDMb1_1zGyYZKTJMafiOfl-rqDO6Bas5wwfEo">
 </div>
 <p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
 <span class="">FIGURE 1: African Metallurgical Engineers • Induction Smelting Circuit</span>
@@ -632,7 +934,7 @@
 </p></div>
 <!-- Visual Asset: Assay Spectrometry Lab -->
 <div class="space-y-3"><div class="rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
-<img alt="Modern certified precious metals assay laboratory in East Africa, featuring professional Black African female and male metallurgists in pristine white lab coats and protective safety glasses operating high-tech ICP-OES spectrometry and fire assay analytical balances" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WNLAFecjLUnhFZa4mXTAlqiUBwRhqAzOo9p1cCk8vL2R4HcL5waH3iIgBfbTJ9Y2gnbu3X9W_fgXiXOe-rPK_zPlyEjZdCZPkqilpSMAhrivQ5X-yjKXCKzcvFm1VkDoEIHi5QyaPXKczgBtY9ME8Pj3YNLJO_egUvdSf_mumqfBRvfyw4ig2xTlTShxDunBsJypb5h1y6Rnxkt_PCmejT35ITs5nh7ZgK6aoOdMnj_Avbyszr-cBvXDIA"/>
+<img alt="Modern certified precious metals assay laboratory in East Africa, featuring professional Black African female and male metallurgists in pristine white lab coats and protective safety glasses operating high-tech ICP-OES spectrometry and fire assay analytical balances" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-102 transition duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WNLAFecjLUnhFZa4mXTAlqiUBwRhqAzOo9p1cCk8vL2R4HcL5waH3iIgBfbTJ9Y2gnbu3X9W_fgXiXOe-rPK_zPlyEjZdCZPkqilpSMAhrivQ5X-yjKXCKzcvFm1VkDoEIHi5QyaPXKczgBtY9ME8Pj3YNLJO_egUvdSf_mumqfBRvfyw4ig2xTlTShxDunBsJypb5h1y6Rnxkt_PCmejT35ITs5nh7ZgK6aoOdMnj_Avbyszr-cBvXDIA">
 </div>
 <p class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
 <span class="">FIGURE 2: ISO/IEC 17025 Accredited East African Assay &amp; ICP-OES Lab</span>
@@ -699,44 +1001,7 @@
 </div>
 </div>
 <!-- Refinery Specifications Table -->
-<div class="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print avoid-break" data-prev-bg="overflow-x-auto rounded-2xl border border-gold-500/20 bg-obsidian-850 card-print" data-purpose="refinery-specs-table">
-<table class="w-full text-left text-xs font-mono">
-<thead class="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20" data-prev-bg="bg-obsidian-800 text-gold-300 uppercase tracking-wider border-b border-gold-500/20">
-<tr>
-<th class="py-2.5 px-3.5">Subsystem Parameter</th>
-<th class="py-2.5 px-3.5">Standard Operational Spec</th>
-<th class="py-2.5 px-3.5">Vendor &amp; Certification Grade</th>
-<th class="py-2.5 px-3.5">Redundancy / Safety Protocol</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-800 text-slate-300">
-<tr>
-<td class="py-2.5 px-3.5 font-semibold text-white">Daily Throughput Capability</td>
-<td class="py-2.5 px-3.5 text-gold-200">200 kg / 8-hour shift (~1,000 kg peak/wk)</td>
-<td class="py-2.5 px-3.5">ISO 9001:2015 Continuous Quality</td>
-<td class="py-2.5 px-3.5">Dual independent induction lines</td>
-</tr>
-<tr>
-<td class="py-2.5 px-3.5 font-semibold text-white">Environmental Scrubber System</td>
-<td class="py-2.5 px-3.5">Wet Venturi NOx &amp; SO2 caustic tower neutralization</td>
-<td class="py-2.5 px-3.5">EU Directives / MoECC Approved</td>
-<td class="py-2.5 px-3.5">Redundant chemical circulation pumps</td>
-</tr>
-<tr>
-<td class="py-2.5 px-3.5 font-semibold text-white">Assay Precision Verification</td>
-<td class="py-2.5 px-3.5">ICP-OES Optical Emission &amp; Cupellation</td>
-<td class="py-2.5 px-3.5">ISO/IEC 17025 Accredited Calibration</td>
-<td class="py-2.5 px-3.5">Double-blind multi-sample cross check</td>
-</tr>
-<tr>
-<td class="py-2.5 px-3.5 font-semibold text-white">Compound Perimeter &amp; Vault</td>
-<td class="py-2.5 px-3.5">Grade IX Heavy Modular Vault (3 MT bullion)</td>
-<td class="py-2.5 px-3.5">EN 1143-1 Security Standard</td>
-<td class="py-2.5 px-3.5">Biometric iris access + SPU Armed Squad</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="rounded-2xl border border-gold-500/30 bg-obsidian-850 p-6 sm:p-8 card-print avoid-break space-y-6" data-purpose="environmental-safety-section"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gold-500/20 pb-4"><div><div class="inline-flex items-center space-x-2 border border-gold-500/40 rounded-full px-3 py-0.5 bg-gold-500/10 mb-2"><span class="w-2 h-2 rounded-full bg-gold-400"></span><span class="text-[10px] font-mono text-gold-300 tracking-wider uppercase font-semibold">CLOSED-LOOP ARCHITECTURE (LAW NO. 79/2018)</span></div><h3 class="font-headline text-xl sm:text-2xl font-bold text-white">Environmental Safety &amp; Containment Architecture</h3></div><div class="px-3 py-1.5 rounded-lg bg-obsidian-900 border border-gold-500/20 text-right"><span class="text-[10px] font-mono text-slate-400 block uppercase">Regulatory Standard</span><span class="text-xs font-mono font-bold text-gold-300">MoECC Approved • Zero-Discharge</span></div></div><p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">The proposed Simodi Gold Refinery Facility will operate under a closed-loop environmental architecture designed to secure expedited environmental impact certification under Law No. 79/2018. The compound's industrial containment systems isolate metallurgical processing from the surrounding environment to eliminate heavy metal and acidic contamination.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 space-y-2 card-print"><div class="flex items-center justify-between font-mono"><span class="text-[11px] font-bold text-gold-400">01 / OFF-GAS SCRUBBING</span><span class="text-[9px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300 border border-gold-500/20">NOx &amp; SO₂ Neutralization</span></div><h4 class="font-headline font-bold text-white text-sm sm:text-base">Atmospheric Emission Control</h4><p class="text-xs text-slate-300 font-light leading-relaxed">Multi-stage wet scrubbers continuously capture and neutralize corrosive NOx off-gasses generated during the aqua regia digestion phase.</p></div><div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 space-y-2 card-print"><div class="flex items-center justify-between font-mono"><span class="text-[11px] font-bold text-gold-400">02 / VAPOR CONDENSATION</span><span class="text-[9px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300 border border-gold-500/20">ASM Smelting Safety</span></div><h4 class="font-headline font-bold text-white text-sm sm:text-base">Mercury Abatement System</h4><p class="text-xs text-slate-300 font-light leading-relaxed">To process artisanal doré safely, a closed retort system utilizing chilled vapor traps and carbon filters isolates and condenses volatilized mercury, eliminating atmospheric release during the initial induction melting phase.</p></div><div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 space-y-2 card-print"><div class="flex items-center justify-between font-mono"><span class="text-[11px] font-bold text-gold-400">03 / CLOSED WATER CIRCUIT</span><span class="text-[9px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300 border border-gold-500/20">Filter-Press Cake</span></div><h4 class="font-headline font-bold text-white text-sm sm:text-base">Zero-Liquid-Discharge (ZLD) Effluent Treatment</h4><p class="text-xs text-slate-300 font-light leading-relaxed">The integrated ETP plant chemically neutralizes all acidic process water. Heavy metals are precipitated into stable filter cakes via high-pressure filter presses, ensuring zero hazardous liquid is discharged into municipal systems.</p></div><div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 space-y-2 card-print"><div class="flex items-center justify-between font-mono"><span class="text-[11px] font-bold text-gold-400">04 / STRUCTURAL ISOLATION</span><span class="text-[9px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300 border border-gold-500/20">1,600 m² Compound</span></div><h4 class="font-headline font-bold text-white text-sm sm:text-base">Industrial Containment</h4><p class="text-xs text-slate-300 font-light leading-relaxed">The 1,600 Sqm facility structural conversion includes dedicated acid bunding and isolated drainage networks to prevent accidental chemical leaching.</p></div></div></div>
 </section>
 <!-- END: TechnicalCircuitSection -->
 <!-- BEGIN: MintingHubAndProductsSection -->
@@ -817,7 +1082,7 @@
 <!-- Security & Hallmarking Specifications Card -->
 <div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print avoid-break" data-prev-bg="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print" data-purpose="hallmarking-security-features">
 <div class="flex items-center space-x-2 text-gold-400">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <h3 class="font-headline text-lg font-bold text-white">Official Hallmarking &amp; Anti-Counterfeiting</h3>
 </div>
 <div class="space-y-3 text-xs text-slate-300">
@@ -844,7 +1109,7 @@
 </section>
 <!-- END: MintingHubAndProductsSection -->
 <!-- BEGIN: CapitalRequirementsSection -->
-<section class="scroll-mt-24 space-y-6 page-break avoid-break" data-purpose="section-financials" id="financials">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-financials" id="financials">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">05. Capital Structure &amp; Deployment Plan ($30M Total)</h2>
@@ -924,30 +1189,186 @@
 </div>
 <!-- Financial Projections Summary -->
 <div class="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print avoid-break" data-prev-bg="p-6 rounded-2xl bg-obsidian-800 border border-gold-500/20 space-y-3 card-print">
-<h4 class="font-headline font-bold text-white text-base">Annual Production &amp; Projected State Revenue (At 50 MT Target)</h4>
+<h4 class="font-headline font-bold text-white text-base">Annual Production &amp; Projected State Revenue (At 12 MT Target)</h4>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 font-mono text-center">
-<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
-<span class="text-[10px] text-slate-400 block uppercase">Annual Turnover</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 font-display">~$3.2 Billion</span>
-<span class="text-[9px] text-slate-500 block">Spot-dependent</span>
-</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print"><span class="text-[10px] text-slate-400 block uppercase">Annual Gross Revenue (12 MT)</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">$960M – $1.15B</span>
+<span class="text-[9px] text-slate-500 block">Spot-dependent ($2,500–$3,000/oz)</span></div>
 <div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
 <span class="text-[10px] text-slate-400 block uppercase">Refining Fee Margin</span>
 <span class="text-base sm:text-lg font-bold text-gold-300 font-display">1.2% - 1.8%</span>
 <span class="text-[9px] text-slate-500 block">Gross treatment margin</span>
 </div>
-<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
-<span class="text-[10px] text-slate-400 block uppercase">State 10% Equity Div</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 font-display">$4.5M - $6.2M</span>
-<span class="text-[9px] text-slate-500 block">Direct National Treasury intake</span>
-</div>
+<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print"><span class="text-[10px] text-slate-400 block uppercase">State 10% Equity Div</span>
+<span class="text-base sm:text-lg font-bold text-gold-300 font-display">$1.2M – $2.1M</span>
+<span class="text-[9px] text-slate-500 block">Direct National Treasury Intake (10% Net Yield)</span></div>
 <div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 card-print">
 <span class="text-[10px] text-slate-400 block uppercase">New Direct Jobs</span>
 <span class="text-base sm:text-lg font-bold text-gold-300 font-display">140+</span>
 <span class="text-[9px] text-slate-500 block">Chemists &amp; Engineers</span>
 </div>
 </div>
+<div class="mt-4 pt-4 border-t border-slate-700/60 rounded-xl bg-obsidian-900/90 p-4 border border-gold-500/20 text-xs text-slate-300 space-y-2.5 card-print avoid-break"><div class="flex items-center space-x-2 text-gold-300 font-mono font-semibold"><svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="text-[11px] sm:text-xs tracking-wide uppercase">* Methodology &amp; Toll Refining Fee Breakdown (1.2% – 1.8%)</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] leading-relaxed"><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">1. Base Throughput &amp; Spot Value</span><p class="text-slate-300 font-light">On 12 MT annual throughput (~385,800 troy oz) valued at $960M – $1.15B based on prevailing $2,500 – $3,000/oz gold benchmark.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">2. Gross Toll Refining Revenue</span><p class="text-slate-300 font-light">A 1.20% – 1.80% commercial tolling/refining fee generates $11.52M – $20.70M in predictable gross annual refining service revenue.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">3. Operating Costs &amp; Net Margins</span><p class="text-slate-300 font-light">Operating expenditures encompass power, chemical reagents (aqua regia, smelting flux), armed transit security, insurance, and laboratory certification.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">4. Sovereign Dividend Participation</span><p class="text-slate-300 font-light">The State (MoEM) 10% statutory free carry captures $1.15M – $2.07M (~$1.2M – $2.1M) in annual net sovereign treasury cash flow, exempt from CapEx debt burdens.</p></div></div></div><div class="card-print avoid-break mt-4 rounded-xl border border-gold-500/20 bg-obsidian-900/90 p-3 sm:p-3.5 backdrop-blur space-y-2.5" data-purpose="gold-price-sensitivity-table">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-gold-500/20 pb-2">
+<div class="flex items-center space-x-2 text-gold-300">
+<svg class="w-3.5 h-3.5 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<h4 class="font-headline font-bold text-white text-xs sm:text-sm">Gold Price Sensitivity Analysis (12 MT / 385,800 oz Baseline)</h4>
 </div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 w-fit">
+      Sensitivity Band: $2,200 – $3,200 / oz
+    </span>
+</div>
+<div class="overflow-x-auto rounded-lg border border-slate-800">
+<table class="w-full text-left font-mono">
+<thead class="bg-obsidian-850 text-gold-300 uppercase tracking-wider border-b border-gold-500/20 text-[9px] sm:text-[10px]">
+<tr>
+<th class="py-1.5 px-2 text-left">Spot Price ($/oz)</th>
+<th class="py-1.5 px-2 text-right">Gross Value (12 MT)</th>
+<th class="py-1.5 px-2 text-right">Refining Rev @ 1.20%</th>
+<th class="py-1.5 px-2 text-right">Refining Rev @ 1.80%</th>
+<th class="py-1.5 px-2 text-right">MoEM 10% Free Carry (Est.)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800 text-slate-300 text-[10px] leading-tight">
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">$2,200 / oz</td>
+<td class="py-1.5 px-2 text-right text-slate-200">$848.8M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$10.19M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$15.28M</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.02M – $1.53M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">$2,400 / oz</td>
+<td class="py-1.5 px-2 text-right text-slate-200">$925.9M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$11.11M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$16.67M</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.11M – $1.67M</td>
+</tr>
+<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
+<td class="py-1.5 px-2 font-bold text-gold-200 flex items-center space-x-1.5">
+<span class="">$2,600 / oz</span>
+<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Base</span>
+</td>
+<td class="py-1.5 px-2 text-right font-bold text-white">$1,003.1M</td>
+<td class="py-1.5 px-2 text-right text-gold-200">$12.04M</td>
+<td class="py-1.5 px-2 text-right text-gold-200">$18.06M</td>
+<td class="py-1.5 px-2 text-right font-bold text-gold-300">$1.20M – $1.81M</td>
+</tr>
+<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
+<td class="py-1.5 px-2 font-bold text-gold-200 flex items-center space-x-1.5">
+<span class="">$2,800 / oz</span>
+<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Current</span>
+</td>
+<td class="py-1.5 px-2 text-right font-bold text-white">$1,080.2M</td>
+<td class="py-1.5 px-2 text-right text-gold-200">$12.96M</td>
+<td class="py-1.5 px-2 text-right text-gold-200">$19.44M</td>
+<td class="py-1.5 px-2 text-right font-bold text-gold-300">$1.30M – $1.94M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">$3,000 / oz</td>
+<td class="py-1.5 px-2 text-right text-slate-200">$1,157.4M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$13.89M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$20.83M</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.39M – $2.08M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">$3,200 / oz</td>
+<td class="py-1.5 px-2 text-right text-slate-200">$1,234.6M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$14.82M</td>
+<td class="py-1.5 px-2 text-right text-slate-300">$22.22M</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.48M – $2.22M</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-[9px] text-slate-400 font-mono tracking-wide leading-tight mt-1 mb-0.5">
+    Note: Toll margins (1.2%–1.8%) and the Ministry of Energy &amp; Minerals 10% statutory free carry dividend rights remain non-dilutable under the 90/10 Public-Private Partnership agreement across all spot price scenarios.
+  </p>
+</div><div class="card-print avoid-break mt-4 rounded-xl border border-gold-500/20 bg-obsidian-900/90 p-3 sm:p-3.5 backdrop-blur space-y-2.5" data-purpose="capex-irr-payback-sensitivity-table">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-gold-500/20 pb-2">
+<div class="flex items-center space-x-2 text-gold-300">
+<svg class="w-3.5 h-3.5 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<h4 class="font-headline font-bold text-white text-xs sm:text-sm">CapEx IRR &amp; Payback Period Sensitivity Analysis (Throughput Scenarios)</h4>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 w-fit">
+      Turnkey CapEx: $5.0M Base
+    </span>
+</div>
+<div class="overflow-x-auto rounded-lg border border-slate-800">
+<table class="w-full text-left font-mono">
+<thead class="bg-obsidian-850 text-gold-300 uppercase tracking-wider border-b border-gold-500/20 text-[9px] sm:text-[10px]">
+<tr>
+<th class="py-1.5 px-2 text-left">Throughput Scenario</th>
+<th class="py-1.5 px-2 text-right">Annual Net Op Cash Flow</th>
+<th class="py-1.5 px-2 text-right">Project IRR</th>
+<th class="py-1.5 px-2 text-right">Simple Payback</th>
+<th class="py-1.5 px-2 text-right">MoEM Statutory Div</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800 text-slate-300 text-[10px] leading-tight">
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">
+<div class="">Conservative / Ramp-Up</div>
+<span class="text-[9px] text-slate-400 font-sans block">6 MT / a (50% Utilization)</span>
+</td>
+<td class="py-1.5 px-2 text-right text-slate-200">~$4.8M – $6.5M</td>
+<td class="py-1.5 px-2 text-right text-slate-300 font-semibold">38.4%</td>
+<td class="py-1.5 px-2 text-right text-slate-300">~1.4 Years</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$0.6M – $0.9M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">
+<div class="">Moderate Operations</div>
+<span class="text-[9px] text-slate-400 font-sans block">9 MT / a (75% Utilization)</span>
+</td>
+<td class="py-1.5 px-2 text-right text-slate-200">~$7.2M – $9.8M</td>
+<td class="py-1.5 px-2 text-right text-slate-300 font-semibold">54.2%</td>
+<td class="py-1.5 px-2 text-right text-slate-300">~1.0 Year</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$0.9M – $1.4M</td>
+</tr>
+<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
+<td class="py-1.5 px-2 font-bold text-gold-200">
+<div class="flex items-center space-x-1.5">
+<span class="">Baseline Design Capacity</span>
+<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Base Case</span>
+</div>
+<span class="text-[9px] text-gold-300/80 font-sans font-normal block">12 MT / a (100% Utilization)</span>
+</td>
+<td class="py-1.5 px-2 text-right font-bold text-white">~$9.8M – $13.5M</td>
+<td class="py-1.5 px-2 text-right font-bold text-gold-200">71.6%</td>
+<td class="py-1.5 px-2 text-right font-bold text-gold-200">~0.8 Years (~9.5 Mo)</td>
+<td class="py-1.5 px-2 text-right font-bold text-gold-300">$1.2M – $2.1M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">
+<div class="">Optimized Expansion</div>
+<span class="text-[9px] text-slate-400 font-sans block">15 MT / a (125% Debottlenecked)</span>
+</td>
+<td class="py-1.5 px-2 text-right text-slate-200">~$12.5M – $17.2M</td>
+<td class="py-1.5 px-2 text-right text-slate-300 font-semibold">88.3%</td>
+<td class="py-1.5 px-2 text-right text-slate-300">~0.6 Years (~7.5 Mo)</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.5M – $2.6M</td>
+</tr>
+<tr class="hover:bg-gold-500/5 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-white">
+<div class="">Phase II Scaled Capacity</div>
+<span class="text-[9px] text-slate-400 font-sans block">18 MT / a (150% Utilization)</span>
+</td>
+<td class="py-1.5 px-2 text-right text-slate-200">~$15.1M – $20.8M</td>
+<td class="py-1.5 px-2 text-right text-slate-300 font-semibold">104.5%</td>
+<td class="py-1.5 px-2 text-right text-slate-300">~0.5 Years (~6 Mo)</td>
+<td class="py-1.5 px-2 text-right font-semibold text-gold-300">$1.8M – $3.1M</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80 space-y-1 text-[10px] leading-snug">
+<span class="font-mono font-bold text-gold-300 block mb-0.5 text-[11px]">Executive Takeaways &amp; Investment Security:</span>
+<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Basis:</span> Calculated against NorthRock Capital's $5.0M fixed turnkey CapEx investment at prevailing 1.50% median toll margin and $2,600/oz gold benchmark.</p>
+<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Rapid Capital Recovery:</span> Sub-12-month payback across all throughput levels at or above 9 MT demonstrates minimal CapEx downside risk, supported by the dedicated $25M revolving liquidity facility.</p>
+<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Sovereign Free Carry:</span> MoEM's 10% non-dilutable dividend is fully insulated from capital payback timing, providing immediate revenue from Year 1 commissioning.</p>
+</div>
+</div></div>
 </section>
 <!-- END: CapitalRequirementsSection -->
 <!-- BEGIN: ExecutiveAsksAndIncentivesSection -->
@@ -1001,7 +1422,7 @@
 <!-- Fiscal & Statutory Incentives Checklist -->
 <div class="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print avoid-break" data-prev-bg="mt-8 rounded-2xl bg-obsidian-850 border border-gold-500/20 p-6 space-y-4 card-print">
 <div class="flex items-center space-x-2 text-gold-300">
-<svg class="w-5 h-5 text-gold-400" fill="currentColor" viewbox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path clip-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" fill-rule="evenodd"></path></svg>
+<svg class="w-5 h-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path clip-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" fill-rule="evenodd"></path></svg>
 <h3 class="font-headline text-lg font-bold text-white">Guaranteed Fiscal Incentives Framework</h3>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
@@ -1145,4 +1566,8 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
+
+
 </body></html>
