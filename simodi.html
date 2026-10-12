@@ -111,342 +111,9 @@
       border-radius: 9999px;
     }
   </style>
-<style class="" data-purpose="print-rules" id="custom-print-stylesheet">@page {
-      size: A4 portrait;
-      margin: 12mm 14mm 14mm 14mm;
-    }
 
-    @media print {
-      * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color-adjust: exact !important;
-      }
-
-      html, body {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-        font-size: 10pt !important;
-        line-height: 1.6 !important;
-      }
-
-      /* Unified Container Sizing for Print */
-      body, main, #document-container, .max-w-7xl, .max-w-5xl, .container {
-        padding: 0 !important;
-        margin: 0 auto !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-      }
-
-      /* Inter-section vertical rhythm */
-      section {
-        margin-top: 0 !important;
-        margin-bottom: 20px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        break-before: auto !important;
-        page-break-before: auto !important;
-      }
-
-      /* Section headers */
-      section > div:first-child,
-      h2,
-      [data-purpose*="section-"] > div:first-child {
-        margin-bottom: 10px !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-
-      /* Component card padding & grid gaps */
-      .card-print,
-      .card,
-      section > div.rounded-2xl,
-      [data-purpose="section-executive-summary"] > div > div,
-      [data-purpose="technical-process-stations"] > div,
-      [data-purpose="product-skus"] > div,
-      [data-purpose="five-executive-asks-cards"] > div {
-        padding: 10px 14px !important;
-      }
-
-      .grid,
-      [data-purpose="hero-kpi-grid"],
-      [data-purpose="technical-process-stations"],
-      [data-purpose="product-skus"],
-      [data-purpose="five-executive-asks-cards"] {
-        gap: 10px !important;
-      }
-
-      /* Hide Navigation Chrome & Controls */
-      .no-print, header, nav, #nav-dock, button, #theme-toggle, #view-toggle {
-        display: none !important;
-      }
-
-      /* Continuous Flow: Page Breaks neutralised to auto */
-      .page-break, .page-break-before, .page-break-after {
-        page-break-before: auto !important;
-        break-before: auto !important;
-        page-break-after: auto !important;
-        break-after: auto !important;
-      }
-
-      section, .card, .card-print, table, tr, figure, .avoid-break,
-      [data-purpose="hero-kpi-grid"] > div,
-      [data-purpose="section-executive-summary"] > div > div,
-      [data-purpose="technical-process-stations"] > div,
-      [data-purpose="product-skus"] > div,
-      [data-purpose="five-executive-asks-cards"] > div {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      /* Archival Warm Cream / Ivory */
-      body:not(.dark-print-force) {
-        background-color: #fdfbf7 !important;
-        color: #1f2937 !important;
-      }
-
-      body:not(.dark-print-force) section {
-        background-color: transparent !important;
-      }
-
-      body:not(.dark-print-force) #hero {
-        background-color: #ffffff !important;
-        border: 1px solid #e4e4e7 !important;
-        box-shadow: none !important;
-      }
-
-      body:not(.dark-print-force) .bg-obsidian-950,
-      body:not(.dark-print-force) .bg-obsidian-900 {
-        background-color: #fdfbf7 !important;
-        border-color: #e4e4e7 !important;
-        color: #1f2937 !important;
-      }
-
-      body:not(.dark-print-force) .bg-obsidian-850,
-      body:not(.dark-print-force) .bg-obsidian-800,
-      body:not(.dark-print-force) .card-print {
-        background-color: #ffffff !important;
-        border-color: #e4e4e7 !important;
-        color: #1f2937 !important;
-        box-shadow: none !important;
-      }
-
-      body:not(.dark-print-force) h1 {
-        font-family: 'Playfair Display', 'Noto Serif', Georgia, serif !important;
-        font-weight: 700 !important;
-        color: #111827 !important;
-        letter-spacing: -0.02em !important;
-      }
-
-      body:not(.dark-print-force) h2,
-      body:not(.dark-print-force) h3 {
-        font-family: 'Playfair Display', 'Noto Serif', Georgia, serif !important;
-        font-weight: 700 !important;
-        color: #111827 !important;
-        letter-spacing: -0.015em !important;
-      }
-
-      body:not(.dark-print-force) h4 {
-        font-family: 'Noto Serif', Georgia, serif !important;
-        font-weight: 700 !important;
-        color: #111827 !important;
-      }
-
-      body:not(.dark-print-force) .gold-gradient-text {
-        -webkit-text-fill-color: #92400e !important;
-        color: #92400e !important;
-      }
-
-      body:not(.dark-print-force) .text-white {
-        color: #111827 !important;
-      }
-
-      body:not(.dark-print-force) p,
-      body:not(.dark-print-force) li,
-      body:not(.dark-print-force) .prose,
-      body:not(.dark-print-force) .text-sm,
-      body:not(.dark-print-force) .text-xs,
-      body:not(.dark-print-force) .text-slate-300,
-      body:not(.dark-print-force) .text-slate-200 {
-        font-size: 10pt !important;
-        line-height: 1.6 !important;
-        color: #1f2937 !important;
-      }
-
-      body:not(.dark-print-force) .text-slate-400,
-      body:not(.dark-print-force) .text-slate-500,
-      body:not(.dark-print-force) [class*="text-\[9px\]"],
-      body:not(.dark-print-force) [class*="text-\[10px\]"],
-      body:not(.dark-print-force) [class*="text-\[11px\]"],
-      body:not(.dark-print-force) .text-[10px],
-      body:not(.dark-print-force) .text-[11px],
-      body:not(.dark-print-force) .text-[9px] {
-        font-size: 8.5pt !important;
-        line-height: 1.45 !important;
-        color: #4b5563 !important;
-      }
-
-      body:not(.dark-print-force) .text-gold-200,
-      body:not(.dark-print-force) .text-gold-300,
-      body:not(.dark-print-force) .text-gold-400 {
-        -webkit-text-fill-color: #92400e !important;
-        color: #92400e !important;
-      }
-
-      body:not(.dark-print-force) .bg-gold-500\/10,
-      body:not(.dark-print-force) .bg-gold-500\/20,
-      body:not(.dark-print-force) .bg-gold-500\/5 {
-        background-color: #fef3c7 !important;
-        border-color: #fde68a !important;
-        color: #92400e !important;
-      }
-
-      body:not(.dark-print-force) .border-gold-500\/20,
-      body:not(.dark-print-force) .border-gold-500\/30,
-      body:not(.dark-print-force) .border-gold-500\/40,
-      body:not(.dark-print-force) .border-gold-400\/40,
-      body:not(.dark-print-force) .border-slate-800,
-      body:not(.dark-print-force) .border-slate-700\/50,
-      body:not(.dark-print-force) .border-slate-700\/60,
-      body:not(.dark-print-force) .border-slate-800\/60 {
-        border-color: #e4e4e7 !important;
-      }
-
-      body:not(.dark-print-force) .border-l-4.border-gold-400 {
-        border-left-color: #b45309 !important;
-      }
-
-      body:not(.dark-print-force) .border-l-4.border-slate-400 {
-        border-left-color: #64748b !important;
-      }
-
-      body:not(.dark-print-force) .bg-gold-400 {
-        background-color: #b45309 !important;
-      }
-
-      body:not(.dark-print-force) .font-mono,
-      .font-mono {
-        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
-      }
-
-      body:not(.dark-print-force) table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        border: 1px solid #e4e4e7 !important;
-        background-color: #ffffff !important;
-      }
-
-      body:not(.dark-print-force) th {
-        background-color: #f8fafc !important;
-        color: #92400e !important;
-        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
-        font-size: 10px !important;
-        font-weight: 700 !important;
-        padding: 5px 8px !important;
-        border-bottom: 1.5px solid #e2e8f0 !important;
-        line-height: 1.35 !important;
-      }
-
-      body:not(.dark-print-force) td {
-        padding: 5px 8px !important;
-        border-top: 1px solid #e4e4e7 !important;
-        color: #1f2937 !important;
-        font-size: 10px !important;
-        line-height: 1.35 !important;
-        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
-      }
-
-      body:not(.dark-print-force) [data-purpose="capex-list"] > div,
-      body:not(.dark-print-force) [data-purpose="liquidity-model"] > div {
-        border-color: #e4e4e7 !important;
-        font-size: 9.5pt !important;
-      }
-
-      body.dark-print-force {
-        background-color: #0b0d11 !important;
-        color: #f3f4f6 !important;
-      }
-
-      body.dark-print-force .bg-obsidian-950,
-      body.dark-print-force .bg-obsidian-900 {
-        background-color: #0d1017 !important;
-        color: #f3f4f6 !important;
-      }
-
-      body.dark-print-force .bg-obsidian-850,
-      body.dark-print-force .bg-obsidian-800,
-      body.dark-print-force .card-print {
-        background-color: #131720 !important;
-        border-color: #272d3b !important;
-        color: #e5e7eb !important;
-        box-shadow: none !important;
-      }
-
-      body.dark-print-force h1,
-      body.dark-print-force h2,
-      body.dark-print-force h3,
-      body.dark-print-force h4 {
-        color: #f9fafb !important;
-      }
-
-      body.dark-print-force .gold-gradient-text,
-      body.dark-print-force .text-gold-200,
-      body.dark-print-force .text-gold-300,
-      body.dark-print-force .text-gold-400 {
-        -webkit-text-fill-color: #d4af37 !important;
-        color: #d4af37 !important;
-      }
-
-      body.dark-print-force p,
-      body.dark-print-force li,
-      body.dark-print-force .prose,
-      body.dark-print-force .text-sm,
-      body.dark-print-force .text-xs,
-      body.dark-print-force .text-slate-300 {
-        font-size: 10pt !important;
-        line-height: 1.6 !important;
-        color: #e5e7eb !important;
-      }
-
-      body.dark-print-force .text-slate-400,
-      body.dark-print-force .text-slate-500,
-      body.dark-print-force [class*="text-\[9px\]"],
-      body.dark-print-force [class*="text-\[10px\]"],
-      body.dark-print-force [class*="text-\[11px\]"],
-      body.dark-print-force .text-[10px],
-      body.dark-print-force .text-[11px],
-      body.dark-print-force .text-[9px] {
-        font-size: 8.5pt !important;
-        line-height: 1.45 !important;
-        color: #9ca3af !important;
-      }
-
-      body.dark-print-force th {
-        font-size: 10px !important;
-        padding: 5px 8px !important;
-        line-height: 1.35 !important;
-      }
-
-      body.dark-print-force td {
-        font-size: 10px !important;
-        line-height: 1.35 !important;
-        color: #e5e7eb !important;
-        padding: 5px 8px !important;
-        font-family: 'JetBrains Mono', ui-monospace, monospace !important;
-      }
-
-      img {
-        max-width: 100% !important;
-        height: auto !important;
-      }
-    }</style>
 <!-- END: Custom Executive Styles -->
-<style data-purpose="refined-print-rules" id="refined-print-overrides">@page {
+<style data-purpose="refined-print-rules" id="refined-print-overrides" class="">@page {
   size: A4 portrait;
   margin: 12mm 14mm 14mm 14mm;
   @top-center {
@@ -457,7 +124,7 @@
     color: #92400e;
   }
   @bottom-left {
-    content: "REPUBLIC OF SOMALILAND — MINISTRY OF ENERGY & MINERALS";
+    content: "CONFIDENTIAL PRESENTED BY TARRAQUEST INVESTMENTS FZCO";
     font-family: 'JetBrains Mono', monospace;
     font-size: 7pt;
     color: #6b7280;
@@ -879,11 +546,7 @@
 <span class="hidden md:inline" id="view-label">Executive View</span>
 </button>
 <!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
-<button class="p-1.5 sm:px-3 sm:py-1.5 rounded-md text-xs font-medium border border-amber-600/60 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 transition flex items-center space-x-1.5 shadow-sm" data-purpose="toggle-theme" id="theme-toggle" title="Current Print Tone: Crisp Ivory (Click to toggle Dark Obsidian)">
-<span class="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" id="theme-indicator-dot"></span>
-<svg class="w-3.5 h-3.5 text-gold-400 hidden" fill="currentColor" id="theme-icon" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
-<span class="text-[10px] sm:text-[11px] font-mono tracking-wide" id="theme-btn-label"><span class="hidden sm:inline">Print Tone: </span><span class="font-bold text-amber-300" id="theme-mode-text">Ivory</span></span>
-</button>
+
 <!-- PDF Export Button -->
 <button class="px-2 py-1.5 sm:px-3.5 sm:py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-[11px] sm:text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1 sm:space-x-1.5" data-purpose="pdf-export-trigger" onclick="window.print()">
 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
@@ -895,7 +558,7 @@
 </header>
 <!-- END: MainHeader -->
 <!-- BEGIN: MobileDockNavigation -->
-<nav class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-xl z-50 glass-dark rounded-full py-2 px-3 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print" data-purpose="mobile-pill-nav" id="nav-dock"><div class="w-full flex items-center justify-between overflow-x-auto gap-1 py-0.5 px-1 scroll-smooth">
+<nav class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-xl z-50 glass-dark rounded-full py-2 px-3 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print" data-purpose="mobile-pill-nav" id="nav-dock"><div class="w-full flex items-center justify-between overflow-x-auto gap-1.5 py-1 px-1 scroll-smooth">
   <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#executive-summary">
     <span class="">Overview</span>
   </a>
@@ -1030,9 +693,9 @@
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">02. Public-Private Partnership (PPP) Structure</h2>
 </div>
 <div class="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 sm:p-8 space-y-8 card-print" data-prev-bg="rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 sm:p-8 space-y-8 card-print">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
 <!-- Private Partner: NorthRock Capital LLC -->
-<div class="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-gold-400 space-y-4 card-print" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-gold-400 space-y-4 card-print">
+<div class="rounded-xl bg-obsidian-800 p-5 sm:p-6 border-l-4 border-gold-400 space-y-4 card-print flex flex-col justify-between" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-gold-400 space-y-4 card-print">
 <div class="flex items-center justify-between">
 <span class="text-xs font-mono tracking-widest text-gold-400 uppercase font-semibold">Strategic Investor / Operator</span>
 <span class="text-2xl font-headline font-black text-gold-200">90% EQUITY</span>
@@ -1057,7 +720,7 @@
 </div>
 </div>
 <!-- Public Sector Partner: MoEM -->
-<div class="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-slate-400 space-y-4 card-print" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-slate-400 space-y-4 card-print">
+<div class="rounded-xl bg-obsidian-800 p-5 sm:p-6 border-l-4 border-slate-400 space-y-4 card-print flex flex-col justify-between" data-prev-bg="lg:col-span-6 rounded-xl bg-obsidian-800 p-6 border-l-4 border-slate-400 space-y-4 card-print">
 <div class="flex items-center justify-between">
 <span class="text-xs font-mono tracking-widest text-slate-300 uppercase font-semibold">Public Sector Partner</span>
 <span class="text-2xl font-headline font-black text-slate-200">10% FREE CARRY</span>
@@ -1548,14 +1211,14 @@
 <section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
-<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">The ask</h2>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Executive Asks &amp; Statutory Decrees</h2>
 </div>
 <div class="space-y-4">
 <p class="text-sm text-slate-300 leading-relaxed font-light">
           To finalize the immediate USD 30M deployment and commence equipment shipments, NorthRock Capital LLC requests the Cabinet of Ministers and His Excellency the President to ratify the following statutory instruments:
         </p>
 <!-- 5 Key Asks Grid -->
-<div class="grid grid-cols-1 md:grid-cols-5 gap-3" data-purpose="five-executive-asks-cards">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" data-purpose="five-executive-asks-cards">
 <div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/30 space-y-2 card-print">
 <span class="text-xs font-mono font-bold text-gold-400">ASK 01</span>
 <h4 class="font-headline font-bold text-white text-sm">Direct Operator Licensing</h4>
@@ -1663,7 +1326,7 @@
 </main>
 <!-- END: MainContentContainer -->
 <!-- BEGIN: MainFooter -->
-<footer class="border-t border-gold-500/20 bg-obsidian-950 py-8 text-center text-xs text-slate-500 space-y-2 no-print" data-purpose="site-footer"><div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center space-x-2 text-center sm:text-left"><span class="font-headline font-bold text-gold-400">PROJECT SIMODI GOLD REFINERY</span><span class="text-slate-600">•</span><span class="font-mono text-[11px] text-slate-400">Hargeisa Commercial Facility • State Partnership PPP</span></div><div class="text-[11px] font-mono text-slate-400 text-center">NorthRock Capital LLC &amp; Ministry of Energy and Minerals</div><div class="flex items-center space-x-3 text-gold-400"><button class="hover:underline flex items-center space-x-1 transition text-xs font-mono text-gold-300 hover:text-gold-200" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="">Top ↑</span></button></div></div></footer>
+<footer class="border-t border-gold-500/20 bg-obsidian-950 py-8 text-center text-xs text-slate-500 space-y-2 no-print" data-purpose="site-footer"><div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center space-x-2 text-center sm:text-left"><span class="font-headline font-bold text-gold-400">PROJECT SIMODI GOLD REFINERY</span><span class="text-slate-600">•</span><span class="font-mono text-[11px] text-slate-400">Hargeisa Commercial Facility • State Partnership PPP</span></div><div class="text-[11px] font-mono text-slate-400 text-center">Confidential Presented by Tarraquest Investments FZCO</div><div class="flex items-center space-x-3 text-gold-400"><button class="hover:underline flex items-center space-x-1 transition text-xs font-mono text-gold-300 hover:text-gold-200" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="">Top ↑</span></button></div></div></footer>
 <!-- END: MainFooter -->
 <!-- BEGIN: InteractiveScripts -->
 <script data-purpose="view-and-theme-interactivity">
