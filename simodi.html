@@ -218,8 +218,8 @@
   #hero {
     padding: 20px 24px 20px 24px !important;
     margin: 0 !important;
-    height: calc(297mm - 26mm) !important;
-    min-height: 260mm !important;
+    height: 260mm !important;
+    min-height: 250mm !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -272,13 +272,13 @@
   #hero [data-purpose="hero-gold-asset-container"] {
     margin-top: 8px !important;
     width: 100% !important;
-    flex-grow: 1 !important;
+    flex: 1 1 auto !important;
+    height: 160mm !important;
+    min-height: 150mm !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
     background: transparent !important;
-    height: 135mm !important;
-    min-height: 120mm !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] > div,
   #hero [data-purpose="hero-gold-asset-container"] > div {
@@ -287,18 +287,19 @@
     border-color: #d4af37 !important;
     height: 100% !important;
     width: 100% !important;
-    flex-grow: 1 !important;
+    flex: 1 1 auto !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    position: relative !important;
   }
   #hero img {
     height: 100% !important;
-    min-height: 120mm !important;
+    min-height: 145mm !important;
     width: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     flex-grow: 1 !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] .bg-gradient-to-t {
@@ -626,45 +627,44 @@
 <!-- Ambient Gold Backlight Glow -->
 <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
-<div class="lg:col-span-7 space-y-4 sm:space-y-6">
-<div class="inline-flex items-center space-x-2 border border-gold-500/40 rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 bg-gold-500/5">
-<span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-<span class="text-[11px] sm:text-xs font-mono text-gold-300 tracking-wider uppercase font-semibold">Project Simodi Presentation</span>
-</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-stretch h-full">
+<div class="lg:col-span-7 flex flex-col justify-between space-y-6 sm:space-y-8 py-2">
+<div class="space-y-4 sm:space-y-5">
+
 <h1 class="font-headline text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">PROJECT SIMODI: <br class="hidden sm:inline">
 <span class="gold-gradient-text font-display block mt-1 sm:mt-3 text-2xl sm:text-4xl lg:text-5xl">Gold Refining Facility</span></h1>
-<p class="text-slate-300 text-xs sm:text-base leading-relaxed max-w-2xl font-light">A proposed Public Private Partnership (PPP) structuring Somaliland's flagship 99.9% fine gold refining and certified bullion minting facility in Hargeisa—engineered for institutional off-take, domestic value capture, and international liquidity integration.</p>
+<p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light pt-2">A proposed Public-Private Partnership (PPP) to establish Somaliland's first institutional gold refining and minting facility. The project finances and operates a 12 MT/annum refinery in Hargeisa to convert domestic dore into 99.9% fine bullion, securing direct institutional off-take with Tier-1 GCC liquidity hubs and establishing national central bank gold reserves.</p>
+</div>
 <!-- Executive Micro-Metrics Grid (2x2 on mobile, 4-col on desktop) -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1 sm:pt-2 font-mono" data-purpose="hero-kpi-grid">
-<div class="p-2.5 sm:p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
-<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans truncate">Total Allocation</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 block my-0.5">$30,000,000</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4 font-mono border-t border-gold-500/20" data-purpose="hero-kpi-grid">
+<div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
+<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Total Allocation</span>
+<span class="text-base sm:text-xl font-bold text-gold-300 block my-1">$30,000,000</span>
 <span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">CapEx &amp; Float</span>
 </div>
-<div class="p-2.5 sm:p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
-<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans truncate">Refining Capacity</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 block my-0.5">12 MT / Annum</span>
+<div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
+<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Refining Capacity</span>
+<span class="text-base sm:text-xl font-bold text-gold-300 block my-1">12 MT / Annum</span>
 <span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">250 kg / Week</span>
 </div>
-<div class="p-2.5 sm:p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
-<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans truncate">Certified Purity</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 block my-0.5">99.9% AU</span>
+<div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
+<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Certified Purity</span>
+<span class="text-base sm:text-xl font-bold text-gold-300 block my-1">99.9% AU</span>
 <span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">Fine Bullion Spec</span>
 </div>
-<div class="p-2.5 sm:p-3 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print">
-<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans truncate">Investment Structure</span>
-<span class="text-base sm:text-lg font-bold text-gold-300 block my-0.5">Permanent</span>
+<div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
+<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Investment Structure</span>
+<span class="text-base sm:text-xl font-bold text-gold-300 block my-1">Permanent</span>
 <span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">Capital Model</span>
 </div>
 </div>
 </div>
 <!-- Featured Stamped Product Asset -->
-<div class="lg:col-span-5 relative w-full" data-purpose="hero-stamped-gold-asset">
-<div class="relative group rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950 w-full">
-<img alt="Macro cinematic close-up photograph of a premium certified 1000g pure 99.9% fine gold stamped bullion ingot bar" class="w-full h-auto max-h-80 sm:max-h-96 object-cover object-center aspect-[4/3] transform group-hover:scale-105 transition-transform duration-700" loading="eager" src="https://lh3.googleusercontent.com/aida/AEtjO1VMZujeEvyqXcPcdtix9Q4AzUjGFZeLhVTauUjxjKvvkuoGelX7b7ybpJJshJFfp7J2uXUTMFOIbnvacVzXvWbuk8zTjWovuei9-ceDHUtyVpkI33iEHGho3qD_hhSV6bFWTKkKFc0a4dr6GdRcycWJ7RBypo4FJAT8G6zPuMnNU6cN2wMy_25TUBIgSYDhyyIAJvE7UgCs7dTlVtl_65Jg4G0ToDixIaAHa_PV6Ex7TdOWx19lrbJr8xU">
-<div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
-<div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-xs gap-2">
+<div class="lg:col-span-5 relative w-full h-full flex flex-col justify-stretch" data-purpose="hero-stamped-gold-asset">
+<div class="relative group rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950 w-full h-full flex flex-col justify-between min-h-[500px] lg:min-h-[560px]">
+<img alt="Macro cinematic editorial photograph of a premium certified 1000g pure 99.9% fine gold bullion ingot bar, portrait orientation filling the frame" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 rounded-xl flex-1" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE7JoYo12Gvj1Gffq8-ZkQAB4qN_DQrn-dBWVvDbM_zVU8UfcUEhQHfisQuN8PLFPWOQMUJELw7zjW_0Ktcxl7CoD1NUCctG-_TDqZwDFcq3cSoM9_xfCbXUa23waMwslWP2v6_gMPk8JTDWCzoy1lehYtpV7EKR-S19KaUAPFCeR0WQ2FW6H8a92Op7GSUjrHskQ4NetjhdJr71joRuGNo4O-GQ5ajDsynCfe7p_BqsMkcjk10fFOJw">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-xs gap-2 z-10">
 <span class="font-mono text-gold-200 bg-obsidian-900/90 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-gold-500/30 text-[10px] sm:text-xs truncate">
                 Official Stamped Ingots
               </span>
@@ -1269,6 +1269,10 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
+
+
 
 
 
