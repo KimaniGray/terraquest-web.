@@ -579,7 +579,7 @@
     border-color: #e5e7eb !important;
   }
 }</style><style data-purpose="print-nav-dock-hide" class="">@media print { #nav-dock, [data-purpose="mobile-pill-nav"], #bottom-nav, .bottom-nav, nav.fixed, div.fixed.bottom-0, nav[class*="bottom-"] { display: none !important; visibility: hidden !important; opacity: 0 !important; } }</style></head>
-<body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
+<body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200" style="cursor: grabbing; user-select: none;">
 <!-- BEGIN: MainHeader -->
 <header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all no-print" data-purpose="executive-header">
 <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -613,26 +613,13 @@
 </header>
 <!-- END: MainHeader -->
 <!-- BEGIN: MobileDockNavigation -->
-<nav class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-xl z-50 glass-dark rounded-full py-2 px-3 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print" data-purpose="mobile-pill-nav" id="nav-dock"><div class="w-full flex items-center justify-between overflow-x-auto gap-1.5 py-1 px-1 scroll-smooth">
-  <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#executive-summary">
-    <span class="">Overview</span>
-  </a>
-  <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#ppp-structure">
-    <span class="">PPP Model</span>
-  </a>
-  <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#technical-circuit">
-    <span class="">Refinery</span>
-  </a>
-  <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#minting-hub">
-    <span class="">Minting</span>
-  </a>
-  <a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#financials">
-    <span class="">Financials</span>
-  </a>
-  <a class="text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono text-gold-400 font-bold bg-gold-500/10 rounded-full border border-gold-500/30 hover:bg-gold-500/20 transition flex-shrink-0" href="#the-ask">
-    <span class="">The Asks</span>
-  </a>
-<a class="text-center px-2 py-1 text-[10px] sm:text-[11px] font-mono text-slate-300 hover:text-gold-300 transition flex-shrink-0 rounded hover:bg-gold-500/10" href="#timeline"><span class="">Timeline</span></a></div></nav>
+<nav class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-xl z-50 glass-dark rounded-full py-2 px-3 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print" data-purpose="mobile-pill-nav" id="nav-dock"><div class="w-full flex items-center justify-between overflow-x-auto gap-1.5 py-1 px-1 scroll-smooth"><a class="nav-dock-pill text-center px-3 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 bg-gold-500/20 text-gold-300 font-bold border border-gold-500/40 shadow-sm" href="#executive-summary" data-target="executive-summary"><span class="">Overview</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#ppp-structure" data-target="ppp-structure"><span class="">PPP Model</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#technical-circuit" data-target="technical-circuit"><span class="">Refinery</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#minting-hub" data-target="minting-hub"><span class="">Minting</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#financials" data-target="financials"><span class="">Financials</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#the-ask" data-target="the-ask"><span class="">The Asks</span></a>
+  <a class="nav-dock-pill text-center px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded-full transition-all flex-shrink-0 text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border border-transparent" href="#timeline" data-target="timeline"><span class="">Timeline</span></a></div></nav>
 <!-- END: MobileDockNavigation -->
 <!-- BEGIN: MainContentContainer -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28 pb-4" id="document-container">
@@ -914,15 +901,15 @@
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">04. Bullion Product Lines &amp; Stamped Minting Specifications</h2>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 <!-- Product Line Catalog -->
-<div class="lg:col-span-7 space-y-4">
+<div class="lg:col-span-7 space-y-4 h-full flex flex-col justify-between">
 <p class="text-sm text-slate-300 leading-relaxed font-light">
             All minted bars bear the official national seal, certified fineness guarantee (99.9% / 999.9 Fine Gold), individualized alpha-numeric laser serial numbering, and are sealed within tamper-evident Certicards featuring invisible UV phosphor thread signatures.
           </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2" data-purpose="product-skus">
+<div class="grid grid-cols-1 sm:grid-cols-2 pt-2 flex-1 gap-4" data-purpose="product-skus">
 <!-- SKU 1: 1 Kilo Cast -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break p-5" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">COMMERCIAL / WHOLESALE</span>
@@ -937,7 +924,7 @@
 </div>
 </div>
 <!-- SKU 2: 100g Minted -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break p-5" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">PREMIUM INVESTMENT</span>
@@ -952,7 +939,7 @@
 </div>
 </div>
 <!-- SKU 3: 1 Troy Oz Minted -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break p-5" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">GLOBAL STANDARD</span>
@@ -967,7 +954,7 @@
 </div>
 </div>
 <!-- SKU 4: 10g & 50g Fractional -->
-<div class="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
+<div class="rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print avoid-break p-5" data-prev-bg="p-4 rounded-xl bg-obsidian-850 border border-gold-500/20 flex flex-col justify-between card-print">
 <div>
 <div class="flex justify-between items-start">
 <span class="text-[11px] font-mono text-gold-400 font-bold">RETAIL FRACTIONAL</span>
@@ -984,31 +971,7 @@
 </div>
 </div>
 <!-- Security & Hallmarking Specifications Card -->
-<div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print avoid-break" data-prev-bg="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 space-y-5 card-print" data-purpose="hallmarking-security-features">
-<div class="flex items-center space-x-2 text-gold-400">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-headline text-lg font-bold text-white">Official Hallmarking &amp; Anti-Counterfeiting</h3>
-</div>
-<div class="space-y-3 text-xs text-slate-300">
-<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
-<span class="font-mono text-gold-300 font-bold block">1. State Ministry Hallmark</span>
-<p class="text-slate-400 font-light">Official certified stamp of the Ministry of Energy &amp; Minerals guaranteeing domestic provenance.</p>
-</div>
-<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
-<span class="font-mono text-gold-300 font-bold block">2. Micro-Engraved Laser Serialization</span>
-<p class="text-slate-400 font-light">Every bar carries an irreproducible laser-etched 8-character serial number recorded on the central registry blockchain ledger.</p>
-</div>
-<div class="p-3 rounded-lg bg-obsidian-900 border border-slate-800 space-y-1">
-<span class="font-mono text-gold-300 font-bold block">3. Blister Certicard with Fluorescent Ink</span>
-<p class="text-slate-400 font-light">Hermetically sealed polycarbonate packaging that fractures visibly upon tampering; embedded with ultraviolet reactive inks.</p>
-</div>
-</div>
-<!-- Purity Guarantee Badge -->
-<div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-between">
-<span class="font-mono text-xs text-gold-300 font-bold">GUARANTEED PURITY TOLERANCE</span>
-<span class="font-mono text-xs font-bold text-white">≥ 999.0 parts / 1,000</span>
-</div>
-</div>
+<div class="lg:col-span-5 rounded-2xl bg-obsidian-850 border border-gold-500/30 p-6 sm:p-7 flex flex-col justify-between h-full card-print avoid-break" data-purpose="hallmarking-security-features"><div class="space-y-5"><div class="flex items-center space-x-2.5 pb-4 border-b border-gold-500/20 text-gold-400"><svg class="w-5 h-5 flex-shrink-0 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="font-headline text-lg font-bold text-white tracking-wide">Institutional Integrity</h3></div><div class="space-y-3.5 text-xs text-slate-300"><div class="p-3.5 rounded-xl bg-obsidian-900 border border-slate-800 space-y-1.5 card-print"><div class="flex items-center justify-between font-mono"><span class="text-gold-300 font-bold block">1. Sovereign Assay &amp; Ministerial Guarantee</span><span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20">MoEM Law</span></div><p class="text-slate-400 font-light leading-relaxed">Official certified assay stamp issued in conjunction with the Ministry of Energy &amp; Minerals, providing statutory proof of domestic provenance and regulatory compliance.</p></div><div class="p-3.5 rounded-xl bg-obsidian-900 border border-slate-800 space-y-1.5 card-print"><div class="flex items-center justify-between font-mono"><span class="text-gold-300 font-bold block">2. Cryptographic Laser Serialization</span><span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20">QR Audit</span></div><p class="text-slate-400 font-light leading-relaxed">Unique microscopic laser-engraved alpha-numeric serial identifier registered directly to the centralized custodial ledger for friction-free institutional trade settlement.</p></div><div class="p-3.5 rounded-xl bg-obsidian-900 border border-slate-800 space-y-1.5 card-print"><div class="flex items-center justify-between font-mono"><span class="text-gold-300 font-bold block">3. Tamper-Evident CertiCard Packaging</span><span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20">UV Phosphor</span></div><p class="text-slate-400 font-light leading-relaxed">Hermetically sealed tamper-evident polymer packaging with multi-spectrum ultraviolet verification and optical security markers, mitigating counterparty physical settlement risk.</p></div></div></div><div class="mt-5 pt-4 border-t border-slate-800/80"><div class="p-3.5 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-between"><span class="font-mono text-[10px] sm:text-xs text-gold-300 font-bold uppercase tracking-wider">Settlement Purity Tolerance</span><span class="font-mono text-xs font-bold text-white">≥ 999.0 AU (LBMA Standard)</span></div></div></div>
 </div>
 </section>
 <!-- END: MintingHubAndProductsSection -->
@@ -1332,4 +1295,61 @@
 
 
 
-</body></html>
+<script data-purpose="dock-scrollspy" class="">
+(function() {
+  const pills = document.querySelectorAll('.nav-dock-pill');
+  if (!pills.length) return;
+
+  const activeClasses = ['bg-gold-500/20', 'text-gold-300', 'font-bold', 'border-gold-500/40', 'shadow-sm'];
+  const inactiveClasses = ['text-slate-400', 'hover:text-gold-300', 'hover:bg-gold-500/10', 'border-transparent'];
+
+  function setActivePill(targetId) {
+    pills.forEach(pill => {
+      const pillTarget = pill.getAttribute('data-target');
+      if (pillTarget === targetId || (targetId === 'hero' && pillTarget === 'executive-summary')) {
+        pill.classList.remove(...inactiveClasses);
+        pill.classList.add(...activeClasses);
+      } else {
+        pill.classList.remove(...activeClasses);
+        pill.classList.add(...inactiveClasses);
+      }
+    });
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const targetId = pill.getAttribute('data-target');
+      setActivePill(targetId);
+    });
+  });
+
+  const sectionIds = ['hero', 'executive-summary', 'ppp-structure', 'technical-circuit', 'minting-hub', 'financials', 'the-ask', 'timeline'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
+      if (visibleEntries.length > 0) {
+        visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        setActivePill(visibleEntries[0].target.id);
+      }
+    }, {
+      rootMargin: '-20% 0px -50% 0px',
+      threshold: [0, 0.25, 0.5, 0.75]
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+  } else {
+    window.addEventListener('scroll', () => {
+      let currentId = 'executive-summary';
+      const scrollPos = window.scrollY + 200;
+      sections.forEach(sec => {
+        if (sec.offsetTop <= scrollPos) {
+          currentId = sec.id;
+        }
+      });
+      setActivePill(currentId);
+    }, { passive: true });
+  }
+})();
+</script></body></html>
