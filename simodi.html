@@ -210,7 +210,7 @@
 
   main > section {
     margin-top: 0 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
     background-color: transparent !important;
     background: transparent !important;
   }
@@ -325,6 +325,8 @@
     margin-top: 0 !important;
     break-before: page !important;
     page-break-before: always !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
   }
   #executive-summary > div.grid {
     gap: 8px !important;
@@ -337,7 +339,11 @@
   }
 
   #ppp-structure {
-    margin-top: 10px !important;
+    margin-top: 12px !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
   }
   #ppp-structure .card-print {
     background-color: #ffffff !important;
@@ -346,12 +352,23 @@
   }
 
   #technical-circuit {
-    break-before: page !important;
-    page-break-before: always !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    margin-top: 14px !important;
+  }
+
+  #technical-circuit .grid.grid-cols-1.lg\:grid-cols-2 {
+    gap: 10px !important;
+  }
+
+  #technical-circuit img {
+    height: 140px !important;
   }
 
   #minting-hub {
-    margin-top: 10px !important;
+    margin-top: 12px !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
   }
 
   #financials {
@@ -678,7 +695,7 @@
 </section>
 <!-- END: HeroCoverSection -->
 <!-- BEGIN: ExecutiveSummarySection -->
-<section class="scroll-mt-24 space-y-6 avoid-break print-page-break-after" data-purpose="section-executive-summary" id="executive-summary">
+<section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-executive-summary" id="executive-summary">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">01. Executive Summary</h2>
@@ -784,11 +801,36 @@
 </div>
 <span class="font-mono text-gold-400 tracking-wider">Shared Governance. Shared Prosperity</span>
 </div>
-</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-700/50">
+  <div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 card-print space-y-2">
+    <div class="flex items-center justify-between text-xs font-mono text-gold-400 font-bold">
+      <span class="">01 / RISK ALLOCATION</span>
+      <span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-300">100% Private CapEx</span>
+    </div>
+    <h4 class="font-headline font-bold text-white text-sm">Zero Sovereign Fiscal Debt</h4>
+    <p class="text-xs text-slate-300 font-light leading-relaxed">The state assumes zero balance-sheet liability or repayment debt. All capital expenditures, machinery procurement, and working capital risk are borne entirely by the strategic investor.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 card-print space-y-2">
+    <div class="flex items-center justify-between text-xs font-mono text-gold-400 font-bold">
+      <span class="">02 / DOMESTIC EMPOWERMENT</span>
+      <span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-300">Knowledge Transfer</span>
+    </div>
+    <h4 class="font-headline font-bold text-white text-sm">National Talent Development</h4>
+    <p class="text-xs text-slate-300 font-light leading-relaxed">Establishment of a specialized metallurgical training program in Hargeisa to upskill domestic chemists, assay analysts, and security technicians over the initial 36-month ramp-up.</p>
+  </div>
+  <div class="p-4 rounded-xl bg-obsidian-900 border border-gold-500/20 card-print space-y-2">
+    <div class="flex items-center justify-between text-xs font-mono text-gold-400 font-bold">
+      <span class="">03 / SOVEREIGN STEWARDSHIP</span>
+      <span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-300">Protected Equity</span>
+    </div>
+    <h4 class="font-headline font-bold text-white text-sm">10% Guaranteed Free Carry</h4>
+    <p class="text-xs text-slate-300 font-light leading-relaxed">The Ministry's equity stake is protected by statutory decree against dilution in subsequent funding rounds, guaranteeing direct treasury participation in all commercial dividends.</p>
+  </div>
+</div></div>
 </section>
 <!-- END: PPPStructureSection -->
 <!-- BEGIN: TechnicalCircuitSection -->
-<section class="scroll-mt-24 space-y-8 avoid-break print-page-break-after" data-purpose="section-technical-circuit" id="technical-circuit">
+<section class="scroll-mt-24 space-y-8 avoid-break" data-purpose="section-technical-circuit" id="technical-circuit">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">03. Technical and Operational Proposal</h2>
@@ -1269,6 +1311,8 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
 
 
 
