@@ -115,7 +115,7 @@
 <!-- END: Custom Executive Styles -->
 <style data-purpose="refined-print-rules" id="refined-print-overrides" class="">@page {
   size: A4 portrait;
-  margin: 12mm 14mm 14mm 14mm;
+  margin: 10mm 12mm 12mm 12mm;
   @top-center {
     content: "PROJECT SIMODI — STATE GOLD REFINERY";
     font-family: 'JetBrains Mono', monospace;
@@ -159,6 +159,7 @@
 
   html, body {
     width: 100% !important;
+    height: 100% !important;
     min-height: 100% !important;
     background-color: #fcfbf7 !important;
     background: #fcfbf7 !important;
@@ -176,7 +177,6 @@
     box-sizing: border-box !important;
   }
 
-  /* Eliminate all dark obsidian backgrounds, dark containers, and glow blobs in print */
   .bg-obsidian-950,
   .bg-obsidian-900,
   .bg-obsidian-850,
@@ -200,9 +200,11 @@
   }
 
   #hero {
-    padding: 22px 24px !important;
-    margin-bottom: 0 !important;
-    min-height: 250mm !important;
+    padding: 22px 24px 20px 24px !important;
+    margin: 0 !important;
+    height: calc(297mm - 28mm) !important;
+    min-height: calc(297mm - 28mm) !important;
+    max-height: calc(297mm - 28mm) !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -210,9 +212,18 @@
     background-color: #ffffff !important;
     background: #ffffff !important;
     border: 1.5px solid #d4af37 !important;
+    border-radius: 16px !important;
     box-shadow: none !important;
     break-after: page !important;
     page-break-after: always !important;
+    overflow: hidden !important;
+  }
+  #hero > .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
   }
   #hero h1 {
     font-size: 24pt !important;
@@ -223,12 +234,12 @@
   #hero p {
     font-size: 9.5pt !important;
     line-height: 1.42 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 8px !important;
     color: #374151 !important;
   }
   #hero [data-purpose="hero-kpi-grid"] {
     gap: 8px !important;
-    padding-top: 4px !important;
+    padding-top: 2px !important;
   }
   #hero [data-purpose="hero-kpi-grid"] > div {
     padding: 8px 10px !important;
@@ -242,25 +253,32 @@
     color: #92400e !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] {
-    margin-top: 10px !important;
+    margin-top: 8px !important;
     width: 100% !important;
     flex: 1 1 auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: stretch !important;
     background: transparent !important;
+    min-height: 145mm !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] > div {
     background-color: #fdfbf7 !important;
     background: #fdfbf7 !important;
     border-color: #d4af37 !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
   #hero img {
-    height: 108mm !important;
-    max-height: 115mm !important;
+    height: 140mm !important;
+    min-height: 135mm !important;
+    max-height: 150mm !important;
     width: 100% !important;
     object-fit: cover !important;
     border-radius: 6px !important;
+    flex: 1 1 auto !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] .bg-gradient-to-t {
     display: none !important;
@@ -325,7 +343,6 @@
     border: 1px solid #e5e7eb !important;
   }
 
-  /* Financial Sensitivity Tables: Full Visibility & Clean Ivory Print Theming */
   [data-purpose="gold-price-sensitivity-table"],
   [data-purpose="capex-irr-payback-sensitivity-table"] {
     display: block !important;
@@ -480,7 +497,6 @@
     color: #1f2937 !important;
   }
 
-  /* Consistent High-Contrast Text across all cards */
   p, span, li, h1, h2, h3, h4 {
     color: inherit;
   }
@@ -520,7 +536,7 @@
   .border-slate-800\/80 {
     border-color: #e5e7eb !important;
   }
-}</style><style data-purpose="print-nav-dock-hide">@media print { #nav-dock, [data-purpose="mobile-pill-nav"], #bottom-nav, .bottom-nav, nav.fixed, div.fixed.bottom-0, nav[class*="bottom-"] { display: none !important; visibility: hidden !important; opacity: 0 !important; } }</style></head>
+}</style><style data-purpose="print-nav-dock-hide" class="">@media print { #nav-dock, [data-purpose="mobile-pill-nav"], #bottom-nav, .bottom-nav, nav.fixed, div.fixed.bottom-0, nav[class*="bottom-"] { display: none !important; visibility: hidden !important; opacity: 0 !important; } }</style></head>
 <body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
 <!-- BEGIN: MainHeader -->
 <header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all" data-purpose="executive-header">
@@ -645,44 +661,37 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Scope Card -->
-<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
-<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print"><div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
             01
           </div>
 <h3 class="font-headline text-lg font-bold text-gold-200">The Project Vision</h3>
-<p class="text-sm text-slate-300 leading-relaxed font-light">Proposed Simodi Gold Refinery inaugurates the primary domestic precious metals refining hub in the Horn of Africa. The state facility integrates fire assay verification, chemical aqua regia hydrometallurgy, high-frequency induction smelting, and hydraulic stamped minting.</p>
+<p class="text-sm text-slate-300 leading-relaxed font-light">The Proposed Simodi Gold refinery establishes premier institutional precious metals refining and vaulting infrastructure in the Horn of Africa, processing 12 MT per annum of certified 99.9% fine investment bullion under international LBMA and DMCC operational benchmarks.</p>
 <ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
-<li class="">• Location: Presidency Way district, Hargeisa</li>
-<li class="">• Total Compound: 1,600 m² High-Security Complex</li>
-<li class="">• 3 MT Reinforced Heavy Vault Capacity</li>
-</ul>
-</div>
+<li class="">• Facility: 1,600 m² fortified complex on Presidency Way</li>
+<li class="">• Refining: 50kW induction furnace &amp; glass-lined digestion</li>
+<li class="">• Storage: 3 MT high-security reinforced biometric vault</li>
+</ul></div>
 <!-- Economic Value Capture -->
-<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
-<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print"><div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
             02
           </div>
 <h3 class="font-headline text-lg font-bold text-gold-200">National Value Capture</h3>
-<p class="text-sm text-slate-300 leading-relaxed font-light">
-            Transitioning the state from an unrefined, informal doré exporter to an accredited hub. Formalizing artisanal miners (ASM), eradicating unmonitored border smuggling, and unlocking national gold reserve monetization for the Central Bank.
-          </p>
+<p class="text-sm text-slate-300 leading-relaxed font-light">Transitioning the state from an unrefined, informal doré exporter to an accredited gold mining and production country. Formalizing artisanal and small scale miners (ASM), creating traceability, eradicating unmonitored border smuggling, and unlocking national gold reserve monetization for the Central Bank</p>
 <ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
-<li class="">• 12 MT annual baseline refining output</li>
-<li class="">• Formalized domestic artisanal miner buyback</li>
-<li class="">• Direct national bullion reserve accumulation</li>
-</ul>
-</div>
+<li class="">• 12 MT / annum baseline commercial refining throughput</li>
+<li class="">• Structured liquidity and institutional aggregation for ASM miners</li>
+<li class="">• Sovereign bullion reserve accretion and Central Bank monetization</li>
+</ul></div>
 <!-- Global Offtake -->
-<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print">
-<div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">
-            03
-          </div>
+<div class="rounded-2xl p-6 bg-obsidian-800/70 border border-gold-500/20 space-y-3 card-print"><div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-bold font-mono">03</div>
 <h3 class="font-headline text-lg font-bold text-gold-200">International Liquidity &amp; Off-Take</h3>
-<p class="text-sm text-slate-300 leading-relaxed font-light">
-            Guaranteed export off-take channel connecting directly into Dubai Multi Commodities Centre (DMCC) and global London Bullion Market Association (LBMA) compliant trading desks with bonded high-security air transport links.
-          </p>
-<ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3"><li class="">• Direct Dubai &amp; Saudi Arabia refinery counter-parties</li><li class="">• Revolving USD 25M instant buyback liquidity float</li><li class="">• Tamper-evident secure packaging with UV authenticity</li></ul>
-</div>
+<p class="text-sm text-slate-300 leading-relaxed font-light">Direct wholesale export corridors into primary Tier-1 GCC bullion hubs (Dubai DMCC &amp; Saudi Arabia), establishing sovereign-backed commercial conduits with structured bonded vaulting logistics, rapid multi-currency clearing, and institutional off-take guarantees.</p>
+<ul class="text-xs text-gold-300 space-y-1.5 font-mono p-2.5 rounded-lg bg-gold-500/10 border border-gold-500/30 mt-3">
+<li class="">• Direct Tier-1 UAE (DMCC) &amp; Saudi institutional off-take channels</li>
+<li class="">• Scalable air-freight export corridors to Indian, Turkish &amp; Asian bourses</li>
+<li class="">• Revolving $25M instant buyback liquidity float with 72-hr settlement</li>
+
+</ul></div>
 </div>
 </section>
 <!-- END: ExecutiveSummarySection -->
@@ -810,19 +819,13 @@
           </div>
 </div>
 <!-- Step 3 -->
-<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
-<div class="flex items-center justify-between font-mono">
+<div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print"><div class="flex items-center justify-between font-mono">
 <span class="text-xs text-gold-400 font-bold">STATION 03</span>
 <span class="text-[10px] px-2 py-0.5 rounded bg-gold-500/10 text-gold-300">Hydrometallurgy</span>
 </div>
 <h4 class="font-headline font-bold text-white text-base">Aqua Regia &amp; Refining</h4>
-<p class="text-xs text-slate-300 font-light leading-relaxed">
-            Digestion inside enclosed 800L glass-lined chemical reactors (HCl + HNO3). Selective reduction with Sodium Metabisulfite (SMBS) precipitating pure 99.95%+ gold mud with zero emission scrubbers.
-          </p>
-<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
-            Tech: 800L Aqua Regia • SMBS Precipitation • Scrubber
-          </div>
-</div>
+<p class="text-xs text-slate-300 font-light leading-relaxed">Chemical digestion in titanium reactors (300L total capacity) across two operational shifts, delivering 50 kg/day pure gold sponge via selective SMBS reduction with zero-emission gas scrubber containment.</p>
+<div class="pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">Tech: Titanium Reactors (300L) • 50 kg/Day • SMBS Precipitation • Gas Scrubber</div></div>
 <!-- Step 4 -->
 <div class="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print" data-prev-bg="p-5 rounded-2xl bg-obsidian-850 border border-gold-500/20 space-y-3 hover:border-gold-500/40 transition card-print">
 <div class="flex items-center justify-between font-mono">
@@ -950,7 +953,7 @@
 <section class="scroll-mt-24 space-y-6 avoid-break" data-purpose="section-financials" id="financials">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
-<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">05. Capital Structure &amp; Deployment Plan ($30M Total)</h2>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">05. Capital Structure &amp; Deployment Plan</h2>
 </div>
 <!-- High Level Budget Breakdown -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1211,7 +1214,7 @@
 <section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
-<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Executive Asks &amp; Statutory Decrees</h2>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Ask</h2>
 </div>
 <div class="space-y-4">
 <p class="text-sm text-slate-300 leading-relaxed font-light">
@@ -1402,6 +1405,10 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
+
+
 
 
 
