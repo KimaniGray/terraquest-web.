@@ -138,6 +138,22 @@
 }
 
 @media print {
+  header,
+  nav,
+  [data-purpose="executive-header"],
+  #nav-dock,
+  [data-purpose="mobile-pill-nav"],
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    top: -9999px !important;
+  }
+
   .print-page-break-after {
     page-break-after: always !important;
     break-after: page !important;
@@ -200,11 +216,10 @@
   }
 
   #hero {
-    padding: 22px 24px 20px 24px !important;
+    padding: 20px 24px 20px 24px !important;
     margin: 0 !important;
-    height: calc(297mm - 28mm) !important;
-    min-height: calc(297mm - 28mm) !important;
-    max-height: calc(297mm - 28mm) !important;
+    height: calc(297mm - 26mm) !important;
+    min-height: 260mm !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -222,6 +237,7 @@
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
+    flex-grow: 1 !important;
     justify-content: space-between !important;
     gap: 12px !important;
   }
@@ -252,33 +268,38 @@
     line-height: 1.2 !important;
     color: #92400e !important;
   }
-  #hero [data-purpose="hero-stamped-gold-asset"] {
+  #hero [data-purpose="hero-stamped-gold-asset"],
+  #hero [data-purpose="hero-gold-asset-container"] {
     margin-top: 8px !important;
     width: 100% !important;
-    flex: 1 1 auto !important;
+    flex-grow: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: stretch !important;
     background: transparent !important;
-    min-height: 145mm !important;
+    height: 135mm !important;
+    min-height: 120mm !important;
   }
-  #hero [data-purpose="hero-stamped-gold-asset"] > div {
+  #hero [data-purpose="hero-stamped-gold-asset"] > div,
+  #hero [data-purpose="hero-gold-asset-container"] > div {
     background-color: #fdfbf7 !important;
     background: #fdfbf7 !important;
     border-color: #d4af37 !important;
     height: 100% !important;
+    width: 100% !important;
+    flex-grow: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
   }
   #hero img {
-    height: 140mm !important;
-    min-height: 135mm !important;
-    max-height: 150mm !important;
+    height: 100% !important;
+    min-height: 120mm !important;
     width: 100% !important;
     object-fit: cover !important;
+    object-position: center !important;
     border-radius: 6px !important;
-    flex: 1 1 auto !important;
+    flex-grow: 1 !important;
   }
   #hero [data-purpose="hero-stamped-gold-asset"] .bg-gradient-to-t {
     display: none !important;
@@ -444,10 +465,13 @@
     font-weight: 700 !important;
   }
 
-  #executive-asks {
+  #executive-asks,
+  #section-06,
+  [data-purpose="section-executive-asks"],
+  [data-purpose="section-06-container"] {
     break-before: auto !important;
     page-break-before: auto !important;
-    margin-top: 12px !important;
+    margin-top: 1.5rem !important;
     padding-top: 0 !important;
   }
   #executive-asks .card-print {
@@ -539,7 +563,7 @@
 }</style><style data-purpose="print-nav-dock-hide" class="">@media print { #nav-dock, [data-purpose="mobile-pill-nav"], #bottom-nav, .bottom-nav, nav.fixed, div.fixed.bottom-0, nav[class*="bottom-"] { display: none !important; visibility: hidden !important; opacity: 0 !important; } }</style></head>
 <body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200">
 <!-- BEGIN: MainHeader -->
-<header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all" data-purpose="executive-header">
+<header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all no-print" data-purpose="executive-header">
 <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
 <!-- Brand Seal & Project ID -->
 <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
@@ -1047,171 +1071,11 @@
 <span class="text-[9px] text-slate-500 block">Chemists &amp; Engineers</span>
 </div>
 </div>
-<div class="mt-4 pt-4 border-t border-slate-700/60 rounded-xl bg-obsidian-900/90 p-4 border border-gold-500/20 text-xs text-slate-300 space-y-2.5 card-print avoid-break"><div class="flex items-center space-x-2 text-gold-300 font-mono font-semibold"><svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="text-[11px] sm:text-xs tracking-wide uppercase">* Methodology &amp; Toll Refining Fee Breakdown (1.2% – 1.8%)</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] leading-relaxed"><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">1. Base Throughput &amp; Spot Value</span><p class="text-slate-300 font-light">On 12 MT annual throughput (~385,800 troy oz) valued at $960M – $1.15B based on prevailing $2,500 – $3,000/oz gold benchmark.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">2. Gross Toll Refining Revenue</span><p class="text-slate-300 font-light">A 1.20% – 1.80% commercial tolling/refining fee generates $11.52M – $20.70M in predictable gross annual refining service revenue.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">3. Operating Costs &amp; Net Margins</span><p class="text-slate-300 font-light">Operating expenditures encompass power, chemical reagents (aqua regia, smelting flux), armed transit security, insurance, and laboratory certification.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">4. Sovereign Dividend Participation</span><p class="text-slate-300 font-light">The State (MoEM) 10% statutory free carry captures $1.15M – $2.07M (~$1.2M – $2.1M) in annual net sovereign treasury cash flow, exempt from CapEx debt burdens.</p></div></div></div><div class="card-print avoid-break mt-4 rounded-xl border border-gold-500/20 bg-obsidian-900/90 p-3 sm:p-3.5 backdrop-blur space-y-2.5" data-purpose="gold-price-sensitivity-table">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-gold-500/20 pb-2">
-<div class="flex items-center space-x-2 text-gold-300">
-<svg class="w-3.5 h-3.5 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h4 class="font-headline font-bold text-white text-xs sm:text-sm">Gold Price Sensitivity Analysis (12 MT / 385,800 oz Baseline)</h4>
-</div>
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 w-fit">
-      Sensitivity Band: $2,200 – $3,200 / oz
-    </span>
-</div>
-<div class="overflow-x-auto rounded-lg border border-slate-800 -mx-1 sm:mx-0">
-<table class="w-full text-left font-mono min-w-[540px]">
-<thead class="bg-obsidian-850 text-gold-300 uppercase tracking-wider border-b border-gold-500/20 text-[9px] sm:text-[10px]">
-<tr>
-<th class="py-2 px-2 text-left whitespace-nowrap">Spot Price ($/oz)</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Gross Value (12 MT)</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Refining Rev @ 1.20%</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Refining Rev @ 1.80%</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">MoEM 10% Free Carry (Est.)</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-800 text-slate-300 text-[10px] leading-tight">
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">$2,200 / oz</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">$848.8M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$10.19M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$15.28M</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.02M – $1.53M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">$2,400 / oz</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">$925.9M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$11.11M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$16.67M</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.11M – $1.67M</td>
-</tr>
-<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
-<td class="py-1.5 px-2 font-bold text-gold-200 flex items-center space-x-1.5 whitespace-nowrap">
-<span class="">$2,600 / oz</span>
-<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Base</span>
-</td>
-<td class="py-1.5 px-2 text-right font-bold text-white whitespace-nowrap">$1,003.1M</td>
-<td class="py-1.5 px-2 text-right text-gold-200 whitespace-nowrap">$12.04M</td>
-<td class="py-1.5 px-2 text-right text-gold-200 whitespace-nowrap">$18.06M</td>
-<td class="py-1.5 px-2 text-right font-bold text-gold-300 whitespace-nowrap">$1.20M – $1.81M</td>
-</tr>
-<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
-<td class="py-1.5 px-2 font-bold text-gold-200 flex items-center space-x-1.5 whitespace-nowrap">
-<span class="">$2,800 / oz</span>
-<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Current</span>
-</td>
-<td class="py-1.5 px-2 text-right font-bold text-white whitespace-nowrap">$1,080.2M</td>
-<td class="py-1.5 px-2 text-right text-gold-200 whitespace-nowrap">$12.96M</td>
-<td class="py-1.5 px-2 text-right text-gold-200 whitespace-nowrap">$19.44M</td>
-<td class="py-1.5 px-2 text-right font-bold text-gold-300 whitespace-nowrap">$1.30M – $1.94M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">$3,000 / oz</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">$1,157.4M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$13.89M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$20.83M</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.39M – $2.08M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">$3,200 / oz</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">$1,234.6M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$14.82M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">$22.22M</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.48M – $2.22M</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="text-[9px] text-slate-400 font-mono tracking-wide leading-tight mt-1 mb-0.5">
-    Note: Toll margins (1.2%–1.8%) and the Ministry of Energy &amp; Minerals 10% statutory free carry dividend rights remain non-dilutable under the 90/10 Public-Private Partnership agreement across all spot price scenarios.
-  </p>
-</div><div class="card-print avoid-break mt-4 rounded-xl border border-gold-500/20 bg-obsidian-900/90 p-3 sm:p-3.5 backdrop-blur space-y-2.5" data-purpose="capex-irr-payback-sensitivity-table">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-gold-500/20 pb-2">
-<div class="flex items-center space-x-2 text-gold-300">
-<svg class="w-3.5 h-3.5 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h4 class="font-headline font-bold text-white text-xs sm:text-sm">CapEx IRR &amp; Payback Period Sensitivity Analysis (Throughput Scenarios)</h4>
-</div>
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 w-fit">
-      Turnkey CapEx: $5.0M Base
-    </span>
-</div>
-<div class="overflow-x-auto rounded-lg border border-slate-800 -mx-1 sm:mx-0">
-<table class="w-full text-left font-mono min-w-[560px]">
-<thead class="bg-obsidian-850 text-gold-300 uppercase tracking-wider border-b border-gold-500/20 text-[9px] sm:text-[10px]">
-<tr>
-<th class="py-2 px-2 text-left whitespace-nowrap">Throughput Scenario</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Annual Net Op Cash Flow</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Project IRR</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">Simple Payback</th>
-<th class="py-2 px-2 text-right whitespace-nowrap">MoEM Statutory Div</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-800 text-slate-300 text-[10px] leading-tight">
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">
-<div class="">Conservative / Ramp-Up</div>
-<span class="text-[9px] text-slate-400 font-sans block">6 MT / a (50% Utilization)</span>
-</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">~$4.8M – $6.5M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 font-semibold whitespace-nowrap">38.4%</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">~1.4 Years</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$0.6M – $0.9M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">
-<div class="">Moderate Operations</div>
-<span class="text-[9px] text-slate-400 font-sans block">9 MT / a (75% Utilization)</span>
-</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">~$7.2M – $9.8M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 font-semibold whitespace-nowrap">54.2%</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">~1.0 Year</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$0.9M – $1.4M</td>
-</tr>
-<tr class="bg-gold-500/10 border-l-2 border-gold-400 hover:bg-gold-500/20 transition-colors">
-<td class="py-1.5 px-2 font-bold text-gold-200 whitespace-nowrap">
-<div class="flex items-center space-x-1.5">
-<span class="">Baseline Design Capacity</span>
-<span class="px-1.5 py-0.2 rounded text-[8px] bg-gold-400 text-obsidian-950 font-bold uppercase tracking-wider">Base Case</span>
-</div>
-<span class="text-[9px] text-gold-300/80 font-sans font-normal block">12 MT / a (100% Utilization)</span>
-</td>
-<td class="py-1.5 px-2 text-right font-bold text-white whitespace-nowrap">~$9.8M – $13.5M</td>
-<td class="py-1.5 px-2 text-right font-bold text-gold-200 whitespace-nowrap">71.6%</td>
-<td class="py-1.5 px-2 text-right font-bold text-gold-200 whitespace-nowrap">~0.8 Years (~9.5 Mo)</td>
-<td class="py-1.5 px-2 text-right font-bold text-gold-300 whitespace-nowrap">$1.2M – $2.1M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">
-<div class="">Optimized Expansion</div>
-<span class="text-[9px] text-slate-400 font-sans block">15 MT / a (125% Debottlenecked)</span>
-</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">~$12.5M – $17.2M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 font-semibold whitespace-nowrap">88.3%</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">~0.6 Years (~7.5 Mo)</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.5M – $2.6M</td>
-</tr>
-<tr class="hover:bg-gold-500/5 transition-colors">
-<td class="py-1.5 px-2 font-semibold text-white whitespace-nowrap">
-<div class="">Phase II Scaled Capacity</div>
-<span class="text-[9px] text-slate-400 font-sans block">18 MT / a (150% Utilization)</span>
-</td>
-<td class="py-1.5 px-2 text-right text-slate-200 whitespace-nowrap">~$15.1M – $20.8M</td>
-<td class="py-1.5 px-2 text-right text-slate-300 font-semibold whitespace-nowrap">104.5%</td>
-<td class="py-1.5 px-2 text-right text-slate-300 whitespace-nowrap">~0.5 Years (~6 Mo)</td>
-<td class="py-1.5 px-2 text-right font-semibold text-gold-300 whitespace-nowrap">$1.8M – $3.1M</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80 space-y-1 text-[10px] leading-snug">
-<span class="font-mono font-bold text-gold-300 block mb-0.5 text-[11px]">Executive Takeaways &amp; Investment Security:</span>
-<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Basis:</span> Calculated against NorthRock Capital's $5.0M fixed turnkey CapEx investment at prevailing 1.50% median toll margin and $2,600/oz gold benchmark.</p>
-<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Rapid Capital Recovery:</span> Sub-12-month payback across all throughput levels at or above 9 MT demonstrates minimal CapEx downside risk, supported by the dedicated $25M revolving liquidity facility.</p>
-<p class="text-slate-300 font-light"><span class="font-mono text-gold-200 font-semibold">• Sovereign Free Carry:</span> MoEM's 10% non-dilutable dividend is fully insulated from capital payback timing, providing immediate revenue from Year 1 commissioning.</p>
-</div>
-</div></div>
+<div class="mt-4 pt-4 border-t border-slate-700/60 rounded-xl bg-obsidian-900/90 p-4 border border-gold-500/20 text-xs text-slate-300 space-y-2.5 card-print avoid-break"><div class="flex items-center space-x-2 text-gold-300 font-mono font-semibold"><svg class="w-4 h-4 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><span class="text-[11px] sm:text-xs tracking-wide uppercase">* Methodology &amp; Toll Refining Fee Breakdown (1.2% – 1.8%)</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] leading-relaxed"><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">1. Base Throughput &amp; Spot Value</span><p class="text-slate-300 font-light">On 12 MT annual throughput (~385,800 troy oz) valued at $960M – $1.15B based on prevailing $2,500 – $3,000/oz gold benchmark.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">2. Gross Toll Refining Revenue</span><p class="text-slate-300 font-light">A 1.20% – 1.80% commercial tolling/refining fee generates $11.52M – $20.70M in predictable gross annual refining service revenue.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">3. Operating Costs &amp; Net Margins</span><p class="text-slate-300 font-light">Operating expenditures encompass power, chemical reagents (aqua regia, smelting flux), armed transit security, insurance, and laboratory certification.</p></div><div class="p-2.5 rounded-lg bg-obsidian-850/80 border border-slate-800/80"><span class="font-mono font-bold text-gold-300 block mb-0.5">4. Sovereign Dividend Participation</span><p class="text-slate-300 font-light">The State (MoEM) 10% statutory free carry captures $1.15M – $2.07M (~$1.2M – $2.1M) in annual net sovereign treasury cash flow, exempt from CapEx debt burdens.</p></div></div></div></div>
 </section>
 <!-- END: CapitalRequirementsSection -->
 <!-- BEGIN: ExecutiveAsksAndIncentivesSection -->
-<section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="executive-asks">
+<section class="scroll-mt-24 space-y-6" data-purpose="section-executive-asks" id="section-06">
 <div class="flex items-center space-x-3 border-b border-gold-500/20 pb-3">
 <div class="w-2 h-6 bg-gold-400 rounded-sm"></div>
 <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-wide">06. The Ask</h2>
@@ -1405,6 +1269,10 @@
     });
   </script>
 <!-- END: InteractiveScripts -->
+
+
+
+
 
 
 
