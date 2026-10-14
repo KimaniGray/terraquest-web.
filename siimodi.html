@@ -579,41 +579,40 @@
     border-color: #e5e7eb !important;
   }
 }</style><style data-purpose="print-nav-dock-hide" class="">@media print { #nav-dock, [data-purpose="mobile-pill-nav"], #bottom-nav, .bottom-nav, nav.fixed, div.fixed.bottom-0, nav[class*="bottom-"] { display: none !important; visibility: hidden !important; opacity: 0 !important; } }</style></head>
-<body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200" style="cursor: grabbing; user-select: none;">
+<body class="transition-colors duration-300 selection:bg-gold-500 selection:text-obsidian-950 font-body bg-obsidian-900 text-slate-200 overflow-x-hidden" style="cursor: grabbing; user-select: none;">
 <!-- BEGIN: MainHeader -->
-<header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all no-print" data-purpose="executive-header">
-<div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
-<!-- Brand Seal & Project ID -->
-<div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
-<div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gold-400/40 bg-obsidian-800 flex items-center justify-center shadow-gold-glow flex-shrink-0">
-<span class="font-headline font-bold text-gold-400 text-sm sm:text-lg tracking-wider">PS</span>
-</div>
-<div class="min-w-0 space-y-1">
-<div class="flex items-center space-x-2.5 sm:space-x-3">
-<span class="font-headline font-bold tracking-wider sm:tracking-widest text-xs sm:text-sm text-gold-200 uppercase truncate">Project Siimodi</span>
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 flex-shrink-0">CONFIDENTIAL</span>
-</div>
-<p class="text-[10px] sm:text-xs text-slate-400 font-mono hidden sm:block truncate tracking-wide leading-normal">Gold Refining Facility • Executive Presentation</p>
-</div>
-</div>
-<!-- Quick Action Toolset -->
-<div class="flex items-center space-x-1.5 sm:space-x-3 flex-shrink-0">
-<!-- View Mode Switcher -->
-
-<!-- Print Tone Toggle: Ivory Print vs Dark Obsidian -->
-
-<!-- PDF Export Button -->
-<button class="px-2 py-1.5 sm:px-3.5 sm:py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-[11px] sm:text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1 sm:space-x-1.5" data-purpose="pdf-export-trigger" onclick="window.print()">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<span class="hidden sm:inline">Export PDF</span>
-<span class="sm:hidden">PDF</span>
-</button>
-</div>
-</div>
-</header>
+<header class="sticky top-0 z-50 w-full glass-dark border-b border-gold-500/20 px-3 py-2 sm:px-6 sm:py-3 transition-all no-print" data-purpose="executive-header"><div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+  <div class="flex items-center space-x-2.5 sm:space-x-4 min-w-0 flex-1">
+    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gold-400/40 bg-obsidian-800 flex items-center justify-center shadow-gold-glow flex-shrink-0">
+      <span class="font-headline font-bold text-gold-400 text-xs sm:text-lg tracking-wider">PS</span>
+    </div>
+    <div class="min-w-0 space-y-0.5 sm:space-y-1">
+      <div class="flex items-center space-x-1.5 sm:space-x-3">
+        <span class="font-headline font-bold tracking-wider sm:tracking-widest text-xs sm:text-sm text-gold-200 uppercase truncate">Project Siimodi</span>
+        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] sm:text-[10px] font-mono tracking-wider font-semibold bg-gold-500/10 text-gold-300 border border-gold-500/30 flex-shrink-0">CONFIDENTIAL</span>
+      </div>
+      <p class="text-[9px] sm:text-xs text-slate-400 font-mono hidden sm:block truncate tracking-wide leading-normal">Gold Refining Facility • Executive Presentation</p>
+    </div>
+  </div>
+  <div class="flex items-center flex-shrink-0 ml-2">
+    <button class="px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-md bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-obsidian-950 font-bold text-[10px] sm:text-xs tracking-wider uppercase hover:shadow-gold-glow transition flex items-center space-x-1 sm:space-x-1.5 shadow-sm active:scale-95" data-purpose="pdf-export-trigger" onclick="window.print()">
+      <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      <span class="hidden sm:inline">Export PDF</span>
+      <span class="sm:hidden">Export PDF</span>
+    </button>
+  </div>
+</div></header>
 <!-- END: MainHeader -->
 <!-- BEGIN: MobileDockNavigation -->
-<nav class="fixed bottom-4 inset-x-0 mx-auto z-50 glass-dark rounded-2xl p-1.5 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print w-[calc(100%-1.5rem)] max-w-lg px-2" data-purpose="mobile-pill-nav" id="nav-dock"><div class="flex items-center justify-between w-full gap-1"><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border bg-gold-500/20 text-gold-300 font-bold border-gold-500/40 shadow-sm" href="#executive-summary" data-target="executive-summary"><span class="">Overview</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#ppp-structure" data-target="ppp-structure"><span class="">PPP</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#technical-circuit" data-target="technical-circuit"><span class="">Plant</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#minting-hub" data-target="minting-hub"><span class="">Mint</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#financials" data-target="financials"><span class="">Finance</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#timeline" data-target="timeline"><span class="">Timeline</span></a><a class="nav-dock-pill flex-1 text-center py-1.5 px-1 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all truncate border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#the-ask" data-target="the-ask"><span class="">Ask</span></a></div></nav>
+<nav class="fixed bottom-4 inset-x-0 mx-auto z-50 glass-dark rounded-2xl p-1.5 border border-gold-500/30 shadow-2xl flex items-center justify-between no-print w-[calc(100%-1.5rem)] max-w-lg px-2" data-purpose="mobile-pill-nav" id="nav-dock"><div class="flex items-center justify-between sm:justify-center w-full gap-1 overflow-x-auto custom-scrollbar py-0.5 px-0.5 scroll-smooth">
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border bg-gold-500/20 text-gold-300 font-bold border-gold-500/40 shadow-sm" href="#executive-summary" data-target="executive-summary"><span class="">Overview</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#ppp-structure" data-target="ppp-structure"><span class="">PPP</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#technical-circuit" data-target="technical-circuit"><span class="">Plant</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#minting-hub" data-target="minting-hub"><span class="">Mint</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#financials" data-target="financials"><span class="">Finance</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#timeline" data-target="timeline"><span class="">Timeline</span></a>
+  <a class="nav-dock-pill flex-shrink-0 text-center py-1 px-2 text-[10px] sm:text-[11px] font-mono rounded-xl transition-all border text-slate-400 hover:text-gold-300 hover:bg-gold-500/10 border-transparent" href="#the-ask" data-target="the-ask"><span class="">Ask</span></a>
+</div></nav>
 <!-- END: MobileDockNavigation -->
 <!-- BEGIN: MainContentContainer -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16 pb-28 pb-4" id="document-container">
@@ -630,7 +629,7 @@
 <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light pt-2">A proposed Public-Private Partnership (PPP) to establish Somaliland's first institutional gold refining and minting facility. The project finances and operates a 12 MT/annum refinery in Hargeisa to convert domestic dore into 99.9% fine bullion, securing direct institutional off-take with Tier-1 GCC liquidity hubs and establishing national central bank gold reserves.</p>
 </div>
 <!-- Executive Micro-Metrics Grid (2x2 on mobile, 4-col on desktop) -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4 font-mono border-t border-gold-500/20" data-purpose="hero-kpi-grid">
+<div class="grid grid-cols-2 gap-3 sm:gap-4 pt-4 font-mono border-t border-gold-500/20 md:grid-cols-3" data-purpose="hero-kpi-grid">
 <div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
 <span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Total Allocation</span>
 <span class="text-base sm:text-xl font-bold text-gold-300 block my-1">$30,000,000</span>
@@ -646,21 +645,17 @@
 <span class="text-base sm:text-xl font-bold text-gold-300 block my-1">99.9% AU</span>
 <span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">Fine Bullion Spec</span>
 </div>
-<div class="p-3 sm:p-4 rounded-xl bg-obsidian-800/80 border border-gold-500/20 card-print flex flex-col justify-between space-y-1">
-<span class="text-[9px] sm:text-[10px] uppercase text-slate-400 block font-sans tracking-wide truncate">Investment Structure</span>
-<span class="text-base sm:text-xl font-bold text-gold-300 block my-1">Permanent</span>
-<span class="text-[8px] sm:text-[9px] text-slate-500 block leading-tight truncate">Capital Model</span>
-</div>
+
 </div>
 </div>
 <!-- Featured Stamped Product Asset -->
 <div class="lg:col-span-5 relative w-full h-full flex flex-col justify-stretch" data-purpose="hero-stamped-gold-asset">
-<div class="relative group rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950 w-full h-full flex flex-col justify-between min-h-[500px] lg:min-h-[560px]">
+<div class="relative group rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gold-400/40 shadow-2xl bg-obsidian-950 w-full h-72 sm:h-96 lg:h-full lg:min-h-[560px] flex flex-col justify-between">
 <img alt="Macro cinematic editorial photograph of a premium certified 1000g pure 99.9% fine gold bullion ingot bar, portrait orientation filling the frame" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 rounded-xl flex-1" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE7JoYo12Gvj1Gffq8-ZkQAB4qN_DQrn-dBWVvDbM_zVU8UfcUEhQHfisQuN8PLFPWOQMUJELw7zjW_0Ktcxl7CoD1NUCctG-_TDqZwDFcq3cSoM9_xfCbXUa23waMwslWP2v6_gMPk8JTDWCzoy1lehYtpV7EKR-S19KaUAPFCeR0WQ2FW6H8a92Op7GSUjrHskQ4NetjhdJr71joRuGNo4O-GQ5ajDsynCfe7p_BqsMkcjk10fFOJw">
 <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent pointer-events-none"></div>
 <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-xs gap-2 z-10">
-<span class="font-mono text-gold-200 bg-obsidian-900/90 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-gold-500/30 text-[10px] sm:text-xs truncate">our Vision for Refinery</span>
-<span class="font-sans text-[10px] sm:text-[11px] text-slate-300 tracking-wide truncate">Investment Grade Bars</span>
+<span class="font-mono text-gold-200 bg-obsidian-900/90 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-gold-500/30 text-[9px] sm:text-xs truncate">Our Vision for Refinery</span>
+<span class="font-sans text-[9px] sm:text-[11px] text-slate-300 tracking-wide truncate">Investment Grade Bars</span>
 </div>
 </div>
 </div>
