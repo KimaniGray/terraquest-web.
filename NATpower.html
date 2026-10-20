@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -22,6 +25,7 @@
                         gold: '#C59B27',
                         parchment: '#FBF9F5',
                         slatecard: '#f8fafc',
+                        amberbg: '#FEF3C7'
                     },
                     fontFamily: {
                         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -35,7 +39,7 @@
     <style>
         /* Exact A4 Landscape Setup */
         @page {
-            size: A4 landscape;
+            size: 297mm 210mm landscape;
             margin: 0;
         }
         * {
@@ -44,7 +48,7 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #cbd5e1; /* Darker background for screen to contrast white pages */
+            background-color: #cbd5e1;
             margin: 0;
             padding: 2rem;
             display: flex;
@@ -52,6 +56,7 @@
             align-items: center;
             gap: 2rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
         }
 
         /* The A4 Canvas */
@@ -62,21 +67,22 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            padding: 12mm 15mm; /* Tightened margins to maximize content area */
+            padding: 12mm 16mm;
             display: flex;
             flex-direction: column;
-            border-left: 8px solid #2B1810; /* Magazine spine accent */
+            border-left: 10px solid #2B1810;
         }
 
-        /* Typography Scaling to kill blank space */
-        .slide-canvas h2 { font-size: 38px; line-height: 1.1; margin-bottom: 4px; font-weight: 700; }
-        .slide-canvas p, .slide-canvas li, .slide-canvas td { font-size: 14.5px; line-height: 1.5; color: #1e293b; }
-        .slide-canvas h3 { font-size: 18px; font-weight: 800; color: #2B1810; margin-bottom: 6px; }
+        /* Institutional Typography Scaling to fill blank space */
+        .slide-canvas h2 { font-size: 38px; line-height: 1.1; margin-bottom: 6px; font-weight: 700; }
+        .slide-canvas p, .slide-canvas li { font-size: 15px; line-height: 1.5; color: #334155; }
+        .slide-canvas td { font-size: 15px; line-height: 1.4; padding: 12px 16px !important; }
+        .slide-canvas th { font-size: 14px; padding: 12px 16px !important; text-transform: uppercase; letter-spacing: 0.05em; }
+        .slide-canvas h3 { font-size: 20px; font-weight: 800; color: #2B1810; margin-bottom: 8px; }
         
         /* Table Stretching */
-        .stretch-table { height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .stretch-table table { height: 100%; }
-        .stretch-table td, .stretch-table th { padding-top: 12px !important; padding-bottom: 12px !important; }
+        .stretch-table { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .stretch-table table { width: 100%; }
 
         @media print {
             body { 
@@ -91,6 +97,7 @@
                 page-break-after: always;
                 break-after: page;
                 margin: 0;
+                border-left: 10px solid #2B1810 !important;
             }
             .no-print { display: none !important; }
         }
@@ -102,50 +109,45 @@
 <!-- SLIDE 1: COVER PAGE -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-start font-bold uppercase tracking-widest text-[11px] text-espresso">
+    <div class="flex justify-between items-start font-bold uppercase tracking-widest text-[12px] text-espresso">
         <span>Private Investment</span>
         <span>Processing Contract</span>
     </div>
 
     <div class="flex-1 flex flex-col justify-center items-center text-center w-full">
-        <img src="Tsavo Trade Credit Logo.png" alt="TSAVO" class="max-h-40 w-auto object-contain mb-6" onerror="this.style.display='none'">
+        <!-- Exact Logo Placement as requested -->
+        <img src="Tsavo Trade Credit Logo 3.png" alt="TSAVO" class="w-full max-w-[480px] h-auto object-contain mb-10" onerror="this.style.display='none'">
         
-        <!-- Fallback Typographic Logo if image is missing -->
-        <div class="mb-6 font-serif">
-            <h1 class="text-[64px] font-black text-espresso leading-none tracking-widest uppercase">TSAVO</h1>
-            <div class="text-xl font-bold text-gold tracking-[0.3em] uppercase mt-2">Trade Credit Line</div>
-        </div>
-        
-        <h2 class="text-[42px] font-black text-espresso tracking-tight mt-6 mb-4 font-serif">
+        <h2 class="text-[46px] font-black text-espresso tracking-tight mb-5 font-serif">
             $100,000,000 Trade Credit Facility
         </h2>
         
-        <p class="text-[15px] font-extrabold uppercase tracking-widest text-amber-900 bg-amber-50 px-6 py-2 rounded-full border border-gold/30">
+        <p class="text-[16px] font-extrabold uppercase tracking-widest text-amber-900 bg-amber-50 px-8 py-3 rounded-full border border-gold/30">
             Private Investment Support For A Total Processing Contract
         </p>
 
-        <div class="flex gap-6 mt-10">
-            <span class="font-bold text-espresso text-[14px] uppercase tracking-wider border-b-2 border-gold pb-1">Revolving Tranch Facility</span>
-            <span class="font-bold text-espresso text-[14px] uppercase tracking-wider border-b-2 border-gold pb-1">Real Asset Security</span>
-            <span class="font-bold text-espresso text-[14px] uppercase tracking-wider border-b-2 border-gold pb-1">Cash Escrow</span>
+        <div class="flex gap-8 mt-12">
+            <span class="font-bold text-espresso text-[15px] uppercase tracking-wider border-b-2 border-gold pb-1">Revolving Tranches</span>
+            <span class="font-bold text-espresso text-[15px] uppercase tracking-wider border-b-2 border-gold pb-1">Asset Floor</span>
+            <span class="font-bold text-espresso text-[15px] uppercase tracking-wider border-b-2 border-gold pb-1">Cash Escrow</span>
         </div>
     </div>
 
-    <div class="flex justify-between items-end border-t-2 border-espresso/10 pt-4">
+    <div class="flex justify-between items-end border-t-2 border-espresso/10 pt-5 mt-auto">
         <div class="w-1/3">
-            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Structuring Arranger</p>
-            <p class="text-[16px] font-black text-espresso font-serif uppercase tracking-wider">TERRAQUEST</p>
-            <p class="text-[12px] text-slate-600 font-medium">Dubai Silicon Oasis - FZCO (UAE)</p>
+            <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Structuring Arranger</p>
+            <p class="text-[18px] font-black text-espresso font-serif uppercase tracking-wider">TERRAQUEST</p>
+            <p class="text-[13px] text-slate-600 font-medium">Dubai Silicon Oasis - FZCO (UAE)</p>
         </div>
         <div class="w-1/3 text-center">
-            <p class="text-[10px] font-mono text-slate-500 uppercase font-bold tracking-wider leading-tight">
+            <p class="text-[11px] font-mono text-slate-500 uppercase font-bold tracking-wider leading-relaxed">
                 Facility Memorandum<br>Governed under English Law & ADGM Standards<br>Base Currency: USD (Hard Currency)
             </p>
         </div>
         <div class="w-1/3 text-right">
-            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Capital Partner</p>
-            <p class="text-[16px] font-black text-espresso font-serif uppercase tracking-wider">EPIIDOSIS INVESTMENTS LLC</p>
-            <p class="text-[12px] text-slate-600 font-medium">Dubai / ADGM Financial Centre (UAE)</p>
+            <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Capital Partner</p>
+            <p class="text-[18px] font-black text-espresso font-serif uppercase tracking-wider">EPIIDOSIS INVESTMENTS LLC</p>
+            <p class="text-[13px] text-slate-600 font-medium">Dubai / ADGM Financial Centre (UAE)</p>
         </div>
     </div>
 </div>
@@ -154,65 +156,65 @@
 <!-- SLIDE 2: EXECUTIVE SUMMARY -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Executive Summary</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Private Investment</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Tsavo Line</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Private Investment</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Tsavo Line</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-12 gap-8">
+    <div class="flex-1 grid grid-cols-12 gap-8 h-full">
         <!-- Narrative Column -->
-        <div class="col-span-8 flex flex-col justify-between h-full gap-4">
-            <div class="bg-slatecard p-5 rounded-lg border border-slate-200 flex-1">
+        <div class="col-span-8 flex flex-col justify-between h-full gap-5">
+            <div class="bg-slatecard p-6 rounded-xl border border-slate-200 flex-1 flex flex-col justify-center">
                 <h3>The Opportunity</h3>
                 <p>Terraquest Investments - FZCO ("Terraquest") invites Epiidosis Investments LLC ("Epiidosis") to co-fund a private $100,000,000 Secured Revolving Trade Credit Facility under the proprietary Tsavo Trade Credit Line in support of an executed total processing contract.</p>
             </div>
-            <div class="bg-slatecard p-5 rounded-lg border border-slate-200 flex-1">
+            <div class="bg-slatecard p-6 rounded-xl border border-slate-200 flex-1 flex flex-col justify-center">
                 <h3>Processing Contract</h3>
                 <p>The facility finances and monetizes an executed commodity processing contract: bulk elemental Sulphur procurement from Abu Dhabi National Oil Company (ADNOC), importation into South Africa via Natpower SA, toll-conversion into industrial Sulphuric Acid (H₂SO₄) at Foskor (Pty) Ltd's Richards Bay complex under an executed tolling contract, and pre-paid liquidation into high-demand hydrometallurgical mining basins across the SADC Copperbelt.</p>
             </div>
-            <div class="bg-slatecard p-5 rounded-lg border border-slate-200 flex-1">
+            <div class="bg-slatecard p-6 rounded-xl border border-slate-200 flex-1 flex flex-col justify-center">
                 <h3>Credit Security</h3>
                 <p>The credit structure is self-liquidating, senior-secured, and bankruptcy-remote. Capital circulates through a closed-loop settlement architecture backed by continuous possessory title, on-site collateral management, and a strict 100% pre-paid cash collection protocol.</p>
             </div>
         </div>
 
-        <!-- Metrics Column (Using flex-1 to fill vertical space) -->
-        <div class="col-span-4 flex flex-col justify-between h-full gap-3">
-            <div class="bg-espresso text-white p-4 rounded-lg flex-1 flex flex-col justify-center text-center shadow-md">
-                <p class="text-[11px] text-gold uppercase tracking-widest font-bold mb-1">Facility Base</p>
+        <!-- Metrics Column -->
+        <div class="col-span-4 flex flex-col justify-between h-full gap-4">
+            <div class="bg-espresso text-white p-5 rounded-xl flex-1 flex flex-col justify-center text-center shadow-md">
+                <p class="text-[12px] text-gold uppercase tracking-widest font-bold mb-2">Facility Base</p>
                 <p class="text-3xl font-black font-serif">$100,000,000</p>
-                <p class="text-[12px] text-slate-300 mt-1">Rotational Pool</p>
+                <p class="text-[13px] text-slate-300 mt-1">Rotational Pool</p>
             </div>
-            <div class="bg-slatecard border border-slate-200 p-4 rounded-lg flex-1 flex flex-col justify-center text-center">
-                <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Annual Volume</p>
+            <div class="bg-slatecard border border-slate-200 p-5 rounded-xl flex-1 flex flex-col justify-center text-center">
+                <p class="text-[12px] text-slate-500 uppercase tracking-widest font-bold mb-2">Annual Volume</p>
                 <p class="text-3xl font-black text-espresso font-serif">300,000 MT</p>
-                <p class="text-[12px] text-slate-600 mt-1">Bulk Sulphur</p>
+                <p class="text-[13px] text-slate-600 mt-1">Bulk Sulphur</p>
             </div>
-            <div class="bg-slatecard border border-slate-200 p-4 rounded-lg flex-1 flex flex-col justify-center text-center">
-                <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Tranche Cadence</p>
+            <div class="bg-slatecard border border-slate-200 p-5 rounded-xl flex-1 flex flex-col justify-center text-center">
+                <p class="text-[12px] text-slate-500 uppercase tracking-widest font-bold mb-2">Tranche Cadence</p>
                 <p class="text-3xl font-black text-espresso font-serif">6 × 50,000 MT</p>
-                <p class="text-[12px] text-slate-600 mt-1">Bi-Monthly</p>
+                <p class="text-[13px] text-slate-600 mt-1">Bi-Monthly</p>
             </div>
-            <div class="bg-slatecard border border-slate-200 p-4 rounded-lg flex-1 flex flex-col justify-center text-center">
-                <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Net Yield</p>
+            <div class="bg-slatecard border border-slate-200 p-5 rounded-xl flex-1 flex flex-col justify-center text-center">
+                <p class="text-[12px] text-slate-500 uppercase tracking-widest font-bold mb-2">Net Yield</p>
                 <p class="text-3xl font-black text-gold font-serif">71,910 MT</p>
-                <p class="text-[12px] text-slate-600 mt-1">Per Tranche / 431,460 MT Yr</p>
+                <p class="text-[13px] text-slate-600 mt-1">Per Tranche / 431,460 MT Yr</p>
             </div>
-            <div class="bg-slatecard border border-slate-200 p-4 rounded-lg flex-1 flex flex-col justify-center text-center">
-                <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Cash Velocity</p>
+            <div class="bg-amberbg border border-gold/40 p-5 rounded-xl flex-1 flex flex-col justify-center text-center">
+                <p class="text-[12px] text-espresso uppercase tracking-widest font-bold mb-2">Cash Velocity</p>
                 <p class="text-3xl font-black text-espresso font-serif">≈ 60 Days</p>
-                <p class="text-[12px] text-slate-600 mt-1">Closed Loop</p>
+                <p class="text-[13px] text-espresso mt-1">Closed Loop</p>
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Executive Summary</span>
         <span class="text-espresso font-bold">Page 02/09</span>
     </div>
@@ -222,75 +224,75 @@
 <!-- SLIDE 3: KEY TERMS -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Key Terms</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Facility Metrics</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Contractual Specifications</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Facility Metrics</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Contractual Specifications</p>
         </div>
     </div>
 
-    <div class="flex-1 stretch-table w-full bg-slatecard rounded-xl border border-slate-200 p-2 overflow-hidden">
-        <table class="w-full text-left border-collapse">
+    <div class="stretch-table w-full bg-slatecard rounded-xl border border-slate-200 p-2 overflow-hidden">
+        <table class="w-full text-left border-collapse h-full">
             <thead>
-                <tr class="bg-espresso text-white text-[12px] uppercase tracking-wider">
-                    <th class="px-4 py-3 font-bold w-[22%] rounded-tl-lg">Facility Parameter</th>
-                    <th class="px-4 py-3 font-bold w-[28%]">Contractual Specification</th>
-                    <th class="px-4 py-3 font-bold w-[22%]">Conversion & Offtake</th>
-                    <th class="px-4 py-3 font-bold w-[28%] rounded-tr-lg">Covenants</th>
+                <tr class="bg-espresso text-white tracking-wider">
+                    <th class="font-bold w-[22%] rounded-tl-lg">Facility Parameter</th>
+                    <th class="font-bold w-[28%]">Specification</th>
+                    <th class="font-bold w-[22%]">Conversion & Offtake</th>
+                    <th class="font-bold w-[28%] rounded-tr-lg">Covenants</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-200">
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Facility Type</td>
-                    <td class="px-4 py-3.5">Senior Secured Revolving Trade Facility</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Conversion Partner</td>
-                    <td class="px-4 py-3.5">Foskor (Pty) Ltd (Richards Bay, South Africa)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Facility Type</td>
+                    <td>Senior Secured Revolving Trade Facility</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Conversion Partner</td>
+                    <td>Foskor (Pty) Ltd (Richards Bay, South Africa)</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Facility Base</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso">$100,000,000 USD (Rotational Base)</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Tolling Split</td>
-                    <td class="px-4 py-3.5 font-bold text-gold">53% In-Kind Fee / 47% Net Retained Yield</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Facility Base</td>
+                    <td class="font-bold text-espresso">$100,000,000 USD (Rotational Base)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Tolling Split</td>
+                    <td class="font-bold text-gold">53% In-Kind Fee / 47% Net Retained Yield</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Structuring Arranger</td>
-                    <td class="px-4 py-3.5">Terraquest Investments - FZCO (Dubai, UAE)</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Retained Output</td>
-                    <td class="px-4 py-3.5">71,910 MT/tranche • 431,460 MT/Yr</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Structuring Arranger</td>
+                    <td>Terraquest Investments - FZCO (Dubai, UAE)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Retained Output</td>
+                    <td>71,910 MT/tranche • 431,460 MT/Yr</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Capital Partner</td>
-                    <td class="px-4 py-3.5">Epiidosis Investments LLC (Dubai/ADGM)</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Offtake Basins</td>
-                    <td class="px-4 py-3.5">SADC: Zambia (50%), DRC (30%), Malawi (20%)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Capital Partner</td>
+                    <td>Epiidosis Investments LLC (Dubai/ADGM)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Offtake Basins</td>
+                    <td>SADC: Zambia (50%), DRC (30%), Malawi (20%)</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Annual Volume</td>
-                    <td class="px-4 py-3.5">300,000 MT Bulk Elemental Sulphur</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Cash Velocity</td>
-                    <td class="px-4 py-3.5">≈60-Day Cash-to-Cash closed turnaround</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Annual Volume</td>
+                    <td>300,000 MT Bulk Elemental Sulphur</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Cash Velocity</td>
+                    <td>≈60-Day Cash-to-Cash closed turnaround</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50">Tranche Cadence</td>
-                    <td class="px-4 py-3.5">6 tranches of 50,000 MT (Bi-monthly)</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Repayment Protocol</td>
-                    <td class="px-4 py-3.5 font-bold text-amber-800">100% Cash-Before-Collection Escrow</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Tranche Cadence</td>
+                    <td>6 tranches of 50,000 MT (Bi-monthly)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Repayment Protocol</td>
+                    <td class="font-bold text-amber-800">100% Cash-Before-Collection Escrow</td>
                 </tr>
                 <tr>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 rounded-bl-lg">Upstream Supplier</td>
-                    <td class="px-4 py-3.5">Abu Dhabi National Oil Company (ADNOC)</td>
-                    <td class="px-4 py-3.5 font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Legal Jurisdiction</td>
-                    <td class="px-4 py-3.5 rounded-br-lg">English Law & ADGM Financial Standards</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 rounded-bl-lg">Upstream Supplier</td>
+                    <td>Abu Dhabi National Oil Company (ADNOC)</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 border-l border-slate-200">Legal Jurisdiction</td>
+                    <td class="rounded-br-lg">English Law & ADGM Financial Standards</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Key Terms</span>
         <span class="text-espresso font-bold">Page 03/09</span>
     </div>
@@ -300,68 +302,68 @@
 <!-- SLIDE 4: CREDIT ARCHITECTURE -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Credit Architecture</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Closed-Loop Structure</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Balance Isolation</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Closed-Loop Structure</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Balance Isolation</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-3 gap-6 h-full">
+    <div class="flex-1 grid grid-cols-3 gap-8 h-full">
         <!-- Col 1 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-6 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[12px] font-bold text-slate-400 uppercase tracking-widest mb-1">Structural Isolation</p>
-                <h3 class="font-serif text-2xl text-espresso mb-4">Ring-Fenced Balance</h3>
-                <ul class="space-y-4">
+                <p class="text-[13px] font-bold text-slate-500 uppercase tracking-widest mb-2">Structural Isolation</p>
+                <h3 class="font-serif text-[26px] text-espresso mb-5 leading-tight">Ring-Fenced Balance</h3>
+                <ul class="space-y-5">
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Capital deployment is strictly asset-backed and ring-fenced from Natpower's general operating balance sheet.</li>
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Capital flows strictly between prime issuing banks, sovereign suppliers, bonded logistics handlers, and controlled escrows.</li>
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Dual signatory governance ensures non-commingled, bankruptcy-remote fund routing.</li>
                 </ul>
             </div>
-            <div class="bg-espresso text-white text-center py-3 font-bold tracking-widest uppercase text-sm rounded mt-6">
+            <div class="bg-espresso text-white text-center py-4 font-bold tracking-widest uppercase text-[14px] rounded-lg mt-6 shadow-md">
                 Zero Contagion
             </div>
         </div>
 
         <!-- Col 2 -->
-        <div class="bg-amber-50/50 border border-gold/40 rounded-lg p-6 flex flex-col justify-between shadow-sm">
+        <div class="bg-amber-50/50 border border-gold/40 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[12px] font-bold text-gold uppercase tracking-widest mb-1">Collateral Coverage</p>
-                <h3 class="font-serif text-2xl text-espresso mb-4">Asset Floor</h3>
-                <ul class="space-y-4">
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Collateral Coverage</p>
+                <h3 class="font-serif text-[26px] text-espresso mb-5 leading-tight">Asset Floor</h3>
+                <ul class="space-y-5">
                     <li class="flex items-start gap-3"><span class="text-espresso mt-1">✔</span> Senior possessory title maintained over physical assets at every operational node: marine transit, port handling, and inventory.</li>
                     <li class="flex items-start gap-3"><span class="text-espresso mt-1">✔</span> Under fixed transformation yields (1 MT Sulphur → 1.438 MT Net Acid), intrinsic coverage maintains a 120% asset-to-debt valuation.</li>
                     <li class="flex items-start gap-3"><span class="text-espresso mt-1">✔</span> Continuous physical cushion insulates partners against commodity price swings.</li>
                 </ul>
             </div>
-            <div class="bg-gold text-espresso text-center py-3 font-bold tracking-widest uppercase text-sm rounded mt-6 shadow-sm">
+            <div class="bg-gold text-espresso text-center py-4 font-bold tracking-widest uppercase text-[14px] rounded-lg mt-6 shadow-md border border-gold">
                 120% Coverage
             </div>
         </div>
 
         <!-- Col 3 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-6 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[12px] font-bold text-slate-400 uppercase tracking-widest mb-1">Custody Control</p>
-                <h3 class="font-serif text-2xl text-espresso mb-4">Manifold Lock-Out</h3>
-                <ul class="space-y-4">
+                <p class="text-[13px] font-bold text-slate-500 uppercase tracking-widest mb-2">Custody Control</p>
+                <h3 class="font-serif text-[26px] text-espresso mb-5 leading-tight">Manifold Lock-Out</h3>
+                <ul class="space-y-5">
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Accredited third-party inspection agency holds tripartite Collateral Management Agreement (CMA) with lock-out authority.</li>
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Zero uncollateralized credit: product discharge valves open only against cleared cash deposits in escrow.</li>
                     <li class="flex items-start gap-3"><span class="text-gold mt-1">✔</span> Daily volumetric audits and plant intake surveillance protect against inventory leakage.</li>
                 </ul>
             </div>
-            <div class="bg-espresso text-white text-center py-3 font-bold tracking-widest uppercase text-sm rounded mt-6">
+            <div class="bg-espresso text-white text-center py-4 font-bold tracking-widest uppercase text-[14px] rounded-lg mt-6 shadow-md">
                 Zero Default
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Credit Architecture</span>
         <span class="text-espresso font-bold">Page 04/09</span>
     </div>
@@ -371,74 +373,74 @@
 <!-- SLIDE 5: CAPITAL ALLOCATION -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Capital Allocation</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Uses Specified</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Disbursement Lines</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Uses Specified</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Disbursement Lines</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-4 gap-4">
+    <div class="flex-1 grid grid-cols-4 gap-6">
         <!-- Box 1 -->
-        <div class="bg-slatecard border-t-4 border-espresso border-l border-r border-b border-slate-200 rounded-b-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border-t-4 border-espresso border-l border-r border-b border-slate-200 rounded-b-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Disbursement 01</p>
-                <h3 class="font-serif text-[22px] text-espresso mb-4 leading-tight">CFR Procurement</h3>
-                <p class="mb-3"><strong>Structure:</strong> Irrevocable Documentary Letter of Credit (LC) issued directly to ADNOC.</p>
-                <p class="mb-3"><strong>Allocation:</strong> 100% CFR procurement for 50,000 MT shipments to Richards Bay.</p>
+                <p class="text-[12px] font-bold text-slate-500 uppercase tracking-widest mb-2">Disbursement 01</p>
+                <h3 class="font-serif text-[24px] text-espresso mb-4 leading-tight">CFR Procurement</h3>
+                <p class="mb-4"><strong>Structure:</strong> Irrevocable Documentary Letter of Credit (LC) issued directly to ADNOC.</p>
+                <p class="mb-4"><strong>Allocation:</strong> 100% CFR procurement for 50,000 MT shipments to Richards Bay.</p>
                 <p><strong>Security:</strong> Clean on-board ocean Bills of Lading consigned directly to financing vehicle, conferring unencumbered primary legal title.</p>
             </div>
-            <div class="border border-slate-200 bg-white text-espresso text-center py-2.5 font-bold tracking-widest uppercase text-xs rounded mt-4">Ocean B/L</div>
+            <div class="border border-slate-200 bg-white text-espresso text-center py-3 font-bold tracking-widest uppercase text-[13px] rounded-lg mt-6 shadow-sm">Ocean B/L</div>
         </div>
 
         <!-- Box 2 -->
-        <div class="bg-slatecard border-t-4 border-gold border-l border-r border-b border-slate-200 rounded-b-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border-t-4 border-gold border-l border-r border-b border-slate-200 rounded-b-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Disbursement 02</p>
-                <h3 class="font-serif text-[22px] text-espresso mb-4 leading-tight">Cargo Insurance</h3>
-                <p class="mb-3"><strong>Structure:</strong> Direct cargo premium settlement.</p>
-                <p class="mb-3"><strong>Allocation:</strong> Multi-modal cargo & hull policy underwritten by AA-rated South African insurer.</p>
+                <p class="text-[12px] font-bold text-slate-500 uppercase tracking-widest mb-2">Disbursement 02</p>
+                <h3 class="font-serif text-[24px] text-espresso mb-4 leading-tight">Cargo Insurance</h3>
+                <p class="mb-4"><strong>Structure:</strong> Direct cargo premium settlement.</p>
+                <p class="mb-4"><strong>Allocation:</strong> Multi-modal cargo & hull policy underwritten by AA-rated South African insurer.</p>
                 <p><strong>Coverage:</strong> Marine Institute Cargo Clauses (A) covering 110% of CIF value against casualty, contamination, storage, and force majeure.</p>
             </div>
-            <div class="border border-slate-200 bg-white text-gold text-center py-2.5 font-bold tracking-widest uppercase text-xs rounded mt-4">Loss Payee</div>
+            <div class="border border-slate-200 bg-white text-gold text-center py-3 font-bold tracking-widest uppercase text-[13px] rounded-lg mt-6 shadow-sm">Loss Payee</div>
         </div>
 
         <!-- Box 3 -->
-        <div class="bg-slatecard border-t-4 border-espresso border-l border-r border-b border-slate-200 rounded-b-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border-t-4 border-espresso border-l border-r border-b border-slate-200 rounded-b-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Disbursement 03</p>
-                <h3 class="font-serif text-[22px] text-espresso mb-4 leading-tight">Port Clearance</h3>
-                <p class="mb-3"><strong>Structure:</strong> Standby Credit / Direct-Payment Disbursement Line to accredited C&F Agent.</p>
-                <p class="mb-3"><strong>Standard:</strong> Pre-qualified C&F partner with audited balance sheet capacity.</p>
+                <p class="text-[12px] font-bold text-slate-500 uppercase tracking-widest mb-2">Disbursement 03</p>
+                <h3 class="font-serif text-[24px] text-espresso mb-4 leading-tight">Port Clearance</h3>
+                <p class="mb-4"><strong>Structure:</strong> Standby Credit / Direct-Payment Disbursement Line to accredited C&F Agent.</p>
+                <p class="mb-4"><strong>Standard:</strong> Pre-qualified C&F partner with audited balance sheet capacity.</p>
                 <p><strong>Allocation:</strong> TNPA port dues, stevedoring, SARS customs tariffs, import VAT, and bonded haulage into Foskor.</p>
             </div>
-            <div class="border border-slate-200 bg-white text-espresso text-center py-2.5 font-bold tracking-widest uppercase text-xs rounded mt-4">Tier-1 Agent</div>
+            <div class="border border-slate-200 bg-white text-espresso text-center py-3 font-bold tracking-widest uppercase text-[13px] rounded-lg mt-6 shadow-sm">Tier-1 Agent</div>
         </div>
 
         <!-- Box 4 -->
-        <div class="bg-slatecard border-t-4 border-gold border-l border-r border-b border-slate-200 rounded-b-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border-t-4 border-gold border-l border-r border-b border-slate-200 rounded-b-xl p-6 flex flex-col justify-between">
             <div>
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Disbursement 04</p>
-                <h3 class="font-serif text-[22px] text-espresso mb-4 leading-tight">Collateral Control</h3>
-                <p class="mb-3"><strong>Structure:</strong> Tripartite Collateral Management Agreement (CMA) retainer.</p>
-                <p class="mb-3"><strong>Allocation:</strong> Independent inspection house (SGS/Bureau Veritas) physically on-site.</p>
+                <p class="text-[12px] font-bold text-slate-500 uppercase tracking-widest mb-2">Disbursement 04</p>
+                <h3 class="font-serif text-[24px] text-espresso mb-4 leading-tight">Collateral Control</h3>
+                <p class="mb-4"><strong>Structure:</strong> Tripartite Collateral Management Agreement (CMA) retainer.</p>
+                <p class="mb-4"><strong>Allocation:</strong> Independent inspection house (SGS/Bureau Veritas) physically on-site.</p>
                 <p><strong>Enforcement:</strong> Volumetric stock surveillance, plant intake oversight, and physical control of storage valves.</p>
             </div>
-            <div class="border border-slate-200 bg-white text-gold text-center py-2.5 font-bold tracking-widest uppercase text-xs rounded mt-4">CMA Lock</div>
+            <div class="border border-slate-200 bg-white text-gold text-center py-3 font-bold tracking-widest uppercase text-[13px] rounded-lg mt-6 shadow-sm">CMA Lock</div>
         </div>
     </div>
 
     <!-- Closed Loop Bar -->
-    <div class="mt-4 bg-amber-50/80 border border-gold/40 rounded-lg p-4 flex items-center justify-between shadow-sm">
-        <p class="text-espresso font-medium text-sm"><strong>Closed-Loop Allocation:</strong> Capital deploys strictly via authenticated documentary letters of credit and controlled escrow sweeps against physical, verified collateral milestones.</p>
-        <div class="bg-white border border-gold text-espresso font-bold uppercase tracking-widest text-[11px] px-4 py-2 rounded ml-6 whitespace-nowrap">Strict Closed Loop</div>
+    <div class="mt-6 bg-amberbg border border-gold/40 rounded-xl p-5 flex items-center justify-between shadow-sm">
+        <p class="text-espresso font-medium text-[15px]"><strong>Closed-Loop Allocation:</strong> Capital deploys strictly via authenticated documentary letters of credit and controlled escrow sweeps against physical, verified collateral milestones.</p>
+        <div class="bg-white border border-gold text-espresso font-bold uppercase tracking-widest text-[13px] px-6 py-3 rounded-lg ml-8 whitespace-nowrap shadow-sm">Strict Closed Loop</div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Capital Allocation</span>
         <span class="text-espresso font-bold">Page 05/09</span>
     </div>
@@ -448,63 +450,63 @@
 <!-- SLIDE 6: CONVERSION ECONOMICS -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Conversion Economics</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Tolling Split</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Contractual Yields</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Tolling Split</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Contractual Yields</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-10">
+    <div class="flex-1 grid grid-cols-2 gap-12 h-full">
         <!-- Left Side: Text and Table -->
         <div class="flex flex-col justify-between h-full">
             <div>
                 <h3>Tolling Contract</h3>
-                <p class="mb-4">Under the executed Foskor Tolling Agreement, product economics and volumetric yields are contractually fixed:</p>
-                <div class="bg-slatecard border border-slate-200 rounded-lg p-5 space-y-3">
-                    <div class="flex justify-between border-b border-slate-200 pb-2"><span>Gross Conversion Ratio:</span><strong class="text-espresso">1 MT Sulphur → 3.06 MT Sulphuric Acid (H₂SO₄)</strong></div>
-                    <div class="flex justify-between border-b border-slate-200 pb-2"><span>Net Retained Yield:</span><strong class="text-gold">1.438 MT Net Acid per MT raw Sulphur (47%)</strong></div>
-                    <div class="flex justify-between border-b border-slate-200 pb-2"><span>Tranche Net Output:</span><strong class="text-espresso">71,910 MT Commercial H₂SO₄ guaranteed</strong></div>
+                <p class="mb-5">Under the executed Foskor Tolling Agreement, product economics and volumetric yields are contractually fixed:</p>
+                <div class="bg-slatecard border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+                    <div class="flex justify-between border-b border-slate-200 pb-3"><span>Gross Conversion Ratio:</span><strong class="text-espresso">1 MT Sulphur → 3.06 MT Sulphuric Acid (H₂SO₄)</strong></div>
+                    <div class="flex justify-between border-b border-slate-200 pb-3"><span>Net Retained Yield:</span><strong class="text-gold">1.438 MT Net Acid per MT raw Sulphur (47%)</strong></div>
+                    <div class="flex justify-between border-b border-slate-200 pb-3"><span>Tranche Net Output:</span><strong class="text-espresso">71,910 MT Commercial H₂SO₄ guaranteed</strong></div>
                     <div class="flex justify-between"><span>Annualized Asset:</span><strong class="text-espresso">431,460 MT Monetizable H₂SO₄</strong></div>
                 </div>
             </div>
             
-            <div class="mt-6">
+            <div class="mt-8">
                 <h3>Cost Recovery</h3>
                 <p>Foskor recovers its toll processing and plant operational expenditures by retaining a contractually stipulated 53% in-kind volume of the finished Sulphuric Acid. This in-kind recovery model fully shields capital partners from plant overhead, labor, electricity, catalyst consumption, and maintenance risks.</p>
             </div>
             
-            <p class="text-[12px] text-slate-500 italic mt-6">*Warehouse receipts issued directly to financing vehicle upon independent surveyor verification.</p>
+            <p class="text-[13px] text-slate-500 italic mt-6 font-medium">*Warehouse receipts issued directly to financing vehicle upon independent surveyor verification.</p>
         </div>
 
         <!-- Right Side: Big Graphics -->
-        <div class="bg-slatecard border border-slate-200 rounded-xl p-8 flex flex-col justify-between items-center text-center">
-            <div class="w-full flex-1 flex flex-col items-center justify-center gap-6">
-                <div class="w-full bg-white p-8 rounded-xl border border-gold shadow-md">
-                    <p class="text-6xl font-serif font-black text-gold leading-none mb-2">47%</p>
-                    <p class="text-sm font-bold text-espresso uppercase tracking-widest">Partnership Share</p>
-                    <p class="text-slate-500 mt-1">71,910 MT / Tranche</p>
+        <div class="bg-slatecard border border-slate-200 rounded-2xl p-10 flex flex-col justify-between items-center text-center shadow-inner">
+            <div class="w-full flex-1 flex flex-col items-center justify-center gap-8">
+                <div class="w-full bg-white p-10 rounded-2xl border border-gold shadow-md">
+                    <p class="text-[72px] font-serif font-black text-gold leading-none mb-3">47%</p>
+                    <p class="text-[16px] font-bold text-espresso uppercase tracking-widest mb-1">Partnership Share</p>
+                    <p class="text-slate-500 text-[15px]">71,910 MT / Tranche</p>
                 </div>
-                <div class="w-full bg-white p-8 rounded-xl border border-slate-300 shadow-sm">
-                    <p class="text-6xl font-serif font-black text-slate-400 leading-none mb-2">53%</p>
-                    <p class="text-sm font-bold text-slate-600 uppercase tracking-widest">Foskor Allocation</p>
-                    <p class="text-slate-500 mt-1">In-Kind Recovery</p>
+                <div class="w-full bg-white p-10 rounded-2xl border border-slate-300 shadow-sm">
+                    <p class="text-[72px] font-serif font-black text-slate-400 leading-none mb-3">53%</p>
+                    <p class="text-[16px] font-bold text-slate-600 uppercase tracking-widest mb-1">Foskor Allocation</p>
+                    <p class="text-slate-500 text-[15px]">In-Kind Recovery</p>
                 </div>
             </div>
 
-            <div class="w-full mt-6 bg-white border border-slate-200 p-5 rounded-lg space-y-3 text-left">
-                <div class="flex justify-between text-[15px]"><span>Raw Sulphur Input:</span><strong class="text-espresso">50,000 MT</strong></div>
-                <div class="flex justify-between text-[15px]"><span>Gross Industrial Yield:</span><strong class="text-espresso">153,000 MT</strong></div>
-                <div class="flex justify-between text-[15px] border-t border-slate-200 pt-3 mt-1"><span class="font-bold text-espresso">Net Retained Acid:</span><strong class="text-gold font-bold">71,910 MT</strong></div>
+            <div class="w-full mt-8 bg-white border border-slate-200 p-6 rounded-xl space-y-4 text-left shadow-sm">
+                <div class="flex justify-between text-[16px]"><span>Raw Sulphur Input:</span><strong class="text-espresso">50,000 MT</strong></div>
+                <div class="flex justify-between text-[16px]"><span>Gross Industrial Yield:</span><strong class="text-espresso">153,000 MT</strong></div>
+                <div class="flex justify-between text-[16px] border-t border-slate-200 pt-4 mt-2"><span class="font-bold text-espresso">Net Retained Acid:</span><strong class="text-gold text-[18px]">71,910 MT</strong></div>
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Conversion Economics</span>
         <span class="text-espresso font-bold">Page 06/09</span>
     </div>
@@ -514,18 +516,18 @@
 <!-- SLIDE 7: OFFTAKE & BASIN DEMAND -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Offtake Monetization</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Basin Demand</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Collection Protocol</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Basin Demand</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Collection Protocol</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-2 gap-10">
+    <div class="flex-1 grid grid-cols-2 gap-12 h-full">
         <!-- Left Side: Basin Demand -->
         <div class="flex flex-col justify-between h-full">
             <div>
@@ -533,66 +535,66 @@
                 <p class="mb-6">Finished industrial Sulphuric Acid (98% H₂SO₄) serves as a mission-critical, price-inelastic leaching reagent for hydrometallurgical operations across the African Copperbelt:</p>
                 
                 <div class="space-y-4">
-                    <!-- 50% Magazine Block -->
-                    <div class="bg-espresso text-white p-5 rounded-xl flex items-center gap-6 shadow-lg shadow-espresso/20 border border-espresso">
-                        <span class="text-5xl font-serif font-black text-gold">50%</span>
+                    <!-- 50% Magazine Block (Matched to PDF) -->
+                    <div class="bg-espresso text-white p-6 rounded-xl flex items-center gap-8 shadow-md border border-espresso h-[110px]">
+                        <span class="text-[54px] font-serif font-black text-gold leading-none">50%</span>
                         <div>
-                            <h4 class="text-lg font-bold mb-1">Zambia</h4>
-                            <p class="text-[13px] text-slate-300">Base metal solvent extraction (Ndola, Kitwe, Solwezi)</p>
+                            <h4 class="text-[18px] font-bold mb-1 text-white">Zambia</h4>
+                            <p class="text-[14px] text-slate-300">Base metal solvent extraction (Ndola, Kitwe, Solwezi)</p>
                         </div>
                     </div>
                     
-                    <!-- 30% Magazine Block -->
-                    <div class="bg-gold text-espresso p-5 rounded-xl flex items-center gap-6 shadow-md border border-gold">
-                        <span class="text-5xl font-serif font-black text-white drop-shadow-sm">30%</span>
+                    <!-- 30% Magazine Block (Matched to PDF) -->
+                    <div class="bg-gold text-espresso p-6 rounded-xl flex items-center gap-8 shadow-sm border border-gold h-[110px]">
+                        <span class="text-[54px] font-serif font-black text-white leading-none">30%</span>
                         <div>
-                            <h4 class="text-lg font-bold mb-1">DRC</h4>
-                            <p class="text-[13px] text-amber-900 font-medium">Copper-cobalt SX-EW plants (Kolwezi-Lubumbashi corridor)</p>
+                            <h4 class="text-[18px] font-bold mb-1 text-espresso">DRC</h4>
+                            <p class="text-[14px] text-espresso">Copper-cobalt SX-EW plants (Kolwezi-Lubumbashi corridor)</p>
                         </div>
                     </div>
                     
-                    <!-- 20% Magazine Block -->
-                    <div class="bg-slate-200 text-espresso p-5 rounded-xl flex items-center gap-6 shadow-sm border border-slate-300">
-                        <span class="text-5xl font-serif font-black text-slate-500">20%</span>
+                    <!-- 20% Magazine Block (Matched to PDF) -->
+                    <div class="bg-slate-100 text-espresso p-6 rounded-xl flex items-center gap-8 border border-slate-200 h-[110px]">
+                        <span class="text-[54px] font-serif font-black text-slate-400 leading-none">20%</span>
                         <div>
-                            <h4 class="text-lg font-bold mb-1">Malawi</h4>
-                            <p class="text-[13px] text-slate-600 font-medium">Commercial agricultural fertilizer and industrial manufacturing</p>
+                            <h4 class="text-[18px] font-bold mb-1 text-espresso">Malawi</h4>
+                            <p class="text-[14px] text-espresso">Commercial agricultural fertilizer and industrial manufacturing</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Side: Collection -->
-        <div class="flex flex-col h-full">
-            <div class="bg-slatecard border border-slate-200 p-8 rounded-xl flex-1 flex flex-col">
-                <h3 class="text-center text-2xl font-serif mb-6">Collection Protocol</h3>
-                
-                <div class="bg-white border border-gold/40 p-6 rounded-lg text-center mb-8 shadow-sm">
-                    <p class="text-gold text-3xl mb-2"><i class="fa-solid fa-lock"></i></p>
-                    <p class="font-bold text-espresso text-lg uppercase tracking-widest mb-2">Pre-Paid Settlement</p>
-                    <p class="text-sm">Discharge valves open strictly against irrevocably cleared funds deposited into the ring-fenced escrow account.</p>
-                </div>
-                
-                <ul class="space-y-5 text-[15px] mb-auto">
-                    <li class="flex gap-3 items-start"><span class="text-gold mt-1">✔</span> No product leaves Richards Bay on unsecured commercial credit.</li>
-                    <li class="flex gap-3 items-start"><span class="text-gold mt-1">✔</span> Tripartite collateral manager verifies escrow deposit before releasing tanker gantries.</li>
-                    <li class="flex gap-3 items-start"><span class="text-gold mt-1">✔</span> Immediate debt-service sweep automatically repays tranche principal and fees.</li>
-                </ul>
-
-                <div class="mt-8 bg-espresso text-white text-center py-4 font-black uppercase tracking-widest rounded-lg shadow-md border-2 border-espresso text-[15px]">
-                    Zero AR Exposure
                 </div>
             </div>
             
-            <div class="mt-4">
+            <div class="mt-8">
                 <h3>Logistics Coordination</h3>
-                <p class="text-[13px]">Multi-modal logistics coordination via certified acid road tankers and rail tank cars (Transam network). Logistics management functions as an ancillary, margin-accretive service that captures regional freight spreads while preserving strict physical custody through final offloading.</p>
+                <p>Multi-modal logistics coordination via certified acid road tankers and rail tank cars (Transam network). Logistics management functions as an ancillary, margin-accretive service that captures regional freight spreads while preserving strict physical custody through final offloading.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Collection Protocol -->
+        <div class="flex flex-col h-full">
+            <div class="bg-slatecard border border-slate-200 p-10 rounded-2xl flex-1 flex flex-col shadow-sm">
+                <h3 class="text-center text-[28px] font-serif mb-8 border-b border-slate-200 pb-4">Collection Protocol</h3>
+                
+                <div class="bg-white border border-gold/40 p-8 rounded-xl text-center mb-8 shadow-sm">
+                    <p class="text-gold text-4xl mb-4"><i class="fa-solid fa-lock"></i></p>
+                    <p class="font-bold text-espresso text-[18px] uppercase tracking-widest mb-3">Pre-Paid Settlement</p>
+                    <p class="text-[15px]">Discharge valves open strictly against irrevocably cleared funds deposited into the ring-fenced escrow account.</p>
+                </div>
+                
+                <ul class="space-y-6 text-[16px] mb-auto">
+                    <li class="flex gap-4 items-start"><span class="text-gold mt-1">✔</span> No product leaves Richards Bay on unsecured commercial credit.</li>
+                    <li class="flex gap-4 items-start"><span class="text-gold mt-1">✔</span> Tripartite collateral manager verifies escrow deposit before releasing tanker gantries.</li>
+                    <li class="flex gap-4 items-start"><span class="text-gold mt-1">✔</span> Immediate debt-service sweep automatically repays tranche principal and fees.</li>
+                </ul>
+
+                <div class="mt-10 bg-espresso text-white text-center py-5 font-black uppercase tracking-widest rounded-xl shadow-md border-2 border-espresso text-[16px]">
+                    Zero AR Exposure
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Offtake Monetization</span>
         <span class="text-espresso font-bold">Page 07/09</span>
     </div>
@@ -602,55 +604,55 @@
 <!-- SLIDE 8: RISK MITIGATION -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Risk Mitigation</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Credit Defenses</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Underwriting Protections</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Credit Defenses</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Underwriting Protections</p>
         </div>
     </div>
 
-    <div class="flex-1 stretch-table w-full bg-slatecard rounded-xl border border-slate-200 p-2 overflow-hidden">
-        <table class="w-full text-left border-collapse">
+    <div class="stretch-table w-full bg-slatecard rounded-xl border border-slate-200 p-2 overflow-hidden">
+        <table class="w-full text-left border-collapse h-full">
             <thead>
-                <tr class="bg-espresso text-white text-[12px] uppercase tracking-wider">
-                    <th class="px-5 py-4 font-bold w-[25%] rounded-tl-lg">Risk Category</th>
-                    <th class="px-5 py-4 font-bold w-[75%] rounded-tr-lg">Credit Defense</th>
+                <tr class="bg-espresso text-white tracking-wider">
+                    <th class="font-bold w-[25%] rounded-tl-lg">Risk Category</th>
+                    <th class="font-bold w-[75%] rounded-tr-lg">Credit Defense</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-200">
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50">Credit Default</td>
-                    <td class="px-5 py-4"><strong class="text-espresso">Zero Counterparty AR Exposure:</strong> 100% pre-paid settlement protocol. Gantry loading valves remain physically locked until payment clears into debt service escrow.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Credit Default</td>
+                    <td><strong class="text-espresso">Zero Counterparty AR Exposure:</strong> 100% pre-paid settlement protocol. Gantry loading valves remain physically locked until payment clears into debt service escrow.</td>
                 </tr>
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50">Market Volatility</td>
-                    <td class="px-5 py-4"><strong class="text-espresso">120% Asset Floor:</strong> Guaranteed contractual conversion yield (1 MT Sulphur → 1.438 MT net commercial acid) provides a built-in stoichiometric value cushion against benchmark commodity price swings.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Market Volatility</td>
+                    <td><strong class="text-espresso">120% Asset Floor:</strong> Guaranteed contractual conversion yield (1 MT Sulphur → 1.438 MT net commercial acid) provides a built-in stoichiometric value cushion against benchmark commodity price swings.</td>
                 </tr>
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50">Inventory Leakage</td>
-                    <td class="px-5 py-4"><strong class="text-espresso">Tripartite CMA On-Site:</strong> Continuous chain of custody maintained from quayside vessel offloading, through bonded transport, to finished acid storage tanks with daily physical audits.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Inventory Leakage</td>
+                    <td><strong class="text-espresso">Tripartite CMA On-Site:</strong> Continuous chain of custody maintained from quayside vessel offloading, through bonded transport, to finished acid storage tanks with daily physical audits.</td>
                 </tr>
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50">Operational Risk</td>
-                    <td class="px-5 py-4"><strong class="text-espresso">Cost Recovery:</strong> Processing expenditures and maintenance liabilities are recovered exclusively through Foskor's 53% in-kind acid split, eliminating operating cash calls for capital partners.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Operational Risk</td>
+                    <td><strong class="text-espresso">Cost Recovery:</strong> Processing expenditures and maintenance liabilities are recovered exclusively through Foskor's 53% in-kind acid split, eliminating operating cash calls for capital partners.</td>
                 </tr>
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50">Transit Casualty</td>
-                    <td class="px-5 py-4"><strong class="text-espresso">AA-Rated Cargo Policy:</strong> Comprehensive marine and land cargo insurance covering 110% of CIF value with Sole Loss Payee status assigned directly to the capital partnership.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50">Transit Casualty</td>
+                    <td><strong class="text-espresso">AA-Rated Cargo Policy:</strong> Comprehensive marine and land cargo insurance covering 110% of CIF value with Sole Loss Payee status assigned directly to the capital partnership.</td>
                 </tr>
                 <tr>
-                    <td class="px-5 py-4 font-bold text-espresso bg-slate-100/50 rounded-bl-lg">Sovereign Risk</td>
-                    <td class="px-5 py-4 rounded-br-lg"><strong class="text-espresso">Institutional Jurisdiction:</strong> Sourcing and commercial structuring anchored in the UAE; legal framework governed by English Law and ADGM financial standards.</td>
+                    <td class="font-bold text-espresso bg-slate-100/50 rounded-bl-lg">Sovereign Risk</td>
+                    <td class="rounded-br-lg"><strong class="text-espresso">Institutional Jurisdiction:</strong> Sourcing and commercial structuring anchored in the UAE; legal framework governed by English Law and ADGM financial standards.</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Risk Mitigation</span>
         <span class="text-espresso font-bold">Page 08/09</span>
     </div>
@@ -660,102 +662,102 @@
 <!-- SLIDE 9: CLOSING ROADMAP -->
 <!-- ========================================== -->
 <div class="slide-canvas">
-    <div class="flex justify-between items-end border-b-2 border-gold pb-2 mb-6">
+    <div class="flex justify-between items-end border-b-2 border-gold pb-3 mb-8">
         <div>
-            <p class="text-[12px] font-bold text-gold uppercase tracking-widest">Deal Review</p>
+            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Deal Review</p>
             <h2 class="font-serif">Closing Roadmap</h2>
         </div>
         <div class="text-right">
-            <p class="text-[12px] font-bold text-espresso uppercase tracking-widest">Execution Sequence</p>
-            <p class="text-[11px] text-slate-500 uppercase tracking-widest">Drawdown Milestones</p>
+            <p class="text-[13px] font-bold text-espresso uppercase tracking-widest">Execution Sequence</p>
+            <p class="text-[12px] text-slate-500 uppercase tracking-widest">Drawdown Milestones</p>
         </div>
     </div>
 
-    <div class="flex-1 grid grid-cols-4 grid-rows-2 gap-4 h-full">
+    <div class="flex-1 grid grid-cols-4 grid-rows-2 gap-6 h-full">
         <!-- Box 1 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 01</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">NDNCA Execution</h3>
-                <p class="text-[13px]">Terraquest and Epiidosis execute a mutual Non-Disclosure and Non-Circumvention Agreement.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 01</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">NDNCA Execution</h3>
+                <p>Terraquest and Epiidosis execute a mutual Non-Disclosure and Non-Circumvention Agreement.</p>
             </div>
-            <div class="bg-slate-100 text-slate-500 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Step Completed</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Step Completed</div>
         </div>
         <!-- Box 2 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 02</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Indicative Offer</h3>
-                <p class="text-[13px]">Epiidosis evaluates structural appetite and issues an Indicative Offer outlining commercial pricing and parameters.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 02</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Indicative Offer</h3>
+                <p>Epiidosis evaluates structural appetite and issues an Indicative Offer outlining commercial pricing and parameters.</p>
             </div>
-            <div class="bg-amber-100 text-amber-900 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-amber-200">Active Phase</div>
+            <div class="bg-amberbg text-amber-900 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-amber-200">Active Phase</div>
         </div>
         <!-- Box 3 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 03</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Termsheet Execution</h3>
-                <p class="text-[13px]">Terraquest concludes the back-to-back binding Term Sheet with Natpower SA.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 03</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Termsheet Execution</h3>
+                <p>Terraquest concludes the back-to-back binding Term Sheet with Natpower SA.</p>
             </div>
-            <div class="bg-white text-slate-600 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Downstream Alignment</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Downstream Alignment</div>
         </div>
         <!-- Box 4 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 04</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Diligence Close</h3>
-                <p class="text-[13px]">Confirmatory due diligence completes, validating ADNOC allocations, Foskor tolling covenants, and logistics models.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 04</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Diligence Close</h3>
+                <p>Confirmatory due diligence completes, validating ADNOC allocations, Foskor tolling covenants, and logistics models.</p>
             </div>
-            <div class="bg-white text-slate-600 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Audit Validation</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Audit Validation</div>
         </div>
         
         <!-- Box 5 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 05</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Precedent Satisfaction</h3>
-                <p class="text-[13px]">Fulfilment of all Conditions Precedent (CPs), transitioning the credit line into its binding, unconditional phase.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 05</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Precedent Satisfaction</h3>
+                <p>Fulfilment of all Conditions Precedent (CPs), transitioning the credit line into its binding, unconditional phase.</p>
             </div>
-            <div class="bg-white text-slate-600 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Unconditional Phase</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Unconditional Phase</div>
         </div>
         <!-- Box 6 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 06</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Partner Onboarding</h3>
-                <p class="text-[13px]">Execution of tripartite agreements appointing Collateral Manager (CMA), AA-rated Insurer, and Tier-1 C&F Agent.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 06</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Partner Onboarding</h3>
+                <p>Execution of tripartite agreements appointing Collateral Manager (CMA), AA-rated Insurer, and Tier-1 C&F Agent.</p>
             </div>
-            <div class="bg-white text-slate-600 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Operational Mandates</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Operational Mandates</div>
         </div>
         <!-- Box 7 -->
-        <div class="bg-slatecard border border-slate-200 rounded-lg p-5 flex flex-col justify-between">
+        <div class="bg-slatecard border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-                <p class="text-[11px] font-bold text-gold uppercase tracking-widest mb-1">Stage 07</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Facility Documentation</h3>
-                <p class="text-[13px]">Negotiation and execution of the Definitive Facility Agreement, asset pledge covenants, and collection escrow mandates.</p>
+                <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-2">Stage 07</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Facility Documentation</h3>
+                <p>Negotiation and execution of the Definitive Facility Agreement, asset pledge covenants, and collection escrow mandates.</p>
             </div>
-            <div class="bg-white text-slate-600 text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 border border-slate-200">Legal Perfection</div>
+            <div class="bg-white text-slate-600 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-slate-200">Legal Perfection</div>
         </div>
         <!-- Box 8 -->
-        <div class="bg-amber-50/50 border-2 border-gold rounded-lg p-5 flex flex-col justify-between shadow-sm">
+        <div class="bg-amber-50/50 border-2 border-gold rounded-xl p-6 flex flex-col justify-between shadow-md">
             <div>
-                <p class="text-[11px] font-bold text-espresso uppercase tracking-widest mb-1">Stage 08</p>
-                <h3 class="font-serif text-[20px] text-espresso mb-2 leading-tight">Transaction Launch</h3>
-                <p class="text-[13px]">Issuance of Documentary Letters of Credit to ADNOC, initiating procurement, vessel chartering, and Tranche 1 drawdown.</p>
+                <p class="text-[13px] font-bold text-espresso uppercase tracking-widest mb-2">Stage 08</p>
+                <h3 class="font-serif text-[22px] text-espresso mb-3 leading-tight">Transaction Launch</h3>
+                <p>Issuance of Documentary Letters of Credit to ADNOC, initiating procurement, vessel chartering, and Tranche 1 drawdown.</p>
             </div>
-            <div class="bg-emerald-500 text-white text-center py-2 font-bold tracking-widest uppercase text-[10px] rounded mt-4 shadow-sm border border-emerald-600">Drawdown Launch</div>
+            <div class="bg-emerald-50 text-emerald-700 text-center py-3 font-bold tracking-widest uppercase text-[12px] rounded-lg mt-5 border border-emerald-200">Drawdown Launch</div>
         </div>
     </div>
 
-    <div class="flex justify-between items-center text-[11px] text-slate-400 font-mono border-t border-slate-200 mt-4 pt-2">
+    <div class="flex justify-between items-center text-[12px] text-slate-400 font-mono border-t border-slate-200 mt-5 pt-3">
         <span>Tsavo Trade Credit Line • Closing Roadmap</span>
         <span class="text-espresso font-bold">Page 09/09</span>
     </div>
 </div>
 
-<div class="no-print fixed bottom-4 right-4 z-50">
-    <button onclick="window.print()" class="bg-espresso hover:bg-espresso-600 text-gold font-bold py-3 px-6 rounded-full shadow-2xl flex items-center gap-3 border border-gold/40">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+<div class="no-print fixed bottom-6 right-6 z-50">
+    <button onclick="window.print()" class="bg-espresso hover:bg-[#3d2217] text-gold font-bold py-4 px-8 rounded-full shadow-2xl flex items-center gap-3 border border-gold/40 text-[16px] transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
         Save as PDF
     </button>
 </div>
