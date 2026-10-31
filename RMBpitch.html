@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RMB Mandate Pitch | TRFF-1</title>
+    
+    <link rel="icon" type="image/png" href="Terraquest Favicon Black.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            overflow-x: hidden;
+        }
+
+        .master-container {
+            width: 100%;
+            max-width: 210mm; 
+            background-color: #ffffff;
+            box-sizing: border-box;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .page-block {
+            padding: 20mm 20mm;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            border: 8px solid #3E2723;
+            border-top: 8px solid #3E2723;
+            padding: 24px; 
+            min-height: 297mm;
+            box-sizing: border-box;
+        }
+        
+        .back-cover {
+            display: flex;
+            flex-direction: column;
+            min-height: 297mm;
+            box-sizing: border-box;
+            border: none;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .sharp-logo {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0); 
+        }
+
+        .document-page:not(.cover-page):not(.back-cover) .border-b img {
+            height: 40px !important;
+            opacity: 0.95 !important;
+            filter: none !important;
+            border-radius: 4px;
+        }
+
+        h1, h2, h3, h4, h5, .title-font {
+            font-family: 'Georgia', serif;
+        }
+        
+        .text-espresso { color: #3E2723; }
+        .bg-espresso { background-color: #3E2723; }
+        .border-espresso { border-color: #3E2723; }
+        .text-gold { color: #FFB81C; }
+        .bg-gold { background-color: #FFB81C; }
+        .bg-card { background-color: #faf8f5; }
+
+        p {
+            margin-bottom: 1.5rem; 
+            line-height: 1.85; 
+            text-align: justify;
+            font-size: 0.95rem;
+            font-weight: 400;
+            orphans: 4;
+            widows: 4;
+        }
+
+        p strong {
+            color: #3E2723;
+            letter-spacing: 0.01em;
+        }
+
+        ul {
+            list-style-type: none; 
+            margin-left: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        li { 
+            margin-bottom: 1.25rem; 
+            line-height: 1.85;
+            font-size: 0.95rem;
+            padding-left: 1.25rem;
+            position: relative;
+            text-align: justify;
+        }
+
+        li.custom-bullet::before {
+            content: "■";
+            color: #FFB81C;
+            font-size: 0.75rem;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #3E2723;
+            border-bottom: 2px solid #FFB81C;
+            padding-bottom: 0.75rem;
+            margin-top: 3.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .subsection-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.025em;
+        }
+
+        .point-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #3E2723;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .point-content {
+            padding-left: 1.25rem;
+            border-left: 3px solid rgba(255, 184, 28, 0.4);
+            margin-bottom: 2.5rem;
+        }
+
+        .editorial-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9; 
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            filter: sepia(0.2) contrast(1.15) brightness(0.95); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        
+        .image-caption {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .gold-divider {
+            width: 3rem;
+            height: 0.25rem;
+            background-color: #FFB81C;
+            margin: 3rem auto;
+            opacity: 0.6;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        @media (max-width: 639px) {
+            body { padding: 0; background-color: #ffffff; }
+            .master-container { box-shadow: none; margin-bottom: 0; }
+            .page-block { padding: 16px; border-top: 4px solid #3E2723; }
+            .cover-page, .back-cover { padding: 16px !important; min-height: 100vh; justify-content: center; }
+            .back-cover { padding: 0 !important; }
+            .section-title { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+            .subsection-title { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+            p { font-size: 0.85rem; margin-bottom: 1.25rem; text-align: left; }
+            li { font-size: 0.85rem; margin-bottom: 1rem; text-align: left; }
+            .point-content { padding-left: 0.75rem; }
+            .gold-divider { margin: 2rem auto; width: 2rem; }
+            .editorial-image { aspect-ratio: 3/2; }
+            .web-header { display: none !important; } 
+            
+            .cover-page h1 { font-size: 1.75rem; line-height: 1.2; }
+            .cover-page h2 { font-size: 1.1rem; }
+            .cover-page img.absolute { position: relative; margin: 0 auto; max-width: 90%; }
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 30mm 20mm 25mm 20mm; 
+        }
+
+        @page cover { margin: 0; }
+        .cover-page, .back-cover { page: cover; }
+
+        .avoid-break-strict {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        h3, h4, .subsection-title, .point-header {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        @media print {
+            body { background-color: white; padding: 0; }
+            .master-container { box-shadow: none; margin: 0; border: none; }
+            .page-block { padding: 0 !important; page-break-after: auto !important; border-top: none !important; }
+            .web-header { display: none !important; }
+            .cover-page { 
+                padding: 15mm !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important;
+                border: 8px solid #3E2723 !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; 
+                display: flex !important;
+            }
+            .back-cover {
+                padding: 0 !important; 
+                height: 297mm !important; 
+                max-height: 297mm !important;
+                border: none !important; 
+                box-sizing: border-box !important;
+                overflow: hidden !important; 
+                display: flex !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cover-page { page-break-after: always !important; }
+            .back-cover { page-break-before: always !important; }
+            
+            h2.section-title { page-break-after: avoid !important; break-after: avoid !important; margin-top: 2rem !important; }
+            h3, h4, h5, .subsection-title, .point-header, .image-caption { page-break-after: avoid !important; break-after: avoid !important; }
+            p { widows: 3; orphans: 3; page-break-inside: auto; break-inside: auto; }
+            li { page-break-inside: auto; break-inside: auto; }
+            .avoid-break-strict { page-break-inside: auto !important; break-inside: auto !important; }
+            .editorial-image { page-break-inside: avoid !important; break-inside: avoid !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="master-container">
+
+    <div class="cover-page justify-between">
+        <div class="w-full flex justify-end">
+            <div class="text-right text-[10px] font-bold text-espresso uppercase tracking-widest leading-relaxed">
+                Strictly Private & Confidential<br>
+                Mandate Pitch & Syndication Proposition
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center text-center relative w-full mt-4 sm:mt-0">
+            <div class="relative w-full h-auto sm:h-[160px] flex items-center justify-center mb-6 sm:mb-10">
+                <img alt="Tsavo Logo" class="absolute hidden sm:block w-[450px] max-w-none h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png"/>
+                <img alt="Tsavo Logo" class="block sm:hidden w-[280px] h-auto object-contain mix-blend-multiply sharp-logo" src="Tsavo Resilience Fund 1 Logo.png"/>
+            </div>
+            
+            <h1 class="text-2xl sm:text-3xl lg:text-[40px] text-espresso font-bold tracking-[0.1em] title-font relative mb-4 uppercase leading-tight">Tsavo Resilience Food Fund 1 - Zambia</h1>
+            
+            <div class="w-full max-w-md border-t-2 border-b-2 border-gray-200 py-4 my-4 mx-auto relative">
+                <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1 text-center">Prepared Exclusively For:</div>
+                <div class="text-lg sm:text-xl text-espresso font-bold text-center">Rand Merchant Bank (RMB)</div>
+                <div class="text-sm sm:text-base text-gray-800 font-bold mt-1 text-center">Subject: Mandate Pitch & Syndication Proposition</div>
+            </div>
+
+            <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-800 font-bold tracking-widest uppercase mt-4 text-center relative mb-4">Securing Regional Food Systems</h2>
+            
+            <p class="text-xs sm:text-sm text-espresso font-bold tracking-wide uppercase text-center mt-6">Dated: August 2026</p>
+        </div>
+
+        <div class="w-full flex flex-col items-center gap-6 pb-2 mt-auto relative">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-16 print:flex-row w-full">
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1 sm:mb-2">Note Issuer (SPV)</span>
+                    <span class="font-bold text-espresso text-sm sm:text-base">Tsavo SEZ SPV Limited</span>
+                    <span class="text-[10px] sm:text-xs text-gray-500 italic mt-1">[In Formation in Kenya under SEZ Act]</span>
+                </div>
+                
+                <div class="hidden sm:block h-20 w-px bg-gray-300 mt-4 print:block"></div>
+                
+                <div class="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
+                    <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-1">Master Lead Arranger</span>
+                    <img alt="TerraQuest Logo" class="w-[180px] sm:w-[260px] h-auto object-contain rounded-md shadow-md sharp-logo" src="TerraQuest Logo.png"/>
+                </div>
+            </div>
+
+            <div class="text-center text-[8px] sm:text-[9px] lg:text-[10px] text-gray-500 border-t border-gray-200 pt-5 w-full max-w-4xl leading-relaxed mt-6">
+                <strong>CONFIDENTIALITY NOTICE:</strong> This document contains proprietary structural and commercial information regarding the Tsavo Resilience Food Fund 1. It is strictly restricted to the addressee.
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT START -->
+    <div class="page-block">
+        
+        <header class="web-header flex justify-between items-center border-b border-gray-200 pb-2 mb-8 mt-4 print:flex">
+            <img alt="TerraQuest Logo" class="h-[30px] w-auto object-contain sharp-logo" src="TerraQuest Investments Logo 1.png" onerror="this.src='https://placehold.co/100x30?text=Logo'"/>
+            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Mandate Pitch & Syndication Proposition</span>
+        </header>
+
+        <h3 class="text-lg font-bold text-espresso border-b-2 border-espresso pb-2 mb-6 uppercase tracking-widest text-center mt-8">STRICTLY PRIVATE & CONFIDENTIAL</h3>
+        
+        <h2 class="section-title text-center text-xl !mb-2 !pb-0 !border-b-0">1. Executive Summary & Facility Parameters</h2>
+        <table class="w-full text-left border-collapse mb-6 text-sm mt-6 avoid-break-strict">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-2 px-3 font-bold text-espresso border-b border-gray-300">Parameter</th>
+              <th class="py-2 px-3 font-bold text-espresso border-b border-gray-300">Summary Term</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Programme Size</td><td class="py-2 px-3 text-gray-800">USD 400,000,000 (5-Year Strategic Restructuring)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Kick-Off Tranche (Series 1)</td><td class="py-2 px-3 text-gray-800">USD 100,000,000 (Base), upsizeable to USD 200,000,000</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Borrower / Seller</td><td class="py-2 px-3 text-gray-800">Food Reserve Agency (FRA), Zambia</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Underlying Asset</td><td class="py-2 px-3 text-gray-800">Physical Non-GMO White Maize (Zambian Origin)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Use of Funds</td><td class="py-2 px-3 text-gray-800">Financing the FRA National Maize Procurement Programme</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Issuer / SPV</td><td class="py-2 px-3 text-gray-800">Tsavo SEZ SPV Limited (TRIFIC SEZ, Kenya)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Sponsor / Arranger</td><td class="py-2 px-3 text-gray-800">TerraQuest Investments FZCO (Dubai, UAE)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Yield (Underlying)</td><td class="py-2 px-3 text-gray-800">Target range 13.00% - 17.00% Net (10% Senior Yield + 10% Variable Yield)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Tenor</td><td class="py-2 px-3 text-gray-800">12 Months (Bullet Repayment via 5-Year Guaranteed Fund Take-Out)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Governing Law</td><td class="py-2 px-3 text-gray-800">English Law (LCIA Dispute Resolution)</td></tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-2 px-3 font-bold text-espresso align-top">Security Package</td>
+              <td class="py-2 px-3 text-gray-800">
+                <ul class="list-disc ml-4 !mb-0 space-y-1">
+                  <li class="!mb-1 !pb-0 before:hidden !pl-0" style="list-style-type: disc;">Fixed and floating debenture over SPV shares and assets</li>
+                  <li class="!mb-1 !pb-0 before:hidden !pl-0" style="list-style-type: disc;">10% upfront cash security escrow & collection accounts</li>
+                  <li class="!mb-1 !pb-0 before:hidden !pl-0" style="list-style-type: disc;">Negotiable Warehouse Receipts (WHRs) (150% Asset Value Floor)</li>
+                  <li class="!mb-1 !pb-0 before:hidden !pl-0" style="list-style-type: disc;">~$40M in sovereign receivables</li>
+                  <li class="!mb-1 !pb-0 before:hidden !pl-0" style="list-style-type: disc;">Government Comfort Letters, Waivers, & Export Permits</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="point-content !border-l-0 !pl-0 mt-6">
+          <p>TerraQuest Investments is spearheading a 5-year strategic restructuring of the Zambia Food Reserve Agency (FRA) national maize purchase programme. As part of this restructuring, we are arranging a USD 400M asset-backed trade facility through innovative structuring that de-risks physical commodities into a permitted and well-understood asset class: a 5-year Guaranteed Fund.</p>
+          <p>The facility operates through an SPV incorporated within Kenya's TRIFIC Special Economic Zone (Two Rivers International Finance & Innovation Centre SEZ), ring-fencing sovereign risk while backing the debt fully with physical maize held under negotiable warehouse receipts.</p>
+          <p>We are inviting RMB to partner as Co-Lead Arranger and Joint Bookrunner to syndicate and bookrun the kick-off tranche (Series 1: USD 100M base, upsizeable to USD 200M). In this capacity, RMB will run the joint book with a regulated investment banking partner to syndicate the exposure across regional and international lenders, capturing lead arrangement fees and syndication margins while benefiting from a fully pre-structured institutional take-out.</p>
+        </div>
+
+        <h2 class="section-title text-center text-xl !mb-2 !pb-0 !border-b-0" style="page-break-before: always; break-before: page;">2. Commercial and Pricing Structure</h2>
+        <table class="w-full text-left border-collapse mb-6 text-sm mt-6 avoid-break-strict">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-2 px-3 font-bold text-espresso border-b border-gray-300">Fee / Margin Category</th>
+              <th class="py-2 px-3 font-bold text-espresso border-b border-gray-300">Proposed Terms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Senior Yield</td><td class="py-2 px-3 text-gray-800">10.00% base return</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Variable Yield</td><td class="py-2 px-3 text-gray-800">10.00% variable commercial return</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Net Target Yield</td><td class="py-2 px-3 text-gray-800">13.00% - 17.00% net annualized target range</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Profit Share</td><td class="py-2 px-3 text-gray-800">50% split on all returns above the 10% Senior Yield with the Lead Arranger</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Arrangement Fees</td><td class="py-2 px-3 text-gray-800">6.00% flat fee inclusive of the full funding syndicate, payable on success</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Yield Distribution</td><td class="py-2 px-3 text-gray-800">Symmetrical USD Architecture (Insulated from FX devaluation)</td></tr>
+            <tr class="border-b border-gray-200"><td class="py-2 px-3 font-bold text-espresso">Repayment Sweep</td><td class="py-2 px-3 text-gray-800">Automated T-Zero to T+15 waterfall from Trustee-controlled Collection Account</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="section-title text-center text-xl !mb-4 !pb-0 !border-b-0">3. Take-Out Strategy</h2>
+        <div class="point-content !border-l-0 !pl-0">
+          <p>To provide a definitive, pre-structured exit for the syndicated lenders, we are structuring a 5-year Guaranteed Fund alongside a regulated investment bank acting as the Approved Issuer. The vehicle is structured to qualify strictly as an Approved Asset Class under Retirement Benefits Authority (RBA) guidelines, unlocking captive allocations from domestic pension funds, insurance companies, and SACCOs. At maturity, this vehicle executes a scheduled refinance of the syndicated facility, taking out the initial lender group in full while anchoring a long-term capital base to support subsequent tranches across the 5-year FRA mandate.</p>
+        </div>
+
+        <h2 class="section-title text-center text-xl !mb-4 !pb-0 !border-b-0">4. Guaranteed Asset Class</h2>
+        <div class="point-content !border-l-0 !pl-0">
+          <p>Under Kenya's statutory RBA guidelines (Table G, Category 4), retirement schemes are legally permitted to allocate up to 100% of their assets into Guaranteed Funds.</p>
+          <p>This structure transforms an unlisted senior-secured trade asset into a compliant institutional allocation. The investment bank, operating under CMA Cap. 485A, acts as the Approved Issuer, providing a primary contractual backstop that guarantees the preservation of 100% principal capital alongside a certified 6.00% net hard-currency (USD) minimum return. Pension trustees and investment committees bear zero mark-to-market, equity, or operational risk. The targeted integration of an Irrevocable Credit Wrap fundamentally upgrades the regulatory profile, classifying it as an "Admitted Asset" for insurers and unlocking an addressable KES 597 Billion institutional liquidity pool that is otherwise precluded from direct trade finance.</p>
+        </div>
+
+        <div class="mb-10 avoid-break-strict mt-8">
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">Exhibit: Guaranteed Fund Structure</p>
+            <img src="Tsavo SEZ Note Programme Capital, Security & Credit Structure (Portrait).png" alt="Guaranteed Fund Structure" class="w-full max-w-[100%] h-auto object-contain rounded border border-gray-200 shadow-sm block" style="max-width: 100% !important; height: auto !important; page-break-inside: avoid; break-inside: avoid;" loading="lazy" />
+            <p class="image-caption mb-0 mt-4">Fig 1: Guaranteed Fund Structure demonstrating the secure flow of capital and security packages.</p>
+        </div>
+
+        <h2 class="section-title text-center text-xl !mb-4 !pb-0 !border-b-0" style="page-break-before: always; break-before: page;">5. De-Risking Mechanisms</h2>
+        <div class="point-content !border-l-0 !pl-0">
+          <p>To deliver absolute capital protection for all deployed funds and eliminate execution risks for the syndicate, the asset structure relies on eight concurrent de-risking mechanisms:</p>
+          <div class="space-y-4 mt-6">
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">1. Tax-Optimized Kenyan SPV</h5>
+              <p class="text-sm !mb-0 text-gray-800">Capital is deployed exclusively into the TRIFIC SEZ SPV, creating a bankruptcy-remote firewall. The SEZ domiciliation provides a 10-year corporate tax exemption and strictly ring-fences the assets from the operational or sovereign liabilities of the FRA. Furthermore, the SPV is 100% legally and beneficially owned by an independent CMA-licensed Corporate Trustee to ensure absolute investor protection.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">2. Perfected True Sale Security</h5>
+              <p class="text-sm !mb-0 text-gray-800">The facility advances zero unsecured credit. It executes a "True Sale" Master Commodity Repurchase Agreement, acquiring unencumbered legal title to the commodity. Cash is only advanced after registering a comprehensive fixed and floating debenture, encompassing the 10% cash escrow, primary collection accounts, and statutory Negotiable Warehouse Receipts (WHRs).</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">3. Controlled DvP Cash Deployment</h5>
+              <p class="text-sm !mb-0 text-gray-800">Cash is deployed strictly via MT103 on a 'Delivery vs. Payment' (DvP) basis. Capital is released solely after an internationally certified Collateral Manager (backed by a mandatory $8M Professional Indemnity policy) verifies the physical grain and lodges the WHRs with the Document Custodian.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">4. Day-One Over-Collateralization</h5>
+              <p class="text-sm !mb-0 text-gray-800">Risk is neutralized at inception through aggressive volumetric discounting, instantly establishing a mandatory 150% Asset Value Floor. Daily independent price verification ensures physical asset coverage securely absorbs any localized price volatility.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">5. 10% Pre-Funded Liquidity Reserve</h5>
+              <p class="text-sm !mb-0 text-gray-800">A 10% cash security is deducted upfront from all advanced funds and locked in a Trustee-controlled Margin Escrow Account. This provides an immediate first-loss liquidity buffer that perfectly bridges the deductible threshold of the Collateral Manager's insurance coverage.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">6. Comprehensive Insurance Wrap</h5>
+              <p class="text-sm !mb-0 text-gray-800">The SPV directly appoints tier-1 underwriters to secure the assets. This includes a Multi-Peril property wrap (covering fire, flood, and theft) and a targeted Political Risk Insurance (PRI) policy that explicitly neutralizes sovereign interference, export embargoes, and Breach of Contract.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">7. Sovereign Waivers & Export Permits</h5>
+              <p class="text-sm !mb-0 text-gray-800">Financial close is strictly conditional upon the upfront issuance of a Master Export Permit (exempting the grain from future embargoes), comprehensive tax exemptions from the ZRA, and absolute, irrevocable waivers of sovereign immunity from the Zambian state.</p>
+            </div>
+            <div class="bg-card border border-gray-200 p-4 rounded-md shadow-sm avoid-break-strict">
+              <h5 class="font-bold text-espresso text-sm mb-1">8. Automated Secondary Liquidation</h5>
+              <p class="text-sm !mb-0 text-gray-800">Should the obligor default, the Security Trustee bypasses traditional judicial delays and executes an automated T-Zero to T+15 liquidation timeline. Leveraging the Master Export Permits, pre-staged commodities are immediately redirected to cash-ready regional buyers (DRC, Angola, Kenya), executing strictly in US Dollars to immediately make the Noteholders whole.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title text-center text-xl !mb-4 !pb-0 !border-b-0" style="page-break-before: always; break-before: page;">6. About TerraQuest</h2>
+        <div class="point-content !border-l-0 !pl-0">
+          <p>TerraQuest Investments FZCO, headquartered in Dubai, operates through dedicated desks in the UAE and Nairobi, maintaining comprehensive geographical coverage across Sub-Saharan Africa including Kenya, Uganda, Tanzania, South Africa, Zimbabwe, and Zambia. Under our formal license for investment in commercial enterprises and management, our operational team leverages over 25 years of hands-on experience bridging the gap between institutional finance and physical reality. Our core business focuses on agriculture and mining, with a specific mandate to invest in trade assets and infrastructure that supports trade.</p>
+          <p>The Tsavo Resilience Fund is our proprietary, structured financial product designed explicitly for trade de-risked, off-balance-sheet capital deployments. Sub-Saharan Africa currently faces a physical goods trade deficit of approximately USD 39.0 billion—representing 10% of the region's total exports—alongside a broader trade finance and liquidity gap estimated by the African Development Bank and Afreximbank at over USD 100 billion annually. The Tsavo structure acts as a direct institutional liquidity conduit to bridge this gap for large corporates and sovereign-linked entities, transforming physical commodities into an investable asset class. Beginning with the FRA in Zambia, this replicable blueprint will scale to equivalent statutory bodies like the NFRA in Tanzania and the GMB in Zimbabwe, operating entirely independently of sovereign balance sheet constraints.</p>
+        </div>
+
+        <h2 class="section-title text-center text-xl !mb-4 !pb-0 !border-b-0">7. The RMB Proposition</h2>
+        <div class="bg-card border border-gold p-6 rounded shadow-sm mb-10 avoid-break-strict relative">
+          <div class="absolute top-0 left-0 w-2 h-full bg-gold rounded-l"></div>
+          <p class="text-sm text-gray-800 leading-relaxed font-medium !mb-0">We invite RMB to enter the deal room to review this proposition in detail and formally partner on the mandate. We are looking for RMB to anchor the kick-off tranche using its own balance sheet, while simultaneously developing and leading a powerful funding syndicate focused heavily on the South African banking network, with a specific mandate to bring in partners like Investec. By leading a targeted roadshow for this structured asset, RMB will capture the lead syndication economics while distributing the exposure into a secure, pre-structured institutional take-out.</p>
+        </div>
+        
+    </div> <!-- END OF MAIN DOCUMENT BODY -->
+
+    <!-- BACK COVER PAGE -->
+    <div class="back-cover p-0 relative overflow-hidden flex flex-col justify-end border-none">
+        <img src="Zambia Maize Farming Pic 7.jpg" alt="Lush Maize Field" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.8] sepia-[0.2]" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;" loading="lazy" />
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20" style="z-index: 2;"></div>
+        
+        <div class="relative p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center sm:items-end w-full gap-6 sm:gap-0 mt-auto" style="z-index: 3;">
+            <div class="text-center sm:text-left w-full sm:w-auto flex flex-col items-center sm:items-start">
+                <h1 class="text-white text-2xl sm:text-3xl font-bold title-font tracking-widest uppercase mb-3 text-center sm:text-left">Tsavo Resilience<br>Food Fund 1</h1>
+                <div class="w-16 h-1 bg-gold mb-3"></div>
+                <p class="text-gray-300 text-[10px] uppercase tracking-widest font-bold">Securing Regional Food Systems • Zambia</p>
+            </div>
+            
+            <img src="TerraQuest Investments Logo 1.png" alt="TerraQuest Investments" class="h-8 sm:h-10 lg:h-12 object-contain drop-shadow-md w-auto max-w-[200px] sharp-logo" loading="lazy" />
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
