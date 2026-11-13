@@ -137,6 +137,85 @@
         .mobile-prog-label {
             display: none;
         }
+        .print-btn {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background-color: #5d4037;
+            color: #fff;
+            border: 1px solid #8d6e63;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .print-btn:hover {
+            background-color: #6d4c41;
+            border-color: #d7ccc8;
+        }
+
+        /* Print / Save as PDF Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 12mm;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background-color: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .table-container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            /* Prevent repeating the Programme column headers on every printed page */
+            thead {
+                display: table-row-group !important;
+            }
+            table {
+                width: 100% !important;
+                table-layout: fixed;
+            }
+            th, td {
+                padding: 10px 12px !important;
+                font-size: 11px !important;
+                word-wrap: break-word;
+            }
+            .section-title {
+                font-size: 13px !important;
+                padding: 8px 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            .subsection-title {
+                font-size: 11px !important;
+                padding: 6px 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .col-link {
+                text-decoration: none !important;
+            }
+        }
 
         /* Mobile Responsive Layout */
         @media screen and (max-width: 768px) {
@@ -208,12 +287,20 @@
 <div class="table-container">
     <div class="table-header">
         <h2>Programme Comparisons</h2>
+        <button type="button" class="print-btn no-print" onclick="window.print()" aria-label="Print or Download PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print / Download PDF
+        </button>
     </div>
     <table>
         <thead>
             <tr>
                 <th>Programme</th>
-                <th><a href="https://www.rmb.co.za/page/multi-issuer-programme" target="_blank" rel="noopener noreferrer" class="col-link">Multi-Issuer Programme 9 (RF) Limited &nearr;</a></th>
+                <th><a href="https://www.rmb.co.za/multi-issuer-programme-9" target="_blank" rel="noopener noreferrer" class="col-link">Multi-Issuer Programme 9 (RF) Limited &nearr;</a></th>
                 <th><a href="https://www.rmb.co.za/page/agri-harvest" target="_blank" rel="noopener noreferrer" class="col-link">Agri Harvest Investments (RF) Limited &nearr;</a></th>
             </tr>
         </thead>
