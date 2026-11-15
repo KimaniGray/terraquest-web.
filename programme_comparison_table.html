@@ -134,6 +134,175 @@
             display: block;
             margin-top: 4px;
         }
+        .print-btn {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background-color: #5d4037;
+            color: #fff;
+            border: 1px solid #8d6e63;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .print-btn:hover {
+            background-color: #6d4c41;
+            border-color: #d7ccc8;
+        }
+
+        /* Print / Save as PDF Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 12mm;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background-color: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .table-container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            /* Prevent repeating the Programme column headers on every printed page */
+            thead {
+                display: table-row-group !important;
+            }
+            table {
+                width: 100% !important;
+                table-layout: fixed;
+            }
+            th, td {
+                padding: 10px 12px !important;
+                font-size: 11px !important;
+                word-wrap: break-word;
+            }
+            .section-title {
+                font-size: 13px !important;
+                padding: 8px 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            .subsection-title {
+                font-size: 11px !important;
+                padding: 6px 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .col-link {
+                text-decoration: none !important;
+            }
+        }
+
+        /* Mobile Responsive Layout */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .table-header {
+                padding: 16px;
+            }
+            .table-header h2 {
+                font-size: 20px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                border-bottom: 2px solid #d7ccc8;
+            }
+            td {
+                padding: 12px 16px;
+                border-bottom: 1px solid #efebe9;
+                width: 100% !important;
+            }
+            td:last-child {
+                border-bottom: none;
+            }
+            /* Clause / Feature Header Cell on Mobile */
+            tr:not(:has(.section-title)):not(:has(.subsection-title)) td:first-child {
+                background-color: #f5f0ed;
+                color: #3e2723;
+                font-size: 15px;
+                padding: 10px 16px;
+                border-bottom: 1px solid #e0d6d1;
+            }
+            .section-title {
+                font-size: 16px;
+                padding: 12px 16px;
+            }
+            .subsection-title {
+                font-size: 13px;
+                padding: 10px 16px;
+            }
+            tr:not(:has(.section-title)):not(:has(.subsection-title)) td:nth-child(2):not([colspan])::before {
+                content: "Multi-Issuer Programme 9";
+                display: block;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: #5d4037;
+                background-color: #efebe9;
+                padding: 3px 8px;
+                border-radius: 4px;
+                margin-bottom: 6px;
+                width: fit-content;
+            }
+            tr:not(:has(.section-title)):not(:has(.subsection-title)) td:nth-child(3)::before {
+                content: "Agri Harvest Investments";
+                display: block;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: #5d4037;
+                background-color: #efebe9;
+                padding: 3px 8px;
+                border-radius: 4px;
+                margin-bottom: 6px;
+                width: fit-content;
+            }
+            tr:not(:has(.section-title)):not(:has(.subsection-title)) td[colspan="2"]::before {
+                content: "Both Programmes";
+                display: block;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: #3e2723;
+                background-color: #e8e0dc;
+                padding: 3px 8px;
+                border-radius: 4px;
+                margin-bottom: 6px;
+                width: fit-content;
+            }
+        }
     </style>
 </head>
 <body>
@@ -145,19 +314,15 @@
     <table>
         <thead>
             <tr>
-                <th>Programme</th>
-                <th><a href="https://www.rmb.co.za/page/multi-issuer-programme" target="_blank" rel="noopener noreferrer" class="col-link">Multi-Issuer Programme 9 (RF) Limited &nearr;</a></th>
-                <th><a href="https://www.rmb.co.za/page/agri-harvest" target="_blank" rel="noopener noreferrer" class="col-link">Agri Harvest Investments (RF) Limited &nearr;</a></th>
+                <th>Clause / Feature</th>
+                <th>Multi-Issuer Programme 9 (RF) Limited</th>
+                <th>Agri Harvest Investments (RF) Limited</th>
             </tr>
         </thead>
         <tbody>
             <!-- SECTION 1: PROGRAMME STRUCTURE & PARTIES -->
             <tr>
-                <td colspan="3" class="section-title">1. Programme Structure & Parties</td>
-            </tr>
-            
-            <tr>
-                <td colspan="3" class="subsection-title">The Investment & Investors</td>
+                <td colspan="3" class="section-title">1. Programme Structure &amp; Parties</td>
             </tr>
             <tr>
                 <td><strong>The Investment (Notes)</strong></td>
@@ -170,7 +335,7 @@
             </tr>
 
             <tr>
-                <td colspan="3" class="subsection-title">Issuer & Ownership Hierarchy (Top-Down)</td>
+                <td colspan="3" class="subsection-title">Issuer &amp; Ownership Hierarchy (Top-Down)</td>
             </tr>
             <tr>
                 <td><strong>1. Ultimate Owner (Trust)</strong></td>
@@ -179,13 +344,94 @@
             </tr>
             <tr>
                 <td><strong>2. Holding Company (Mid-Level)</strong></td>
-                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Present</span><br><strong>Multi Issuer Investment Company (Pty) Ltd.</strong> Owns 100% of the ordinary shares of the Issuer SPVs.</td>
-                <td><span class="badge" style="background-color: #fff3e0; color: #ef6c00;">Absent</span><br>No holding company tier exists in this framework.</td>
+                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Present</span><br><strong>Multi Issuer Investment Company (Pty) Ltd</strong><br>Sits directly in between the <em>Issuer Owner Trust</em> and the Issuer SPVs, owning 100% of the ordinary shares of all acceding Issuer SPVs under the multi-issuer umbrella.</td>
+                <td><span class="badge" style="background-color: #fff3e0; color: #ef6c00;">Absent</span><br>No holding company tier sits in between; all Issuer SPVs are owned directly by the <em>Issuer Owner Trust</em>.</td>
             </tr>
             <tr>
                 <td><strong>3. Issuer SPV (The Borrower)</strong></td>
-                <td><strong>Multi-Issuer Programme 9 (RF) Limited</strong> (Ring-Fenced).<br>A ring-fenced special purpose entity that actually issues the Notes.</td>
-                <td><strong>Agri Harvest Investments (RF) Limited</strong> (Ring-Fenced).<br>A ring-fenced special purpose entity that actually issues the Notes.</td>
+                <td colspan="2"><strong>Statutory Ring-Fencing (<code>(RF)</code> in the MOI):</strong> Under the South African Companies Act, incorporating each vehicle as an <code>(RF)</code> (Ring-Fenced) company embeds strict legal prohibitions directly into its public <strong>Memorandum of Incorporation (MOI)</strong>—putting the whole world on statutory notice that the company cannot take on outside debt, have employees, or merge with anyone.
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #e0e0e0;">
+                    <div><strong>Multi-Issuer Umbrella (HoldCo-Owned):</strong><br><strong>Multi-Issuer Programme 9 (RF) Limited</strong> — Held 100% by <em>Multi Issuer Investment Company (Pty) Ltd</em> (the Holding Company) as one of multiple ring-fenced Issuer SPVs acceding to the umbrella via an <em>Applicable Issuer Supplement</em>.</div>
+                    <div><strong>Multi-Issuer Umbrella (Trust-Owned):</strong><br><strong>Agri Harvest Investments (RF) Limited</strong> — Held 100% directly by the <em>Issuer Owner Trust</em> (with no mid-level Holding Company) as an open-architecture <strong>multi-issuer umbrella framework</strong> designed to onboard multiple separate ring-fenced SPVs over time (e.g., <em>Agri Harvest 1, Agri Harvest 2, Agri Harvest 3</em>), each signing an <em>Applicable Issuer Supplement</em>.</div>
+                </div></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="subsection-title">Parties (Definitions &amp; Roles)</td>
+            </tr>
+            <tr>
+                <td><strong>Debt Sponsor, Arranger, Dealers &amp; Corporate Governance</strong></td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">JSE &amp; Core</span> <strong>Debt Sponsor:</strong> Rand Merchant Bank (RMB) — Responsible for JSE Debt Listings Requirements compliance, ongoing sponsor obligations, and regulatory liaison.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Structuring</span> <strong>Arranger:</strong> RMB — Structures, establishes, and arranges the Programme and individual Series issuances.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Distribution</span> <strong>Dealers:</strong> RMB and any appointed co-dealers — Market, subscribe for, and place Notes with investors under the Programme Agreement.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Corporate Ops</span> <strong>Administrator:</strong> FirstRand Bank Limited (FRB / RMB) — Appointed agent managing the Issuer's day-to-day corporate administration, statutory filings, and Noteholder Reports.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Oversight</span> <strong>Auditors:</strong> Independent registered auditors specified for each Issuer SPV.</td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">JSE &amp; Core</span> <strong>Debt Sponsor:</strong> RMB (or such other person appointed by the Issuer) — Ensures compliance with JSE Debt Listings Requirements.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Structuring</span> <strong>Arranger:</strong> RMB (or such other person appointed by the Issuer) — Structures and establishes the Programme and Transactions.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Distribution</span> <strong>Dealer:</strong> Any person appointed under the Programme Agreement (for a specific Note issue or on an ongoing basis) to distribute and place Notes.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Corporate Ops</span> <strong>Administrator:</strong> FRB (or appointed replacement) — Agent appointed under the Administration Agreement to perform corporate and administrative functions and issue Administrator Reports.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Oversight</span> <strong>Auditors:</strong> Independent registered auditors specified in each Issuer's <em>Applicable Issuer Supplement</em>.</td>
+            </tr>
+            <tr>
+                <td><strong>Debt Agency, Settlement, Custody &amp; Banking</strong></td>
+                <td>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0;">Agency</span> <strong>Calculation Agent:</strong> RMB — Calculates floating interest rates (JIBAR resets), coupon amounts, and redemption payments.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Agency</span> <strong>Paying Agent:</strong> RMB — Disburses interest and principal payments to Noteholders via Strate.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Registry</span> <strong>Transfer Agent:</strong> RMB — Maintains the official Register of Noteholders and processes Note transfers.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">CSD Custody</span> <strong>Safe Custody Provider:</strong> Registered CSD Participant / Strate custodian holding uncertificated financial securities.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Banking</span> <strong>Account Bank:</strong> FRB (acting through RMB or FNB) — Holds the ring-fenced Series Bank Accounts.</td>
+                <td>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0;">Agency</span> <strong>Calculation Agent:</strong> RMB (or replacement under the Agency Agreement) — Performs interest rate and payment calculations for each Transaction.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Agency</span> <strong>Paying Agent:</strong> RMB (or replacement under the Agency Agreement) — Executes paying agency functions and distributions to Noteholders.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Registry</span> <strong>Transfer Agent:</strong> RMB (or replacement under the Agency Agreement) — Provides registry services and maintains the Note Register.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Physical + Strate</span> <strong>Settlement Agent:</strong> Specified in the <em>Applicable Pricing Supplement</em> to provide safe custody and settlement services to the Issuer.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Banking</span> <strong>Account Bank:</strong> Appointed bank under the Bank Agreement at which the Issuer maintains its ring-fenced Transaction Bank Accounts.</td>
+            </tr>
+            <tr>
+                <td><strong>Asset Origination, Servicing, Back-Up &amp; Recovery</strong></td>
+                <td>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Origination</span> <strong>Originator / Seller:</strong> The entity originating and selling corporate debt, bonds, or loans into the Series pool.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Servicing</span> <strong>Servicer:</strong> Originator or RMB — Administers loan collections and monitors corporate borrower covenants.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Prog 9 Primary</span> <strong>Asset Manager / Asset Allocator:</strong> Discretionary or rules-based portfolio manager appointed to actively buy, sell, and allocate financial assets within a Series pool.</td>
+                <td>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Origination</span> <strong>Originator and Seller:</strong> The entity identified in the <em>Applicable Transaction Supplement</em> that originates and sells Participating Assets to the Issuer.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Servicing</span> <strong>Servicer:</strong> The Originator or appointed specialist appointed under the Servicing Agreement to collect, service, and manage Participating Assets.<br>
+                <span class="badge" style="background-color: #fff3e0; color: #ef6c00; margin-top: 6px;">If Appointed</span> <strong>Back-Up Servicer:</strong> Standby servicer appointed under the Servicing Agreement (if any) to step in if the primary Servicer defaults.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Agri-Specific</span> <strong>Back-Up Servicer Facilitator:</strong> Party appointed under the Servicing Agreement (if any) to coordinate and facilitate the appointment/transition to a Back-Up Servicer.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Agri-Specific</span> <strong>Recovery Agent:</strong> Specialist party appointed by the Issuer (if any) specifically to execute recovery and enforcement functions on Non-Performing Assets.</td>
+            </tr>
+            <tr>
+                <td><strong>Funding, Liquidity, Credit, Equity &amp; Oversight</strong></td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">ISDA Hedging</span> <strong>Hedge Counterparty:</strong> FRB / RMB — Enters into ISDA swaps to hedge interest rate, basis, or currency mismatches.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Liquidity</span> <strong>Liquidity Facility Provider:</strong> FRB / RMB — Provides committed short-term liquidity to bridge temporary cash-flow timing gaps.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Subordination</span> <strong>Credit Enhancement Provider / Subordinated Lender:</strong> RMB, Originator, or third party providing first-loss subordination, reserves, or guarantees.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Ratings</span> <strong>Rating Agency(ies):</strong> Moody's, S&amp;P, Fitch, GCR, or other appointed agency rating the Notes.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Beneficiaries</span> <strong>Secured Creditors:</strong> Series Noteholders and scheduled transaction counterparties entitled to Series Security proceeds.</td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">Hedging</span> <strong>Derivative Counterparty(ies):</strong> Counterparty appointed by the Issuer under any Derivative Contract to hedge rate, basis, or currency risks.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Liquidity</span> <strong>Liquidity Facility Provider:</strong> Party appointed under a Liquidity Facility Agreement (if any) to bridge temporary seasonal cash-flow gaps.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Agri-Specific</span> <strong>Revolving Credit Facility Provider:</strong> Distinct lender appointed under a Revolving Credit Facility Agreement (if any) to provide revolving working-capital/funding lines.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Subordination</span> <strong>Subordinated Lender:</strong> The Originator or appointed lender under a Subordinated Loan Agreement (if any) providing first-loss junior funding.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Equity Classes</span> <strong>Preference Shareholder &amp; Redeemable Shareholder:</strong> Holders of Preference Shares or Redeemable Shares (if any) issued by the Issuer.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">Ratings</span> <strong>Rating Agency(ies):</strong> Moody's, S&amp;P, Fitch, GCR, and/or any other appointed rating agency (if applicable).<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Beneficiaries</span> <strong>Secured Creditors:</strong> The Noteholders and such other transaction creditors set out in the <em>Applicable Transaction Supplement</em>.</td>
+            </tr>
+            <tr>
+                <td><strong>Key Differences in Parties (Side-by-Side Summary)</strong></td>
+                <td>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Present</span> <strong>Mid-Level Holding Company:</strong> Uses <em>Multi Issuer Investment Company (Pty) Ltd</em> to hold all acceding Issuer SPVs under the Trust.<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Primary Role</span> <strong>Asset Manager / Asset Allocator:</strong> Core role for actively trading and reallocating financial credit/bond portfolios.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">CSD Custody</span> <strong>Safe Custody Provider:</strong> Focused strictly on dematerialised electronic securities custody via Strate.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">ISDA Naming</span> <strong>Hedge Counterparty:</strong> Standard ISDA swap terminology.<br>
+                <span class="badge" style="background-color: #fff3e0; color: #ef6c00; margin-top: 6px;">Absent</span> <strong>No Physical Recovery Roles:</strong> Does not separate <em>Back-Up Servicer Facilitator</em> or <em>Recovery Agent</em> roles.</td>
+                <td>
+                <span class="badge" style="background-color: #fff3e0; color: #ef6c00;">Absent</span> <strong>No Holding Company:</strong> The <em>Issuer Owner Trust</em> owns each ring-fenced Issuer SPV directly.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">Expanded Chain</span> <strong>Three-Tier Servicing &amp; Recovery:</strong> Explicitly separates <strong>Servicer</strong>, <strong>Back-Up Servicer</strong>, <strong>Back-Up Servicer Facilitator</strong>, and <strong>Recovery Agent</strong> (to enforce Non-Performing physical farm/equipment assets).<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">Agri-Specific</span> <strong>Expanded Funding &amp; Equity Roles:</strong> Explicitly defines a separate <strong>Revolving Credit Facility Provider</strong> (alongside the Liquidity Facility Provider), <strong>Subordinated Lender</strong>, <strong>Preference Shareholder</strong>, and <strong>Redeemable Shareholder</strong>.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">Physical + Strate</span> <strong>Settlement Agent &amp; Derivative Counterparty(ies):</strong> Uses <em>Settlement Agent</em> (covering both Strate settlement and physical title/lease custody) and <em>Derivative Counterparty(ies)</em>.</td>
             </tr>
 
             <!-- SECTION 2: DOCUMENTS INCORPORATED BY REFERENCE -->
@@ -197,7 +443,7 @@
                 <td colspan="2">Audited annual financial statements, Applicable Issuer Supplement, Applicable Transaction Supplement, Applicable Pricing Supplement(s), other Transaction Documents, amendments/supplements, and a disclosure schedule of directors.</td>
             </tr>
             <tr>
-                <td><strong>Reporting & Stock Exchange News Service (SENS) Disclosures</strong></td>
+                <td><strong>Reporting &amp; Stock Exchange News Service (SENS) Disclosures</strong></td>
                 <td>Incorporates the <strong>Noteholder Report</strong> and <em>"all information pertaining to the Issuer... which is electronically disseminated by the Stock Exchange News Service (SENS) to SENS subscribers"</em>.</td>
                 <td>Incorporates the <strong>Administrator Report</strong>. Does not explicitly mandate the automatic incorporation of all SENS announcements in this section.</td>
             </tr>
@@ -207,7 +453,7 @@
                 <td colspan="3" class="section-title">3. Summary of the Programme</td>
             </tr>
             <tr>
-                <td colspan="3" class="subsection-title">Segregation & Ring-Fencing Mechanics</td>
+                <td colspan="3" class="subsection-title">Segregation &amp; Ring-Fencing Mechanics</td>
             </tr>
             <tr>
                 <td><strong>Segregation Terminology</strong></td>
@@ -236,9 +482,19 @@
                 <td><strong>Highly Specific, Physical &amp; Static Pool:</strong> Consists of agricultural asset-backed loans, real property (farmland leases), biological assets (crops/livestock), and farming equipment. Typically structured as a static pool of physical assets or specialized leases. Criteria are defined per-Transaction in the <em>Applicable Transaction Supplement</em>.</td>
             </tr>
             <tr>
-                <td><strong>Legal Title &amp; Transfer Mechanism</strong></td>
-                <td><strong>Financial Transfer:</strong> Achieved via standard assignment of loan rights, novation, or electronic transfer of uncertificated bonds into the SPV's Central Securities Depository (CSD — Strate) account.</td>
-                <td><strong>Physical &amp; Property Transfer:</strong> Often requires physical delivery (equipment), registration of leasehold/title rights at the Deeds Office, or specialized agricultural pledge agreements.</td>
+                <td><strong>Legal Title &amp; Transfer Mechanism</strong><br><span class="doc-tag">SA Property &amp; Contract Law Mechanics</span></td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">1. Acquisition</span> <strong>Commercial Purchase:</strong> The Issuer SPV acquires Series Assets for value using Note or Warehousing proceeds.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">2. Out-and-Out Cession (Cessio)</span> <strong>Primary for Bilateral Loans &amp; Claims (Not English "Assignment"):</strong> Under South African law, personal rights (loan receivables, book debts) pass via an <em>out-and-out cession</em> under a Sale/Cession Agreement—transferring full legal title to rights without borrower consent (unless restricted by a <em>pactum de non cedendo</em>).<br>
+                <span class="badge" style="background-color: #e3f2fd; color: #1565c0; margin-top: 6px;">3. Delegation &amp; Novation</span> <strong>Syndicated Loans &amp; ISDA Swaps:</strong> Because SA law separates <em>cession</em> (rights) from <em>delegation</em> (obligations), contracts with ongoing lender/swap obligations transfer via tri-party <strong>Novation</strong> (extinguishing the old contract and replacing it with a direct contract with the Issuer SPV).<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">4. Statutory Book-Entry Transfer</span> <strong>Listed / Uncertificated Securities:</strong> Under <strong>Section 38 of the Financial Markets Act, 2012</strong>, title to dematerialised corporate bonds and commercial paper transfers electronically by debiting the Seller's CSD Participant account and crediting the Issuer's <strong>Strate Safe Custody Account</strong>.<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">5. Security Cession</span> <strong>Onward Perfection:</strong> All acquired Series Assets are immediately ceded <em>in securitatem debiti</em> to the Series Security SPV.</td>
+                <td>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e;">1. Acquisition</span> <strong>Commercial Purchase:</strong> The Issuer SPV acquires Participating Assets from the <em>Originator and Seller</em> per the <em>Applicable Transaction Supplement</em>.<br>
+                <span class="badge" style="background-color: #e8f5e9; color: #2e7d32; margin-top: 6px;">2. Out-and-Out Cession (Cessio)</span> <strong>Primary for Farm Loans, Off-Take &amp; Crop Insurance:</strong> Payment claims (agricultural loans, off-taker receivables, multi-peril crop insurance payouts) transfer via <em>out-and-out cession</em> (SA law equivalent of assigning rights) under the Sale Agreement.<br>
+                <span class="badge" style="background-color: #fff3e0; color: #ef6c00; margin-top: 6px;">3. Delegation &amp; Novation</span> <strong>Limited Use:</strong> Rarely used for underlying farm assets; applied only if delegating/novating a Derivative Contract or replacing a Servicer.<br>
+                <span class="badge" style="background-color: #f3e5f5; color: #6a1b9a; margin-top: 6px;">4. Physical Delivery (Traditio) &amp; Deeds Transfer</span> <strong>Corporeal Movables &amp; Real Property:</strong> Contract alone cannot pass title to physical assets—tractors, irrigation rigs, and grain pass via constructive delivery (<em>constitutum possessorium</em> / <em>attornment</em>) or a registered <strong>Special Notarial Bond</strong>; farmland and long leases (&ge;10 yrs) transfer or encumber only upon <strong>Deeds Office Registration</strong> (Deed of Transfer, Notarial Cession of Lease, or <strong>Mortgage Bond</strong>).<br>
+                <span class="badge" style="background-color: #efebe9; color: #4e342e; margin-top: 6px;">5. Security Cession &amp; Pledge</span> <strong>Onward Perfection:</strong> All acquired rights, movables, and bonds are ceded <em>in securitatem debiti</em> / pledged to the Security SPV.</td>
             </tr>
             <tr>
                 <td><strong>Specific Liabilities Defined (The Obligations)</strong></td>
@@ -260,12 +516,12 @@
             <tr>
                 <td><strong>Maximum Programme Size</strong></td>
                 <td><strong>South African Rand (ZAR) 20,000,000,000</strong> (ZAR 20 Billion / <strong>~United States Dollar (USD) 1.19 Billion</strong>) aggregate nominal amount across all Series issued by the Issuer SPV (unless increased).</td>
-                <td><strong>ZAR 20,000,000,000</strong> (ZAR 20 Billion / <strong>~USD 1.19 Billion</strong>) aggregate nominal amount across all Transactions issued by Agri Harvest (unless increased).</td>
+                <td><strong>ZAR 20,000,000,000</strong> (ZAR 20 Billion / <strong>~USD 1.19 Billion</strong>) aggregate nominal amount across all Transactions issued by the Issuer SPV (unless increased).</td>
             </tr>
             <tr>
                 <td><strong>Core Note Nature &amp; Security Status</strong></td>
                 <td><strong>Secured or Unsecured Registered Notes:</strong> Offers issuance flexibility—Notes in a Series may be issued as <em>secured</em> (backed by a Series Security SPV) or <em>unsecured</em> (direct limited-recourse obligations of the Issuer SPV), denominated in South African Rand (or Specified Currency).</td>
-                <td><strong>Strictly Limited-Recourse Secured Registered Notes:</strong> Every Note issued under Agri Harvest is <em>mandatory secured</em>—backed by a ring-fenced cession and pledge of the underlying agricultural Transaction Assets to a Security SPV. Unsecured notes are not contemplated.</td>
+                <td><strong>Strictly Limited-Recourse Secured Registered Notes:</strong> Every Note issued is <em>mandatory secured</em>—backed by a ring-fenced cession and pledge of the underlying agricultural Transaction Assets to a Security SPV. Unsecured notes are not contemplated.</td>
             </tr>
             <tr>
                 <td><strong>Interest &amp; Cash-Flow Profiles</strong></td>
@@ -283,11 +539,11 @@
             </tr>
             <tr>
                 <td><strong>Issuance Process</strong></td>
-                <td><strong>Step 1 — Issuer Onboarding:</strong> Programme 9 accedes to the Multi-Issuer umbrella platform by executing an <em>Applicable Issuer Supplement</em>.<br>
+                <td><strong>Step 1 — Issuer Onboarding:</strong> Each Issuer SPV accedes to the Multi-Issuer umbrella platform by executing an <em>Applicable Issuer Supplement</em>.<br>
                 <strong>Step 2 — Asset Sourcing &amp; Warehousing:</strong> Corporate debt or bonds are sourced and temporarily funded via a <em>Warehousing Facility</em> (if required).<br>
                 <strong>Step 3 — Single-Document Series Launch:</strong> The Arranger/Dealer executes one combined <em>Applicable Pricing Supplement</em> that simultaneously creates the ring-fenced "Series" silo, identifies the Series Assets, and sets the Note terms (Class A / B / C, coupon, maturity).<br>
                 <strong>Step 4 — Settlement &amp; Funding:</strong> Uncertificated Notes are issued and settled electronically via Strate against investor cash, which repays the Warehouse Provider and acquires the Series Assets.</td>
-                <td><strong>Step 1 — Silo &amp; Asset Ring-Fencing:</strong> Agri Harvest executes an <em>Applicable Transaction Supplement</em> to create a dedicated "Transaction" silo, legally ring-fencing the specific farm/equipment pool, Security SPV, and Transaction Priority of Payments.<br>
+                <td><strong>Step 1 — Silo &amp; Asset Ring-Fencing:</strong> The Issuer executes an <em>Applicable Transaction Supplement</em> to create a dedicated "Transaction" silo, legally ring-fencing the specific farm/equipment pool, Security SPV, and Transaction Priority of Payments.<br>
                 <strong>Step 2 — Security Perfection:</strong> Physical/property pledges, Deeds Office registrations, crop insurance cessions, and off-take agreements are perfected in favour of the Security SPV.<br>
                 <strong>Step 3 — Tranche Pricing:</strong> One or more separate <em>Applicable Pricing Supplements</em> are executed under that Transaction to price each tranche (e.g., <em>Senior Notes</em>, <em>Mezzanine Notes</em>, and <em>Junior Notes</em>).<br>
                 <strong>Step 4 — Settlement &amp; Funding:</strong> Notes settle via Strate (or private placement register) on the Issue Date, applying investor proceeds to pay the originator/warehouse facility and fund the Maintenance Reserve.</td>
@@ -314,13 +570,8 @@
             </tr>
             <tr>
                 <td><strong>Applicable Issuer Supplement</strong><br><span class="doc-tag">Accession &amp; Issuer Onboarding</span></td>
-                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Used</span><br>Legally binds a new Issuer SPV (such as Programme 9) into the overarching Multi-Issuer framework under the Holding Company.</td>
-                <td><span class="badge" style="background-color: #fff3e0; color: #ef6c00;">Not Used</span><br>Agri Harvest is a standalone single-issuer programme, so an umbrella issuer accession supplement is unnecessary.</td>
-            </tr>
-            <tr>
-                <td><strong>Applicable Transaction Supplement</strong><br><span class="doc-tag">Silo &amp; Asset Pool Creation</span></td>
-                <td><span class="badge" style="background-color: #fff3e0; color: #ef6c00;">Not Used</span><br>MIP bypasses a separate Transaction Supplement and defines the "Series" directly inside the Pricing Supplement.</td>
-                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Used</span><br>Creates the specific ring-fenced silo (the "Transaction"). It defines the exact agricultural asset pool, the specific Security SPV, and the Transaction Priority of Payments.</td>
+                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Used</span><br>Legally binds a new ring-fenced Issuer SPV into the overarching Multi-Issuer umbrella framework under the Holding Company.</td>
+                <td><span class="badge" style="background-color: #e8f5e9; color: #2e7d32;">Used</span><br>Enables the multi-issuer umbrella structure: executed by each separate special purpose Issuer entity (e.g., <em>Agri Harvest 1, Agri Harvest 2, Agri Harvest 3</em>) acceding to its respective Issuer Programme to bind itself to the Programme terms and specify its Auditors.</td>
             </tr>
             <tr>
                 <td><strong>Applicable Pricing Supplement</strong><br><span class="doc-tag">Note Tranche Issuance</span></td>
@@ -372,7 +623,7 @@
             <tr>
                 <td><strong>2. Over-Collateralisation (OC)</strong></td>
                 <td>The SPV acquires corporate debt or bonds with a nominal face value exceeding the principal value of the issued Notes, creating an immediate equity buffer against borrower defaults.</td>
-                <td><strong>Higher Haircuts Required:</strong> Because physical farm equipment and crops depreciate or face weather volatility, Agri Harvest typically requires significantly deeper over-collateralisation (OC) ratios (e.g., R130m of farm assets backing R100m of Notes).</td>
+                <td><strong>Higher Haircuts Required:</strong> Because physical farm equipment and crops depreciate or face weather volatility, significantly deeper over-collateralisation (OC) ratios are typically required (e.g., R130m of farm assets backing R100m of Notes).</td>
             </tr>
             <tr>
                 <td><strong>3. Excess Spread</strong></td>
@@ -399,7 +650,7 @@
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
-                <td colspan="2">Governs the day-to-day corporate and statutory existence of the bankruptcy-remote Issuer SPV—handling accounting records, tax filings, Companies and Intellectual Property Commission (CIPC) statutory returns, board governance, and preparation of periodic investor reports (Noteholder Report / Administrator Report).</td>
+                <td colspan="2">Provides short-term pre-issuance bridge funding so the SPV (or Originator) can accumulate and ring-fence a critical mass of assets before issuing Notes into the capital markets.</td>
             </tr>
             <tr>
                 <td><strong>Repayment &amp; Risk Transfer</strong></td>
@@ -412,11 +663,11 @@
             </tr>
             <tr>
                 <td><strong>Counterparty / Provider</strong></td>
-                <td colspan="2"><strong>Account Bank</strong> (FirstRand Bank Limited acting through RMB or First National Bank (FNB), subject to minimum credit-rating requirements).</td>
+                <td colspan="2"><strong>Administrator</strong> (FirstRand Bank Limited acting through RMB, appointed as agent of the Issuer).</td>
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
-                <td colspan="2">Governs the day-to-day corporate and statutory existence of the bankruptcy-remote Issuer SPV—handling accounting records, tax filings, CIPC statutory returns, board governance, and preparation of periodic investor reports (Noteholder Report / Administrator Report).</td>
+                <td colspan="2">Governs the day-to-day corporate and statutory existence of the bankruptcy-remote Issuer SPV—handling accounting records, tax filings, Companies and Intellectual Property Commission (CIPC) statutory returns, board governance, and preparation of periodic investor reports (Noteholder Report / Administrator Report).</td>
             </tr>
 
             <!-- SECTION 10: AGENCY AGREEMENT -->
@@ -460,16 +711,17 @@
 
             <!-- SECTION 13: SAFE CUSTODY AGREEMENT -->
             <tr>
-                <td colspan="3" class="section-title">13. Safe Custody Agreement</td>
+                <td colspan="3" class="section-title">13. Safe Custody &amp; Settlement Agreement</td>
             </tr>
             <tr>
                 <td><strong>Counterparty / Provider</strong></td>
-                <td colspan="2"><strong>Safe Custody Provider / Custodian</strong> (registered CSD Participant / Strate custodian or designated document custodian).</td>
+                <td><strong>Safe Custody Provider / Custodian</strong> (registered CSD Participant / Strate custodian).</td>
+                <td><strong>Settlement Agent</strong> (specified in the <em>Applicable Pricing Supplement</em> to provide safe custody and settlement services to the Issuer).</td>
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
                 <td>Governs the electronic safekeeping, settlement, and ring-fenced holding of dematerialised corporate bonds, commercial paper, and financial securities via Strate.</td>
-                <td>Covers both electronic securities and the physical/legal safekeeping of original title deeds, notarised leasehold agreements, equipment registration certificates, and cession documents.</td>
+                <td>Covers electronic securities settlement via Strate as well as the safekeeping of original title deeds, notarised leasehold agreements, equipment registration certificates, and cession documents.</td>
             </tr>
 
             <!-- SECTION 14: SERVICING AGREEMENT -->
@@ -479,12 +731,12 @@
             <tr>
                 <td><strong>Counterparty / Provider</strong></td>
                 <td><strong>Servicer</strong> (typically the corporate debt originator or RMB).</td>
-                <td><strong>Servicer &amp; Backup Servicer / Recovery Agent</strong> (specialized agricultural operator or originator, paired with a pre-appointed Backup Servicer).</td>
+                <td><strong>Originator/Seller, Servicer, Back-Up Servicer, Back-Up Servicer Facilitator &amp; Recovery Agent</strong>.</td>
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
                 <td>Administers loan collections, monitors corporate borrower covenants, and sweeps cash collections into the Series Account.</td>
-                <td>Manages physical agricultural assets, monitors farm lease compliance, enforces biological/equipment maintenance standards, and executes physical asset recovery upon default.</td>
+                <td>Manages physical agricultural assets and collections, provides a pre-appointed <strong>Back-Up Servicer</strong> &amp; <strong>Facilitator</strong> for continuity, and empowers a specialized <strong>Recovery Agent</strong> to enforce and recover Non-Performing Assets.</td>
             </tr>
 
             <!-- SECTION 15: ASSET MANAGEMENT & ALLOCATION AGREEMENT -->
@@ -504,29 +756,31 @@
 
             <!-- SECTION 16: HEDGE AGREEMENT (ISDA) -->
             <tr>
-                <td colspan="3" class="section-title">16. Hedge Agreement (ISDA)</td>
+                <td colspan="3" class="section-title">16. Hedge / Derivative Agreement (ISDA)</td>
             </tr>
             <tr>
                 <td><strong>Counterparty / Provider</strong></td>
-                <td colspan="2"><strong>Hedge Counterparty / Swap Provider</strong> (typically FirstRand Bank Limited / RMB, governed by an ISDA Master Agreement and Credit Support Annex).</td>
+                <td><strong>Hedge Counterparty / Swap Provider</strong> (typically FirstRand Bank Limited / RMB under an ISDA Master Agreement and Credit Support Annex).</td>
+                <td><strong>Derivative Counterparty(ies)</strong> (appointed by the Issuer under any Derivative Contract, typically FRB / RMB).</td>
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
                 <td colspan="2">Eliminates interest rate, basis, or currency mismatches between the underlying Asset Pool (e.g., fixed-rate corporate loans or seasonal farm lease payments) and the floating JIBAR coupon obligations owed on the Notes.</td>
             </tr>
 
-            <!-- SECTION 17: LIQUIDITY FACILITY AGREEMENT -->
+            <!-- SECTION 17: LIQUIDITY & REVOLVING CREDIT FACILITY AGREEMENTS -->
             <tr>
-                <td colspan="3" class="section-title">17. Liquidity Facility Agreement</td>
+                <td colspan="3" class="section-title">17. Liquidity &amp; Revolving Credit Facility Agreements</td>
             </tr>
             <tr>
                 <td><strong>Counterparty / Provider</strong></td>
-                <td colspan="2"><strong>Liquidity Facility Provider</strong> (typically FirstRand Bank Limited / RMB).</td>
+                <td><strong>Liquidity Facility Provider</strong> (typically FirstRand Bank Limited / RMB).</td>
+                <td><strong>Liquidity Facility Provider</strong> &amp; <strong>Revolving Credit Facility Provider</strong> (if any, under their respective facility agreements).</td>
             </tr>
             <tr>
                 <td><strong>Core Legal Purpose</strong></td>
                 <td>Provides a committed short-term revolving liquidity line to bridge temporary cash-flow timing mismatches between corporate asset receipts and Note coupon payment dates.</td>
-                <td>Crucial for bridging <strong>seasonal agricultural cash-flow gaps</strong> (e.g., where harvest revenues arrive semi-annually, but Note coupons are payable quarterly).</td>
+                <td>Crucial for bridging <strong>seasonal agricultural cash-flow gaps</strong> (e.g., where harvest revenues arrive semi-annually, but Note coupons are payable quarterly), alongside optional revolving working-capital facilities.</td>
             </tr>
             <tr>
                 <td><strong>Waterfall Priority &amp; Limitation</strong></td>
@@ -614,8 +868,8 @@
                 <td colspan="3" class="section-title">20. Terms, Covenants &amp; Regulatory Compliance</td>
             </tr>
             <tr>
-                <td><strong>Negative Covenants &amp; Bankruptcy Remoteness</strong></td>
-                <td colspan="2">Strict ring-fenced ("RF") restrictions in the Memorandum of Incorporation (MOI) and Terms &amp; Conditions: the Issuer SPV cannot incur unauthorised debt, grant unpermitted security, merge/amalgamate, declare dividends out of ring-fenced assets, or have employees.</td>
+                <td><strong>Negative Covenants &amp; Operational Restrictions</strong></td>
+                <td colspan="2">Contractual undertakings in the Terms &amp; Conditions prohibiting the Issuer SPV from incurring unauthorised debt, granting unpermitted security, merging/amalgamating, declaring dividends out of ring-fenced assets, or hiring employees.</td>
             </tr>
             <tr>
                 <td><strong>Non-Petition &amp; Limited Recourse Clauses</strong></td>
